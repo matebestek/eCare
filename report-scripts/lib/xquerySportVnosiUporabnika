@@ -1,0 +1,42 @@
+xquery version "1.0";
+declare namespace functx = "http://www.functx.com";
+declare function functx:id-untyped
+  ( $node as node()* ,
+    $id as xs:anyAtomicType )  as element()* {
+
+  $node//*[@* = $id]
+} ;
+declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
+
+let $users := xmldb:get-child-collections('/db/eSport/')
+
+return
+concat("&#10;", string-join(
+for $user in $users
+    for $value in collection(concat('/db/eSport/', $user, '/openEHR-EHR-SECTION.opomnik_eo_sp.v1/'))
+
+        let $date := replace(substring(functx:id-untyped($value,'at0001')[2]/node()[2]/node()/text(), 1, 19), 'T', ', ')
+        
+        let $aALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.body_weight.v1')
+        let $a1 := functx:id-untyped($aALL,'at0004')/node()[2]/node()[2]/text()
+        let $a2 := replace(functx:id-untyped($aALL,'at0009')/node()[2]/node()[1]/text(), ',', ';')
+        let $a3 := replace(functx:id-untyped($aALL,'at0025')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $bALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.telesna_dejavnost_enkratna_eo.v1')
+        let $b1 := functx:id-untyped($bALL,'at0019')/node()[2]/node()[1]/text()
+        let $b2 := replace(functx:id-untyped($bALL,'at0004')/node()[2]/node()[1]/text(), ',', ';')
+        let $b3 := functx:id-untyped($bALL,'at0006')/node()[2]/node()[1]/text()
+        let $b4 := functx:id-untyped($bALL,'at0055')/node()[2]/node()[2]/text()
+        let $b5 := functx:id-untyped($bALL,'at0057')/node()[2]/node()[2]/text()
+        let $b8 := replace(functx:id-untyped($bALL,'at0018')/node()[2]/node()[1]/text(), ',', ';')
+ 
+        let $bALL := functx:id-untyped($value,'openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1')
+        let $b6 := functx:id-untyped($bALL,'at0001')/node()[2]/node()[2]/node()[1]/text()
+        
+        let $bALL := functx:id-untyped($value,'openEHR-EHR-CLUSTER.opis_pocutja.v1')
+        let $b7 := functx:id-untyped($bALL,'at0001')/node()[2]/node()[1]/text()
+
+        return string-join(( string($user), string($date), string($a1), string($a2), string($a3),
+				 string($b1), string($b2), string($b3), string($b4), string($b5),
+                                 string($b6), string($b7), string($b8)
+                                 ), ", " ) , "&#10;"), "&#10;")

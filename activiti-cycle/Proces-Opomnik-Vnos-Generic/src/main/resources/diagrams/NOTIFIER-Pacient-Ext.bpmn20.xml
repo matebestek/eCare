@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<definitions id="definitions"
+	targetNamespace="http://activiti.org/bpmn20" 
+	xmlns:activiti="http://activiti.org/bpmn"
+	xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+
+	<process id="Proces-Opomnik-Vnos-Notifier-Pacient-Ext" name="ProcesOpomnikVnosNotifierPacientExt" isExecutable="false">
+	  
+		<startEvent id="sid-01DA4DC6-C970-4CDB-A2EA-BE80BB8521BF" name="" />
+		
+		<sequenceFlow id="sid-E1A617AF-EDE9-4FF5-9D76-24CC9230479E" name=""
+			sourceRef="sid-01DA4DC6-C970-4CDB-A2EA-BE80BB8521BF"
+			targetRef="sid-FE2E5141-5059-4864-A3A3-EFE46F110080" />
+	      
+		<parallelGateway gatewayDirection="Diverging" id="sid-FE2E5141-5059-4864-A3A3-EFE46F110080"
+			name="" />
+			
+		<sequenceFlow id="sid-288DEB23-C497-4F3D-9C83-7CD165E6742F" name=""
+			sourceRef="sid-FE2E5141-5059-4864-A3A3-EFE46F110080"
+			targetRef="CallActivitiyProcessOpomnikVnosNotifierPacient" />
+			
+		<sequenceFlow id="sid-543606C4-14FF-4885-A72D-6513560A1240" name=""
+			sourceRef="sid-FE2E5141-5059-4864-A3A3-EFE46F110080"
+			targetRef="sid-E6A6A424-A7CE-4337-8F3D-DF95342C9E56" />
+	      	 
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Pacient" completionQuantity="1"
+			id="CallActivitiyProcessOpomnikVnosNotifierPacient" isForCompensation="false"
+	      	name="NOTIFIER-Pacient" startQuantity="1">
+	        <extensionElements>
+				<activiti:in source="notifyPatientForm" target="notifyPatientForm" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="patientNotifySmsDelegate" target="patientNotifySmsDelegate" />
+				<activiti:in source="listenerPatientObvestiloComplete" target="listenerPatientObvestiloComplete" />
+				<activiti:in source="listenerPatientObvestiloCreate" target="listenerPatientObvestiloCreate" />
+				<activiti:in source="userTaskName" target="userTaskName" />
+				<activiti:in source="categoryCritical" target="categoryCritical" />
+	        </extensionElements>
+		</callActivity>
+		
+		<sequenceFlow id="sid-543D7B26-2230-4630-93AE-4A0C8C2F4A42" name=""
+			sourceRef="CallActivitiyProcessOpomnikVnosNotifierPacient"
+			targetRef="sid-6E585995-E64C-49FE-B4A1-1D793E59F915" />
+			
+		<sendTask completionQuantity="1" id="sid-E6A6A424-A7CE-4337-8F3D-DF95342C9E56"
+			implementation="webService" isForCompensation="false"
+			name="Email pacientu" startQuantity="1" activiti:type="mail">
+	        <extensionElements>
+				<activiti:field name="to" expression="${email.to}"></activiti:field>
+				<activiti:field name="from" expression="${email.from}"></activiti:field>
+				<activiti:field name="cc" expression="${email.cc}"></activiti:field>
+				<activiti:field name="bcc" expression="${email.bcc}"></activiti:field>
+				<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+				<activiti:field name="html">
+					<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+				</activiti:field>            
+	        </extensionElements>
+		</sendTask>
+		
+		<sequenceFlow id="sid-1F2BF5DC-D004-46F9-A1E8-AB0014748905" name=""
+			sourceRef="sid-E6A6A424-A7CE-4337-8F3D-DF95342C9E56"
+			targetRef="sid-6E585995-E64C-49FE-B4A1-1D793E59F915" />
+		
+		<parallelGateway gatewayDirection="Converging" id="sid-6E585995-E64C-49FE-B4A1-1D793E59F915"
+			name="" />
+			
+		<sequenceFlow id="sid-14941BB2-3A1D-46B4-A1A4-66FE5CBDC730" name=""
+			sourceRef="sid-6E585995-E64C-49FE-B4A1-1D793E59F915"
+			targetRef="sid-04FF77A4-431D-4A56-B9F9-EB3010E73A75" />
+	      
+		<endEvent id="sid-04FF77A4-431D-4A56-B9F9-EB3010E73A75" name="" />
+
+	</process>
+</definitions>

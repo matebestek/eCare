@@ -1,0 +1,827 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder">
+
+	<h3>
+		<a href="#">Vnos osnovnih podatkov pacienta</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Ime</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0002]?value"
+					value="" type="text"
+					readonly="readonly"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Priimek</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0003]?value"
+					value="" type="text"
+					readonly="readonly"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Id v Bolnišničnem informacijskem sistemu</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0004]?value"
+					value="" type="text"
+					readonly="readonly"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Spol</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0005]?value"
+					value="at0013" type="radio" class="activiti-validation-req">
+					moški <input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0005]?value"
+					value="at0014" type="radio" class="activiti-validation-req">
+					ženska</td>
+			</tr>
+
+
+			<tr>
+				<td>
+					<p>Rojstni datum</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0006]?value"
+					value="" type="text"
+					readonly="readonly">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Telesna višina (cm)</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.height.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-validation-req activiti-size-short">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Telesna teža (kg)</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.body!weight.v1]?data[at0002]?events[at0003]?data[at0001]?items[at0004]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-validation-req activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Indeks telesne mase (ITM)</p></td>
+				<td><input       
+					name="?items[openEHR-EHR-OBSERVATION.body!mass!index.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-validation-req activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Naslov elektronske pošte</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0007]?value"
+					value="" type="text"
+					readonly="readonly">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Številka mobilnega telefona</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0008]?value"
+					value="" type="text"
+					readonly="readonly"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Zdravstvena ustanova</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0009]?value"
+					value="" type="text" readonly="readonly"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Poklic</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0010]?value"
+					value="" type="text"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Izpolnjuje ostale vključitvene kriterije (vsaj eden)</p></td>
+				<td><input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0011]?value"
+					value="true" type="radio" readonly="readonly">
+					DA <input
+					name="?items[openEHR-EHR-ADMIN!ENTRY.osnovni!podatki!eo.v1]?data[at0001]?items[at0011]?value"
+					value="false" type="radio" readonly="readonly">
+					NE</td>
+			</tr>
+			
+
+		</table>
+
+	</div>
+		
+	<h3>
+		<a href="#">Laboratorijski izvidi</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr>
+				<td style="width: 120px;">Hemogram</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Eritrociti</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0004]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Levkociti</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0008]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Nevtrofilci</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0036]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Hb</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0009]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>MVC</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0010]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trombociti</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0037]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			
+			<tr>
+				<td style="width: 120px;">Biokemija</td>
+				<td></td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Glukoza(te��e)</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0012]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Holesterol</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0013]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trigliceridi</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0014]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>HDL</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0019]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>LDL</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0018]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>AST</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0038]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>ALT</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0017]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Gama GT</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0016]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Se�nina</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0015]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kreatinin</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0011]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>			
+			<tr>
+				<td style="width: 120px;">Urin</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>COC</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0039]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>OPI</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0043]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>MET</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0044]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>BZO</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0047]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>THC</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0046]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>MTD</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0045]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>PCP</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0042]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;">Ostalo</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>TSH</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0028]?items[at0060]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>T3</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0028]?items[at0061]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>T4</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0028]?items[at0062]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Karbamazepin</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0028]?items[at0063]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Valproat</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0028]?items[at0066]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Prolaktin</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0028]?items[at0065]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Litij</p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0028]?items[at0064]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;">Komentar</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p></p></td>
+				<td><input
+					name="?items[openEHR-EHR-OBSERVATION.laboratorij!eo!sh.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0067]?value"
+					value="" type="text"
+					class="activiti-validation-float activiti-size-long">
+				</td>
+			</tr>
+		</table>
+
+	</div>		
+
+	<h3>
+		<a href="#">Kajenje, alkohol in gibalna dejavnost</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Kajenje</b>
+					</p></td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kadilski status</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0002]?value"
+					class="activiti-size-short">
+						<option value="at0003">Redni</option>
+						<option value="at0004">Ob�asni</option>
+						<option value="at0015">Pasivni</option>
+						<option value="at0027">Pasivni v nose�nosti matere</option>
+						<option value="at0026">Pasivni v otro�tvu</option>
+						<option value="at0006">Abstinent</option>
+						<option value="at0005">Nekadilec</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Dnevno �tevilo cigaret</p></td>
+				<td><input
+					name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0008]?items[at0007]?value"
+					value="" type="text"
+					class="activiti-validation-int activiti-size-short"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Starost ob za�etku u�ivanja (v letih)</p></td>
+				<td><input
+					name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0008]?items[at0011]?value"
+					value="" type="text"
+					class="activiti-validation-int activiti-size-short"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Poskus prenehanja</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0016]?items[at0017]?value"
+					class="activiti-size-short">
+						<option value="at0020">Poskusil, uspe�no</option>
+						<option value="at0019">Poskusil, neuspe�no</option>
+						<option value="at0018">Nikoli poskusil prenehati</option>
+						<option value="at0021">�eli pomo�</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Stopnja ogro�enosti</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0022]?value"
+					class="activiti-size-short">
+						<option value="at0023">Ni ogro�en</option>
+						<option value="at0024">Srednje visoka ogro�enost</option>
+						<option value="at0025">Visoka ogro�enost</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Alkohol</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Pogostost pitja (v zadnjih 12 mesecih)</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0002]?value"
+					class="activiti-size-short">
+						<option value="at0003">Nikoli</option>
+						<option value="at0004">Enkrat na mesec ali manj</option>
+						<option value="at0005">2 do 4 krat na mesec</option>
+						<option value="at0006">2 do 3 krat na teden</option>
+						<option value="at0007">4 ali ve�krat na teden</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Koli�ina pija�e ob obi�ajnem pitju</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0008]?value"
+					class="activiti-size-short">
+						<option value="at0009">od ni� do 1 merice</option>
+						<option value="at0010">2 merici</option>
+						<option value="at0011">3 ali 4 merice</option>
+						<option value="at0012">5 ali 6 meric</option>
+						<option value="at0013">7 ali ve� meric</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Pogostost pitja ve�jih koli�in (M 6 ali ve�, � 4 ali ve�
+						meric)</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0014]?value"
+					class="activiti-size-short">
+						<option value="at0015">Nikoli</option>
+						<option value="at0016">Manj kot enkrat na mesec</option>
+						<option value="at0017">1 do 3 krat na mesec</option>
+						<option value="at0018">1 do 3 krat na teden</option>
+						<option value="at0019">Dnevno ali skoraj vsak dan</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Ocena ogro�enosti</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0022]?value"
+					class="activiti-size-short">
+						<option value="at0023">Ni ogro�en</option>
+						<option value="at0024">Manj tvegano pitje</option>
+						<option value="at0025">Tvegano oz. �kodljivo pitje</option>
+						<option value="at0026">Zasvojenost</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Telesna dejavnost</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Visoko intenzivna vadba</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.telesna!dejavnost!eo!pp.v1]?data[at0001]?items[at0002]?value"
+					class="activiti-size-short">
+						<option value="at0003">0x tedensko</option>
+						<option value="at0004">1x tedensko</option>
+						<option value="at0005">2x tedensko</option>
+						<option value="at0006">3x tedensko</option>
+						<option value="at0007">4x tedensko</option>
+						<option value="at0008">5x tedensko</option>
+						<option value="at0009">6x tedensko</option>
+						<option value="at0010">7x tedensko</option>
+						<option value="at0011">ve� kot 7x tedensko</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Zmerno intenzivna vadba</p></td>
+				<td><select
+					name="?items[openEHR-EHR-EVALUATION.telesna!dejavnost!eo!pp.v1]?data[at0001]?items[at0012]?value"
+					class="activiti-size-short">
+						<option value="at0013">0x tedensko</option>
+						<option value="at0014">1x tedensko</option>
+						<option value="at0015">2x tedensko</option>
+						<option value="at0016">3x tedensko</option>
+						<option value="at0017">4x tedensko</option>
+						<option value="at0018">5x tedensko</option>
+						<option value="at0019">6x tedensko</option>
+						<option value="at0020">7x tedensko</option>
+						<option value="at0021">ve� kot 7x tedensko</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Komentar</p></td>
+				<td><input
+					name="?items[openEHR-EHR-EVALUATION.telesna!dejavnost!eo!pp.v1]?data[at0001]?items[at0023]?value"
+					value="" type="text" class="activiti-size-long"></td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<h3>
+		<a href="#">Diagnoza</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Diagnoza (prosti tekst)</p>
+				</td>
+				<td><input
+					name="?items[openEHR-EHR-EVALUATION.diagnoza!eo.v1]?data[at0001]?items[at0002]?value"
+					value="" type="text" class="activiti-size-long"></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Diagnoza (MKB10)</p>
+				</td>
+				<td><input
+					name="?items[openEHR-EHR-EVALUATION.diagnoza!eo.v1]?data[at0001]?items[at0003]?value"
+					value="" type="text" class="activiti-size-long"></td>
+			</tr>
+
+		</table>
+
+	</div>
+
+	<h3>
+		<a href="#">Terapija</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Opis terapije</p>
+				</td>
+				<td><input
+					name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[at0004]?value"
+					value="" type="text" class="activiti-size-long"></td>
+			</tr>			
+
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Zdravila</b></p>
+				</td>
+			</tr>
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Generi�no ime</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0003]?value" class="activiti-size-short">
+					</select>						
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<p>�tevilo pakiranj</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0006]?items[at0018]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>	
+
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Re�im jemanja zdravil</b></p>
+				</td>
+			</tr>			
+			<tr><td style="width:120px;"></td><td></td></tr>	
+			
+			<tr>
+				<td>
+					<p>Koli�ina (�tevilo/mg/ml/vdih)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0005]?items[at0008]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>			
+
+			<tr>
+				<td>
+					<p>Pogostost jemanja</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0005]?items[at0009]?value" class="activiti-size-short">
+						<option value="at0017">1x/2 dni</option>
+						<option value="at0010">1x/dan</option>
+						<option value="at0011">2x/dan</option>
+						<option value="at0012">3x/dan</option>
+						<option value="at0013">4x/dan</option>
+						<option value="at0016">6x/dan</option>
+						<option value="at0014">Po potrebi</option>
+					</select>					
+				</td>
+			</tr>				
+
+		</table>
+
+	</div>
+
+
+</div>
+
+<script type="text/javascript">
+	activiti_form_onLoad();
+</script>

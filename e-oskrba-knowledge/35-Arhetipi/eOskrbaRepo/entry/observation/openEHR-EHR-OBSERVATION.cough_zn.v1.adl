@@ -1,0 +1,306 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.cough_zn.v1
+
+concept
+	[at0000]	-- Ocena kašljanja 
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"University of Maribor, Slovenia, Marand d.o.o., Slovenia">
+				["name"] = <"Uroš Rajkovič, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"ian.mcnicoll@oceaninformatics .com">
+		["date"] = <"26/09/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To document cough assessment for use in nursing care">
+			use = <"To document the character and intesitivity of coughing.
+To document if associated nosebleeds are present.">
+			keywords = <"Cough", "Coughing">
+			misuse = <"To document nosebleeds.
+To document sputum as a result of coughing.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Ocena kašljanja za potrebno ocene stanja pacienta v okviru zdravstvene nege">
+			use = <"Ocena kašljanja">
+			keywords = <"Kašelj", "Kašljanje", "Izkašljevanje">
+			misuse = <"Za oceno sputuma, ki ga pacient izloči pri kašljanju.
+Za beleženje krvavitev iz nosu.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"8C22ABF2458A346253135E1AD1560D3F">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Ocena kašljanja 
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..*} matches {	-- Oblika
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- Produktiven
+													at0012, 	-- Pena na ustih
+													at0013, 	-- Lajajoč
+													at0014, 	-- V napadih
+													at0015, 	-- Suh
+													at0016, 	-- Sočen
+													at0017, 	-- Dražeč
+													at0018]	-- Žgečkljiv
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Trajanje
+										value matches {
+											DV_DURATION matches {
+												value matches {PTM/|PT0M..PT1000M|}
+											}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Količina
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..100|}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Prisotne kvavitve iz nosu
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007, 	-- Da
+													at0008]	-- Ne
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0010] occurrences matches {0..1} matches {	-- Sputum
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.bodily_substance-sputum(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cough">
+					description = <"Documenting cough assessment as needed for nursing care">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Character">
+					description = <"The character of the cough.">
+				>
+				["at0005"] = <
+					text = <"Duration">
+					description = <"The duration of the cough.">
+				>
+				["at0006"] = <
+					text = <"Associated nosebleeds">
+					description = <"Evidence of nose-bleeds associated with cough.">
+				>
+				["at0007"] = <
+					text = <"Present">
+					description = <"Nose- bleeds are present.">
+				>
+				["at0008"] = <
+					text = <"Absent">
+					description = <"Cough- associated nose bleeds are absent.">
+				>
+				["at0009"] = <
+					text = <"Frequency">
+					description = <"Frequency of cough.">
+				>
+				["at0010"] = <
+					text = <"Sputum">
+					description = <"Details of sputum.">
+				>
+				["at0011"] = <
+					text = <"Productive">
+					description = <"The cough is productive.">
+				>
+				["at0012"] = <
+					text = <"Foaming">
+					description = <"Foaming at mouth.">
+				>
+				["at0013"] = <
+					text = <"Barking">
+					description = <"The cough has a barking quality.">
+				>
+				["at0014"] = <
+					text = <"Paroxysmal">
+					description = <"The cough is paroxysmal.">
+				>
+				["at0015"] = <
+					text = <"Dry , tickly">
+					description = <"The cough is dry and tickly.">
+				>
+				["at0016"] = <
+					text = <"Bovine">
+					description = <"The cough has a bovine quality">
+				>
+				["at0017"] = <
+					text = <"Iritable">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Ticklish">
+					description = <"Ticklish">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ocena kašljanja ">
+					description = <"Ocena kašlja za potrebe zdravstvene nege">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Oblika">
+					description = <"Oblika, vrsta">
+				>
+				["at0005"] = <
+					text = <"Trajanje">
+					description = <"Trajanje kašlja">
+				>
+				["at0006"] = <
+					text = <"Prisotne kvavitve iz nosu">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Količina">
+					description = <"Kolikokrat je pacient zakašljal v časovnem intervalu opredeljenem v polju Trajanje">
+				>
+				["at0010"] = <
+					text = <"Sputum">
+					description = <"Podatki o sputumu">
+				>
+				["at0011"] = <
+					text = <"Produktiven">
+					description = <"Kašelj j eproduktiven">
+				>
+				["at0012"] = <
+					text = <"Pena na ustih">
+					description = <"Ob kašlju s epojavi pena n austih">
+				>
+				["at0013"] = <
+					text = <"Lajajoč">
+					description = <"Kašelj je lajajoč">
+				>
+				["at0014"] = <
+					text = <"V napadih">
+					description = <"Kašelj je v napadih">
+				>
+				["at0015"] = <
+					text = <"Suh">
+					description = <"Kašelj je suh in dražeč">
+				>
+				["at0016"] = <
+					text = <"Sočen">
+					description = <"Kašelj je sočen">
+				>
+				["at0017"] = <
+					text = <"Dražeč">
+					description = <"Dražeč">
+				>
+				["at0018"] = <
+					text = <"Žgečkljiv">
+					description = <"Žgečkljiv">
+				>
+			>
+		>
+	>

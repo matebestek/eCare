@@ -1,0 +1,101 @@
+*********************************************************************************
+* Copyright (c) 2013.								*
+* University of Primorska, Andrej MaruÅ¡iÄ Institute. All rights reserved.	*
+* 										*
+* Redistribution and use in source and binary forms, with or without		*
+* modification, are permitted provided that the following conditions are met: 	*
+* 										*
+* 1. Redistributions of source code must retain the above copyright notice, this*
+*    list of conditions and the following disclaimer. 				*
+* 2. Redistributions in binary form must reproduce the above copyright notice,	*
+*    this list of conditions and the following disclaimer in the documentation	*
+*    and/or other materials provided with the distribution. 			*
+* 										*
+* Project eOskrba (http://eOskrba.si) was financed by Slovenian Research	*
+* Agency and Ministry of Health of Republic of Slovenia.			*
+* 										*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS		*
+* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT		*
+* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR		*
+* A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT		*
+* OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,		*
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT		*
+* LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,		*
+* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY		*
+* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT		*
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE		*
+* OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.		*
+********************************************************************************
+* eOskrba-eShizofrenija-igre                                                   *
+* Feature Match                                                                  *
+*                                                                              *
+* Aleksander Bešir, 2011                                                       *
+* alex.besir@gmail.com                                                         *
+********************************************************************************
+* OPIS PARAMETROV V OPTIONS.XML                                                *
+********************************************************************************
+
+S spreminjanjem vrednosti v vozlišèih v datoteki options.xml, se lahko nastavijo
+razlièni parametri igre.
+
+Parametri in njihova razlaga:
+-----------------------------
+
+  	secondsToGo
+	-----------
+	
+		Najveèje dovoljeno število sekund trajanja igre.
+		
+	startLevel
+	----------
+	
+		Zaèetna težavnostna stopnja. Število pomeni obseg èrk.
+		
+	levelUp
+	-------
+	
+		Potrebna razlika v pravilnih in napaènih odgovorih, da igra napreduje v
+		višjo težavnostno stopnjo (ali nižjo).
+		
+	minLevel
+	--------
+	
+		Najmanižja možna težavnostna stopnja.
+		
+	maxLevel
+	--------
+	
+		Najvišja možna težavnostna stopnja
+		
+	lives
+	-----
+	
+		Število dovoljenih napaènih poskusov.
+		
+	charFlashTime
+	-------------
+	
+		Èas (v milisekundah) trajanja prikaza ene èrke na zaslonu.
+		
+	charGapTime
+	-----------
+	
+		Èas (v miliseundah) praznega zaslona med prikazom dveh zaporednih èrk.
+		
+	pauseTime
+	---------
+	
+		Èas pavze po prikazu zaporedja, v kateri naj bi rehabilitant vzdrževal
+		zaporedje.
+		
+	problems in problems/pr
+	-----------------------
+		
+		Zbirka problemov (slovenskih besed), iz katerih igra sestavi premetanke.
+		Vsaka problems zbirka pripada eni težavnostni stopnji, ki jo doloèimo z atributom
+		level. V zbirki je poljubno besed, ki so predstavljene z elementi <pr>.
+		
+		Besede morajo biti zapisane Z VELIKIMI èrkami. Dobro bi bilo paziti, da so besede
+		v zbirki take, da njihove premetanke ne morejo tvoriti še kake druge smiselne besede
+		v slovenskem jeziku.
+		

@@ -1,0 +1,198 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+ 
+	<p>
+		V 1. koraku se boste naučili kako se pravilno stehtati in izmeriti. Izvedeli boste kakšne so vaše potrebe po energiji in kako lahko zmanjšanje telesne mase doprinese k vašemu zdravju. Dobili boste enostavna priporočila za zdravo prehranjevanje. Prav tako boste spoznali, kako poteka spreminjanje življenjskega sloga in zakaj je ustrezna motivacija pomembna za hujšanje, dobili pa boste tudi nekaj predlogov, kako motivacijo krepiti in vzdrževati. Želimo vam prijeten začetek na poti zdravega življenjskega sloga.
+	</p>
+	<p>
+		V programu telesne vadbe se boste v grobem seznanili s pomenom aktivnega življenjskega sloga ter napotki za varno in učinkovito vadbo ter s pomenom vodenja dnevnika telesne dejavnosti (TD). Spoznali boste pomen “mimogrede vaj” in jih tudi izvajali.
+	</p>
+	
+	Prosimo, da si pred nadaljevanjem (gumb 'Nadaljuj' spodaj) preberete spodnja navodila za izvajanje meritev:
+	<p></p>
+
+<div id="activiti_form_holder">
+
+	<h3><a href="#">Prve meritve</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+	
+		<font color="#FF8040">
+		
+			<span style="font-size: 14pt;"><center><b>PRVE MERITVE</b></center></span>
+		</font>
+		
+		<p>
+			<b>TEHTANJE:</b></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	tehtnica naj bo postavljena na trdi podlagi</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	tehtamo se pred zajtrkom, po opravljeni mali in veliki potrebi</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	oblečeni smo v lahka oblačila ali spodnje perilo
+		</p>
+		
+		<p>
+			<b>MERJENJE OBSEGA PASU:</b></br>
+			Merjenje <u>obsega pasu</u> je pomembno za odkrivanje bolnikov, ki jih ogrožajo kronične nenalezljive bolezni (srčno-žilne bolezni, sladkorna bolezen tipa II, rak dojke, rak črevesa). Maščobno tkivo, ki se kopiči v trebušni votlini, je povezano z nastankom presnovnih motenj in je vzrok za povišanje trigliceridov, nizko raven koristnega holesterola HDL in visoko vrednost sladkorja. 
+		</p>
+		
+		<p>
+			<b>Obseg pasu merimo v srednji točki med spodnjim robom rebrnega loka in grebenom črevične kosti, kar predstavlja višino popka.</b>
+		</p>
+		
+		<p>
+			Obseg pasu: </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 80 cm <b>ogroža</b> zdravje žensk, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 88 cm <b>zelo ogroža</b> zdravje žensk, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 94 cm <b>ogroža</b> zdravje moških, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 102 cm <b>zelo ogroža</b> zdravje moških </br>
+			z vidika zgoraj naštetih kroničnih bolezni.
+		</p>
+		
+		<center>
+			<img title="spreminjanje" style="border-width: 0px; border-style: solid; width: 256px; height: 325px;" src="/eOskrba-webapp/uploads/Image/1_korak/Slika.jpg" alt="">
+		</center>
+		
+		<p>
+			<font color="#FF8040">
+				<center><b>Razmerje med obsegom pasu in bokov</b></center>
+			</font>
+		</p>
+		
+		<p>
+			<b>Obseg bokov merimo na najširšem delu bokov.</b></br>
+			Z <u>razmerjem med obsegom pasu in bokov</u> ocenjujemo razporejenost maščevja.
+		</p>
+		
+		<p>
+			<b>Ženske: </b></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,7 <b>ogroža</b> zdravje žensk, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,86 <b>zelo ogroža</b> zdravje žensk, </br>
+			<b>Moški </b></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,8 <b>ogroža</b> zdravje moških, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,95 <b>zelo ogroža</b> zdravje moških</br>
+			z vidika kroničnih nenalezljivih bolezni.
+		</p>
+		
+		<p>
+			<b>Razmerje med obsegom pasu in bokov je eden izmed več kriterijev za uvrščanje posameznika v določeno rizično skupino glede na stanje prehranjenosti.</b>
+		</p>
+		
+		<p>
+			<font color="#FF8040">
+				<center><b>ITM - Indeks telesne mase</b></center>
+			</font>
+		</p>
+		
+		<p>
+			Indeks telesne mase (ITM) je razmerje med telesno maso in kvadratom višine,
+			ki ga izračunamo v kg/m<sup>2</sup>. Čeprav ITM ne odraža dejanskega deleža telesne maščobe,
+			se pogosto uporablja za prepoznavanje premajhne ali prevelike telesne mase.
+			Stanje hranjenosti delimo v naslednje kategorije:
+		</p>
+		
+		<ul>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;pod 18,5: <b>Podhranjenost</b></li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 18,5 do 24,9: <b>Normalna prehranjenost</b></li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 25,0 do 29,9: <b>Prekomerna prehranjenost</b></li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 30,0 do 34,9: <b>Debelost I. stopnje</b></li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 35 do 39,9: <b>Debelost II. stopnje</b></li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;nad 40: <b>Debelost III. stopnje</b></li>
+		</ul>
+		
+		<p>
+			Opozorilo: Ocena prehranskega stanja posameznika glede na ITM je lahko neprimerna zlasti pri
+			športnikih ali starejših osebah.
+		</p>
+		
+		<p>
+			Izračunane bodo tudi vaše <b>dnevne potrebe po energiji</b> za zdravo zmanjšanje telesne mase. 
+		</p>
+		
+		<p>
+			<font color="#FF8040">
+				<center><b>Telesne maščobe</b></center>
+			</font>
+		</p>
+		
+		<p>
+			Maščobo v telesu razdelimo na tisto, ki je za telo nujno potrebna (esencialna maščoba),
+			in tisto, ki predstavlja v telesu maščobne zaloge. Esencialna maščoba, ki je potrebna za
+			normalno fiziološko delovanje telesa, je shranjena v manjših količinah v kostnem mozgu,
+			srcu, pljučih, jetrih, vranici, ledvicah, mišicah in z maščobo bogatih tkivih živčnega sistema.
+			Pri moških je esencialne približno 3 % telesne maščobe. Pri ženskah je odstotek esencialne
+			maščobe višji, približno 12 % telesne maščobe, saj vključuje telesno maščobo v prsih,
+			medeničnem delu in stegnih.
+		</p>
+		
+		<p>
+			Primarna energijska rezerva telesa je maščoba, ki je shranjena v obliki trigliceridov v
+			skladiščih narejenih iz maščobnega tkiva. Te rezervne maščobe se nabirajo pod kožo in
+			okrog notranjih organov, da jih ščitijo pred poškodbami. Večino rezervnih maščob telo ne
+			potrebuje. Celotne maščobne zaloge v maščobnem tkivu so zmožne velikih sprememb s čimer
+			omogočajo spreminjajoče se zahteve telesa za rast, reprodukcijo in staranje kot tudi nihanja
+			v okoljskih in fizioloških razmerah (dostopnost hrane, potrebe telesa za fizično aktivnost).
+			Vrednost skupnih telesnih maščob (esencialna maščoba in rezervna maščoba) je izražena kot
+			odstotek skupne telesne mase in je povezana z optimalnim zdravjem. Pri moških ta vrednost
+			znaša med 8 % in 24 %, pri ženskah pa med 21 % in 35 %.
+		</p>
+			
+		<p> </p>
+	</div>
+	
+	<h3><a href="#">Predstavitev vprašalnika o pogostosti uživanja posameznih živil</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+	
+		<p>
+			Vprašalnik o pogostosti uživanja posameznih živil je pripomoček za
+			ocenitev vaše tedenske prehrane. Na podlagi izpolnjenega vprašalnika
+			program izračuna vaš energijski vnos in vam prikaže odstopanja od
+			vaših potreb po posameznih hranilih oziroma živilih ter vam poda
+			prehranska priporočila. Glede na prehranska priporočila lahko lažje
+			načrtujete prehrano za naslednji teden, tako da bo le-ta uravnotežena
+			in v skladu z vašimi potrebami za zdravo izgubo telesne mase. Prav
+			zaradi tega je pomembno, da vprašalnik izpolnite vsak teden znova.
+		</p>
+		
+		<p>
+			<i>Vprašalnik boste morali v celoti izpolniti samo pri prvem
+			izpolnjevanju. V vsakem naslednjem izpolnjevanju boste imeli že
+			označene stare vrednosti in boste popravili samo tiste vrednosti,
+			ki so se spremenile oz. so nove.</i>
+		</p>
+	
+	</div>
+	
+<!--Gibanje-->	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

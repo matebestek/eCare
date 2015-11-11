@@ -1,0 +1,95 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.anamneza_osnovna_eo_as.v1
+
+concept
+	[at0000]	-- Anamneza osnovna eo as
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis podatkov osnovne anamneze za potrebe eOskrbe - astma: kajenje, pitje, gibanje, krvni tlak">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"6700B25157FA8EDE0F1FBDFBF960EF31">
+	>
+
+definition
+	SECTION[at0000] matches {	-- Anamneza osnovna eo as
+		items cardinality matches {0..*; unordered} matches {
+			allow_archetype EVALUATION[at0001] occurrences matches {0..*} matches {	-- Gibalna dejavnost
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.physical_activity_summary(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			allow_archetype EVALUATION[at0002] occurrences matches {0..*} matches {	-- Tobak
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.substance_use_summary-tobacco(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			allow_archetype EVALUATION[at0003] occurrences matches {0..*} matches {	-- Alkohol
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.substance_use_summary-alcohol(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Anamneza osnovna eo as">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Gibalna dejavnost">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Tobak">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Alkohol">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,59 @@
+(:
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+:)
+xquery version "1.0";
+declare namespace functx = "http://www.functx.com";
+declare function functx:id-untyped 
+  ( $node as node()* ,
+    $id as xs:anyAtomicType )  as element()* {
+       
+  $node//*[@* = $id]
+} ;
+declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
+
+let $users := xmldb:get-child-collections('/db/eAstma/')
+
+return 
+concat("&#10;", string-join(
+    for $user in $users
+        for $value in collection(concat('/db/eAstma/', $user, '/openEHR-EHR-SECTION.vkljucitveni_kriteriji.v1/'))
+            let $therapy := functx:id-untyped($value,'openEHR-EHR-EVALUATION.terapija.v1')
+            
+            let $taking1 := functx:id-untyped($therapy, 'at0480')/node()[2]/node()[1]/node()
+            let $name1 := replace( functx:id-untyped($therapy, 'at0439')/node()[2]/node()[1]/node() , ',', ';')
+            let $genName1 := replace( functx:id-untyped($therapy, 'at0037')/node()[2]/node()[1]/node() , ',', ';')
+
+            let $taking2 := functx:id-untyped($therapy, 'at0487')/node()[2]/node()[1]/node()
+            let $name2 := replace( functx:id-untyped($therapy, 'at0223')/node()[2]/node()[1]/node() , ',', ';')
+            let $genName2 := replace( functx:id-untyped($therapy, 'at0145')/node()[2]/node()[1]/node() , ',', ';')
+
+            let $taking3 := functx:id-untyped($therapy, 'at0489')/node()[2]/node()[1]/node()
+            let $name3 := replace( functx:id-untyped($therapy, 'at0149')/node()[2]/node()[1]/node() , ',', ';')
+            let $genName3 := replace( functx:id-untyped($therapy, 'at0148')/node()[2]/node()[1]/node() , ',', ';')
+		       
+            return  fn:string-join(( xs:string($user), xs:string($taking1), xs:string($name1), xs:string($genName1), xs:string($taking2), xs:string($name2), xs:string($genName2), xs:string($taking3), xs:string($name3), xs:string($genName3) ), ", " ) , "&#10;"), "&#10;")

@@ -1,0 +1,464 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_sites.v1
+
+concept
+	[at0000]	-- MST Anatomic Sites
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"4C9B84B052E5948AA9C7590AA5DE94BE">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Anatomic Sites
+		items cardinality matches {0..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Upper gastrointestinal tract sites
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Esophagus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0021, 	-- Crico-pharyngeus
+									at0022, 	-- Upper third
+									at0023, 	-- Middle third
+									at0024, 	-- Lower third
+									at0025, 	-- Cardia
+									at0026, 	-- Whole esophagus
+									at0027]	-- Anastomosis
+								}
+							}
+						}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {	-- Stomach
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0029, 	-- Cardia
+									at0030, 	-- Fundus
+									at0031, 	-- Body
+									at0032, 	-- Incisura
+									at0033, 	-- Antrum
+									at0034, 	-- Pre-pyloric
+									at0035, 	-- Pylorus
+									at0036, 	-- Whole stomach
+									at0037, 	-- Anastomosis
+									at0038]	-- Pyloroplasty
+								}
+							}
+						}
+					}
+					ELEMENT[at0039] occurrences matches {0..1} matches {	-- Duodenum
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0040, 	-- Bulb
+									at0041, 	-- 2nd part of the duodenum
+									at0042, 	-- Area of papilla
+									at0043, 	-- Anastomosis
+									at0044]	-- Whole examined duodenum
+								}
+							}
+						}
+					}
+					ELEMENT[at0045] occurrences matches {0..1} matches {	-- Jejunum
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0046, 	-- Afferent jejunal loop
+									at0047, 	-- Efferent jejunal loop
+									at0048]	-- Jejunal crest
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0002] occurrences matches {0..1} matches {	-- Lower gastrointestinal tract sites
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Colon
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0005, 	-- Anus
+									at0006, 	-- Rectum
+									at0007, 	-- Sigmoid
+									at0008, 	-- Descending
+									at0009, 	-- Splenic
+									at0010, 	-- Transverse
+									at0011, 	-- Hepatic
+									at0012, 	-- Ascending
+									at0013, 	-- Cecum
+									at0014, 	-- Ileo-cecal valve
+									at0015, 	-- Stoma
+									at0016, 	-- Whole colon
+									at0017, 	-- Anastomosis
+									at0018]	-- Rectal Pouch
+								}
+							}
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Ileum
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0003] occurrences matches {0..1} matches {	-- ERCP sites
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0049] occurrences matches {0..1} matches {	-- Pancreas
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0050, 	-- Whole
+									at0051, 	-- Head
+									at0052, 	-- Body
+									at0053, 	-- Tail
+									at0054, 	-- Main duct
+									at0055, 	-- Accessory duct
+									at0056]	-- Branches
+								}
+							}
+						}
+					}
+					ELEMENT[at0057] occurrences matches {0..1} matches {	-- Biliary System
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0058, 	-- Papilla
+									at0059, 	-- Biliary-pancreatic junction
+									at0060, 	-- Main duct
+									at0061, 	-- Cystic duct
+									at0062, 	-- Bifurcation
+									at0063]	-- Liver ducts
+								}
+							}
+						}
+					}
+					ELEMENT[at0064] occurrences matches {0..1} matches {	-- Gallbladder
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Anatomic Sites">
+					description = <"All MST sites organised by Examination Type and then by Organ">
+				>
+				["at0001"] = <
+					text = <"Upper gastrointestinal tract sites">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Lower gastrointestinal tract sites">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"ERCP sites">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Colon">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Anus">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Rectum">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Sigmoid">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Descending">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Splenic">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Transverse">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Hepatic">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Ascending">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Cecum">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Ileo-cecal valve">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Stoma">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Whole colon">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Anastomosis">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Rectal Pouch">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Ileum">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Esophagus">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Crico-pharyngeus">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Upper third">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Middle third">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Lower third">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Cardia">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Whole esophagus">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Anastomosis">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Stomach">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Cardia">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Fundus">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Body">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Incisura">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Antrum">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Pre-pyloric">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Pylorus">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Whole stomach">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Anastomosis">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Pyloroplasty">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Duodenum">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Bulb">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"2nd part of the duodenum">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Area of papilla">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Anastomosis">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Whole examined duodenum">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Jejunum">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Afferent jejunal loop">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Efferent jejunal loop">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Jejunal crest">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Pancreas">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Whole">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Head">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Body">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Tail">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Main duct">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Accessory duct">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Branches">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Biliary System">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Papilla">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Biliary-pancreatic junction">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Main duct">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Cystic duct">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Bifurcation">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Liver ducts">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Gallbladder">
+					description = <"*">
+				>
+			>
+		>
+	>

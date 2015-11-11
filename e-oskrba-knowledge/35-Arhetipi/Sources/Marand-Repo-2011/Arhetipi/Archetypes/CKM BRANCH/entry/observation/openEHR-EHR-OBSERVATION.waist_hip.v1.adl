@@ -1,0 +1,198 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.waist_hip.v1
+
+concept
+	[at0000]	-- Obseg pasu in bokov
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["organisation"] = <"Ocean Informatics">
+		["name"] = <"Heather Leslie">
+		["date"] = <"12/10/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the  waist (or girth) and hip circumference and waist/hip ratio">
+			use = <"">
+			keywords = <"waist", "hip">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje obsega bokov in pasu ter razmerja pas/bok
+">
+			use = <"Za beleženje obsega bokov in pasu ter razmerja pas/bok
+">
+			keywords = <"pas", "boki">
+			misuse = <"Za zapisovanje drugih dolžinskih mer pacienta">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"BA3BB32381BD6C288D8215F715FF83A0">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Obseg pasu in bokov
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_LIST[at0003] matches {	-- *List(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Pas
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"cm">
+													>
+													["2"] = <
+														units = <"in">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Boki
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"cm">
+														magnitude = <|>=0.0|>
+														precision = <|1|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Razmerje
+										value matches {
+											DV_PROPORTION matches {
+												type matches {1}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Waist and hip circumference">
+					description = <"The waist (or girth) and hip circumference">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Timing event">
+				>
+				["at0003"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Waist circumference">
+					description = <"The waist circumference measured at or above the umbilicus">
+				>
+				["at0005"] = <
+					text = <"Hip circumference">
+					description = <"Measurement of body circumference at the widest point of the buttocks">
+				>
+				["at0006"] = <
+					text = <"Waist:hip ratio">
+					description = <"Ratio with unitary denominator">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Obseg pasu in bokov">
+					description = <"Obseg pasu in bokov">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Timing event(en)">
+				>
+				["at0003"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Pas">
+					description = <"Obseg pasu">
+				>
+				["at0005"] = <
+					text = <"Boki">
+					description = <"Obseg bokov">
+				>
+				["at0006"] = <
+					text = <"Razmerje">
+					description = <"Razmerje med pasom in boki">
+				>
+			>
+		>
+	>

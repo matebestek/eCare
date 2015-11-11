@@ -1,0 +1,431 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.audit_10_questionnaire_ra.v1
+
+concept
+	[at0000]	-- Audit 10 questionary ra
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"990F3A55D13DB0A866E7A033AE8FC785">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Audit 10 questionary ra
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Kako pogosto ste v zadnjih 12 mesecih pili pijače, ki vsebujejo alkohol (pivo, vino, žgane pijače, likerji, penina, koktajli, mošt, tolkovec, medica)?
+												value matches {
+													0|[local::at0017], 	-- Nikoli
+													1|[local::at0018], 	-- Enkrat na mesec ali manj
+													2|[local::at0019], 	-- 2 do 4 krat na mesec
+													3|[local::at0020], 	-- 2 do 3 krat na teden
+													4|[local::at0021]  	-- 4 ali večkrat na teden
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- 	Koliko meric pijače, ki vsebuje alkohol, ste v zadnjih 12 mesecih ponavadi popili takrat, kadar ste pili ? (Ena merica  je 1 dcl vina  ali  2,5 dcl piva ali  tolkovca  ali  0,3 dcl (“eno šilce”) žgane pijače.) 
+												value matches {
+													0|[local::at0022], 	-- od nič do 1 merice
+													1|[local::at0023], 	-- 2 merici
+													2|[local::at0024], 	-- 3 ali 4 merice
+													3|[local::at0025], 	-- 5 ali 6 meric
+													4|[local::at0026]  	-- 7 in več meric
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Kako pogosto se je v zadnjih 12 mesecih zgodilo, da ste popili 6 meric (M) oz. 4 merice (Ž)?
+												value matches {
+													0|[local::at0027], 	-- Nikoli
+													1|[local::at0028], 	-- Manj kot enkrat na mesec
+													2|[local::at0029], 	-- 1 do 3 krat na mesec
+													3|[local::at0030], 	-- 1 do 3 krat na teden
+													4|[local::at0031]  	-- Dnevno ali skoraj vsak dan
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Kako pogosto se je v zadnjih 12 mesecih zgodilo, da potem, ko ste enkrat začeli piti, niste mogli prenehati s pitjem?
+												value matches {
+													0|[local::at0032], 	-- Nikoli
+													1|[local::at0033], 	-- Manj kot enkrat na mesec
+													2|[local::at0034], 	-- 1 do 3 krat na mesec
+													3|[local::at0035], 	-- 1 do 3 krat na teden
+													4|[local::at0036]  	-- Dnevno ali skoraj vsak dan
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Kako pogosto se je v zadnjih 12 mesecih zgodilo, da zaradi pitja niste mogli opraviti tistega, kar se je od vas pričakovalo?
+												value matches {
+													0|[local::at0037], 	-- Nikoli
+													1|[local::at0038], 	-- Manj kot enkrat na mesec
+													2|[local::at0039], 	-- 1 do 3 krat na mesec
+													3|[local::at0040], 	-- 1 do 3 krat na teden
+													4|[local::at0041]  	-- Dnevno ali skoraj vsak dan
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Kako pogosto se je v zadnjih 12 mesecih zgodilo, da ste potrebovali alkoholno pijačo že zjutraj, da bi si z njo opomogli po prekomernem pitju prejšnjega dne?
+												value matches {
+													0|[local::at0042], 	-- Nikoli
+													1|[local::at0043], 	-- Manj kot enkrat na mesec
+													2|[local::at0044], 	-- 1 do 3 krat na mesec
+													3|[local::at0045], 	-- 1 do 3 krat na teden
+													4|[local::at0046]  	-- Dnevno ali skoraj vsak dan
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Kako pogosto se je v zadnjih 12 mesecih zgodilo, da vas je po pitju pekla vest ali pa ste imeli občutke krivde zaradi pitja?
+												value matches {
+													0|[local::at0047], 	-- Nikoli
+													1|[local::at0048], 	-- Manj kot enkrat na mesec
+													2|[local::at0049], 	-- 1 do 3 krat na mesec
+													3|[local::at0050], 	-- 1 do 3 krat na teden
+													4|[local::at0051]  	-- Dnevno ali skoraj vsak dan
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- Kako pogosto se v zadnjih 12 mesecih niste mogli spomniti, kaj se je zgodilo prejšnji večer, ker ste takrat pili?
+												value matches {
+													0|[local::at0052], 	-- Nikoli
+													1|[local::at0053], 	-- Manj kot enkrat na mesec
+													2|[local::at0054], 	-- 1 do 3 krat na mesec
+													3|[local::at0055], 	-- 1 do 3 krat na teden
+													4|[local::at0056]  	-- Dnevno ali skoraj vsak dan
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- Ali je bil zaradi vašega pitja kdo poškodovan (vi sami ali kdo drug)?
+												value matches {
+													0|[local::at0057], 	-- Ne
+													1|[local::at0058], 	-- Da, vendar ne v preteklih 12 mesecih
+													2|[local::at0059]  	-- Da, v preteklem letu
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Ali je kak vaš sorodni, prijatelj, zdravnik ali drugi zdravstveni delavec že pokazal zaskrbljenost zaradi vašega pitja ali vam morda predlagal, da bi pili manj?
+												value matches {
+													0|[local::at0060], 	-- Ne
+													1|[local::at0061], 	-- Da, vendar ne v preteklih 12 mesecih
+													2|[local::at0062]  	-- Da, v preteklem letu
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..*} matches {	-- Število točk
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Audit 10 questionary ra">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vprašanja">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Število točk">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"	Koliko meric pijače, ki vsebuje alkohol, ste v zadnjih 12 mesecih ponavadi popili takrat, kadar ste pili ? (Ena merica  je 1 dcl vina  ali  2,5 dcl piva ali  tolkovca  ali  0,3 dcl (“eno šilce”) žgane pijače.) ">
+					description = <"	Koliko meric pijače, ki vsebuje alkohol, ste v zadnjih 12 mesecih ponavadi popili takrat, kadar ste pili ? (Ena merica  je 1 dcl vina  ali  2,5 dcl piva ali  tolkovca  ali  0,3 dcl (“eno šilce”) žgane pijače.) ">
+				>
+				["at0008"] = <
+					text = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da potem, ko ste enkrat začeli piti, niste mogli prenehati s pitjem?">
+					description = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da potem, ko ste enkrat začeli piti, niste mogli prenehati s pitjem?">
+				>
+				["at0009"] = <
+					text = <"Kako pogosto ste v zadnjih 12 mesecih pili pijače, ki vsebujejo alkohol (pivo, vino, žgane pijače, likerji, penina, koktajli, mošt, tolkovec, medica)?">
+					description = <"Kako pogosto ste v zadnjih 12 mesecih pili pijače, ki vsebujejo alkohol (pivo, vino, žgane pijače, likerji, penina, koktajli, mošt, tolkovec, medica)?">
+				>
+				["at0010"] = <
+					text = <"Ali je kak vaš sorodni, prijatelj, zdravnik ali drugi zdravstveni delavec že pokazal zaskrbljenost zaradi vašega pitja ali vam morda predlagal, da bi pili manj?">
+					description = <"Ali je kak vaš sorodni, prijatelj, zdravnik ali drugi zdravstveni delavec že pokazal zaskrbljenost zaradi vašega pitja ali vam morda predlagal, da bi pili manj?">
+				>
+				["at0011"] = <
+					text = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da zaradi pitja niste mogli opraviti tistega, kar se je od vas pričakovalo?">
+					description = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da zaradi pitja niste mogli opraviti tistega, kar se je od vas pričakovalo?">
+				>
+				["at0012"] = <
+					text = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da ste potrebovali alkoholno pijačo že zjutraj, da bi si z njo opomogli po prekomernem pitju prejšnjega dne?">
+					description = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da ste potrebovali alkoholno pijačo že zjutraj, da bi si z njo opomogli po prekomernem pitju prejšnjega dne?">
+				>
+				["at0013"] = <
+					text = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da ste popili 6 meric (M) oz. 4 merice (Ž)?">
+					description = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da ste popili 6 meric (M) oz. 4 merice (Ž)?">
+				>
+				["at0014"] = <
+					text = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da vas je po pitju pekla vest ali pa ste imeli občutke krivde zaradi pitja?">
+					description = <"Kako pogosto se je v zadnjih 12 mesecih zgodilo, da vas je po pitju pekla vest ali pa ste imeli občutke krivde zaradi pitja?">
+				>
+				["at0015"] = <
+					text = <"Ali je bil zaradi vašega pitja kdo poškodovan (vi sami ali kdo drug)?">
+					description = <"Ali je bil zaradi vašega pitja kdo poškodovan (vi sami ali kdo drug)?">
+				>
+				["at0016"] = <
+					text = <"Kako pogosto se v zadnjih 12 mesecih niste mogli spomniti, kaj se je zgodilo prejšnji večer, ker ste takrat pili?">
+					description = <"Kako pogosto se v zadnjih 12 mesecih niste mogli spomniti, kaj se je zgodilo prejšnji večer, ker ste takrat pili?">
+				>
+				["at0017"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+				["at0018"] = <
+					text = <"Enkrat na mesec ali manj">
+					description = <"Enkrat na mesec ali manj">
+				>
+				["at0019"] = <
+					text = <"2 do 4 krat na mesec">
+					description = <"2 do 4 krat na mesec">
+				>
+				["at0020"] = <
+					text = <"2 do 3 krat na teden">
+					description = <"2 do 3 krat na teden">
+				>
+				["at0021"] = <
+					text = <"4 ali večkrat na teden">
+					description = <"4 ali večkrat na teden">
+				>
+				["at0022"] = <
+					text = <"od nič do 1 merice">
+					description = <"od nič do 1 merice">
+				>
+				["at0023"] = <
+					text = <"2 merici">
+					description = <"2 merici">
+				>
+				["at0024"] = <
+					text = <"3 ali 4 merice">
+					description = <"3 ali 4 merice">
+				>
+				["at0025"] = <
+					text = <"5 ali 6 meric">
+					description = <"5 ali 6 meric">
+				>
+				["at0026"] = <
+					text = <"7 in več meric">
+					description = <"7 in več meric">
+				>
+				["at0027"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+				["at0028"] = <
+					text = <"Manj kot enkrat na mesec">
+					description = <"Manj kot enkrat na mesec">
+				>
+				["at0029"] = <
+					text = <"1 do 3 krat na mesec">
+					description = <"1 do 3 krat na mesec">
+				>
+				["at0030"] = <
+					text = <"1 do 3 krat na teden">
+					description = <"1 do 3 krat na teden">
+				>
+				["at0031"] = <
+					text = <"Dnevno ali skoraj vsak dan">
+					description = <"Dnevno ali skoraj vsak dan">
+				>
+				["at0032"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+				["at0033"] = <
+					text = <"Manj kot enkrat na mesec">
+					description = <"Manj kot enkrat na mesec">
+				>
+				["at0034"] = <
+					text = <"1 do 3 krat na mesec">
+					description = <"1 do 3 krat na mesec">
+				>
+				["at0035"] = <
+					text = <"1 do 3 krat na teden">
+					description = <"1 do 3 krat na teden">
+				>
+				["at0036"] = <
+					text = <"Dnevno ali skoraj vsak dan">
+					description = <"Dnevno ali skoraj vsak dan">
+				>
+				["at0037"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+				["at0038"] = <
+					text = <"Manj kot enkrat na mesec">
+					description = <"Manj kot enkrat na mesec">
+				>
+				["at0039"] = <
+					text = <"1 do 3 krat na mesec">
+					description = <"1 do 3 krat na mesec">
+				>
+				["at0040"] = <
+					text = <"1 do 3 krat na teden">
+					description = <"1 do 3 krat na teden">
+				>
+				["at0041"] = <
+					text = <"Dnevno ali skoraj vsak dan">
+					description = <"Dnevno ali skoraj vsak dan">
+				>
+				["at0042"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+				["at0043"] = <
+					text = <"Manj kot enkrat na mesec">
+					description = <"Manj kot enkrat na mesec">
+				>
+				["at0044"] = <
+					text = <"1 do 3 krat na mesec">
+					description = <"1 do 3 krat na mesec">
+				>
+				["at0045"] = <
+					text = <"1 do 3 krat na teden">
+					description = <"1 do 3 krat na teden">
+				>
+				["at0046"] = <
+					text = <"Dnevno ali skoraj vsak dan">
+					description = <"Dnevno ali skoraj vsak dan">
+				>
+				["at0047"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+				["at0048"] = <
+					text = <"Manj kot enkrat na mesec">
+					description = <"Manj kot enkrat na mesec">
+				>
+				["at0049"] = <
+					text = <"1 do 3 krat na mesec">
+					description = <"1 do 3 krat na mesec">
+				>
+				["at0050"] = <
+					text = <"1 do 3 krat na teden">
+					description = <"1 do 3 krat na teden">
+				>
+				["at0051"] = <
+					text = <"Dnevno ali skoraj vsak dan">
+					description = <"Dnevno ali skoraj vsak dan">
+				>
+				["at0052"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+				["at0053"] = <
+					text = <"Manj kot enkrat na mesec">
+					description = <"Manj kot enkrat na mesec">
+				>
+				["at0054"] = <
+					text = <"1 do 3 krat na mesec">
+					description = <"1 do 3 krat na mesec">
+				>
+				["at0055"] = <
+					text = <"1 do 3 krat na teden">
+					description = <"1 do 3 krat na teden">
+				>
+				["at0056"] = <
+					text = <"Dnevno ali skoraj vsak dan">
+					description = <"Dnevno ali skoraj vsak dan">
+				>
+				["at0057"] = <
+					text = <"Ne">
+					description = <"Ne">
+				>
+				["at0058"] = <
+					text = <"Da, vendar ne v preteklih 12 mesecih">
+					description = <"Da, vendar ne v preteklih 12 mesecih">
+				>
+				["at0059"] = <
+					text = <"Da, v preteklem letu">
+					description = <"Da, v preteklem letu">
+				>
+				["at0060"] = <
+					text = <"Ne">
+					description = <"Ne">
+				>
+				["at0061"] = <
+					text = <"Da, vendar ne v preteklih 12 mesecih">
+					description = <"Da, vendar ne v preteklih 12 mesecih">
+				>
+				["at0062"] = <
+					text = <"Da, v preteklem letu">
+					description = <"Da, v preteklem letu">
+				>
+			>
+		>
+	>

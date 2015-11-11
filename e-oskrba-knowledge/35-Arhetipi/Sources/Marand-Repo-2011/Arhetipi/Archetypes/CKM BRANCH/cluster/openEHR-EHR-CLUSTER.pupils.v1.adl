@@ -1,0 +1,734 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.pupils.v1
+
+concept
+	[at0000]	-- Zenice
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana">
+				["name"] = <"Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"09/07/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Record details from an examination of pupils.">
+			use = <"Use as part of an OBSERVATION entry.">
+			keywords = <"eye", "pupil", "reflex", "PERL", "PERLA">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za dokumentiranje opazovanj zenic v ZN">
+			use = <"Uporablja se za opazovanje zenic v ZN">
+			keywords = <"zenice", "refleks", "oči">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", ...>
+	other_details = <
+		["references"] = <"http://en.wikipedia.org/wiki/Eye_color
+">
+		["MD5-CAM-1.0.1"] = <"E4C5AA697939C3ECBCA3E887BC7243DC">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Zenice
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0011] occurrences matches {0..*} matches {	-- Enostavna ocena zenic
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0032, 	-- Normalne
+							at0013, 	-- PERL - Obe zenici sta enaki in obe reagirata na svetlobo
+							at0019]	-- PERLA - Obe zenici sta enaki, obe reagirata na svetlobo in obe imata normalno akomodacijo leče
+						}
+					}
+				}
+			}
+			CLUSTER[at0014] occurrences matches {0..*} matches {	-- Podatki o posamezni zenici
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Stran
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- Leva
+									at0017, 	-- Desna
+									at0018]	-- Obe zenici
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Obilka
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0049, 	-- Normalna, okrogla
+									at0050, 	-- Nepravilna
+									at0051, 	-- Ovalna
+									at0052, 	-- Nepravilna
+									at0056, 	-- Izsek kroga
+									at0057, 	-- V obliki solze
+									at0058]	-- V obliki ključavnice
+								}
+							}
+						}
+					}
+					ELEMENT[at0059] occurrences matches {0..1} matches {	-- Barva šarenice
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0060, 	-- Modra
+									at0061, 	-- Rjava
+									at0062, 	-- Siva
+									at0066, 	-- Svetlorjava
+									at0063, 	-- Zelena
+									at0065, 	-- Rumenkasto rjava
+									at0064]	-- Rdeča
+								}
+							}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Premer zenice 
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"mm">
+										magnitude = <|0.0..30.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Približna velikost
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0023, 	-- Zelo ozka (<= 1mm)
+									at0022, 	-- Ozka (1.5-2.5mm)
+									at0021, 	-- Normalna (3-5mm)
+									at0024]	-- Široka (>= 5.5mm)
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Odzivnost (dir ind) 
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0025, 	-- Da
+									at0026, 	-- Ne
+									at0033, 	-- Počasen (-)
+									at0034, 	-- Normalen (+/-)
+									at0035, 	-- Hiter(+)
+									at0036]	-- Zelo hiter (++)
+								}
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Refleks na svetlobo
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0008, 	-- Počasen
+									at0009, 	-- Normalen
+									at0010]	-- Hiter
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Odzivnost (dir ind)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0037, 	-- Da
+									at0038, 	-- Ne
+									at0039, 	-- Počasen (-)
+									at0040, 	-- Normalen (+/-)
+									at0041, 	-- Hiter(+)
+									at0067]	-- Zelo hiter (++)
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Akomodacija leče
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0043, 	-- Da
+									at0044, 	-- Ne
+									at0045, 	-- Počasen (-)
+									at0046, 	-- Normalen (+/-)
+									at0047]	-- Hiter(+)
+								}
+							}
+						}
+					}
+					ELEMENT[at0053] occurrences matches {0..1} matches {	-- Aferenčni refleks
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0054, 	-- Brez
+									at0055]	-- Obstaja
+								}
+							}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Opombe
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Pupils">
+					description = <"Record examination of pupils.">
+				>
+				["at0002"] = <
+					text = <"Measured size">
+					description = <"Measured size of the pupil.">
+				>
+				["at0003"] = <
+					text = <"Direct light reflex">
+					description = <"Pupil constricts with light shone into that eye.">
+				>
+				["at0004"] = <
+					text = <"Consensual light reflex">
+					description = <"Findings of the consensual pupillary light reflex.">
+				>
+				["at0005"] = <
+					text = <"Shape">
+					description = <"The shape of the pupil.">
+				>
+				["at0006"] = <
+					text = <"Accommodation reflex">
+					description = <"Findings of the pupillary accommodation reflex.">
+				>
+				["at0007"] = <
+					text = <"Speed of light reflex">
+					description = <"The speed of the pupillary response to light.">
+				>
+				["at0008"] = <
+					text = <"Sluggish/slow">
+					description = <"The pupillary light reflex is slower than normal.">
+				>
+				["at0009"] = <
+					text = <"Normal">
+					description = <"The speed of the pupillary light reflex is normal.">
+				>
+				["at0010"] = <
+					text = <"Brisk">
+					description = <"The pupillary light reflex is faster than normal.">
+				>
+				["at0011"] = <
+					text = <"Normal statement">
+					description = <"A single normal finding.">
+				>
+				["at0013"] = <
+					text = <"PERL - Pupils equal and reactive to light">
+					description = <"Both pupils are equal and reactive to light.">
+				>
+				["at0014"] = <
+					text = <"Findings per side">
+					description = <"Findings per side. May be recorded for left, right or both pupils.">
+				>
+				["at0015"] = <
+					text = <"Side">
+					description = <"Laterality of the eye(s) examined.">
+				>
+				["at0016"] = <
+					text = <"Left">
+					description = <"Findings of the left pupil.">
+				>
+				["at0017"] = <
+					text = <"Right">
+					description = <"Findings of the right pupil.">
+				>
+				["at0018"] = <
+					text = <"Both eyes">
+					description = <"Findings of both pupils.">
+				>
+				["at0019"] = <
+					text = <"PERLA - Pupils equal and reactive to light and accomodation. ">
+					description = <"Both pupils are equal and reactive to light and accommodation. ">
+				>
+				["at0020"] = <
+					text = <"Estimated size">
+					description = <"A text description of the estimated pupil size.">
+				>
+				["at0021"] = <
+					text = <"Normal pupil size (3-5mm)">
+					description = <"The pupil size is normal (3-5mm).">
+				>
+				["at0022"] = <
+					text = <"Constricted pupil (1.5-2.5mm)">
+					description = <"The pupil is constricted, relative to normal (1.5-2.5mm).">
+				>
+				["at0023"] = <
+					text = <"Pin-point pupil (<= 1mm)">
+					description = <"The pupil is heavily constricted (<= 1mm).">
+				>
+				["at0024"] = <
+					text = <"Dilated pupil (>= 5.5mm)">
+					description = <"The pupil is dilated, relative to normal (>= 5.5mm).">
+				>
+				["at0025"] = <
+					text = <"Present">
+					description = <"The direct light reflex is present.">
+				>
+				["at0026"] = <
+					text = <"Absent">
+					description = <"The direct light reflex is absent.">
+				>
+				["at0027"] = <
+					text = <"Comment">
+					description = <"Any additional comment on pupils.">
+				>
+				["at0032"] = <
+					text = <"Pupils normal">
+					description = <"The pupils appear and react normally.">
+				>
+				["at0033"] = <
+					text = <"Sluggish/slow (-)">
+					description = <"The direct light reflex is slow or sluggish (-).">
+				>
+				["at0034"] = <
+					text = <"Normal (+/-)">
+					description = <"The direct light reflex is of normal speed (+/-).">
+				>
+				["at0035"] = <
+					text = <"Brisk(+)">
+					description = <"The direct light reflex is brisk (+).">
+				>
+				["at0036"] = <
+					text = <"Very brisk (++)">
+					description = <"The direct light reflex is very brisk (++).">
+				>
+				["at0037"] = <
+					text = <"Present">
+					description = <"The consensual light reflex is present.">
+				>
+				["at0038"] = <
+					text = <"Absent">
+					description = <"The consensual light reflex is absent.">
+				>
+				["at0039"] = <
+					text = <"Sluggish/slow (-)">
+					description = <"The consensual light reflex is sluggish or slow (-).">
+				>
+				["at0040"] = <
+					text = <"Normal (+/-)">
+					description = <"The consensual light reflex is of normal speed (+/-).">
+				>
+				["at0041"] = <
+					text = <"Brisk (+)">
+					description = <"The consensual light reflex is brisk (+).">
+				>
+				["at0043"] = <
+					text = <"Present">
+					description = <"The accomodation light reflex is present.">
+				>
+				["at0044"] = <
+					text = <"Absent">
+					description = <"The accommodation light reflex is absent.">
+				>
+				["at0045"] = <
+					text = <"Sluggish/slow (-)">
+					description = <"The accommodation light reflex is slow or sluggish (-).">
+				>
+				["at0046"] = <
+					text = <"Normal (-/+)">
+					description = <"The accommodation light reflex is of normal speed (+/-).">
+				>
+				["at0047"] = <
+					text = <"Brisk (+)">
+					description = <"The accommodation light reflex is brisk (+).">
+				>
+				["at0049"] = <
+					text = <"Normal, circular">
+					description = <"The pupil is a normal, circular shape.">
+				>
+				["at0050"] = <
+					text = <"Abnormal">
+					description = <"The pupil is an abnormal shape.">
+				>
+				["at0051"] = <
+					text = <"Oval">
+					description = <"The pupil is an oval shape.">
+				>
+				["at0052"] = <
+					text = <"Irregular">
+					description = <"The pupil is irregular.">
+				>
+				["at0053"] = <
+					text = <"Afferent defect">
+					description = <"Findings of the afferent pupillary defect.">
+				>
+				["at0054"] = <
+					text = <"Absent">
+					description = <"The afferent pupillary relfex is absent.">
+				>
+				["at0055"] = <
+					text = <"Present">
+					description = <"The afferent pupillary reflex is present.">
+				>
+				["at0056"] = <
+					text = <"Sectoral">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Teardrop">
+					description = <"The pupil is tear-drop shaped.">
+				>
+				["at0058"] = <
+					text = <"Keyhole">
+					description = <"The pupil is keyhole-shaped.">
+				>
+				["at0059"] = <
+					text = <"Iris colour">
+					description = <"The colour of the iris.">
+				>
+				["at0060"] = <
+					text = <"Blue">
+					description = <"The iris is blue.">
+				>
+				["at0061"] = <
+					text = <"Brown">
+					description = <"The iris is brown.">
+				>
+				["at0062"] = <
+					text = <"Grey">
+					description = <"The iris is grey.">
+				>
+				["at0063"] = <
+					text = <"Green">
+					description = <"The iris is green.">
+				>
+				["at0064"] = <
+					text = <"Red">
+					description = <"The iris is red.">
+				>
+				["at0065"] = <
+					text = <"Amber">
+					description = <"The iris is amber.">
+				>
+				["at0066"] = <
+					text = <"Hazel">
+					description = <"The iris colour is hazel.">
+				>
+				["at0067"] = <
+					text = <"*Zelo hiter (++)(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Zenice">
+					description = <"Dokumentiranje opazovanja zenic">
+				>
+				["at0002"] = <
+					text = <"Premer zenice ">
+					description = <"Izmerjena velikost zenic">
+				>
+				["at0003"] = <
+					text = <"Odzivnost (dir ind) ">
+					description = <"Odzivnost zenice na direktno svetlobo">
+				>
+				["at0004"] = <
+					text = <"Odzivnost (dir ind)">
+					description = <"Odzivnost zenice na indirektno svetlobo">
+				>
+				["at0005"] = <
+					text = <"Obilka">
+					description = <"Obilka zenice">
+				>
+				["at0006"] = <
+					text = <"Akomodacija leče">
+					description = <"Akomodacija leče">
+				>
+				["at0007"] = <
+					text = <"Refleks na svetlobo">
+					description = <"Hitrost reakcije zenice na svetlobo">
+				>
+				["at0008"] = <
+					text = <"Počasen">
+					description = <"Refleks na svetlobo je počasen">
+				>
+				["at0009"] = <
+					text = <"Normalen">
+					description = <"Refleks na svetlobo je normalen">
+				>
+				["at0010"] = <
+					text = <"Hiter">
+					description = <"Refleks na svetlobo je hiter">
+				>
+				["at0011"] = <
+					text = <"Enostavna ocena zenic">
+					description = <"Enostavna ocena zenic">
+				>
+				["at0013"] = <
+					text = <"PERL - Obe zenici sta enaki in obe reagirata na svetlobo">
+					description = <"Obe zenici sta enaki in obe reagirata na svetlobo ">
+				>
+				["at0014"] = <
+					text = <"Podatki o posamezni zenici">
+					description = <"Podatki o posamezni zenici">
+				>
+				["at0015"] = <
+					text = <"Stran">
+					description = <"Stran opazovane zenice">
+				>
+				["at0016"] = <
+					text = <"Leva">
+					description = <"Leva zenica">
+				>
+				["at0017"] = <
+					text = <"Desna">
+					description = <"Desna zenica">
+				>
+				["at0018"] = <
+					text = <"Obe zenici">
+					description = <"Obe zenici">
+				>
+				["at0019"] = <
+					text = <"PERLA - Obe zenici sta enaki, obe reagirata na svetlobo in obe imata normalno akomodacijo leče">
+					description = <"Obe zenici sta enaki, obe reagirata na svetlobo in obe imata normalno akomodacijo leče">
+				>
+				["at0020"] = <
+					text = <"Približna velikost">
+					description = <"Približna velikost zenice">
+				>
+				["at0021"] = <
+					text = <"Normalna (3-5mm)">
+					description = <"Normalna (3-5mm)">
+				>
+				["at0022"] = <
+					text = <"Ozka (1.5-2.5mm)">
+					description = <"Ozka (1.5-2.5mm)">
+				>
+				["at0023"] = <
+					text = <"Zelo ozka (<= 1mm)">
+					description = <"Zelo ozka (<= 1mm)">
+				>
+				["at0024"] = <
+					text = <"Široka (>= 5.5mm)">
+					description = <"Široka (>= 5.5mm)">
+				>
+				["at0025"] = <
+					text = <"Da">
+					description = <"Refleks na direktno svetlobo je prisoten">
+				>
+				["at0026"] = <
+					text = <"Ne">
+					description = <"Refleks na direktno svetlobo ni prisoten">
+				>
+				["at0027"] = <
+					text = <"Opombe">
+					description = <"Dodatni komentarji glede zenic">
+				>
+				["at0032"] = <
+					text = <"Normalne">
+					description = <"Obe zenici sta prisotni in sta normalni">
+				>
+				["at0033"] = <
+					text = <"Počasen (-)">
+					description = <"Refleks na direktno svetlobo je počasen (-)">
+				>
+				["at0034"] = <
+					text = <"Normalen (+/-)">
+					description = <"Refleks na direktno svetlobo je normalno hiter (+/-)">
+				>
+				["at0035"] = <
+					text = <"Hiter(+)">
+					description = <"Refleks na direktno svetlobo je hiter (+)">
+				>
+				["at0036"] = <
+					text = <"Zelo hiter (++)">
+					description = <"Refleks na direktno svetlobo je zelo hiter (++)">
+				>
+				["at0037"] = <
+					text = <"Da">
+					description = <"Refleks na indirektno svetlobo je prisoten">
+				>
+				["at0038"] = <
+					text = <"Ne">
+					description = <"Refleks na indirektno svetlobo ni prisoten">
+				>
+				["at0039"] = <
+					text = <"Počasen (-)">
+					description = <"Refleks na indirektno svetlobo je počasen (-)">
+				>
+				["at0040"] = <
+					text = <"Normalen (+/-)">
+					description = <"Refleks na indirektno svetlobo je normalno hiter (+/-)">
+				>
+				["at0041"] = <
+					text = <"Hiter(+)">
+					description = <"Refleks na indirektno svetlobo je hiter (+)">
+				>
+				["at0043"] = <
+					text = <"Da">
+					description = <"Akomodacijski refleks je prisoten">
+				>
+				["at0044"] = <
+					text = <"Ne">
+					description = <"Akomodacijski refleks ni prisoten">
+				>
+				["at0045"] = <
+					text = <"Počasen (-)">
+					description = <"Akomodacija leče je počasna (-)">
+				>
+				["at0046"] = <
+					text = <"Normalen (+/-)">
+					description = <"Akomodacija leče je normalno hitra (+,-)">
+				>
+				["at0047"] = <
+					text = <"Hiter(+)">
+					description = <"Akomodacija leče je hitra (+)">
+				>
+				["at0049"] = <
+					text = <"Normalna, okrogla">
+					description = <"Oblika zenice je normalna, okrogla">
+				>
+				["at0050"] = <
+					text = <"Nepravilna">
+					description = <"Zenica je nepravilne oblike">
+				>
+				["at0051"] = <
+					text = <"Ovalna">
+					description = <"Zenica je ovalne oblike">
+				>
+				["at0052"] = <
+					text = <"Nepravilna">
+					description = <"Zenica je nepravilne oblike">
+				>
+				["at0053"] = <
+					text = <"Aferenčni refleks">
+					description = <"Podatki o aferenčnem refleksu">
+				>
+				["at0054"] = <
+					text = <"Brez">
+					description = <"Aferenčni refleks ni prisoten">
+				>
+				["at0055"] = <
+					text = <"Obstaja">
+					description = <"Aferenčni refleks je prisoten">
+				>
+				["at0056"] = <
+					text = <"Izsek kroga">
+					description = <"Zenica je v obliki izseka kroga">
+				>
+				["at0057"] = <
+					text = <"V obliki solze">
+					description = <"Zenica je v obliki solze">
+				>
+				["at0058"] = <
+					text = <"V obliki ključavnice">
+					description = <"Zenica je v obliki ključavnice">
+				>
+				["at0059"] = <
+					text = <"Barva šarenice">
+					description = <"Barva šarenice">
+				>
+				["at0060"] = <
+					text = <"Modra">
+					description = <"Šarenica je modra">
+				>
+				["at0061"] = <
+					text = <"Rjava">
+					description = <"Šarenica je rjava">
+				>
+				["at0062"] = <
+					text = <"Siva">
+					description = <"Šarenica je siva">
+				>
+				["at0063"] = <
+					text = <"Zelena">
+					description = <"Šarenica je zelena">
+				>
+				["at0064"] = <
+					text = <"Rdeča">
+					description = <"Šarenica je rdeča">
+				>
+				["at0065"] = <
+					text = <"Rumenkasto rjava">
+					description = <"Šarenica je rumenkasto rjava">
+				>
+				["at0066"] = <
+					text = <"Svetlorjava">
+					description = <"Šarenica je svetlorjava">
+				>
+				["at0067"] = <
+					text = <"Zelo hiter (++)">
+					description = <"*">
+				>
+			>
+		>
+	>

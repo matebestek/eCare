@@ -1,0 +1,451 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.ewsq_svojci_eo_sh.v1
+
+concept
+	[at0000]	-- Ewsq svojci eo sh
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"EWSQ vprašalnik za svojce za projekt eOskrba - eShizofrenija">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F83E7BC4E39A08757A72C46F769B62C1">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Ewsq svojci eo sh
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..*} matches {	-- Vprašanja za svojce
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0005] occurrences matches {0..1} matches {	-- Spremembe v vzorcu spanja
+												value matches {
+													0|[local::at0017], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0027], 	-- Majhno poslabšanje
+													2|[local::at0037], 	-- Zmerno poslabšanje
+													3|[local::at0047], 	-- Veliko poslabšanje
+													4|[local::at0066]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Spremembe vedenja
+												value matches {
+													0|[local::at0018], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0028], 	-- Majhno poslabšanje
+													2|[local::at0038], 	-- Zmerno poslabšanje
+													3|[local::at0048], 	-- Veliko poslabšanje
+													4|[local::at0065]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Socialni umik
+												value matches {
+													0|[local::at0019], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0029], 	-- Majhno poslabšanje
+													2|[local::at0039], 	-- Zmerno poslabšanje
+													3|[local::at0049], 	-- Veliko poslabšanje
+													4|[local::at0064]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Nazadovanje v dnevnih aktivnostih in funkcioniranju
+												value matches {
+													0|[local::at0020], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0030], 	-- Majhno poslabšanje
+													2|[local::at0040], 	-- Zmerno poslabšanje
+													3|[local::at0050], 	-- Veliko poslabšanje
+													4|[local::at0063]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Zmanjšana skrb za osebno higieno
+												value matches {
+													0|[local::at0021], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0031], 	-- Majhno poslabšanje
+													2|[local::at0041], 	-- Zmerno poslabšanje
+													3|[local::at0051], 	-- Veliko poslabšanje
+													4|[local::at0062]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Zmanjšanje iniciative, motivacije
+												value matches {
+													0|[local::at0022], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0032], 	-- Majhno poslabšanje
+													2|[local::at0042], 	-- Zmerno poslabšanje
+													3|[local::at0052], 	-- Veliko poslabšanje
+													4|[local::at0061]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Čudaške vsebine misli, preokupiranost s čudnimi idejami
+												value matches {
+													0|[local::at0023], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0033], 	-- Majhno poslabšanje
+													2|[local::at0043], 	-- Zmerno poslabšanje
+													3|[local::at0053], 	-- Veliko poslabšanje
+													4|[local::at0060]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Zmanjšanje količine govora in miselnih vsebin
+												value matches {
+													0|[local::at0024], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0034], 	-- Majhno poslabšanje
+													2|[local::at0044], 	-- Zmerno poslabšanje
+													3|[local::at0054], 	-- Veliko poslabšanje
+													4|[local::at0059]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Razdražljivost, nemir, agitacija, agresivnost
+												value matches {
+													0|[local::at0025], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0035], 	-- Majhno poslabšanje
+													2|[local::at0045], 	-- Zmerno poslabšanje
+													3|[local::at0055], 	-- Veliko poslabšanje
+													4|[local::at0058]  	-- Izrazito poslabšanje
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Ali ste opazili kateregakoli od zgodnjih opozorilnih znakov od zadnjega izpolnjevanja?
+												value matches {
+													0|[local::at0026], 	-- Ni poslabšanje oz. izboljšanje
+													1|[local::at0036], 	-- Majhno poslabšanje
+													2|[local::at0046], 	-- Zmerno poslabšanje
+													3|[local::at0056], 	-- Veliko poslabšanje
+													4|[local::at0057]  	-- Izrazito poslabšanje
+												}
+											}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..*} matches {	-- Število točk
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0016] occurrences matches {0..*} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ewsq svojci eo sh">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vprašanja za svojce">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Spremembe v vzorcu spanja">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Spremembe vedenja">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Socialni umik">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Nazadovanje v dnevnih aktivnostih in funkcioniranju">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Zmanjšana skrb za osebno higieno">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Zmanjšanje iniciative, motivacije">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Čudaške vsebine misli, preokupiranost s čudnimi idejami">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Razdražljivost, nemir, agitacija, agresivnost">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Zmanjšanje količine govora in miselnih vsebin">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Ali ste opazili kateregakoli od zgodnjih opozorilnih znakov od zadnjega izpolnjevanja?">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Število točk">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0018"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0019"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0020"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0021"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0022"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0023"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0024"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0025"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0026"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0027"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0028"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0029"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0030"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0031"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0032"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0033"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0034"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0035"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0036"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0037"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0038"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0039"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0040"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0041"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0042"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0043"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0044"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0045"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0046"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0047"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0048"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0049"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0050"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0051"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0052"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0053"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0054"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0055"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0056"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0057"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0059"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0060"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0061"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0062"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0063"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0064"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0065"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+				["at0066"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+			>
+		>
+	>

@@ -1,0 +1,173 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ITEM_TREE.procedure.v1draft
+
+concept
+	[at0000]	-- Procedure
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["date"] = <"12/03/2007">
+		["email"] = <"heather.leslie@oceaninformatics.biz">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record orders and administration of procedures">
+			use = <"">
+			keywords = <"procedure", ...>
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"Sam Heard, Ocean Informatics", ...>
+
+definition
+	ITEM_TREE[at0000] occurrences matches {0..*} matches {	-- Procedure
+		items cardinality matches {0..*; unordered} matches {
+			ELEMENT[at0004] matches {	-- Procedure
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {	-- Clinical description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0017] occurrences matches {0..*} matches {	-- Objective
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Intent
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007, 	-- Preventive
+							at0008, 	-- Curative
+							at0009, 	-- Palliative
+							at0010, 	-- Adjunct
+							at0011, 	-- Adjuvant
+							at0012]	-- Supportive
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Urgency
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- Elective
+							at0016]	-- Emergency
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Indication
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					description = <"Generic archetype for recording details of a procedure">
+					text = <"Procedure">
+				>
+				["at0004"] = <
+					description = <"Name/description of procedure">
+					text = <"Procedure">
+				>
+				["at0005"] = <
+					description = <"The reason this procedure has been carried out">
+					text = <"Indication">
+				>
+				["at0006"] = <
+					description = <"Intended impact on underlying health condition or issue">
+					text = <"Intent">
+				>
+				["at0007"] = <
+					description = <"Procedure to prevent further health issues or onset of given condition">
+					text = <"Preventive">
+				>
+				["at0008"] = <
+					description = <"Procedure performed with the intent of curing or resolving a given health condition or issue">
+					text = <"Curative">
+				>
+				["at0009"] = <
+					description = <"Procedure performed with the intent of palliating a given health condition or issue">
+					text = <"Palliative">
+				>
+				["at0010"] = <
+					description = <"Procedure performed to in addition to, or alongside, other forms of therapy for a given condition or health issue">
+					text = <"Adjunct">
+				>
+				["at0011"] = <
+					description = <"Procedure performed to enhance  the effect of other therapy on a given health condition or issue">
+					text = <"Adjuvant">
+				>
+				["at0012"] = <
+					description = <"Procedure performed to support the effect of existing therapy on a given health condition or  issue">
+					text = <"Supportive">
+				>
+				["at0013"] = <
+					description = <"Description of the procedure performed">
+					text = <"Clinical description">
+				>
+				["at0014"] = <
+					description = <"Requirement for timing, having implications related to the ability to prepare the patient to undergo the procedure">
+					text = <"Urgency">
+				>
+				["at0015"] = <
+					description = <"To be performed at descretion of provider or patient">
+					text = <"Elective">
+				>
+				["at0016"] = <
+					description = <"To be performed as urgently as possible in a crisis situation">
+					text = <"Emergency">
+				>
+				["at0017"] = <
+					description = <"Specific objective or goal to be achieved by procedure">
+					text = <"Objective">
+				>
+			>
+		>
+	>

@@ -1,0 +1,373 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.phq_9_questionnaire_eo.v1
+
+concept
+	[at0000]	-- Phq questionnaire
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Presejanje ljudi z depresijo.">
+			use = <"Uporablja se pri osnovnem presejanju ljudi z depresijo.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"521755D0BD54D6B01E6061286F682F9F">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Phq questionnaire
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Malo interesa in zadovoljstva v stvareh, ki jih počnem
+												value matches {
+													0|[local::at0016], 	-- Sploh ne
+													1|[local::at0017], 	-- Nekaj dni
+													2|[local::at0018], 	-- Več kot polovico dni
+													3|[local::at0019]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Potrtost, depresivnost, obup
+												value matches {
+													0|[local::at0020], 	-- Sploh ne
+													1|[local::at0021], 	-- Nekaj dni
+													2|[local::at0022], 	-- Več kot polovico dni
+													3|[local::at0023]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Težko zaspim, spim slabo; ali spim prekomerno
+												value matches {
+													0|[local::at0024], 	-- Sploh ne
+													1|[local::at0025], 	-- Nekaj dni
+													2|[local::at0026], 	-- Več kot polovico dni
+													3|[local::at0027]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Utrujenost in pomanjkanje energije
+												value matches {
+													0|[local::at0028], 	-- Sploh ne
+													1|[local::at0029], 	-- Nekaj dni
+													2|[local::at0030], 	-- Več kot polovico dni
+													3|[local::at0031]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Slab apetit ali prenajedanje
+												value matches {
+													0|[local::at0032], 	-- Sploh ne
+													1|[local::at0033], 	-- Nekaj dni
+													2|[local::at0034], 	-- Več kot polovico dni
+													3|[local::at0035]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Slabo mnenje o sebi; občutek, da sem neuspešen/a in da sem razočaral/a sebe ali bližnje
+												value matches {
+													0|[local::at0036], 	-- Sploh ne
+													1|[local::at0037], 	-- Nekaj dni
+													2|[local::at0038], 	-- Več kot polovico dni
+													3|[local::at0039]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Težave s koncentracijo pri stvareh, kot so branje časopisa ali gledanje televizije
+												value matches {
+													0|[local::at0040], 	-- Sploh ne
+													1|[local::at0041], 	-- Nekaj dni
+													2|[local::at0042], 	-- Več kot polovico dni
+													3|[local::at0043]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- Tako upočasnjeno gibanje ali govor, da so drugi ljudje lahko to opazili. Ali nasprotno –  velika nervoza in nemir, kot da nimam obstanka
+												value matches {
+													0|[local::at0044], 	-- Sploh ne
+													1|[local::at0045], 	-- Nekaj dni
+													2|[local::at0046], 	-- Več kot polovico dni
+													3|[local::at0047]  	-- Skoraj vsak dan
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Misli o tem, da bi bilo bolje, če bi bil mrtev ali da bi si nekaj hudega naredil
+												value matches {
+													0|[local::at0048], 	-- Sploh ne
+													1|[local::at0049], 	-- Nekaj dni
+													2|[local::at0050], 	-- Več kot polovico dni
+													3|[local::at0051]  	-- Skoraj vsak dan
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..*} matches {	-- Število točk
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Phq questionnaire">
+					description = <"Vprašalnik o bolnikovem zdravju - 9. (Patient Health Questionnaire 9)">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vprašanja">
+					description = <"Trditve glede na vprašanje: kako pogosto so vas v preteklih 2 tednih mučile naslednje težave?">
+				>
+				["at0005"] = <
+					text = <"Število točk">
+					description = <"Število doseženih točk.">
+				>
+				["at0006"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Slab apetit ali prenajedanje">
+					description = <"Slab apetit ali prenajedanje.">
+				>
+				["at0008"] = <
+					text = <"Malo interesa in zadovoljstva v stvareh, ki jih počnem">
+					description = <"Malo interesa in zadovoljstva v stvareh, ki jih počnem.">
+				>
+				["at0009"] = <
+					text = <"Slabo mnenje o sebi; občutek, da sem neuspešen/a in da sem razočaral/a sebe ali bližnje">
+					description = <"Slabo mnenje o sebi; občutek, da sem neuspešen/a in da sem razočaral/a sebe ali bližnje.">
+				>
+				["at0010"] = <
+					text = <"Potrtost, depresivnost, obup">
+					description = <"Potrtost, depresivnost, obup.">
+				>
+				["at0011"] = <
+					text = <"Težko zaspim, spim slabo; ali spim prekomerno">
+					description = <"Težko zaspim, spim slabo; ali spim prekomerno.">
+				>
+				["at0012"] = <
+					text = <"Utrujenost in pomanjkanje energije">
+					description = <"Utrujenost in pomanjkanje energije.">
+				>
+				["at0013"] = <
+					text = <"Misli o tem, da bi bilo bolje, če bi bil mrtev ali da bi si nekaj hudega naredil">
+					description = <"Misli o tem, da bi bilo bolje, če bi bil mrtev ali da bi si nekaj hudega naredil.">
+				>
+				["at0014"] = <
+					text = <"Težave s koncentracijo pri stvareh, kot so branje časopisa ali gledanje televizije">
+					description = <"Težave s koncentracijo pri stvareh, kot so branje časopisa ali gledanje televizije">
+				>
+				["at0015"] = <
+					text = <"Tako upočasnjeno gibanje ali govor, da so drugi ljudje lahko to opazili. Ali nasprotno –  velika nervoza in nemir, kot da nimam obstanka">
+					description = <"Tako upočasnjeno gibanje ali govor, da so drugi ljudje lahko to opazili. Ali nasprotno –  velika nervoza in nemir, kot da nimam obstanka.">
+				>
+				["at0016"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0017"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0018"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0019"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0020"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0021"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0022"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0023"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0024"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0025"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0026"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0027"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0028"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0029"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0030"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0031"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0032"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0033"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0034"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0035"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0036"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0037"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0038"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0039"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0040"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0041"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0042"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0043"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0044"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0045"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0046"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0047"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+				["at0048"] = <
+					text = <"Sploh ne">
+					description = <"Sploh ne">
+				>
+				["at0049"] = <
+					text = <"Nekaj dni">
+					description = <"Nekaj dni">
+				>
+				["at0050"] = <
+					text = <"Več kot polovico dni">
+					description = <"Več kot polovico dni">
+				>
+				["at0051"] = <
+					text = <"Skoraj vsak dan">
+					description = <"Skoraj vsak dan">
+				>
+			>
+		>
+	>

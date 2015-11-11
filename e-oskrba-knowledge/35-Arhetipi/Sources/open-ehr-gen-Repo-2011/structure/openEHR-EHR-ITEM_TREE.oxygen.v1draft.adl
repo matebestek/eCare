@@ -1,0 +1,285 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Maru≈°iƒç Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ITEM_TREE.oxygen.v1draft
+
+concept
+	[at0000]	-- Gas therapy
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["name"] = <"Jasmin Buck, Sebastian Garde">
+				["organisation"] = <"University of Heidelberg, Central Queensland University">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["date"] = <"8/03/2007">
+		["email"] = <"sam.heard@oceaninformatics.biz">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Dokumentation des Ablauf und der Verabreichung einer Sauerstofftherapie.">
+			use = <"">
+			keywords = <"O2", "‹berdruck">
+			misuse = <"">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record orders and administration of oxygen therapy">
+			use = <"">
+			keywords = <"O2", "hyperbaric">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"Heather Leslie", ...>
+
+definition
+	ITEM_TREE[at0000] occurrences matches {0..*} matches {	-- Gas therapy
+		items cardinality matches {0..*; unordered} matches {
+			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Gas
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Means of delivery
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- Nasal canula
+							at0007, 	-- Mask
+							at0008, 	-- Ventilator
+							at0009, 	-- Enclosure
+							at0011]	-- Hyperbaric chamber
+						}
+					}
+				}
+			}
+			CLUSTER[at0004] occurrences matches {0..1} matches {	-- Amount
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Inspired oxygen
+						value matches {
+							DV_PROPORTION matches {
+								numerator matches {|>20.0|}
+								denominator matches {|100.0|}
+								type matches {2}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Flow rate
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::126]>
+								list = <
+									["1"] = <
+										units = <"l/m">
+										magnitude = <|>=0.0|>
+										precision = <|0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Partial pressure of oxygen
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::125]>
+								list = <
+									["1"] = <
+										units = <"bar">
+										magnitude = <|>=0.0|>
+										precision = <|1|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			ELEMENT[at0010] occurrences matches {0..1} matches {	-- Atmospheric pressure
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::125]>
+						list = <
+							["1"] = <
+								units = <"atm">
+								magnitude = <|>=0.0|>
+								precision = <|1|>
+							>
+							["2"] = <
+								units = <"bar">
+								magnitude = <|>=0.3|>
+								precision = <|1|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {	-- Duration of therapy
+				value matches {
+					DV_DURATION matches {
+						value matches {PYMWDTHMS}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["de"] = <
+			items = <
+				["at0000"] = <
+					description = <"Sauerstoffgabe">
+					text = <"Gastherapie">
+				>
+				["at0002"] = <
+					description = <"Der Sauerstoffanteil">
+					text = <"Zugef¸hrter Sauerstoff">
+				>
+				["at0003"] = <
+					description = <"Die Art der Zuf¸hrung">
+					text = <"Zuf¸hrungsart">
+				>
+				["at0004"] = <
+					description = <"Die gemessene Menge des zugef¸hrten oder verabreichten Sauerstoffs">
+					text = <"Menge">
+				>
+				["at0005"] = <
+					description = <"Die Durchflussgeschwindigkeit">
+					text = <"Durchflussgeschwindigkeit">
+				>
+				["at0006"] = <
+					description = <"nasale Beatmung per Kan¸le">
+					text = <"nasale Kan¸le">
+				>
+				["at0007"] = <
+					description = <"Beatmung per Gesichtsmaske">
+					text = <"Maske">
+				>
+				["at0008"] = <
+					description = <"Beatmung per Beatmungsger‰t">
+					text = <"Beatmungsger‰t">
+				>
+				["at0009"] = <
+					description = <"Sauerstoff in einer kontrollierten Umgebung">
+					text = <"Gondel">
+				>
+				["at0010"] = <
+					description = <"der Druck der Atmosph‰re">
+					text = <"Atmosph‰rendruck">
+				>
+				["at0011"] = <
+					description = <"Eine Druckausgleichskammer">
+					text = <"‹berdruckkammer">
+				>
+				["at0012"] = <
+					description = <"Der Partialdruck des verabreichten Sauerstoffs">
+					text = <"Partialdruck des Sauerstoffs">
+				>
+				["at0013"] = <
+					description = <"Die Dauer der Sauerstofftherapie">
+					text = <"Dauer der Therapie">
+				>
+				["at0014"] = <
+					description = <"verabreichtes Objekt z.B. Sauerstoff oder Stickstoffoxid usw.">
+					text = <"Gas">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					description = <"Oxygen administration">
+					text = <"Gas therapy">
+				>
+				["at0002"] = <
+					description = <"The percentage oxygen">
+					text = <"Inspired oxygen">
+				>
+				["at0003"] = <
+					description = <"The means of delivery">
+					text = <"Means of delivery">
+				>
+				["at0004"] = <
+					description = <"The quantified amount of oxygen delivered or inspired">
+					text = <"Amount">
+				>
+				["at0005"] = <
+					description = <"The flow rate">
+					text = <"Flow rate">
+				>
+				["at0006"] = <
+					description = <"Nasal inspiration via canula">
+					text = <"Nasal canula">
+				>
+				["at0007"] = <
+					description = <"Inspiration via a facial mask">
+					text = <"Mask">
+				>
+				["at0008"] = <
+					description = <"Inspiration via a ventilator">
+					text = <"Ventilator">
+				>
+				["at0009"] = <
+					description = <"Oxygen in a controlled environment">
+					text = <"Enclosure">
+				>
+				["at0010"] = <
+					description = <"The atmospheric pressure">
+					text = <"Atmospheric pressure">
+				>
+				["at0011"] = <
+					description = <"A pressurisation chamber">
+					text = <"Hyperbaric chamber">
+				>
+				["at0012"] = <
+					description = <"The partial pressure of inspired oxygen">
+					text = <"Partial pressure of oxygen">
+				>
+				["at0013"] = <
+					description = <"The duration of oxygen therapy">
+					text = <"Duration of therapy">
+				>
+				["at0014"] = <
+					description = <"Object of administration eg oxygen or nitrous oxide">
+					text = <"Gas">
+				>
+			>
+		>
+	>

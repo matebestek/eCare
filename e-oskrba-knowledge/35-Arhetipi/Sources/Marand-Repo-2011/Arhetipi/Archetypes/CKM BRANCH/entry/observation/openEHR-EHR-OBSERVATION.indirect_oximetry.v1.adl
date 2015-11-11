@@ -1,0 +1,800 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.indirect_oximetry.v1
+
+concept
+	[at0000]	-- Posredna oksimetria
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["organisation"] = <"University of Heidelberg, Central Queensland University">
+				["name"] = <"Jasmin Buck, Sebastian Garde">
+			>
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"Ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"26/01/2010">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Dokumentation der Sauerstoffsättigung im Blut unter Benutzung eines Pulsoxymeters.">
+			use = <"*">
+			keywords = <"Sauerstoff", "Behandlung mit Sauerstoff", "Pulsoxymeter", "Pulsoxymetrie">
+			misuse = <"*">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*To record indirect, currently non-invasive, blood gas measurements, such as Spo2 and pTCO2, via pulse oximetry, transcutaneous oximetry or other methods.
+
+It is likely that this archetype will be used primarily to record oxygenation estimations, but other gas measurements may be included, or added over time.(en)">
+			use = <"*Used to record indirect blood gas measurement, currently by non-invasive techniques. New indirect blood gas measurements should be added to this archetype.
+
+Where the recording device also provides another type of measurement, such as pulse rate, this should be recorded in a separate archetype, appropriate for that particular measurement e.g. the OBSERVATION.heart_rate-pulse archetype, to allow consistent querying. 
+
+The aim is to consistently model a clinical concept, rather than to model device output ; devices are increasingly multi-functional and provide overlapping measurements which may need to be recorded using a number of discrete archetypes.
+
+Waveforms should be recorded here when used to document quality of the blood gas measurement. In contrast, if used for primary diagnostic purposes e.g. of cardiac output, plesmythography should be recorded in the key associated clinical archetype - OBSERVATION.heart_rate-pulse.(en)">
+			keywords = <"*oxygen(en)", "*oxygenation(en)", "*saturation(en)", "*SpO2(en)", "*ptcCO2(en)", "*ptcO2(en)", "*spMet(en)", "*spCO(en)", "*spOC(en)", "*carboxyhaemoglobin(en)", "*methaemoglobin(en)", "*transcutaneous(en)", "*pulse(en)", "*oximeter(en)", "*oximetry(en)", "*concentration(en)", "*partial(en)", "*pressure(en)", "*non-invasive(en)", "*vital(en)", "*O2(en)", "*CO2(en)", "*carbon dioxide(en)">
+			misuse = <"*Any blood gas measurement that involves direct contact with blood, and measuring PaO2, PaCO2 should not be recorded using this archetype - Use OBSERVATION.lab_test-blood_gases archetype. New direct blood gas measurements should be added to OBSERVATION.lab_test-blood_gases.v1.
+
+NOT to be used to record direct blood gas measurement e.g arterial (SaO2), venous (SvO2) oxygen saturation or Oxygen content (CaOC) usually determined by invasive methods e.g. lab blood gases or vascular catheter devices. These should be recorded within the OBSERVATION.lab_test-blood_gases archetype.(en)">
+			copyright = <"">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record indirect, currently non-invasive, blood gas measurements, such as Spo2 and pTCO2, via pulse oximetry, transcutaneous oximetry or other methods.
+
+It is likely that this archetype will be used primarily to record oxygenation estimations, but other gas measurements may be included, or added over time.">
+			use = <"Used to record indirect blood gas measurement, currently by non-invasive techniques. New indirect blood gas measurements should be added to this archetype.
+
+Where the recording device also provides another type of measurement, such as pulse rate, this should be recorded in a separate archetype, appropriate for that particular measurement e.g. the OBSERVATION.heart_rate-pulse archetype, to allow consistent querying. 
+
+The aim is to consistently model a clinical concept, rather than to model device output ; devices are increasingly multi-functional and provide overlapping measurements which may need to be recorded using a number of discrete archetypes.
+
+Waveforms should be recorded here when used to document quality of the blood gas measurement. In contrast, if used for primary diagnostic purposes e.g. of cardiac output, plesmythography should be recorded in the key associated clinical archetype - OBSERVATION.heart_rate-pulse.">
+			keywords = <"oxygen", "oxygenation", "saturation", "SpO2", "ptcCO2", "ptcO2", "spMet", "spCO", "spOC", "carboxyhaemoglobin", "methaemoglobin", "transcutaneous", "pulse", "oximeter", "oximetry", "concentration", "partial", "pressure", "non-invasive", "vital", "O2", "CO2", "carbon dioxide">
+			misuse = <"Any blood gas measurement that involves direct contact with blood, and measuring PaO2, PaCO2 should not be recorded using this archetype - Use OBSERVATION.lab_test-blood_gases archetype. New direct blood gas measurements should be added to OBSERVATION.lab_test-blood_gases.v1.
+
+NOT to be used to record direct blood gas measurement e.g arterial (SaO2), venous (SvO2) oxygen saturation or Oxygen content (CaOC) usually determined by invasive methods e.g. lab blood gases or vascular catheter devices. These should be recorded within the OBSERVATION.lab_test-blood_gases archetype.">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"Published">
+	other_contributors = <"Marja Buur, Medisch Centrum Alkmaar, Netherlands", "Sergio Carmona, Chile", "Stephen Chu, NeHTA, Australia", "Tamsin Cockayne, Australia", "Ed Conley, Cardiff University", "Graham Denyer, Australian Antarctic Division, Australia", "Paul Donaldson, Nursing Informatics Australia, Australia", "Shahla Foozonkhah, Ocean Informatics, Australia", "Sebastian Garde, Ocean Informatics, Germany (Editor)", "Sam Heard, Ocean Informatics, Australia", "Karsten Heusser, Hannover Medical School, Germany", "Omer Hotomaroglu, Turkey (Editor)", "Evelyn Hovenga, EJSH Consulting, Australia", "Pieter Hummel, Medisch Centrum Alkmaar, Netherlands", "Eugene Igras, IRIS Systems, Inc., Canada", "Sundaresan Jagannathan, Scottish NHS, United Kingdom", "Gorazd Kalan, University Medical Centre Ljubljana, Slovenia", "Heather Leslie, Ocean Informatics, Australia (Editor)", "Rikard Lovstrom, Swedish Medical Association, Sweden", "Ian McNicoll, Ocean Informatics, United Kingdom (Editor)", "Jeroen Meintjens, Medisch Centrum Alkmaar, Netherlands", "Udo Müller, CompuGROUP Software, Germany", "Andrej Orel, Marand d.o.o., Slovenia", "Arturo Romero, SESCAM, Spain", "Tony Shannon, NHS, United Kingdom">
+	other_details = <
+		["references"] = <"AARC Clinical Practice Guideline - Pulse Oximetry. Respir Care 1992;37(8):891–897,[cited 2010 Jan 31 ]
+Available from http://www.rcjournal.com/cpgs/pulsecpg.html
+
+Jubran A. Pulse oximetry [Internet]. Critical Care 1999;3(2):R11-R17.[cited 2009 Oct 29 ] 
+Available from: http://ccforum.com
+
+Hanning CD, Alexander-Williams JM. Fortnightly Review: Pulse oximetry: a practical review [Internet]. BMJ 1995 Aug;311(7001):367-370.[cited 2009 Nov 9 ]
+Available from: http://www.bmj.com/cgi/content/abstract/311/7001/367
+
+Baldwin KM. Transcutaneous Oximetry and Skin Surface Temperature as Objective Measures of Pressure Ulcer Risk [Internet]. Advances in Skin & Wound Care 2001;14(1) [cited 2010 Jan 31 ]
+Available from: http://journals.lww.com/aswcjournal/Fulltext/2001/01000/Transcutaneous_Oximetry_and_Skin_Surface.14.aspx
+
+Barker SJ, Badal JJ. The measurement of dyshemoglobins and total hemoglobin by pulse oximetry [Internet]. Current Opinion in Anaesthesiology 2008;21(6):805-810.[cited 2010 Jan 12 ]
+Available from: http://journals.lww.com/co-anesthesiology/Abstract/2008/12000/The_measurement_of_dyshemoglobins_and_total.20.aspx">
+		["MD5-CAM-1.0.1"] = <"8DE9D2663835348FACC3A2AC513D9D22">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Posredna oksimetria
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- SaO2
+										value matches {
+											DV_PROPORTION matches {*}
+										}
+									}
+									ELEMENT[at0058] occurrences matches {0..*} matches {	-- Lokacija meritve SaO2
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0059, 	-- Prst leve roke
+													at0060, 	-- Prst desne roke
+													at0061, 	-- Prst leve noge
+													at0062, 	-- Prst desne noge
+													at0063, 	-- Dlan leve roke
+													at0064, 	-- Dlan desne roke
+													at0065, 	-- Leva noga
+													at0066, 	-- Desna noga
+													at0067, 	-- Levi uhelj
+													at0068, 	-- Desni uhelj
+													at0069]	-- Čelo
+												}
+											}
+										}
+									}
+									ELEMENT[at0044] occurrences matches {0..1} matches {	-- *spOC(en)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"ml/ml">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0045] occurrences matches {0..1} matches {	-- *spCO(en)
+										value matches {
+											DV_PROPORTION matches {*}
+										}
+									}
+									ELEMENT[at0046] occurrences matches {0..1} matches {	-- *spMet(en)
+										value matches {
+											DV_PROPORTION matches {*}
+										}
+									}
+									ELEMENT[at0039] occurrences matches {0..1} matches {	-- tcpO2
+										value matches {
+											DV_PROPORTION matches {*}
+											C_DV_QUANTITY <
+												property = <[openehr::125]>
+												list = <
+													["1"] = <
+														units = <"kPa">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0040] occurrences matches {0..1} matches {	-- tcpCO2
+										value matches {
+											DV_PROPORTION matches {*}
+											C_DV_QUANTITY <
+												property = <[openehr::125]>
+												list = <
+													["1"] = <
+														units = <"kPa">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									allow_archetype CLUSTER[at0054] occurrences matches {0..*} matches {	-- *Waveform(en)
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.waveform(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0019] occurrences matches {0..*} matches {	-- *Multimedia image(en)
+										value matches {
+											DV_MULTIMEDIA matches {
+												media_type matches {[openEHR::]}
+											}
+										}
+									}
+									ELEMENT[at0036] occurrences matches {0..1} matches {	-- Opombe
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0014] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER[at0034] occurrences matches {0..1} matches {	-- Napor
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.level_of_exertion(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									allow_archetype CLUSTER[at0015] occurrences matches {0..1} matches {	-- FiO2
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.ambient_oxygen(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0016] occurrences matches {0..*} matches {	-- *Confounding factors(en)
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0007] matches {	-- *List(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- *Sensor site(en)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Vrsta senzorja
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0048, 	-- *Transmittal(en)
+									at0049, 	-- *Reflective(en)
+									at0050, 	-- *Clamp(en)
+									at0051, 	-- *Strip(en)
+									at0052]	-- *Electrode(en)
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- *Electrode operating temperature(en)
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::127]>
+								list = <
+									["1"] = <
+										units = <"°C">
+										magnitude = <|0.0..100.0|>
+										precision = <|1|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0038] occurrences matches {0..1} matches {	-- *Time of sensor application(en)
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0018] occurrences matches {0..1} matches {	-- Naprava
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", "LOINC">
+	term_definitions = <
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Oximetry(en)">
+					description = <"*Method of monitoring blood gas measurements such as Spo2 and pTCO2 by indirect, currently non-invasive, means.(en)">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Timing event.(en)">
+				>
+				["at0003"] = <
+					text = <"Baum">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					comment = <"*SpO2 is defined as the ratio of oxyhaemoglobin (HbO2) to the total concentration of haemoglobin (HbO2 + deoxyhaemoglobin).(en)">
+					text = <"*spO2(en)">
+					description = <"*Measured via pulse oximetry, the saturation of oxygen in the peripheral blood.(en)">
+				>
+				["at0007"] = <
+					text = <"Liste">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"*Sensor site(en)">
+					description = <"*The site of the measurement sensor.(en)">
+				>
+				["at0014"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0015"] = <
+					text = <"*Ambient oxygen(en)">
+					description = <"*Details of the amount of oxygen being delivered to the subject at the time of observation.  Assumed values of 21% oxygen concentration, Fi02 of 0.21 and oxygen flow rate of 0 l/min or 0 ml/min.(en)">
+				>
+				["at0016"] = <
+					text = <"*Confounding factors(en)">
+					description = <"*Comment on and record other incidental factors that may be affect interpretation of the observation. For example, motion, pain, feeding in infants, tracheostomy.(en)">
+				>
+				["at0018"] = <
+					text = <"*Device(en)">
+					description = <"*Details of the non-invasive oximetry device used.(en)">
+				>
+				["at0019"] = <
+					text = <"*Multimedia image(en)">
+					description = <"*Details of a series of oximetry readings, other than waveforms, expressed as a multimedia image or series of images. Waveforms should be recorded using the Waveform slot and associated cluster archetype.(en)">
+				>
+				["at0020"] = <
+					text = <"*Sensor type(en)">
+					description = <"*The type of measurement sensor used e.g. transmittal, reflective, clamp or strip, electrode.(en)">
+				>
+				["at0034"] = <
+					text = <"*Exertion(en)">
+					description = <"*Details about physical activity undertaken at the time of measurement.(en)">
+				>
+				["at0036"] = <
+					text = <"*Comment(en)">
+					description = <"*A text comment about the indirect oximetry result.(en)">
+				>
+				["at0037"] = <
+					text = <"*Electrode operating temperature(en)">
+					description = <"*The operating temperature of a transcutaneous oximeter electrode.(en)">
+				>
+				["at0038"] = <
+					text = <"*Time of sensor application(en)">
+					description = <"*The date and time at which the sensor was applied. Important for transcutaneous oximetry.(en)">
+				>
+				["at0039"] = <
+					text = <"*ptcO2(en)">
+					description = <"*Measured via transcutaneous electrode oximetry, the partial pressure of oxygen in the peripheral blood.(en)">
+				>
+				["at0040"] = <
+					text = <"*ptcCO2(en)">
+					description = <"*Measured via transcutaneous electrode oximetry, the partial pressure of carbon dioxide in the peripheral blood.(en)">
+				>
+				["at0044"] = <
+					text = <"*spOC(en)">
+					description = <"*Measured via pulse CO-oximetry, the oxygen content of the peripheral blood.(en)">
+				>
+				["at0045"] = <
+					text = <"*spCO(en)">
+					description = <"*Measured via pulse CO-oximetry, the saturation of carboxyhaemoglobin in the perpiheral blood.(en)">
+				>
+				["at0046"] = <
+					text = <"*spMet(en)">
+					description = <"*Measured via pulse CO-oximetry, the saturation of methoxyhaemoglobin in the peripheral blood.(en)">
+				>
+				["at0048"] = <
+					text = <"*Transmittal(en)">
+					description = <"*A pulse oximetry transmittal sensor was applied.(en)">
+				>
+				["at0049"] = <
+					text = <"*Reflective(en)">
+					description = <"*A pulse oximetry reflective sensor was applied.(en)">
+				>
+				["at0050"] = <
+					text = <"*Clamp(en)">
+					description = <"*A pulse oximetry clamp sensor was applied.(en)">
+				>
+				["at0051"] = <
+					text = <"*Strip(en)">
+					description = <"*A pulse oximetry strip sensor was applied.(en)">
+				>
+				["at0052"] = <
+					text = <"*Electrode(en)">
+					description = <"*A transcutaneous electrode sensor was applied.(en)">
+				>
+				["at0054"] = <
+					text = <"*Waveform(en)">
+					description = <"*A waveform reading associated with the oximetry measurement.(en)">
+				>
+				["at0058"] = <
+					text = <"*Location of measurement SaO2(en)">
+					description = <"*Location of measurement SaO2(en)">
+				>
+				["at0059"] = <
+					text = <"*Fingers of left arm(en)">
+					description = <"*The SaO2 is measured in fingers of left arm(en)">
+				>
+				["at0060"] = <
+					text = <"*Fingers of right arm(en)">
+					description = <"*The SaO2 is measured in fingers of right arm(en)">
+				>
+				["at0061"] = <
+					text = <"*Toes of left leg(en)">
+					description = <"*The SaO2 is measured on toes of left leg(en)">
+				>
+				["at0062"] = <
+					text = <"*Toes of right leg(en)">
+					description = <"*The SaO2 is measured on toes of right leg(en)">
+				>
+				["at0063"] = <
+					text = <"*Palm of left arm(en)">
+					description = <"*The SaO2 is measured on palm of left arm(en)">
+				>
+				["at0064"] = <
+					text = <"*Palm of right arm(en)">
+					description = <"*The SaO2 is measured on palm of right arm(en)">
+				>
+				["at0065"] = <
+					text = <"*Left leg(en)">
+					description = <"*The SaO2 is measured on left leg(en)">
+				>
+				["at0066"] = <
+					text = <"*Right leg(en)">
+					description = <"*The SaO2 is measured on right leg(en)">
+				>
+				["at0067"] = <
+					text = <"*Left pinna(en)">
+					description = <"*SaO2 is measured on left pinna(en)">
+				>
+				["at0068"] = <
+					text = <"*Right pinna(en)">
+					description = <"*SaO2 is measured on right pinna(en)">
+				>
+				["at0069"] = <
+					text = <"*Forehead(en)">
+					description = <"*SaO2 is measured on forehead(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Posredna oksimetria">
+					description = <"Metoda merjenja prisotnosti plnov kot so Spo2 in TCO2 na indirekten, posreden n-invazivni način">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Timing event.(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0006"] = <
+					description = <"Saturacija kisika v krvi izmerjena s pulzno oksimetrijo.">
+					text = <"SaO2">
+					comment = <"*SpO2 is defined as the ratio of oxyhaemoglobin (HbO2) to the total concentration of haemoglobin (HbO2 + deoxyhaemoglobin).(en)">
+				>
+				["at0007"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0009"] = <
+					text = <"*Sensor site(en)">
+					description = <"*The site of the measurement sensor.(en)">
+				>
+				["at0014"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0015"] = <
+					text = <"FiO2">
+					description = <"Delež kisika v vdihanem zraku.">
+				>
+				["at0016"] = <
+					text = <"*Confounding factors(en)">
+					description = <"*Comment on and record other incidental factors that may be affect interpretation of the observation. For example, motion, pain, poor perfusion, infant feeding.(en)">
+				>
+				["at0018"] = <
+					text = <"Naprava">
+					description = <"Naprava za neinvazivno oksimetrijo">
+				>
+				["at0019"] = <
+					text = <"*Multimedia image(en)">
+					description = <"*Details of a series of oximetry readings, other than waveforms, expressed as a multimedia image or series of images. Waveforms should be recorded using the Waveform slot and associated cluster archetype.(en)">
+				>
+				["at0020"] = <
+					text = <"Vrsta senzorja">
+					description = <"*The type of measurement sensor used e.g. transmittal, reflective, clamp or strip, electrode.(en)">
+				>
+				["at0034"] = <
+					text = <"Napor">
+					description = <"*Details about physical activity undertaken at the time of measurement.(en)">
+				>
+				["at0036"] = <
+					text = <"Opombe">
+					description = <"*A text comment about the indirect oximetry result.(en)">
+				>
+				["at0037"] = <
+					text = <"*Electrode operating temperature(en)">
+					description = <"*The operating temperature of a transcutaneous oximeter electrode.(en)">
+				>
+				["at0038"] = <
+					text = <"*Time of sensor application(en)">
+					description = <"*The date and time at which the sensor was applied. Significant for transcutaneous oximetry.(en)">
+				>
+				["at0039"] = <
+					text = <"tcpO2">
+					description = <"Transkutani parcialni pritisk kisika v kapilarah.">
+				>
+				["at0040"] = <
+					text = <"tcpCO2">
+					description = <"Transkutani parcialni pritisk ogljikovega dioksida v kapilarah.">
+				>
+				["at0044"] = <
+					text = <"*spOC(en)">
+					description = <"*Measured via pulse CO-oximetry, the oxygen content of the peripheral blood.(en)">
+				>
+				["at0045"] = <
+					text = <"*spCO(en)">
+					description = <"*Measured via pulse CO-oximetry, the saturation of carboxyhaemoglobin in the perpiheral blood.(en)">
+				>
+				["at0046"] = <
+					text = <"*spMet(en)">
+					description = <"*Measured via pulse CO-oximetry, the saturation of methoxyhaemoglobin in the peripheral blood.(en)">
+				>
+				["at0048"] = <
+					text = <"*Transmittal(en)">
+					description = <"*A pulse oximetry transmittal sensor was applied.(en)">
+				>
+				["at0049"] = <
+					text = <"*Reflective(en)">
+					description = <"*A pulse oximetry reflective sensor was applied.(en)">
+				>
+				["at0050"] = <
+					text = <"*Clamp(en)">
+					description = <"*A pulse oximetry clamp sensor was applied.(en)">
+				>
+				["at0051"] = <
+					text = <"*Strip(en)">
+					description = <"*A pulse oximetry strip sensor was applied.(en)">
+				>
+				["at0052"] = <
+					text = <"*Electrode(en)">
+					description = <"*A transcutaneous electrode sensor was applied.(en)">
+				>
+				["at0054"] = <
+					text = <"*Waveform(en)">
+					description = <"*A waveform reading associated with the oximetry measurement.(en)">
+				>
+				["at0058"] = <
+					text = <"Lokacija meritve SaO2">
+					description = <"Lokacija meritve SaO2">
+				>
+				["at0059"] = <
+					text = <"Prst leve roke">
+					description = <"SaO2 je izmerjen na prstih leve roke">
+				>
+				["at0060"] = <
+					text = <"Prst desne roke">
+					description = <"SaO2 je izmerjen na prstih desne roke">
+				>
+				["at0061"] = <
+					text = <"Prst leve noge">
+					description = <"SaO2 je izmerjen na prstih leve noge">
+				>
+				["at0062"] = <
+					text = <"Prst desne noge">
+					description = <"SaO2 je izmerjen na prstih desne noge">
+				>
+				["at0063"] = <
+					text = <"Dlan leve roke">
+					description = <"SaO2 je izmerjen na dlani leve roke">
+				>
+				["at0064"] = <
+					text = <"Dlan desne roke">
+					description = <"SaO2 je izmerjen na dlani desne roke">
+				>
+				["at0065"] = <
+					text = <"Leva noga">
+					description = <"SaO2 je izmerjen na levi nogi">
+				>
+				["at0066"] = <
+					text = <"Desna noga">
+					description = <"SaO2 je izmerjen na desni nogi">
+				>
+				["at0067"] = <
+					text = <"Levi uhelj">
+					description = <"SaO2 je izmerjen na levem uhlju">
+				>
+				["at0068"] = <
+					text = <"Desni uhelj">
+					description = <"SaO2 je izmerjen na desnem uhlju">
+				>
+				["at0069"] = <
+					text = <"Čelo">
+					description = <"SaO2 je izmerjen na čelu">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Indirect oximetry">
+					description = <"Method of monitoring blood gas measurements such as Spo2 and pTCO2 by indirect, currently non-invasive, means.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Timing event.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					description = <"Measured via pulse oximetry, the saturation of oxygen in the peripheral blood.">
+					text = <"spO2">
+					comment = <"SpO2 is defined as the ratio of oxyhaemoglobin (HbO2) to the total concentration of haemoglobin (HbO2 + deoxyhaemoglobin).">
+				>
+				["at0007"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Sensor site">
+					description = <"The site of the measurement sensor.">
+				>
+				["at0014"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0015"] = <
+					text = <"Ambient oxygen">
+					description = <"Details of the amount of oxygen available to the subject at the time of observation.  Assumed values of 21% oxygen concentration, Fi02 of 0.21 and oxygen flow rate of 0 l/min or 0 ml/min.">
+				>
+				["at0016"] = <
+					text = <"Confounding factors">
+					description = <"Comment on and record other incidental factors that may be affect interpretation of the observation. For example, motion, pain, poor perfusion, infant feeding.">
+				>
+				["at0018"] = <
+					text = <"Device">
+					description = <"Details of the non-invasive oximetry device used.">
+				>
+				["at0019"] = <
+					text = <"Multimedia image">
+					description = <"Details of a series of oximetry readings, other than waveforms, expressed as a multimedia image or series of images. Waveforms should be recorded using the Waveform slot and associated cluster archetype.">
+				>
+				["at0020"] = <
+					text = <"Sensor type">
+					description = <"The type of measurement sensor used e.g. transmittal, reflective, clamp or strip, electrode.">
+				>
+				["at0034"] = <
+					text = <"Exertion">
+					description = <"Details about physical activity undertaken at the time of measurement.">
+				>
+				["at0036"] = <
+					text = <"Comment">
+					description = <"A text comment about the indirect oximetry result.">
+				>
+				["at0037"] = <
+					text = <"Electrode operating temperature">
+					description = <"The operating temperature of a transcutaneous oximeter electrode.">
+				>
+				["at0038"] = <
+					text = <"Time of sensor application">
+					description = <"The date and time at which the sensor was applied. Significant for transcutaneous oximetry.">
+				>
+				["at0039"] = <
+					text = <"ptcO2">
+					description = <"Measured via transcutaneous electrode oximetry, the partial pressure of oxygen in the peripheral blood.">
+				>
+				["at0040"] = <
+					text = <"ptcCO2">
+					description = <"Measured via transcutaneous electrode oximetry, the partial pressure of carbon dioxide in the peripheral blood.">
+				>
+				["at0044"] = <
+					text = <"spOC">
+					description = <"Measured via pulse CO-oximetry, the oxygen content of the peripheral blood.">
+				>
+				["at0045"] = <
+					text = <"spCO">
+					description = <"Measured via pulse CO-oximetry, the saturation of carboxyhaemoglobin in the perpiheral blood.">
+				>
+				["at0046"] = <
+					text = <"spMet">
+					description = <"Measured via pulse CO-oximetry, the saturation of methoxyhaemoglobin in the peripheral blood.">
+				>
+				["at0048"] = <
+					text = <"Transmittal">
+					description = <"A pulse oximetry transmittal sensor was applied.">
+				>
+				["at0049"] = <
+					text = <"Reflective">
+					description = <"A pulse oximetry reflective sensor was applied.">
+				>
+				["at0050"] = <
+					text = <"Clamp">
+					description = <"A pulse oximetry clamp sensor was applied.">
+				>
+				["at0051"] = <
+					text = <"Strip">
+					description = <"A pulse oximetry strip sensor was applied.">
+				>
+				["at0052"] = <
+					text = <"Electrode">
+					description = <"A transcutaneous electrode sensor was applied.">
+				>
+				["at0054"] = <
+					text = <"Waveform">
+					description = <"A waveform reading associated with the oximetry measurement.">
+				>
+				["at0058"] = <
+					text = <"Location of measurement SaO2">
+					description = <"Location of measurement SaO2">
+				>
+				["at0059"] = <
+					text = <"Fingers of left arm">
+					description = <"The SaO2 is measured in fingers of left arm">
+				>
+				["at0060"] = <
+					text = <"Fingers of right arm">
+					description = <"The SaO2 is measured in fingers of right arm">
+				>
+				["at0061"] = <
+					text = <"Toes of left leg">
+					description = <"The SaO2 is measured on toes of left leg">
+				>
+				["at0062"] = <
+					text = <"Toes of right leg">
+					description = <"The SaO2 is measured on toes of right leg">
+				>
+				["at0063"] = <
+					text = <"Palm of left arm">
+					description = <"The SaO2 is measured on palm of left arm">
+				>
+				["at0064"] = <
+					text = <"Palm of right arm">
+					description = <"The SaO2 is measured on palm of right arm">
+				>
+				["at0065"] = <
+					text = <"Left leg">
+					description = <"The SaO2 is measured on left leg">
+				>
+				["at0066"] = <
+					text = <"Right leg">
+					description = <"The SaO2 is measured on right leg">
+				>
+				["at0067"] = <
+					text = <"Left pinna">
+					description = <"SaO2 is measured on left pinna">
+				>
+				["at0068"] = <
+					text = <"Right pinna">
+					description = <"SaO2 is measured on right pinna">
+				>
+				["at0069"] = <
+					text = <"Forehead">
+					description = <"SaO2 is measured on forehead">
+				>
+			>
+		>
+	>

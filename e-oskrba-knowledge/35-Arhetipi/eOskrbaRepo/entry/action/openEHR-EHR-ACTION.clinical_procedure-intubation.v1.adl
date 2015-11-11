@@ -1,0 +1,629 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ACTION.clinical_procedure-intubation.v1
+specialize
+	openEHR-EHR-ACTION.clinical_procedure.v1
+
+concept
+	[at0000.1]	-- Endotracheal intubation
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"03/12/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"2F010A62826BC92D1A51CA8A49B1F233">
+	>
+
+definition
+	ACTION[at0000.1] matches {	-- Endotracheal intubation
+		description matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] matches {	-- Procedure
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0029] occurrences matches {0..1} matches {	-- Reasons for procedure
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0014] occurrences matches {0..*} matches {	-- Reason for procedure
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.34] occurrences matches {0..1} matches {	-- Preparations
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.35] occurrences matches {0..*} matches {	-- Preparation
+								value matches {
+									DV_TEXT matches {*}
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.36, 	-- Cervical spine immobilised
+											at0.37, 	-- Monitoring used
+											at0.38, 	-- Pre-oxygenation
+											at0.39]	-- Cricoid pressure applied
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.40] occurrences matches {0..1} matches {	-- Preparatory medications
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.41] occurrences matches {0..*} matches {	-- Preparatory medication
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.51] occurrences matches {0..*} matches {	-- Record of preparatory medication
+								value matches {
+									DV_EHR_URI matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.42] occurrences matches {0..1} matches {	-- During procedure
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.43] occurrences matches {0..1} matches {	-- Laryngoscope blade
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.44] occurrences matches {0..1} matches {	-- Laryngoscope size
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.45] occurrences matches {0..1} matches {	-- Stylet details
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0.46] occurrences matches {0..1} matches {	-- Tube details
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.catheter_tube_device(-[a-zA-Z0-9_]+)*\.v1/}
+								exclude
+									archetype_id/value matches {/.*/}
+							}
+							CLUSTER[at0.47] occurrences matches {0..1} matches {	-- Confirmations of placement
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0.48] occurrences matches {0..*} matches {	-- Confrmation of placement
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.49, 	-- Breath sounds audible
+													at0.50]	-- Cord structure visualised
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {	-- Procedure details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0.61] occurrences matches {0..1} matches {	-- Number of times blade inserted
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {*}
+							}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Failed attempts
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {*}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Procedure unsuccessful
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True}
+							}
+						}
+					}
+					CLUSTER[at0.62] occurrences matches {0..1} matches {	-- Reasons for unsuccessful insertion
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.63] occurrences matches {0..*} matches {	-- Reason for unsuccessful insertion
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.64, 	-- Inadequate relaxation
+											at0.65, 	-- Fluid / secretions in the airway
+											at0.66, 	-- Cords not visualised
+											at0.67]	-- Oesophageal intubation
+										}
+									}
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0016] occurrences matches {0..1} matches {	-- Unplanned events
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0015] occurrences matches {0..*} matches {	-- Unplanned event
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0033] occurrences matches {0..*} matches {	-- Record of unplanned event
+								value matches {
+									DV_URI matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0027] occurrences matches {0..1} matches {	-- Complications
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0006] occurrences matches {0..*} matches {	-- Complication
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0006.1] occurrences matches {0..*} matches {	-- ET insertion complication
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.52, 	-- Broken teeth
+											at0.53, 	-- Lost teeth
+											at0.54, 	-- Vomiting
+											at0.55, 	-- Aspiration
+											at0.56, 	-- Bleeding
+											at0.57, 	-- Bruising
+											at0.58, 	-- Hypoxia
+											at0.59, 	-- Bradycardia
+											at0.60]	-- Hypotension
+										}
+									}
+								}
+							}
+							ELEMENT[at0028] occurrences matches {0..*} matches {	-- Record of complication
+								value matches {
+									DV_EHR_URI matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Comments
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0.68] occurrences matches {0..1} matches {	-- Post-procedure
+						items cardinality matches {1..*; unordered} matches {
+							CLUSTER[at0.69] occurrences matches {0..1} matches {	-- Formal confirmations of placement
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0.70] occurrences matches {0..*} matches {	-- Formal confirmation of placement
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.72, 	-- Chest X-ray
+													at0.73, 	-- ET CO2
+													at0.74]	-- Blood gases
+												}
+											}
+										}
+									}
+									ELEMENT[at0.71] occurrences matches {0..*} matches {	-- Record of formal confirmation
+										value matches {
+											DV_EHR_URI matches {*}
+										}
+									}
+								}
+							}
+							ELEMENT[at0.78] occurrences matches {0..1} matches {	-- Evidence of aspiration
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.79, 	-- Evidence of aspiration is present
+											at0.80]	-- Evidence of aspiration is absent
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0030] occurrences matches {0..1} matches {	-- Additional tasks
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0031] occurrences matches {0..*} matches {	-- Additional task
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.76, 	-- Insertion of gastric tube
+											at0.77]	-- Ongoing sedation plan
+										}
+									}
+								}
+							}
+							ELEMENT[at0032] occurrences matches {0..*} matches {	-- Record of additional task
+								value matches {
+									DV_EHR_URI matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..*} matches {	-- Image
+						value matches {
+							DV_MULTIMEDIA matches {
+								media_type matches {[openEHR::]}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Filler Order identification
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Placer Order identification
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.34"] = <
+					text = <"Preparations">
+					description = <"*">
+				>
+				["at0.35"] = <
+					text = <"Preparation">
+					description = <"Preparation steps taken prior to intubation.">
+				>
+				["at0.36"] = <
+					text = <"Cervical spine immobilised">
+					description = <"The cervical spine was immobilised.">
+				>
+				["at0.37"] = <
+					text = <"Monitoring used">
+					description = <"The patient was monitored during preparation.">
+				>
+				["at0.38"] = <
+					text = <"Pre-oxygenation">
+					description = <"The subject was pre-oxygenated.">
+				>
+				["at0.39"] = <
+					text = <"Cricoid pressure applied">
+					description = <"Cricoid pressure was applied.">
+				>
+				["at0.40"] = <
+					text = <"Preparatory medications">
+					description = <"Details of any preparatory medications used.">
+				>
+				["at0.41"] = <
+					text = <"Preparatory medication">
+					description = <"Details of a prepatory medication, May be a simple text description or a a link to the actual medication record.">
+				>
+				["at0.42"] = <
+					text = <"During procedure">
+					description = <"*">
+				>
+				["at0.43"] = <
+					text = <"Laryngoscope blade">
+					description = <"The laryngoscope blade used.">
+				>
+				["at0.44"] = <
+					text = <"Laryngoscope size">
+					description = <"The size of laryngoscope used.">
+				>
+				["at0.45"] = <
+					text = <"Stylet details">
+					description = <"Details of any stylet used.">
+				>
+				["at0.46"] = <
+					text = <"Tube details">
+					description = <"Details of the endotracheal tube used.">
+				>
+				["at0.47"] = <
+					text = <"Confirmations of placement">
+					description = <"Physical examination conformations of placement.">
+				>
+				["at0.48"] = <
+					text = <"Confrmation of placement">
+					description = <"Single physical confirmation of tube placement.">
+				>
+				["at0.49"] = <
+					text = <"Breath sounds audible">
+					description = <"*">
+				>
+				["at0.50"] = <
+					text = <"Cord structure visualised">
+					description = <"*">
+				>
+				["at0.51"] = <
+					text = <"Record of preparatory medication">
+					description = <"Link to a record of medication delivered.">
+				>
+				["at0.52"] = <
+					text = <"Broken teeth">
+					description = <"*">
+				>
+				["at0.53"] = <
+					text = <"Lost teeth">
+					description = <"*">
+				>
+				["at0.54"] = <
+					text = <"Vomiting">
+					description = <"*">
+				>
+				["at0.55"] = <
+					text = <"Aspiration">
+					description = <"*">
+				>
+				["at0.56"] = <
+					text = <"Bleeding">
+					description = <"*">
+				>
+				["at0.57"] = <
+					text = <"Bruising">
+					description = <"*">
+				>
+				["at0.58"] = <
+					text = <"Hypoxia">
+					description = <"*">
+				>
+				["at0.59"] = <
+					text = <"Bradycardia">
+					description = <"*">
+				>
+				["at0.60"] = <
+					text = <"Hypotension">
+					description = <"*">
+				>
+				["at0.61"] = <
+					text = <"Number of times blade inserted">
+					description = <"The number of times the laryngoscopic blade was inserted without a definite attempt to pass the tube.">
+				>
+				["at0.62"] = <
+					text = <"Reasons for unsuccessful insertion">
+					description = <"*">
+				>
+				["at0.63"] = <
+					text = <"Reason for unsuccessful insertion">
+					description = <"A reason for the unsuccesful insertion of the endotracheal tube.">
+				>
+				["at0.64"] = <
+					text = <"Inadequate relaxation">
+					description = <"*">
+				>
+				["at0.65"] = <
+					text = <"Fluid / secretions in the airway">
+					description = <"*">
+				>
+				["at0.66"] = <
+					text = <"Cords not visualised">
+					description = <"*">
+				>
+				["at0.67"] = <
+					text = <"Oesophageal intubation">
+					description = <"*">
+				>
+				["at0.68"] = <
+					text = <"Post-procedure">
+					description = <"*">
+				>
+				["at0.69"] = <
+					text = <"Formal confirmations of placement">
+					description = <"Details of formal confirmations of plkacment that have been prefromed and found adequate.">
+				>
+				["at0.70"] = <
+					text = <"Formal confirmation of placement">
+					description = <"Single confirmation of correct tube placement.">
+				>
+				["at0.71"] = <
+					text = <"Record of formal confirmation">
+					description = <"Link to a record of a single confirmation of correct tube placement.">
+				>
+				["at0.72"] = <
+					text = <"Chest X-ray">
+					description = <"A chest x-ray confirms tube placement.">
+				>
+				["at0.73"] = <
+					text = <"ET CO2">
+					description = <"Endotracheal CO2 conforms correct tube placement.">
+				>
+				["at0.74"] = <
+					text = <"Blood gases">
+					description = <"Blood gas estimation confirms correct placement.">
+				>
+				["at0.75"] = <
+					text = <"New cluster">
+					description = <"*">
+				>
+				["at0.76"] = <
+					text = <"Insertion of gastric tube">
+					description = <"A gastric tube has been inserted.">
+				>
+				["at0.77"] = <
+					text = <"Ongoing sedation plan">
+					description = <"A plan has been made for ongoing sedation.">
+				>
+				["at0.78"] = <
+					text = <"Evidence of aspiration">
+					description = <"Evidence of aspiration or not?">
+				>
+				["at0.79"] = <
+					text = <"Evidence of aspiration is present">
+					description = <"There is evidence of aspiration.">
+				>
+				["at0.80"] = <
+					text = <"Evidence of aspiration is absent">
+					description = <"Evience of aspiration is absent.">
+				>
+				["at0000"] = <
+					text = <"Clinical procedure undertaken">
+					description = <"To record any non-operative procedure undertaken. Normally carried out in a clinic or ward setting and may be for therapeutic or diagnostic purposes.">
+				>
+				["at0000.1"] = <
+					text = <"Endotracheal intubation">
+					description = <"To record any non-operative procedure undertaken. Normally carried out in a clinic or ward setting and may be for therapeutic or diagnostic purposes.!">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Procedure">
+					description = <"The name of the procedure.">
+				>
+				["at0003"] = <
+					text = <"Procedure details">
+					description = <"Detailed structure describing the procedure performed.">
+				>
+				["at0004"] = <
+					text = <"Procedure unsuccessful">
+					description = <"Was the procedure ultimately unsuccessful?">
+				>
+				["at0005"] = <
+					text = <"Comments">
+					description = <"Commetns about the procedure.">
+				>
+				["at0006"] = <
+					text = <"Complication">
+					description = <"Complication arising from the procedure.">
+				>
+				["at0006.1"] = <
+					text = <"ET insertion complication">
+					description = <"Complication arising from the endotracheal tube insertion procedure.">
+				>
+				["at0010"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Filler Order identification">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Placer Order identification">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Image">
+					description = <"Images of the procedure.">
+				>
+				["at0014"] = <
+					text = <"Reason for procedure">
+					description = <"The reason or indication for the procedure">
+				>
+				["at0015"] = <
+					text = <"Unplanned event">
+					description = <"An unplanned event prior to or related to the procedure, which may affect its execution e.g patient self-removed cannula.">
+				>
+				["at0016"] = <
+					text = <"Unplanned events">
+					description = <"One or more unplanned events.">
+				>
+				["at0018"] = <
+					text = <"Failed attempts">
+					description = <"The number of failed attempts to perform the procedure.">
+				>
+				["at0027"] = <
+					text = <"Complications">
+					description = <"Complications arising from the procedure.">
+				>
+				["at0028"] = <
+					text = <"Record of complication">
+					description = <"A link to a structured record e.g a diagnosis or problem describing the complication.">
+				>
+				["at0029"] = <
+					text = <"Reasons for procedure">
+					description = <"Reasons or indications for the procedure">
+				>
+				["at0030"] = <
+					text = <"Additional tasks">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Additional task">
+					description = <"An additional related taks that was performed . This will normally be another action but may be an instruction e.g On removal of a catheter, tip sent for microbiology.">
+				>
+				["at0032"] = <
+					text = <"Record of additional task">
+					description = <"Link to a record of the additional task.">
+				>
+				["at0033"] = <
+					text = <"Record of unplanned event">
+					description = <"Link to a record of an unplanned event.">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0.1"] = <
+					text = <"New constraint">
+					description = <"*">
+				>
+			>
+		>
+	>

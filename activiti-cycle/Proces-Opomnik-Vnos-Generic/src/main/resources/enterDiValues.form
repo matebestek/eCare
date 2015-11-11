@@ -1,0 +1,423 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder">
+
+	<h3><a href="#">Telesna teža</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Teža (v kg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.body!weight.v1]?data[at0002]?events[at0003]?data[at0001]?items[at0004]?value" value="" type="text" class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>							
+			
+		</table>
+	
+	</div>
+	
+	
+	<h3><a href="#">Telesna dejavnost</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Opis ene vadbene enote</b></p>
+				</td>
+			</tr>
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Vrsta vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0020]?items[at0004]?value" class="activiti-size-short">
+						<option value="at0044">Aerobika (različne oblike)</option>
+						<option value="at0045">Cooperjev test - 2400 m</option>
+						<option value="at0046">Cooperjev test - 12 min</option>
+						<option value="at0047">Fitnes (delo z utežmi)</option>
+						<option value="at0048">Hoja</option>
+						<option value="at0049">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0050">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0051">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0052">Kolesarjenje (sobno)</option>
+						<option value="at0053">Plavanje</option>
+						<option value="at0054">Pohodništvo</option>
+						<option value="at0055">Rolanje</option>
+						<option value="at0056">Smučanje</option>
+						<option value="at0057">Sproščanje</option>
+						<option value="at0058">Tek</option>
+						<option value="at0059">Tek na smučeh</option>
+						<option value="at0060">Test hoje 2 km</option>
+						<option value="at0061">Vaje za gibljivost</option>
+						<option value="at0062">Vaje za koordinacijo</option>
+						<option value="at0063">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0064">Drugo</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0020]?items[at0012]?value" class="activiti-size-short">
+						<option value="at0013">Zelo nizka intenzivnost</option>
+						<option value="at0014">Nizka intenzivnost</option>
+						<option value="at0015">Zmerna intenzivnost</option>
+						<option value="at0016">Visoka intenzivnost</option>
+						<option value="at0017">Zelo visoka intenzivnost</option>
+					</select>					
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Trajanje vadbe (format HH:MM)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0020]?items[at0006]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0020]?items[at0018]?value" value="" type="text">
+				</td>
+			</tr>		
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+
+			<!-- <tr>
+				<td>
+					<p>Kolikokrat na teden ste bili v zadnjih 14 dnevih gibalno aktivni (30 min zmerne ali visoke intenzivnosti)?</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0023]?value" class="activiti-size-short">
+						<option value="at0024">0x</option>
+						<option value="at0025">1x</option>
+						<option value="at0026">2x</option>
+						<option value="at0027">3x</option>
+						<option value="at0028">4x</option>
+						<option value="at0029">5x</option>
+						<option value="at0030">6x</option>
+						<option value="at0031">7x - vsak dan</option>
+					</select>					
+				</td>
+			</tr> -->	
+			
+		</table>
+	
+	</div>	
+	
+	
+	<h3><a href="#">Prehrana</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Prehrana</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.prehrana!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>			
+
+			<tr>
+				<td>
+					<p>Dietni prekrški</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.prehrana!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>				
+			
+		</table>
+	
+	</div>	
+
+	<h3><a href="#">Krvni tlak</a></h3>
+	<div>
+	
+		<table>
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+
+			<tr>
+				<td>
+					<p>Sistolični (v mmHg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.krvni!tlak!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Diastolični (v mmHg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.krvni!tlak!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Opombe</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.krvni!tlak!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>			
+	
+	
+	<h3><a href="#">Zdravila</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+		
+			<tr>
+				<td>
+					<p>Ali ste vzeli zadnji odmerek zdravil?</p></td>
+				<td><input
+					name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0007]?items[at0021]?value"
+					value="true" type="radio" >
+					DA <input
+					name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0007]?items[at0021]?value"
+					value="false" type="radio" >
+					NE</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Ali ste danes vzeli vsa predpisana zdravila?</p></td>
+				<td><input
+					name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0007]?items[at0019]?value"
+					value="true" type="radio" >
+					DA <input
+					name="?items[openEHR-EHR-INSTRUCTION.terapija!eo.v1]?activities[at0002]?description[at0003]?items[openEHR-EHR-CLUSTER.zdravila!eo.v1]?items[at0007]?items[at0019]?value"
+					value="false" type="radio" >
+					NE</td>
+			</tr>			
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Krvni sladkor</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Krvni sladkor (v mmol/L)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.krvni!sladkor!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" value="" type="text" class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Čas od zadnjega zaužitega obroka do meritve krvnega sladkorja (format HH:MM npr. 00:15 pomeni 15min; 02:15 pomeni 2h in 15min)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.krvni!sladkor!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			
+					
+			
+			<tr>
+				<td>
+					<p>Opombe</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.krvni!sladkor!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>
+	
+	
+	
+
+	
+	<h3><a href="#">WONCA vprašalnik</a></h3>
+	<div>
+		
+		<!--za strani enterDiValues.form in enterDiValuesPeeriodic.vm-->
+		<input type="hidden" name="woncaImagesSubDir" value="enterDiabetes" />
+
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+
+			<tr>
+				<td>
+					<p>Katera fizična aktivnost, ki se jo lahko opravljali vsaj dve minuti je bila v zadnjih dveh tednih najtežja?</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.wonca!vprasalnik!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0006]?value" class="activiti-size-short">
+						<option value="at0017">Zelo težka, npr. hitri tek</option>
+						<option value="at0018">Težka, npr. počasen tek</option>
+						<option value="at0019">Srednje težka, npr. hitra hoja</option>
+						<option value="at0020">Lahka, npr. zmerna hoja</option>
+						<option value="at0021">Zelo lahka, npr. počasna hoja ali nisem mogel hoditi</option>
+					</select>				
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Kako močno so vas v zadnjih dveh tednih pestile čustvene težave, kot so občutek tesnobe, depresije, razdražljivosti, potrtost ali žalost?</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.wonca!vprasalnik!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0005]?value" class="activiti-size-short">
+						<option value="at0022">Nič</option>
+						<option value="at0023">Malo</option>
+						<option value="at0024">Srednje veliko</option>
+						<option value="at0025">Veliko</option>
+						<option value="at0026">Zelo veliko</option>
+					</select>
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<p>Koliko težav ste imeli v zadnjih dveh tednih pri svojih običajnih dejavnosti doma in drugje zaradi svojega telesnega in duševnega zdravja?</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.wonca!vprasalnik!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0008]?value" class="activiti-size-short">
+						<option value="at0027">Nič</option>
+						<option value="at0028">Malo</option>
+						<option value="at0029">Srednje veliko</option>
+						<option value="at0030">Veliko</option>
+						<option value="at0031">Zelo veliko</option>
+					</select>
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<p>Koliko je v zadnjih dveh tednih vaše telesno in duševno zdravje omejevalo vaše družabne aktivnosti z družino, prijatelji, sosedi ali drugimi skupinami?</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.wonca!vprasalnik!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0007]?value" class="activiti-size-short">
+						<option value="at0032">Nič</option>
+						<option value="at0033">Malo</option>
+						<option value="at0034">Srednje veliko</option>
+						<option value="at0035">Veliko</option>
+						<option value="at0036">Zelo veliko</option>
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Kako bi ocenili svoje trenutno telesno in duševno zdravstveno stanje glede na tisto pred dvemi tedni? </p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.wonca!vprasalnik!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0010]?value" class="activiti-size-short">
+						<option value="at0037">Precej boljše</option>
+						<option value="at0038">Nekoliko boljše</option>
+						<option value="at0039">Približno enako</option>
+						<option value="at0040">Nekoliko slabše</option>
+						<option value="at0041">Precej slabše</option>
+					</select>
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<p>Kako bi na splošno ocenili svoje telesno in duševno zdravstveno stanje zadnja dva tedna?</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.wonca!vprasalnik!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0011]?value" class="activiti-size-short">
+						<option value="at0042">Odlično</option>
+						<option value="at0043">Zelo dobro</option>
+						<option value="at0044">Dobro</option>
+						<option value="at0045">Slabo</option>
+						<option value="at0046">Zelo slabo</option>
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Koliko telesnih bolečin ste imeli v zadnjih štirih tednih oziroma kako izrazite so bile?</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.wonca!vprasalnik!eo!di.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0009]?value" class="activiti-size-short">
+						<option value="at0012">Nič bolečin</option>
+						<option value="at0013">Zelo blage bolečine</option>
+						<option value="at0014">Blage bolečine</option>
+						<option value="at0015">Zmerne bolečine</option>
+						<option value="at0016">Hude bolečine</option>
+					</select>
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>	
+	
+</div>
+
+
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>	

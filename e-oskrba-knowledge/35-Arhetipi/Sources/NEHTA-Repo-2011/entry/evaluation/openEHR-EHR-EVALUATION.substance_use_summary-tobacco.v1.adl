@@ -1,0 +1,290 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.substance_use_summary-tobacco.v1
+specialise
+	openEHR-EHR-EVALUATION.substance_use_summary.v1
+
+concept
+	[at0000.1]	-- Tobacco Use Summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"21/06/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To build up and record an ongoing and persistent summary about the use of tobacco by the individual.">
+			use = <"Use to record a summary of the pattern of use for any and all forms of tobacco, and about multiple episodes of tobacco use over time.">
+			keywords = <"consumption", "substance", "use", "usage", "dependence", "tobacco", "smoking", "cigarettes", "cigar", "pipe">
+			misuse = <"Not to be used to capture event-based information about tobacco use, such as a Tobacco use or Smoking diary - use the OBSERVATION.substance_use-tobacco archetype.">
+			copyright = <"© 2011 NEHTA">
+		>
+	>
+	lifecycle_state = <"CommitteeDraft">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"38D0F11A6044C56C3991472B531A2103">
+	>
+
+definition
+	EVALUATION[at0000.1] matches {	-- Tobacco Use Summary
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0005.1] occurrences matches {0..1} matches {	-- Substance
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0002.1] occurrences matches {0..1} matches {	-- Usage Status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Current user
+									at0004, 	-- Former regular user
+									at0006, 	-- Former occasional user
+									at0016]	-- Never used
+								}
+							}
+						}
+					}
+					CLUSTER[at0007.1] occurrences matches {0..*} matches {	-- Consumption Summary
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0008.1] occurrences matches {0..1} matches {	-- Form
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0015.1] occurrences matches {0..1} matches {	-- Method of use
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0009.1] occurrences matches {0..1} matches {	-- Date commenced
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0010.1] occurrences matches {0..1} matches {	-- Age commenced
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+							ELEMENT[at0011.1] occurrences matches {0..1} matches {	-- Date ceased
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0012.1] occurrences matches {0..1} matches {	-- Age ceased
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+							ELEMENT[at0.22] occurrences matches {0..1} matches {	-- Cumulative consumption (Pack Years)
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0017.1] occurrences matches {0..1} matches {	-- Context of use
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0013.1] occurrences matches {0..1} matches {	-- Comment
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0014.1] occurrences matches {0..*} matches {	-- Cessation attempts
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.cessation_attempts\.v1/}
+					}
+					ELEMENT[at0018.1] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.22"] = <
+					text = <"Cumulative consumption (Pack Years)">
+					description = <"Cumulative consumption of cigarettes, measured in pack years.">
+				>
+				["at0000"] = <
+					text = <"Substance Use Summary">
+					description = <"Generic archetype to record a persisting summary or overview of use or consumption of a defined substance over time.">
+				>
+				["at0000.1"] = <
+					text = <"Tobacco Use Summary">
+					description = <"Summary of tobacco usage by the individual.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Usage Status">
+					description = <"Overview of usage of tobacco. The term tobacco usage includes smoking, but also permits other types of tobacco usage to be recorded.">
+				>
+				["at0002.1"] = <
+					text = <"Usage Status">
+					description = <"Overview of usage of tobacco. The term tobacco usage includes smoking, but also permits other types of tobacco usage to be recorded.">
+				>
+				["at0003"] = <
+					text = <"Current user">
+					description = <"Individual is a current user of tobacco.">
+				>
+				["at0004"] = <
+					text = <"Former regular user">
+					description = <"Individual is a former or ex-user of tobacco on a regular basis.">
+				>
+				["at0005"] = <
+					text = <"Substance">
+					description = <"Identification of tobacco used. May be 'all tobacco' or a specific form of tobacco.">
+				>
+				["at0005.1"] = <
+					text = <"Substance">
+					description = <"Identification of tobacco used. May be 'all tobacco' or a specific form of tobacco.">
+				>
+				["at0006"] = <
+					text = <"Former occasional user">
+					description = <"Individual is a former or ex-user of tobacco on an occasional basis.">
+				>
+				["at0007"] = <
+					text = <"Consumption Summary">
+					description = <"Summary of the pattern of use for any and all forms of tobacco, and for multiple episodes of use.">
+				>
+				["at0007.1"] = <
+					text = <"Consumption Summary">
+					description = <"Summary of the pattern of use for any and all forms of tobacco, and for multiple episodes of use.">
+				>
+				["at0008"] = <
+					text = <"Type/Form">
+					description = <"Identify the type or form of the substance used or consumed.">
+				>
+				["at0008.1"] = <
+					text = <"Form">
+					description = <"Identify the form of tobacco used. For example, manufactured cigarettes, cigars, pipe or chewing tobacco.">
+				>
+				["at0009"] = <
+					text = <"Date commenced">
+					description = <"Date that use of tobacco commenced (can be a partial date, such as a year).">
+				>
+				["at0009.1"] = <
+					text = <"Date commenced">
+					description = <"Date that use of tobacco commenced (can be a partial date, such as a year).">
+				>
+				["at0010"] = <
+					text = <"Age commenced">
+					description = <"Age that use of tobacco commenced.">
+				>
+				["at0010.1"] = <
+					text = <"Age commenced">
+					description = <"Age that use of tobacco commenced.">
+				>
+				["at0011"] = <
+					text = <"Date ceased">
+					description = <"Date that use of tobacco ceased (can be a partial date, such as a year).">
+				>
+				["at0011.1"] = <
+					text = <"Date ceased">
+					description = <"Date that use of tobacco ceased (can be a partial date, such as a year).">
+				>
+				["at0012"] = <
+					text = <"Age ceased">
+					description = <"Age that use of tobacco ceased.">
+				>
+				["at0012.1"] = <
+					text = <"Age ceased">
+					description = <"Age that use of tobacco ceased.">
+				>
+				["at0013"] = <
+					text = <"Comment">
+					description = <"Comment on this episode/form of tobacco use.">
+				>
+				["at0013.1"] = <
+					text = <"Comment">
+					description = <"Comment on this episode/form of tobacco use.">
+				>
+				["at0014"] = <
+					text = <"Cessation attempts">
+					description = <"Details about attempts to cease use of tobacco.">
+				>
+				["at0014.1"] = <
+					text = <"Cessation attempts">
+					description = <"Details about attempts to cease use of tobacco.">
+				>
+				["at0015"] = <
+					text = <"Method of use">
+					description = <"Method of use or consumption of tobacco. For example, inhalation or chewing.">
+				>
+				["at0015.1"] = <
+					text = <"Method of use">
+					description = <"Method of use or consumption of tobacco. For example, inhalation or chewing.">
+				>
+				["at0016"] = <
+					text = <"Never used">
+					description = <"Individual has never used tobacco.">
+				>
+				["at0017"] = <
+					text = <"Context of use">
+					description = <"Description about the social, cultural or psychological context that contributed to the substance use.">
+				>
+				["at0017.1"] = <
+					text = <"Context of use">
+					description = <"Description about the social, cultural or psychological context that contributed to the substance use.">
+				>
+				["at0018"] = <
+					text = <"Comment">
+					description = <"Overall comment about the individual's use of tobacco.">
+				>
+				["at0018.1"] = <
+					text = <"Comment">
+					description = <"Overall comment about the individual's use of tobacco.">
+				>
+			>
+		>
+	>

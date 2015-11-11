@@ -1,0 +1,243 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.head_circumference.v1
+
+concept
+	[at0000]	-- Obseg glave
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Slovenia">
+				["name"] = <"Uroš Rajkovič, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"18/10/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the head cicumference of the subject.">
+			use = <"">
+			keywords = <"head", ...>
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje meritve bosega glave subjekta">
+			use = <"">
+			keywords = <"glava", "obseg glave">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"EF9A34A5340098CE18F61CBEEC6F275C">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Obseg glave
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Obseg glave
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"cm">
+														magnitude = <|0.0..100.0|>
+														precision = <|1|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Opombe
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Oblika 
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- Normocefalna
+													at0012, 	-- Mikrokarnija
+													at0013]	-- Makrokarnija
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0006] matches {	-- *Tree(en)
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0007] occurrences matches {0..1} matches {	-- Naprava
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Head circumference">
+					description = <"The head circumference of the subject.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Head circumference">
+					description = <"The head circumference of the subject.">
+				>
+				["at0006"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Device">
+					description = <"Details of the device used.">
+				>
+				["at0009"] = <
+					text = <"Comment">
+					description = <"Textual comment on the result.">
+				>
+				["at0010"] = <
+					text = <"Head shape">
+					description = <"Head shape of Infants">
+				>
+				["at0011"] = <
+					text = <"Normocephalic">
+					description = <"Normocephalic head shape">
+				>
+				["at0012"] = <
+					text = <"Microcrania">
+					description = <"Microcrania ">
+				>
+				["at0013"] = <
+					text = <"Macrocarnia">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Obseg glave">
+					description = <"Izmerjen obseg glave subjekta">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Obseg glave">
+					description = <"Izmerjen obseg glave subjekta">
+				>
+				["at0006"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0007"] = <
+					text = <"Naprava">
+					description = <"Podatki o napravi s katero je bila opravljena meritev">
+				>
+				["at0009"] = <
+					text = <"Opombe">
+					description = <"Besedni opis rezultatov">
+				>
+				["at0010"] = <
+					comment = <"*(en)">
+					text = <"Oblika ">
+					description = <"Oblika glave novorojenčka">
+				>
+				["at0011"] = <
+					text = <"Normocefalna">
+					description = <"Oblika glave je normalan">
+				>
+				["at0012"] = <
+					text = <"Mikrokarnija">
+					description = <"Mikrokarnija">
+				>
+				["at0013"] = <
+					text = <"Makrokarnija">
+					description = <"Makrokarnija">
+				>
+			>
+		>
+	>

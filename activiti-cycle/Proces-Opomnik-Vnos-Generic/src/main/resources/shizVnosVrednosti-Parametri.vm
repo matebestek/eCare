@@ -1,0 +1,221 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej MaruÅ¡iÄ Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder">
+
+	<h3><a href="#">Telesna teža</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Teža (v kg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.body!weight.v1]?data[at0002]?events[at0003]?data[at0001]?items[at0004]?value" value="" type="text" class="activiti-validation-float activiti-size-short">
+				</td>
+			</tr>							
+			
+		</table>
+	
+	</div>
+	<h3><a href="#">Obseg pasu</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Obseg pasu (v cm)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.obseg!pasu!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" value="" type="text" class="activiti-validation-float activiti-size-short">															
+				</td>
+			</tr>							
+			
+		</table>
+	
+	</div>
+	<h3><a href="#">Telesna dejavnost</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Športna panoga</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!enkratna!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" value="" type="text">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!enkratna!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0012]?value" class="activiti-size-short">
+						<option value="at0013">Zelo nizka intenzivnost</option>
+						<option value="at0014">Nizka intenzivnost</option>
+						<option value="at0015">Zmerna intenzivnost</option>
+						<option value="at0016">Visoka intenzivnost</option>
+						<option value="at0017">Zelo visoka intenzivnost</option>
+					</select>					
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Trajanje vadbe (format HH:MM)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!enkratna!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.telesna!dejavnost!enkratna!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0018]?value" value="" type="text">
+				</td>
+			</tr>		
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Terapija</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Opis poèutja</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.opomnik!terapija!eo!sh.v1]?data[at0001]?items[at0002]?value" value="" type="text">
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Èasovno obdobje za katerega velja opis poèutja</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.opomnik!terapija!eo!sh.v1]?data[at0001]?items[at0003]?value" class="activiti-size-short">
+						<option value="at0004">1 dan</option>
+						<option value="at0005">2 dneva</option>
+						<option value="at0006">3 dni</option>
+						<option value="at0007">4 dni</option>
+						<option value="at0008">5 dni</option>
+						<option value="at0009">7 dni</option>
+						<option value="at0010">10 dni</option>
+						<option value="at0011">14 dni</option>
+						<option value="at0012">3 tedne</option>
+						<option value="at0013">1 mesec</option>
+						<option value="at0014">2 meseca</option>
+						<option value="at0015">3 mesece</option>						
+					</select>					
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>	
+	
+	
+	
+	<h3><a href="#">Zdravila</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+		
+			<tr>
+				<td>
+					<p>Pogostost jemanja zdravil</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.opomnik!zdravila!eo!sh.v1]?data[at0001]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0008">vedno-100%</option>
+						<option value="at0004">pogosto-75%</option>
+						<option value="at0005">obèasno-50%</option>
+						<option value="at0006">redko-25%</option>
+						<option value="at0007">nikoli-0%</option>													
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Perioda poroèanja</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.opomnik!zdravila!eo!sh.v1]?data[at0001]?items[at0003]?value" class="activiti-size-short">
+						<option value="at0010">1 dan</option>
+						<option value="at0011">2 dneva</option>
+						<option value="at0012">3 dni</option>
+						<option value="at0013">4 dni</option>
+						<option value="at0014">5 dni</option>
+						<option value="at0015">7 dni</option>
+						<option value="at0016">10 dni</option>
+						<option value="at0017">14 dni</option>
+						<option value="at0018">3 tedne</option>
+						<option value="at0019">1 mesec</option>
+						<option value="at0020">2 meseca</option>
+						<option value="at0021">3 mesece</option>						
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.opomnik!zdravila!eo!sh.v1]?data[at0001]?items[at0009]?value" value="" type="text">
+				</td>
+			</tr>		
+			
+		</table>
+	
+	</div>	
+	
+	
+</div>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>	

@@ -1,0 +1,332 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.exposicion_corporal.v1
+
+concept
+	[at0000]	-- Exposicion corporal
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"Exposicion corporal">
+			use = <"Exposicion corporal">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"BD39949A0E38BA5C037ED29ECACFD108">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Exposicion corporal
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Cualquier evento
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Arbol
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Cráneo y cara
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0012] occurrences matches {0..3} matches {	-- Hallazgos generales
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0013, 	-- Dolor / Hinchazón / Edema / Deformidad
+															at0014, 	-- Equimosis / Contusión / Hematoma
+															at0015, 	-- Erosión / Escalpe
+															at0016, 	-- Pérdida de sustancia (piel y celular)
+															at0017, 	-- Pérdida de sustancia (grandes astricciones)
+															at0018, 	-- Herida Punzante / Cortante / Cortocontusa
+															at0019, 	-- Herida Punzante / Cortante / Cortocontusa por arma blanca
+															at0020, 	-- Herida de Arma de Fuego (entrada)
+															at0021, 	-- Herida de Arma de Fuego (salida)
+															at0022, 	-- Herida de Arma de Fuego (indeterminada)
+															at0023, 	-- Herida de Arma de Fuego Múltiple
+															at0024, 	-- Perdigonada
+															at0027, 	-- Quemadura de primer grado
+															at0028, 	-- Quemadura de segundo grado
+															at0029, 	-- Quemadura de tercer grado
+															at0030]	-- Enfisema subcutáneo
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0005] occurrences matches {0..1} matches {	-- Cuello
+										items cardinality matches {0..*; unordered} matches {
+											use_node ELEMENT occurrences matches {0..3} /data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]	-- /data[Event Series]/events[Cualquier evento]/data[Arbol]/items[Cráneo y cara]/items[Hallazgos generales]
+										}
+									}
+									CLUSTER[at0006] occurrences matches {0..1} matches {	-- Tórax
+										items cardinality matches {0..*; unordered} matches {
+											use_node ELEMENT occurrences matches {0..3} /data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]	-- /data[Event Series]/events[Cualquier evento]/data[Arbol]/items[Cráneo y cara]/items[Hallazgos generales]
+										}
+									}
+									CLUSTER[at0007] occurrences matches {0..1} matches {	-- Abdomen
+										items cardinality matches {0..*; unordered} matches {
+											use_node ELEMENT occurrences matches {0..3} /data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]	-- /data[Event Series]/events[Cualquier evento]/data[Arbol]/items[Cráneo y cara]/items[Hallazgos generales]
+											ELEMENT[at0041] occurrences matches {0..1} matches {	-- Hallazgos abdomen
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::at0042]}		-- Defensa / contractura
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0008] occurrences matches {0..1} matches {	-- Pelvis
+										items cardinality matches {0..*; unordered} matches {
+											use_node ELEMENT occurrences matches {0..3} /data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]	-- /data[Event Series]/events[Cualquier evento]/data[Arbol]/items[Cráneo y cara]/items[Hallazgos generales]
+										}
+									}
+									CLUSTER[at0025] occurrences matches {0..1} matches {	-- Miembros
+										items cardinality matches {0..*; unordered} matches {
+											use_node ELEMENT occurrences matches {0..3} /data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]	-- /data[Event Series]/events[Cualquier evento]/data[Arbol]/items[Cráneo y cara]/items[Hallazgos generales]
+											ELEMENT[at0031] occurrences matches {0..3} matches {	-- Hallazgos en miembros
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0032, 	-- Estiramiento / Esguince
+															at0033, 	-- Luxación
+															at0034, 	-- Fractura cerrada
+															at0035, 	-- Fractura expuesta
+															at0036, 	-- Amputación traumática
+															at0037, 	-- Pulso disminuido
+															at0038, 	-- Pulso ausente
+															at0039, 	-- Hipoestesia / Disestesia / Anestesia
+															at0040]	-- Paresia / Plejia
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Otras lesiones externas
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Genitourinario/recto
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Exposicion corporal">
+					description = <"Exposicion corporal">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Cualquier evento">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Cráneo y cara">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Cuello">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Tórax">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Abdomen">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Pelvis">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Genitourinario/recto">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Otras lesiones externas">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Hallazgos generales">
+					description = <"Hallazgos">
+				>
+				["at0013"] = <
+					text = <"Dolor / Hinchazón / Edema / Deformidad">
+					description = <"Dolor / Hinchazón / Edema / Deformidad">
+				>
+				["at0014"] = <
+					text = <"Equimosis / Contusión / Hematoma">
+					description = <"Equimosis / Contusión / Hematoma">
+				>
+				["at0015"] = <
+					text = <"Erosión / Escalpe">
+					description = <"Erosión / Escalpe">
+				>
+				["at0016"] = <
+					text = <"Pérdida de sustancia (piel y celular)">
+					description = <"Pérdida de sustancia (piel y celular)">
+				>
+				["at0017"] = <
+					text = <"Pérdida de sustancia (grandes astricciones)">
+					description = <"Pérdida de sustancia (grandes astricciones)">
+				>
+				["at0018"] = <
+					text = <"Herida Punzante / Cortante / Cortocontusa">
+					description = <"Herida Punzante / Cortante / Cortocontusa">
+				>
+				["at0019"] = <
+					text = <"Herida Punzante / Cortante / Cortocontusa por arma blanca">
+					description = <"Herida Punzante / Cortante / Cortocontusa por arma blanca">
+				>
+				["at0020"] = <
+					text = <"Herida de Arma de Fuego (entrada)">
+					description = <"Herida de Arma de Fuego (entrada)">
+				>
+				["at0021"] = <
+					text = <"Herida de Arma de Fuego (salida)">
+					description = <"Herida de Arma de Fuego (salida)">
+				>
+				["at0022"] = <
+					text = <"Herida de Arma de Fuego (indeterminada)">
+					description = <"Herida de Arma de Fuego (indeterminada)">
+				>
+				["at0023"] = <
+					text = <"Herida de Arma de Fuego Múltiple">
+					description = <"Herida de Arma de Fuego Múltiple">
+				>
+				["at0024"] = <
+					text = <"Perdigonada">
+					description = <"Perdigonada">
+				>
+				["at0025"] = <
+					text = <"Miembros">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Quemadura de primer grado">
+					description = <"Quemadura de primer grado">
+				>
+				["at0028"] = <
+					text = <"Quemadura de segundo grado">
+					description = <"Quemadura de segundo grado">
+				>
+				["at0029"] = <
+					text = <"Quemadura de tercer grado">
+					description = <"Quemadura de tercer grado">
+				>
+				["at0030"] = <
+					text = <"Enfisema subcutáneo">
+					description = <"Enfisema subcutáneo">
+				>
+				["at0031"] = <
+					text = <"Hallazgos en miembros">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Estiramiento / Esguince">
+					description = <"Estiramiento / Esguince">
+				>
+				["at0033"] = <
+					text = <"Luxación">
+					description = <"Luxación">
+				>
+				["at0034"] = <
+					text = <"Fractura cerrada">
+					description = <"Fractura cerrada">
+				>
+				["at0035"] = <
+					text = <"Fractura expuesta">
+					description = <"Fractura expuesta">
+				>
+				["at0036"] = <
+					text = <"Amputación traumática">
+					description = <"Amputación traumática">
+				>
+				["at0037"] = <
+					text = <"Pulso disminuido">
+					description = <"Pulso disminuido">
+				>
+				["at0038"] = <
+					text = <"Pulso ausente">
+					description = <"Pulso ausente">
+				>
+				["at0039"] = <
+					text = <"Hipoestesia / Disestesia / Anestesia">
+					description = <"Hipoestesia / Disestesia / Anestesia">
+				>
+				["at0040"] = <
+					text = <"Paresia / Plejia">
+					description = <"Paresia / Plejia">
+				>
+				["at0041"] = <
+					text = <"Hallazgos abdomen">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Defensa / contractura">
+					description = <"Defensa / contractura">
+				>
+			>
+		>
+	>

@@ -1,0 +1,209 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-DEMOGRAPHIC-PERSON.person.v1
+
+concept
+	[at0000]	-- Dados da pessoa
+language
+	original_language = <[ISO_639-1::pt-br]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"Sergio Miranda Freire">
+				["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+				["email"] = <"sergio@lampada.uerj.br">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
+		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+		["email"] = <"sergio@lampada.uerj.br">
+		["date"] = <"22/05/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Representation of a person's demographic data.">
+			use = <"Used in demographic service to collect a person's data.">
+			keywords = <"demographic service", "person's data">
+			misuse = <"">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Representação dos dados demográficos de uma pessoa.">
+			use = <"Usado em serviço demográficos para coletar os dados de uma pessoa.">
+			keywords = <"serviço demográfico", "dados de uma pessoa">
+			misuse = <"">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"Authordraft">
+	other_contributors = <"Sebastian Garde, Ocean Informatics, Germany (Editor)", "Omer Hotomaroglu, Turkey (Editor)", "Heather Leslie, Ocean Informatics, Australia (Editor)">
+	other_details = <
+		["references"] = <"ISO/TS 22220:2008(E) - Identification of Subject of Care - Technical Specification - International Organization for Standardization.">
+	>
+
+definition
+    PERSON[at0000] matches {  -- person demographic data
+        details matches {
+             allow_archetype ITEM_TREE[at0001] occurrences matches {1..1} matches {
+                 include
+			        archetype_id/value matches {/(person_details)[a-zA-Z0-9_-]*\.v1/}
+             }
+        }
+        identities matches {
+            allow_archetype PARTY_IDENTITY[at0002] occurrences matches {1..1} matches {
+                include
+                    archetype_id/value matches {/(person_name)[a-zA-Z0-9_-]*\.v1/}
+            }
+        }
+        contacts matches {
+            CONTACT[at0003] occurrences matches {1..1} matches {  -- Contacts
+                addresses matches {
+                    allow_archetype ADDRESS[at0030] occurrences matches {1..1} matches {
+                        include
+                            archetype_id/value matches {/(address)([a-zA-Z0-9_-]+)*\.v1/}
+                            archetype_id/value matches {/(electronic_communication)[a-zA-Z0-9_-]*\.v1/}
+                    }
+                }
+            }
+        }
+        relationships matches {
+ 	    PARTY_RELATIONSHIP[at0004] matches {	-- personal relationships
+	 	details matches {
+		    ITEM_TREE matches {	
+			items matches {
+		       	    ELEMENT[at0040] matches {	-- type of relationship
+			      	value matches { 
+				    DV_TEXT matches {*}
+				    DV_CODED_TEXT matches {
+					defining_code matches {[ac0000]}
+				    }		
+				}
+               		    }
+			}
+ 		    }
+		}
+            }
+        }
+    }
+
+
+
+
+ontology
+	term_definitions = <
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"Dados da pessoa">
+					description = <"Dados da pessoa.">
+				>
+				["at0001"] = <
+					text = <"Detalhes">
+					description = <"Detalhes demográficos da pessoa.">
+				>
+				["at0002"] = <
+					text = <"Nome">
+					description = <"Conjunto de dados que especificam o nome da pessoa.">
+				>
+				["at0003"] = <
+					text = <"Contatos">
+					description = <"Contatos da pessoa.">
+				>
+				["at0004"] = <
+					text = <"Relacionamentos">
+					description = <"Relacionamentos de uma pessoa, especialmente laços familiares.">
+				>
+				["at0030"] = <
+					text = <"Endereço">
+					description = <"Endereços vinculados a um único contato, ou seja, com o mesmo período de validade.">
+				>
+				["at0040"] = <
+					text = <"Grau de parentesco">
+					description = <"Define o grau de parentesco entre as pessoas envolvidas.">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Person">
+					description = <"Personal demographic data.">
+				>
+				["at0001"] = <
+					text = <"Demographic details">
+					description = <"A person's demographic details.">
+				>
+				["at0002"] = <
+					text = <"Name">
+					description = <"A person's name.">
+				>
+				["at0003"] = <
+					text = <"Contacts">
+					description = <"A person's contacts.">
+				>
+				["at0004"] = <
+					text = <"Relationships">
+					description = <"A person's relationships, especially family ties.">
+				>
+				["at0030"] = <
+					text = <"Addresses">
+					description = <"Addresses linked to a single contact, i.e. with the same time validity.">
+				>
+				["at0040"] = <
+					text = <"Relationship type">
+					description = <"Defines the type of relationship between related persons.">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["pt-br"] = <
+			items = <
+				["ac0000"] = <
+					text = <"Códigos para tipo de parentesco">
+					description = <"códigos válidos para tipo de parentesco.">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["ac0000"] = <
+					text = <"Codes for type of relationship">
+					description = <"Valid codes for type of relationship.">
+				>
+			>
+		>
+	>

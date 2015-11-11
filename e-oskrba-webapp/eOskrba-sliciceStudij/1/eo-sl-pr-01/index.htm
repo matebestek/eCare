@@ -1,0 +1,111 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>eOskrba</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+	<style>
+		html {
+			background-image: url('bg.jpg');
+		}
+		table, tr, td, th {
+			border-collapse: collapse;
+			margin: 0px;
+			padding: 5px;
+		}
+		.opis {
+			width: 200px;
+			height: 200px;
+			color:white;
+			vertical-align:top;
+			font-family: Arial, Sans-serif;
+			display:none;
+		}
+		a {
+			text-decoration: none;
+			border: none;
+		}
+	</style>
+</head>
+<body>
+
+	<br />
+	<br />
+	<center>
+		<table style="margin:5px;background-color:#c3796f;border:5px solid #c3796f;">
+			<tr>
+				<td><a href="#"><img id="1" class="eOskrbaBtn" src="eAstma.png" /></a></td>
+				<td><a href="#"><img id="2" class="eOskrbaBtn" src="eDiabetes.png" /></a></td>
+				<td><a href="#"><img id="3" class="eOskrbaBtn" src="eHujsanje.png" /></a></td>
+			</tr>
+			<tr>
+				<td><a href="#"><img id="4" class="eOskrbaBtn" src="eShizofrenija.png" /></a></td>
+				<td><a href="#"><img id="5" class="eOskrbaBtn" src="eSport.png" /></a></td>
+				<td>
+					<div class="opis" id="o1">
+						<h3>eOskrba za astmo</h3>
+						<p>eOskrba za astmo je spletna platforma, ki astmatikom omogoča sodelovanje v modernem pristopu k zdravljenju in lajšanju kronočnih bolezni dihal.</p>
+					</div>
+					<div class="opis" id="o2">
+						<h3>eOskrba za diabetes</h3>
+						<p>eOskrba za astmo je spletna platforma, ki diabetikom omogoča sodelovanje v modernem pristopu k zdravljenju in lajšanju sladkorne bolezni.</p>
+					</div>
+					<div class="opis" id="o3">
+						<h3>eOskrba za hujšanje</h3>
+						<p>eOskrba za hujšanje je spletna platforma, ki uporabnikom omogoča sodelovanje v modernem pristopu k uravnavanju telesne mase in lajšanju bolezni, ki so z njo povezane.</p>
+					</div>
+					<div class="opis" id="o4">
+						<h3>eOskrba za duševne motnje</h3>
+						<p>eOskrba za duševne motnje je spletna platforma, ki uporabnikom omogoča sodelovanje v modernem pristopu k raziskovanju in reševanju različnih duševnih motenj.</p>
+					</div>
+					<div class="opis" id="o5">
+						<h3>eOskrba za šport</h3>
+						<p>eOskrba za šport je spletna platforma, ki uporabnikom omogoča sodelovanje v modernem pristopu k sledenju gibalnih aktivnosti.</p>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</center>
+	<script type="text/javascript">
+		$(".eOskrbaBtn").hover(function(){
+			$(".eOskrbaBtn").stop();
+			$(".eOskrbaBtn").not(this).fadeTo(300,0.5);
+			$(this).fadeTo(300,1);
+			$("#o"+$(this).attr("id")).fadeTo(300,1);
+		},function(){
+			$(".eOskrbaBtn").stop();
+			$(".eOskrbaBtn").not(this).fadeTo(300,1);
+			$("#o"+$(this).attr("id")).hide();
+		});
+	</script>
+</body>
+</html>
+
+

@@ -1,0 +1,309 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mkb10_eo_sh.v1
+
+concept
+	[at0000]	-- Mkb10 eo sh
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"3D50235EE13CCCEAC79E4493103D81C7">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Mkb10 eo sh
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- New element
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007, 	-- (F20.0) Paranoidna shizofrenija
+							at0008, 	-- (F20.1) Hebefrenska shizofrenija
+							at0009, 	-- (F20.2) Katatonska shizofrenija
+							at0010, 	-- (F20.3) Nediferencirana shizofrenija
+							at0011, 	-- (F20.4) Postshizofrenska depresija
+							at0012, 	-- (F20.5) Rezidualna shizofrenija
+							at0013, 	-- (F20.6) Enostavna shizofrenija
+							at0014, 	-- (F20.8) Druge vrste shizofrenija - Cenestetična shizofrenija
+							at0054, 	-- (F20.8) Druge vrste shizofrenija - Shizofreniformna motnja BDO
+							at0055, 	-- (F20.8) Druge vrste shizofrenija - Shizofreniformna psihoza BDO
+							at0018, 	-- (F20.9) Shizofrenija, neopredeljena
+							at0019, 	-- (F21.) Shizotipska motnja
+							at0020, 	-- (F22.) Trajne blodnjave motnje
+							at0021, 	-- (F22.0) Blodnjava motnja
+							at0022, 	-- Paranoja
+							at0023, 	-- Paranoidna psihoza
+							at0024, 	-- Paranoidno stanje
+							at0025, 	-- Parafrenija (kasna)
+							at0026, 	-- (F22.8) Druge trajne blodnjave motnje
+							at0027, 	-- Blodnjava dismorfofobija
+							at0028, 	-- Involutivno paranoidno stanje
+							at0029, 	-- Kverulantska paranoja
+							at0030, 	-- (F22.9) Trajna blodnjava motnja, neopredeljena
+							at0031, 	-- (F23.) Akutne in prehodne psihotične motnje
+							at0032, 	-- (F23.0) Akutna polimorfna psihotična motnja brez simptomov shizofrenije
+							at0033, 	-- (F23.1) Akutna polimorfna psihotična motnja s simptomi shizofrenije
+							at0034, 	-- (F23.2) Akutna shizofreniji podobna motnja
+							at0035, 	-- (F23.3) Druge akutne pretežno blodnjave psihotične motnje
+							at0036, 	-- (F23.8) Druge akutne in prehodne psihotične motnje
+							at0037, 	-- (F23.9) Akutna in prehodna psihotična motnja, neopredeljena
+							at0038, 	-- Kratka reaktivna psihoza BDO
+							at0039, 	-- Reaktivna psihoza
+							at0040, 	-- (F24.) Inducirana blodnjava motnja
+							at0041, 	-- Inducirana blodnjavost (folie à deux)
+							at0042, 	-- Inducirana paranoidna motnja
+							at0043, 	-- Inducirana psihotična motnja
+							at0044, 	-- (F25.) Shizoafektivne motnje
+							at0045, 	-- (F25.0) Shizoafektivna motnja, manični tip
+							at0046, 	-- (F25.1) Shizoafektivna motnja, depresivni tip
+							at0047, 	-- (F25.2) Shizoafektivna motnja, mešani tip
+							at0048, 	-- (F25.8) Druge shizoafektivne motnje
+							at0049, 	-- (F25.9) Shizoafektivna motnja, neopredeljena
+							at0050, 	-- (F28.) Druge neorganske psihotične motnje
+							at0051, 	-- Kronična halucinatorna psihoza
+							at0052]	-- (F29.) Neopredeljena neorganska psihoza
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Mkb10 eo sh">
+					description = <"unknown">
+				>
+				["at0004"] = <
+					text = <"New element">
+					description = <"MKB">
+				>
+				["at0007"] = <
+					text = <"(F20.0) Paranoidna shizofrenija">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"(F20.1) Hebefrenska shizofrenija">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"(F20.2) Katatonska shizofrenija">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"(F20.3) Nediferencirana shizofrenija">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"(F20.4) Postshizofrenska depresija">
+					description = <"">
+				>
+				["at0012"] = <
+					text = <"(F20.5) Rezidualna shizofrenija">
+					description = <"">
+				>
+				["at0013"] = <
+					text = <"(F20.6) Enostavna shizofrenija">
+					description = <"">
+				>
+				["at0014"] = <
+					text = <"(F20.8) Druge vrste shizofrenija - Cenestetična shizofrenija">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"(F20.9) Shizofrenija, neopredeljena">
+					description = <"">
+				>
+				["at0019"] = <
+					text = <"(F21.) Shizotipska motnja">
+					description = <"">
+				>
+				["at0020"] = <
+					text = <"(F22.) Trajne blodnjave motnje">
+					description = <"">
+				>
+				["at0021"] = <
+					text = <"(F22.0) Blodnjava motnja">
+					description = <"">
+				>
+				["at0022"] = <
+					text = <"Paranoja">
+					description = <"">
+				>
+				["at0023"] = <
+					text = <"Paranoidna psihoza">
+					description = <"">
+				>
+				["at0024"] = <
+					text = <"Paranoidno stanje">
+					description = <"">
+				>
+				["at0025"] = <
+					text = <"Parafrenija (kasna)">
+					description = <"">
+				>
+				["at0026"] = <
+					text = <"(F22.8) Druge trajne blodnjave motnje">
+					description = <"">
+				>
+				["at0027"] = <
+					text = <"Blodnjava dismorfofobija">
+					description = <"">
+				>
+				["at0028"] = <
+					text = <"Involutivno paranoidno stanje">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"Kverulantska paranoja">
+					description = <"">
+				>
+				["at0030"] = <
+					text = <"(F22.9) Trajna blodnjava motnja, neopredeljena">
+					description = <"">
+				>
+				["at0031"] = <
+					text = <"(F23.) Akutne in prehodne psihotične motnje">
+					description = <"">
+				>
+				["at0032"] = <
+					text = <"(F23.0) Akutna polimorfna psihotična motnja brez simptomov shizofrenije">
+					description = <"">
+				>
+				["at0033"] = <
+					text = <"(F23.1) Akutna polimorfna psihotična motnja s simptomi shizofrenije">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"(F23.2) Akutna shizofreniji podobna motnja">
+					description = <"">
+				>
+				["at0035"] = <
+					text = <"(F23.3) Druge akutne pretežno blodnjave psihotične motnje">
+					description = <"">
+				>
+				["at0036"] = <
+					text = <"(F23.8) Druge akutne in prehodne psihotične motnje">
+					description = <"">
+				>
+				["at0037"] = <
+					text = <"(F23.9) Akutna in prehodna psihotična motnja, neopredeljena">
+					description = <"">
+				>
+				["at0038"] = <
+					text = <"Kratka reaktivna psihoza BDO">
+					description = <"">
+				>
+				["at0039"] = <
+					text = <"Reaktivna psihoza">
+					description = <"">
+				>
+				["at0040"] = <
+					text = <"(F24.) Inducirana blodnjava motnja">
+					description = <"">
+				>
+				["at0041"] = <
+					text = <"Inducirana blodnjavost (folie à deux)">
+					description = <"">
+				>
+				["at0042"] = <
+					text = <"Inducirana paranoidna motnja">
+					description = <"">
+				>
+				["at0043"] = <
+					text = <"Inducirana psihotična motnja">
+					description = <"">
+				>
+				["at0044"] = <
+					text = <"(F25.) Shizoafektivne motnje">
+					description = <"">
+				>
+				["at0045"] = <
+					text = <"(F25.0) Shizoafektivna motnja, manični tip">
+					description = <"">
+				>
+				["at0046"] = <
+					text = <"(F25.1) Shizoafektivna motnja, depresivni tip">
+					description = <"">
+				>
+				["at0047"] = <
+					text = <"(F25.2) Shizoafektivna motnja, mešani tip">
+					description = <"">
+				>
+				["at0048"] = <
+					text = <"(F25.8) Druge shizoafektivne motnje">
+					description = <"">
+				>
+				["at0049"] = <
+					text = <"(F25.9) Shizoafektivna motnja, neopredeljena">
+					description = <"">
+				>
+				["at0050"] = <
+					text = <"(F28.) Druge neorganske psihotične motnje">
+					description = <"">
+				>
+				["at0051"] = <
+					text = <"Kronična halucinatorna psihoza">
+					description = <"">
+				>
+				["at0052"] = <
+					text = <"(F29.) Neopredeljena neorganska psihoza">
+					description = <"">
+				>
+				["at0054"] = <
+					text = <"(F20.8) Druge vrste shizofrenija - Shizofreniformna motnja BDO">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"(F20.8) Druge vrste shizofrenija - Shizofreniformna psihoza BDO">
+					description = <"*">
+				>
+			>
+		>
+	>

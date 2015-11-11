@@ -1,0 +1,181 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.presejalni_programi_eo_pp.v1
+
+concept
+	[at0000]	-- Presejalni programi eo pp
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Ugotoviti obstoječo vključenost posameznika v presejalne programe (SVIT, DORA, ZORA).">
+			use = <"Uporablja se kot del vprašalnika za preventivo in presejanje.">
+			misuse = <"Ni namenjeno opisu načrtovane vključitve v presejalne programe (SVIT, DORA, ZORA).">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"773E94532CA6970B932551EB1DEB29B8">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Presejalni programi eo pp
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- SVIT
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0007, 	-- Da
+									at0008, 	-- Ne
+									at0009]	-- Ne vem / Ni znano
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- DORA
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- Da
+									at0011, 	-- Ne
+									at0012]	-- Ne vem / Ni znano
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- ZORA
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0013, 	-- Da
+									at0014, 	-- Ne
+									at0015]	-- Ne vem / Ni znano
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Drugi programi
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Presejalni programi eo pp">
+					description = <"Arhetip za zapis obstoječe vključenosti v presejalne programe.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"SVIT">
+					description = <"Program zgodnjega odkrivanja raka na debelem črevesu in danki, moški in ženske, 50 do 69 let.">
+				>
+				["at0003"] = <
+					text = <"DORA">
+					description = <"Program zgodnjega odkrivanja raka dojk za ženske, 50 do 69 let.">
+				>
+				["at0004"] = <
+					text = <"ZORA">
+					description = <"Program zgodnjega odkrivanja raka na materničnem vratu za ženske, 20 do 64 let.">
+				>
+				["at0005"] = <
+					text = <"Drugi programi">
+					description = <"Udeležba v drugih organiziranih programih.">
+				>
+				["at0006"] = <
+					text = <"Komentar">
+					description = <"Komentar o vključenosti v programe.">
+				>
+				["at0007"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Ne vem / Ni znano">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Ne vem / Ni znano">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Ne vem / Ni znano">
+					description = <"*">
+				>
+			>
+		>
+	>

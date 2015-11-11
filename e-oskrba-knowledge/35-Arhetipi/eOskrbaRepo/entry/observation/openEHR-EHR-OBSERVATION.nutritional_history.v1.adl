@@ -1,0 +1,1110 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.nutritional_history.v1
+
+concept
+	[at0000]	-- *Nutritional history(en)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*(en)">
+			use = <"*(en)">
+			misuse = <"*(en)">
+			copyright = <"*(en)">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"D73E0D9B935A9B6DD08587D1A24A8A63">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- *Nutritional history(en)
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- *Breast feeding(en)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Dojen
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0115] occurrences matches {0..1} matches {	-- Zadnji obrok
+												value matches {
+													DV_DATE_TIME matches {*}
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Čas dojenja brez dodatkov
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Skupno trajanje
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0034] occurrences matches {0..1} matches {	-- Težave v času dojenja
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0130, 	-- Ni težav
+															at0178, 	-- Polivanje
+															at0036, 	-- Bruhanje
+															at0037, 	-- Zaletavanje
+															at0171, 	-- Utrujanje
+															at0172]	-- Drugo
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0116] occurrences matches {0..1} matches {	-- Opomba
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Vrsta prehrane matere v času dojenja
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0005] occurrences matches {0..1} matches {	-- *Artificial milk(en)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0131] occurrences matches {0..1} matches {	-- Zadnji obrok
+												value matches {
+													DV_DATE_TIME matches {*}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Hranjenje s prilagojenimi pripravki
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0019, 	-- Popolno
+															at0020]	-- Delno dojen
+														}
+													}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- Vrsta pripravka
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0029] occurrences matches {0..1} matches {	-- Začetek uvajanja
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0038] occurrences matches {0..1} matches {	-- Težave v času hranjenja
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0129, 	-- Ni težav
+															at0177, 	-- Polivanje
+															at0036, 	-- Bruhanje
+															at0039, 	-- Zaletavanje
+															at0173, 	-- Utrujanje
+															at0174]	-- Drugo
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0127] occurrences matches {0..1} matches {	-- Opomba
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0006] occurrences matches {0..1} matches {	-- *Mixed diet(en)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0032] occurrences matches {0..1} matches {	-- Vrsta hrane
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0124, 	-- Normalna hrana
+															at0125]	-- Dieta
+														}
+													}
+												}
+											}
+											ELEMENT[at0133] occurrences matches {0..*} matches {	-- Normalna hrana
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0137, 	-- Sadje
+															at0138, 	-- Zelenjava
+															at0139, 	-- Žitarice
+															at0140, 	-- Meso
+															at0176]	-- Drugo
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0126] occurrences matches {0..1} matches {	-- Dieta
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0141, 	-- Varovalna (13-15 let)
+															at0142, 	-- Lahka
+															at0143, 	-- Lahka otroška (1-4 let)
+															at0144, 	-- Otroška I (4-7 let)
+															at0145, 	-- Otroška II (7-13 let)
+															at0146, 	-- Otroška VKB
+															at0147, 	-- Redukcijska
+															at0148, 	-- Osnovna neslana
+															at0149, 	-- Holesterolna (z manj maščobami)
+															at0150, 	-- Terapevtska z posvetom dietetičarja
+															at0151, 	-- Diabetes
+															at0152, 	-- Vegetarijanska
+															at0153, 	-- Hipoproteinska
+															at0154, 	-- Dializna
+															at0155, 	-- Celiakalna
+															at0156, 	-- Eliminacijska-Urtika III
+															at0157, 	-- Hipoalergijska-Urtika I
+															at0158, 	-- Urtika I
+															at0159, 	-- Jetrna
+															at0160, 	-- Želodčna
+															at0161, 	-- Collitis
+															at0162, 	-- Žolčna stroga
+															at0163, 	-- Žolčna
+															at0164, 	-- Osnovna pasirana (kašasta)
+															at0165, 	-- Osnovna miksana (mehka)
+															at0166, 	-- Osnovna tekoča
+															at0167, 	-- Stroga tekoča
+															at0168, 	-- Nevtropenična
+															at0169, 	-- Steroidna
+															at0170]	-- Sonda
+														}
+													}
+												}
+											}
+											ELEMENT[at0117] occurrences matches {0..1} matches {	-- Umetna prehranska pot
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0119, 	-- Nazogastrična sonda
+															at0120, 	-- Gastrostomska sonda
+															at0122, 	-- Jejunalna sonda
+															at0121]	-- Jejunostomska sonda
+														}
+													}
+												}
+											}
+											ELEMENT[at0132] occurrences matches {0..1} matches {	-- Zadnji obrok
+												value matches {
+													DV_DATE_TIME matches {*}
+												}
+											}
+											ELEMENT[at0044] occurrences matches {0..1} matches {	-- Začetek uvajanja
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0042] occurrences matches {0..1} matches {	-- Težave v času hranjenja
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0123, 	-- Ni težav
+															at0134, 	-- Polivanje
+															at0035, 	-- Bruhanje
+															at0135, 	-- Zaletavanje
+															at0136, 	-- Utrujanje
+															at0175]	-- Drugo
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0128] occurrences matches {0..1} matches {	-- Opomba
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0007] occurrences matches {0..1} matches {	-- *Solid diet(en)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0108] occurrences matches {0..1} matches {	-- *Type of solid diet(en)
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0109] occurrences matches {0..1} matches {	-- *Feeding problems(en)
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::]}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0110] occurrences matches {0..1} matches {	-- *Special diet(en)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0111] occurrences matches {0..1} matches {	-- *Artificial feeding route(en)
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::]}
+													}
+												}
+											}
+											ELEMENT[at0113] occurrences matches {0..1} matches {	-- *Type of special diet(en)
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::]}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Nutritional history">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Breast feeding">
+					description = <"Breast feeding details.">
+				>
+				["at0005"] = <
+					text = <"Artificial milk">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Mixed diet">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Solid diet">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Breast feeding">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Duration without supplements">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Total duration">
+					description = <"The duration of breast feeding.">
+				>
+				["at0012"] = <
+					text = <"Maternal nutrition while breast feeding">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Feeding with adapted preparations">
+					description = <"Child feeding with adapted preparations.">
+				>
+				["at0019"] = <
+					text = <"Complete">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Partial">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Preparation type">
+					description = <"Type of preparation - External termset.">
+				>
+				["at0029"] = <
+					text = <"Age feeding started">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Type of mixed diet">
+					description = <"Type of mixed diet.">
+				>
+				["at0034"] = <
+					text = <"Feeding problems">
+					description = <"Breast feeding problems.">
+				>
+				["at0035"] = <
+					text = <"Vomiting">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Poor feeding">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Painful nipples">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Feeding problems">
+					description = <"Problems with artificial milk feeds.">
+				>
+				["at0039"] = <
+					text = <"Poor milk preparation">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Feeding problems">
+					description = <"Problems with mixed diet feeding.">
+				>
+				["at0044"] = <
+					text = <"Age feeding started">
+					description = <"Age at which mixed diet feeding started.">
+				>
+				["at0108"] = <
+					text = <"Type of solid diet">
+					description = <"*">
+				>
+				["at0109"] = <
+					text = <"Feeding problems">
+					description = <"*">
+				>
+				["at0110"] = <
+					text = <"Special diet">
+					description = <"*">
+				>
+				["at0111"] = <
+					text = <"Artificial feeding route">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"Type of special diet">
+					description = <"*">
+				>
+				["at0115"] = <
+					text = <"Datetime of last feed">
+					description = <"The date and time of the subject's last breast feed.">
+				>
+				["at0116"] = <
+					text = <"Comment">
+					description = <"General comment about breast feeding.">
+				>
+				["at0117"] = <
+					text = <"Feeding route">
+					description = <"The route by which the subject is fed.">
+				>
+				["at0119"] = <
+					text = <"Naso-gastric tube">
+					description = <"Subject is fed via a naso-gastric tube.">
+				>
+				["at0120"] = <
+					text = <"Gastrostomy tube">
+					description = <"Subject is fed via a gastrostomy tube">
+				>
+				["at0121"] = <
+					text = <"Jejunostomy tube">
+					description = <"Subject is fed via a jejunostomy tube.">
+				>
+				["at0122"] = <
+					text = <"Jejunal tube">
+					description = <"Subject is fed via a jejunal tube.">
+				>
+				["at0123"] = <
+					text = <"None">
+					description = <"The subject is feeding normally.">
+				>
+				["at0124"] = <
+					text = <"Normal food">
+					description = <"*">
+				>
+				["at0125"] = <
+					text = <"Special diet">
+					description = <"*">
+				>
+				["at0126"] = <
+					text = <"Special diet">
+					description = <"Specific diet type - external terminology.">
+				>
+				["at0127"] = <
+					text = <"Comment">
+					description = <"General comment about artificial feeding.">
+				>
+				["at0128"] = <
+					text = <"Comment">
+					description = <"General comment about mixed diet.">
+				>
+				["at0129"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0130"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0131"] = <
+					text = <"Datetime of last feed">
+					description = <"Date and time of the subject's last artifical feed.">
+				>
+				["at0132"] = <
+					text = <"Datetime of last feed">
+					description = <"Datetime of subjects last mixed diet feed.">
+				>
+				["at0133"] = <
+					text = <"Normal food">
+					description = <"Normal foodstuffs.">
+				>
+				["at0134"] = <
+					text = <"Spilling">
+					description = <"*">
+				>
+				["at0135"] = <
+					text = <"ZALETAVANJE">
+					description = <"*">
+				>
+				["at0136"] = <
+					text = <"Fatigue">
+					description = <"*">
+				>
+				["at0137"] = <
+					text = <"Fruit">
+					description = <"Fruit">
+				>
+				["at0138"] = <
+					text = <"Vegetables">
+					description = <"Vegetables">
+				>
+				["at0139"] = <
+					text = <"Cereals">
+					description = <"*">
+				>
+				["at0140"] = <
+					text = <"Meat">
+					description = <"*">
+				>
+				["at0141"] = <
+					text = <"Protective_13-15_years">
+					description = <"Protective_13-15_years">
+				>
+				["at0142"] = <
+					text = <"Light">
+					description = <"Light">
+				>
+				["at0143"] = <
+					text = <"Light child_1-4_years">
+					description = <"Light child_1-4_years">
+				>
+				["at0144"] = <
+					text = <"I_child_4-7_years">
+					description = <"I_child_4-7_years">
+				>
+				["at0145"] = <
+					text = <"II_child_7-13_years">
+					description = <"II_child_7-13_years">
+				>
+				["at0146"] = <
+					text = <"Child_VKB">
+					description = <"Child_VKB">
+				>
+				["at0147"] = <
+					text = <"Reduction">
+					description = <"Reduction">
+				>
+				["at0148"] = <
+					text = <"Basic bland">
+					description = <"Basic bland">
+				>
+				["at0149"] = <
+					text = <"Low_cholesterol_low-fat">
+					description = <"Low_cholesterol_low-fat">
+				>
+				["at0150"] = <
+					text = <"Therapeutic_by_consultation_with_dietitian">
+					description = <"Therapeutic_by_consultation_with_dietitian">
+				>
+				["at0151"] = <
+					text = <"Diabetic">
+					description = <"Diabetic">
+				>
+				["at0152"] = <
+					text = <"Vegetarian">
+					description = <"Vegetarian">
+				>
+				["at0153"] = <
+					text = <"Proteic">
+					description = <"Proteic">
+				>
+				["at0154"] = <
+					text = <"Dialysis">
+					description = <"Dialysis">
+				>
+				["at0155"] = <
+					text = <"Coeliac">
+					description = <"Coeliac">
+				>
+				["at0156"] = <
+					text = <"Elimination-Urticaria_III">
+					description = <"Elimination-Urticaria_III">
+				>
+				["at0157"] = <
+					text = <"HypoallergenicUrticaria_II">
+					description = <"HypoallergenicUrticaria_II">
+				>
+				["at0158"] = <
+					text = <"Urticaria_I">
+					description = <"Urticaria_I">
+				>
+				["at0159"] = <
+					text = <"Hepatic">
+					description = <"Hepatic">
+				>
+				["at0160"] = <
+					text = <"Gastric">
+					description = <"Gastric">
+				>
+				["at0161"] = <
+					text = <"Colitic">
+					description = <"Colitic">
+				>
+				["at0162"] = <
+					text = <"Biliary strict">
+					description = <"Biliary strict">
+				>
+				["at0163"] = <
+					text = <"Biliary">
+					description = <"Biliary">
+				>
+				["at0164"] = <
+					text = <"Basic mashed_mushy">
+					description = <"Basic mashed_mushy">
+				>
+				["at0165"] = <
+					text = <"Basic blended_soft">
+					description = <"Basic blended_soft">
+				>
+				["at0166"] = <
+					text = <"Basic current">
+					description = <"Basic current">
+				>
+				["at0167"] = <
+					text = <"Strict current">
+					description = <"Strict current">
+				>
+				["at0168"] = <
+					text = <"Neutropenic">
+					description = <"Neutropenic">
+				>
+				["at0169"] = <
+					text = <"Steroid">
+					description = <"Steroid">
+				>
+				["at0170"] = <
+					text = <"Tube feed">
+					description = <"Tube feed">
+				>
+				["at0171"] = <
+					text = <"*Utrujanje(en)">
+					description = <"**(en)">
+				>
+				["at0172"] = <
+					text = <"*Drugo(en)">
+					description = <"**(en)">
+				>
+				["at0173"] = <
+					text = <"*Utrujanje(en)">
+					description = <"**(en)">
+				>
+				["at0174"] = <
+					text = <"*Drugo(en)">
+					description = <"**(en)">
+				>
+				["at0175"] = <
+					text = <"*Drugo(en)">
+					description = <"**(en)">
+				>
+				["at0176"] = <
+					text = <"*Drugo(en)">
+					description = <"**(en)">
+				>
+				["at0177"] = <
+					text = <"*Polivanje(en)">
+					description = <"**(en)">
+				>
+				["at0178"] = <
+					text = <"*Polivanje(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Nutritional history(en)">
+					description = <"*unknown(en)">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"*Breast feeding(en)">
+					description = <"*Breast feeding details.(en)">
+				>
+				["at0005"] = <
+					text = <"*Artificial milk(en)">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"*Mixed diet(en)">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"*Solid diet(en)">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"Dojen">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"Čas dojenja brez dodatkov">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"Skupno trajanje">
+					description = <"*The duration of breast feeding.(en)">
+				>
+				["at0012"] = <
+					text = <"Vrsta prehrane matere v času dojenja">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"Hranjenje s prilagojenimi pripravki">
+					description = <"*Child feeding with adapted preparations.(en)">
+				>
+				["at0019"] = <
+					text = <"Popolno">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"Delno dojen">
+					description = <"**(en)">
+				>
+				["at0026"] = <
+					text = <"Vrsta pripravka">
+					description = <"*Type of preparation - External termset.(en)">
+				>
+				["at0029"] = <
+					text = <"Začetek uvajanja">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"Vrsta hrane">
+					description = <"*Type of mixed diet.(en)">
+				>
+				["at0034"] = <
+					text = <"Težave v času dojenja">
+					description = <"*Breast feeding problems.(en)">
+				>
+				["at0035"] = <
+					text = <"Bruhanje">
+					description = <"**(en)">
+				>
+				["at0036"] = <
+					text = <"Bruhanje">
+					description = <"**(en)">
+				>
+				["at0037"] = <
+					text = <"Zaletavanje">
+					description = <"**(en)">
+				>
+				["at0038"] = <
+					text = <"Težave v času hranjenja">
+					description = <"*Problems with artificial milk feeds.(en)">
+				>
+				["at0039"] = <
+					text = <"Zaletavanje">
+					description = <"**(en)">
+				>
+				["at0042"] = <
+					text = <"Težave v času hranjenja">
+					description = <"*Problems with mixed diet feeding.(en)">
+				>
+				["at0044"] = <
+					text = <"Začetek uvajanja">
+					description = <"*Age at which mixed diet feeding started.(en)">
+				>
+				["at0108"] = <
+					text = <"*Type of solid diet(en)">
+					description = <"**(en)">
+				>
+				["at0109"] = <
+					text = <"*Feeding problems(en)">
+					description = <"**(en)">
+				>
+				["at0110"] = <
+					text = <"*Special diet(en)">
+					description = <"**(en)">
+				>
+				["at0111"] = <
+					text = <"*Artificial feeding route(en)">
+					description = <"**(en)">
+				>
+				["at0113"] = <
+					text = <"*Type of special diet(en)">
+					description = <"**(en)">
+				>
+				["at0115"] = <
+					text = <"Zadnji obrok">
+					description = <"*The date and time of the subject's last breast feed.(en)">
+				>
+				["at0116"] = <
+					text = <"Opomba">
+					description = <"*General comment about breast feeding.(en)">
+				>
+				["at0117"] = <
+					text = <"Umetna prehranska pot">
+					description = <"*The route by which the subject is fed.(en)">
+				>
+				["at0119"] = <
+					text = <"Nazogastrična sonda">
+					description = <"*Subject is fed via a naso-gastric tube.(en)">
+				>
+				["at0120"] = <
+					text = <"Gastrostomska sonda">
+					description = <"*Subject is fed via a gastrostomy tube(en)">
+				>
+				["at0121"] = <
+					text = <"Jejunostomska sonda">
+					description = <"*Subject is fed via a jejunostomy tube.(en)">
+				>
+				["at0122"] = <
+					text = <"Jejunalna sonda">
+					description = <"*Subject is fed via a jejunal tube.(en)">
+				>
+				["at0123"] = <
+					text = <"Ni težav">
+					description = <"*The subject is feeding normally.(en)">
+				>
+				["at0124"] = <
+					text = <"Normalna hrana">
+					description = <"**(en)">
+				>
+				["at0125"] = <
+					text = <"Dieta">
+					description = <"**(en)">
+				>
+				["at0126"] = <
+					text = <"Dieta">
+					description = <"*Specific diet type - external terminology.(en)">
+				>
+				["at0127"] = <
+					text = <"Opomba">
+					description = <"*General comment about artificial feeding.(en)">
+				>
+				["at0128"] = <
+					text = <"Opomba">
+					description = <"*General comment about mixed diet.(en)">
+				>
+				["at0129"] = <
+					text = <"Ni težav">
+					description = <"**(en)">
+				>
+				["at0130"] = <
+					text = <"Ni težav">
+					description = <"**(en)">
+				>
+				["at0131"] = <
+					text = <"Zadnji obrok">
+					description = <"*Date and time of the subject's last artifical feed.(en)">
+				>
+				["at0132"] = <
+					text = <"Zadnji obrok">
+					description = <"*Datetime of subjects last mixed diet feed.(en)">
+				>
+				["at0133"] = <
+					text = <"Normalna hrana">
+					description = <"*Normal foodstuffs.(en)">
+				>
+				["at0134"] = <
+					text = <"Polivanje">
+					description = <"**(en)">
+				>
+				["at0135"] = <
+					text = <"Zaletavanje">
+					description = <"**(en)">
+				>
+				["at0136"] = <
+					text = <"Utrujanje">
+					description = <"**(en)">
+				>
+				["at0137"] = <
+					text = <"Sadje">
+					description = <"*Fruit(en)">
+				>
+				["at0138"] = <
+					text = <"Zelenjava">
+					description = <"*Vegetables(en)">
+				>
+				["at0139"] = <
+					text = <"Žitarice">
+					description = <"**(en)">
+				>
+				["at0140"] = <
+					text = <"Meso">
+					description = <"**(en)">
+				>
+				["at0141"] = <
+					text = <"Varovalna (13-15 let)">
+					description = <"*Protective_13-15_years(en)">
+				>
+				["at0142"] = <
+					text = <"Lahka">
+					description = <"*Light(en)">
+				>
+				["at0143"] = <
+					text = <"Lahka otroška (1-4 let)">
+					description = <"*Light child_1-4_years(en)">
+				>
+				["at0144"] = <
+					text = <"Otroška I (4-7 let)">
+					description = <"*I_child_4-7_years(en)">
+				>
+				["at0145"] = <
+					text = <"Otroška II (7-13 let)">
+					description = <"*II_child_7-13_years(en)">
+				>
+				["at0146"] = <
+					text = <"Otroška VKB">
+					description = <"*Child_VKB(en)">
+				>
+				["at0147"] = <
+					text = <"Redukcijska">
+					description = <"*Reduction(en)">
+				>
+				["at0148"] = <
+					text = <"Osnovna neslana">
+					description = <"*Basic bland(en)">
+				>
+				["at0149"] = <
+					text = <"Holesterolna (z manj maščobami)">
+					description = <"*Low_cholesterol_low-fat(en)">
+				>
+				["at0150"] = <
+					text = <"Terapevtska z posvetom dietetičarja">
+					description = <"*Therapeutic_by_consultation_with_dietitian(en)">
+				>
+				["at0151"] = <
+					text = <"Diabetes">
+					description = <"*Diabetic(en)">
+				>
+				["at0152"] = <
+					text = <"Vegetarijanska">
+					description = <"*Vegetarian(en)">
+				>
+				["at0153"] = <
+					text = <"Hipoproteinska">
+					description = <"*Proteic(en)">
+				>
+				["at0154"] = <
+					text = <"Dializna">
+					description = <"*Dialysis(en)">
+				>
+				["at0155"] = <
+					text = <"Celiakalna">
+					description = <"*Coeliac(en)">
+				>
+				["at0156"] = <
+					text = <"Eliminacijska-Urtika III">
+					description = <"*Elimination-Urticaria_III(en)">
+				>
+				["at0157"] = <
+					text = <"Hipoalergijska-Urtika I">
+					description = <"*HypoallergenicUrticaria_II(en)">
+				>
+				["at0158"] = <
+					text = <"Urtika I">
+					description = <"*Urticaria_I(en)">
+				>
+				["at0159"] = <
+					text = <"Jetrna">
+					description = <"*Hepatic(en)">
+				>
+				["at0160"] = <
+					text = <"Želodčna">
+					description = <"*Gastric(en)">
+				>
+				["at0161"] = <
+					text = <"Collitis">
+					description = <"*Colitic(en)">
+				>
+				["at0162"] = <
+					text = <"Žolčna stroga">
+					description = <"*Biliary strict(en)">
+				>
+				["at0163"] = <
+					text = <"Žolčna">
+					description = <"*Biliary(en)">
+				>
+				["at0164"] = <
+					text = <"Osnovna pasirana (kašasta)">
+					description = <"*Basic mashed_mushy(en)">
+				>
+				["at0165"] = <
+					text = <"Osnovna miksana (mehka)">
+					description = <"*Basic blended_soft(en)">
+				>
+				["at0166"] = <
+					text = <"Osnovna tekoča">
+					description = <"*Basic current(en)">
+				>
+				["at0167"] = <
+					text = <"Stroga tekoča">
+					description = <"*Strict current(en)">
+				>
+				["at0168"] = <
+					text = <"Nevtropenična">
+					description = <"*Neutropenic(en)">
+				>
+				["at0169"] = <
+					text = <"Steroidna">
+					description = <"*Steroid(en)">
+				>
+				["at0170"] = <
+					text = <"Sonda">
+					description = <"*Tube feed(en)">
+				>
+				["at0171"] = <
+					text = <"Utrujanje">
+					description = <"*">
+				>
+				["at0172"] = <
+					text = <"Drugo">
+					description = <"*">
+				>
+				["at0173"] = <
+					text = <"Utrujanje">
+					description = <"*">
+				>
+				["at0174"] = <
+					text = <"Drugo">
+					description = <"*">
+				>
+				["at0175"] = <
+					text = <"Drugo">
+					description = <"*">
+				>
+				["at0176"] = <
+					text = <"Drugo">
+					description = <"*">
+				>
+				["at0177"] = <
+					text = <"Polivanje">
+					description = <"*">
+				>
+				["at0178"] = <
+					text = <"Polivanje">
+					description = <"*">
+				>
+			>
+		>
+	>

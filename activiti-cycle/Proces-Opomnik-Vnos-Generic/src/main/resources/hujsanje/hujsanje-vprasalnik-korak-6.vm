@@ -1,0 +1,111 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+
+	<h3>
+		<a href="#">Vprašalnik - gibanje</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Načelo uravnotežene vadbe vključuje:</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!06.v1]?data[at0001]?items[at0004]?items[at0008]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0009">25% vaj za krepitev mišic, 50 % vaj za vzdržljivost in 25% vaj za gibljivost</option>
+						<option value="at0010">Frekvenco, intenzivnost, trajanje in tip/vrsto vadbe</option>
+						<option value="at0011">60 % vaj za vzdržljivost, 15% vaj za krepitev mišic in 25% vaj za gibljivost</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katera trditev velja za hujšanje: </p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!06.v1]?data[at0001]?items[at0004]?items[at0007]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0013">Aktiven življenjski slog pri hujšanju ni pomemben, ampak je dovolj samo dieta</option>
+						<option value="at0014">Z aktivnim življenjskim slogom ne moremo doseči dolgoročnih učinkov v procesu hujšanja in vzdrževanja telesne mase</option>
+						<option value="at0012">Hujšanje samo na račun prehrane vodi v zmanjšanje mišične moči in bazalnega metabolizma</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katera trditev drži?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!06.v1]?data[at0001]?items[at0004]?items[at0015]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0019">V višji starosti ni več smiselno pričeti z redno telesno dejvnostjo</option>
+						<option value="at0018">Ne glede na zaviralne dejavnike lahko najdemo ustrezno obliko telesne dejavnosti</option>
+						<option value="at0020">Motivacija ni tako pomembna, če je okolje primerno za telesno dejavnost</option>
+						<option value="at0021">Telesno dejavnost lahko izvajamo samo v določenem okolju</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katera trditev drži za uravnoteženo vadbo?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!06.v1]?data[at0001]?items[at0004]?items[at0016]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0022">Aerobne vaje izvajamo večino dni v tednu</option>
+						<option value="at0024">Vaje za gibljvost izvajamo po potrebi</option>
+						<option value="at0023">Vaje za krepitev mišic je potrebno izvajati vsak dan</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katera trditev velja za uravnavanje telesne mase?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!06.v1]?data[at0001]?items[at0004]?items[at0017]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0026">Priporočljivo je izgubiti 30% telesne mase na račun povečanja telesne dejavnosti</option>
+						<option value="at0027">Trajanje sedečega časa ni pomembno, če smo telesno  dejavni vsaj pol ure dnevno</option>
+						<option value="at0025">Mišice porabljajo več energije tudi v mirovanju</option>
+					</select>
+				</td>
+			</tr>			
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

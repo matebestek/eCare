@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="5.0.0" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-bf152091-223f-429b-b533-f26859386afa" targetNamespace="http://www.signavio.com/bpmn20"
+	typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+
+	<process id="Proces-Opomnik-Vnos-Meritev-7" name="Proces-Opomnik-Vnos-Meritev-7"
+		isExecutable="false">
+		
+		<sequenceFlow id="seqFlow-start-preveriDokoncanePodnaloge"
+			 sourceRef="startEvent" targetRef="serviceTask-preveriDokoncanePodnaloge" />
+		
+		<serviceTask id="serviceTask-preveriDokoncanePodnaloge" 
+             name="Preveri dokoncane podnaloge" 
+             activiti:class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.CheckCompletedSubTasksDelegate" />
+
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask1" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskPreberiDokumentacijo">TaskPreberiDokumentacijo</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientReadsIntroCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientReadsIntroCreateListener" />
+			</extensionElements>
+		</userTask>
+		
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask2" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskIzpolniOPKP">TaskIzpolniOPKP</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientEntersOPKPValuesCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientEntersOPKPValuesCreateListener" />
+			</extensionElements>
+		</userTask>
+		
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask3" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskVnosMeritev">TaskVnosMeritev</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientEntersMeasurementsCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientEntersMeasurementsCreateListener" />
+			</extensionElements>
+		</userTask>
+		
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask4" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskContent">TaskContent</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.ContentCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.ContentCreateListener" />
+			</extensionElements>
+		</userTask>	
+
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask5" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskWorkingSheets">TaskWorkingSheets</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientEntersWorkingSheetsCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientEntersWorkingSheetsCreateListener" />
+			</extensionElements>
+		</userTask>
+					
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask6" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskQuestioneer">TaskQuestioneer</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientFillsQuestioneerCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientFillsQuestioneerCreateListener" />
+			</extensionElements>
+		</userTask>
+		
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask6Return" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskQuestioneerNotCorrect">TaskQuestioneerNotCorrect</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientAnswersWrongCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.PatientAnswersWrongCreateListener" />
+			</extensionElements>
+		</userTask>
+		
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="userTask7" implementation="webService"
+			isForCompensation="false" name="${userTaskNameMsrmnts}"
+			startQuantity="1">
+			<documentation id="TaskKeepUp">TaskKeepUp</documentation>
+			<extensionElements>
+				<activiti:taskListener event="complete"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.KeepUpTheGoodWorkCompleteListener" />
+				<activiti:taskListener event="create"
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.KeepUpTheGoodWorkCreateListener" />
+			</extensionElements>
+		</userTask>				
+				
+		<startEvent id="startEvent" name="" />
+		<endEvent id="endEvent" name="" />
+		
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Pacient"
+			completionQuantity="1" id="CallActivity-NotifierPacient"
+			isForCompensation="false" name="NOTIFIER-Pacient" startQuantity="1">
+			<extensionElements>
+				<activiti:in source="notifyPatientForm" target="notifyPatientForm" />
+				<activiti:in source="patientNotifySmsDelegate" target="patientNotifySmsDelegate" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="listenerPatientObvestiloComplete" target="listenerPatientObvestiloComplete" />
+				<activiti:in source="listenerPatientObvestiloCreate" target="listenerPatientObvestiloCreate" />
+				<activiti:in source="patientUserTaskName" target="userTaskName" />
+				<activiti:in source="categoryCritical" target="categoryCritical" />
+			</extensionElements>
+		</callActivity>
+		
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Pacient-Ext"
+			completionQuantity="1" id="CallActivity-NotifierPacientExt"
+			isForCompensation="false" name="NOTIFIER-Pacient" startQuantity="1">
+			<extensionElements>
+				<activiti:in source="notifyPatientForm" target="notifyPatientForm" />
+				<activiti:in source="patientNotifySmsDelegate" target="patientNotifySmsDelegate" />
+				<activiti:in source="patientEmail" target="email" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="listenerPatientObvestiloComplete" target="listenerPatientObvestiloComplete" />
+				<activiti:in source="listenerPatientObvestiloCreate" target="listenerPatientObvestiloCreate" />
+				<activiti:in source="patientUserTaskName" target="userTaskName" />
+				<activiti:in source="categoryCritical" target="categoryCritical" />
+			</extensionElements>
+		</callActivity>
+		
+		<!-- before and after task 1 -->
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway1Start"
+			name="gateway1Start" />
+			
+		<exclusiveGateway gatewayDirection="Converging" id="gateway1End"
+			name="gateway1End" />
+		
+		<!-- before and after task 2 -->
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway2Start"
+			name="gateway2Start" />
+	
+		<exclusiveGateway gatewayDirection="Converging" id="gateway2End"
+			name="gateway2End" />
+		
+		<!-- before and after task 3 -->
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway3Start"
+			name="gateway3Start" />
+	
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway3End"
+			name="gateway3End" />
+				
+		<!-- after task CA Patient notifier -->
+		
+		<exclusiveGateway gatewayDirection="Converging" id="gatewayCaEnd"
+			name="gatewayCaEnd" />
+		
+		<!-- before and after task 4 -->
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway4Start"
+			name="gateway4Start" />
+
+		<exclusiveGateway gatewayDirection="Converging" id="gateway4End"
+			name="gateway4End" />	
+		
+		<!-- before and after task 5 -->
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway5Start"
+			name="gateway5Start" />
+
+		<exclusiveGateway gatewayDirection="Converging" id="gateway5End"
+			name="gateway5End" />
+		
+		<!-- before and after task 6 -->
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway6Start"
+			name="gateway6Start" />
+
+		<exclusiveGateway gatewayDirection="Converging" id="gateway6End"
+			name="gateway6End" />		
+		
+		<!-- before task 6 Return and task 7 -->
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gateway7Start"
+			name="gateway7Start" />
+		
+		<!-- FLOWS: before and after task 1 -->
+		
+		<sequenceFlow id="preveriDokoncanePodnaloge-gateway1Start" name=""
+			sourceRef="serviceTask-preveriDokoncanePodnaloge" targetRef="gateway1Start">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.SequenceFlowListenerGateway" />
+			</extensionElements>			
+		</sequenceFlow>
+				
+		<sequenceFlow id="gateway1Start-userTask1" name=""
+			sourceRef="gateway1Start" targetRef="userTask1">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway1Start-gateway1End" name=""
+			sourceRef="gateway1Start" targetRef="gateway1End">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'false'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="userTask1-gateway1End" name=""
+			sourceRef="userTask1" targetRef="gateway1End" />
+		
+		<!-- FLOWS: before and after task 2 -->
+		
+		<sequenceFlow id="gateway1End-gateway2Start" name=""
+			sourceRef="gateway1End" targetRef="gateway2Start">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.SequenceFlowListenerGateway" />
+			</extensionElements>			
+		</sequenceFlow>		
+		
+		<sequenceFlow id="gateway2Start-userTask2" name=""
+			sourceRef="gateway2Start" targetRef="userTask2">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway2Start-gateway2End" name=""
+			sourceRef="gateway2Start" targetRef="gateway2End">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'false'}</conditionExpression>
+		</sequenceFlow>		
+		
+		<sequenceFlow id="userTask2-gateway2End" name=""
+			sourceRef="userTask2" targetRef="gateway2End" />
+		
+		<!-- FLOWS: before and after task 3 -->
+		
+		<sequenceFlow id="gateway2End-gateway3Start" name=""
+			sourceRef="gateway2End" targetRef="gateway3Start">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.SequenceFlowListenerGateway" />
+			</extensionElements>			
+		</sequenceFlow>			
+
+		<sequenceFlow id="gateway3Start-userTask3" name=""
+			sourceRef="gateway3Start" targetRef="userTask3">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway3Start-gatewayCaEnd" name=""
+			sourceRef="gateway3Start" targetRef="gatewayCaEnd">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'false'}</conditionExpression>
+		</sequenceFlow>				
+		
+		<sequenceFlow id="userTask3-gateway3End" name=""
+			sourceRef="userTask3" targetRef="gateway3End" />
+		
+		<!-- FLOWS: before and after CA patient notifer -->
+		
+		<sequenceFlow id="gateway3End-CallActivityNotifierPacient" name=""
+			sourceRef="gateway3End" targetRef="CallActivity-NotifierPacient">
+			<conditionExpression xsi:type="tFormalExpression">${categoryOk == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway3End-CallActivityNotifierPacientExt" name=""
+			sourceRef="gateway3End" targetRef="CallActivity-NotifierPacientExt">
+			<conditionExpression xsi:type="tFormalExpression">${categoryOk == 'false'}</conditionExpression>
+		</sequenceFlow>	
+		
+		<sequenceFlow id="CallActivityNotifierPacient-gatewayCaEnd" name=""
+			sourceRef="CallActivity-NotifierPacient" targetRef="gatewayCaEnd" />
+			
+		<sequenceFlow id="CallActivityNotifierPacientExt-gatewayCaEnd" name=""
+			sourceRef="CallActivity-NotifierPacientExt" targetRef="gatewayCaEnd" />
+		
+		<!-- FLOWS: before and after task 4 -->
+		
+		<sequenceFlow id="gatewayCaEnd-gateway4Start" name=""
+			sourceRef="gatewayCaEnd" targetRef="gateway4Start">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.SequenceFlowListenerGateway" />
+			</extensionElements>			
+		</sequenceFlow>		
+		
+		<sequenceFlow id="gateway4Start-userTask4" name=""
+			sourceRef="gateway4Start" targetRef="userTask4">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway4Start-gateway4End" name=""
+			sourceRef="gateway4Start" targetRef="gateway4End">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'false'}</conditionExpression>
+		</sequenceFlow>			
+		
+		<sequenceFlow id="userTask4-gateway4End" name=""
+			sourceRef="userTask4" targetRef="gateway4End" />
+
+		<!-- FLOWS: before and after task 5 -->
+		
+		<sequenceFlow id="gateway4End-gateway5Start" name=""
+			sourceRef="gateway4End" targetRef="gateway5Start">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.SequenceFlowListenerGateway" />
+			</extensionElements>			
+		</sequenceFlow>		
+		
+		<sequenceFlow id="gateway5Start-userTask5" name=""
+			sourceRef="gateway5Start" targetRef="userTask5">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway5Start-gateway5End" name=""
+			sourceRef="gateway5Start" targetRef="gateway5End">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'false'}</conditionExpression>
+		</sequenceFlow>			
+		
+		<sequenceFlow id="userTask5-gateway5End" name=""
+			sourceRef="userTask5" targetRef="gateway5End" />
+		
+		<!-- FLOWS: before and after task 6 -->
+		
+		<sequenceFlow id="gateway5End-gateway6Start" name=""
+			sourceRef="gateway5End" targetRef="gateway6Start">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.SequenceFlowListenerGateway" />
+			</extensionElements>			
+		</sequenceFlow>		
+		
+		<sequenceFlow id="gateway6Start-userTask6" name=""
+			sourceRef="gateway6Start" targetRef="userTask6">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway6Start-gateway6End" name=""
+			sourceRef="gateway6Start" targetRef="gateway6End">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'false'}</conditionExpression>
+		</sequenceFlow>			
+		
+		<sequenceFlow id="userTask6-gateway6End" name=""
+			sourceRef="userTask6" targetRef="gateway6End" />		
+		
+		<!-- FLOWS: before and after task 6 Return -->
+			
+		<sequenceFlow id="gateway6End-gateway7Start" name=""
+			sourceRef="gateway6End" targetRef="gateway7Start">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.subtask.SequenceFlowListenerGateway" />
+			</extensionElements>
+		</sequenceFlow>		
+		
+		<sequenceFlow id="gateway7Start-userTask7" name=""
+			sourceRef="gateway7Start" targetRef="userTask7">
+			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${answersCorrect == null || answersCorrect == 'true'}]]></conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gateway7Start-userTask6Return" name=""
+			sourceRef="gateway7Start" targetRef="userTask6Return">
+			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${answersCorrect != null && answersCorrect == 'false'}]]></conditionExpression>
+		</sequenceFlow>		
+		
+		<sequenceFlow id="gateway7Start-endEvent" name=""
+			sourceRef="gateway7Start" targetRef="endEvent">
+			<conditionExpression xsi:type="tFormalExpression">${continueToSubtask == 'false'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="userTask6Return-gatewayCaEnd" name=""
+			sourceRef="userTask6Return" targetRef="gatewayCaEnd" />
+			
+		<sequenceFlow id="userTask7-endEvent" name=""
+			sourceRef="userTask7" targetRef="endEvent" />														
+			
+	</process>
+</definitions>

@@ -1,0 +1,125 @@
+xquery version "1.0";
+declare namespace functx = "http://www.functx.com";
+declare function functx:id-untyped
+  ( $node as node()* ,
+    $id as xs:anyAtomicType )  as element()* {
+
+  $node//*[@* = $id]
+} ;
+declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
+
+let $users := xmldb:get-child-collections('/db/eDiabetes/')
+
+return
+concat("&#10;", string-join(
+for $user in $users
+    for $value in collection(concat('/db/eDiabetes/', $user, '/openEHR-EHR-SECTION.vkljucitev_eo.v1/'))
+        let $date := replace(substring(functx:id-untyped($value,'at0001')[3]/node()[2]/node()/text(), 1, 19), 'T', ', ')
+        
+        let $aALL := functx:id-untyped($value,'at0001')[1]
+        let $a1  := replace(functx:id-untyped($aALL,'at0002')[1]/node()[2]/node()/text(), ',', ';')        
+        let $a2  := replace(functx:id-untyped($aALL,'at0003')/node()[2]/node()/text(), ',', ';')
+        let $a3  := replace(functx:id-untyped($aALL,'at0004')/node()[2]/node()/text(), ',', ';')
+        let $a4  := replace(functx:id-untyped($aALL,'at0005')/node()[2]/node()/text(), ',', ';')
+        let $a5  := replace(functx:id-untyped($aALL,'at0006')/node()[2]/node()/text(), ',', ';')
+        let $a6  := replace(functx:id-untyped(functx:id-untyped($value,'at0001')[3], 'at0004')/node()[2]/node()[2]/text(), ',', ';')
+        let $a7  := replace(functx:id-untyped($value,'at0004')[3]/node()[2]/node()[2]/text(), ',', ';')
+        let $a8  := replace(functx:id-untyped($aALL,'at0007')/node()[2]/node()/text(), ',', ';')
+        let $a9  := replace(functx:id-untyped($aALL,'at0008')/node()[2]/node()/text(), ',', ';')
+        let $a10 := replace(functx:id-untyped($aALL,'at0009')/node()[2]/node()/text(), ',', ';')
+        let $a11 := replace(functx:id-untyped($aALL,'at0010')/node()[2]/node()/text(), ',', ';')
+        let $a12 := replace(functx:id-untyped($aALL,'at0011')/node()[2]/node()/text(), ',', ';')
+        let $a13 := replace(functx:id-untyped($value,'at0035')/node()[2]/node()/text(), ',', ';')
+        let $a14 := replace(functx:id-untyped($value,'at0036')/node()[2]/node()/text(), ',', ';')
+        
+        let $bALL := functx:id-untyped($value,'at0001')[2]
+        let $b1  := replace(functx:id-untyped($bALL,'at0002')/node()[2]/node()/text(), ',', ';')
+        let $b2  := replace(functx:id-untyped($bALL,'at0003')/node()[2]/node()/text(), ',', ';')
+
+        let $cALL := functx:id-untyped($value,'at0001')[11]
+        let $c1  := replace(functx:id-untyped($value,'at0041')/node()[2]/node()/text(), ',', ';')
+        let $c2  := replace(functx:id-untyped($value,'at0037')/node()[2]/node()[1]/text(), ',', ';')
+        let $c3  := replace(functx:id-untyped($cALL,'at0011')/node()[2]/node()[1]/text(), ',', ';')
+        let $c4  := replace(functx:id-untyped($cALL,'at0007')/node()[2]/node()[1]/text(), ',', ';')
+        let $c5  := replace(functx:id-untyped($cALL,'at0015')/node()[2]/node()[1]/text(), ',', ';')
+        let $c6  := replace(functx:id-untyped($cALL,'at0002')/node()[2]/node()[1]/text(), ',', ';')
+        let $c7  := replace(functx:id-untyped($cALL,'at0003')/node()[2]/node()[1]/text(), ',', ';')
+        let $c8  := replace(functx:id-untyped($cALL,'at0005')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $dALL := functx:id-untyped($value,'at0001')[6]
+        let $d1 := functx:id-untyped($dALL,'at0004')/node()[2]/node()[2]/text()
+        let $d2 := functx:id-untyped($dALL,'at0005')/node()[2]/node()[2]/text()
+        let $d3 := replace(functx:id-untyped($dALL,'at0006')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $eALL := functx:id-untyped($value,'at0001')[7]
+        let $e1  := functx:id-untyped($eALL,'at0015')/node()[2]/node()[2]/text()
+        let $e2  := functx:id-untyped($eALL,'at0004')/node()[2]/node()[2]/text()
+        let $e3  := functx:id-untyped($eALL,'at0007')/node()[2]/node()[2]/text()
+        let $e4  := functx:id-untyped($eALL,'at0008')/node()[2]/node()[2]/text()
+        let $e5  := functx:id-untyped($eALL,'at0009')/node()[2]/node()[2]/text()
+        let $e6  := functx:id-untyped($eALL,'at0010')/node()[2]/node()[2]/text()
+        let $e7  := functx:id-untyped($eALL,'at0011')/node()[2]/node()[2]/text()
+        let $e8  := functx:id-untyped($eALL,'at0012')/node()[2]/node()[2]/text()
+        let $e9  := functx:id-untyped($eALL,'at0013')/node()[2]/node()[2]/text()
+        let $e10 := functx:id-untyped($eALL,'at0014')/node()[2]/node()[2]/text()
+
+        let $fALL := functx:id-untyped($value,'at0001')[12]
+        let $f1  := replace(functx:id-untyped($fALL,'at0006')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+        let $f2  := functx:id-untyped($fALL,'at0005')/node()[2]/node()[2]/node()[1]/text()
+        let $f3  := functx:id-untyped($fALL,'at0008')/node()[2]/node()[2]/node()[1]/text()
+        let $f4  := functx:id-untyped($fALL,'at0007')/node()[2]/node()[2]/node()[1]/text()
+        let $f5  := functx:id-untyped($fALL,'at0010')/node()[2]/node()[2]/node()[1]/text()
+        let $f6  := functx:id-untyped($fALL,'at0011')/node()[2]/node()[2]/node()[1]/text()
+        let $f7  := functx:id-untyped($fALL,'at0009')/node()[2]/node()[2]/node()[1]/text()
+
+        let $gALL := functx:id-untyped($value,'at0001')[9]
+        let $g1 := functx:id-untyped($gALL,'at0002')/node()[2]/node()/text()
+        let $g2 := functx:id-untyped($gALL,'at0007')/node()[2]/node()[2]/text()
+        let $g3 := functx:id-untyped($gALL,'at0011')/node()[2]/node()[2]/text()
+        let $g4 := replace(functx:id-untyped($gALL,'at0017')/node()[2]/node()[1]/text(), ',', ';')
+        let $g5 := functx:id-untyped($gALL,'at0022')/node()[2]/node()[1]/text()
+         
+        let $gALL := functx:id-untyped($value,'at0001')[8]
+        let $g6 := functx:id-untyped($gALL,'at0002')/node()[2]/node()[2]/node()[1]/text()
+        let $g7 := functx:id-untyped($gALL,'at0008')/node()[2]/node()[2]/node()[1]/text()
+        let $g8 := functx:id-untyped($gALL,'at0014')/node()[2]/node()[2]/node()[1]/text()
+        let $g9 := functx:id-untyped($gALL,'at0022')/node()[2]/node()[1]/text()
+
+        let $gALL := functx:id-untyped($value,'at0001')[10]
+        let $g10 := functx:id-untyped($gALL,'at0002')/node()[2]/node()[1]/text()
+        let $g11 := functx:id-untyped($gALL,'at0012')/node()[2]/node()[1]/text()
+        let $g12 := replace(functx:id-untyped($gALL,'at0023')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $hALL := functx:id-untyped($value,'at0001')[13]
+        let $h1 := replace(functx:id-untyped($hALL,'at0002')/node()[2]/node()[1]/text(), ',', ';')
+        let $h2 := functx:id-untyped($hALL,'at0001')/node()[2]/node()[1]/text()
+
+        let $iALL := functx:id-untyped($value,'openEHR-EHR-INSTRUCTION.terapija_eo.v1')
+        let $i1 := replace(functx:id-untyped($iALL,'at0004')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $allMeds := string-join(
+            for $med in functx:id-untyped($iALL,'openEHR-EHR-CLUSTER.zdravila_eo.v1')
+                let $m1 := replace(functx:id-untyped($med,'at0003')/node()[2]/node()[1]/text(), ',', ';')
+                let $m2 := replace(functx:id-untyped($med,'at0018')/node()[2]/node()[2]/text(), ',', ';')
+                let $m3 := replace(functx:id-untyped($med,'at0008')/node()[2]/node()[2]/text(), ',', ';')
+                let $m4 := replace(functx:id-untyped($med,'at0009')/node()[2]/node()[1]/text(), ',', ';')
+                return string-join( (string($m1), string($m2), string($m3), string($m4)), '; ')
+        , '   #####   ')
+        
+        return string-join(( string($user), string($date), string($a1), string($a2), string($a3),
+				 string($a4), string($a5), string($a6), string($a7), string($a8),
+                                 string($a9), string($a10), string($a11), string($a12),
+                                 string($a13), string($a14), string($b1),
+                                 string($b2), string($c1), string($c2), string($c3),
+                                 string($c4), string($c5), string($c6), string($c7),
+                                 string($c8), string($d1), string($d2), string($d3),
+                                 string($e1), string($e2), string($e3), string($e4),
+                                 string($e5), string($e6), string($e7), string($e8),
+                                 string($e9), string($e10),string($f1), string($f2),
+                                 string($f3), string($f4), string($f5), string($f6),
+                                 string($f7), string($g1), string($g2), string($g3),
+                                 string($g4), string($g5), string($g6), string($g7),
+                                 string($g8), string($g9), string($g10), string($g11),
+                                 string($g12), string($h1), string($h2), string($i1),
+                                 string($allMeds)
+                                 ), ", " ) , "&#10;"), "&#10;")

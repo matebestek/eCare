@@ -1,0 +1,734 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.vprasalnik_pr_kaj_jem_eo_hu.v1
+
+concept
+	[at0000]	-- Vprasalnik PR kaj jem eo hu
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Vprašalnik Kaj in koliko jem za potrebe projekta eOskrba - eHujšanje">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"0C5E7DFA931728062B398A135C6BA848">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Vprasalnik PR kaj jem eo hu
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Datum izpolnjevanja
+										value matches {
+											DV_DATE matches {*}
+										}
+									}
+									CLUSTER[at0005] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {0..*; unordered} matches {
+											CLUSTER[at0006] occurrences matches {0..1} matches {	-- Škrobna živila
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0007] occurrences matches {0..1} matches {	-- žitnih kosmičev za zajtrk (3 jedilne žlice)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0008] occurrences matches {0..1} matches {	-- kruh (½ kosa)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0009] occurrences matches {0..1} matches {	-- toast (1 kos)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0010] occurrences matches {0..1} matches {	-- žemljica (½ kosa)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0011] occurrences matches {0..1} matches {	-- krekerji (3 kosi)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0012] occurrences matches {0..1} matches {	-- krompir (velik kot jajce)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0013] occurrences matches {0..1} matches {	-- kuhan riž, testenine (2 jušni žlici)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0014] occurrences matches {0..1} matches {	-- Skupaj enot
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0015] occurrences matches {0..1} matches {	-- Sadje in zelenjava
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0016] occurrences matches {0..1} matches {	-- zelenjava (sveža in zamrznjena) (1 lonček)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0017] occurrences matches {0..1} matches {	-- solata (1 porcija = 1 solatni krožnik)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0018] occurrences matches {0..1} matches {	-- sveže sadje (jabolko, banana, pomaranče, kos melone,…)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0019] occurrences matches {0..1} matches {	-- kuhano sadje (1 lonček)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0020] occurrences matches {0..1} matches {	-- sadni sok (1 dcl)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0021] occurrences matches {0..1} matches {	-- Skupaj enot
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0022] occurrences matches {0..1} matches {	-- Mleko in mlečni izdelki (enota: 2 dcl mleka, jogurta)
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0024] occurrences matches {0..1} matches {	-- polnomastno ali >3,2% m.m.
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0025] occurrences matches {0..1} matches {	-- delno posneto < 1,6% m.m.
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0026] occurrences matches {0..1} matches {	-- posneto 0,5% m.m.
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0027] occurrences matches {0..1} matches {	-- sir (košček, velik kot škatlica vžigalic)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0028] occurrences matches {0..1} matches {	-- jogurt
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0029] occurrences matches {0..1} matches {	-- skuta (3 velike žlice)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0030] occurrences matches {0..1} matches {	-- New element
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0031] occurrences matches {0..1} matches {	-- Meso, ribe in zamenjave
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0032] occurrences matches {0..1} matches {	-- govedine, svinjine, jetra, perutnina, ribe (večji košček, ½ manjšega zrezka)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0033] occurrences matches {0..1} matches {	-- jajce (1)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0034] occurrences matches {0..1} matches {	-- leča, fižol, soja (3 jedilne žlice)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0035] occurrences matches {0..1} matches {	-- New element
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0036] occurrences matches {0..1} matches {	-- Maščobe
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0046] occurrences matches {0..1} matches {	-- Katero vrsto olja oz. maščobe uporabljate pri kuhanju?
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0048, 	-- svinjsko mast
+																	at0049, 	-- rastlinsko olje
+																	at0050]	-- olje z enkrat nenasičenimi maščobnimi kislinami (olivno, repično olje)
+																}
+															}
+														}
+													}
+													ELEMENT[at0047] occurrences matches {0..1} matches {	-- Katero vrsto maščob uporabljate za mazanje?
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0051, 	-- sirni namaz
+																	at0052, 	-- maslo
+																	at0053, 	-- navadno margarino
+																	at0054]	-- margarino z nenasičenimi maščobnimi kislinami (sončnično, Becel,…)
+																}
+															}
+														}
+													}
+													CLUSTER[at0043] occurrences matches {0..1} matches {	-- Koliko maščob zaužijete običajno na dan (kuhanje, namazi, zabele,…)?
+														items cardinality matches {0..*; unordered} matches {
+															ELEMENT[at0037] occurrences matches {0..1} matches {	-- masti (1 čajna žlička)
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+															ELEMENT[at0038] occurrences matches {0..1} matches {	-- masla, margarine, ocvirkov (1 čajna žička)
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+															ELEMENT[at0041] occurrences matches {0..1} matches {	-- olja za kuhanje (1 čajna žlička)
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+															ELEMENT[at0042] occurrences matches {0..1} matches {	-- majoneze, solatnih prelivov (1 čajna žlička)
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+															ELEMENT[at0040] occurrences matches {0..1} matches {	-- sladka smetana (30 %) (1 jedilna žlica)
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+															ELEMENT[at0039] occurrences matches {0..1} matches {	-- kisla smetana (20%) (2 jedilni žlici)
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+															ELEMENT[at0044] occurrences matches {0..1} matches {	-- lešniki (3 komadi), orehi (5 polovičk), arašidi (6 komadov)
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+															ELEMENT[at0045] occurrences matches {0..1} matches {	-- New element
+																value matches {
+																	DV_COUNT matches {*}
+																}
+															}
+														}
+													}
+												}
+											}
+											CLUSTER[at0055] occurrences matches {0..1} matches {	-- Sladkorji
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0056] occurrences matches {0..1} matches {	-- sladkorja v pijačah (1 čajna žlička)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0057] occurrences matches {0..1} matches {	-- krofov (1)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0058] occurrences matches {0..1} matches {	-- kolačev, pit (1 kozarec)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0059] occurrences matches {0..1} matches {	-- sladkorja (1 žlička, kocka)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0060] occurrences matches {0..1} matches {	-- čokolade (1 tablica)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0061] occurrences matches {0..1} matches {	-- biskvita (3 koščki)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0062] occurrences matches {0..1} matches {	-- New element
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0063] occurrences matches {0..1} matches {	-- Pijača
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0064] occurrences matches {0..1} matches {	-- kave (1 skodelica)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0065] occurrences matches {0..1} matches {	-- čaja (1 skodelica)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0066] occurrences matches {0..1} matches {	-- gaziranih pijač (1 kozarec)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0068] occurrences matches {0..1} matches {	-- brezalkoholnih, nesladkanih pijač (1 kozarec)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0067] occurrences matches {0..1} matches {	-- vode (1 kozarec)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0069] occurrences matches {0..1} matches {	-- New element
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0070] occurrences matches {0..1} matches {	-- Alkohol
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0073] occurrences matches {0..1} matches {	-- piva (3 dcl)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0074] occurrences matches {0..1} matches {	-- vina (1 dcl)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0075] occurrences matches {0..1} matches {	-- žganja (0,3 dcl)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0076] occurrences matches {0..1} matches {	-- likerjev, koktajlov (0,5 dcl)
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+													ELEMENT[at0077] occurrences matches {0..1} matches {	-- New element
+														value matches {
+															DV_COUNT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0072] occurrences matches {0..1} matches {	-- Druga jedila
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0080] occurrences matches {0..1} matches {	-- Ali uživate katerekoli druge jedi, ki jih nismo našteli (npr.: pizzo, baklavo, pečenice, kranjske klobase, hrenovke, paštete,…)?
+														value matches {
+															DV_BOOLEAN matches {
+																value matches {True, False}
+															}
+														}
+													}
+													ELEMENT[at0081] occurrences matches {0..1} matches {	-- Če DA, katera?
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vprasalnik PR kaj jem eo hu">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Datum izpolnjevanja">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Vprašanja">
+					description = <"Koliko ENOT naštetih živil zaužijete običajno na dan? Pomnite – to naj bo običajna izbira!
+Pomagajte si tako, da se spomnite, kaj in koliko ste pojedli včeraj. Poskušajte odgovoriti na vsa vprašanja!
+(Ena enota živila je količina živila, ki je navedena v oklepaju.)">
+				>
+				["at0006"] = <
+					text = <"Škrobna živila">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"žitnih kosmičev za zajtrk (3 jedilne žlice)">
+					description = <"žitnih kosmičev za zajtrk (3 jedilne žlice)">
+				>
+				["at0008"] = <
+					text = <"kruh (½ kosa)">
+					description = <"kruh (½ kosa)">
+				>
+				["at0009"] = <
+					text = <"toast (1 kos)">
+					description = <"toast (1 kos)">
+				>
+				["at0010"] = <
+					text = <"žemljica (½ kosa)">
+					description = <"žemljica (½ kosa)">
+				>
+				["at0011"] = <
+					text = <"krekerji (3 kosi)">
+					description = <"krekerji (3 kosi)">
+				>
+				["at0012"] = <
+					text = <"krompir (velik kot jajce)">
+					description = <"krompir (velik kot jajce)">
+				>
+				["at0013"] = <
+					text = <"kuhan riž, testenine (2 jušni žlici)">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Skupaj enot">
+					description = <"Skupno število enot za \"škrobna živila\"">
+				>
+				["at0015"] = <
+					text = <"Sadje in zelenjava">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"zelenjava (sveža in zamrznjena) (1 lonček)">
+					description = <"zelenjava (sveža in zamrznjena) (1 lonček)">
+				>
+				["at0017"] = <
+					text = <"solata (1 porcija = 1 solatni krožnik)">
+					description = <"solata (1 porcija = 1 solatni krožnik)">
+				>
+				["at0018"] = <
+					text = <"sveže sadje (jabolko, banana, pomaranče, kos melone,…)">
+					description = <"sveže sadje (jabolko, banana, pomaranče, kos melone,…)">
+				>
+				["at0019"] = <
+					text = <"kuhano sadje (1 lonček)">
+					description = <"kuhano sadje (1 lonček)">
+				>
+				["at0020"] = <
+					text = <"sadni sok (1 dcl)">
+					description = <"sadni sok (1 dcl)">
+				>
+				["at0021"] = <
+					text = <"Skupaj enot">
+					description = <"Skupno število enot za \"škrobna živila\"">
+				>
+				["at0022"] = <
+					text = <"Mleko in mlečni izdelki (enota: 2 dcl mleka, jogurta)">
+					description = <"enota: 2 dcl mleka, jogurta">
+				>
+				["at0024"] = <
+					text = <"polnomastno ali >3,2% m.m.">
+					description = <"polnomastno ali >3,2% m.m.">
+				>
+				["at0025"] = <
+					text = <"delno posneto < 1,6% m.m.">
+					description = <"delno posneto < 1,6% m.m.">
+				>
+				["at0026"] = <
+					text = <"posneto 0,5% m.m.">
+					description = <"posneto 0,5% m.m.">
+				>
+				["at0027"] = <
+					text = <"sir (košček, velik kot škatlica vžigalic)">
+					description = <"sir (košček, velik kot škatlica vžigalic)">
+				>
+				["at0028"] = <
+					text = <"jogurt">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"skuta (3 velike žlice)">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Meso, ribe in zamenjave">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"govedine, svinjine, jetra, perutnina, ribe (večji košček, ½ manjšega zrezka)">
+					description = <"govedine, svinjine, jetra, perutnina, ribe (večji košček, ½ manjšega zrezka)">
+				>
+				["at0033"] = <
+					text = <"jajce (1)">
+					description = <"jajce (1)">
+				>
+				["at0034"] = <
+					text = <"leča, fižol, soja (3 jedilne žlice)">
+					description = <"leča, fižol, soja (3 jedilne žlice)">
+				>
+				["at0035"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Maščobe">
+					description = <"Koliko maščob zaužijete običajno na dan (kuhanje, namazi, zabele,…)?">
+				>
+				["at0037"] = <
+					text = <"masti (1 čajna žlička)">
+					description = <"masti (1 čajna žlička)">
+				>
+				["at0038"] = <
+					text = <"masla, margarine, ocvirkov (1 čajna žička)">
+					description = <"masla, margarine, ocvirkov (1 čajna žička)">
+				>
+				["at0039"] = <
+					text = <"kisla smetana (20%) (2 jedilni žlici)">
+					description = <"kisla smetana (20%) (2 jedilni žlici)">
+				>
+				["at0040"] = <
+					text = <"sladka smetana (30 %) (1 jedilna žlica)">
+					description = <"sladka smetana (30 %) (1 jedilna žlica)">
+				>
+				["at0041"] = <
+					text = <"olja za kuhanje (1 čajna žlička)">
+					description = <"olja za kuhanje (1 čajna žlička)">
+				>
+				["at0042"] = <
+					text = <"majoneze, solatnih prelivov (1 čajna žlička)">
+					description = <"majoneze, solatnih prelivov (1 čajna žlička)">
+				>
+				["at0043"] = <
+					text = <"Koliko maščob zaužijete običajno na dan (kuhanje, namazi, zabele,…)?">
+					description = <"Koliko maščob zaužijete običajno na dan (kuhanje, namazi, zabele,…)?">
+				>
+				["at0044"] = <
+					text = <"lešniki (3 komadi), orehi (5 polovičk), arašidi (6 komadov)">
+					description = <"lešniki (3 komadi), orehi (5 polovičk), arašidi (6 komadov)">
+				>
+				["at0045"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Katero vrsto olja oz. maščobe uporabljate pri kuhanju?">
+					description = <"Katero vrsto olja oz. maščobe uporabljate pri kuhanju?">
+				>
+				["at0047"] = <
+					text = <"Katero vrsto maščob uporabljate za mazanje?">
+					description = <"Katero vrsto maščob uporabljate za mazanje?">
+				>
+				["at0048"] = <
+					text = <"svinjsko mast">
+					description = <"svinjsko mast">
+				>
+				["at0049"] = <
+					text = <"rastlinsko olje">
+					description = <"rastlinsko olje">
+				>
+				["at0050"] = <
+					text = <"olje z enkrat nenasičenimi maščobnimi kislinami (olivno, repično olje)">
+					description = <"olje z enkrat nenasičenimi maščobnimi kislinami (olivno, repično olje)">
+				>
+				["at0051"] = <
+					text = <"sirni namaz">
+					description = <"sirni namaz">
+				>
+				["at0052"] = <
+					text = <"maslo">
+					description = <"maslo">
+				>
+				["at0053"] = <
+					text = <"navadno margarino">
+					description = <"navadno margarino">
+				>
+				["at0054"] = <
+					text = <"margarino z nenasičenimi maščobnimi kislinami (sončnično, Becel,…)">
+					description = <"margarino z nenasičenimi maščobnimi kislinami (sončnično, Becel,…)">
+				>
+				["at0055"] = <
+					text = <"Sladkorji">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"sladkorja v pijačah (1 čajna žlička)">
+					description = <"sladkorja v pijačah (1 čajna žlička)">
+				>
+				["at0057"] = <
+					text = <"krofov (1)">
+					description = <"krofov (1)">
+				>
+				["at0058"] = <
+					text = <"kolačev, pit (1 kozarec)">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"sladkorja (1 žlička, kocka)">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"čokolade (1 tablica)">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"biskvita (3 koščki)">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Pijača">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"kave (1 skodelica)">
+					description = <"kave (1 skodelica)">
+				>
+				["at0065"] = <
+					text = <"čaja (1 skodelica)">
+					description = <"čaja (1 skodelica)">
+				>
+				["at0066"] = <
+					text = <"gaziranih pijač (1 kozarec)">
+					description = <"gaziranih pijač (1 kozarec)">
+				>
+				["at0067"] = <
+					text = <"vode (1 kozarec)">
+					description = <"vode (1 kozarec)">
+				>
+				["at0068"] = <
+					text = <"brezalkoholnih, nesladkanih pijač (1 kozarec)">
+					description = <"brezalkoholnih, nesladkanih pijač (1 kozarec)">
+				>
+				["at0069"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Alkohol">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"Druga jedila">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"piva (3 dcl)">
+					description = <"piva (3 dcl)">
+				>
+				["at0074"] = <
+					text = <"vina (1 dcl)">
+					description = <"vina (1 dcl)">
+				>
+				["at0075"] = <
+					text = <"žganja (0,3 dcl)">
+					description = <"žganja (0,3 dcl)">
+				>
+				["at0076"] = <
+					text = <"likerjev, koktajlov (0,5 dcl)">
+					description = <"likerjev, koktajlov (0,5 dcl)">
+				>
+				["at0077"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"Ali uživate katerekoli druge jedi, ki jih nismo našteli (npr.: pizzo, baklavo, pečenice, kranjske klobase, hrenovke, paštete,…)?">
+					description = <"Ali uživate katerekoli druge jedi, ki jih nismo našteli (npr.: pizzo, baklavo, pečenice, kranjske klobase, hrenovke, paštete,…)?">
+				>
+				["at0081"] = <
+					text = <"Če DA, katera?">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,147 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<h3>
+		<a href="#">Vprašalnik - prehrana</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr><td style="width: 120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Kakšno je priporočeno število dnevnih obrokov?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!01.v1]?data[at0001]?items[at0009]?items[at0017]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0021">1 do 2</option>
+						<option value="at0020">3 do 5</option>
+						<option value="at0023">6 ali več</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kateri je najpomembnejši obrok v dnevni prehrani?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!01.v1]?data[at0001]?items[at0009]?items[at0018]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0025">Zajtrk</option>
+						<option value="at0026">Malica</option>
+						<option value="at0027">Večerja</option>
+					</select>
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!01.v1]?data[at0001]?items[at0009]?items[at0019]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0024">Sadje in zelenjava</option>
+						<option value="at0023">Predelana in pol pripravljena ter pripravljena živila kot so kruh, mesni izdelki, pite, pice, "konzerve"</option>
+					</select>
+				</td>
+			</tr>			
+			
+			
+		</table>
+
+	</div>			
+
+	<h3>
+		<a href="#">Vprašalnik - gibanje</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera trditev drži za dnevnik vodenja telesne dejavnosti?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!01.v1]?data[at0001]?items[at0028]?items[at0029]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0044">Pomemben je za tekmovanje s prijatelji ali sodelavci</option>
+						<option value="at0043">Pomaga pri spremljanju porabe energije in vrednotenju napredka</option>
+						<option value="at0045">Ni primeren, saj ustvarja prisilo</option>
+					</select>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Katera trditev drzi za vaje mimogrede?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!01.v1]?data[at0001]?items[at0028]?items[at0030]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0040">Pomagajo pri preprečevanju bolečin v sklepih in mišicah, ohranjanju prožnosti mišic in gibljivosti sklepov</option>
+						<option value="at0042">Izvajati jih morajo samo ljudje z bolečinami v hrbtenici</option>
+						<option value="at0041">Z njimi lahko nadomestimo ostalo telesno vadbo</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kaj pomeni aktivni življenjski slog?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!01.v1]?data[at0001]?items[at0028]?items[at0031]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0038">Da se ukvarjamo z različnimi vrstami rekreacije</option>
+						<option value="at0039">Da imamo mnogo prostočasnih aktivnosti</option>
+						<option value="at0037">Da smo telesno dejavni tudi pri vsakdanjih opravilih</option>
+					</select>
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Katera trditev NE velja za varno in učinkovito vadbo?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!01.v1]?data[at0001]?items[at0028]?items[at0032]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0034">Napredujemo postopoma</option>
+						<option value="at0035">Izberemo ustrezno vadbo</option>
+						<option value="at0033">Zadani cilj poskušamo doseči čim hitreje</option>
+						<option value="at0036">Upočasnimo telesno dejavnost navkreber</option>
+					</select>
+				</td>
+			</tr>				
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

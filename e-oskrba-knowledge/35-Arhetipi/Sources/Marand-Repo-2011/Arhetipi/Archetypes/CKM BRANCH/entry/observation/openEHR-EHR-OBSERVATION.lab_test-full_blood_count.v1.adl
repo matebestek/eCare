@@ -1,0 +1,862 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.lab_test-full_blood_count.v1
+specialize
+	openEHR-EHR-OBSERVATION.lab_test.v1
+
+concept
+	[at0000.1]	-- Full blood count
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"07/11/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record observations on a blood film including microscopic findings and cell counts.
+
+
+">
+			use = <"Will normally be reported back to the requesting clinician within the context of an overall Composition-based laboratory report.
+">
+			keywords = <"lab", "pathology", "haematology", "laboratory", "FBC", "WCC">
+			misuse = <"This archetype is not a full laboratory report and requires diagnosis and other assessments to be recorded using other archetypes.">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", "Heather Leslie, Ocean Informatics, Australia", "Heath Frankel, Ocean Informatics, Australia", "Koray Atalag, University of Auckland, New Zealand">
+	other_details = <
+		["references"] = <"NEHTA, Australia. Pathology Episode v1.0 - Data Group library [Internet]. 2009;[cited 2009 Dec 8 ] Available from: http://www.nehta.gov.au/data-group-library/data-specifications/dgl-pathology
+
+IHE. IHE, Laboratory Technical Framework, Volume 3 Content [Internet]. 2008;Available from: http://www.ihe.net/Technical_Framework/upload/ihe_lab_TF_rel2_1-Vol-3_FT_2008-08-08.pdf
+
+LOINC, Logical Observation Identifiers Names and Codes, 2010 [Internet];[cited 2010 Oct 17 ] Available from: loinc.org">
+		["MD5-CAM-1.0.1"] = <"B94D509AED342792B861B878E2AB9F95">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- Full blood count
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Test name
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0077] occurrences matches {0..1} matches {	-- Diagnostic service
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0073] occurrences matches {0..1} matches {	-- Test status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0037, 	-- Interim
+													at0038, 	-- Final
+													at0039, 	-- Supplementary
+													at0040, 	-- Corrected (amended)
+													at0074, 	-- Aborted
+													at0079]	-- Never performed
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0065] occurrences matches {0..*} matches {	-- Specimen detail
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.specimen\.v1/}
+										exclude
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0078.4] occurrences matches {0..1} matches {	-- Haemoglobin
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"gm/l">
+														magnitude = <|>=0.0|>
+													>
+													["2"] = <
+														units = <"gm/dl">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.5] occurrences matches {0..1} matches {	-- Red cell count (RCC)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"10*12/l">
+														magnitude = <|>=0.0|>
+													>
+													["2"] = <
+														units = <"10*6/mm3">
+														magnitude = <|>=0.0|>
+													>
+													["3"] = <
+														units = <"10*6/µL">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.6] occurrences matches {0..1} matches {	-- Packed cell volume (PCV)
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												denominator matches {|100.0|}
+												is_integral matches {True}
+												type matches {2}
+											}
+										}
+									}
+									ELEMENT[at0078.7] occurrences matches {0..1} matches {	-- Mean cell haemoglobin concentration (MCHC)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"gm/l">
+														magnitude = <|>=0.0|>
+													>
+													["2"] = <
+														units = <"gm/dl">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.8] occurrences matches {0..1} matches {	-- Mean cell volume (MCV)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::129]>
+												list = <
+													["1"] = <
+														units = <"fl">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.9] occurrences matches {0..1} matches {	-- Mean cell haemoglobin (MCH)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::124]>
+												list = <
+													["1"] = <
+														units = <"pg">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.10] occurrences matches {0..1} matches {	-- Red cell distribution width (RDW)
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												denominator matches {|100.0|}
+												type matches {1, 2}
+											}
+										}
+									}
+									ELEMENT[at0078.38] occurrences matches {0..1} matches {	-- Erythrocyte distribution width
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::129]>
+												list = <
+													["1"] = <
+														units = <"fl">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.12] occurrences matches {0..1} matches {	-- Platelet count
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"10*9/l">
+														magnitude = <|>=0.0|>
+													>
+													["2"] = <
+														units = <"10*3/µL">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.20] occurrences matches {0..1} matches {	-- Mean platelet volume (MPV)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::129]>
+												list = <
+													["1"] = <
+														units = <"fl">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.21] occurrences matches {0..1} matches {	-- Platelet distribution width
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												denominator matches {|1.0|}
+												type matches {1, 2}
+											}
+										}
+									}
+									ELEMENT[at0078.37] occurrences matches {0..1} matches {	-- Platelet distribution width (volume)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::129]>
+												list = <
+													["1"] = <
+														units = <"fl">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0078.22] occurrences matches {0..1} matches {	-- Plateletcrit
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												denominator matches {|100.0|}
+												is_integral matches {True}
+												type matches {2}
+											}
+										}
+									}
+									ELEMENT[at0078.13] occurrences matches {0..1} matches {	-- White cell count
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::119]>
+												list = <
+													["1"] = <
+														units = <"10*9/l">
+														magnitude = <|>=0.0|>
+													>
+													["2"] = <
+														units = <"10*3/µL">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									CLUSTER[at0.1] occurrences matches {0..1} matches {	-- White cell differential count
+										items cardinality matches {1..5; ordered} matches {
+											ELEMENT[at0078.15] occurrences matches {0..1} matches {	-- Neutrophils
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.25] occurrences matches {0..1} matches {	-- Banded neutrophils
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.24] occurrences matches {0..1} matches {	-- Granulocytes
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.16] occurrences matches {0..1} matches {	-- Lymphocytes
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.27] occurrences matches {0..1} matches {	-- Lymphocytes variant
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.17] occurrences matches {0..1} matches {	-- Basophils
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.18] occurrences matches {0..1} matches {	-- Monocytes
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.19] occurrences matches {0..1} matches {	-- Eosinophils
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.26] occurrences matches {0..1} matches {	-- Other leucocytes
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::119]>
+														list = <
+															["1"] = <
+																units = <"10*9/l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"10*3/µL">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0078.23] occurrences matches {0..*} matches {	-- Microscopic features
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0.28] occurrences matches {0..1} matches {	-- White cell differential proportion
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0078.33] occurrences matches {0..1} matches {	-- Neutrophils
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														is_integral matches {True}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.32] occurrences matches {0..1} matches {	-- Banded neutrophils
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.31] occurrences matches {0..1} matches {	-- Granulocytes
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.29] occurrences matches {0..1} matches {	-- Lymphocytes
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.28] occurrences matches {0..1} matches {	-- Lymphocytes variant
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.30] occurrences matches {0..1} matches {	-- Basophils
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.36] occurrences matches {0..1} matches {	-- Monocytes
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.34] occurrences matches {0..1} matches {	-- Eosinophils
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+											ELEMENT[at0078.35] occurrences matches {0..1} matches {	-- Other leucocytes
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {2}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0078] occurrences matches {0..*} matches {*}
+									allow_archetype CLUSTER[at0089] occurrences matches {0..*} matches {	-- Per-result annotation
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.lab_result_annotation(-[a-zA-Z0-9_]+)*\.v1/}
+										exclude
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0057] occurrences matches {0..1} matches {	-- Overall interpretation
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..*} matches {	-- Multimedia representation
+										value matches {
+											DV_MULTIMEDIA matches {
+												media_type matches {[openEHR::]}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0062] occurrences matches {0..1} matches {	-- Requestor order identifier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0090] occurrences matches {0..*} matches {	-- Requestor 
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0063] occurrences matches {0..1} matches {	-- Receiver order Identifier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {	-- Receiving laboratory 
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.organisation\.v1/}
+						exclude
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0068] occurrences matches {0..1} matches {	-- Laboratory test result identifier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0075] occurrences matches {0..1} matches {	-- Datetime result issued
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.1"] = <
+					text = <"White cell differential count">
+					description = <"The absolute differential count of white cells or leukocytes.">
+				>
+				["at0.28"] = <
+					text = <"White cell differential proportion">
+					description = <"The differential proportions of white cells or leukocytes.">
+				>
+				["at0000"] = <
+					text = <"Laboratory test">
+					description = <"To record the result of a laboratory test which may be used to record a single valued test but will often be specialised or templated to represent multiple value or 'panel' tests.
+This archetype also acts as the parent for specialisations appropriate for more specific laboratory tests microbiology, histopathology.">
+				>
+				["at0000.1"] = <
+					text = <"Full blood count">
+					description = <"The full blood count or examination normally reported by a haematology laboratory.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Test name">
+					description = <"Specific identifier for this lab test. e.g. Full blood count , blood glucose, urine microbiology.  May equate to the result name for a single value result. Commonly a coded term e.g from LOINC or SNOMED-CT.">
+				>
+				["at0010"] = <
+					text = <"Multimedia representation">
+					description = <"Representations of the whole test in mutlimedia e.g image, audio, video.">
+				>
+				["at0017"] = <
+					text = <"Receiving laboratory ">
+					description = <"Demographic details of the laboratory with responsibility for the test. Details of secondary laboratories may also be included.">
+				>
+				["at0037"] = <
+					text = <"Interim">
+					description = <"This is an initial or interim result - further updates are anticipated">
+				>
+				["at0038"] = <
+					text = <"Final">
+					description = <"This is the final result. No further alterations are anticipated">
+				>
+				["at0039"] = <
+					text = <"Supplementary">
+					description = <"This is a supplememtary result in addition to the Interim result">
+				>
+				["at0040"] = <
+					text = <"Corrected (amended)">
+					description = <"This is a Correction which should replace any previous results">
+				>
+				["at0057"] = <
+					text = <"Overall interpretation">
+					description = <"An overall interpretative comment on this test.">
+				>
+				["at0062"] = <
+					text = <"Requestor order identifier">
+					description = <"The local ID assigned to the order by the order requester. Equivalent to the Placer Order Identifier.">
+				>
+				["at0063"] = <
+					text = <"Receiver order Identifier">
+					description = <"The local ID assigned to the test order by the order filler, usually by the (LIS) Laboratory Information System. Equivalent to the DICOM Accession Number and the Filler Order Identifier.">
+				>
+				["at0065"] = <
+					text = <"Specimen detail">
+					description = <"Details of the specimen being reported where all individual results are derived from the same specimen">
+				>
+				["at0068"] = <
+					text = <"Laboratory test result identifier">
+					description = <"The identifier given to the laboratory test result of a pathology 
+investigation.">
+				>
+				["at0073"] = <
+					text = <"Test status">
+					description = <"The status of the lab test as a whole.">
+				>
+				["at0074"] = <
+					text = <"Aborted">
+					description = <"*">
+				>
+				["at0075"] = <
+					description = <"The date and/or time that the result was issued for the recorded 
+‘test status’. ">
+					text = <"Datetime result issued">
+					comment = <"The date and time related to the results status is
+useful for version control and cumulative results for the report.">
+				>
+				["at0077"] = <
+					text = <"Diagnostic service">
+					description = <"The type of high-level diagnostic service e.g. biochemistry, haematology. ">
+				>
+				["at0078"] = <
+					text = <"Result">
+					description = <"The result of the test.">
+				>
+				["at0078.10"] = <
+					text = <"Red cell distribution width (RDW)">
+					description = <"The variation in red cell volume as a proportion.">
+				>
+				["at0078.11"] = <
+					text = <"Erythrocyte sedimentation rate (ESR)">
+					description = <"The velocity of sedimentation of red cells in the first hour">
+				>
+				["at0078.12"] = <
+					text = <"Platelet count">
+					description = <"The number of platelets per litre.">
+				>
+				["at0078.13"] = <
+					text = <"White cell count">
+					description = <"The number of white cells per litre.">
+				>
+				["at0078.15"] = <
+					text = <"Neutrophils">
+					description = <"The number of neutrophils per litre.">
+				>
+				["at0078.16"] = <
+					text = <"Lymphocytes">
+					description = <"The number of lymphocytes per litre.">
+				>
+				["at0078.17"] = <
+					text = <"Basophils">
+					description = <"The number of basophils per litre.">
+				>
+				["at0078.18"] = <
+					text = <"Monocytes">
+					description = <"The number of monocytes per litre.">
+				>
+				["at0078.19"] = <
+					text = <"Eosinophils">
+					description = <"The number of eosinophils per litre.">
+				>
+				["at0078.20"] = <
+					text = <"Mean platelet volume (MPV)">
+					description = <"The average platelet volume">
+				>
+				["at0078.21"] = <
+					text = <"Platelet distribution width">
+					description = <"The variation in platelet volume.">
+				>
+				["at0078.22"] = <
+					text = <"Plateletcrit">
+					description = <"The proportion of the volume of blood taken up by platelets.">
+				>
+				["at0078.23"] = <
+					text = <"Microscopic features">
+					description = <"The features of the blood film on microscopy.">
+				>
+				["at0078.24"] = <
+					text = <"Granulocytes">
+					description = <"The number of granulocytes.">
+				>
+				["at0078.25"] = <
+					text = <"Banded neutrophils">
+					description = <"The number of banded or immature neutrophils in the specimen.">
+				>
+				["at0078.26"] = <
+					text = <"Other leucocytes">
+					description = <"The number of other leucocytes in the specimen.">
+				>
+				["at0078.27"] = <
+					text = <"Lymphocytes variant">
+					description = <"The number of lymphocyte variants in the specimen.">
+				>
+				["at0078.28"] = <
+					text = <"Lymphocytes variant">
+					description = <"The proportion of lymphocyte variants in the white cell differential.">
+				>
+				["at0078.29"] = <
+					text = <"Lymphocytes">
+					description = <"The proportion of lymphocytes in the white cell differential.">
+				>
+				["at0078.30"] = <
+					text = <"Basophils">
+					description = <"The proportion of basophils in the white cell differential.">
+				>
+				["at0078.31"] = <
+					text = <"Granulocytes">
+					description = <"The proportion of granulocytes in the white cell differential.">
+				>
+				["at0078.32"] = <
+					text = <"Banded neutrophils">
+					description = <"The proportion of banded neutrophils in the white cell differential.">
+				>
+				["at0078.33"] = <
+					text = <"Neutrophils">
+					description = <"The proportion of neutrophils in the white cell differential.">
+				>
+				["at0078.34"] = <
+					text = <"Eosinophils">
+					description = <"The proportion of eosinophils in the white cell differential.">
+				>
+				["at0078.35"] = <
+					text = <"Other leucocytes">
+					description = <"The proportion of other leucocytes in the white cell differential.">
+				>
+				["at0078.36"] = <
+					text = <"Monocytes">
+					description = <"The proportion of monocytes in the white cell differential.">
+				>
+				["at0078.37"] = <
+					text = <"Platelet distribution width (volume)">
+					description = <"The platelet distribution width as a volume.">
+				>
+				["at0078.38"] = <
+					text = <"Erythrocyte distribution width">
+					description = <"The red cell distribution width as a volume.">
+				>
+				["at0078.4"] = <
+					text = <"Haemoglobin">
+					description = <"The mass concentration of haemoglobin.">
+				>
+				["at0078.5"] = <
+					text = <"Red cell count (RCC)">
+					description = <"The number of red blood cells per litre.">
+				>
+				["at0078.6"] = <
+					text = <"Packed cell volume (PCV)">
+					description = <"Haematocrit  - the proportion of the volume of blood taken up by red blood cells.">
+				>
+				["at0078.7"] = <
+					text = <"Mean cell haemoglobin concentration (MCHC)">
+					description = <"The average haemoglobin concentration in the red blood cells. Aslo known as erythrocyte mean corpuscular haemoglobin concentration.">
+				>
+				["at0078.8"] = <
+					text = <"Mean cell volume (MCV)">
+					description = <"The average volume of the red blood cells (PCV/RCC) / Erythrocyte mean corpuscular volume.">
+				>
+				["at0078.9"] = <
+					text = <"Mean cell haemoglobin (MCH)">
+					description = <"The average haemoglobin content of red blood cells. Also known as erythrocyte mean corpuscular haemoglobin.">
+				>
+				["at0079"] = <
+					text = <"Never performed">
+					description = <"The test was never performed.">
+				>
+				["at0089"] = <
+					text = <"Per-result annotation">
+					description = <"Slot to allow an annotation to be added to a particular test result at run-time.">
+				>
+				["at0090"] = <
+					text = <"Requestor ">
+					description = <"Details of the clinician or organisation requesting the laboratory test.">
+				>
+			>
+		>
+	>

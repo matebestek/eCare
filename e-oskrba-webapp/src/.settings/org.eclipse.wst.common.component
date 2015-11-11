@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="eOskrba-webapp">
+        <wb-resource deploy-path="/" source-path="/grails-app/utils"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/burning-image-0.5.0/grails-app/controllers"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/burning-image-0.5.0/grails-app/domain"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/burning-image-0.5.0/grails-app/i18n"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/burning-image-0.5.0/grails-app/services"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/burning-image-0.5.0/grails-app/taglib"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/burning-image-0.5.0/src/groovy"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/burning-image-0.5.0/src/java"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/ckeditor-3.6.0.0/grails-app/conf"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/ckeditor-3.6.0.0/grails-app/controllers"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/ckeditor-3.6.0.0/grails-app/i18n"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/ckeditor-3.6.0.0/grails-app/taglib"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/ckeditor-3.6.0.0/grails-app/views"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/ckeditor-3.6.0.0/src/groovy"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/cookie-0.2/grails-app/services"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/cookie-0.2/grails-app/taglib"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/crypto-2.0/grails-app/domain"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/crypto-2.0/grails-app/i18n"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/crypto-2.0/grails-app/services"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/crypto-2.0/grails-app/utils"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/crypto-2.0/src/groovy"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/flot-0.2.3/grails-app/taglib"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/ldap-0.8.2/src/java"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/mail-1.0/grails-app/i18n"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/mail-1.0/grails-app/services"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/mail-1.0/grails-app/taglib"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/mail-1.0/grails-app/views"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/mail-1.0/src/groovy"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/quartz-0.4.2/grails-app/conf"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/quartz-0.4.2/grails-app/i18n"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/quartz-0.4.2/grails-app/services"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/quartz-0.4.2/src/groovy"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/quartz-0.4.2/src/java"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/rendering-0.4.3/grails-app/services"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/rendering-0.4.3/grails-app/taglib"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/rendering-0.4.3/src/groovy"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/runtime-logging-0.2/grails-app/controllers"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/runtime-logging-0.2/grails-app/views"/>
+        <wb-resource deploy-path="/" source-path="/.link_to_grails_plugins/svn-1.0.1/src/groovy"/>
+    </wb-module>
+</project-modules>

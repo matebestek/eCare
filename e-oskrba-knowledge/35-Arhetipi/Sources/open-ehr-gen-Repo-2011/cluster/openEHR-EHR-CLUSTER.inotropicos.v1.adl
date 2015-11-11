@@ -1,0 +1,112 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.inotropicos.v1
+
+concept
+	[at0000]	-- Inotropicos
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"Registrar los inotropicos utilizados">
+			use = <"Registrar los inotropicos utilizados">
+			keywords = <"Inotrópicos", ...>
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"9D249DFBA6E48A6F7943E7D081CB2B0E">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Inotropicos
+		items cardinality matches {3..*; unordered} matches {
+			ELEMENT[at0001] matches {	-- Droga
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] matches {	-- Dosis
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::129]>
+						list = <
+							["1"] = <
+								units = <"ml">
+							>
+							["2"] = <
+								units = <"mm3">
+							>
+							["3"] = <
+								units = <"dl">
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0003] matches {	-- Posologia
+				value matches {
+					DV_COUNT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Inotropicos">
+					description = <"Drogas administradas (Nombre, dosis, unidad, numero de dosis)">
+				>
+				["at0001"] = <
+					text = <"Droga">
+					description = <"Nombre de la droga">
+				>
+				["at0002"] = <
+					text = <"Dosis">
+					description = <"Cantidad de la dosis y unidad en la cual fue medida">
+				>
+				["at0003"] = <
+					text = <"Posologia">
+					description = <"Número de dosis administradas">
+				>
+			>
+		>
+	>

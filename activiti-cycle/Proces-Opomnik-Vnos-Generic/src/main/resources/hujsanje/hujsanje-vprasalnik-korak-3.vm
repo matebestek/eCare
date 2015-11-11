@@ -1,0 +1,146 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<h3>
+		<a href="#">Vprašalnik - prehrana</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr><td style="width: 120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Ali naše telo za normalno delovanje potrebuje kuhinjski sladkor?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!03.v1]?data[at0001]?items[at0003]?items[at0006]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0013">Da</option>
+						<option value="at0012">Ne</option>
+					</select>
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Kakšna žita in žitne izdelke je priporočeno uživati?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!03.v1]?data[at0001]?items[at0003]?items[at0007]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0014">Polnovredna (nepredelana) kot so polnozrnati kruh in izdelki iz polnozrnate moke, izdelki iz ajde, kaše in kosmiči iz ovsa, rži, pire, ječmena, naravni (neoluščeni) riž, testenine iz polnozrnate moke</option>
+						<option value="at0015">Predelana kot so beli kruh, testenine iz bele moke, oluščeni riž</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Približno koliko žlic kuhanega riža predstavlja 4 enote škrobnega (ogljikohidratnega) živila?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!03.v1]?data[at0001]?items[at0003]?items[at0011]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0017">2 žlici</option>
+						<option value="at0018">4 žlice</option>
+						<option value="at0016">8 žlic</option>
+					</select>
+				</td>
+			</tr>			
+			
+		</table>
+
+	</div>			
+
+	<h3>
+		<a href="#">Vprašalnik - gibanje</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera trditev velja za osnovno strukturo vadbene enote?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!03.v1]?data[at0001]?items[at0004]?items[at0008]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0022">Glavni del vadbe mora trajati vsaj eno uro</option>
+						<option value="at0020">Ogrevanje vsebuje enostavne vaje kot so hoja, korakanje na mestu, kroženje z rokami</option>
+						<option value="at0021">Ogrevanje je bolj pomembno kot ohlajanje</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katera trditev NE velja za držo in dihanje med vadbo?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!03.v1]?data[at0001]?items[at0004]?items[at0009]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0023">Pravilno dihanje je plitko in hitro</option>
+						<option value="at0025">Med vadbo dihamo enakomerno in ne zadržujemo sape</option>
+						<option value="at0024">Pravilna drža zmanjša nepotreben pritisk na mišice in sklepe</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katera trditev velja za ogrevanje?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!03.v1]?data[at0001]?items[at0004]?items[at0010]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0027">Če smo sicer zelo aktivni, lahko ogrevanje izpustimo</option>
+						<option value="at0028">Za ogrevanje nujno potrebujemo vadbene pripomočke</option>
+						<option value="at0026">Z ogrevanjem preprečujemo bolečine in poškodbe pri vadbi</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Za vaje za raztezanje velja naslednja trditev:</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!03.v1]?data[at0001]?items[at0004]?items[at0019]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0031">Pri ohlajanju raztegujemo tiste mišice, ki jih pri vadbi nismo toliko uporabljali</option>
+						<option value="at0029">Vaje za raztezanje izvajamo do občutka raztega</option>
+						<option value="at0030">Vaje za raztezanje izvajamo do občutka  rahle bolečine</option>
+					</select>
+				</td>
+			</tr>			
+		
+				
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

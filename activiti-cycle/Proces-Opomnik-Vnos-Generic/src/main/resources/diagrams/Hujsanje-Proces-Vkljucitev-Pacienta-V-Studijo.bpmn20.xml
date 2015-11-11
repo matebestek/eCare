@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="" id="sid-fea29ea9-6aba-4d6c-86ec-8a062a9d3708"
+	targetNamespace="http://www.signavio.com/bpmn20"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<process id="Hujsanje-Proces-Vkljucitev-Pacienta-V-Studijo" name="Hujsanje-Proces-Vkljucitev-Pacienta-V-Studijo" isExecutable="false">		
+	    <extensionElements>
+			<activiti:executionListener
+				class="si.pint.eoskrba.ehujsanje.enterPatient.listeners.ProcessExecutionListener"
+				event="start" />
+		</extensionElements>
+		<startEvent id="startEvent" name="startEvent"
+			activiti:formKey="vnosPacientaHujsanje.form">
+			<extensionElements>
+			</extensionElements>
+			<outgoing>startEvent-SelectClinicalTrialGroup</outgoing>
+		</startEvent>
+		<endEvent id="endEvent" name="endEvent">
+			<extensionElements>
+			</extensionElements>
+			<incoming>gatewayLast-VnosPacientaEndEvent</incoming>
+		</endEvent>
+		
+		<serviceTask id="SelectClinicalTrialGroup" name="SelectClinicalTrialGroup"
+			activiti:class="si.pint.eoskrba.ehujsanje.enterPatient.delegate.SelectClinicalTrialGroupDelegate">
+			<incoming>startEvent-SelectClinicalTrialGroup</incoming>
+			<outgoing>SelectClinicalTrialGroup-ExclusiveGateway</outgoing>
+		</serviceTask>
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gatewaySelectGroup_CtrlExp"
+			name="gatewaySelectGroup_CtrlExp">
+			<incoming>SelectClinicalTrialGroup-gatewaySelectGroup_CtrlExp</incoming>
+			<outgoing>gatewaySelectGroup_CtrlExp-DodajPacientaVKontrolnoSkupino</outgoing>
+			<outgoing>gatewaySelectGroup_CtrlExp-DodajPacientaVEksperimentalnoSkupino</outgoing>
+			<outgoing>gatewaySelectGroup_CtrlExp-CallActivityNotifierCm</outgoing>
+		</exclusiveGateway>
+		
+		<serviceTask id="DodajPacientaVKontrolnoSkupino" name="Dodaj pacienta v kontrolno"
+			activiti:class="si.pint.eoskrba.ehujsanje.enterPatient.delegate.AddToControlDelegate">
+			<incoming>gatewaySelectGroup_CtrlExp-DodajPacientaVKontrolnoSkupino</incoming>
+			<outgoing>DodajPacientaVKontrolnoSkupino-gatewayCtrlExp_gatCoDi
+			</outgoing>
+		</serviceTask>
+		<serviceTask id="DodajPacientaVEksperimentalnoSkupino"
+			name="DodajPacientaVEksperimentalnoSkupino"
+			activiti:class="si.pint.eoskrba.ehujsanje.enterPatient.delegate.AddToExperimentalDelegate">
+			<incoming>gatewaySelectGroup_CtrlExp-DodajPacientaVEksperimentalnoSkupino</incoming>
+			<outgoing>DodajPacientaVEksperimentalnoSkupino-sendTaskPatientCredentials
+			</outgoing>
+		</serviceTask>
+		
+		<sendTask activiti:type="mail" completionQuantity="1"
+			id="sendTaskPatientCredentials" implementation="webService"
+			isForCompensation="false" name="sendTaskPatientCredentials"
+			startQuantity="1">
+			<extensionElements>
+				<activiti:field name="to"      expression="${email.to}"></activiti:field>
+				<activiti:field name="from"    expression="${email.from}"></activiti:field>
+				<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+				<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+				<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+				<activiti:field name="html">
+					<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+				</activiti:field>
+			</extensionElements>
+			<incoming>DodajPacientaVEksperimentalnoSkupino-sendTaskPatientCredentials
+			</incoming>
+			<outgoing>sendTaskPatientCredentials-gatewayCtrlExp_gatCoDi
+			</outgoing>
+		</sendTask>
+		
+		<exclusiveGateway gatewayDirection="Converging"
+			id="gatewayCtrlExp_gatCoDi" name="gatewayCtrlExp_gatCoDi">
+			<extensionElements>
+			</extensionElements>
+			<incoming>sendTaskPatientCredentials-gatewayCtrlExp_gatCoDi
+			</incoming>
+			<incoming>DodajPacientaVKontrolnoSkupino-gatewayCtrlExp_gatCoDi
+			</incoming>
+			<outgoing>gatewayCtrlExp_gatCoDi-gatewayConv_Diverg
+			</outgoing>
+		</exclusiveGateway>
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gatewayConv_Diverg" name="gatewayConv_Diverg">
+			<incoming>gatewayCtrlExp_gatCoDi-gatewayConv_Diverg</incoming>
+			<outgoing>gatewayConv_Diverg-CallActivityNotifierCmZdravnikIncluded</outgoing>
+			<outgoing>gatewayConv_Diverg-CallActivityNotifierCmIncluded</outgoing>
+		</exclusiveGateway>
+		
+		<callActivity calledElement="Proces-Opomnik-Notifier-CM-Zdravnik"
+			completionQuantity="1" id="CallActivityNotifierCmZdravnikIncluded"
+			isForCompensation="false" name="CallActivityNotifierCmZdravnikIncluded" startQuantity="1">
+			<extensionElements>
+				<activiti:in source="notifyDoctorForm_1" target="notifyDoctorForm" />
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="caremanagerEmail" target="caremanagerEmail" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="doctor" target="doctor" />
+				<activiti:in source="doctorEmail" target="doctorEmail" />
+				<activiti:in source="listenerDoctorObvestiloCreate"	target="listenerDoctorObvestiloCreate" />
+				<activiti:in source="listenerDoctorObvestiloComplete" target="listenerDoctorObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete" target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="cmUserTaskName" target="cmUserTaskName" />
+				<activiti:in source="doctorUserTaskName" target="doctorUserTaskName" />				
+			</extensionElements>
+			<incoming>gatewayConv_Diverg-CallActivityNotifierCmZdravnikIncluded</incoming>
+			<outgoing>CallActivityNotifierCmZdravnikIncluded-gatewayLast</outgoing>
+		</callActivity>
+		
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Cm"
+			completionQuantity="1" id="CallActivityNotifierCmIncluded"
+			isForCompensation="false" name="CallActivityNotifierCmIncluded" startQuantity="1">
+			<extensionElements>
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="caremanagerEmail" target="email" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete"	target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="cmUserTaskName" target="userTaskName" />		
+			</extensionElements>
+			<incoming>gatewayConv_Diverg-CallActivityNotifierCmIncluded</incoming>
+			<outgoing>CallActivityNotifierCmIncluded-gatewayLast</outgoing>
+		</callActivity>
+		
+		<!-- Obvescen je tisti, ki vnasa pacienta (CM (sestra vnos) ali zdravnik (sestra koordinator) -->
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Cm"
+			completionQuantity="1" id="CallActivityNotifierCm"
+			isForCompensation="false" name="NOTIFIER-CM&#10;" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="caremanagerEmail" target="email" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete"	target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="cmUserTaskName" target="userTaskName" />
+			
+			</extensionElements>
+			<incoming>gatewaySelectGroup_CtrlExp-CallActivityNotifierCm</incoming>
+			<outgoing>CallActivityNotifierCm-gatewayLast</outgoing>
+		</callActivity>
+		
+		<exclusiveGateway gatewayDirection="Converging"
+			id="gatewayLast" name="gatewayLast">
+			<extensionElements>
+			</extensionElements>
+			<incoming>CallActivityNotifierCm-gatewayLast</incoming>
+			<incoming>CallActivityNotifierCmZdravnikIncluded-</incoming>
+			<incoming>CallActivityNotifierCmIncluded-</incoming>			
+			<outgoing>gatewayLast-VnosPacientaEndEvent</outgoing>
+		</exclusiveGateway>
+
+		<sequenceFlow id="startEvent-SelectClinicalTrialGroup"
+			name="SequenceFlow" sourceRef="startEvent" targetRef="SelectClinicalTrialGroup">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="SelectClinicalTrialGroup-gatewaySelectGroup_CtrlExp"
+			name="SequenceFlow" sourceRef="SelectClinicalTrialGroup" targetRef="gatewaySelectGroup_CtrlExp">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="gatewaySelectGroup_CtrlExp-DodajPacientaVEksperimentalnoSkupino" name="gatewaySelectGroup_CtrlExp-DodajPacientaVEksperimentalnoSkupino"
+			sourceRef="gatewaySelectGroup_CtrlExp" targetRef="DodajPacientaVEksperimentalnoSkupino">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="Pogoj_SkupinaEksperiment"
+				xsi:type="tFormalExpression">${skupinaEksperiment}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="gatewaySelectGroup_CtrlExp-DodajPacientaVKontrolnoSkupino" name="gatewaySelectGroup_CtrlExp-DodajPacientaVKontrolnoSkupino"
+			sourceRef="gatewaySelectGroup_CtrlExp" targetRef="DodajPacientaVKontrolnoSkupino">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="Pogoj_SkupinaKontrolna"
+				xsi:type="tFormalExpression">${skupinaKontrolna}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gatewayConv_Diverg-CallActivityNotifierCmZdravnikIncluded" name="gatewayConv_Diverg-CallActivityNotifierCmZdravnikIncluded" sourceRef="gatewayConv_Diverg" targetRef="CallActivityNotifierCmZdravnikIncluded">
+			<conditionExpression xsi:type="tFormalExpression">${notifyBoth == 'true'}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="gatewayConv_Diverg-CallActivityNotifierCmIncluded" name="gatewayConv_Diverg-CallActivityNotifierCmIncluded" sourceRef="gatewayConv_Diverg" targetRef="CallActivityNotifierCmIncluded">
+			<conditionExpression xsi:type="tFormalExpression">${notifyBoth == 'false'}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="CallActivityNotifierCmZdravnikIncluded-gatewayLast" name="CallActivityNotifierCmZdravnikIncluded-gatewayLast" sourceRef="CallActivityNotifierCmZdravnikIncluded" targetRef="gatewayLast">
+		</sequenceFlow>		
+		<sequenceFlow id="CallActivityNotifierCmIncluded-gatewayLast" name="CallActivityNotifierCmIncluded-gatewayLast" sourceRef="CallActivityNotifierCmIncluded" targetRef="gatewayLast">
+		</sequenceFlow>
+						
+		<sequenceFlow
+			id="DodajPacientaVKontrolnoSkupino-gatewayCtrlExp_gatCoDi"
+			name="SequenceFlow" sourceRef="DodajPacientaVKontrolnoSkupino"
+			targetRef="gatewayCtrlExp_gatCoDi">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow
+			id="sendTaskPatientCredentials-gatewayCtrlExp_gatCoDi"
+			name="SequenceFlow" sourceRef="sendTaskPatientCredentials"
+			targetRef="gatewayCtrlExp_gatCoDi">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>		
+		<sequenceFlow
+			id="DodajPacientaVEksperimentalnoSkupino-sendTaskPatientCredentials"
+			name="SequenceFlow" sourceRef="DodajPacientaVEksperimentalnoSkupino"
+			targetRef="sendTaskPatientCredentials">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="gatewaySelectGroup_CtrlExp-CallActivityNotifierCm"
+			name="SequenceFlow" sourceRef="gatewaySelectGroup_CtrlExp" targetRef="CallActivityNotifierCm">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="Pogoj_NeIzpolnjujePogojevZaVkljucitevVStudijo"
+				xsi:type="tFormalExpression">${notSatisfyingConditions}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow
+			id="CallActivityNotifierCm-gatewayLast"
+			name="SequenceFlow" sourceRef="CallActivityNotifierCm"
+			targetRef="gatewayLast">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow
+			id="gatewayCtrlExp_gatCoDi-gatewayConv_Diverg"
+			name="SequenceFlow" sourceRef="gatewayCtrlExp_gatCoDi"
+			targetRef="gatewayConv_Diverg">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+
+		<sequenceFlow id="gatewayLast-VnosPacientaEndEvent"
+			name="SequenceFlow" sourceRef="gatewayLast" targetRef="endEvent">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+	</process>
+</definitions>
+   

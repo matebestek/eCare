@@ -1,0 +1,2540 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<archetype xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.openehr.org/v1">
+  <original_language>
+    <terminology_id>
+      <value>ISO_639-1</value>
+    </terminology_id>
+    <code_string>en</code_string>
+  </original_language>
+  <description>
+    <original_author id="name">Tony Shannon</original_author>
+    <original_author id="email">tony.shannon@nhs.net</original_author>
+    <original_author id="date">20/02/2007</original_author>
+    <original_author id="organisation">UK NHS, Connecting for Health</original_author>
+    <other_contributors>Sam Heard, Ocean Informatics, Australia</other_contributors>
+    <lifecycle_state>AuthorDraft</lifecycle_state>
+    <other_details id="references">NIH pain consortium, Pain Intensity Scales, http://painconsortium.nih.gov/pain_scales/index.html</other_details>
+    <other_details id="MD5-CAM-1.0.1">8F7E91902D954429E32F4366C686D393</other_details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>de</code_string>
+      </language>
+      <purpose>Ein allgemeiner Archetyp zur Dokumentation von Symptomen und Informationen über diese Symptome. Er erlaubt die Aussage, dass der Patient nicht an diesem Symptom leidet (ohne weitere Informationen) oder auch genauere Aussage als erforderlich. Der Grund, dass eine allgemeine negative oder genauere Aussage gemacht werden kann ist, Fehler bezüglich der Vermehrung negative Aussagen über das  Symptom und Einzelheiten zu einem deutlich positivem Symptom zu verhindern.</purpose>
+      <keywords>Beschwerden</keywords>
+      <use>Zur Dokumentation von Informationen zu einem Symptom. Die Information kann kodiert oder strukturiert sein, falls dies erforderlich ist, oder aber die Freitextbeschreibung des Symptoms mit Einzelheiten als klinische Beschreibung nutzen. </use>
+      <misuse>Sollte nur für Symptome benutzt werden.</misuse>
+      <copyright>copyright (c) 2010 openEHR foundation</copyright>
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>en</code_string>
+      </language>
+      <purpose>A generic archetype for recording symptoms and information about the symptoms. This archetype allows a statement to be made that the patient does not have this symptom (without any other information) or more detailed statements as required. The reason that a general negative statement can be made or a more detailed statement is to ensure that there is no possibility for error with negative statements about the symptom mixed with details of a symptom that is clearly positive.</purpose>
+      <keywords>complaint</keywords>
+      <use>For recording information about symptoms. The information can be coded and structured if required or utilise the free text description of the symptom with detail as clinical description if required.</use>
+      <misuse>This should only be used for symptoms. Specific symptoms such as pain may have their own specialisations, which should be used in preference.</misuse>
+      <copyright>copyright (c) 2010 openEHR foundation</copyright>
+    </details>
+  </description>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>de</code_string>
+    </language>
+    <author id="name">Jasmin Buck, Sebastian Garde</author>
+    <author id="organisation">University of Heidelberg, Central Queensland University</author>
+  </translations>
+  <archetype_id>
+    <value>openEHR-EHR-CLUSTER.symptom-cough.v1</value>
+  </archetype_id>
+  <adl_version>1.4</adl_version>
+  <concept>at0000.1</concept>
+  <parent_archetype_id>
+    <value>openEHR-EHR-CLUSTER.symptom.v1</value>
+  </parent_archetype_id>
+  <definition>
+    <rm_type_name>CLUSTER</rm_type_name>
+    <occurrences>
+      <lower_included>true</lower_included>
+      <upper_included>true</upper_included>
+      <lower_unbounded>false</lower_unbounded>
+      <upper_unbounded>false</upper_unbounded>
+      <lower>1</lower>
+      <upper>1</upper>
+    </occurrences>
+    <node_id>at0000.1</node_id>
+    <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+      <rm_attribute_name>items</rm_attribute_name>
+      <existence>
+        <lower_included>true</lower_included>
+        <upper_included>true</upper_included>
+        <lower_unbounded>false</lower_unbounded>
+        <upper_unbounded>false</upper_unbounded>
+        <lower>1</lower>
+        <upper>1</upper>
+      </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>1</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0001</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_CODED_TEXT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>defining_code</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_CODE_PHRASE">
+                <rm_type_name>CODE_PHRASE</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <terminology_id>
+                  <value>local</value>
+                </terminology_id>
+                <code_list>at0.166</code_list>
+              </children>
+            </attributes>
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0035</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_BOOLEAN</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_PRIMITIVE_OBJECT">
+                <rm_type_name>BOOLEAN</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <item xsi:type="C_BOOLEAN">
+                  <true_valid>true</true_valid>
+                  <false_valid>false</false_valid>
+                </item>
+              </children>
+            </attributes>
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0002</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_TEXT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="ARCHETYPE_SLOT">
+        <rm_type_name>CLUSTER</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>0</lower>
+        </occurrences>
+        <node_id>at0147</node_id>
+        <includes>
+          <expression xsi:type="EXPR_BINARY_OPERATOR">
+            <type>Boolean</type>
+            <operator>2007</operator>
+            <precedence_overridden>false</precedence_overridden>
+            <left_operand xsi:type="EXPR_LEAF">
+              <type>String</type>
+              <item xsi:type="xsd:string">archetype_id/value</item>
+              <reference_type>attribute</reference_type>
+            </left_operand>
+            <right_operand xsi:type="EXPR_LEAF">
+              <type>C_STRING</type>
+              <item xsi:type="C_STRING">
+                <pattern>openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1</pattern>
+              </item>
+              <reference_type>constraint</reference_type>
+            </right_operand>
+          </expression>
+        </includes>
+        <excludes>
+          <expression xsi:type="EXPR_BINARY_OPERATOR">
+            <type>Boolean</type>
+            <operator>2007</operator>
+            <precedence_overridden>false</precedence_overridden>
+            <left_operand xsi:type="EXPR_LEAF">
+              <type>String</type>
+              <item xsi:type="xsd:string">archetype_id/value</item>
+              <reference_type>attribute</reference_type>
+            </left_operand>
+            <right_operand xsi:type="EXPR_LEAF">
+              <type>C_STRING</type>
+              <item xsi:type="C_STRING">
+                <pattern>.*</pattern>
+              </item>
+              <reference_type>constraint</reference_type>
+            </right_operand>
+          </expression>
+        </excludes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>0</lower>
+        </occurrences>
+        <node_id>at0032</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_CODED_TEXT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>defining_code</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_CODE_PHRASE">
+                <rm_type_name>CODE_PHRASE</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <terminology_id>
+                  <value>local</value>
+                </terminology_id>
+                <code_list>at0.167</code_list>
+                <code_list>at0.168</code_list>
+                <code_list>at0.169</code_list>
+                <code_list>at0.170</code_list>
+                <code_list>at0.171</code_list>
+              </children>
+            </attributes>
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>CLUSTER</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>0</lower>
+        </occurrences>
+        <node_id>at0046</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0161</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0151</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0026</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_DV_QUANTITY">
+                <rm_type_name>DV_QUANTITY</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <property>
+                  <terminology_id>
+                    <value>openehr</value>
+                  </terminology_id>
+                  <code_string>118</code_string>
+                </property>
+              </children>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="ARCHETYPE_SLOT">
+            <rm_type_name>CLUSTER</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0160</node_id>
+            <includes>
+              <expression xsi:type="EXPR_BINARY_OPERATOR">
+                <type>Boolean</type>
+                <operator>2007</operator>
+                <precedence_overridden>false</precedence_overridden>
+                <left_operand xsi:type="EXPR_LEAF">
+                  <type>String</type>
+                  <item xsi:type="xsd:string">archetype_id/value</item>
+                  <reference_type>attribute</reference_type>
+                </left_operand>
+                <right_operand xsi:type="EXPR_LEAF">
+                  <type>C_STRING</type>
+                  <item xsi:type="C_STRING">
+                    <pattern>.*</pattern>
+                  </item>
+                  <reference_type>constraint</reference_type>
+                </right_operand>
+              </expression>
+            </includes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>1</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>CLUSTER</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0033</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0060</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0154</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0155</code_list>
+                    <code_list>at0156</code_list>
+                    <code_list>at0157</code_list>
+                    <code_list>at0158</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0008</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0009</code_list>
+                    <code_list>at0036</code_list>
+                    <code_list>at0010</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0028</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_DURATION</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0003</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0004</code_list>
+                    <code_list>at0005</code_list>
+                    <code_list>at0006</code_list>
+                    <code_list>at0162</code_list>
+                    <code_list>at0163</code_list>
+                    <code_list>at0164</code_list>
+                    <code_list>at0165</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0031</node_id>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0030</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_DATE_TIME</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0037</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0038</code_list>
+                    <code_list>at0039</code_list>
+                    <code_list>at0040</code_list>
+                    <code_list>at0041</code_list>
+                    <code_list>at0042</code_list>
+                    <code_list>at0043</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0011</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0009</code_list>
+                    <code_list>at0036</code_list>
+                    <code_list>at0010</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>1</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>0</lower>
+        </occurrences>
+        <node_id>at0015</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_TEXT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>0</lower>
+        </occurrences>
+        <node_id>at0062</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_TEXT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>CLUSTER</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>0</lower>
+        </occurrences>
+        <node_id>at0018</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0019</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0017</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_DV_ORDINAL">
+                <rm_type_name>DV_ORDINAL</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <list>
+                  <value>-3</value>
+                  <symbol>
+                    <value />
+                    <defining_code>
+                      <terminology_id>
+                        <value>local</value>
+                      </terminology_id>
+                      <code_string>at0048</code_string>
+                    </defining_code>
+                  </symbol>
+                </list>
+                <list>
+                  <value>-2</value>
+                  <symbol>
+                    <value />
+                    <defining_code>
+                      <terminology_id>
+                        <value>local</value>
+                      </terminology_id>
+                      <code_string>at0049</code_string>
+                    </defining_code>
+                  </symbol>
+                </list>
+                <list>
+                  <value>-1</value>
+                  <symbol>
+                    <value />
+                    <defining_code>
+                      <terminology_id>
+                        <value>local</value>
+                      </terminology_id>
+                      <code_string>at0050</code_string>
+                    </defining_code>
+                  </symbol>
+                </list>
+                <list>
+                  <value>0</value>
+                  <symbol>
+                    <value />
+                    <defining_code>
+                      <terminology_id>
+                        <value>local</value>
+                      </terminology_id>
+                      <code_string>at0051</code_string>
+                    </defining_code>
+                  </symbol>
+                </list>
+                <list>
+                  <value>1</value>
+                  <symbol>
+                    <value />
+                    <defining_code>
+                      <terminology_id>
+                        <value>local</value>
+                      </terminology_id>
+                      <code_string>at0052</code_string>
+                    </defining_code>
+                  </symbol>
+                </list>
+                <list>
+                  <value>2</value>
+                  <symbol>
+                    <value />
+                    <defining_code>
+                      <terminology_id>
+                        <value>local</value>
+                      </terminology_id>
+                      <code_string>at0053</code_string>
+                    </defining_code>
+                  </symbol>
+                </list>
+                <list>
+                  <value>3</value>
+                  <symbol>
+                    <value />
+                    <defining_code>
+                      <terminology_id>
+                        <value>local</value>
+                      </terminology_id>
+                      <code_string>at0054</code_string>
+                    </defining_code>
+                  </symbol>
+                </list>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0056</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>1</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>CLUSTER</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0058</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0059</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_BOOLEAN</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_PRIMITIVE_OBJECT">
+                    <rm_type_name>BOOLEAN</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <item xsi:type="C_BOOLEAN">
+                      <true_valid>true</true_valid>
+                      <false_valid>true</false_valid>
+                    </item>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0098</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_COUNT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>magnitude</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_PRIMITIVE_OBJECT">
+                    <rm_type_name>INTEGER</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <item xsi:type="C_INTEGER">
+                      <range>
+                        <lower_included>true</lower_included>
+                        <lower_unbounded>false</lower_unbounded>
+                        <upper_unbounded>true</upper_unbounded>
+                        <lower>0</lower>
+                      </range>
+                    </item>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>CLUSTER</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>0</lower>
+            </occurrences>
+            <node_id>at0090</node_id>
+            <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+              <rm_attribute_name>items</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0142</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_DATE_TIME</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0057</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_TEXT</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0143</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_TEXT</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <children xsi:type="ARCHETYPE_SLOT">
+                <rm_type_name>CLUSTER</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0146</node_id>
+                <includes>
+                  <expression xsi:type="EXPR_BINARY_OPERATOR">
+                    <type>Boolean</type>
+                    <operator>2007</operator>
+                    <precedence_overridden>false</precedence_overridden>
+                    <left_operand xsi:type="EXPR_LEAF">
+                      <type>String</type>
+                      <item xsi:type="xsd:string">archetype_id/value</item>
+                      <reference_type>attribute</reference_type>
+                    </left_operand>
+                    <right_operand xsi:type="EXPR_LEAF">
+                      <type>C_STRING</type>
+                      <item xsi:type="C_STRING">
+                        <pattern>.*</pattern>
+                      </item>
+                      <reference_type>constraint</reference_type>
+                    </right_operand>
+                  </expression>
+                </includes>
+              </children>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0152</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_EHR_URI</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <cardinality>
+                <is_ordered>false</is_ordered>
+                <is_unique>false</is_unique>
+                <interval>
+                  <lower_included>true</lower_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>true</upper_unbounded>
+                  <lower>1</lower>
+                </interval>
+              </cardinality>
+            </attributes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>1</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>CLUSTER</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0020</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="ARCHETYPE_SLOT">
+            <rm_type_name>CLUSTER</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>0</lower>
+            </occurrences>
+            <node_id>at0063</node_id>
+            <includes>
+              <expression xsi:type="EXPR_BINARY_OPERATOR">
+                <type>Boolean</type>
+                <operator>2007</operator>
+                <precedence_overridden>false</precedence_overridden>
+                <left_operand xsi:type="EXPR_LEAF">
+                  <type>String</type>
+                  <item xsi:type="xsd:string">archetype_id/value</item>
+                  <reference_type>attribute</reference_type>
+                </left_operand>
+                <right_operand xsi:type="EXPR_LEAF">
+                  <type>C_STRING</type>
+                  <item xsi:type="C_STRING">
+                    <pattern>openEHR-EHR-CLUSTER\.symptom(-[a-zA-Z0-9_]+)*\.v1</pattern>
+                  </item>
+                  <reference_type>constraint</reference_type>
+                </right_operand>
+              </expression>
+            </includes>
+            <excludes>
+              <expression xsi:type="EXPR_BINARY_OPERATOR">
+                <type>Boolean</type>
+                <operator>2007</operator>
+                <precedence_overridden>false</precedence_overridden>
+                <left_operand xsi:type="EXPR_LEAF">
+                  <type>String</type>
+                  <item xsi:type="xsd:string">archetype_id/value</item>
+                  <reference_type>attribute</reference_type>
+                </left_operand>
+                <right_operand xsi:type="EXPR_LEAF">
+                  <type>C_STRING</type>
+                  <item xsi:type="C_STRING">
+                    <pattern>.*</pattern>
+                  </item>
+                  <reference_type>constraint</reference_type>
+                </right_operand>
+              </expression>
+            </excludes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>1</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+      <cardinality>
+        <is_ordered>false</is_ordered>
+        <is_unique>false</is_unique>
+        <interval>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>2</lower>
+        </interval>
+      </cardinality>
+    </attributes>
+  </definition>
+  <ontology>
+    <term_definitions language="de">
+      <items code="at0.166">
+        <items id="text">*Cough(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.167">
+        <items id="text">*Dry, tickly(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.168">
+        <items id="text">*Paroxysmal(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.169">
+        <items id="text">*Barking(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.170">
+        <items id="text">*Productive(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.171">
+        <items id="text">*Bubbly foaming(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0000">
+        <items id="text">Symptom</items>
+        <items id="description">Ein beim Patienten aufgetretenes Symptom</items>
+        <items id="comment" />
+      </items>
+      <items code="at0000.1">
+        <items id="text">*Cough(en)</items>
+        <items id="description">*Cough(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">*Symptom name(en)</items>
+        <items id="description">*The symptom experienced.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">Klinische Beschreibung</items>
+        <items id="description">Beschreibung des Symptoms</items>
+        <items id="comment" />
+      </items>
+      <items code="at0003">
+        <items id="text">Variation</items>
+        <items id="description">die Variationen des Symptoms</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">*Continual(en)</items>
+        <items id="description">*The symptom is constantly present.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0005">
+        <items id="text">Zeitweise</items>
+        <items id="description">das Symptom ist abwechselnd anwesend und nicht anwesend</items>
+        <items id="comment" />
+      </items>
+      <items code="at0006">
+        <items id="text">Variabel</items>
+        <items id="description">das Symptom variiert deutlich, ist aber praktisch ständig anwesend</items>
+        <items id="comment" />
+      </items>
+      <items code="at0008">
+        <items id="text">*Onset(en)</items>
+        <items id="description">*The nature of the onset of the symptom.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0009">
+        <items id="text">Graduell</items>
+        <items id="description">das Symptom ist allmählich über eine längere Zeitspanne hinweg aufgetaucht</items>
+        <items id="comment" />
+      </items>
+      <items code="at0010">
+        <items id="text">Plötzlich</items>
+        <items id="description">das Symptom ist sofort aufgetaucht</items>
+        <items id="comment" />
+      </items>
+      <items code="at0011">
+        <items id="text">Ende</items>
+        <items id="description">die Art des Abklingens des Symptoms</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">*Precipitating factor(s)(en)</items>
+        <items id="description">*An event or activity that brings on or triggers the symptom.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0017">
+        <items id="text">Erschwerender Faktor</items>
+        <items id="description">ein Ereignis oder eine Handlung, die das Symptom verschlimmern</items>
+        <items id="comment" />
+      </items>
+      <items code="at0018">
+        <items id="text">Modifizierender Faktor</items>
+        <items id="description">Information über einen bestimmten Faktor, der das Symptom verändert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0019">
+        <items id="text">Faktor</items>
+        <items id="description">ein Ereignis oder eine Handlung, die das Symptom verändert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0020">
+        <items id="text">*Associated symptoms(en)</items>
+        <items id="description">*Other symptoms associated with this symptom.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0026">
+        <items id="text">*Score result(en)</items>
+        <items id="description">*A score from 0 (not present) to 10 (as bad as it could be). Some scores use real numbers.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0028">
+        <items id="text">Dauer</items>
+        <items id="description">die Dauer des Symptoms seit dem Beginn</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">Zeitpunkt der maximalen Stärke</items>
+        <items id="description">Die Zeit (und/oder das  Datum) der maximalen Stärke des Symptoms</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">Anzahl der Vorkommnisse</items>
+        <items id="description">die Anzahl wie oft das Symptom aufgetreten ist</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">*Character(en)</items>
+        <items id="description">*The character of the symptom.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">*Clinical course  (en)</items>
+        <items id="description">*Features of the course of the symptom.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">Nicht signifikant</items>
+        <items id="description">die Person hat keine signifikanten Erfahrungen mit dem Symptom</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">rasch</items>
+        <items id="description">über einen kurzen Zeitraum</items>
+        <items id="comment" />
+      </items>
+      <items code="at0037">
+        <items id="text">Entwicklung</items>
+        <items id="description">die Entwicklung des Symptoms im Hinblick auf die Vergangenheit</items>
+        <items id="comment" />
+      </items>
+      <items code="at0038">
+        <items id="text">*Improving(en)</items>
+        <items id="description">*The symptom has improved over time.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0039">
+        <items id="text">*Decreasing(en)</items>
+        <items id="description">*The symptom is decreasing in intensity over time.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0040">
+        <items id="text">*Stable(en)</items>
+        <items id="description">*The symptom has not changed over time.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0041">
+        <items id="text">*Increasing(en)</items>
+        <items id="description">*The symptom is increasing in intensity over time.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0042">
+        <items id="text">*Worsening(en)</items>
+        <items id="description">*The symptom is getting worse over time.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0043">
+        <items id="text">*Has resolved(en)</items>
+        <items id="description">*The symptom has resolved over time.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0046">
+        <items id="text">*Intensity(en)</items>
+        <items id="description">*Measures of the intensity of the symptom. Assumed to represent current intensity. Left unbounded to allow maximum, minimum and average intensities to be recorded.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0048">
+        <items id="text">Komplett gelindert</items>
+        <items id="description">Das Symptom wird durch diesen Faktor gelindert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0049">
+        <items id="text">Verbessert</items>
+        <items id="description">Das Symptom wird durch diesen Faktor verbessert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0050">
+        <items id="text">Etwas verbessert</items>
+        <items id="description">Das Symptom wird durch diesen Faktor etwas verbessert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0051">
+        <items id="text">Keine Veränderung</items>
+        <items id="description">Das Symptom wird durch diesen Faktor nicht verändert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0052">
+        <items id="text">Etwas verschlechtert</items>
+        <items id="description">Das Symptom wird durch diesen Faktor etwas verschlechtert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0053">
+        <items id="text">Verschlechtert</items>
+        <items id="description">Das Symptom wird durch diesen Faktor verschlechtert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0054">
+        <items id="text">Sehr viel verschlechtert</items>
+        <items id="description">Das Symptom wird durch diesen Faktor sehr viel verschlechtert</items>
+        <items id="comment" />
+      </items>
+      <items code="at0056">
+        <items id="text">Details über den Effekt</items>
+        <items id="description">Details über den Effekt</items>
+        <items id="comment" />
+      </items>
+      <items code="at0057">
+        <items id="text">Details über vorherige Symptome</items>
+        <items id="description">Details über vorherige Symptome und Vergleich zu diesem Vorfall</items>
+        <items id="comment" />
+      </items>
+      <items code="at0058">
+        <items id="text">Vorherige Vorfälle</items>
+        <items id="description">Details über vorherige Vorfälle</items>
+        <items id="comment" />
+      </items>
+      <items code="at0059">
+        <items id="text">Frühere Vorfälle</items>
+        <items id="description">Ist dieses Symptom früher schon einmal aufgetreten</items>
+        <items id="comment" />
+      </items>
+      <items code="at0060">
+        <items id="text">*Description(en)</items>
+        <items id="description">*Text description of the course of the symptom over time.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0062">
+        <items id="text">*Absent feature(s)(en)</items>
+        <items id="description">*A features which would normally be expected but which is not present.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0063">
+        <items id="text">*Associated symptom(en)</items>
+        <items id="description">*Associated symptoms.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0090">
+        <items id="text">*Previous episode(en)</items>
+        <items id="description">*Details about a specific episode.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0098">
+        <items id="text">*Number of previous episodes (en)</items>
+        <items id="description">*Number of previous episodes (en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0142">
+        <items id="text">*Date / time of previous episode (en)</items>
+        <items id="description">*Date/time of previous episode (en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0143">
+        <items id="text">*Comparison</items>
+        <items id="description">*How the previous episode compares with this one (en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0146">
+        <items id="text">*Details (en)</items>
+        <items id="description">*Structured details of symptoms in previous episodes (en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0147">
+        <items id="text">*Location in body(en)</items>
+        <items id="description">*Details of locations in the body.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0151">
+        <items id="text">*Score method(en)</items>
+        <items id="description">*The scoring method used to assess the symptom. e.g Visual analog scale, text description.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0152">
+        <items id="text">*Record of previous episode(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0154">
+        <items id="text">*Course(en)</items>
+        <items id="description">*The overall clinical course.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0155">
+        <items id="text">*Acute(en)</items>
+        <items id="description">*Short-lived and/or rapid onset of symptoms(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0156">
+        <items id="text">*Chronic(en)</items>
+        <items id="description">*Long-standing symptom.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0157">
+        <items id="text">*Chonic relapsing(en)</items>
+        <items id="description">*Long-standing symptom with regular exacerbations.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0158">
+        <items id="text">*Acute-on-chronic(en)</items>
+        <items id="description">*Acute episode on background of lon-standing symptom.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0160">
+        <items id="text">*Score detail(en)</items>
+        <items id="description">*Detail of the scoring method and results.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0161">
+        <items id="text">*Description(en)</items>
+        <items id="description">*A text description of the symptom intensity.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0162">
+        <items id="text">*Cyclical(en)</items>
+        <items id="description">*The symptom is present on a cyclical basis.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0163">
+        <items id="text">*Seasonal(en)</items>
+        <items id="description">*The sympton is present on a seasonal basis.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0164">
+        <items id="text">*Fluctuating(en)</items>
+        <items id="description">*The symptom presence or intensity fluctuates.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0165">
+        <items id="text">*Paroxysmal(en)</items>
+        <items id="description">*The symptom appears suddenly and dramatically.(en)</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="en">
+      <items code="at0.166">
+        <items id="text">Cough</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.167">
+        <items id="text">Dry, tickly</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.168">
+        <items id="text">Paroxysmal</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.169">
+        <items id="text">Barking</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.170">
+        <items id="text">Productive</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0.171">
+        <items id="text">Bubbly foaming</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0000">
+        <items id="text">Symptom </items>
+        <items id="description">A symptom experienced by the patient.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0000.1">
+        <items id="text">Cough</items>
+        <items id="description">Cough</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">Symptom name</items>
+        <items id="description">The symptom experienced.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">Clinical description</items>
+        <items id="description">Description of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0003">
+        <items id="text">Variation</items>
+        <items id="description">The variation of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">Continual</items>
+        <items id="description">The symptom is constantly present.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0005">
+        <items id="text">Intermittent</items>
+        <items id="description">The symptom is present at times and not at others.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0006">
+        <items id="text">Fluctuating</items>
+        <items id="description">The symptom varys considerably but is almost always present.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0008">
+        <items id="text">Onset</items>
+        <items id="description">The nature of the onset of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0009">
+        <items id="text">Gradual</items>
+        <items id="description">Over a longer period of time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0010">
+        <items id="text">Sudden</items>
+        <items id="description">Almost immediate.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0011">
+        <items id="text">Cessation</items>
+        <items id="description">The nature of the cessation of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">Precipitating factor(s)</items>
+        <items id="description">An event or activity that brings on or triggers the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0017">
+        <items id="text">Change</items>
+        <items id="description">An event or activity that makes the symptom worse.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0018">
+        <items id="text">Modifying factor</items>
+        <items id="description">Information about a specific factor that changes the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0019">
+        <items id="text">Factor</items>
+        <items id="description">An event or activity that modifies the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0020">
+        <items id="text">Associated symptoms</items>
+        <items id="description">Other symptoms associated with this symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0026">
+        <items id="text">Score result</items>
+        <items id="description">A score from 0 (not present) to 10 (as bad as it could be). Some scores use real numbers.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0028">
+        <items id="text">Duration</items>
+        <items id="description">The duration of the symptom since onset.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">Time of maximum intensity</items>
+        <items id="description">The time (and/or date) of maximum intensity of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">Number of occurrences</items>
+        <items id="description">The number of times this symptom has occurred during this episode.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">Character</items>
+        <items id="description">The characteristics of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">Clinical course  </items>
+        <items id="description">Features of the course of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">Nil significant</items>
+        <items id="description">The person has not had any significant experience of the symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">Rapid</items>
+        <items id="description">Over a short period of time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0037">
+        <items id="text">Progression</items>
+        <items id="description">The progress of the symptom relative to the past.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0038">
+        <items id="text">Improving</items>
+        <items id="description">The symptom has improved over time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0039">
+        <items id="text">Decreasing</items>
+        <items id="description">The symptom is decreasing in intensity over time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0040">
+        <items id="text">Stable</items>
+        <items id="description">The symptom has not changed over time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0041">
+        <items id="text">Increasing</items>
+        <items id="description">The symptom is increasing in intensity over time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0042">
+        <items id="text">Worsening</items>
+        <items id="description">The symptom is getting worse over time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0043">
+        <items id="text">Has resolved</items>
+        <items id="description">The symptom has resolved over time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0046">
+        <items id="text">Intensity</items>
+        <items id="description">Measures of the intensity of the symptom. Assumed to represent current intensity. Left unbounded to allow maximum, minimum and average intensities to be recorded.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0048">
+        <items id="text">Relieved completely</items>
+        <items id="description">The symptom is relieved by this factor.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0049">
+        <items id="text">Made better</items>
+        <items id="description">The symptom is made better by this factor.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0050">
+        <items id="text">Somewhat improved</items>
+        <items id="description">The symptom is somewhat improved by this factor.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0051">
+        <items id="text">No change</items>
+        <items id="description">The symptom is not modified by this factor.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0052">
+        <items id="text">Somewhat worse</items>
+        <items id="description">The symptom is made somewhat worse by this factor.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0053">
+        <items id="text">Made worse</items>
+        <items id="description">The symptom is made worse by this factor.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0054">
+        <items id="text">Much worse</items>
+        <items id="description">The symptom is made much worse by this factor.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0056">
+        <items id="text">Description</items>
+        <items id="description">Details of the effect.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0057">
+        <items id="text">Description</items>
+        <items id="description">Details of previous symptoms and comparison to this episode.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0058">
+        <items id="text">Previous episodes</items>
+        <items id="description">Details about previous episodes.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0059">
+        <items id="text">Any previous episodes</items>
+        <items id="description">Have there been any previous episodes of this symptom?</items>
+        <items id="comment" />
+      </items>
+      <items code="at0060">
+        <items id="text">Description</items>
+        <items id="description">Text description of the course of the symptom over time.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0062">
+        <items id="text">Absent feature(s)</items>
+        <items id="description">A features which would normally be expected but which is not present.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0063">
+        <items id="text">Associated symptom</items>
+        <items id="description">Associated symptoms.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0090">
+        <items id="text">Previous episode</items>
+        <items id="description">Details about a specific episode.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0098">
+        <items id="text">Number of previous episodes</items>
+        <items id="description">Number of previous episodes.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0142">
+        <items id="text">Date / time of previous episode </items>
+        <items id="description">Date/time of previous episode.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0143">
+        <items id="text">Comparison</items>
+        <items id="description">How the previous episode compares with this one.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0146">
+        <items id="text">Detail</items>
+        <items id="description">Structured details of symptoms in previous episodes.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0147">
+        <items id="text">Location in body</items>
+        <items id="description">Details of locations in the body.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0151">
+        <items id="text">Score method</items>
+        <items id="description">The scoring method used to assess the symptom. e.g Visual analog scale, text description.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0152">
+        <items id="text">Record of previous episode</items>
+        <items id="description">Link to a previous record of this symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0154">
+        <items id="text">Course</items>
+        <items id="description">The overall clinical course.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0155">
+        <items id="text">Acute</items>
+        <items id="description">Short-lived and/or rapid onset of symptoms.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0156">
+        <items id="text">Chronic</items>
+        <items id="description">Long-standing symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0157">
+        <items id="text">Chonic relapsing</items>
+        <items id="description">Long-standing symptom with regular exacerbations.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0158">
+        <items id="text">Acute-on-chronic</items>
+        <items id="description">Acute episode on background of lon-standing symptom.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0160">
+        <items id="text">Score detail</items>
+        <items id="description">Detail of the scoring method and results.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0161">
+        <items id="text">Description</items>
+        <items id="description">A text description of the symptom intensity.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0162">
+        <items id="text">Cyclical</items>
+        <items id="description">The symptom is present on a cyclical basis.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0163">
+        <items id="text">Seasonal</items>
+        <items id="description">The sympton is present on a seasonal basis.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0164">
+        <items id="text">Fluctuating</items>
+        <items id="description">The symptom presence or intensity fluctuates.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0165">
+        <items id="text">Paroxysmal</items>
+        <items id="description">The symptom appears suddenly and dramatically.</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+  </ontology>
+</archetype>

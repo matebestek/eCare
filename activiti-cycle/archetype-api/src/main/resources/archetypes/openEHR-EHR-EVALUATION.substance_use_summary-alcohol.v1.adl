@@ -1,0 +1,399 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.substance_use_summary-alcohol.v1
+specialize
+	openEHR-EHR-EVALUATION.substance_use_summary.v1
+
+concept
+	[at0000.1]	-- *Alcohol Use Summary(en)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"21/06/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"This archetype is used to record an ongoing and persistent summary of the consumption of any and all types of alcohol.">
+			use = <"Used to record an ongoing and persistent summary of the use or consumption of alcohol.  ">
+			keywords = <"consumption", "substance", "use", "usage", "dependence", "alcohol">
+			misuse = <"Not to be used for recording actual details about the use of the substance and event-related data - this should be captured using the OBSERVATION.substance_use-alcohol archetype. 
+Not to be used for recording data about substances other than alcohol. ">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*This archetype is used to record an ongoing and persistent summary of the consumption of any and all types of alcohol.(en)">
+			use = <"*Used to record an ongoing and persistent summary of the use or consumption of alcohol.  (en)">
+			keywords = <"*consumption(en)", "*substance(en)", "*use(en)", "*usage(en)", "*dependence(en)", "*alcohol(en)">
+			misuse = <"*Not to be used for recording actual details about the use of the substance and event-related data - this should be captured using the OBSERVATION.substance_use-alcohol archetype. 
+Not to be used for recording data about substances other than alcohol. (en)">
+			copyright = <"*© 2011 openEHR Foundation(en)">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"9443E4BFADB7EFCE20A32BAEAF309E99">
+	>
+
+definition
+	EVALUATION[at0000.1] matches {	-- *Alcohol Use Summary(en)
+		data matches {
+			ITEM_TREE[at0001] matches {	-- *Tree(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- *Substance(en)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0.17]}		-- Alkohol
+							}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- *Usage Status(en)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- *Current User(en)
+									at0004, 	-- *Former Regular User(en)
+									at0006, 	-- *Former Occasional User(en)
+									at0016]	-- *Never Used(en)
+								}
+							}
+						}
+					}
+					CLUSTER[at0007] occurrences matches {0..*} matches {	-- *Consumption Summary(en)
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- *Form(en)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.18, 	-- *All alcohol(en)
+											at0.19, 	-- *All beer(en)
+											at0.20, 	-- *All wine(en)
+											at0.21, 	-- *All spirits(en)
+											at0.22, 	-- *Full strength beer(en)
+											at0.23, 	-- *Light beer(en)
+											at0.24, 	-- Rdeče vino
+											at0.25, 	-- *White wine(en)
+											at0.26]	-- *Fortified wine(en)
+										}
+									}
+								}
+							}
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- Metoda uporabe
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- *Date commenced(en)
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- *Age commenced(en)
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- *Date ceased(en)
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- *Age ceased(en)
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {	-- *Comment(en)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {	-- *Cessation attempts(en)
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.cessation_attempts\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.17"] = <
+					text = <"Alcohol">
+					description = <"Alcohol use">
+				>
+				["at0.18"] = <
+					text = <"All alcohol">
+					description = <"All alcohol consumed">
+				>
+				["at0.19"] = <
+					text = <"All beer">
+					description = <"All beer consumed">
+				>
+				["at0.20"] = <
+					text = <"All wine">
+					description = <"All wine consumed">
+				>
+				["at0.21"] = <
+					text = <"All spirits">
+					description = <"All spirits consumed">
+				>
+				["at0.22"] = <
+					text = <"Full strength beer">
+					description = <"Full strength beer consumed">
+				>
+				["at0.23"] = <
+					text = <"Light beer">
+					description = <"Light beer consumed">
+				>
+				["at0.24"] = <
+					text = <"Red wine">
+					description = <"Red wine consumed">
+				>
+				["at0.25"] = <
+					text = <"White wine">
+					description = <"White wine consumed">
+				>
+				["at0.26"] = <
+					text = <"Fortified wine">
+					description = <"Fortified wine consumed">
+				>
+				["at0000"] = <
+					text = <"Substance Use Summary">
+					description = <"Generic archetype to record a persisting summary or overview of use or consumption of a defined substance over time. ">
+				>
+				["at0000.1"] = <
+					text = <"Alcohol Use Summary">
+					description = <"Record a persisting summary or overview of use or consumption of alcohol over time.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Usage Status">
+					description = <"Overview of usage of alcohol">
+				>
+				["at0003"] = <
+					text = <"Current User">
+					description = <"Person is a current user of alcohol">
+				>
+				["at0004"] = <
+					text = <"Former Regular User">
+					description = <"Person a former or ex-user of the substance on a regular basis">
+				>
+				["at0005"] = <
+					text = <"Substance">
+					description = <"Identification of the substance ">
+				>
+				["at0006"] = <
+					text = <"Former Occasional User">
+					description = <"Person a former or ex-user of alcohol on a regular basis">
+				>
+				["at0007"] = <
+					text = <"Consumption Summary">
+					description = <"Summary of the pattern of use for any and all forms of alcohol, and for multiple episodes of use">
+				>
+				["at0008"] = <
+					text = <"Form">
+					description = <"Identify the form of alcohol">
+				>
+				["at0009"] = <
+					text = <"Date commenced">
+					description = <"Date that use of alcohol commenced (can be a partial date, such as a year)">
+				>
+				["at0010"] = <
+					text = <"Age commenced">
+					description = <"Age that use of alcohol commenced">
+				>
+				["at0011"] = <
+					text = <"Date ceased">
+					description = <"Date that use of alcohol ceased (can be a partial date, such as a year)">
+				>
+				["at0012"] = <
+					text = <"Age ceased">
+					description = <"Age that use of alcohol ceased">
+				>
+				["at0013"] = <
+					text = <"Comment">
+					description = <"Comment on the usage of alcohol">
+				>
+				["at0014"] = <
+					text = <"Cessation attempts">
+					description = <"Details about attempts to cease use of alcohol">
+				>
+				["at0015"] = <
+					text = <"Method of use">
+					description = <"Method of use or consumption of alcohol">
+				>
+				["at0016"] = <
+					text = <"Never Used">
+					description = <"Person has never consumed alcohol">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.17"] = <
+					text = <"Alkohol">
+					description = <"Uporaba alkohola">
+				>
+				["at0.18"] = <
+					text = <"*All alcohol(en)">
+					description = <"*All alcohol consumed(en)">
+				>
+				["at0.19"] = <
+					text = <"*All beer(en)">
+					description = <"*All beer consumed(en)">
+				>
+				["at0.20"] = <
+					text = <"*All wine(en)">
+					description = <"*All wine consumed(en)">
+				>
+				["at0.21"] = <
+					text = <"*All spirits(en)">
+					description = <"*All spirits consumed(en)">
+				>
+				["at0.22"] = <
+					text = <"*Full strength beer(en)">
+					description = <"*Full strength beer consumed(en)">
+				>
+				["at0.23"] = <
+					text = <"*Light beer(en)">
+					description = <"*Light beer consumed(en)">
+				>
+				["at0.24"] = <
+					text = <"Rdeče vino">
+					description = <"*Red wine consumed(en)">
+				>
+				["at0.25"] = <
+					text = <"*White wine(en)">
+					description = <"*White wine consumed(en)">
+				>
+				["at0.26"] = <
+					text = <"*Fortified wine(en)">
+					description = <"*Fortified wine consumed(en)">
+				>
+				["at0000"] = <
+					text = <"*Substance Use Summary(en)">
+					description = <"*Generic archetype to record a persisting summary or overview of use or consumption of a defined substance over time. (en)">
+				>
+				["at0000.1"] = <
+					text = <"*Alcohol Use Summary(en)">
+					description = <"*Record a persisting summary or overview of use or consumption of alcohol over time.(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Usage Status(en)">
+					description = <"*Overview of usage of alcohol(en)">
+				>
+				["at0003"] = <
+					text = <"*Current User(en)">
+					description = <"*Person is a current user of alcohol(en)">
+				>
+				["at0004"] = <
+					text = <"*Former Regular User(en)">
+					description = <"*Person a former or ex-user of the substance on a regular basis(en)">
+				>
+				["at0005"] = <
+					text = <"*Substance(en)">
+					description = <"*Identification of the substance (en)">
+				>
+				["at0006"] = <
+					text = <"*Former Occasional User(en)">
+					description = <"*Person a former or ex-user of alcohol on a regular basis(en)">
+				>
+				["at0007"] = <
+					text = <"*Consumption Summary(en)">
+					description = <"*Summary of the pattern of use for any and all forms of alcohol, and for multiple episodes of use(en)">
+				>
+				["at0008"] = <
+					text = <"*Form(en)">
+					description = <"*Identify the form of alcohol(en)">
+				>
+				["at0009"] = <
+					text = <"*Date commenced(en)">
+					description = <"*Date that use of alcohol commenced (can be a partial date, such as a year)(en)">
+				>
+				["at0010"] = <
+					text = <"*Age commenced(en)">
+					description = <"*Age that use of alcohol commenced(en)">
+				>
+				["at0011"] = <
+					text = <"*Date ceased(en)">
+					description = <"*Date that use of alcohol ceased (can be a partial date, such as a year)(en)">
+				>
+				["at0012"] = <
+					text = <"*Age ceased(en)">
+					description = <"*Age that use of alcohol ceased(en)">
+				>
+				["at0013"] = <
+					text = <"*Comment(en)">
+					description = <"*Comment on the usage of alcohol(en)">
+				>
+				["at0014"] = <
+					text = <"*Cessation attempts(en)">
+					description = <"*Details about attempts to cease use of alcohol(en)">
+				>
+				["at0015"] = <
+					text = <"Metoda uporabe">
+					description = <"*Method of use or consumption of alcohol(en)">
+				>
+				["at0016"] = <
+					text = <"*Never Used(en)">
+					description = <"*Person has never consumed alcohol(en)">
+				>
+			>
+		>
+	>

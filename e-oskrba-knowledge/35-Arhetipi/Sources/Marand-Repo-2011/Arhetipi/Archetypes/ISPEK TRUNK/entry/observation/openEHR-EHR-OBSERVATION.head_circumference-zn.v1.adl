@@ -1,0 +1,249 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.head_circumference-zn.v1
+specialize
+	openEHR-EHR-OBSERVATION.head_circumference.v1
+
+concept
+	[at0000.1]	-- Head circumference
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Slovenia">
+				["name"] = <"Uroš Rajkovič, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"18/10/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the head cicumference and head size of the subject, according to ZN documentation.">
+			use = <"">
+			keywords = <"head", ...>
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje meritve bosega glave subjekta">
+			use = <"">
+			keywords = <"glava", "obseg glave">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"8EC03CC99C69ECDC0FC50488177999BA">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- Head circumference
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Head circumference
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"cm">
+														magnitude = <|>=0.0|>
+														precision = <|1|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0.10] occurrences matches {0..1} matches {	-- Head size
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.11, 	-- Normal
+													at0.12, 	-- Small
+													at0.13]	-- Large
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0006] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0007] occurrences matches {0..1} matches {	-- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.10"] = <
+					text = <"Head size">
+					description = <"Qualitative description of head size.">
+				>
+				["at0.11"] = <
+					text = <"Normal">
+					description = <"Head size is normal.">
+				>
+				["at0.12"] = <
+					text = <"Small">
+					description = <"The head size is smaller than normal.">
+				>
+				["at0.13"] = <
+					text = <"Large">
+					description = <"The head size is larger then normal.">
+				>
+				["at0000"] = <
+					text = <"Head circumference">
+					description = <"The head circumference of the subject.">
+				>
+				["at0000.1"] = <
+					text = <"Head circumference">
+					description = <"The head circumference of the subject, according to ZN documentation.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Head circumference">
+					description = <"The head circumference of the subject.">
+				>
+				["at0006"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0007"] = <
+					text = <"Device">
+					description = <"Details of the device used.">
+				>
+				["at0009"] = <
+					text = <"Comment">
+					description = <"Textual comment on the result.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.10"] = <
+					text = <"*Head size(en)">
+					description = <"*Qualitative description of head size.(en)">
+				>
+				["at0.11"] = <
+					text = <"*Normal(en)">
+					description = <"*Head size is normal.(en)">
+				>
+				["at0.12"] = <
+					text = <"*Small(en)">
+					description = <"*The head size is smaller than normal.(en)">
+				>
+				["at0.13"] = <
+					text = <"*Large(en)">
+					description = <"*The head size is larger then normal.(en)">
+				>
+				["at0000"] = <
+					text = <"Obseg glave">
+					description = <"Izmerjen obseg glave subjekta">
+				>
+				["at0001"] = <
+					text = <"*Event Series">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Obseg glave">
+					description = <"Izmerjen obseg glave subjekta">
+				>
+				["at0006"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0007"] = <
+					text = <"Naprava">
+					description = <"Podatki o napravi s katero je bila opravljena meritev">
+				>
+				["at0009"] = <
+					text = <"Opombe">
+					description = <"Besedni opis rezultatov">
+				>
+			>
+		>
+	>

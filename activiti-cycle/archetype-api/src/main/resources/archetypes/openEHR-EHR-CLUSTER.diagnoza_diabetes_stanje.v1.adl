@@ -1,0 +1,134 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.diagnoza_diabetes_stanje.v1
+
+concept
+	[at0000]	-- Diagnoza diabetes stanje
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Podtip stanj za posamezno vrsto sladkornih bolezni.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"C8727FEAEA71A165201EC56F282246A5">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Diagnoza diabetes stanje
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Stanje sladkorne bolezni
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- (E1x.0) Diabetična koma
+							at0003, 	-- (E1x.1) Diabetična ketoacidoza
+							at0004, 	-- (E1x.2) Diabetična nefropatija
+							at0005, 	-- (E1x.3) Diabetična retinopatija
+							at0006, 	-- (E1x.4) Diabetična nevropatija
+							at0007, 	-- (E1x.5) Diabetična angiopatija
+							at0008, 	-- (E1x.6) Diabetična artropatija
+							at0009, 	-- (E1x.7) Diabetes z več zapleti
+							at0010, 	-- (E1x.8) Diabetes z neopredeljenimi zapleti
+							at0011]	-- (E1x.9) Diabetes brez zapletov
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Diagnoza diabetes stanje">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Stanje sladkorne bolezni">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"(E1x.0) Diabetična koma">
+					description = <"">
+				>
+				["at0003"] = <
+					text = <"(E1x.1) Diabetična ketoacidoza">
+					description = <"">
+				>
+				["at0004"] = <
+					text = <"(E1x.2) Diabetična nefropatija">
+					description = <"">
+				>
+				["at0005"] = <
+					text = <"(E1x.3) Diabetična retinopatija">
+					description = <"">
+				>
+				["at0006"] = <
+					text = <"(E1x.4) Diabetična nevropatija">
+					description = <"">
+				>
+				["at0007"] = <
+					text = <"(E1x.5) Diabetična angiopatija">
+					description = <"">
+				>
+				["at0008"] = <
+					text = <"(E1x.6) Diabetična artropatija">
+					description = <"">
+				>
+				["at0009"] = <
+					text = <"(E1x.7) Diabetes z več zapleti">
+					description = <"">
+				>
+				["at0010"] = <
+					text = <"(E1x.8) Diabetes z neopredeljenimi zapleti">
+					description = <"">
+				>
+				["at0011"] = <
+					text = <"(E1x.9) Diabetes brez zapletov">
+					description = <"">
+				>
+			>
+		>
+	>

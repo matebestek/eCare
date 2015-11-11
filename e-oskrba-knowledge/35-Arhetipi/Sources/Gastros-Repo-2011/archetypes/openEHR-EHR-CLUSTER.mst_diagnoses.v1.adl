@@ -1,0 +1,985 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_diagnoses.v1
+
+concept
+	[at0000]	-- MST Diagnoses
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+		["organisation"] = <"The University of Auckland">
+		["email"] = <"k.atalag@auckland.ac.nz">
+		["date"] = <"12/01/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Define diagnoses of upper and lower gastrointestinal endoscopy and ERCP; the diagnoses are given per organ.
+
+This is not necessarily the final diagnosis, which takes into account the findings of any additional procedures performed such as biopsy/cytology. The diagnostic list has been split into two parts: (i) Main diagnoses, ordered by expected prevalence; (ii) Other (rarer) diagnoses listed alphabetically. The decision on to which list a particular diagnosis appears is based upon the expected frequency of this finding in a European context. This \"diagnosis\" could be used to implement a \"conclusion\" field within any report generated. Such a conclusion would be based on a synthesis of all of the findings recorded. This is particularly true when a number of different lesions are described, such as in inflammatory bowel diseases at colonoscopy.">
+			use = <"It defines the terms describing diagnoses in endoscopy by using MST terms and extending its structure.">
+			keywords = <"endoscopy", "gastroenterology", "MST">
+			misuse = <"Not appropriate for use other than upper and lower gastrointestinal endoscopy and ERCP.">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Delvaux M. Minimal standard terminology in digestive endoscopy. Endoscopy 2000; 32(2):162-88.">
+		["MD5-CAM-1.0.1"] = <"4F76EC94C089637369C331CBE9DEE7B2">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Diagnoses
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Upper Gastrointestinal Tract
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at0002] occurrences matches {0..1} matches {	-- Esophagus
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0004] occurrences matches {0..*} matches {	-- Diagnoses
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0005, 	-- Normal
+											at0006, 	-- Reflux esophagitis
+											at0007, 	-- Varices
+											at0008, 	-- Benign stricture
+											at0009, 	-- Benign stricture
+											at0010, 	-- Barrett's esophagus
+											at0011, 	-- Ulcer
+											at0013, 	-- Achalasia
+											at0014, 	-- Benign tumor
+											at0015, 	-- Diverticulum
+											at0016, 	-- Fistula
+											at0017, 	-- Foreign body
+											at0018, 	-- Hiatus hernia
+											at0019, 	-- Mallory-Weiss tear
+											at0020, 	-- Monilial esophagitis
+											at0021, 	-- Non reflux esophagitis
+											at0022, 	-- Polyp
+											at0023, 	-- Post-operative appearance
+											at0024, 	-- Post-sclerotherapy appearance
+											at0025, 	-- Scar
+											at0026, 	-- Schatzki ring
+											at0027]	-- Submucosal tumor
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028] occurrences matches {0..1} matches {	-- Stomach
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0029] occurrences matches {0..*} matches {	-- Diagnoses
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0005, 	-- Normal
+											at0032, 	-- Erosive Gastropathy
+											at0033, 	-- Erythematous (hyperemic) Gastropathy
+											at0034, 	-- Hypertrophic Gastropathy
+											at0035, 	-- Hemorrhagic Gastropathy
+											at0036, 	-- Gastric mucosal atrophy
+											at0037, 	-- Suspicion of gastritis
+											at0038, 	-- Portal hypertensive gastropathy
+											at0039, 	-- Gastric ulcer
+											at0040, 	-- Bleeding gastric ulcer
+											at0041, 	-- Stomal ulcer
+											at0042, 	-- Malignant tumor
+											at0043, 	-- Polyps
+											at0044, 	-- Angioectasia
+											at0045, 	-- Benign tumor
+											at0046, 	-- Bleeding of unknown origin
+											at0047, 	-- Dieulafoy lesion
+											at0048, 	-- Diverticulum
+											at0049, 	-- Early gastric cancer
+											at0050, 	-- Extrinsic compression
+											at0051, 	-- Fistula
+											at0052, 	-- Foreign body
+											at0053, 	-- Gastric retention
+											at0054, 	-- Helicobacter pylori
+											at0055, 	-- Papulous gastropathy
+											at0056, 	-- Parasites
+											at0057, 	-- Post-operative appearance
+											at0058, 	-- Scar
+											at0059, 	-- Submucosal tumor
+											at0060]	-- Varices
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0061] occurrences matches {0..1} matches {	-- Duodenum
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0062] occurrences matches {0..*} matches {	-- Diagnoses
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0005, 	-- Normal
+											at0065, 	-- Erosive duodenopathy
+											at0066, 	-- Erythematous (hyperemic) duodenopathy
+											at0067, 	-- Congestive duodenopathy
+											at0068, 	-- Hemorrhagic duodenopathy
+											at0069, 	-- Duodenal ulcer
+											at0070, 	-- Bleeding duodenal ulcer
+											at0071, 	-- Ulcerogenic deformed duodenum
+											at0072, 	-- Angioectasia
+											at0073, 	-- Benign tumor
+											at0074, 	-- Bleeding of unknown origin
+											at0075, 	-- Brunner's gland hyperplasia
+											at0076, 	-- Coeliac disease
+											at0077, 	-- Crohn's disease
+											at0078, 	-- Diverticulum
+											at0079, 	-- Fistula
+											at0080, 	-- Malignant tumor
+											at0081, 	-- Parasite
+											at0082, 	-- Polyp
+											at0083, 	-- Post-operative appearance
+											at0084, 	-- Scar
+											at0085]	-- Submucosal tumor
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0087] occurrences matches {0..1} matches {	-- Lower Gastrointestinal Tract
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at0088] occurrences matches {0..1} matches {	-- Colon
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0089] occurrences matches {0..*} matches {	-- Diagnoses
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0005, 	-- Normal
+											at0091, 	-- Polyp(s)
+											at0092, 	-- Primary malignant tumor
+											at0093, 	-- Recurrent (post-operative/anastomotic) malignant tumor
+											at0094, 	-- Quiescent ulcerative colitis
+											at0095, 	-- Active moderate ulcerative colitis
+											at0096, 	-- Active severe ulcerative colitis
+											at0097, 	-- Quiescent Crohn's disease
+											at0098, 	-- Active moderate Crohn's disease
+											at0099, 	-- Active severe Crohn's disease
+											at0100, 	-- Unspecified colitis
+											at0101, 	-- Diverticulosis
+											at0102, 	-- Diverticulitis
+											at0103, 	-- Radiation(al) colitis/proctitis
+											at0104, 	-- Hemorrhoids
+											at0105, 	-- Angioectasia (vascular abnormality)
+											at0106, 	-- Bleeding of unknown origin
+											at0107, 	-- Condylomata
+											at0108, 	-- Foreign body
+											at0109, 	-- Fistula
+											at0110, 	-- Ileitis
+											at0111, 	-- Ischemic colitis
+											at0112, 	-- Lymphoma
+											at0113, 	-- Melanosis
+											at0114, 	-- Parasites
+											at0115, 	-- Polyposis coli
+											at0116, 	-- Pneumatosis coli
+											at0117, 	-- Post-operative appearance
+											at0118, 	-- Post-operative stricture
+											at0119, 	-- Proctitis
+											at0120, 	-- Pseudomembanous colitis
+											at0121, 	-- Solitary ulcer
+											at0122]	-- Lipoma
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0124] occurrences matches {0..1} matches {	-- ERCP
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at0125] occurrences matches {0..1} matches {	-- Pancreas
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0126] occurrences matches {0..*} matches {	-- Diagnoses
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0128, 	-- Failed pancreatogram
+											at0129, 	-- Normal pancreatogram
+											at0130, 	-- Chronic pancreatitis
+											at0131, 	-- Pancreatic tumor
+											at0132, 	-- Pancreatic cyst
+											at0133, 	-- Papillary stenosis
+											at0134, 	-- Tumor Ampulla of Vater
+											at0135, 	-- Abnormal biliary-pancreatic junction
+											at0136, 	-- Annular pancreas
+											at0137, 	-- Pancreas divisum
+											at0138, 	-- Pancreatic duct fistula
+											at0139, 	-- Pancreatic stone
+											at0140]	-- Parasites
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0142] occurrences matches {0..1} matches {	-- Biliary Tract
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0143] occurrences matches {0..*} matches {	-- Diagnoses
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0145, 	-- Failed cholangiogram
+											at0146, 	-- Normal cholangiogram
+											at0147, 	-- Normal post-cholecystectomy cholangiogram
+											at0148, 	-- Normal post-sphincterotomy cholangiogram
+											at0149, 	-- Cholelithiasis
+											at0150, 	-- Choledocholithiasis
+											at0151, 	-- Cholecystolithiasis
+											at0152, 	-- Hepatic lithiasis
+											at0153, 	-- Cystic duct lithiasis
+											at0154, 	-- Cystic stump lithiasis
+											at0155, 	-- Mirizzi syndrome
+											at0156, 	-- Biliary tumor
+											at0157, 	-- Main Bile duct tumor
+											at0158, 	-- Klatzkin tumor
+											at0159, 	-- Gallbladder tumor
+											at0160, 	-- Papillary stenosis
+											at0161, 	-- Ampullary tumor
+											at0162, 	-- Stent occlusion
+											at0163, 	-- Abnormal biliary-pancreatic junction
+											at0164, 	-- Bile duct fistula
+											at0165, 	-- Bile duct occlusion
+											at0166, 	-- Bile leak
+											at0167, 	-- Biliary stricture
+											at0168, 	-- Caroli's disease
+											at0169, 	-- Choledochal cyst
+											at0170, 	-- Choledochocele
+											at0171, 	-- Cirrhosis
+											at0172, 	-- Hemobilia
+											at0173, 	-- Papillary stenosis
+											at0174, 	-- Parasites
+											at0175, 	-- Sclerosing cholangitis
+											at0176, 	-- Sclerosing cholangitis
+											at0177, 	-- Suppurative cholangitis
+											at0178]	-- Tumor of the gallbladder
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Diagnoses">
+					description = <"It defines the list of terms for diagnosis, single or multiple, that the endoscopist feels is most likely on the basis of macroscopic findings during gastrointestinal endoscopy as described by the Minimal Standard Terminology for Gastrointestinal Endoscopy version 2 (MST-2). This is the official terminology endorsed by the World Endoscopy Society (OMED).">
+				>
+				["at0001"] = <
+					text = <"Upper Gastrointestinal Tract">
+					description = <"Location.">
+				>
+				["at0002"] = <
+					text = <"Esophagus">
+					description = <"Organ.">
+				>
+				["at0004"] = <
+					text = <"Diagnoses">
+					description = <"List of Main and Other diagnoses for Esophagus.">
+				>
+				["at0005"] = <
+					text = <"Normal">
+					description = <"Main Diagnoses">
+				>
+				["at0006"] = <
+					text = <"Reflux esophagitis">
+					description = <"Main Diagnoses">
+				>
+				["at0007"] = <
+					text = <"Varices">
+					description = <"Main Diagnoses">
+				>
+				["at0008"] = <
+					text = <"Benign stricture">
+					description = <"Main Diagnoses">
+				>
+				["at0009"] = <
+					text = <"Benign stricture">
+					description = <"Main Diagnoses">
+				>
+				["at0010"] = <
+					text = <"Barrett's esophagus">
+					description = <"Main Diagnoses">
+				>
+				["at0011"] = <
+					text = <"Ulcer">
+					description = <"Main Diagnoses">
+				>
+				["at0013"] = <
+					text = <"Achalasia">
+					description = <"Other Diagnoses">
+				>
+				["at0014"] = <
+					text = <"Benign tumor">
+					description = <"Other Diagnoses">
+				>
+				["at0015"] = <
+					text = <"Diverticulum">
+					description = <"Other Diagnoses">
+				>
+				["at0016"] = <
+					text = <"Fistula">
+					description = <"Other Diagnoses">
+				>
+				["at0017"] = <
+					text = <"Foreign body">
+					description = <"Other Diagnoses">
+				>
+				["at0018"] = <
+					text = <"Hiatus hernia">
+					description = <"Other Diagnoses">
+				>
+				["at0019"] = <
+					text = <"Mallory-Weiss tear">
+					description = <"Other Diagnoses">
+				>
+				["at0020"] = <
+					text = <"Monilial esophagitis">
+					description = <"Other Diagnoses">
+				>
+				["at0021"] = <
+					text = <"Non reflux esophagitis">
+					description = <"Other Diagnoses">
+				>
+				["at0022"] = <
+					text = <"Polyp">
+					description = <"Other Diagnoses">
+				>
+				["at0023"] = <
+					text = <"Post-operative appearance">
+					description = <"Other Diagnoses">
+				>
+				["at0024"] = <
+					text = <"Post-sclerotherapy appearance">
+					description = <"Other Diagnoses">
+				>
+				["at0025"] = <
+					text = <"Scar">
+					description = <"Other Diagnoses">
+				>
+				["at0026"] = <
+					text = <"Schatzki ring">
+					description = <"Other Diagnoses">
+				>
+				["at0027"] = <
+					text = <"Submucosal tumor">
+					description = <"Other Diagnoses">
+				>
+				["at0028"] = <
+					text = <"Stomach">
+					description = <"Organ.">
+				>
+				["at0029"] = <
+					text = <"Diagnoses">
+					description = <"List of Main and Other diagnoses for Stomach.">
+				>
+				["at0032"] = <
+					text = <"Erosive Gastropathy">
+					description = <"Main Diagnoses">
+				>
+				["at0033"] = <
+					text = <"Erythematous (hyperemic) Gastropathy">
+					description = <"Main Diagnoses">
+				>
+				["at0034"] = <
+					text = <"Hypertrophic Gastropathy">
+					description = <"Main Diagnoses">
+				>
+				["at0035"] = <
+					text = <"Hemorrhagic Gastropathy">
+					description = <"Main Diagnoses">
+				>
+				["at0036"] = <
+					text = <"Gastric mucosal atrophy">
+					description = <"Main Diagnoses">
+				>
+				["at0037"] = <
+					text = <"Suspicion of gastritis">
+					description = <"Main Diagnoses">
+				>
+				["at0038"] = <
+					text = <"Portal hypertensive gastropathy">
+					description = <"Main Diagnoses">
+				>
+				["at0039"] = <
+					text = <"Gastric ulcer">
+					description = <"Main Diagnoses">
+				>
+				["at0040"] = <
+					text = <"Bleeding gastric ulcer">
+					description = <"Main Diagnoses">
+				>
+				["at0041"] = <
+					text = <"Stomal ulcer">
+					description = <"Main Diagnoses">
+				>
+				["at0042"] = <
+					text = <"Malignant tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0043"] = <
+					text = <"Polyps">
+					description = <"Main Diagnoses">
+				>
+				["at0044"] = <
+					text = <"Angioectasia">
+					description = <"Other Diagnoses">
+				>
+				["at0045"] = <
+					text = <"Benign tumor">
+					description = <"Other Diagnoses">
+				>
+				["at0046"] = <
+					text = <"Bleeding of unknown origin">
+					description = <"Other Diagnoses">
+				>
+				["at0047"] = <
+					text = <"Dieulafoy lesion">
+					description = <"Other Diagnoses">
+				>
+				["at0048"] = <
+					text = <"Diverticulum">
+					description = <"Other Diagnoses">
+				>
+				["at0049"] = <
+					text = <"Early gastric cancer">
+					description = <"Other Diagnoses">
+				>
+				["at0050"] = <
+					text = <"Extrinsic compression">
+					description = <"Other Diagnoses">
+				>
+				["at0051"] = <
+					text = <"Fistula">
+					description = <"Other Diagnoses">
+				>
+				["at0052"] = <
+					text = <"Foreign body">
+					description = <"Other Diagnoses">
+				>
+				["at0053"] = <
+					text = <"Gastric retention">
+					description = <"Other Diagnoses">
+				>
+				["at0054"] = <
+					text = <"Helicobacter pylori">
+					description = <"Other Diagnoses">
+				>
+				["at0055"] = <
+					text = <"Papulous gastropathy">
+					description = <"Other Diagnoses">
+				>
+				["at0056"] = <
+					text = <"Parasites">
+					description = <"Other Diagnoses">
+				>
+				["at0057"] = <
+					text = <"Post-operative appearance">
+					description = <"Other Diagnoses">
+				>
+				["at0058"] = <
+					text = <"Scar">
+					description = <"Other Diagnoses">
+				>
+				["at0059"] = <
+					text = <"Submucosal tumor">
+					description = <"Other Diagnoses">
+				>
+				["at0060"] = <
+					text = <"Varices">
+					description = <"Other Diagnoses">
+				>
+				["at0061"] = <
+					text = <"Duodenum">
+					description = <"Organ.">
+				>
+				["at0062"] = <
+					text = <"Diagnoses">
+					description = <"List of Main and Other diagnoses for Duodenum.">
+				>
+				["at0065"] = <
+					text = <"Erosive duodenopathy">
+					description = <"Main Diagnoses">
+				>
+				["at0066"] = <
+					text = <"Erythematous (hyperemic) duodenopathy">
+					description = <"Main Diagnoses">
+				>
+				["at0067"] = <
+					text = <"Congestive duodenopathy">
+					description = <"Main Diagnoses">
+				>
+				["at0068"] = <
+					text = <"Hemorrhagic duodenopathy">
+					description = <"Main Diagnoses">
+				>
+				["at0069"] = <
+					text = <"Duodenal ulcer">
+					description = <"Main Diagnoses">
+				>
+				["at0070"] = <
+					text = <"Bleeding duodenal ulcer">
+					description = <"Main Diagnoses">
+				>
+				["at0071"] = <
+					text = <"Ulcerogenic deformed duodenum">
+					description = <"Main Diagnoses">
+				>
+				["at0072"] = <
+					text = <"Angioectasia">
+					description = <"Other Diagnoses">
+				>
+				["at0073"] = <
+					text = <"Benign tumor">
+					description = <"Other Diagnoses">
+				>
+				["at0074"] = <
+					text = <"Bleeding of unknown origin">
+					description = <"Other Diagnoses">
+				>
+				["at0075"] = <
+					text = <"Brunner's gland hyperplasia">
+					description = <"Other Diagnoses">
+				>
+				["at0076"] = <
+					text = <"Coeliac disease">
+					description = <"Other Diagnoses">
+				>
+				["at0077"] = <
+					text = <"Crohn's disease">
+					description = <"Other Diagnoses">
+				>
+				["at0078"] = <
+					text = <"Diverticulum">
+					description = <"Other Diagnoses">
+				>
+				["at0079"] = <
+					text = <"Fistula">
+					description = <"Other Diagnoses">
+				>
+				["at0080"] = <
+					text = <"Malignant tumor">
+					description = <"Other Diagnoses">
+				>
+				["at0081"] = <
+					text = <"Parasite">
+					description = <"Other Diagnoses">
+				>
+				["at0082"] = <
+					text = <"Polyp">
+					description = <"Other Diagnoses">
+				>
+				["at0083"] = <
+					text = <"Post-operative appearance">
+					description = <"Other Diagnoses">
+				>
+				["at0084"] = <
+					text = <"Scar">
+					description = <"Other Diagnoses">
+				>
+				["at0085"] = <
+					text = <"Submucosal tumor">
+					description = <"Other Diagnoses">
+				>
+				["at0087"] = <
+					text = <"Lower Gastrointestinal Tract">
+					description = <"Location.">
+				>
+				["at0088"] = <
+					text = <"Colon">
+					description = <"Organ.">
+				>
+				["at0089"] = <
+					text = <"Diagnoses">
+					description = <"List of Main and Other diagnoses for Colon.">
+				>
+				["at0091"] = <
+					text = <"Polyp(s)">
+					description = <"Main Diagnoses">
+				>
+				["at0092"] = <
+					text = <"Primary malignant tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0093"] = <
+					text = <"Recurrent (post-operative/anastomotic) malignant tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0094"] = <
+					text = <"Quiescent ulcerative colitis">
+					description = <"Main Diagnoses">
+				>
+				["at0095"] = <
+					text = <"Active moderate ulcerative colitis">
+					description = <"Main Diagnoses">
+				>
+				["at0096"] = <
+					text = <"Active severe ulcerative colitis">
+					description = <"Main Diagnoses">
+				>
+				["at0097"] = <
+					text = <"Quiescent Crohn's disease">
+					description = <"Main Diagnoses">
+				>
+				["at0098"] = <
+					text = <"Active moderate Crohn's disease">
+					description = <"Main Diagnoses">
+				>
+				["at0099"] = <
+					text = <"Active severe Crohn's disease">
+					description = <"Main Diagnoses">
+				>
+				["at0100"] = <
+					text = <"Unspecified colitis">
+					description = <"Main Diagnoses">
+				>
+				["at0101"] = <
+					text = <"Diverticulosis">
+					description = <"Main Diagnoses">
+				>
+				["at0102"] = <
+					text = <"Diverticulitis">
+					description = <"Main Diagnoses">
+				>
+				["at0103"] = <
+					text = <"Radiation(al) colitis/proctitis">
+					description = <"Main Diagnoses">
+				>
+				["at0104"] = <
+					text = <"Hemorrhoids">
+					description = <"Main Diagnoses">
+				>
+				["at0105"] = <
+					text = <"Angioectasia (vascular abnormality)">
+					description = <"Other Diagnoses">
+				>
+				["at0106"] = <
+					text = <"Bleeding of unknown origin">
+					description = <"Other Diagnoses">
+				>
+				["at0107"] = <
+					text = <"Condylomata">
+					description = <"Other Diagnoses">
+				>
+				["at0108"] = <
+					text = <"Foreign body">
+					description = <"Other Diagnoses">
+				>
+				["at0109"] = <
+					text = <"Fistula">
+					description = <"Other Diagnoses">
+				>
+				["at0110"] = <
+					text = <"Ileitis">
+					description = <"Other Diagnoses">
+				>
+				["at0111"] = <
+					text = <"Ischemic colitis">
+					description = <"Other Diagnoses">
+				>
+				["at0112"] = <
+					text = <"Lymphoma">
+					description = <"Other Diagnoses">
+				>
+				["at0113"] = <
+					text = <"Melanosis">
+					description = <"Other Diagnoses">
+				>
+				["at0114"] = <
+					text = <"Parasites">
+					description = <"Other Diagnoses">
+				>
+				["at0115"] = <
+					text = <"Polyposis coli">
+					description = <"Other Diagnoses">
+				>
+				["at0116"] = <
+					text = <"Pneumatosis coli">
+					description = <"Other Diagnoses">
+				>
+				["at0117"] = <
+					text = <"Post-operative appearance">
+					description = <"Other Diagnoses">
+				>
+				["at0118"] = <
+					text = <"Post-operative stricture">
+					description = <"Other Diagnoses">
+				>
+				["at0119"] = <
+					text = <"Proctitis">
+					description = <"Other Diagnoses">
+				>
+				["at0120"] = <
+					text = <"Pseudomembanous colitis">
+					description = <"Other Diagnoses">
+				>
+				["at0121"] = <
+					text = <"Solitary ulcer">
+					description = <"Other Diagnoses">
+				>
+				["at0122"] = <
+					text = <"Lipoma">
+					description = <"Other Diagnoses">
+				>
+				["at0124"] = <
+					text = <"ERCP">
+					description = <"Location.">
+				>
+				["at0125"] = <
+					text = <"Pancreas">
+					description = <"Organ.">
+				>
+				["at0126"] = <
+					text = <"Diagnoses">
+					description = <"List of Main and Other diagnoses for Pancreas.">
+				>
+				["at0128"] = <
+					text = <"Failed pancreatogram">
+					description = <"Main Diagnoses">
+				>
+				["at0129"] = <
+					text = <"Normal pancreatogram">
+					description = <"Main Diagnoses">
+				>
+				["at0130"] = <
+					text = <"Chronic pancreatitis">
+					description = <"Main Diagnoses">
+				>
+				["at0131"] = <
+					text = <"Pancreatic tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0132"] = <
+					text = <"Pancreatic cyst">
+					description = <"Main Diagnoses">
+				>
+				["at0133"] = <
+					text = <"Papillary stenosis">
+					description = <"Main Diagnoses">
+				>
+				["at0134"] = <
+					text = <"Tumor Ampulla of Vater">
+					description = <"Main Diagnoses">
+				>
+				["at0135"] = <
+					text = <"Abnormal biliary-pancreatic junction">
+					description = <"Other Diagnoses">
+				>
+				["at0136"] = <
+					text = <"Annular pancreas">
+					description = <"Other Diagnoses">
+				>
+				["at0137"] = <
+					text = <"Pancreas divisum">
+					description = <"Other Diagnoses">
+				>
+				["at0138"] = <
+					text = <"Pancreatic duct fistula">
+					description = <"Other Diagnoses">
+				>
+				["at0139"] = <
+					text = <"Pancreatic stone">
+					description = <"Other Diagnoses">
+				>
+				["at0140"] = <
+					text = <"Parasites">
+					description = <"Other Diagnoses">
+				>
+				["at0142"] = <
+					text = <"Biliary Tract">
+					description = <"Organ.">
+				>
+				["at0143"] = <
+					text = <"Diagnoses">
+					description = <"List of Main and Other diagnoses for Biliary Tract.">
+				>
+				["at0145"] = <
+					text = <"Failed cholangiogram">
+					description = <"Main Diagnoses">
+				>
+				["at0146"] = <
+					text = <"Normal cholangiogram">
+					description = <"Main Diagnoses">
+				>
+				["at0147"] = <
+					text = <"Normal post-cholecystectomy cholangiogram">
+					description = <"Main Diagnoses">
+				>
+				["at0148"] = <
+					text = <"Normal post-sphincterotomy cholangiogram">
+					description = <"Main Diagnoses">
+				>
+				["at0149"] = <
+					text = <"Cholelithiasis">
+					description = <"Main Diagnoses">
+				>
+				["at0150"] = <
+					text = <"Choledocholithiasis">
+					description = <"Main Diagnoses">
+				>
+				["at0151"] = <
+					text = <"Cholecystolithiasis">
+					description = <"Main Diagnoses">
+				>
+				["at0152"] = <
+					text = <"Hepatic lithiasis">
+					description = <"Main Diagnoses">
+				>
+				["at0153"] = <
+					text = <"Cystic duct lithiasis">
+					description = <"Main Diagnoses">
+				>
+				["at0154"] = <
+					text = <"Cystic stump lithiasis">
+					description = <"Main Diagnoses">
+				>
+				["at0155"] = <
+					text = <"Mirizzi syndrome">
+					description = <"Main Diagnoses">
+				>
+				["at0156"] = <
+					text = <"Biliary tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0157"] = <
+					text = <"Main Bile duct tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0158"] = <
+					text = <"Klatzkin tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0159"] = <
+					text = <"Gallbladder tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0160"] = <
+					text = <"Papillary stenosis">
+					description = <"Main Diagnoses">
+				>
+				["at0161"] = <
+					text = <"Ampullary tumor">
+					description = <"Main Diagnoses">
+				>
+				["at0162"] = <
+					text = <"Stent occlusion">
+					description = <"Main Diagnoses">
+				>
+				["at0163"] = <
+					text = <"Abnormal biliary-pancreatic junction">
+					description = <"Other Diagnoses">
+				>
+				["at0164"] = <
+					text = <"Bile duct fistula">
+					description = <"Other Diagnoses">
+				>
+				["at0165"] = <
+					text = <"Bile duct occlusion">
+					description = <"Other Diagnoses">
+				>
+				["at0166"] = <
+					text = <"Bile leak">
+					description = <"Other Diagnoses">
+				>
+				["at0167"] = <
+					text = <"Biliary stricture">
+					description = <"Other Diagnoses">
+				>
+				["at0168"] = <
+					text = <"Caroli's disease">
+					description = <"Other Diagnoses">
+				>
+				["at0169"] = <
+					text = <"Choledochal cyst">
+					description = <"Other Diagnoses">
+				>
+				["at0170"] = <
+					text = <"Choledochocele">
+					description = <"Other Diagnoses">
+				>
+				["at0171"] = <
+					text = <"Cirrhosis">
+					description = <"Other Diagnoses">
+				>
+				["at0172"] = <
+					text = <"Hemobilia">
+					description = <"Other Diagnoses">
+				>
+				["at0173"] = <
+					text = <"Papillary stenosis">
+					description = <"Other Diagnoses">
+				>
+				["at0174"] = <
+					text = <"Parasites">
+					description = <"Other Diagnoses">
+				>
+				["at0175"] = <
+					text = <"Sclerosing cholangitis">
+					description = <"Other Diagnoses">
+				>
+				["at0176"] = <
+					text = <"Sclerosing cholangitis">
+					description = <"Other Diagnoses">
+				>
+				["at0177"] = <
+					text = <"Suppurative cholangitis">
+					description = <"Other Diagnoses">
+				>
+				["at0178"] = <
+					text = <"Tumor of the gallbladder">
+					description = <"Other Diagnoses">
+				>
+			>
+		>
+	>

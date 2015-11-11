@@ -1,0 +1,107 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+﻿<h1>Vnos osnovnih podatkov pacienta</h1>
+<table>
+	<tr>
+		<td>
+			<label>Teža</label>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="number" name="weight" value="" />
+			<input type="hidden" name="weight_type" value="Integer" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>Višina</label>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="number" name="height" value="" />
+			<input type="hidden" name="height_type" value="Integer" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>Kadilski status</label>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<select name="smokingIntensity">
+				<option value="at0003">Trenutni uporabnik</option>
+				<option value="at0004">Redni uživalec tobaka v preteklosti</option>
+				<option value="at0006">Običajni uživalec tobaka v preteklosti</option>
+				<option value="at0016">Nikoli kadilec</option>
+			</select>
+			<input type="hidden" name="smokingIntensity_type" value="String" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label>Oblika uživanja tobaka</label>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<select name="smokingType">
+				<option value="at0.18">Cigarete - tovarniške</option>
+				<option value="at0.19">Cigarete - doma izdelane</option>
+				<option value="at0.20">Cigare</option>
+				<option value="at0.21">Pipa</option>
+			</select>
+			<input type="hidden" name="smokingType_type" value="String" />
+		</td>
+	</tr>	
+	<tr>
+		<td>
+			<label>Oblika uživanja alkohola</label>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<select name="alcoholType">
+				<option value="at0.18">*All alcohol(en)</option>
+				<option value="at0.19">*All beer(en)</option>
+				<option value="at0.20">*All wine(en)</option>
+				<option value="at0.21">*All spirits(en)</option>
+				<option value="at0.22">*Full strength beer(en)</option>
+				<option value="at0.23">*Light beer(en)</option>
+				<option value="at0.24">Rdeče vino</option>
+				<option value="at0.25">*White wine(en)</option>
+				<option value="at0.26">*Fortified wine(en)</option>		
+				
+			</select>
+			<input type="hidden" name="alcoholType_type" value="String" />
+		</td>
+	</tr>	
+</table>

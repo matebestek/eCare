@@ -1,0 +1,1344 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.mouth_assessment_zn.v1
+
+concept
+	[at0000]	-- Ocena ustne sluznice
+language
+	original_language = <[ISO_639-1::en-gb]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of Organizational Sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"18.6.2010">
+	>
+	details = <
+		["en-gb"] = <
+			language = <[ISO_639-1::en-gb]>
+			purpose = <"Details of a brief mouth assessment to assess stomatitis level according to WHO scale.
+Includes some other elements of mouth assessment.">
+			use = <"Evaluation of stomatitis level">
+			keywords = <"Mouth", "Gums", "Oral Mucosa", "Stomatitis">
+			misuse = <"Not a detailed dental assessment">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*Details of a brief mouth assessment to assess stomatitis level according to WHO scale.
+Includes some other elements of mouth assessment.(sl)">
+			use = <"*Evaluation of stomatitis level(sl)">
+			keywords = <"*Mouth(sl)", "*Gums(sl)", "*Oral Mucosa(sl)", "*Stomatitis(sl)">
+			misuse = <"*Not a detailed dental assessment(sl)">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics", "Biljana Prinčič, Marand d.o.o., Slovenia", "Anže Droljc, Marand d.o.o., Slovenia">
+	other_details = <
+		["references"] = <"Slovenia, Ljubljana, Clinical centre, Pediatrics hospital, Hemato ward (nurse Leon)">
+		["MD5-CAM-1.0.1"] = <"A46D5E6AA486F6FB47DBE3508BF8067A">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Ocena ustne sluznice
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(sl)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(sl)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(sl)
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0005] occurrences matches {0..*} matches {	-- Ocena tkiva
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Vrsta tkiva
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0007, 	-- Jezik
+															at0008, 	-- Dlesni
+															at0009, 	-- Ustnice
+															at0010]	-- Sluznica
+														}
+													}
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Rdečina
+												value matches {
+													0|[local::at0012], 	-- 0
+													1|[local::at0013], 	-- 1
+													2|[local::at0014], 	-- 2
+													3|[local::at0015]  	-- 3
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- Peče/zbada
+												value matches {
+													0|[local::at0017], 	-- 0
+													1|[local::at0018], 	-- 1
+													2|[local::at0019], 	-- 2
+													3|[local::at0020]  	-- 3
+												}
+											}
+											ELEMENT[at0021] occurrences matches {0..1} matches {	-- Oteklina
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0022, 	-- Ni prisotna
+															at0023]	-- Prisotna
+														}
+													}
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {	-- Bolečina
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0029, 	-- Ni prisotna
+															at0030]	-- Prisotna
+														}
+													}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- Razjede
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0033, 	-- Niso prisotne
+															at0034]	-- Prisotne
+														}
+													}
+												}
+											}
+											ELEMENT[at0025] occurrences matches {0..1} matches {	-- Suho
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0031, 	-- Ne
+															at0032]	-- Da
+														}
+													}
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {	-- Krvavitve
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0035, 	-- Niso prisotne
+															at0036]	-- Prisotne
+														}
+													}
+												}
+											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {	-- Razpoke
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0037, 	-- Niso prisotne
+															at0038]	-- Prisotne
+														}
+													}
+												}
+											}
+											ELEMENT[at0040] occurrences matches {0..1} matches {	-- Mehurji
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0043, 	-- Niso prisotni
+															at0044]	-- Prisotni
+														}
+													}
+												}
+											}
+											ELEMENT[at0039] occurrences matches {0..1} matches {	-- Obloge
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0041, 	-- Niso prisotne
+															at0042]	-- Prisotne
+														}
+													}
+												}
+											}
+											ELEMENT[at0045] occurrences matches {0..1} matches {	-- Vidne papile
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0046, 	-- Ne
+															at0047]	-- Da
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0049] occurrences matches {0..1} matches {	-- Dlesni-dodatno
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0052] occurrences matches {0..1} matches {	-- Stalna proteza
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0054, 	-- Ni stalne proteze
+															at0055, 	-- Stalna proteza, tkivo ni poskodovano
+															at0056]	-- Stalna proteza, poskodbe tkiva (otiscanci)
+														}
+													}
+												}
+											}
+											ELEMENT[at0051] occurrences matches {0..1} matches {	-- Odrgnine
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0057, 	-- Niso prisotne
+															at0058]	-- Prisotne
+														}
+													}
+												}
+											}
+											ELEMENT[at0053] occurrences matches {0..1} matches {	-- Petehije
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0059, 	-- Niso prisotne
+															at0060]	-- Prisotne
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0061] occurrences matches {0..1} matches {	-- Slina
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0063] occurrences matches {0..1} matches {	-- Konsistenca
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0064, 	-- Tekoča
+															at0065, 	-- Lepljiva
+															at0066]	-- Gosta
+														}
+													}
+												}
+											}
+											ELEMENT[at0062] occurrences matches {0..1} matches {	-- Količina
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0067, 	-- Normalna
+															at0068, 	-- Premalo
+															at0069, 	-- Odsotnost
+															at0070]	-- Preveč
+														}
+													}
+												}
+											}
+											ELEMENT[at0081] occurrences matches {0..1} matches {	-- Ocena razjed
+												value matches {
+													0|[local::at0082], 	-- Brez
+													1|[local::at0083], 	-- Posamezne
+													2|[local::at0084], 	-- Do 50%
+													3|[local::at0085]  	-- Več kot 50%
+												}
+											}
+										}
+									}
+									ELEMENT[at0072] occurrences matches {0..1} matches {	-- Požiranje
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0074, 	-- Primerno
+													at0075, 	-- Otežkočeno
+													at0076]	-- Omejeno
+												}
+											}
+										}
+									}
+									ELEMENT[at0073] occurrences matches {0..1} matches {	-- Govor
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0077, 	-- Normalen
+													at0078, 	-- Spremenjen
+													at0079, 	-- Ne more govoriti
+													at0080]	-- Ne govori
+												}
+											}
+										}
+									}
+									ELEMENT[at0086] occurrences matches {0..1} matches {	-- Protibolečinska terapija
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0088, 	-- Brez
+													at0089, 	-- Ne-opiatna
+													at0090]	-- Opiatna
+												}
+											}
+										}
+									}
+									ELEMENT[at0087] occurrences matches {0..1} matches {	-- Stadij stomatitisa po WHO
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..4|}
+											}
+										}
+									}
+									ELEMENT[at0091] occurrences matches {0..*} matches {	-- Slika
+										value matches {
+											DV_MULTIMEDIA matches {
+												media_type matches {[openEHR::]}
+											}
+										}
+									}
+									ELEMENT[at0092] occurrences matches {0..1} matches {	-- Opombe
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									CLUSTER[at0102] occurrences matches {0..1} matches {	-- Zobje
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0109] occurrences matches {0..1} matches {	-- Obloge
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0110, 	-- Niso prisotne
+															at0111]	-- Prisotne
+														}
+													}
+												}
+											}
+											ELEMENT[at0108] occurrences matches {0..1} matches {	-- Karies
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0112, 	-- Ni prisoten
+															at0113]	-- Prisoten
+														}
+													}
+												}
+											}
+											ELEMENT[at0105] occurrences matches {0..1} matches {	-- Sanirani
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0114, 	-- Ne
+															at0115]	-- Da
+														}
+													}
+												}
+											}
+											ELEMENT[at0107] occurrences matches {0..1} matches {	-- Boleči
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0116, 	-- Ne
+															at0117]	-- Da
+														}
+													}
+												}
+											}
+											ELEMENT[at0106] occurrences matches {0..1} matches {	-- Manjkajoči
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0120, 	-- Da
+															at0121]	-- Ne
+														}
+													}
+												}
+											}
+											ELEMENT[at0104] occurrences matches {0..1} matches {	-- Zlomljeni
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0122, 	-- Da
+															at0123]	-- Ne
+														}
+													}
+												}
+											}
+											ELEMENT[at0103] occurrences matches {0..1} matches {	-- Iatrogeni
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0118, 	-- Ne
+															at0119]	-- Da
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en-gb"] = <
+			items = <
+				["at0000"] = <
+					text = <"Mouth assessment">
+					description = <"Brief mouth assessment">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Tissue findings">
+					description = <"Mouth tissue findings *">
+				>
+				["at0006"] = <
+					text = <"Tissue type">
+					description = <"Type of tissue assessed">
+				>
+				["at0007"] = <
+					text = <"Tongue">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Gums">
+					description = <"Peridental mucosa">
+				>
+				["at0009"] = <
+					text = <"Lips">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Oral mucosa">
+					description = <"buccal part">
+				>
+				["at0011"] = <
+					text = <"Redness">
+					description = <"Erythema">
+				>
+				["at0012"] = <
+					text = <"0">
+					description = <"not present">
+				>
+				["at0013"] = <
+					text = <"1">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"2">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"3">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Irritation">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"0">
+					description = <"not present">
+				>
+				["at0018"] = <
+					text = <"1">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"2">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"3">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Swelling">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Pain">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Dryness">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Ulceration">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Bleeding">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Fissuring">
+					description = <"Cracked tissue">
+				>
+				["at0029"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Plaques">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Blistering">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Papillae">
+					description = <"Visible papillae">
+				>
+				["at0046"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Gums specific">
+					description = <"Aditional tissue findings specific to gums">
+				>
+				["at0051"] = <
+					text = <"Bruising">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Dental prothesis">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Petechiae">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"No prothesis">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Used, tissue not damaged">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Used, tissue damaged">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Saliva">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Amount">
+					description = <"Volume">
+				>
+				["at0063"] = <
+					text = <"Consistency">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Watery">
+					description = <"it flows">
+				>
+				["at0065"] = <
+					text = <"Creamy/Sticky">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Thick">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Less than normal">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"More than normal">
+					description = <"Excessive">
+				>
+				["at0072"] = <
+					text = <"Swallowing">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"Speech">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"With difficulties">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Limited">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0078"] = <
+					text = <"Impaired">
+					description = <"Differences from normal patient's voice, difficulties due to stomatitis">
+				>
+				["at0079"] = <
+					text = <"Can't speak">
+					description = <"Incapable of speaking due to stomatitis">
+				>
+				["at0080"] = <
+					text = <"Doesn't speak">
+					description = <"Doesn't speak for other reason than stomatitis (to young, deaf, doesn't want to speak)">
+				>
+				["at0081"] = <
+					text = <"Ulceration level">
+					description = <"*">
+				>
+				["at0082"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0083"] = <
+					text = <"Some">
+					description = <"*">
+				>
+				["at0084"] = <
+					text = <"Up to 50%">
+					description = <"*">
+				>
+				["at0085"] = <
+					text = <"More than 50%">
+					description = <"*">
+				>
+				["at0086"] = <
+					text = <"Pain therapy">
+					description = <"*">
+				>
+				["at0087"] = <
+					text = <"WHO stomatitis level">
+					description = <"Calculated level of stomatitis according to WHO. Level 0 means no stomatitis. (ian said it's ok, but could be ordinal)">
+				>
+				["at0088"] = <
+					text = <"None">
+					description = <"*">
+				>
+				["at0089"] = <
+					text = <"Non-opiate drugs">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Opiate drugs">
+					description = <"*">
+				>
+				["at0091"] = <
+					text = <"Image">
+					description = <"Image, video or other multimedia elements">
+				>
+				["at0092"] = <
+					text = <"Comments">
+					description = <"*">
+				>
+				["at0102"] = <
+					text = <"Dental findings">
+					description = <"*">
+				>
+				["at0103"] = <
+					text = <"Iatrogenic damage">
+					description = <"*">
+				>
+				["at0104"] = <
+					text = <"Broken">
+					description = <"*">
+				>
+				["at0105"] = <
+					text = <"Filled">
+					description = <"*">
+				>
+				["at0106"] = <
+					text = <"Missing">
+					description = <"*">
+				>
+				["at0107"] = <
+					text = <"Toothache">
+					description = <"*">
+				>
+				["at0108"] = <
+					text = <"Caries">
+					description = <"*">
+				>
+				["at0109"] = <
+					text = <"Plaques">
+					description = <"*">
+				>
+				["at0110"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0111"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0112"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0114"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0115"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0116"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0118"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0119"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"Yes">
+					description = <"*">
+				>
+				["at0121"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0122"] = <
+					text = <"Yes">
+					description = <"No">
+				>
+				["at0123"] = <
+					text = <"No">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ocena ustne sluznice">
+					description = <"*Splosna ocena ustne sluznice">
+				>
+				["at0001"] = <
+					text = <"*Event Series(sl)">
+					description = <"*@ internal @(sl)">
+				>
+				["at0002"] = <
+					text = <"*Any event(sl)">
+					description = <"**(sl)">
+				>
+				["at0003"] = <
+					text = <"*Tree(sl)">
+					description = <"*@ internal @(sl)">
+				>
+				["at0005"] = <
+					text = <"Ocena tkiva">
+					description = <"Ocena tkiv (jezik, dlesni, ustnice, sluznica)">
+				>
+				["at0006"] = <
+					text = <"Vrsta tkiva">
+					description = <"Vrsta tkiva, ki se ocenjuje">
+				>
+				["at0007"] = <
+					text = <"Jezik">
+					description = <"**(sl)">
+				>
+				["at0008"] = <
+					text = <"Dlesni">
+					description = <"**(sl)">
+				>
+				["at0009"] = <
+					text = <"Ustnice">
+					description = <"**(sl)">
+				>
+				["at0010"] = <
+					text = <"Sluznica">
+					description = <"**(sl)">
+				>
+				["at0011"] = <
+					text = <"Rdečina">
+					description = <"Eritem">
+				>
+				["at0012"] = <
+					text = <"0">
+					description = <"Ni prisotna">
+				>
+				["at0013"] = <
+					text = <"1">
+					description = <"**(sl)">
+				>
+				["at0014"] = <
+					text = <"2">
+					description = <"**(sl)">
+				>
+				["at0015"] = <
+					text = <"3">
+					description = <"**(sl)">
+				>
+				["at0016"] = <
+					text = <"Peče/zbada">
+					description = <"**(sl)">
+				>
+				["at0017"] = <
+					text = <"0">
+					description = <"Ne">
+				>
+				["at0018"] = <
+					text = <"1">
+					description = <"**(sl)">
+				>
+				["at0019"] = <
+					text = <"2">
+					description = <"**(sl)">
+				>
+				["at0020"] = <
+					text = <"3">
+					description = <"**(sl)">
+				>
+				["at0021"] = <
+					text = <"Oteklina">
+					description = <"**(sl)">
+				>
+				["at0022"] = <
+					text = <"Ni prisotna">
+					description = <"**(sl)">
+				>
+				["at0023"] = <
+					text = <"Prisotna">
+					description = <"**(sl)">
+				>
+				["at0024"] = <
+					text = <"Bolečina">
+					description = <"**(sl)">
+				>
+				["at0025"] = <
+					text = <"Suho">
+					description = <"**(sl)">
+				>
+				["at0026"] = <
+					text = <"Razjede">
+					description = <"**(sl)">
+				>
+				["at0027"] = <
+					text = <"Krvavitve">
+					description = <"**(sl)">
+				>
+				["at0028"] = <
+					text = <"Razpoke">
+					description = <"**(sl)">
+				>
+				["at0029"] = <
+					text = <"Ni prisotna">
+					description = <"**(sl)">
+				>
+				["at0030"] = <
+					text = <"Prisotna">
+					description = <"**(sl)">
+				>
+				["at0031"] = <
+					text = <"Ne">
+					description = <"**(sl)">
+				>
+				["at0032"] = <
+					text = <"Da">
+					description = <"**(sl)">
+				>
+				["at0033"] = <
+					text = <"Niso prisotne">
+					description = <"**(sl)">
+				>
+				["at0034"] = <
+					text = <"Prisotne">
+					description = <"**(sl)">
+				>
+				["at0035"] = <
+					text = <"Niso prisotne">
+					description = <"**(sl)">
+				>
+				["at0036"] = <
+					text = <"Prisotne">
+					description = <"**(sl)">
+				>
+				["at0037"] = <
+					text = <"Niso prisotne">
+					description = <"**(sl)">
+				>
+				["at0038"] = <
+					text = <"Prisotne">
+					description = <"**(sl)">
+				>
+				["at0039"] = <
+					text = <"Obloge">
+					description = <"**(sl)">
+				>
+				["at0040"] = <
+					text = <"Mehurji">
+					description = <"**(sl)">
+				>
+				["at0041"] = <
+					text = <"Niso prisotne">
+					description = <"**(sl)">
+				>
+				["at0042"] = <
+					text = <"Prisotne">
+					description = <"**(sl)">
+				>
+				["at0043"] = <
+					text = <"Niso prisotni">
+					description = <"**(sl)">
+				>
+				["at0044"] = <
+					text = <"Prisotni">
+					description = <"**(sl)">
+				>
+				["at0045"] = <
+					text = <"Vidne papile">
+					description = <"**(sl)">
+				>
+				["at0046"] = <
+					text = <"Ne">
+					description = <"**(sl)">
+				>
+				["at0047"] = <
+					text = <"Da">
+					description = <"**(sl)">
+				>
+				["at0049"] = <
+					text = <"Dlesni-dodatno">
+					description = <"Dodatna ocena specifična za dlesni">
+				>
+				["at0051"] = <
+					text = <"Odrgnine">
+					description = <"**(sl)">
+				>
+				["at0052"] = <
+					text = <"Stalna proteza">
+					description = <"**(sl)">
+				>
+				["at0053"] = <
+					text = <"Petehije">
+					description = <"**(sl)">
+				>
+				["at0054"] = <
+					text = <"Ni stalne proteze">
+					description = <"**(sl)">
+				>
+				["at0055"] = <
+					text = <"Stalna proteza, tkivo ni poskodovano">
+					description = <"**(sl)">
+				>
+				["at0056"] = <
+					text = <"Stalna proteza, poskodbe tkiva (otiscanci)">
+					description = <"**(sl)">
+				>
+				["at0057"] = <
+					text = <"Niso prisotne">
+					description = <"**(sl)">
+				>
+				["at0058"] = <
+					text = <"Prisotne">
+					description = <"**(sl)">
+				>
+				["at0059"] = <
+					text = <"Niso prisotne">
+					description = <"**(sl)">
+				>
+				["at0060"] = <
+					text = <"Prisotne">
+					description = <"**(sl)">
+				>
+				["at0061"] = <
+					text = <"Slina">
+					description = <"*(sl)">
+				>
+				["at0062"] = <
+					text = <"Količina">
+					description = <"**(sl)">
+				>
+				["at0063"] = <
+					text = <"Konsistenca">
+					description = <"**(sl)">
+				>
+				["at0064"] = <
+					text = <"Tekoča">
+					description = <"**(sl)">
+				>
+				["at0065"] = <
+					text = <"Lepljiva">
+					description = <"**(sl)">
+				>
+				["at0066"] = <
+					text = <"Gosta">
+					description = <"**(sl)">
+				>
+				["at0067"] = <
+					text = <"Normalna">
+					description = <"**(sl)">
+				>
+				["at0068"] = <
+					text = <"Premalo">
+					description = <"**(sl)">
+				>
+				["at0069"] = <
+					text = <"Odsotnost">
+					description = <"**(sl)">
+				>
+				["at0070"] = <
+					text = <"Preveč">
+					description = <"**(sl)">
+				>
+				["at0072"] = <
+					text = <"Požiranje">
+					description = <"**(sl)">
+				>
+				["at0073"] = <
+					text = <"Govor">
+					description = <"**(sl)">
+				>
+				["at0074"] = <
+					text = <"Primerno">
+					description = <"**(sl)">
+				>
+				["at0075"] = <
+					text = <"Otežkočeno">
+					description = <"**(sl)">
+				>
+				["at0076"] = <
+					text = <"Omejeno">
+					description = <"**(sl)">
+				>
+				["at0077"] = <
+					text = <"Normalen">
+					description = <"**(sl)">
+				>
+				["at0078"] = <
+					text = <"Spremenjen">
+					description = <"Spremembe govora zaradi stomatitisa">
+				>
+				["at0079"] = <
+					text = <"Ne more govoriti">
+					description = <"Ne more govoriti zaradi stomatitisa">
+				>
+				["at0080"] = <
+					text = <"Ne govori">
+					description = <"Ne govori zaradi drugih razlogov (premlad, gluhonem, ne zeli)">
+				>
+				["at0081"] = <
+					text = <"Ocena razjed">
+					description = <"**(sl)">
+				>
+				["at0082"] = <
+					text = <"Brez">
+					description = <"**(sl)">
+				>
+				["at0083"] = <
+					text = <"Posamezne">
+					description = <"**(sl)">
+				>
+				["at0084"] = <
+					text = <"Do 50%">
+					description = <"**(sl)">
+				>
+				["at0085"] = <
+					text = <"Več kot 50%">
+					description = <"**(sl)">
+				>
+				["at0086"] = <
+					text = <"Protibolečinska terapija">
+					description = <"**(sl)">
+				>
+				["at0087"] = <
+					text = <"Stadij stomatitisa po WHO">
+					description = <"Izracunan stadij stomatitisa po WHO klasifikaciji. Vrednost 0 predstavlja odsotnost stomatitisa.">
+				>
+				["at0088"] = <
+					text = <"Brez">
+					description = <"**(sl)">
+				>
+				["at0089"] = <
+					text = <"Ne-opiatna">
+					description = <"**(sl)">
+				>
+				["at0090"] = <
+					text = <"Opiatna">
+					description = <"**(sl)">
+				>
+				["at0091"] = <
+					text = <"Slika">
+					description = <"Multimedijski elementi dokumentacije, npr. slika">
+				>
+				["at0092"] = <
+					text = <"Opombe">
+					description = <"**(sl)">
+				>
+				["at0102"] = <
+					description = <"**(sl)">
+					text = <"Zobje">
+					comment = <"*(en-gb)">
+				>
+				["at0103"] = <
+					description = <"**(sl)">
+					text = <"Iatrogeni">
+					comment = <"*(en-gb)">
+				>
+				["at0104"] = <
+					description = <"**(sl)">
+					text = <"Zlomljeni">
+					comment = <"*(en-gb)">
+				>
+				["at0105"] = <
+					description = <"**(sl)">
+					text = <"Sanirani">
+					comment = <"*(en-gb)">
+				>
+				["at0106"] = <
+					comment = <"*(en-gb)">
+					text = <"Manjkajoči">
+					description = <"**(sl)">
+				>
+				["at0107"] = <
+					comment = <"*(en-gb)">
+					text = <"Boleči">
+					description = <"**(sl)">
+				>
+				["at0108"] = <
+					description = <"**(sl)">
+					text = <"Karies">
+					comment = <"*(en-gb)">
+				>
+				["at0109"] = <
+					description = <"**(sl)">
+					text = <"Obloge">
+					comment = <"*(en-gb)">
+				>
+				["at0110"] = <
+					text = <"Niso prisotne">
+					description = <"**(sl)">
+				>
+				["at0111"] = <
+					text = <"Prisotne">
+					description = <"**(sl)">
+				>
+				["at0112"] = <
+					text = <"Ni prisoten">
+					description = <"**(sl)">
+				>
+				["at0113"] = <
+					text = <"Prisoten">
+					description = <"**(sl)">
+				>
+				["at0114"] = <
+					text = <"Ne">
+					description = <"**(sl)">
+				>
+				["at0115"] = <
+					text = <"Da">
+					description = <"**(sl)">
+				>
+				["at0116"] = <
+					text = <"Ne">
+					description = <"**(sl)">
+				>
+				["at0117"] = <
+					text = <"Da">
+					description = <"**(sl)">
+				>
+				["at0118"] = <
+					text = <"Ne">
+					description = <"**(sl)">
+				>
+				["at0119"] = <
+					text = <"Da">
+					description = <"**(sl)">
+				>
+				["at0120"] = <
+					text = <"Da">
+					description = <"**(sl)">
+				>
+				["at0121"] = <
+					text = <"Ne">
+					description = <"**(sl)">
+				>
+				["at0122"] = <
+					text = <"Da">
+					description = <"**(sl)">
+				>
+				["at0123"] = <
+					text = <"Ne">
+					description = <"**(sl)">
+				>
+			>
+		>
+	>

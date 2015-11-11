@@ -1,0 +1,649 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>35fbf028-c0cf-49f4-89ec-b00b4ed042a5</id>
+  <name>MST_v2</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>For the Queen!</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.endoscopy_report_composition.v1" concept_name="Endoscopy Report">
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.endoscopy_examination.v1" concept_name="Endoscopy Examination" path="/content[at0022]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_exam_characteristics-gastros.v1" concept_name="MST Examination Characteristics | GastrOS" path="/data[at0001]/events[at0002]/data[at0005]/items[at0007]">
+        <Rule path="/items[at0005]/items[at0125]" annotation="isOrganiser" />
+        <Rule path="/items[at0005]/items[at0125]/items[at0110]" max="1" annotation="showValueContext(organise)" />
+        <Rule path="/items[at0005]/items[at0134]" annotation="isOrganiser" />
+        <Rule path="/items[at0005]/items[at0134]/items[at0110]" max="1" name="Location" annotation="showValueContext(organise)" />
+        <Rule path="/items[at0005]/items[at0136]" annotation="isOrganiser" />
+        <Rule path="/items[at0005]/items[at0136]/items[at0110]" annotation="showValueContext(organise)" />
+        <Rule path="/items[at0005]/items[at0.210]" annotation="isOrganiser" />
+        <Rule path="/items[at0144]/items[at0146]" annotation="isOrganiser" />
+        <Rule path="/items[at0144]/items[at0152]" annotation="isOrganiser" />
+        <Rule path="/items[at0144]/items[at0172]" annotation="isOrganiser" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_reasons_for_endoscopy.v1" concept_name="MST Reasons for Endoscopy" path="/data[at0001]/events[at0002]/data[at0005]/items[at0008]">
+        <Rule path="/items[at0001]/items[at0033]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0001]/items[at0004]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0001]/items[at0053]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0001]/items[at0094]" annotation="showText(multi)" />
+        <Rule path="/items[at0001]/items[at0061]" annotation="showText(multi)" />
+        <Rule path="/items[at0002]/items[at0005]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0002]/items[at0015]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0002]/items[at0026]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0002]/items[at0094]" annotation="showText(multi)" />
+        <Rule path="/items[at0002]/items[at0061]" annotation="showText(multi)" />
+        <Rule path="/items[at0003]/items[at0062]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0003]/items[at0065]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0003]/items[at0094]" annotation="showText(multi)" />
+        <Rule path="/items[at0003]/items[at0069]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0003]/items[at0081]" annotation="showAs(splash,smart)" />
+        <Rule path="/items[at0003]/items[at0061]" annotation="showText(multi)" />
+        <Rule path="/items[at0003]/items[at0085]" annotation="showAs(splash,smart)" />
+      </Items>
+      <Items xsi:type="ELEMENT" archetype_id="openEHR-EHR-ELEMENT.mst_complications.v1" concept_name="MST Complications" path="/data[at0001]/events[at0002]/data[at0005]/items[at0009]" />
+    </Content>
+    <Content xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.endoscopy_findings.v1" concept_name="Endoscopy Findings" path="/content[at0023]">
+      <Rule path="/data[at0001]/events[at0002]/data[at0005]/items[at0008]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_esophagus-gastros.v1" concept_name="MST Findings for Esophagus | GastrOS" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0009]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at0050]/items[at0100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1200]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1300]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1400]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1500]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1600]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1700]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1800]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1800]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at2000]/items[at2100]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2200]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2300]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2400]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2500]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2600]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2600]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]" annotation="isOrganiser" />
+        <Rule path="/items[at3000]/items[at3100]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3200]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3300]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3400]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3500]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]" annotation="isOrganiser;break(tab)" />
+        <Rule path="/items[at4000]/items[at4100]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]/items[at4200]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]" annotation="isOrganiser" />
+        <Rule path="/items[at5000]/items[at5100]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5200]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5300]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at6000]/items[at6100]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6200]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6300]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6400]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6500]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6600]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6600]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_stomach-gastros.v1" concept_name="MST Findings for Stomach | GastrOS" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0009]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at0050]/items[at0100]/items[at0500]" annotation="showAs(splash,smart));showWithParent (simple)" />
+        <Rule path="/items[at0050]/items[at0.6408]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1200]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1300]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1400]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1500]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]" annotation="isOrganiser" />
+        <Rule path="/items[at2000]/items[at2100]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2200]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2300]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2300]/items[at0105]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2400]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2500]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at3000]/items[at3100]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3200]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3300]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3400]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3500]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3600]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3600]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3700]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3700]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3800]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3800]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]" annotation="isOrganiser;break(tab)" />
+        <Rule path="/items[at4000]/items[at4100]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]/items[at4200]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]/items[at4300]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at5000]/items[at5100]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5200]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5300]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5400]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5500]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5600]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5600]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]" annotation="isOrganiser" />
+        <Rule path="/items[at6000]/items[at6100]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6200]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6300]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6400]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_duodenum.v1" concept_name="MST Findings for Duodenum" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0009]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1200]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1300]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at2000]/items[at2100]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2200]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2300]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2400]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]" annotation="isOrganiser" />
+        <Rule path="/items[at3000]/items[at3100]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3200]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3300]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3400]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3500]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3600]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3600]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3700]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3700]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]" annotation="isOrganiser" />
+        <Rule path="/items[at4000]/items[at4100]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]/items[at4200]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]" annotation="isOrganiser" />
+        <Rule path="/items[at5000]/items[at5100]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5200]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]" annotation="isOrganiser" />
+        <Rule path="/items[at6000]/items[at6100]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6200]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6300]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6400]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6500]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_colon-gastros.v1" concept_name="MST Findings for Colon| GastrOS" path="/data[at0001]/events[at0002]/data[at0005]/items[at0007]">
+        <Rule path="/items[at0005]" annotation="isOrganiser" />
+        <Rule path="/items[at0005]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at0005]/items[at0100]/items[at0110]" annotation="showAs(splash,smart);showWithParent(simple)" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1100]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1200]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1200]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1300]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1300]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]" annotation="isOrganiser" />
+        <Rule path="/items[at2000]/items[at2100]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2100]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2200]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2200]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2300]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2300]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2400]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2400]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2500]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2500]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2600]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2600]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at3000]/items[at3100]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3100]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3200]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3200]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3300]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3300]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3400]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3400]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3500]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3500]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3600]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3600]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3700]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3700]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3800]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3800]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3900]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3900]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]" annotation="isOrganiser;break(tab)" />
+        <Rule path="/items[at4000]/items[at4100]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]" annotation="isOrganiser" />
+        <Rule path="/items[at5000]/items[at5100]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5100]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5200]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5200]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5300]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5300]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5400]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5400]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5500]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5600]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5700]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5800]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]" annotation="isOrganiser" />
+        <Rule path="/items[at6000]/items[at6100]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6100]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6200]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6200]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6300]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6300]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6400]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6400]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6500]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6500]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6600]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6600]/items[at0110]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6700]" annotation="isCoreConcept" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_duodenum.v1" concept_name="MST Findings for Duodenum" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0010]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at0050]/items[at0100]/items[at0500]" annotation="showAs(splash,smart);showWithParent(simple)" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1200]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at1300]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]" annotation="isOrganiser" />
+        <Rule path="/items[at2000]/items[at2100]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2200]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2300]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at2000]/items[at2400]" annotation="isCoreConcept" />
+        <Rule path="/items[at2000]/items[at2400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at3000]/items[at3100]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3200]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3300]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3400]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3500]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3600]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3600]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at3000]/items[at3700]" annotation="isCoreConcept" />
+        <Rule path="/items[at3000]/items[at3700]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]" annotation="isOrganiser;break(tab)" />
+        <Rule path="/items[at4000]/items[at4100]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at4000]/items[at4200]" annotation="isCoreConcept" />
+        <Rule path="/items[at4000]/items[at4200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]" annotation="isOrganiser" />
+        <Rule path="/items[at5000]/items[at5100]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at5000]/items[at5200]" annotation="isCoreConcept" />
+        <Rule path="/items[at5000]/items[at5200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at6000]/items[at6100]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6200]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6200]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6300]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6300]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6400]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6400]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at6000]/items[at6500]" annotation="isCoreConcept" />
+        <Rule path="/items[at6000]/items[at6500]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_papilla_major.v1" concept_name="MST Findings for Papilla Major" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0010]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6502]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6507]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6508]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6509]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6511]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6518]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6522]" annotation="isCoreConcept" />
+        <Rule path="/items[at6529]" annotation="isOrganiser;break(next)" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_papilla_minor.v1" concept_name="MST Findings for Papilla Minor" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0010]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6502]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6518]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6522]" annotation="isCoreConcept" />
+        <Rule path="/items[at6529]" annotation="isOrganiser;break(next)" />
+        <Rule path="/items[at6529]/items[at6536]" annotation="isCoreConcept" />
+        <Rule path="/items[at6529]/items[at6537]" annotation="isCoreConcept" />
+        <Rule path="/items[at6529]/items[at6538]" annotation="isCoreConcept" />
+        <Rule path="/items[at6529]/items[at6543]" annotation="isCoreConcept" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_pancreas.v1" concept_name="MST Findings for Pancreas" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0010]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at0050]/items[at0100]/items[at0500]" annotation="showAs(splash,smart);showWithParent(simple)" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6502]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6507]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6507]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6508]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6508]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6509]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6509]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6511]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6511]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6518]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6518]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6522]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6522]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6524]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6524]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6525]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6525]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6526]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6526]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6527]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6527]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6528]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6528]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_findings_biliary_system.v1" concept_name="MST Findings for Biliary System" max="1" path="/data[at0001]/events[at0002]/data[at0005]/items[at0010]">
+        <Rule path="/items[at0050]" annotation="isOrganiser" />
+        <Rule path="/items[at0050]/items[at0100]" annotation="isCoreConcept" />
+        <Rule path="/items[at0050]/items[at0100]/items[at0500]" annotation="showAs(splash,smart);showWithParent(simple)" />
+        <Rule path="/items[at1000]" annotation="isOrganiser" />
+        <Rule path="/items[at1000]/items[at1100]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at1100]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6502]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6502]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6507]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6507]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6508]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6508]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6509]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6509]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6524]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6524]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6511]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6511]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6518]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6518]/items[at6519]" annotation="showDescription " />
+        <Rule path="/items[at1000]/items[at6518]/items[at6557]" annotation="showDescription " />
+        <Rule path="/items[at1000]/items[at6518]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6559]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6559]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6528]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6528]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6525]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6525]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6522]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6522]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6526]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6526]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+        <Rule path="/items[at1000]/items[at6527]" annotation="isCoreConcept" />
+        <Rule path="/items[at1000]/items[at6527]/items[at0500]" annotation="showAs(splash,smart);showWithParent (simple)" />
+      </Items>
+    </Content>
+    <Content xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.endoscopy_diagnosis.v1" concept_name="Endoscopy Diagnosis" path="/content[at0018]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_diagnoses-gastros.v1" concept_name="MST Diagnoses | GastrOS" path="/data[at0001]/items[at0002]">
+        <Rule path="/items[at0001]/items[at0002]" annotation="isOrganiser" />
+        <Rule path="/items[at0001]/items[at0002]/items[at0004]" max="4" annotation="showValueContext(organise);showInstances (4)" />
+        <Rule path="/items[at0001]/items[at0028]" annotation="isOrganiser" />
+        <Rule path="/items[at0001]/items[at0028]/items[at0029]" max="4" annotation="showValueContext(organise);showInstances (4)" />
+        <Rule path="/items[at0001]/items[at0061]" annotation="isOrganiser" />
+        <Rule path="/items[at0001]/items[at0061]/items[at0062]" max="4" annotation="showValueContext(organise);showInstances (4)" />
+        <Rule path="/items[at0087]/items[at0088]" annotation="isOrganiser" />
+        <Rule path="/items[at0087]/items[at0088]/items[at0089]" max="4" />
+        <Rule path="/items[at0124]/items[at0125]" annotation="isOrganiser" />
+        <Rule path="/items[at0124]/items[at0125]/items[at0126]" annotation="showValueContext(organise);showInstances (4)" />
+        <Rule path="/items[at0124]/items[at0142]" annotation="isOrganiser" />
+        <Rule path="/items[at0124]/items[at0142]/items[at0143]" annotation="showValueContext(organise);showInstances (4)" />
+      </Items>
+    </Content>
+    <Content xsi:type="ACTION" archetype_id="openEHR-EHR-ACTION.endoscopy_interventions.v1" concept_name="Endoscopy Interventions" path="/content[at0019]">
+      <Rule path="/description[at0001]/items[at0003]" max="0" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.mst_procedures-gastros.v1" concept_name="MST Additional Diagnostic and Therapeutic Procedures | GastrOS" path="/description[at0001]/items[at0002]">
+        <Rule path="/items[at0001]" annotation="isOrganiser" />
+        <Rule path="/items[at0001]/items[at0002]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0002]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0001]/items[at0014]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0014]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0001]/items[at0019]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0019]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0001]/items[at0024]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0024]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0001]/items[at0025]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0025]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0001]/items[at0027]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0027]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0001]/items[at0029]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0029]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0001]/items[at0031]" annotation="isCoreConcept" />
+        <Rule path="/items[at0001]/items[at0031]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]" annotation="isOrganiser;break(tab)" />
+        <Rule path="/items[at0034]/items[at0035]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0035]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0037]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0037]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0051]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0056]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0061]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0066]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0070]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0070]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0073]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0081]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0087]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0087]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0095]" annotation="isCoreConcept;break(next)" />
+        <Rule path="/items[at0034]/items[at0095]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0205]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0205]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple)" />
+        <Rule path="/items[at0034]/items[at0209]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0209]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0116]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0116]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0120]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0120]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0135]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0135]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+        <Rule path="/items[at0034]/items[at0139]" annotation="isCoreConcept" />
+        <Rule path="/items[at0034]/items[at0139]/items[at0016]" annotation="showAs(splash,smart);showWithParent(simple);showValueContext(organise)" />
+      </Items>
+    </Content>
+    <Context />
+  </definition>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-COMPOSITION.endoscopy_report_composition.v1">
+    <digest id="MD5-CAM-1.0.1">F3A1A426AC059F8D9069F5A511220494</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.endoscopy_examination.v1">
+    <digest id="MD5-CAM-1.0.1">62C0FF20C6610D47194E6B905C2FB1C5</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.mst_exam_characteristics.v1">
+    <digest id="MD5-CAM-1.0.1">F26DA8D67F0159A412E1F2498DB04992</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.mst_reasons_for_endoscopy.v1">
+    <digest id="MD5-CAM-1.0.1">B0C1CABCD2A388387815BB6E3AA715CE</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-OBSERVATION.endoscopy_findings.v1">
+    <digest id="MD5-CAM-1.0.1">DB0836E1768686ADBA20CF7688291CB3</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.mst_findings_colon.v1">
+    <digest id="MD5-CAM-1.0.1">17D76ABFEDBBA7CB9C4E97046DEC42ED</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-EVALUATION.endoscopy_diagnosis.v1">
+    <digest id="MD5-CAM-1.0.1">C5631F754FE20E2A96142CF65BA6C456</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.mst_diagnoses.v1">
+    <digest id="MD5-CAM-1.0.1">C68A31A3B856FC1B34F1650A6E721F8A</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ACTION.endoscopy_interventions.v1">
+    <digest id="MD5-CAM-1.0.1">0BE29CCB138C2E16F3C0602A9A7022DB</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-CLUSTER.mst_procedures.v1">
+    <digest id="MD5-CAM-1.0.1">AC9DEED0C8D2E2743E50D7D488698D42</digest>
+  </integrity_checks>
+  <integrity_checks xsi:type="ArchetypeIntegrity" archetype_id="openEHR-EHR-ELEMENT.mst_complications.v1">
+    <digest id="MD5-CAM-1.0.1">B44215E43B95D56058BC9BE1B2CFB1E7</digest>
+  </integrity_checks>
+</template>

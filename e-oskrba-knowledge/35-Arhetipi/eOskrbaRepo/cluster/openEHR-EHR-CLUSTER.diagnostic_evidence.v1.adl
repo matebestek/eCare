@@ -1,0 +1,153 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.diagnostic_evidence.v1
+
+concept
+	[at0000]	-- Diagnostični dokaz
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"14/12/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of evidence supporting a problem or diagnosis.">
+			use = <"Normally used within EVALUATION.problem_diagnosis.v1. May be specialised for specific problems or diagnoses with clearly defined diagnostic or evidential criteria.">
+			keywords = <"evidence", ...>
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za zapisovanje dodatnih podatkov, ki potrjujejo diagnozo">
+			use = <"Ponavadi uporabljen z EVALUATION.problem_diagnosis.v1. Za zapisovanje dodatnih podatkov, ki potrjujejo diagnozo">
+			keywords = <"dokaz", ...>
+			misuse = <"">
+			copyright = <"*(en)">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"40E951C3B1E32B2ABBC9760528B0DE52">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Diagnostični dokaz
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Diagnostična kategorija
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..*} matches {	-- Podporni kriteriji 
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..*} matches {	-- Vzrok
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Opis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Diagnostic evidence">
+					description = <"Evidence in support of a problem/diagnosis">
+				>
+				["at0001"] = <
+					text = <"Supportive criteria">
+					description = <"Specific individual criteria , normally coded terms.">
+				>
+				["at0002"] = <
+					text = <"Description">
+					description = <"A narrative description of supportive evidence.">
+				>
+				["at0004"] = <
+					text = <"Causative factors">
+					description = <"Factors leading to the problem or diagnosis.">
+				>
+				["at0005"] = <
+					text = <"Diagnostic category">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Diagnostični dokaz">
+					description = <"Dokaz kot podpora diagnozi">
+				>
+				["at0001"] = <
+					text = <"Podporni kriteriji ">
+					description = <"Podporni kriteriji (običajno šifrant)">
+				>
+				["at0002"] = <
+					text = <"Opis">
+					description = <"Opis ">
+				>
+				["at0004"] = <
+					text = <"Vzrok">
+					description = <"Vzrok z adiagnozo">
+				>
+				["at0005"] = <
+					text = <"Diagnostična kategorija">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

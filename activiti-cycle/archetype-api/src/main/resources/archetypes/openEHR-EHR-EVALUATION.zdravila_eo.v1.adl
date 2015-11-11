@@ -1,0 +1,243 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.zdravila_eo.v1
+
+concept
+	[at0000]	-- Zdravila eo
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis zdravil, namenjen tako vnosu, kot potrjevanju jemanja.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"057EF8840B17A8CA39FFAB4D36D5F086">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Zdravila eo
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0005] occurrences matches {0..*} matches {	-- Vnos zdravil
+						items cardinality matches {1..*; unordered} matches {
+							CLUSTER[at0002] occurrences matches {0..*} matches {	-- Zdravilo
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Ime zdravila
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Generično ime
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Število pakiranj
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									CLUSTER[at0016] occurrences matches {0..1} matches {	-- Režim jemanja zdravil
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- Količina (št/mg/ml/vdih)
+												value matches {
+													DV_COUNT matches {*}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Pogostost jemanja
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0019, 	-- 1x/dan
+															at0020, 	-- 2x/dan
+															at0021, 	-- 3x/dan
+															at0022, 	-- 4x/dan
+															at0023]	-- Po potrebi
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							ELEMENT[at0003] occurrences matches {0..*} matches {	-- Druga zdravila
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0004] occurrences matches {0..*} matches {	-- Potrjevanje zdravil
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Ali ste danes vzeli vsa predpisana zdravila?
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Kako redno ste v zadnjih 14 dneh jemali zdravila?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0008, 	-- 1 (Nikoli)
+											at0009, 	-- 2
+											at0010, 	-- 3
+											at0011, 	-- 4
+											at0012]	-- 5 (Vedno)
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Zdravila eo">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Zdravilo">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Druga zdravila">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Potrjevanje zdravil">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Vnos zdravil">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Kako redno ste v zadnjih 14 dneh jemali zdravila?">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Ali ste danes vzeli vsa predpisana zdravila?">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"1 (Nikoli)">
+					description = <"1 (Nikoli)">
+				>
+				["at0009"] = <
+					text = <"2">
+					description = <"2">
+				>
+				["at0010"] = <
+					text = <"3">
+					description = <"3">
+				>
+				["at0011"] = <
+					text = <"4">
+					description = <"4">
+				>
+				["at0012"] = <
+					text = <"5 (Vedno)">
+					description = <"5 (Vedno)">
+				>
+				["at0013"] = <
+					text = <"Ime zdravila">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Generično ime">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Število pakiranj">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Režim jemanja zdravil">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Količina (št/mg/ml/vdih)">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Pogostost jemanja">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"1x/dan">
+					description = <"1x/dan">
+				>
+				["at0020"] = <
+					text = <"2x/dan">
+					description = <"2x/dan">
+				>
+				["at0021"] = <
+					text = <"3x/dan">
+					description = <"3x/dan">
+				>
+				["at0022"] = <
+					text = <"4x/dan">
+					description = <"4x/dan">
+				>
+				["at0023"] = <
+					text = <"Po potrebi">
+					description = <"Po potrebi">
+				>
+			>
+		>
+	>

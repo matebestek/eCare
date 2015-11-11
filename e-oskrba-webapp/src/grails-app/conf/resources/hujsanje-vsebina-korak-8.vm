@@ -1,0 +1,748 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+	
+<div id="activiti_form_holder">
+
+	
+<h3><a href="#">Vsebine - Ostalo - Spoznavanje povezanosti med prehranjevanjem, debelostjo in samopodobo</a></h3>
+	<div style="font-family: arial, sans-serif;">	
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>SPOZNAVANJE POVEZANOSTI MED PREHRANJEVANJEM, DEBELOSTJO IN SAMOPODOBO</b></font></span>
+	</center>
+
+	<p align="justify">Samopodoba je celota vseh
+	lastnosti, potez, predstav, ki jih posameznik pripisuje sebi – na kratko bi
+	lahko rekli, da gre za doživljanje sebe oz. sliko o samem sebi. Celotna slika
+	je sestavljena iz večih manjših, saj se nanaša na različna področja; največkrat
+	samopodobo delimo na telesno (predstave, ki jih ima posameznik o svojem telesu
+	in telesnih sposobnosti), akademsko (predstave, ki jih ima posameznik o svojih
+	intelektualnih, učnih sposobnosti), emocionalno (predstave, ki jih ima
+	posameznik o svojem čustvovanju) in socialno (predstave, ki jih ima posameznik
+	o svojih odnosih z drugimi ljudmi). Slika o sebi oz. doživljanje sebe se
+	razvije na podlagi večih virov, med katerimi so najpomembnejši:</p>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+	 posameznikove lastne
+		 izkušnje s sabo in okoljem;</br></br>
+		 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+	 mnenja in predstave,
+		 ki jih imajo o posamezniku družina in drugi pomembni ljudje v njegovem
+		 življenju (ta mnenja so lahko izražena besedno, pogosto pa skozi odnos in
+		 način vedenja do posameznika);</br></br>
+		 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+	 vpliv medijev in
+		 širšega družbenega konteksta (npr. revije, filmi, reklame, družbena
+		 pričakovanja in ideali …).
+		 </td>
+		</tr>
+	</table>
+	</p>
+
+	<p align="justify">Omeniti je potrebno tudi
+	pojem samospoštovanja, ki predstavlja vrednostni del samopodobe. Če je torej
+	samopodoba slika o sebi (npr. imam skodrane lase ali zaposlen sem v velikem
+	podjetju), pomeni samospoštovanje oceno sebe (npr. moji lasje so neprivlačni
+	ali imam uspešno kariero). Posameznik v prvem primeru ima tako na področju
+	telesa ali še ožje – las nizko samospoštovanje, medtem ko ima posameznik v
+	drugem primeru na poklicnem področju visoko samospoštovanje. Ker pa se v
+	literaturi za samopodobo in samospoštovanje uporabljajo različna imena in
+	definicije ter se ta dva pojma pogosto združuje, bomo tudi mi v nadaljevanju
+	zaradi jasnosti uporabljali samo pojem samopodoba, ki bo vključeval tako
+	posameznikovo doživljanje kot vrednotenje samega sebe. Prav tako bomo izmenično
+	uporabljali pridevnike pozitivna, visoka, dobra samopodoba oz. negativna,
+	nizka, slaba samopodoba.
+	</p>
+
+	<p align="justify">Kako posameznik doživlja
+	in ocenjuje samega sebe, je povezano tudi z drugimi vidiki njegovega življenja:
+	</p>
+
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+		 njegovimi odnosi z
+		 drugimi ljudmi (posameznik z visoko samopodobo bo npr. suveren pri
+		 sklepanju prijateljstev, medtem ko se bo posameznik z nizko samopodobo
+		 pogosto umikal iz odnosov, sram ga bo pred drugimi, posledično bo imel
+		 zato malo prijateljev …),</br></br>
+		 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+	 njegovim
+		 procesiranjem informacij (posameznik s pozitivno samopodobo bo neuspeh pri
+		 prijavi nekega projekta npr. pripisal veliki konkurenci in ga sprejel kot
+		 izziv za naprej, medtem ko ga bo posameznik z negativno samopodobo
+		 pripisal zgolj svoji nesposobnosti, ki se je potrdila tudi na tem
+		 primeru),</br></br>
+		 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+	 njegovim počutjem
+		 (posameznik z visoko samopodobo se v svoji koži dobro počuti in bo zato
+		 lahko tudi njegovo razpoloženje boljše, medtem ko posameznika z nizko
+		 samopodobo njegove negativne misli o sebi pogosto spravljajo v potrtost,
+		 brezvoljnost ali celo depresijo), </br></br>
+		 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+	 uspešnostjo pri
+		 njegovem delu in aktivnostih (posameznik z dobro samopodobo ima zaupanje v
+		 svoje sposobnosti, zato bo tudi bolj motiviran in posledično lahko uspešen
+		 pri delu, medtem ko bo posameznik, ki ne verjame v svoje sposobnosti, to
+		 delo opravljal z manj motivacije) ...
+		 </td>
+		</tr>
+	</table>
+
+	<p align="justify">Povezanost med samopodobo
+	in temi področji gre seveda tudi v obratni smeri - uspešnost pri delu, odnosi z
+	drugimi ljudmi, način procesiranja informacij … vplivajo tudi na razvijanje
+	pozitivne ali negativne samopodobe.</p>
+
+	<p align="justify">Na tem mestu pa bi se
+	dotaknili povezanosti med samopodobo in prehranjevanjem, debelostjo,
+	uspešnostjo hujšanja. Povezava je kompleksna in gre v več smeri. Po eni strani
+	posamezniki, ki imajo preveliko telesno maso, pogosto niso zadovoljni s svojim
+	videzom in imajo nizko telesno samopodobo. K temu prispeva primerjanje z
+	drugimi, morebitni predsodki drugih (morda že od mladih let), v veliki meri pa
+	tudi izpostavljanje nerealnih lepotnih idealov v medijih ter druga družbena
+	pričakovanja. To ima lahko tudi nadaljnje negativne posledice, saj je te
+	posameznike pogosto sram v socialnih stikih, zaradi česar se zmanjša njihovo
+	možnost za vzpostavljanje prijateljstev in se lahko razvije nizka samopodoba
+	tudi na socialnem področju … (slabo mnenje na telesnem področju lahko tako
+	vpliva tudi na druga področja samopodobe in, kot smo že zgoraj omenili, na
+	posameznikovo počutje in delovanje).</p>
+
+	<p align="justify">Po drugi strani
+	posamezniki, ki imajo nizko samopodobo (na kateremkoli področju), pogosto
+	posegajo po hrani in v njej iščejo uteho in boljše počutje (o tem več pri temi:
+	Povezanost stresa in prekomerne telesne mase v 9. koraku). To lahko vodi v prenajedanje
+	in preveliko telesno maso, to pa posledično v še slabšo samopodobo, ki jo bo
+	potrebno potem spet omiliti z občutki zadovoljstva ob hrani, in vzpostavi se
+	začaran krog. Nizka samopodoba ima pomembno vlogo tudi pri uspešnosti hujšanja.
+	Posameznik z nizko samopodobo bo tudi v procesu hujšanja npr. sodeloval z
+	manjšo motivacijo, ker bo imel slabo mnenje o svoji sposobnosti, da doseže
+	uspeh/ morda si ne bo upal poiskati pomoči in podpore/ neuspeh pri upoštevanju
+	določenega pravila zdravega prehranjevanja bo lahko doživel kot prezahtevnega
+	zanj in bo opustil hujšanje …</p>
+
+	<p align="justify">Prikazana povezanost med
+	samopodobo in procesom hujšanja oz. spreminjanja življenjskega sloga je zato
+	dodatna spodbuda, da se ob ukvarjanju z zdravo prehrano in gibanjem posvetite
+	tudi svojemu doživljanju sebe in svojemu počutju. </p>
+
+	<p align="justify">Za začetek premislite, kakšna
+	je vaša slika o sebi. Se doživljate kot grde/lepe, debele/suhe,
+	sposobne/nesposobne, priljubljene/nepriljubljene …? Preverite, ali imate več
+	pozitivnih ali več negativnih predstav o sebi. So negativne predstave vezane
+	predvsem na eno področje ali na več področij? Kdo ali kaj najbolj vpliva na te
+	negativne predstave?</p>
+
+	<p align="justify">Če ugotovite, da imate
+	negativnih predstav veliko (ali celo več kot pozitivnih), je čas, da pričnete
+	delati na izboljšanju oz. krepitvi svoje samopodobe, predvsem na področju, kjer
+	jih je največ. Dve vaji, ki vam lahko pomagata pri tem, boste izpolnili za
+	domačo nalogo, v nadaljevanju pa navajamo še nekaj splošnih predlogov oz.
+	namigov:</p>
+
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+			Ne primerjajte se z
+		 drugimi; še posebej ne z manekenkami z naslovnic. Če se že morate
+		 primerjati, se poskusite primerjati na področju, s katerim ste zadovoljni.</br></br>
+	 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+			Ne posplošujte. Ena
+		 napaka ne pomeni, da ste nesposobni; če se z nekom ne razumete dobro, to
+		 ne pomeni, da vas nihče ne mara; če imate po vašem mnenju preširoke boke,
+		 to ne pomeni, da ste grdi.</br></br>
+	 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+			Ne pripisujte krivde
+		 za neuspeh vedno samo sebi. Morda so na to vplivale zunanje okoliščine. S
+		 tem, ko bolj realno pogledate na stvari, jih lahko tudi lažje spremenite
+		 in se ne ukvarjate le z mislijo, da ste nesposobni.</br></br>
+	 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+			Preverite, kakšne so
+		 vaše želje in pričakovanja. Če se trudite zgolj, da bi ugodili drugim
+		 ljudem ali nekim splošnim družbenim pričakovanjem, boste težko zadovoljni
+		 sami s sabo, še posebej, ker so ta pričakovanja običajno visoka ali celo
+		 nerealna. Ali ste res uspešni samo, če naredite to in to/ali je dobra mama
+		 res samo tista, ki vsak dan skuha kosilo/ali morate imeti res popolno
+		 postavo, da vas bodo imeli ljudje radi …?</br></br>
+	 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+		Naučite se videti
+		 tudi pozitivne stvari. Kot smo omenili že pri procesiranju informacij, te
+		 pogosto filtriramo v skladu z našo samopodobo. Ne osredotočajte se torej
+		 samo na to, kar ste slabo naredili, ampak tudi, kaj vam je dobro uspelo
+		 (četudi je majhna stvar).</br></br>
+	 </td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+			Vsak dan na koncu
+		 dneva razmislite in si zapišite <u>vsaj</u> 1 stvar, ki ste jo v tem dnevu
+		 dobro naredili oz. ste zaradi tega zadovoljni s sabo (tudi, če je to samo
+		 pomivanje posode, bolj zgoden prihod v službo, frizura, ki vam je danes
+		 dobro uspela …).
+		</td>
+		</tr>
+	</table>
+	</p>
+
+	<p align="justify">Več o samopodobi in
+	načinih njene krepitve si lahko preberete še na naslednjih in podobnih tujih
+	spletnih straneh (slovenskih zaenkrat še ni):</p>
+
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				o samopodobi – povezava na link: <a target="_blank" href="http://www.athealth.com/Consumer/disorders/self-esteem.html">http://www.athealth.com/Consumer/disorders/self-esteem.html</a></br>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				kako krepiti samopodobo – povezava na link: <a target="_blank" href="http://psychcentral.com/lib/2006/how-to-raise-your-self-esteem/">http://psychcentral.com/lib/2006/how-to-raise-your-self-esteem/</a></br>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				o samopodobi za mladostnike - povezava na link: <a target="_blank" href="http://au.reachout.com/find/articles/self-esteem-feeling-ok-about-who-you-are">http://au.reachout.com/find/articles/self-esteem-feeling-ok-about-who-you-are</a>
+			</td>
+		</tr>
+	</table>
+	</p>
+
+</div>
+<h3><a href="#">Vsebine - Ostalo - Motnje hranjenja</a></h3>
+	<div style="font-family: arial, sans-serif;">	
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>MOTNJE HRANJENJA</b></font></span>
+	</center>
+	<p align="justify">S samopodobo so na
+	določen način povezane tudi motnje hranjenja, saj je za posameznike, ki se
+	soočajo s temi motnjami, pogosto značilna negativna (telesna) samopodoba in za
+	nekatere tudi izkrivljena, popačena predstava o lastni podobi. Namen
+	predstavitve tega področja je prikazati, kako se motnje hranjenja razlikujejo
+	od motenj prehranjevanja in težav s prekomerno telesno maso, in opozoriti na
+	značilnosti, ki nam lahko pomagajo prepoznati morebitno pojavljanje določene
+	motnje hranjenja pri naših bližnjih.</p>
+
+	<p align="justify">Kratek opis tega
+	področja je povzet in prirejen po gradivu iz seminarja Motnje hranjenja (SZS in
+	MDDSZ, 2011).</p>
+
+	<p align="justify">Medtem ko so motnje
+	prehranjevanja vezane predvsem na napačne vzorce prehranjevanja (izpuščanje
+	obrokov, preveč kalorična hrana, prevelike količine hrane …), ki so lahko samo
+	občasni in posameznik nima nujno težav tudi na drugih področjih življenja, pa
+	so motnje hranjenja duševne motnje, ki resno vplivajo na vsa področja
+	posameznikovega življenja. Zato je potrebno motnje hranjenja zdraviti s
+	strokovno pomočjo (v Sloveniji se s tem ukvarjajo npr. na Psihiatrični kliniki
+	Ljubljana – v okviru Enote za zdravljenje motenj hranjenja 
+	<a target="_blank" href="http://www.psih-klinika.si/strokovne-enote/center-za-mentalno-zdravje/enota-za-motnje-hranjenja/">
+	http://www.psih-klinika.si/strokovne-enote/center-za-mentalno-zdravje/enota-za-motnje-hranjenja/</a>, Svetovalnici za
+	motnje hranjenja MUZA <a target="_blank" href="http://www.svetovalnicamuza.si/">http://www.svetovalnicamuza.si/</a>, Društvu Ženska
+	svetovalnica <a target="_blank" href="http://www.drustvo-zenska-svetovalnica.si/motnje-hranjenja">http://www.drustvo-zenska-svetovalnica.si/motnje-hranjenja</a>, Mladinskem
+	klimatskem zdravilišču Rakitna <a target="_blank" href="http://www.mkz-rakitna.si/motnje-hranjenja-in-custvene-motnje.html">http://www.mkz-rakitna.si/motnje-hranjenja-in-custvene-motnje.html</a>…).
+	</p>
+
+
+	<p align="justify">Iskanje vzrokov za
+	nastanek motnje hranjenja največkrat pokaže, da je ta posledica hkratnega
+	vplivanja večih dejavnikov. Običajno gre za kombinacijo dejavnikov, ki povečajo
+	ranljivost posameznika za razvoj motnje, in dejavnikov, ki motnjo sprožijo. Med
+	dejavniki, ki povečajo ranljivost, so lahko:
+
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				individualni
+				(npr. perfekcionizem, popačena slika sebe, prisotnost razpoloženjskih motenj,
+				prekomerna telesna masa ob rojstvu);
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				družinski
+				(npr. zlorabe, zasvojenost družinskih članov, neustrezno postavljanje meja);
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				socio-kulturni
+				(npr. vpliv medijev, pritiski vrstniških skupin glede fizičnega izgleda).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Med dejavniki, ki lahko motnjo sprožijo, pa so najpogostejši:
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				shujševalne	diete,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				odhod od doma,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				travmatični dogodki (ločitev staršev, smrt ljubljene osebe, zlorabe in nasilje …).
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p class=MsoListParagraphCxSpLast style='text-align:justify;line-height:115%'><span style='line-height:115%;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
+
+	<p align="justify">Najpogostejše motnje
+	hranjenja:</p>
+
+
+
+
+	<p><b><span style='color:#FF8040'>Anoreksija
+	nervoza</span></b></p>
+	<div style="position:relative; left:30px; width=96%;">
+	- Pogostejša je pri ženskah.</br>
+
+	- Običajno se pojavi
+	na prehodu iz otroštva v mladostniško dobo.</br>
+
+	- Značilnosti: </br>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				moteno doživljanje
+				lastnega telesa (tudi, ko je postava že izredno suha, koščena, se oseba
+				doživlja kot debelo);
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				paničen strah pred
+				debelostjo;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				oseba največkrat
+				vzdržuje nizko telesno maso s stradanjem in/ali s pretirano telesno
+				dejavnostjo, nekatere osebe pa tudi z bruhanjem ali uporabo odvajal;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				izguba menstruacije;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				telesna masa je vsaj
+				za 15 % nižja od ustrezne (ITM &lt; 17,5).
+			</td>
+		</tr>
+	</table>
+
+	- Posledice:</br>
+
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				osteoporoza, težave
+				s srcem in ledvicami,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				motnje pozornosti in
+				zbranosti,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				depresija,
+				tesnobnost, misli na smrt,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				izčrpanost,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>			
+				ženskah …
+			</td>
+		</tr>
+	</table>
+
+</div>
+
+	<p><b><span style='color:#FF8040'>Bulimija
+	nervoza</span></b></p>
+<div style="position:relative; left:30px; width=96%;">
+	- Pogostejša je pri
+	ženskah.</br>
+
+	- Običajno se pojavi
+	na prehodu iz mladostniške dobe v odraslost.</br>
+
+	- Značilnosti: </br>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				občutek
+				pomanjkljivega nadzora nad lastnim hranjenjem;
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				strah pred
+				debelostjo;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				prenajeda, prenajedanju pa sledijo ukrepi, da bi zmanjšala telesno maso;
+				največkrat z izzvanim bruhanjem ali uporabo odvajal, včasih pa tudi s
+				stradanjem ali pretirano telesno dejavnostjo;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				telesna masa je
+				normalna ali povečana (ITM od 20 do 30).
+			</td>
+		</tr>
+	</table>
+	- Posledice: </br>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				prebavne težave in razpok
+				želodca,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				slabi zobje,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				bolečine pri
+				požiranju in poškodba glasilk,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				izguba zavesti,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				depresija …
+			</td>
+		</tr>
+	</table>
+</div>
+	<p><b><span style='color:#FF8040'>Kompulzivno
+	prenajedanje</span></b></p>
+<div style="position:relative; left:30px; width=96%;">
+	- Enako pogosta pri
+	ženskah kot pri moških.</br>
+
+	- Običajno se pojavi v
+	zgodnjem in srednjem odraslem obdobju.</br>
+
+	- Značilnosti: </br>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				občutek
+				pomanjkljivega nadzora nad lastnim hranjenjem;
+
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				oseba se pogosto
+				prenajeda, po prenajedanju pa NE sledijo ukrepi, da bi zmanjšala telesno maso;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				prekomerna (ITM &gt; 25).
+			</td>
+		</tr>
+	</table>
+	- Posledice:</br>
+
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				debelost in
+				pridružene metabolne bolezni (diabetes, zvišan krvni pritisk …) ,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				obolenja srca,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				povečana verjetnost
+				za razvoj nekaterih rakavih obolenj,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				pomanjkanje	energije,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>depresija,
+				tesnobnost in socialna izolacija …
+			</td>
+		</tr>
+	</table>
+	</div>
+
+	<p align="justify">Na kratko omenimo še
+	dve novejši obliki motenj hranjenja. <b>Ortoreksija nervoza</b> se kaže skozi
+	obsedenost z biološko čisto, zdravo hrano – to pomeni, da oseba jé samo tisto,
+	kar ustreza tem kriterijem (posledično lahko začne hujšati, se umikati v
+	izolacijo – saj se ne more prehranjevati v restavracijah …). Za razliko od
+	anoreksije oseba s to motnjo nima težnje po vitkosti.</p>
+
+	<p align="justify">Bigoreksija nervoza pa se izraža skozi
+	obsedenost s potrebo po mišičastem telesu in je bolj značilna za moške. Pravijo
+	ji tudi obrnjena anoreksija, saj se posamezniki, ki so že zelo mišičasti,
+	vidijo kot izrazito suhljate – imajo popačeno predstavo o svojem videzu. Zanje
+	je značilna tudi zloraba anabolnih steroidov, kar lahko vodi v hude telesne
+	težave.</p>
+	
+</div>
+<h3><a href="#">Vsebine - Gibanje - Seznanitev z vadbenimi pripomočki in njihovo uporabo pri izvajanju vaj za krepitev mišic</a></h3>
+	<div style="font-family: arial, sans-serif;">	
+	<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>SEZNANITEV Z VADBENIMI PRIPOMOČKI IN NJIHOVO UPORABO PRI IZVAJANJU VAJ ZA KREPITEV MIŠIC</b></font></span>
+	</center>
+
+	<p align="justify">Tudi
+	za krepitev mišic lahko uporabljamo različne pripomočke kot so trakovi, uteži,
+	male in velike terapevtske žoge, različne fitnes naprave (fitnes klopi in
+	fitnes stoli za dvigovanje telesa in premikanje uteži, gugalniki za krepitev
+	mišic trupa, druge naprave za krepitev mišic rok in nog itd. )
+	</p>
+
+</div>	
+</div>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

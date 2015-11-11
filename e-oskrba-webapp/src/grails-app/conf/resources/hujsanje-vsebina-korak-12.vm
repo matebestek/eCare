@@ -1,0 +1,786 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+	
+<div id="activiti_form_holder">
+	
+<!--Prehrana-->
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Zdrava izbira živil(1)</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040" size="5">
+			<center><b>ZDRAVA IZBIRA ŽIVIL V TRGOVINI, ŠOLI, RESTAVRACIJI</b></center>
+		</font>
+		</br>
+		<p>
+		<h2><B><U>Restavracija</U></B></h2>
+		Tudi prehrana izven doma  naj bo zdrava. Med ponudbo izbiraj več sadja in zelenjave, polnozrnate žitne izdelke, pusto meso, ribe morske sadeže ter manj mastno mleko in manj mastne mlečne izdelke. Izogibaj se sladicam, maščobam in mastnim živilom ter mastni in  slani hrani. Pazi na velikost porcij. 
+		</p>
+		<p>
+		
+		<b>1.</b>Izogibaj se ocvrti hrani, majoneznim in smetanovim omakam, ker so bogata z maščobami in energijo.
+		Naroči raje hrano, ki je dušena, pečena v pečici ali na žaru, tako se izogneš prevelikemu vnosu maščob. Te maščobe, pregrete s cvrenjem so namreč še bolj nezdrave, pa tudi veliko bolj kaloričen je obrok, če je hrana cvrta.
+		Mnogim jedem je dodana smetana ali pa smetana sploh prevladuje. Vse kremne juhe imajo veliko smetane, zato je bolje naročiti kar zelenjavno juho brez smetane. Veliko prelivov ali omak pri testeninah vsebuje smetanovo osnovo. Smetana ima veliko kalorij in nezdravih živalskih maščob.</br></br>
+		<b>2.</b> Za predjed lahko naročiš zelenjavno ali na primer lečino juho, ki ne vsebuje dodanih maščob (smetane, majoneze)  in vsebuje več vlaknine.</br></br>
+		<b>3.</b> Naroči »zdrav krožnik«: ne prevelik kos pustega mesa (ali ribe), polnozrnate testenine ali neoluščen riž in <B>veliko</B> zelenjave ter solate. Solato si pripravi sam/a pri mizi in bodi zmeren/a pri dodajanju maščobe ter soli.
+		Zdrav krožnik ima naložene dve petine zelenjave, dve petine priloge in eno petino npr. mesa ali njegove zamenjave.</br></br>
+		<b>4.</b> Namesto sladice naroči sveže sadje.
+		Običajno so sladice izrazito energijsko bogata živila, vsebujejo veliko maščob in sladkorja. Občasno si le privoščimo sladico, vendar tudi med njimi lahko izbiramo. Tiste z več sadja in manj maščob in smetane so bolj priporočljive. Vendar se po kosilu ali večerji prileže tudi sadje, ki je veliko lažje kot sladice.</br></br>
+		<b>5.</b> Pij vodo ali 100 % sadne/zelenjavne sokove. Izogibaj se alkoholu.
+		Voda ne vsebuje kalorij, čisti sadni sokovi manj kalorij kot tisti, ki jim je dodan le sadni delež in sladkor in jim rečemo nektar. Pa tudi sladke gazirane pijače vsebujejo le veliko praznih kalorij in razne nezdrave dodatke. En liter cole vsebuje približno 25 žličk sladkorja. Zato je res za žejo najbolje piti vodo. </br></br>
+		<b>6.</b> Nehaj jesti, ko si sit/a. </br></br>
+		<b>7.</b> Če si ne glede na priporočila preveč pojedel/a, bodi preko dneva bolj telesno dejaven/a in naslednji dan pojej manjše obroke.
+		</OL>
+		</p>
+		<p>
+		<h2><B><U>Fast food – hitra hrana</U></B></h2>
+		Popularnost hitre hrane je velik dejavnik naraščanja debelosti. Omenjena vrsta prehrane je običajno bogata z maščobami, nasičenimi maščobami, energijo in soljo ter revna z vlakninami in minerali. Izogibaj se »fast fooda«. Če se odločiš za tako vrsto prehrane, jo uživaj redko (1 krat na mesec ali manj) in potem izbiraj: 
+		</p>
+		<p>
+		
+		<b>1.</b> Majhen hamburger s solato, paradižnikom in sirom</br></br>
+		<b>2.</b> Solato namesto pomfrija (pazi na dresinge za solato in raje sam dodaj manjše količine olivnega olja in kis)</br></br>
+		<b>3.</b> Namesto ocvrtega  mesa, izberi pečeno meso v hamburgerju</br></br>
+		<b>4.</b> Namesto majoneze ali drugih specialnih omak izberi gorčico ali ketchup.</br></br>
+		<b>5.</b> Namesto cole ali drugih »soft drinkov« izberi vodo.</br></br>
+		
+		</p>
+	</div>
+
+<!--Drugi zavihek zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Zdrava izbira živil(2)</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>ZDRAVA IZBIRA ŽIVIL V TRGOVINI, ŠOLI, RESTAVRACIJI</b></center>
+		</font>
+		</br>
+		<p>
+		<B>Ključna sporočila:</B></br>
+		<h2><B><U>Trgovina</U></B></h2>
+		Tudi kadar kupujemo živila v trgovini za obrok, lahko izberemo zdrav obrok. Imamo sendvič z zdravo sestavo in sendvič z nezdravo sestavo in dodano sadje ali brez sadja in različna pijača. </br>
+		<B>Vzemimo primer zdravega obroka:</B> Sendvič s polnozrnato štručko, rezino puste puranje šunke, pustim sirom, rezinami paprike in paradižnika; dodatno črno grozdje in voda.</br>
+		<B>In primer nezdravega obroka:</B> Sendvič z lepinjo, polnomastnim sirom in mortadelo, dodan polnomastni jogurt in 2 dcl koka kole. Energijska vrednost (kalorij) v nezdravem obroku je 2 krat toliko, skupnih maščob 4 krat toliko in prav tako škodljivih nasičenih maščob 4 krat toliko, nasprotno pa je zdravih vlaknin skoraj 2 krat manj, to pa predvsem zato ker je pri zdravem obroku polnozrnati kruh in pa sadje, ki vsebujejo veliko zdravih vlaknin.</br>
+		</p>
+		<p>
+		<OL style="font-family: arial, sans-serif;">
+		<b>1.</b> Za obrok kupimo »zdrav sendvič«, ki vsebuje polnozrnato žemljo, manj mastni sir, pusto šunko. Zraven pojemo še kos sadja in/ali že v trgovini pripravljene solate ter vodo. Lahko dodamo še posnet jogurt.
+		namesto</br></br>
+		<b>2.</b> Lepinje s slanino, polnomastnim sirom, čokolado ter colo.
+		</OL>
+		</p>
+		<h2>Primeri uravnoteženega obroka, energijsko in maščobno prebogatega ter biološko revnega obroka, kupljenih v trgovini in fast food</h2>
+		<p>
+		<B><U>Primeri »uravnoteženih obrokov«</U></B>
+		</p>
+		<p>
+		Sendvič s kornšpicom, rezino puste puranje šunke, pustim sirom, rezinami paprike in paradižnika; črno grozdje in voda
+		</p>
+	
+		<p><TABLE border="1">
+				<tr align="center">
+					<th><B>Kosilo</B></th>
+					<th><B>Energija(kcal)</B></th>
+					<th><B>Maščobe</B></th>
+					<th><B>Nasičene maščobne kisline(g)</B></th>
+					<th><B>Prehranska vlaknina (g)</B></th>
+				</tr>
+				<tr>
+					<td>Polnozrnata štručka (80g)</td>
+					<td align="center">234</td>
+					<td align="center">3,7</td>
+					<td align="center">/</td>
+					<td align="center">3,7</td>
+				</tr>
+				<tr>
+					<td>1 rezina manj mastnega sira (50g)</td>
+					<td align="center">143,85</td>
+					<td align="center">8,55</td>
+					<td align="center">8,45</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Navadni posneti jogurt (180g) 1,4 m.m</td>
+					<td align="center">81,5</td>
+					<td align="center">2,52</td>
+					<td align="center">1,68</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Šunka - prsa v ovitku (50g)</td>
+					<td align="center">51,5</td>
+					<td align="center">1,5</td>
+					<td align="center">0,6</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Grozdje (100g)</td>
+					<td align="center">54</td>
+					<td align="center">0,1</td>
+					<td align="center"></td>
+					<td align="center">1,5</td>
+				</tr>
+				<tr>
+					<td>Paprika (5g)</td>
+					<td align="center"1,0</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,1</td>
+				</tr>
+				<tr>
+					<td>Paradižnik (10g)</td>
+					<td align="center">1,4</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,15</td>
+				</tr>
+				<tr>
+					<td>Voda Zala (2dcl)</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Skupaj</B></td>
+					<td align="center"><B>567,25</B></td>
+					<td align="center"><B>16,37</B></td>
+					<td align="center"><B>7,73</B></td>
+					<td align="center"><B>5,35</B></td>
+				</tr>
+				<tr>
+					<td><B>Deleži celodnevne energijske porabe</B></td>
+					<td align="center"><B>21,8%</B></td>
+					<td align="center"><B>18,6%</B></td>
+					<td align="center"><B>26,7%</B></td>
+					<td align="center"><B>20,6%</B></td>
+				</tr>
+			</table></p>
+			<p align="left">
+			Sendvič iz polnozrnatega kruha, solatni list, tuna v lastnem soku, narezani zelena in rdeča paprika in paradižnik; 2 dcl tekočega navadnega manj mastnega jogurta in 1 bio jabolko in eno pomarančno
+			</p>
+			<p><TABLE border="1">
+				<tr align="center">
+					<th><B>Kosilo</B></th>
+					<th><B>Energija(kcal)</B></th>
+					<th><B>Maščobe</B></th>
+					<th><B>Nasičene maščobne kisline(g)</B></th>
+					<th><B>Prehranska vlaknina (g)</B></th>
+				</tr>
+				<tr>
+					<td>Polnozrnata kruh (80g)</td>
+					<td align="center">164,8</td>
+					<td align="center">1,6</td>
+					<td align="center">/</td>
+					<td align="center">6,8</td>
+				</tr>
+				<tr>
+					<td>Tuna (50g)</td>
+					<td align="center">113</td>
+					<td align="center">7,8</td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Paprika (5g)</td>
+					<td align="center">1,0</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,1</td>
+				</tr>
+				<tr>
+					<td>Paradižnik (10g)</td>
+					<td align="center">1,4</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,15</td>
+				</tr>
+				<tr>
+					<td>Solata (5g)</td>
+					<td align="center">0,5</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,1</td>
+				</tr>
+				<tr>
+					<td>Navadni posneti jogurt (180g) 1,4 m.m</td>
+					<td align="center">81,5</td>
+					<td align="center">2,52</td>
+					<td align="center">1,68</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Pomaranča (100g)</td>
+					<td align="center">35</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">2,0</td>
+				</tr>
+				<tr>
+					<td>Jabolko (100g)</td>
+					<td align="center">40</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">2,3</td>
+				</tr>
+				<tr>
+					<td><B>Voda</B></td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Skupaj</B></td>
+					<td align="center"><B>436,9</B></td>
+					<td align="center"><B>11,92</B></td>
+					<td align="center"><B>1,68</B></td>
+					<td align="center"><B>11,45</B></td>
+				</tr>
+				<tr>
+					<td><B>Deleži celodnevne energijske porabe</B></td>
+					<td align="center"><B>16,8%</B></td>
+					<td align="center"><B>13,5%</B></td>
+					<td align="center"><B>5,8%</B></td>
+					<td align="center"><B>44,0%</B></td>
+				</tr>
+			</table></p>
+			<p>
+			<U>Sendvič iz polnozrnate bombice, skutnim namazom iz puste skute (z začimbami), zelenjavo: narezane kumare, bučke, paradižnik in pomaranče, manj mastni jogurt; 1 bio jabolko in eno pomarančno in voda v plastenki</U>
+			</p>
+			<p><TABLE border="1">
+				<tr align="center">
+					<th><B>Kosilo</B></th>
+					<th><B>Energija(kcal)</B></th>
+					<th><B>Maščobe</B></th>
+					<th><B>Nasičene maščobne kisline(g)</B></th>
+					<th><B>Prehranska vlaknina (g)</B></th>
+				</tr>
+				<tr>
+					<td>Polnozrnata stručka (80g)</td>
+					<td align="center">234</td>
+					<td align="center">3,7</td>
+					<td align="center">/</td>
+					<td align="center">3,7</td>
+				</tr>
+				<tr>
+					<td>Skutni namaz iz posnete skute (20g)</td>
+					<td align="center">16</td>
+					<td align="center">3</td>
+					<td align="center">2</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Kumare (5g)</td>
+					<td align="center">0,7</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,02</td>
+				</tr>
+				<tr>
+					<td>Paradižnik (10g)</td>
+					<td align="center">1,4</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,15</td>
+				</tr>
+				<tr>
+					<td>Bučke (5g)</td>
+					<td align="center">0,8</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,03</td>
+				</tr>
+				<tr>
+					<td>Pomaranča (100g)</td>
+					<td align="center">35</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">2,0</td>
+				</tr>
+				<tr>
+					<td>Jabolko (100g)</td>
+					<td align="center">40</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">2,3</td>
+				</tr>
+				<tr>
+					<td>Navadni posneti jogurt (180g) 1,4 m.m</td>
+					<td align="center">81,5</td>
+					<td align="center">2,52</td>
+					<td align="center">1,68</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Voda</B></td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Skupaj</B></td>
+					<td align="center"><B>409,4</B></td>
+					<td align="center"><B>9,22</B></td>
+					<td align="center"><B>3,68</B></td>
+					<td align="center"><B>8,2</B></td>
+				</tr>
+				<tr>
+					<td><B>Deleži celodnevne energijske porabe</B></td>
+					<td align="center"><B>15,7%</B></td>
+					<td align="center"><B>10,5%</B></td>
+					<td align="center"><B>12,7%</B></td>
+					<td align="center"><B>31,5%</B></td>
+				</tr>
+			</table></p>
+			<p>
+			<U>Polnozrnata francoska štručka, dimljen losos, rukola, bučke, limonin poper; pusti sadni jogurt (brez maščobe), jabolko</U>
+			</p>
+			<p><TABLE border="1">
+				<tr align="center">
+					<th><B>Kosilo</B></th>
+					<th><B>Energija(kcal)</B></th>
+					<th><B>Maščobe</B></th>
+					<th><B>Nasičene maščobne kisline(g)</B></th>
+					<th><B>Prehranska vlaknina (g)</B></th>
+				</tr>
+				<tr>
+					<td>Polnozrnata stručka (80g)</td>
+					<td align="center">234</td>
+					<td align="center">3,7</td>
+					<td align="center">/</td>
+					<td align="center">3,7</td>
+				</tr>
+				<tr>
+					<td>Dimljen losos (50g)</td>
+					<td align="center">108,5</td>
+					<td align="center">6,75</td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Rukola (5g)</td>
+					<td align="center">0,7</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,08</td>
+				</tr>
+				<tr>
+					<td>Bučke (5g)</td>
+					<td align="center">0,8</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">0,03</td>
+				</tr>
+				<tr>
+					<td>Navadni posneti jogurt (180g) 1,4 m.m</td>
+					<td align="center">81,5</td>
+					<td align="center">2,52</td>
+					<td align="center">1,68</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Jabolko (100g)</td>
+					<td align="center">40</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center">2,3</td>
+				</tr>
+				<tr>
+					<td><B>Voda</B></td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Skupaj</B></td>
+					<td align="center"><B>562,2</B></td>
+					<td align="center"><B>12,45</B></td>
+					<td align="center"><B>1,3</B></td>
+					<td align="center"><B>6,1</B></td>
+				</tr>
+				<tr>
+					<td><B>Deleži celodnevne energijske porabe</B></td>
+					<td align="center"><B>21,6%</B></td>
+					<td align="center"><B>14,1%</B></td>
+					<td align="center"><B>4,5%</B></td>
+					<td align="center"><B>23,5%</B></td>
+				</tr>
+			</table></p>
+			<p>
+			&#187;<B>Primeri »energijsko in maščobno prebogatih ter biološko revnih obrokov</B>&#171;
+			</p>
+			<p>
+			<U>Lepinja z mortadelo in mastnim sirom</U>
+			</p>
+			<p><TABLE border="1">
+				<tr align="center">
+					<th><B>Kosilo</B></th>
+					<th><B>Energija(kcal)</B></th>
+					<th><B>Maščobe</B></th>
+					<th><B>Nasičene maščobne kisline(g)</B></th>
+					<th><B>Prehranska vlaknina (g)</B></th>
+				</tr>
+				<tr>
+					<td>Lepinja (100g)</td>
+					<td align="center">321</td>
+					<td align="center">8,4</td>
+					<td align="center"></td>
+					<td align="center">3,6</td>
+				</tr>
+				<tr>
+					<td>Ementalec (50g)</td>
+					<td align="center">193</td>
+					<td align="center">15</td>
+					<td align="center">10</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Navadni polni jogurt (180g) 3,2 m.m</td>
+					<td align="center">115,2</td>
+					<td align="center">5,76</td>
+					<td align="center">3,84</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Mortadela (80g)</td>
+					<td align="center">332</td>
+					<td align="center">31,92</td>
+					<td align="center">14,56</td>
+					<td align="center">2,3</td>
+				</tr>
+				<tr>
+					<td><B>Coca cola 2dcl</B></td>
+					<td align="center">100</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Skupaj</B></td>
+					<td align="center"><B>1071,2</B></td>
+					<td align="center"><B>61,08</B></td>
+					<td align="center"><B>28,4</B></td>
+					<td align="center"><B>3,6</B></td>
+				</tr>
+				<tr>
+					<td><B>Deleži celodnevne energijske porabe</B></td>
+					<td align="center"><B>41%</B></td>
+					<td align="center"><B>70%</B></td>
+					<td align="center"><B>98%</B></td>
+					<td align="center"><B>13,8%</B></td>
+				</tr>
+			</table></p>
+			<p>
+			<U>Cheeseburger in pommes frites</U>
+			</p>
+			<p><TABLE border="1">
+				<tr align="center">
+					<th><B>Kosilo</B></th>
+					<th><B>Energija(kcal)</B></th>
+					<th><B>Maščobe</B></th>
+					<th><B>Nasičene maščobne kisline(g)</B></th>
+					<th><B>Prehranska vlaknina (g)</B></th>
+				</tr>
+				<tr>
+					<td>Cheeseburger (porcija)</td>
+					<td align="center">299</td>
+					<td align="center">11,7</td>
+					<td align="center">8</td>
+					<td align="center">2,2</td>
+				</tr>
+				<tr>
+					<td>Pommes frites srednji (porcija)</td>
+					<td align="center">320</td>
+					<td align="center">15,8</td>
+					<td align="center"></td>
+					<td align="center">2,4</td>
+				</tr>
+				<tr>
+					<td><B>Coca cola (0,25l)</B></td>
+					<td align="center">110</td>
+					<td align="center"></td>
+					<td align="center"></td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Skupaj</B></td>
+					<td align="center"><B>729</B></td>
+					<td align="center"><B>27,5</B></td>
+					<td align="center"><B>8</B></td>
+					<td align="center"><B>4,6</B></td>
+				</tr>
+				<tr>
+					<td><B>Deleži celodnevne energijske porabe</B></td>
+					<td align="center"><B>28%</B></td>
+					<td align="center"><B>31,2%</B></td>
+					<td align="center"><B>27,5%</B></td>
+					<td align="center"><B>17,6%</B></td>
+				</tr>
+			</table></p>
+			<p>
+			<U>Cheeseburger in pommes frites</U>
+			</p>
+			<p><TABLE border="1">
+				<tr align="center">
+					<th><B>Kosilo</B></th>
+					<th><B>Energija(kcal)</B></th>
+					<th><B>Maščobe</B></th>
+					<th><B>Nasičene maščobne kisline(g)</B></th>
+					<th><B>Prehranska vlaknina (g)</B></th>
+				</tr>
+				<tr>
+					<td>Mesni burek (200g)</td>
+					<td align="center">624</td>
+					<td align="center">31,4</td>
+					<td align="center">20,9</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td>Navadni polni jogurt (180g) 3,2 m.m</td>
+					<td align="center">115,2</td>
+					<td align="center">5,8</td>
+					<td align="center">3,8</td>
+					<td align="center"></td>
+				</tr>
+				<tr>
+					<td><B>Skupaj</B></td>
+					<td align="center"><B>739,2</B></td>
+					<td align="center"><B>37,2</B></td>
+					<td align="center"><B>24,7</B></td>
+					<td align="center"><B>0</B></td>
+				</tr>
+				<tr>
+					<td><B>Deleži celodnevne energijske porabe</B></td>
+					<td align="center"><B>28,4%</B></td>
+					<td align="center"><B>42,3%</B></td>
+					<td align="center"><B>85,2%</B></td>
+					<td align="center"><B>0%</B></td>
+				</tr>
+			</table></p>
+	</div>
+
+<!--Prehrana-->
+<!--Tretji zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Deklaracija</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>DEKLARACIJA NA IZDELKU </b></center>
+		</font>
+		</br>
+		<p>
+		Večina industrijsko pripravljene in pakiranehrane ima na hrbtni strani izdelka podatke o povprečni energijski in hranilnivrednosti izdelka, tako imenovano deklaracijo o izdelku. Dobra deklaracija naizdelku nam podaja pomembne informacije:
+		</p>
+		<p>
+		
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td><B>o sestavi izdelka</B> &#45; posamezne sestavine sonapisane po padajočem vrstnem redu. Na prvem mestu je sestavina, ki je v živiluprisotna v največji količini, zadnja pa v najmanjši količini oz. količini, kiše vedno predstavlja več kot 1% celotne sestave živila.
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>o hranilni vrednosti izdelka</B> &#45; energijska vrednost, vsebnost ogljikovih hidratov, maščob, beljakovin,vitaminov in mineralov.
+		</td></tr><tr><td align="center" valign="top">•</td><td><B> o vrsti posamezne hranilne snovi</B></br> &#45; ogljikovihhidrati &#45; od tega dietne vlaknine, sladkorji, laktoza, fruktoza </br>
+		&#45; maščobe &#45; od tega nasičene, nenasičene, trans maščobe, holesterol</br>
+		&#45; natrij,kalij, kalcij</br>
+		&#45; priotroški hrani tudi vsebnost pomembnejših vitaminov in mineralov.</br>
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>o priporočeni količini izdelka</B>
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>navodila za pripravo</B> &#45; častermične priprave, recepture.
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>drugo</B> - vsebuje oznake kot so &#187;brez maščobe&#171;, &#187;brez holesterola&#171;, &#187;brez dodanega sladkorja&#171;, &#187;brezkonzervansov&#171;, &#187;brez dodanih barvil&#171;, ….
+		</td></tr></table>
+		</p>
+		<p>
+		Pri branju deklaracij moramo biti zato še posebej pozorni:
+		</p>
+		<p>
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td><B>&#187;prehransko vlaknino&#171;</B> V primeru, čeizdelek ali servirna porcija vsebuje več kot 5 g prehranske vlaknine, so teoznačene tudi posebej. S takim izdelkom zagotovimo bogat vir vlaknine v obroku.
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>&#187;brez dodanega sladkorja&#171;</B> pomeni,da izdelku med tehnološkim procesom ni bil dodan sladkor in da izdelek nevsebuje sestavin z visoko vsebnostjo sladkorja.
+		</td></tr><tr><td align="center" valign="top">•</td><td> <B>&#187;brez maščobe&#171;</B> &#45; izdelki brez maščobe aliz zmanjšano vsebnostjo maščob lahko vsebujejo večjo količino ogljikovihhidratov in imajo skoraj enako ali celo višjo energijsko vrednost kotstandardni izdelek. Dober primer so piškoti z manj ali brez maščobe. Izdelek,ki je deklariran brez maščobe ni nujno boljša izbira od standardnega izdelka.
+		</td></tr></table>
+		</p>
+
+</div>
+
+<!--Četrti zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Prehranjevanje izven doma</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>PREHRANJEVANJE IZVEN DOMA</b></center>
+		</font>
+		</br>
+		<p>
+		Še ne dolgo nazaj smo se pretežno prehranjevali doma. Kosilo ali večerja v restavraciji sta pomenila poseben družaben dogodek bodisi ob rojstnem dnevu, maturi ali diplomi. V zadnjih letih pa postaja zaradi hitrega načina življenja in vse večjih delavnih obveznosti, obed zunaj del vsakdanjika.
+		</p>
+		<p>
+		Pri osebah s povečano telesno maso/debelostjo, ki mora še posebej paziti na ustaljen ritem prehranjevanja in uravnoteženo prehrano, lahko pomeni jesti zunaj, dodatno težavo. Obroki v  restavracijah so pogosto energijsko preobilni in vsebujejo preveč maščob, soli in sladkorja. Pogosto je v ponudbi premalo raznovrstne zelenjave in sadja. 
+		</p>
+		<p>
+		Navkljub temu se lahko tudi osebe s povečano telesno maso uravnoteženo prehranjuje v restavraciji, če takšno prehrano skrbno načrtujejo. Pri izbiri primernih obrokov v restavracijah je pomembna vrsta, količina in pogostost živil/obrokov v prehrani. Prehranjevanje zunaj ne sme pomeniti zauživanje preobilnih obrokov. 
+		</p>
+		<h3><B>Izbira restavracije</B></h3>
+		<p>
+		Danes lahko že v večini restavracij naročimo tudi zdrave in manj mastne obroke. Vendar je še vedno kar nekaj restavracij, ki te možnosti ne ponujajo. Zato izberite tiste restavracije, ki ponujajo možnost sodelovanja pri oblikovanju zdravega obroka ( npr. imajo primeren solatni bar, zelenjavni krožniki, možnost naročiti manjšo porcijo..). 
+		</p>
+		<p>
+		Med ponudbo je izbiramo več sveže zelenjave in sadja, polnozrnate žitne izdelke, pusto meso, ribe, morske sadeže ter manj majn mastne mlečne izdelke. Izogibati se je potrebno sladicam, ocvrti hrani, majoneznim in smetanovim omakam ter ostalim mastnim in slanim živilom. Priporočljivo je izbirati hrano, ki je dušena, pečena v pečici ali na žaru. Vse kremne juhe imajo veliko smetane, zato je bolje naročiti kar zelenjavno juho brez smetane. Veliko prelivov ali omak pri testeninah vsebuje smetanovo osnovo. 
+		</p>
+		<font color="#FF8040">
+			<h3><center><b>Pravila naročanja</b></center></h3>
+		</font>
+		<p>
+		• <B><U>Naročamo hrano preden si ogledamo jedilni list.</B></U></br></br>
+		Če restavracijo poznate in pogosteje zahajate vanjo, naročite hrano preden pogledate jedilni list. Tako se izognemo naročanju jedi, ki ni v skladu z načrtom zdrave prehrane.</br>
+		
+		</br><b>1.</b>Za predjed je priporočljivo naročiti zelenjavno ali na primer lečino juho, ki ne vsebuje dodanih maščob (smetane, majoneze)  in vsebuje več vlaknine. </br>
+		</br><b>2.</b> &#187;Zdrav krožnik&#171;: vsebuje ne prevelik kos pustega mesa (ali ribe), polnozrnate testenine ali neoluščen riž in veliko zelenjave ter solate. Solato si pripravimo sami pri mizi, kjer se tako izognemo prekomernemu dodajanju maščob in soli.
+		</br></br><b>3.</b> Namesto sladice naročimo sveže sadje.
+		</br></br><b>4.</b> Običajno so sladice izrazito energijsko bogata živila, vsebujejo veliko maščob in sladkorja. Občasno si le privoščimo sladico, vendar tudi med njimi lahko izbiramo ustreznejše. Tiste z več sadja in manj maščob in smetane so bolj priporočljive. 
+		</br></br><b>5.</b> V restavracijah lahko naročamo vodo ali 100 % sadne/zelenjavne sokove, ki ga razredčimo z vodo v razmerju 1:1.
+		</br></br><b>6.</b> Obrok je potrebno jesti počasi in ga temeljito prežvečiti. 
+		
+		</p>
+		<p>
+		•<B><U>Pomemben je način priprave jedi:</U></B></br></br>
+		Namesto ocvrtega krompirja izberemo pečen krompir v olupku ali pečen v pečici (konvektomatu) kjer za pripravo ni potrebna dodatna maščoba. Ob naročilu solate naj prinesejo surovo, da jo boste lahko pripravili sami, solatni preliv naj servirajo na robu skodelice oziroma prinesejo posebej.
+		</p>
+		•<B><U>Velikost porcije:</U></B></br></br>
+		Restavracije postrežejo običajno s prevelikimi porcijami, zato naročajmo le polovične porcije, ali le del celotnega ponujenega obroka: samo glavno jed brez predjedi ali le predjed in solato. V družbi preveliko porcijo lahko delimo še z nekom.  
+		
+		</p>
+		<font color="#FF8040">
+			<h3><center><b>Izbira jedi v restavracijah</b></center></h3>
+		</font>
+		<p>
+		Slovenci radi jemo hrano iz vsega sveta. Zato nam naše restavracije ponujajo raznovrstne jedi od tipično slovenskih (ričet, jota, kisla juha, kislo zelje, krvavica) do ostalih (meso na žaru, pleskavice, dunajski zrezki, ribje plošče). V zadnjih letih je poleg slovenskih gostiln družinskega tipa, vedno več specializiranih restavracij, kot so ribje restavracije, italijanske, mehiške, kitajske in druge svetovne restavracije, restavracije s hitro prehrano ter vedno pestrejša je ponudba že pripravljenih sendvičev.
+		</br>V <b><u>slovenski restavraciji</u></b> največjo težavo predstavljata:
+		</p>
+		<p>
+		
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>prevelika porcija
+		</td></tr><tr><td align="center" valign="top">•</td><td>preveč maščob in mesa
+		</td></tr></table>
+		</p>
+		<h4><B><U>Italijanska restavracija</U></B></h4>
+		<p>
+		V zadnjem desetletju je postala italijanska kuhinja ena najbolj priljubljenih kuhinj na svetu. Italijanska kuhinja nikakor ne ponuja le testenin in pizze. Obroki v italijanski kuhinji vključujejo več manjših obrokov. »Antipasto« - pred testeninami pomeni predjed, ki je lahko hladna ali topla, običajno je juha. Sledi » primo piatto«- prvi krožnik, to je običajno manjša porcija testenin, nato še »secondo piatto« -drugi krožnik ali glavna jed, ki poleg zelenjave lahko vsebuje tudi meso ali ribe. Solato »insalata« postrežejo po glavni jedi. Sledi še poobedek, ki ga imenujejo »i dolci«, ki ni vedno sladko pecivo, v poletnih dneh je lahko to lubenica, dinja ali sir.
+		V italijanski restavraciji sta največjo težavo predstavljata
+		</p>
+		<p>
+		
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>prevelika porcija
+		</td></tr><tr><td align="center" valign="top">•</td><td>preveč smetanaste in maščobno bogate omake. 
+		</td></tr></table>
+		</p>
+		<h4><B><U>Mehiška restavracija</U></B></h4>
+		<p>
+		Takos, buritos in enchiladas so tipične jedi mehiške kuhinje. Osnovne sestavine mehiške kuhinje so koruza, paradižnik, čili in fižol. Velikost porcije v mehiških restavracijah je manjša od običajnih in zaradi koruze in fižola vsebuje manj ostalih energijsko bogatejših škrobnih živil. 
+		V mehiški restavraciji največjo težavo predstavljajo:
+		</p>
+		<p>
+		
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>preveč mastna živila
+		</td></tr><tr><td align="center" valign="top">•</td><td>preveč polnomastnega sira
+		</td></tr><tr><td align="center" valign="top">•</td><td>preveč ocvrte in na olju pečene hrane
+		</td></tr></table>
+		</p>
+		<h4><B><U>Kitajska restavracija</U></B></h4>
+		<p>
+		Na jedilniku kitajske kuhinje je veliko zelenjave, riža in rezancev in manjše količine mesa ter rib. Navkljub ustreznemu osnovnemu izboru živil, ki jih priporočamo v uravnoteženi prehrani, je običajno priprava obrokov v kitajski kuhinji neustrezna. 
+		V kitajski restavraciji največjo težavo predstavljajo
+		</p>
+		<p>
+		
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>preveč ocvrte in na olju pečene hrane
+		</td></tr><tr><td align="center" valign="top">•</td><td>preveč sladkih in preslanih omak
+		</td></tr><tr><td align="center" valign="top">•</td><td>prevelike porcije.
+		</td></tr></table>
+		</p>
+		<h4><B><U>Fast food - hitra hrana</U></B></h4>
+		<p>
+		Popularnost hitre hrane je velik dejavnik naraščanja čezmerne hranjenosti/debelosti. Omenjena vrsta prehrane je energijsko gosta, bogata z maščobami, nasičenimi maščobami, energijo in soljo ter revna z vlakninami in minerali. Čim redkeje uživajmo take vrste hrane.
+		</p>
+		<p>
+		Izbiramo lahko:
+		</p>
+		<p>
+		
+		<b>1.</b>Majhen hamburger s solato, paradižnikom in sirom
+		</br></br><b>2.</b> Solato namesto pomfrija (brez dresingov, dodajamo rajši manjše količine olivnega olja in kis)
+		</br></br><b>3.</b> Namesto ocvrtega  mesa, izberimo pečeno meso v hamburgerju brez sira
+		</br></br><b>4.</b> Namesto majoneze ali drugih specialnih omak izberimo gorčico ali ketchup.
+		</br></br><b>5.</b> Namesto cole ali drugih gaziranih pijač izberemo vodo.
+		
+		</p>
+		<h4><B><U>Trgovina</U></B></h4>
+		<p>
+		V primeru, kadar ni možnosti obedovanja v šolah, menzah ali doma, lahko zagotovimo uravnotežen obrok s premišljenim izborom živil v trgovinah. Pomembno je, da obrok sestavlja pester izbor živil:  beljakovinsko živilo, kot na primer mleko (priporočljivo delno posneto), ali mlečni izdelki (manj mastni navadni ali sadni jogurti, sirni namazi, siri, skute z dodatki zelišč), izdelki iz rib (tuna ali losos v lastnem soku), ali manj mastni mesni izdelki; ogljikohidratno živilo (polnozrnat kruh in pekovsko pecivo); svežo zelenjavo in sadje. V delikatesah lahko izberemo v pečici pečeno ribo ali pusto meso. Priporočamo zmerno in občasno uporabo mesnih izdelkov, izberimo predvsem tista, kjer je vidna struktura mesa (npr. šunka, pršut, piščančje in puranje prsi ipd.). 
+		</p>
+	</div>
+	<h3><a href="#">Vsebine - Gibanje - Spoznavanje novega načina/vrste TV ali utrjevanje/treniranje oz. nadgradnja izbrane vrste TV</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF"	size="5">
+		<center><b>SPOZNAVANJE NOVEGA NAČINA/VRSTE TV ALI UTRJEVANJE/TRENIRANJE OZ. NADGRADNJA IZBRANE VRSTE TV</b></center>
+		</font>
+		<p>
+			Kolesarjenje je oblika gibanja, ki krepi zdravje in prispeva k zdravemu načinu življenja. Redno kolesarjenje pomaga izboljšati in ohranjati našo telesno pripravljenost, zlasti če kolesarimo vsaj tako hitro, da se nekoliko zadihamo, ogrejemo in se nam dvigne srčni utrip. Z rednim kolesarjenjem učvrstimo mišice nog, zadnjice in trebuha ter vplivamo na izboljšanje ravnotežja in koordinacije. Redno kolesarjenje pa nam pomaga tudi pri ohranjanju primerne telesne mase. Kolesarjenje pa ima tudi druge pozitivne učinke, kot na primer ne povzroča negativnih vplivov na okolje itd.
+		</p>
+	</div>
+
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_12/12%20Okus%20po%20zdravem_izven%20doma_korak%2012.pdf">Okus po zdravem - izven doma</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_12/12%20Okus%20po%20zdravem_sestava%20kupljenih%20zivil_korak12.pdf">Okus po zdravem - sestava kupljenih živil</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_12/Higienska%20priporocila%20za%20varnost%20zivil%20za%20potrosnike.pdf">Higienska priporočila za varnost živil za potrošnike</a></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/19517251">7. oddaja: Izbira hrane kadar nismo doma </a></p>
+				</td>
+			</tr>					
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

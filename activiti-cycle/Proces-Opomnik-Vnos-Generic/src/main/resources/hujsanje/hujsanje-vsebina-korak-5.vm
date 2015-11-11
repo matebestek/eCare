@@ -1,0 +1,798 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<p>Spodaj so vsebine za korak 5, ki so razdeljene po zavihkih. Ko jih boste prebrali, kliknite spodaj na gumb 'Nadaljuj'. Na podlagi teh vsebin boste kasneje dobili vprašanja za napredovanje v naslednji korak. Vsebine si lahko kasneje ogledate tudi v zavihku 'Izobraževanje'.</p>
+	</br>
+	
+<div id="activiti_form_holder">
+
+	<h3><a href="#">Vsebine - Prehrana - Maščobna živila</a></h3>
+	<div style="font-family: arial, sans-serif;">
+
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>MAŠČOBNA ŽIVILA</b></font></span>
+	</center>
+	<p align="justify">	
+		Maščobe se v prehrani pojavljajo v <b>vidni</b> in <b>nevidni obliki</b>. V vidni obliki so maščobe (mastna živila, zabela in maščobe za pripravo hrane), ki jih uporabljamo za kuho in zabelo ter kot vidni del mesa oziroma mesnega izdelka, v nevidni obliki pa kot sestavina živila (mleko, mlečni izdelki, mesni izdelki, soja, orehi). Ker lahko dolgoletno uživanje hrane, bogate z maščobami, dolgoročno vodi k nastanku bolezni srca in ožilja, moramo omejiti uživanje maščob oziroma živil, ki so bogata z maščobo.</p>
+	<p align="justify">
+		Pri pripravi obrokov se priporoča uporaba <b>kvalitetnih rastlinskih olj</b> (oljčno, repično, orehovo olje) in izbira <b>čim bolj pustih živil živalskega izvora</b> (manj mastno meso, mleko, mlečni izdelki), ki sicer vsebujejo veliko nasičenih maščob, ter omejitev živil bogatih s trans maščobnimi kislinami.</p>
+	<p align="justify">
+		Pretežno <b>nasičene </b>maščobne kisline vsebujejo goveji loj, kokosova mast, palmina mast, rastlinska mast, svinjska mast, surovo maslo, sladka in kisla smetana, topljeno maslo, pa tudi mastna živila, kot so mesni izdelki, ocvirki, prekajena slanina in mastni siri in sirni namazi, zato se čim bolj izogibajmo tem živilom.</p>
+	<p align="justify">
+		Pretežno <b>enkrat nenasičene </b>maščobne kisline vsebujejo orehovo, olivno in repično olje ter mastna živila, kot so arašidi, avokado, lešniki, mandlji in olive.</p>
+	<p align="justify">
+		Pretežno <b>večkrat nenasičene </b>maščobe vsebujejo bučno, koruzno, sojino in sončnično olje, ter oreščki in semena. Olja vsebujejo veliko vitamina E, ki je pomemben antioksidant.</p>
+	
+	<p align="justify">
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>  Maščobe vsebujejo življenjsko pomembne maščobne kisline, pospešujejo absorpcijo v maščobah topnih vitaminov (A, D, E in K), povečujejo energijsko gostoto hrane in izboljšujejo konsistenco, vonj in okus živil.</br>
+	
+		</td></tr><tr><td align="center" valign="top">•</td><td>   Maščobe imajo veliko energijsko vrednost, saj sprosti 1 g maščob 37 kJ (9 kcal) energije.</br>
+
+		</td></tr><tr><td align="center" valign="top">•</td><td>  Prekomerno uživanje maščob je velik dejavnik tveganja pri nastanku bolezni srca in ožilja, sladkorne bolezni, debelosti, povišanega krvnega pritiska in nekaterih vrst raka.</br>
+
+		</td></tr><tr><td align="center" valign="top">•</td><td>   Epidemiološke raziskave kažejo povezavo med uživanjem prehranskih maščob in različnimi vrstami raka, predvsem dojke, debelega črevesa, slinavke in prostate (Carroll, 1986).</br>
+		</td></tr></table>
+	<center>
+		<h4>
+			<b><font color="#FF8040">Pomen maščob v prehrani</font></b></h4>
+	</center>
+	<p align="justify">
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Povečajo energijsko vrednost obroka hrane (povečajo energijsko gostoto hrane).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Povečajo jedilnost obrokov hrane (okus hrane).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Vsebujejo življenjsko pomembne (esencialne) maščobne kisline (linolne, linolenske, arahidonske).</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Vplivajo na absorbcijo v maščobah topnih vitaminov (A, D, E, K).
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Posamezne maščobne kisline imajo v primerjavi z drugimi varovalni učinek (oleinska kislina, ?-3 maščobne kisline, cis-maščobne kisline,…).
+			</td>
+		</tr>
+	</table>	
+		</p>
+	<center>
+		<h4>
+			<b><font color="#FF8040">Bolezni povezane s prekomernim uživanjem maščob</font></b></h4>
+	</center>
+	<p align="justify">
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Bolezni srca in ožilja</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Rak (dojke, debelega črevesa, pljuč, trebušne slinavke, prostate, jajčnikov)
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>Žolčni kamni
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Artritis
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Debelost s posledicami
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Sladkorna bolezen
+			</td>
+		</tr>
+	</table>
+	<center>
+		<h4>
+			<b><font color="#FF8040">Vrste maščob</font></b></h4>
+	</center>
+	<p align="justify">
+		Nadalje so tako epidemiološke raziskave, kot raziskave na živalih pokazale, da v varovalni prehrani ni pomembna le <b>količina</b> ampak tudi <b>vrsta</b> zaužite maščobe.
+	</p>
+	<p align="justify">
+		<b>Nasičene maščobe</b></br></br>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				prekomeren vnos nasičenih maščob poviša LDL holesterol in trigliceride v krvi in so dejavnik tveganja za nastanek srčno žilnih bolezni,
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				nahajajo se v mastnem mesu, mesnih izdelkih, sirih, polnomastni skuti, maslu, smetani, jajcih, morskih sadežih,
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				omejen vnos nasičenih maščob dosežemo z uživanjem manj mastnega mesa (vso vidno maščobo pri mesu odstranimo), manj mastnih mesnih izdelkov (kuhan, pečen ali sušen pršut, šunke…), manj mastnih sirov, posnete skute, maslo nadomestimo z delno posnetim jogurtom in kvalitetnimi rastlinskimi olji.
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p align="justify">
+		<b>Enkrat in večkrat nenasičene maščobe</b>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>v prehrani je potrebno zagotoviti optimalne količine enkrat in večkrat nenasičenih maščobnih kislin. Podatki kažejo predvsem nezadosten vnos enkrat nenasičenih maščobnih kislin, ki spadajo med varovalne prehranske dejavnike,
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+			med te maščobe spadata linolna in alfa-linolenska maščobna kislina, ki sta esencialni; glavni vir linolne kisline je sončnično, koruzno, oljčno in sojino olje. Alfa-linolenska kislina pa se nahaja v olju oljne repice, pšeničnih kalčkov in v maščobi mastnih morskih rib (tuna, losos, skuša…).
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				za dosego optimalnega razmerja maščobnih kislin v prehrani je smiselna izmenična uporaba kvalitetnih rastlinskih olj (oljčno, repično in sončnično). Priporočeno je uživati od enkrat do dvakrat tedensko kvalitetne mastne morske ribe (tuna, skuša, losos…).
+		</td>
+		</tr>
+	</table>
+	<p align="justify">
+		<b>Trans - nenasičene maščobne kisline</b>
+<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+			Transmaščobne kisline se naravno pojavljajo v majhnih količinah v maščobi, mlečnih izdelkih in mesu prežvekovalcev ali so stranski produkt procesa delnega hidrogeniranja tekočih rastlinskih olj z nenasičenimi maščobnimi kislinami (običajno koruznega).
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>V živilih naravnega izvora je delež transmaščobnih kislin v skupnih maščobnih kislinah 2-3 %, medtem ko je v industrijskih živilih ta delež tudi do 60 %.
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>Sicer je količina in vrsta transmaščobnih kislin, ki nastanejo pri delnem hidrogeniranju, odvisna od temperature, pritiska in trajanja hidrogenacije.
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>Transmaščobne kisline zagotavljajo daljšo obstojnost živil, zato jih pogosto najdemo v margarinah, piškotih, tortah, sladoledih, zamrznjenem krompirčku in hitri hrani.
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>Transmaščobne kisline najdemo tudi v živilih, ki so termično obdelana s cvrtjem ali praženjem, ker nenasičene maščobne kisline z dvojnimi vezmi (npr. v sončničnem olju ali olju iz koruznih kalčkov) pri visokih temperaturah oksidirajo in sproščajo transmaščobne kisline.
+		</td>
+		</tr>
+	</table>
+	</p>
+	<p align="justify">
+		<b>Življenjsko pomembne (esencialne) maščobne kisline </b>
+	<p align="justify">
+		Esencialne maščobne kisline ali njihovi derivati so tisti, ki jih telo samo <b>ne more sintetizirati&nbsp; </b>in jih moramo vnesti v organizem <b>s hrano</b>.</p>
+	<p align="justify">
+		Esencialne maščobne kisline delimo na tri velike skupine: <b>omega 3</b>, <b>omega 6</b> in <b>omega 9</b> maščobne kisline.</p>
+	<p align="justify">
+		Vloga esencialnih maščobnih kislin</br>
+	
+<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				kot gradniki živčnega tkiva ugodno vplivajo na razvoj možganov in retine
+		</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				delujejo antiaterogeno in preprečujejo kardiovaskularne bolezni</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				zavirajo vnetne procese
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				uravnavajo delovanje imunskega sistema</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				zmanjšujejo krvni tlak</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				zmanjšujejo pogostnost raka.</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Epidemiološke in predklinične študije so pokazale, da vnos omega 3 maščobnih kislin, zmanjša tveganje za nastanek raka na debelem črevesu.
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Omega 6 maščobne kisline znižajo raven holesterola, manj pa raven trigliceridov v krvi.
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Omega 3 maščobne kisline znižajo raven trigliceridov, manj pa raven holesterola v krvi
+				</td>
+		</tr>
+	</table>
+	</p>
+	<p align="justify">
+		<u>Viri esencialnih maščobnih kislin:</u></br>
+	
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Omega-3 maščobne kisline se nahajajo predvsem v mastnih ribah hladnih voda, ribjem olju, oreščkih, algah, oljih iz semen in oreščkov, ter v zeleni listnati zelenjavi.
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Omega-6 maščobne kisline se nahajajo v sončničnem olju in olju iz koruznih kalčkov.
+		</td>
+		</tr>
+	</table>
+	</p>
+	<p align="justify">
+		<u>Viri maščobnih kislin &ndash;“slabih”:</u>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td> Nasičene MK: polnomastno mleko, smetana, maslo, siri, mastna govedina in svinjina, koža perutnine, kokos, palmova mast in živila, ki jo vsebujejo kot so bonboni, slaščice, piškoti, krofi ipd.
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				<em>Trans &ndash;</em>nenasičene MK: ocvrta živila, slaščice, piškoti, krofi, ipd., čipsi, margarina, nadomestki sirov, mesni in mlečni izdelki
+				</td>
+		</tr>
+	</table>
+	</p>
+	<p align="justify">
+		<u>Viri maščobnih kislin &ndash;“dobrih”</u></br>
+<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+			Enkrat nenasičene MK: olivno olje, repično olje, arašidno olje, avokado, oreščki predvsem mandlji, lešniki, pistacije
+		</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Večkrat nenasičene MK &ndash;samo, če je dovolj naravnih antioksidantov v prehrani: rastlinska olja (sončnično, sojino, koruzno, ipd.), nekateri oreščki in semena
+	</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Omega &ndash;3 MK: rastlinska olja (repično, sojino, laneno), orehi, laneno seme, mastne ribe (skuše, sardine, losos)
+				</td>
+		</tr>
+	</table>
+	</p>
+	
+		<center>
+		<h4>
+			<b><font color="#FF8040">Priporočila za prilagoditev prehrane glede maščob</font></b></h4>
+	</center>
+	<p align="justify">
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Zmanjševanje vidne in skrite maščobe v celodnevni prehrani,</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>izbor ustreznih maščob za pripravo hrane (olja),</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>izbor živil, ki vsebujejo čim manj skrite maščobe in holesterola,</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>načini priprave hrane, ki ne potrebujejo veliko maščob</td>
+		</tr>
+		<tr>
+			<td>&nbsp;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><b>Za dnevni energijski vnos 1200 kcal:&nbsp; 6 enot na dan.</b></td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><b>Za dnevni energijski vnos 1500 kcal:&nbsp; 8 enot na dan.</b></td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><b>Za dnevni energijski vnos 1800 kcal:&nbsp; 9 enot na dan.</b>
+		</td>
+		</tr>
+	</table>
+	</p>
+	</div>
+	
+<h3><a href="#">Vsebine - Prehrana - Sladkorji</a></h3>
+	<div style="font-family: arial, sans-serif;">
+	
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>SLADKORJI</b></font></span>
+	</center>
+	<p align="justify">
+		Sladkorji so del prehrane, vendar jih lahko hitro zaužijemo v preveliki količini. Na dolgi rok nam taka navada ne koristi, saj se pojavi debelost, sladkorna bolezen, bolezni srca in ožilja in druge kronične nenalezljive bolezni. Za ljudi, ki ne potrebujejo veliko kalorij, je pomembno izogibanje sladki hrani. Med jedilne sladkorje štejemo beli kristalni sladkor, rjavi sladkor, koruzni sirup, sadni sladkor (fruktoza), med, agavin sirup, melaso, javorjev sirup in druge zamenjave. Vsi ti sladkorji dajejo mnogo kalorij in le malo hranilnih snovi, zato jih naše telo za normalno delovanje ne potrebuje.</p>
+	<p align="justify">
+		Da bi se izognili prevelikim količinam kalorij, ki jih dobimo s sladkorji, poskusite omejiti dnevni vnos dodatnih sladkorjev na največ 2 do 3 čajne žličke, če se le da pa se jim izognite. Sladkorji so dodani mnogim živilom, na primer bonbonom in brezalkoholnim pijačam, marmeladam, džemom in sadnim želejem. K dodanim sladkorjem seveda sodi tudi sladkor, s katerim sladkate jedi pri mizi. Nekateri sladkorji so tudi v sadnih izdelkih, na primer sadju, vloženem v sladkem sirupu, ter mnogih sadnih sokovih in mlečnih izdelkih, na primer čokoladnem mleku, sadnem jogurtu, pudingu in sladoledu.</p>
+	<center>
+		<h4>
+			<b><font color="#FF8040">Priporočila</font></b></h4>
+	</center>
+	<p align="justify">
+		Enostavni sladkorji naj ne bi prispevali več kakor 10% dnevnega energijskega vnosa in se med ogljikovimi hidrati najhitreje prebavijo in povzročijo hiter porast inzulina. Nahajajo se v kuhinjskem sladkorju, medu, čokoladi, slaščicah, sladkih pijačah; naravno pa so prisotni v sadju, vendar sadje zraven sladkorja vsebuje tudi veliko drugih hranilnih snovi. Če človek potrebuje 2000 kcal na dan, naj bi enostavni sladkorji doprinesli do 200 kcal energije. En gram sladkorja vsebuje 4 kcal, kar predstavlja približno 50 gramov celokupnih enostavnih sladkorjev na dan. Prekomerno zaužiti enostavni sladkorji so velik dejavnik tveganja za prekomerno telesno maso in debelost. Kuhinjski sladkor tudi ne vsebuje esencialnih hranil in zvišuje energijsko gostoto obrokov.</p>
+	
+	<div align="center" style="width:100%;height:50px;border:2px solid black;">
+		<p align="center">
+			1 čajna žlička = 5 g sladkorja = 20 kcal</p>
+	</div>
+	</br>
+	<center>
+		<h4>
+			<b><font color="#FF8040">Sladkorji in tveganje</font></b></h4>
+	</center>
+	<p>
+		Znanstvene raziskave kažejo, da uživanje sladkorjev nad 10% celotnega dnevnega energijskega vnosa predstavlja tveganje za nastanek zobnega kariesa, povečanje trigliceridov, povečane koncentracije holesterola v krvi ter zmanjšanje hranilne gostote in povečanje energijske gostote dnevnih obrokov.</p>
+	
+</div>
+
+<h3><a href="#">Vsebine - Prehrana - Tekočina</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>TEKOČINA</b></font></span>
+		</center>
+		<p align="justify">
+			Voda je nujno potrebna za življenje. Voda predstavlja več kot polovico telesne mase organizma. Pri odraslem človeku to pomeni 60 % telesne mase in se s starostjo povečuje.
+		</p>
+		<p align="justify">
+			Voda v organizmu je sestavni del vsake celice, tkiva in kosti. Tri četrtine vode v telesu je v krvi, celicah in mišicah, ena četrtina  pa v kosteh.  Odrasel človek ima v telesu okoli 42 litrov vode, od tega 25 litrov v celicah, 14 litrov med celicami in 5 litrov v krvi. Kljub temu, da je v krvi le 7 % vse vode, se njena količina ne sme spreminjati.
+		</p>
+		<p align="justify">
+			Voda ima v  organizmu številne pomembne funkcije:</br>
+			<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td> po krvi in limfnem sistemu celicam in tkivom prinaša hrano in kisik,</br>
+			</td></tr><tr><td align="center" valign="top">•</td><td> odplavlja odpadne snovi iz telesa, predvsem iz ledvic,</br>
+			</td></tr><tr><td align="center" valign="top">•</td><td> vlaži sluznice in sklepe, </br>
+			</td></tr><tr><td align="center" valign="top">•</td><td> pomaga organom pri pravilnem delovanju, </br>
+			</td></tr><tr><td align="center" valign="top">•</td><td> varuje organizem pred prehladi, zaprtjem, infekcijami in boleznimi sečnih poti ter ledvičnimi kamni, </br>
+			</td></tr><tr><td align="center" valign="top">•</td><td>telesu dovaja potrebne minerale v sledovih ,</br>
+			</td></tr><tr><td align="center" valign="top">•</td><td> omogoča uravnoteženost elektrolitov, ki pomagajo uravnavati telesno temperaturo in krvni tlak.
+			</td></tr></table>
+		</p>
+		<center>
+			<h4>
+				<b><font color="#FF8040">Tekočinska bilanca</font></b></h4>
+		</center>
+		<p align="justify">
+			Za vzdrževanje dnevne bilance vode potrebujemo med 2 in 2,5 litra tekočine. S hrano jo povprečno vnesemo vsak dan 1 liter, pri metabolizmu nastane dodatnih 250 ml vode, preostanek 1,5 – 2 litra pa jo moramo dnevno v telo vnesti s pijačo, najbolje s <b>pitno vodo ali nesladkanimi zeliščnimi ali sadnimi čaji</b>. Potrebe so povečane pri visoki porabi energije, vročini, suhem vlažnem zraku, obilnem uživanju kuhinjske soli, velikem vnosu proteinov in pri patoloških stanjih, kot so vročica, bruhanje, driska ipd…
+		</p>
+		<p align="justify">
+			Za žejo ne priporočamo pitja sladkih pijač kot so gazirane pijače, sadni sirupi, ledeni čaji, vode z okusi, sladke negazirane pijače, nektarji in podobno, saj vsebujejo veliko sladkorja oziroma umetnih sladil ter še drugih zdravju škodljivih snovi (barvila in druge aditive, poživila). Izogibajte se tudi uživanju alkohola in energijskih napitkov. 
+		</p>
+		<p align="justify">
+			Dodani ali naravni sladkorji v različnih napitkih (sokovih, koli, sladkih gaziranih pijačah itn) so pomemben dejavnik tveganja pri nastanku debelosti. Sladki napitki pa so prav tako pomemben dejavnik tveganja pri nastanku kariesa. Razredčene sveže sadne ali zelenjavne sokove (razmerje 1:1) se priporoča vključiti v dnevno prehrano kot hranljivi del obroka.
+		</p>
+		<center>
+			<h4>
+				<b><font color="#FF8040">Dehidracija</font></b></h4>
+		</center>
+		<p align="justify">
+			Pri običajnih prehranjevalnih navadah pride do uživanja tekočine preden nastopijo občutki žeje. Žeja naj bi bila le v izjemnih primerih dražljaj za uživanje tekočine. Dehidracija ali izsušitev pomeni pomanjkanje vode v telesu. Navadno dehidracija nastopi kot posledica bolezenskega stanja, povišane telesne temperature, driske, zastrupitve s hrano, bruhanj, lahko pa je posledica prekomernega potenja in izpostavljenosti vročini ob hkratnem manjšem vnosu tekočine. Hudo pomanjkanje vode v telesu spremlja glavobol, duševna zmedenost, znižanje krvnega tlaka, omedlevica, šok, hude okvare ledvic, jeter in možganov ter koma in smrt. Če s pitjem tekočine ne moremo nadomestit izgube vode lahko ogrozimo življenje.
+		</p>
+</div>
+			
+<h3><a href="#">Vsebine - Prehrana - Praktično načrtovanje prehrane</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>PRAKTIČNO NAČRTOVANJE PREHRANE</b></font></span>
+		</center>
+		<p align="justify">
+			Ocena prehranjevalnih navad in opredelitev stanja prehranjenosti</h4>
+	<p align="justify">
+		Za oceno prehranjevalnih navad posameznika se poslužujemo izpolnjevanja prehranskega dnevnika. V prehranski dnevnik posameznik vsaj tri dni (optimalno 1 teden) beleži čas obrokov, količino in vrsto posameznega živila, ki sestavlja obrok oz. prigrizek in čas trajanja ter vrsto telesne aktivnosti.</p>
+	<p align="justify">
+		Na podlagi izpolnjenega prehranskega dnevnika program svetuje posamezniku postopne spremembe prehranjevalnih navad:</p>
+		<p style="margin-left:36.0pt;">
+			1.&nbsp;&nbsp;&nbsp; urnik hranjenja
+		<p style="margin-left:53.4pt;">
+			&nbsp;&nbsp;- redni obroki, ki si sledijo v enakomernih časovnih intervalih,</br>
+			&nbsp;&nbsp;- trije glavni obroki in dve vmesni malici,</br>
+			&nbsp;&nbsp;- večerja vsaj tri ure pred spanjem.</p>
+	</p>
+	<p style="margin-left:36.0pt;">
+		2.&nbsp;&nbsp;&nbsp; izbira primernejših živil v posameznih obrokih oz. prigrizkih</br>
+		3.&nbsp;&nbsp;&nbsp; primerna količina živil</br>
+		4.&nbsp;&nbsp;&nbsp; ustrezni postopki priprave živil</br>
+		5.&nbsp;&nbsp;&nbsp; načrt telesne aktivnosti.</p>
+	
+	<b>Opredelitev indeksa telesne mase - ITM</b>
+	<p align="justify">
+		Za oceno ustreznosti telesne mase nam služi indeks telesne mase (ITM) (ang: Body mass index- BMI). Izračunamo ga tako, da telesno maso v kilogramih delimo s kvadratom telesne višine v metrih.</p>
+	<p align="center">
+		<b>ITM =&nbsp;&nbsp;- <u>masa v kilogramih</u></b></br>
+		&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>(telesna višina v metrih )*(telesna višina v metrih )</b></p>
+	<p align="justify">
+		Obstajajo različne metode ugotavljanja primerne telesne mase ki upoštevajo spol, telesno višino, zgradbo okostja in starost. Pri določitvi (pre) ali podhranjenosti se poslužujemo tako imenovani indeks (kazalec) telesne mase ali ITM, ki pomeni razmerje med telesno maso, izraženo v kilogramih, in kvadratom telesne višine, izražene v metrih.</p>
+	<p align="justify">
+		Stanje hranjenosti delimo v naslednje kategorije:</br>
+		&nbsp;&nbsp;&nbsp; - do 18,49&nbsp;&nbsp;&nbsp; podhranjenost</br>
+	
+		&nbsp;&nbsp;&nbsp; - 18,5&mdash;24,9&nbsp;&nbsp; normalna prehranjenost</br>
+	
+		&nbsp;&nbsp;&nbsp; - 25,0&mdash;29,9&nbsp;&nbsp; čezmerna prehranjenost (debelost I.stopnje)</br>
+	
+		&nbsp;&nbsp;&nbsp; - 30,0&mdash;39,9&nbsp;&nbsp; debelost (debelost II. stopnje)</br>
+	
+		&nbsp;&nbsp;&nbsp; - 40 in več&nbsp;&nbsp; izredna debelost (debelost III. stopnje)</p>
+	<p align="justify">
+		Indeks telesne mase pa ni vedno idealen pokazatelj debelosti. Zelo pomemben dejavnik tveganja za nastanek kroničnih nenalezljivih bolezni (srčno žilne bolezni, sladkorna bolezen tipa II, rak dojke, rak črevesa) je obseg pasu.
+	</p>
+		<div align="center" style="width:100%;height:120px;border:2px solid black;">
+			<p align="center">
+				<b>Obseg pasu nad 80 cm ogroža zdravje žensk z vidika zgoraj naštetih bolezni.<br>
+				Obseg pasu nad 88 cm zelo ogroža zdravje žensk z vidika zgoraj naštetih bolezni.</b></p>
+			<p align="center">
+				<b>Obseg pasu nad 94 cm ogroža zdravje moških z vidika zgoraj naštetih bolezni.<br>
+				Obseg pasu nad 102 cm zelo ogroža zdravje moških z vidika zgoraj naštetih bolezni.</b></p>
+		</div>
+			</br>					
+	<center>
+		<h4>
+			<b><font color="#FF8040">Tveganje prekomerne telesne mase in debelosti za zdravje</font></b></h4>
+	</center>
+	<p>
+		Debelost je kronična bolezen, za katero je značilno čezmerno kopičenje maščevja v telesu. Debelost zmanjšuje kakovost življenja, povečuje obolevnost in skrajšuje življenjsko dobo. Prekomerna prehranjenost in debelost sta posledica slabih prehranjevalnih navad, občutnega zmanjšanja telesne aktivnosti in spremenjenih prehranjevalnih navad. Ljudje vse pogosteje posegamo po energijsko bogati vendar hranilno revni hrani, kar vpliva na naraščanje telesne mase, ki vodi do nastanka prekomerne prehranjenosti in debelosti. <u>Debelost je povezana s povečanim tveganjem za nastanek sladkorne bolezni tipa 2, raka dojke, debelega črevesa, danke, prostate in drugih vrst raka, z nastankom hipertenzije in srčno-žilnih bolezni. Debelost je prav tako dejavnik tveganja za nastanek jetrnih bolezni, žolčnih kamnov, ortopedskih zapletov, dermatoloških sprememb, nevroloških motenj in hormonskih motenj ter psihosocialnih posledic.</u></p>
+	<p>
+		&nbsp;</p>
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>OCENA DNEVNIH ENERGIJSKIH POTREB ZA ZDRAVE ODRASLE OSEBE</b></font></span>
+	</center>
+	</br>
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>Bazalna stopnja metabolizma (BMR)</b></font></span>
+		</center>
+	<p align="justify">
+		BMR pove, koliko energije telo potrebuje samo za osnovne funkcije metabolizma in vzdrževanje življenjskih funkcij. Potrebe po energiji izhajajo iz bazalnega metabolizma, delovnega metabolizma (mišičnega dela), termogeneze po vnosu hranljivih snovi ter potreb za rast, nosečnost in dojenje. Podatki o priporočljivem energijskem vnosu se navajajo v megadžulih (MJ) in kilokalorijah (kcal) (1 MJ = 239 kcal; 1 kcal = 4,184 kJ = 0,004184 MJ). Bazalni metabolizem (= basal metabolic rate, BMR) pri običajni fizični obremenitvi predstavlja največji del porabe energije. Stopnja bazalnega metabolizma je odvisna od nemaščobne telesne mase, ki se z leti zmanjšuje. Moški imajo zaradi večje nemaščobne telesne mase za okoli 10 % večji bazalni metabolizem kot ženske.</p>
+	<p align="justify">
+		<b><em>Izračun BMR po Harris-Benedictovi enačbi:</em></b></p>
+	<div align="center" style="width:100%;height:90px;border:2px solid black;">
+			<p align="center">
+						BMR (moški) = 66,5 + (13,75 x telesna masa v kg) + (5,03 x telesna višina v cm)&nbsp; &ndash; (6,75 x starost v letih)</p>
+					<p align="center">
+						BMR (ženske) = 655,1 + (9,56 x telesna masa v kg) + (1,85 x telesna višina v cm) &ndash; ( 4,68 x starost v letih)</p>
+		
+	</div>
+	</br>
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>Dnevna poraba energije (DPE)</b></font></span></h4>
+	</center>
+	<p align="justify">
+		Skupno celodnevno porabo energije dobimo, če porabo bazalnega metabolizma (BMR) zmnožimo s količnikom dnevne telesne aktivnosti (PAL, v Tabeli), oziroma na podlagi vrednotenja porabe energije pri različnih aktivnostih (primeri ocenjene porabe energije pri različnih športnih aktivnostih športnih.</p>
+	<div align="center" style="margin-left:70.9pt; width:170px;  border:2px solid black;" >
+		<p>
+			DPE = BMR x PAL&nbsp;&nbsp;</p>
+	</div>
+	<p align="justify">
+		Tabela. Primeri za povprečno dnevno porabo energije pri različnih poklicnih dejavnostih in aktivnostih v prostem času pri odraslih</p>
+	
+	<table width="650" cellspacing="0"  cellpadding="0"  border="1" bgcolor="#FFEAC1">
+		<tbody>
+			<tr>
+				<td style="width:272px;">
+					
+						<b>Težavnost dela in preživljanje prostega časa</b>
+				</td>
+				<td align="center" style="width:84px;">
+					
+						<b>PAL</b><sup>1, 2</sup>
+				</td>
+				<td style="width:292px;">
+					
+						<b>Primeri</b>
+				</td>
+			</tr>
+			<tr>
+				<td valign="middle" style="width:272px;">
+					
+						izključno sedeč ali ležeč način življenja</br></br>
+				</td>
+				<td align="center" style="width:84px;">
+						1,2
+				</td>
+				<td valign="top" style="width:292px;">
+						stari, betežni ljudje
+				</td>
+			</tr>
+			<tr>
+				<td style="width:272px;">
+						izključno sedeča dejavnost z malo ali brez naporne aktivnosti v prostem času</br></br>
+					
+				</td>
+				<td align="center" style="width:84px;">
+						1,4&ndash;1,5
+				</td>
+				<td valign="top" style="width:292px;">
+						uradniki v državni upravi, kadrovski delavci, urarji, finomehaniki, psihologi, ekonomisti, pisatelji …
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:272px;">
+						sedeča dejavnost, občasno tudi večja poraba energije za hojo in stoječe aktivnosti<sup>2</sup>
+						
+				</td>
+				<td align="center" style="width:84px;">
+						1,6&ndash;1,7
+				</td>
+				<td style="width:292px;">
+					
+						laboranti, vozniki, študenti, delavci ob tekočem traku, inšpektorji, tehnologi, šivilje, vozniki, električarji ...</br></br>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:272px;">
+					
+						pretežno stoječe delo<sup>2</sup>
+				</td>
+				<td align="center" style="width:84px;">
+						1,8&ndash;1,9
+				</td>
+				<td style="width:292px;">
+						geodeti, zdravniki, veterinarji, igralci, čistilci, orodjarji, gospodinje, natakarji, monterji, prodajalci, gospodinje
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:272px;">
+						fizično naporno poklicno delo<sup>2</sup>
+				</td>
+				<td align="center" style="width:84px;">
+						2,0&ndash;2,4
+				</td>
+				<td style="width:292px;">
+						gradbeni delavci, kmetovalci, gozdni delavci, rudarji, tekmovalni športniki
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p align="justify">
+		&nbsp;<sup>1 </sup>PAL = (physical activity level) povprečne dnevne potrebe po energiji za fizično aktivnost kot večkratnik bazalnega metabolizma.</br>
+		<sup>2 </sup>Za športno udejstvovanje ali za naporne aktivnosti v prostem času (30&ndash;60 minut, 4&ndash;5-krat na teden) se lahko na dan doda še 0,3 enote PAL.</p>
+	<p align="justify">
+		Prilagoditev na debelost (ITM &gt; 25):</br>
+		&nbsp;&nbsp;- (aktualna TM &ndash; idealna TM) x 0,25 + idealna TM = teža (kg) za TM</p>
+	<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>Priporočilo za zdravo izgubo telesne mase</b></font></span></h4>
+	</center>
+	<p align="justify">
+		V kolikor se ugotovi, da ima posameznik ugotovljeno prekomerno telesno maso, debelost in/ali povečan obseg pasu, se priporoča zdravo izgubo telesne mase z ustrezno zmanjšanim energijskim vnosom (da dosežemo od 0,5 do 1 kg izgubo telesne mase na teden) in povečano telesno aktivnostjo (od pol ure do eno uro dnevno).</p>
+	<p align="justify">
+		Zmanjševanje telesne mase mora biti postopno, v skladu s smernicami optimalnega zmanjševanja telesne mase, ki narekujejo izgubo telesne mase med 500 &ndash; 700 g na teden oz. ne več kot 2 do 2.5 kg na mesec, na podlagi predhodnega izračuna dnevne porabe energije. Redukcijska dieta temelji na zmanjšanjem dnevnem energijskem vnosu. Zmanjšanje telesne mase za 1 kg zahteva zmanjšan energijski vnos za 7000 kcal (29.400kJ). V primeru, da je cilj redukcijske diete pri posamezniku izguba dveh kilogramov v enem mesecu, pomeni, da mora posameznik zmanjšati mesečni energijski vnos za 14.000 kcal (58.800kJ) oz. povprečno 467 kcal/dan (1960 kJ/dan). Raziskave kažejo, da dnevna dieta z manj kot 1200 kcal ni dolgoročno uspešna za vzdrževanje nove telesne mase.</p>
+	<p align="justify">
+		Redna dnevna telesna aktivnost je nujna za zmanjševanje telesne mase. Prilagojena pa mora biti individualno glede na sposobnosti posameznika. Informacijski izračun srčnega utripa: posameznikov najvišji utrip: 220 &ndash; starost (60-75 % najvišjega utripa: (220-starost)*0.6 - (220-starost)*0.75).</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Spoznavanje pomena aerobne vadbe</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>SPOZNAVANJE POMENA AEROBNE VADBE</b></font></span>
+		</center>
+		<p align="justify">
+			Aerobna oz. kardiovaskularna (vzdržljivostna) vadba je z zdravjem povezana komponenta telesne zmogljivosti, ki izraža sposobnost kardiovaskularnega sistema za oskrbo kisika med kontinuirano telesno dejavnostjo. Pri aerobni telesni dejavnosti zmerne intenzivnosti je vrednost srčnega utripa 50-70% maksimalnega srčnega utripa. Maksimalni srčni utrip izračunamo po formuli 220 – starost.</br>
+			Primer izračuna za posameznika, starega 43 let: </br>
+			Maksimalni srčni utrip: 220 – 43 =  177/min.</br>
+			Spodnja meja: 177 × 0,5= 88/min</br>
+			Zgornja meja: 177 × 0,7= 124/min</br>
+			Njegova ciljna vrednost je torej med 88 in 124 utripi na minuto.
+		</p>
+		<p align="justify">
+			Priporočeno ciljno območje frekvence srčnega utripa pri procesu hujšanja pa je med 60 in 70 % maksimalne frekvence srčnega utripa, saj je to najbolj optimalno območje, ker se večji del energije porablja iz maščobnih zalog. Najučinkovitejša pri procesu hujšanja pa je intervalna vadba. 
+		</p>
+		<p align="justify">
+			K zmerni telesni dejavnosti štejemo hitro hojo, nordijsko hojo, lahkoten tek, kolesarjenje, plavanje, ples, badminton, manj intenzivno aerobiko, hojo po stopnicah, nekatera hišna in vrtna opravila ipd. Za začetek so priporočljivi hitra hoja, nordijska hoja, kolesarjenje, plavanje, lahkoten ples in podobno. Ko postanejo te dejavnosti »prelahke«, jih lahko izvajamo intenzivneje ali pa izberemo drugo vadbo. 
+		</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Seznanitev z metodami za samoocenjevanje intenzivnosti vadbe in z uporabo merilcev srčnega utripa</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>SEZNANITEV Z METODAMI ZA SAMOOCENJEVANJE INTENZIVNOSTI VADBE IN Z UPORABO MERILCEV SRČNEGA UTRIPA</b></font></span>
+		</center>
+		<p align="justify">
+			Intenzivnost telesne dejavnosti/ vadbe ocenjujemo s subjektivnimi in objektivnimi metodami. Med subjektivne metode spadajo raznovrstni testi samoopazovanja, kjer pravzaprav opazujemo sposobnost govora posameznika, pojav bolečin, motenj ritma dihanja, potenje, barvo kože/ rdečico, počutje in napor ipd. Objektivne metode pa zajemajo merjenje laktatov, srčnega utripa in porabe kisika (VO2 max) med telesno dejavnostjo/vadbo.  
+		</p>
+		<p align="justify">
+			Območje srčnega utripa, v katerem poteka zmerno intenzivna telesna dejavnost, lahko torej izračunamo, lahko ga določimo s pomočjo tabel ali pa uporabimo merilec srčnega utripa.  Vadba je zmerno intenzivna, če se nekoliko ogrejemo, zadihamo in se nam dvigne srčni utrip. Intenzivnost naše vadbe pa lahko preverimo tudi z govornim testom – smo v območju zmerno intenzivne vadbe, če se med vadbo lahko pogovarjamo (povemo vsaj pet zaporedno povezanih besed brez da bi morali med tem vdihniti ali loviti sapo).
+			Če se odločimo za uporabo merilcev srčnega utripa pazimo na to, da niso prezapleteni za uporabo, da so primerne kakovosti in umerjeni.
+		</p>
+		<p align="justify">
+			Vsak posameznik je drugačen in zato mora vsak sam poskrbeti, da vadi znotraj svojega ciljnega območja srčnega utripa. Če je med vadbo dosežena frekvenca srčnega utripa, ki je višja od ciljne, je potrebno v gibanje vložiti manj energije, zmanjšati delo zgornjih in spodnjih okončin ali zmanjšati intenzivnost in hitrost oziroma napor, da se frekvenca zniža in doseže želeno vrednost. Če je frekvenca srčnega utripa nižja od ciljne, je priporočljivo povečati hitrost in intenzivnost gibanja, v gibanje vključiti več delov telesa ter vključiti energijsko zahtevnejša osnovna gibanja ali povečati upor z uporabo vadbenih pripomočkov.
+		</p>
+	</div>
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_5/5%20Okus%20po%20zdravem_spreminjanje,%20nacrtovanje_korak%205.pdf">Okus po zdravem - spreminjanje, načrtovanje</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/15521797">3. oddaja: Manj maščob</a></p>
+				</td>
+			</tr>	
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

@@ -1,0 +1,1375 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+	
+<div id="activiti_form_holder">
+<h3><a href="#">Vsebine - Prehrana - Prehranska piramida</a></h3>
+	<div style="font-family: arial, sans-serif;">
+	<center>
+		<span style="font-size: 14pt;"><font color="#FF8040"><b>PREHRANSKA PIRAMIDA</b></font></span>
+	</center>
+	</br>
+	<center>
+		<img align="middle" title="Prehranska piramida" style="border-width: 0px; border-style: solid; width: 700px; height: 448px;" src="/eOskrba-webapp/uploads/Image/2_korak/piramida.jpg" alt="Piramida">
+	</center>
+	<center>
+		<h4>
+			<font color="#FF8040">
+				<b>Kaj je prehranska piramida</b>
+			</font>
+		</h4>
+	</center>
+	<p align="justify">
+	Prehranska piramida je slikovni prikaz izbora in količin živil, ki naj jih jemo vsak dan. Ni zapoved, ampak priporočilo, ki vam bo pomagalo izbrati tisto hrano, ki je zdrava in primerna za vas. Piramida spodbuja uživanje pestre hrane, s katero boste dobili potrebne hranilne snovi in hkrati ustrezno količino kalorij, da boste na zdrav način zmanjšali svojo telesno maso.<br>
+	</p>
+	<center>
+		<h4>
+			<b><font color="#FF8040"><center>Pogled na posamezne dele piramide</center>
+			</font></b>
+		</h4>
+	</center>
+	<p align="justify">
+	Prehranska piramida prikazuje uživanje živil iz petih poglavitnih prehranskih prehranskih skupin na spodnjih treh ravneh piramide. Vsaka od skupin vsebuje določene hranilne snovi, ne pa vseh, ki jih potrebujete. Prav zato živila iz ene skupine ne morejo nadomestiti živil iz druge skupine. Nobena skupina živil ni pomembnejša od druge, za dobro zdravje potrebujete živila iz vseh skupin. Piramida v obliki semaforja ponazarja količine živil v dnevni prehrani in potrebo po izbiranju zdravih živil.<br>
+	</p>
+	<center>
+		<img title="Semafor" style="border-width: 0px; border-style: solid; width: 709px; height: 616px;" src="/eOskrba-webapp/uploads/Image/2_korak/semafor.jpg" alt="Semafor">
+	</center>
+	</div>
+	
+<h3><a href="#">Vsebine - Prehrana - Kaj je 1 enota živila?</a></h3>
+	<div style="font-family: arial, sans-serif;">
+	<center>
+		<span style="font-size: 14pt;"><font color="#FF8040"><b>KAJ JE 1 ENOTA ŽIVILA?</b></font></span>
+	</center>
+		
+		<p align="justify">
+		Enot ni potrebno meriti! Enota naj bo kot splošno vodilo. Kadar hrana sestoji iz več živil, ocenite število enot po količini živila, ki v obroku prevladuje. Na primer: ker so v pici živila iz <b>skupine škrobna živila</b> (krušna podlaga), iz <b>skupine mleko</b> (sir) in iz <b>skupine zelenjava</b> (paradižnik), naj vam za oceno števila enot služijo količine omenjenih živil. Govedina v zelenjavni omaki vsebuje živila iz <b>skupine meso</b> in iz <b>skupine zelenjava</b>, zato upoštevajte oboje. Ne pozabite pa, da vsebujeta tako pica kot govedina v zelenjavni omaki tudi nekaj <b>maščob</b>: maščobo v siru na pici in maščobo, ki jo uporabimo pri pripravi omake; lahko pa so maščobe tudi v govedini. Vse to upoštevajte pri izračunu enot maščob.<br>
+		</p>
+		<center>
+			<b>Škrobno živilo / ogljikohidratno živilo - 1 enota:</b>
+		</center>
+		<table align="center" width="55%" bordercolor="#000000" border="1" bgcolor="#FFEAC1">
+			<tbody>
+				<tr>
+					<!-- Row 1 -->
+					<td align="center">
+						1 kosa
+					</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(30 g)
+					</td>
+					<!-- Col 2 -->
+					<td align="center">
+						polnozrnati, beli, koruzni,ovseni, črni, mešani, ržen… kruh
+					</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 2 -->
+					<td align="center">
+						1 male</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(30 g)
+					</td>
+					<!-- Col 2 -->
+					<td align="center">
+						žemlja, makovka, sirova štručka, kajzerica</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 3 -->
+					<td align="center">
+						1 skodelice</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(20 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						musli, koruzni kosmiči, ovseni kosmiči</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 4 -->
+					<td align="center">
+						1 kos</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(20 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						toast</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 5 -->
+					<td align="center">
+						3 kosi</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(20 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						prepečenec</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 6 -->
+					<td align="center">
+						1 kosa</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(18 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						sadno-žitna ploščica</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 7 -->
+					<td align="center">
+						1 velike žlice</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(10 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						med</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 8 -->
+					<td align="center">
+						3 velike žlice</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(15 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						marmelada, džem</td>
+					<!-- Col 3 -->
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<p align="justify">
+			<b>Ali je 10 - 16 enot škrobnih živil veliko?</b>
+		</p>
+		<p align="justify">
+		Morda se sliši veliko, vendar boste videli, da jih zlahka presežete. Na primer: pol rezine kruha je 1 enota in če zjutraj za zajtrk pojeste le eno rezino kruha, sta to 2 enoti. Sendvič, ki ga pojeste za malico doda 2 enoti ali celo 4, če vsebuje 2 rezini kruha. Če imate za kosilo 4 zvrhane žlice riža ali testenin, sta to že 2 enoti. Malica, ki vsebuje 2 keksa Albert, je vredna še eno enoto. Če za večerjo dodaste še en krompir v mešano solato, vam prinese eno enoto, kar je skupaj 8 do 10 enot.<br>
+		</p>
+		<div align="center">
+			<b>Zelenjava - 1 enota:</b></div>
+		<table align="center" width="55%" bordercolor="#000000" border="1" bgcolor="#FFEAC1">
+			<tbody>
+				<tr>
+					<!-- Row 1 -->
+					<td align="center">
+						2 lončka</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						blitva*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 2 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						brokoli*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 3 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						brstični ohrovt*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 4 -->
+					<td align="center">
+						1 manjša</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(150 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						bučka*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 5 -->
+					<td align="center">
+						1 1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						cvetača*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 6 -->
+					<td align="center">
+						1 manjša</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						čebula*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 7 -->
+					<td align="center">
+						1 skleda</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						solata*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 8 -->
+					<td align="center">
+						1 lončka</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(40 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						grah*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 9 -->
+					<td align="center">
+						1 manjši</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(150 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						jajčevec (melancana)*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 10 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						kisla repa*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 11 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						kislo zelje*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 12 -->
+					<td align="center">
+						1 skleda</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(200 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						kitajsko zelje*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 13 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						kolerabica*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 14 -->
+					<td align="center">
+						1 velik koren</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						korenje*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 15 -->
+					<td align="center">
+						6 stebelc</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						mlada čebulica*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 16 -->
+					<td align="center">
+						1 lončka</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						ohrovt*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 17 -->
+					<td align="center">
+						2 plodova</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(150 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						paprika*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 18 -->
+					<td align="center">
+						2 manjša</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(150 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						paradižnik*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 19 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(200 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						por*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 20 -->
+					<td align="center">
+						1 skleda</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(200 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						radič, regrat*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 21 -->
+					<td align="center">
+						1 manjša</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						rdeča pesa*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 22 -->
+					<td align="center">
+						1 manjši gomolj</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						rumena koleraba*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 23 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						stročji fižol*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 24 -->
+					<td align="center">
+						4 lončki</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(200 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						špinača*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 25 -->
+					<td align="center">
+						1 1 lončka </td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						sveže zelje*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 26 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						sveže gobe*</td>
+					<!-- Col 3 -->
+				</tr>
+			</tbody>
+		</table>
+		<center>
+			*suha teža oziroma mera surovega živila
+		</center>
+		<br>
+		<center>
+			<b>Sadje - 1 enota:</b>
+		</center>
+		<table align="center" width="55%" bordercolor="#000000" border="1" bgcolor="#FFEAC1">
+			<tbody>
+				<tr>
+					<!-- Row 1 -->
+					<td align="center">
+						1 sadež </td>
+					<!-- Col 1 -->
+					<td align="center">
+						(120 -150 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						jabolko, pomaranča, breskev, hruška</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 2 -->
+					<td align="center">
+						1 sadeža</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(70 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						banana</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 3 -->
+					<td align="center">
+						12 plodov</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						češnje</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 4 -->
+					<td align="center">
+						2 sadeža</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(140 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						kivi</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 5 -->
+					<td align="center">
+						3 sadeži</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(110 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						marelica</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 6 -->
+					<td align="center">
+						2 sadeža</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						slive</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 7 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(120 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						jagode, borovnice, maline, višnje</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 8 -->
+					<td align="center">
+						1 rezina</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(120 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						melona, lubenica</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 9 -->
+					<td align="center">
+						2 sadeža</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						sveža figa</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 10 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						kisla repa*</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 11 -->
+					<td align="center">
+						1 lonček</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(100 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						grozdje</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 12 -->
+					<td align="center">
+						1 sadež</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(180 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						pomaranča</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 13 -->
+					<td align="center">
+						2 sadeža</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(150 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						mandarina</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 14 -->
+					<td align="center">
+						1 skodelica</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(300 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						rdeči ribez</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 15 -->
+					<td align="center">
+						6 krhljev</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(25 g)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						jabolčni krhlji</td>
+					<!-- Col 3 -->
+				</tr>
+				<tr>
+					<!-- Row 16 -->
+					<td align="center">
+						1 kozarca</td>
+					<!-- Col 1 -->
+					<td align="center">
+						(1,5 dl)</td>
+					<!-- Col 2 -->
+					<td align="center">
+						100 % sadnega soka</td>
+					<!-- Col 3 -->
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<center>
+			<b>Mleko, mlečni izdelki ali zamenjave - 1 enota:</b><br>
+			<table align="center" width="55%" bordercolor="#000000" border="1" bgcolor="#FFEAC1">
+				<tbody>
+					<tr>
+						<!-- Row 1 -->
+						<td align="center">
+							1 skodelica</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(2 dl)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							delno posneto mleko (1,6 % m.m.)</td>
+						<!-- Col 3 -->
+					</tr>
+					<tr>
+						<!-- Row 2 -->
+						<td align="center">
+							1 skodelica</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(2 dl)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							delno posneto čokoladno mleko (0,7 - 1,1 % m.m.)</td>
+						<!-- Col 3 -->
+					</tr>
+					<tr>
+						<!-- Row 3 -->
+						<td align="center">
+							1 skodelica</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(2 dl)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							žitna kava brez sladkorja pripravljena iz 2 dl delno posnetega mleka</td>
+						<!-- Col 3 -->
+					</tr>
+					<tr>
+						<!-- Row 4 -->
+						<td align="center">
+							1 skodelica</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(2 dl)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							sojino mleko</td>
+						<!-- Col 3 -->
+					</tr>
+					<tr>
+						<!-- Row 5 -->
+						<td align="center">
+							1 skodelica</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(2 dl)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							kozje mleko</td>
+						<!-- Col 3 -->
+					</tr>
+					<tr>
+						<!-- Row 6 -->
+						<td align="center">
+							1 lonček</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(200 g)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							naravni jogurt, kislo mleko, kefir (1,3 - 1,6 % m.m.)</td>
+						<!-- Col 3 -->
+					</tr>
+					<tr>
+						<!-- Row 7 -->
+						<td align="center">
+							1 lonček</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(150 g)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							delno posneti sadni jogurt (1,3 - 1,6 % m.m.)</td>
+						<!-- Col 3 -->
+					</tr>
+					<tr>
+						<!-- Row 8 -->
+						<td align="center">
+							1 lončka</td>
+						<!-- Col 1 -->
+						<td align="center">
+							(100 g)</td>
+						<!-- Col 2 -->
+						<td align="center">
+							sojin jogurt</td>
+						<!-- Col 3 -->
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<b>Meso in zamenjave - 1 enota:</b><br>
+				<table align="center" width="55%" bordercolor="#000000" border="1" bgcolor="#FFEAC1">
+					<tbody>
+						<tr>
+							<!-- Row 1 -->
+							<td align="center">
+								1 manjšega zrezka</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(35 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								goveji, puranji, piščančji zrezek</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 2 -->
+							<td align="center">
+								1 manjšega kosa</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(35 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								purana ali piščanca brez kosti in kože</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 3 -->
+							<td align="center">
+								1 manjšega zrezka</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(35 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								kunec</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 4 -->
+							<td align="center">
+								1 para</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(45 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								hrenovka z manj maščobe</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 5 -->
+							<td align="center">
+								1 1 rezine</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(40 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								kuhan, pečen pršut brez vidne maščobe</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 6 -->
+							<td align="center">
+								2-3 rezine</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(40 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								puranja, svinjska pusta šunka</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 7 -->
+							<td align="center">
+								2-3 rezine</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(40 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								piščančje prsi v ovitku</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 8 -->
+							<td align="center">
+								1 manjše</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(40 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								morska ali sladkovodna riba</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 9 -->
+							<td align="center">
+								1 lončka</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(40 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								lignji</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 10 -->
+							<td align="center">
+								1 koščka</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(17 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								tunina v olju (odlito in odtečeno olje)</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 11 -->
+							<td align="center">
+								1 male konzerve</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(40 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								tunina v lastnem soku (brez naliva)lončka</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 12 -->
+							<td align="center">
+								1 manjšega kosa</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(45 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								sojin sir (tofu)</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 13 -->
+							<td align="center">
+								1 manjše</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(50 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								jajce</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 14 -->
+							<td align="center">
+								3 žlice</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(50 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								pusta skuta (do 10 % m.m.)</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 15 -->
+							<td align="center">
+								1 rezine</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(12 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								sir</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 16 -->
+							<td align="center">
+								1 kosa</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(25 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								sojin polpet</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 17 -->
+							<td align="center">
+								1 1 velike žlice</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(25 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								čičerika*</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 18 -->
+							<td align="center">
+								1 1 velike žlice</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(25 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								fižol*</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 19 -->
+							<td align="center">
+								1 velika žlica</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(25 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								leča*</td>
+							<!-- Col 3 -->
+						</tr>
+						<tr>
+							<!-- Row 20 -->
+							<td align="center">
+								1 1 velike žlice</td>
+							<!-- Col 1 -->
+							<td align="center">
+								(25 g)</td>
+							<!-- Col 2 -->
+							<td align="center">
+								grah (suhi)*</td>
+							<!-- Col 3 -->
+						</tr>
+					</tbody>
+				</table>
+				<center>
+					*suha teža oziroma mera surovega živila
+				</center>
+				<br>
+					<b>Maščobno živilo - 1 enota:</b><br>
+					<table align="center" width="55%" bordercolor="#000000" border="1" bgcolor="#FFEAC1">
+						<tbody>
+							<tr>
+								<!-- Row 1 -->
+								<td align="center">
+									1 velika žlica</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(10 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									lešniki, mandlji1</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 2 -->
+								<td align="center">
+									5 polovičk </td>
+								<!-- Col 1 -->
+								<td align="center">
+									(8 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									orehova jedrca1</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 3 -->
+								<td align="center">
+									6 srednje velikih</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(40 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									zelene olive1</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 4 -->
+								<td align="center">
+									1 velike žlice</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(8 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									namaz tahini2</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 5 -->
+								<td align="center">
+									1 čajna žlička</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(8 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									sezamovo seme2</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 6 -->
+								<td align="center">
+									1 velika žlica</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(15 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									pašteta3</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 7 -->
+								<td align="center">
+									2 veliki žlici</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(25 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									kisla smetana (20 % m.m.)3</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 8 -->
+								<td align="center">
+									1 velika žlica</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(15 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									kremni sir3</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 9 -->
+								<td align="center">
+									1 velika žlica </td>
+								<!-- Col 1 -->
+								<td align="center">
+									(20 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									mlečni namaz z manj maščobe3</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 10 -->
+								<td align="center">
+									1 velika žlica </td>
+								<!-- Col 1 -->
+								<td align="center">
+									(20 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									sojin rastlinski namaz2 (omega-6);</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 11 -->
+								<td align="center">
+									1 čajna žlička</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(6 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									mehka margarina2</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 12 -->
+								<td align="center">
+									2 čajni žlički</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(12 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									margarina z manj maščob2</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 13 -->
+								<td align="center">
+									1 čajna žlička</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(6 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									maslo3</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 14 -->
+								<td align="center">
+									1 čajna žlička </td>
+								<!-- Col 1 -->
+								<td align="center">
+									(5 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									olivno, repično, arašidovo olje1</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 15 -->
+								<td align="center">
+									1 čajna žlička</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(5 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									koruzno, sončnično, sojino, mešano jedilno olje2 (omega-6);</td>
+								<!-- Col 3 -->
+							</tr>
+							<tr>
+								<!-- Row 16 -->
+								<td align="center">
+									1 čajna žlička</td>
+								<!-- Col 1 -->
+								<td align="center">
+									(5 g)</td>
+								<!-- Col 2 -->
+								<td align="center">
+									laneno olje2 (omega-3);</td>
+								<!-- Col 3 -->
+							</tr>
+						</tbody>
+					</table>
+					<center>
+						1vsebujejo pretežno enkrat nenasičene maščobne kisline;</br>
+						2vsebujejo pretežno večkrat neneasičene maščobne kisline (omega-6 ali omega-3);</br>
+						3vsebujejo pretežno nasičene maščobne kisline
+					</center>
+					<br>
+					<br>
+		</center>
+	</div>
+<h3><a href="#">Vsebine - Prehrana - Kako zdravo shujšam?</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#FF8040"><b>KAKO ZDRAVO SHUJŠAM?</b></font></span>
+		</center>
+						
+		<p align="justify">
+		Za zdravo izgubo telesne mase se priporoča ustrezno zmanjšan energijski vnos, (da dosežemo od 0,5 do 1 kg izgubo telesne mase na teden) in povečano telesno aktivnostjo (od pol ure do eno uro dnevno).
+		</p>
+		<p align="justify">
+		Zmanjševanje telesne mase mora biti postopno, v skladu s smernicami optimalnega zmanjševanja telesne mase, ki narekujejo izgubo telesne mase med 500 - 700 g na teden oz. ne več kot 2 do 2.5 kg na mesec, na podlagi predhodnega izračuna dnevne porabe energije. Redukcijska dieta temelji na zmanjšanjem dnevnem energijskem vnosu. Zmanjšanje telesne mase za 1 kg zahteva zmanjšan energijski vnos za 7000 kcal (29.400kJ). V primeru, da je cilj redukcijske diete pri posamezniku izguba dveh kilogramov v enem mesecu, pomeni, da mora posameznik zmanjšati mesečni energijski vnos za 14.000 kcal (58.800kJ) oz. povprečno 467 kcal/dan (1960 kJ/dan). Raziskave kažejo, da dnevna dieta z manj kot 1200 kcal ni dolgoročno uspešna za vzdrževanje nove telesne mase.<br>
+		</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Spoznavanje pomena hoje za zdravje</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>SPOZNAVANJE POMENA HOJE ZA ZDRAVJE</b></font></span>
+		</center>						
+		<p align="justify">
+			Hoja predstavlja učinkovito, varno in poceni obliko telesne vadbe, tudi v procesu hujšanja. Hoja pogosto predstavlja prvo obliko telesne dejavnosti, s katero posamezniki pričnejo v procesu hujšanja, saj je zlasti primerna za tiste, ki prej niso bili telesno dejavni in za posameznike z zelo veliko telesno maso, ker sklepe obremenjuje v manjši meri in omogoča postopno napredovanje glede na zmožnosti in stopnjo treniranosti. Za hojo ne potrebujemo niti posebne opreme, niti posebnega okolja. Če imamo možnost, je seveda bolj prijetna hoja v naravi po mehki podlagi, vendar ima koristne učinke tudi hoja po pločniku v soseski. Obutev naj bo primerna za hojo, torej udobna, stabilna, z dobrim blaženjem v podplatu. Obleka naj bo primerna vremenskim razmeram.<br>
+			Če pa ne veste, kako pričeti s hojo, vam je v veliko pomoč lahko komplet zloženk Mavrični program hoje. To je začetni program hoje, kjer po priporočenem programu lahko hodite tako s palicami za hojo kot tudi brez njih. Sestavlja ga komplet 11-ih zgibank, ki vas vodijo skozi 20 tedenski program hoje, pri katerem se zahtevnost postopno povečuje. Več o tem si lahko preberete v informativni zloženki <a target="_blank" href="http://cindi-slovenija.net/images/stories/cindi/trgovina/mavricni_program_hoje_1_2012.pdf">Mavrični program hoje (zgibanka 1)</a>.<br>
+		</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Ocena vstopnega stanja telesne dejavnosti udeleženca</a></h3>
+	<div style="font-family: arial, sans-serif;">	
+		<center>
+			<span style=" font-size: 14pt;"><font color="#0000FF"><b>OCENA VSTOPNEGA STANJA TELESNE DEJAVNOSTI UDELEŽENCA</b></font></span>
+		</center>
+		
+		<p align="justify">
+		Za ocenjevanje stopnje telesne pripravljenosti je zelo primeren preizkus hoje na 2 km. Opravite ga lahko v bližnjem zdravstvenem domu, datume lahko preverite v knjižici Z gibanjem do zdravja (pride link). V kolikor preizkusa še niste opravili, vam svetujemo, da ga opravite. Če imate pomisleke o svoji zmogljivosti za opravljanje preizkusa ali imate zdravstvene težave, se posvetujte z medicinsko sestro, ki vam je na voljo za vprašanja. Posamezniki, ki preizkusa hoje na 2 km ne morejo opraviti, lahko stopnjo telesne dejavnosti ugotovijo z vprašalnikom.
+		</p>
+		<center>
+			<img title="Tabela barvnih skupin" style="border-width: 0px; border-style: solid; width: 700px; height: 353px;" src="/eOskrba-webapp/uploads/Image/2_korak/tabela_skupin_hoja.jpg" alt="Tabela skupin"><br>
+		</center>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Invidualni program vadbe</a></h3>
+	<div style="font-family: arial, sans-serif;">		
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>INVIDUALNI PROGRAM VADBE</b></font></span>
+		</center>
+		
+		<p align="justify">
+		V kolikor želimo, da je naš program telesne dejavnosti/vadbe učinkovit in varen, torej da si z njim ne povzročamo nepotrebne škode ali tveganja za naše zdravje, ter da bomo z njim lahko dosegli želene učinke oz. zastavljene cilje, je izrednega pomena, da je ta pripravljen individualno za vsakega posameznika ter da upošteva želje in sposobnosti vadečega.<br>
+		</p>
+		<p align="justify">
+		Pri pripravi individualnega programa telesne dejavnosti/vadbe je potrebno upoštevati spol, starost, zdravstveno stanje, previdnostne ukrepe ter opozorilne znake pretirane vadbe. Pri pripravi ustreznega programa telesne vadbe pa je potrebno opredeliti frekvenco (pogostnost), intenzivnost, tip in trajanje telesne vadbe ter pri tem upoštevati tudi načelo uravnotežene vadbe in smart načrt (v izogib postavitvi nerealnih ciljev, ki nimajo motivacijskega učinka in lahko na čustvenem nivoju vodijo v odpor do telesne dejavnosti in aktivnega življenjskega sloga).<br>
+		</p>
+		S pomočjo vprašanj preverite, kaj ste se naučili.<br>	
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Seznanitev s pomenom izdelave individualnega programa telesne dejavnosti (IPTD)</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>SEZNANITEV S POMENOM IZDELAVE INDIVIDUALNEGA PROGRAMA TELESNE DEJAVNOSTI (IPTD)</b></font></span>
+		</center>
+		<p>
+			V kolikor želimo, da je naš program telesne dejavnosti/vadbe učinkovit in varen, torej da si z njim ne povzročamo nepotrebne škode ali tveganja za naše zdravje, ter da bomo z njim lahko dosegli želene učinke oz. zastavljene cilje, je izrednega pomena, da je le ta pripravljen individualno za vsakega posameznika ter da upošteva želje in sposobnosti vadečega. 
+		</p>
+		<p>
+			Pri pripravi individualnega programa telesne dejavnosti/vadbe je potrebno upoštevati spol, starost, zdravstveno stanje, previdnostne ukrepe ter opozorilne znake pretirane vadbe. Pri pripravi ustreznega programa telesne vadbe pa je potrebno opredeliti frekvenco (pogostnost), intenzivnost, tip in trajanje telesne vadbe ter pri tem upoštevati tudi načelo uravnotežene vadbe in smart načrt (v izogib postavitvi nerealnih ciljev, ki nimajo motivacijskeg učinka in lahko na čustvenem nivoju vodijo v odpor do telesne dejavnosti in aktivnega življenjskega sloga).
+		</p>
+	</div>
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_2/2%20Okus%20po%20zdravem_jedilniki%201200,%201600,%201800_korak%202.pdf">Okus po zdravem, jedilniki za 1200,1600,1800 kalorij</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_2/2%20Okus%20po%20zdravem_prehranska%20piramida_korak%202.pdf">Okus po zdravem - Prehranska piramida</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_2/Cindi_ZdravKroznik_preview.pdf">Cindi - zdrav krožnik</a></p>
+				</td>
+			</tr>		
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_2/prehranska_piramida.pdf">Prehranska piramida</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_2/Primeri_jedilnikov.pdf">Primeri jedilnikov</a></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/14207151">2. oddaja: Zajtrk – več manjših obrokov</a></p>
+				</td>
+			</tr>			
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>	

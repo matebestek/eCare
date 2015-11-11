@@ -1,0 +1,422 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.asthma_control_test_questionary.v1
+
+concept
+	[at0000]	-- ACT vprašalnik
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Ugotavljanje urejenosti astme.">
+			use = <"Vprašalnik za ugotavljanje urejenosti astme.">
+			keywords = <"astma", "act">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"9392FF50171D2F8541459D1A6C716B39">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- ACT vprašalnik
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {3..5; ordered} matches {
+									CLUSTER[at0065] matches {	-- Vprašanja
+										items cardinality matches {5; ordered} matches {
+											ELEMENT[at0034] matches {	-- Koliko časa vam je v zadnjih 4. tednih astma onemogočala, da bi v službi, šoli, univerzi ali doma izvajali svoje običajne aktivnosti?
+												value matches {
+													1|[local::at0039], 	-- Več časa
+													2|[local::at0040], 	-- Večino časa
+													3|[local::at0041], 	-- Nekaj časa
+													4|[local::at0042], 	-- Malo časa
+													5|[local::at0043]  	-- Nič časa
+												}
+											}
+											ELEMENT[at0035] matches {	-- Kolikokrat ste v zadnjih 4. Tednih imeli kratko sapo?
+												value matches {
+													1|[local::at0044], 	-- Več kot enkrat na dan
+													2|[local::at0045], 	-- Enkrat na dan
+													3|[local::at0046], 	-- 3 do 6 krat na teden
+													4|[local::at0047], 	-- Enkrat do dvakrat na teden
+													5|[local::at0048]  	-- Nikoli
+												}
+											}
+											ELEMENT[at0036] matches {	-- Kolikokrat v zadnjih 4. tednih so vas ponoči ali zgodaj zjutraj zbudili simptomi astme (piskanje, kašelj, dušenje, stiskanje ali bolečine v prsih)?
+												value matches {
+													1|[local::at0049], 	-- 4 ali več noči na teden
+													2|[local::at0050], 	-- 2 do 3 noči na teden
+													3|[local::at0051], 	-- Enkrat na teden
+													4|[local::at0052], 	-- Enkrat ali dvakrat
+													5|[local::at0053]  	-- Nikoli
+												}
+											}
+											ELEMENT[at0037] matches {	-- Kolikokrat ste v zadnjih 4. tednih uporabili olaševalec v pršilu ali inhalaciji (kot so Ventolin®, Berotec® in Berodual®)??
+												value matches {
+													1|[local::at0054], 	-- 3 ali večkrat na teden
+													2|[local::at0055], 	-- 1 ali 2 krat na teden
+													3|[local::at0056], 	-- 2 ali 3 krat na teden
+													4|[local::at0057], 	-- 1 krat na teden ali manj
+													5|[local::at0058]  	-- Nikoli
+												}
+											}
+											ELEMENT[at0038] matches {	-- Kako bi ocenili vaš nadzor nad astmo v zadnjih 4. tednih?
+												value matches {
+													1|[local::at0059], 	-- Sploh nisem imel nadzora
+													2|[local::at0060], 	-- Slab nadzor
+													3|[local::at0061], 	-- Dokaj dober nadzor
+													4|[local::at0062], 	-- Dober nadzor
+													5|[local::at0063]  	-- Popoln nadzor
+												}
+											}
+										}
+									}
+									ELEMENT[at0066] matches {	-- Število točk
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..25|}
+											}
+										}
+									}
+									ELEMENT[at0073] matches {	-- Kriterij urejenosti astme
+										value matches {
+											1|[local::at0074], 	-- False
+											2|[local::at0075], 	-- False
+											3|[local::at0076], 	-- False
+											4|[local::at0077], 	-- False
+											5|[local::at0078], 	-- False
+											6|[local::at0079], 	-- False
+											7|[local::at0080], 	-- False
+											8|[local::at0081], 	-- False
+											9|[local::at0082], 	-- False
+											10|[local::at0083], 	-- False
+											11|[local::at0084], 	-- False
+											12|[local::at0085], 	-- False
+											13|[local::at0086], 	-- False
+											14|[local::at0087], 	-- False
+											15|[local::at0088], 	-- False
+											16|[local::at0089], 	-- False
+											17|[local::at0090], 	-- False
+											18|[local::at0091], 	-- False
+											19|[local::at0092], 	-- False
+											20|[local::at0093], 	-- True
+											21|[local::at0094], 	-- True
+											22|[local::at0095], 	-- True
+											23|[local::at0096], 	-- True
+											24|[local::at0097], 	-- True
+											25|[local::at0098]  	-- True
+										}
+									}
+									ELEMENT[at0064] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"ACT vprašalnik">
+					description = <"Vprašalnik za spremljanje urejenosti astme">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0034"] = <
+					text = <"Koliko časa vam je v zadnjih 4. tednih astma onemogočala, da bi v službi, šoli, univerzi ali doma izvajali svoje običajne aktivnosti?">
+					description = <"Koliko časa vam je v zadnjih 4. tednih astma onemogočala, da bi v službi, šoli, univerzi ali doma izvajali svoje običajne aktivnosti?">
+				>
+				["at0035"] = <
+					text = <"Kolikokrat ste v zadnjih 4. Tednih imeli kratko sapo?">
+					description = <"Kolikokrat ste v zadnjih 4. Tednih imeli kratko sapo?">
+				>
+				["at0036"] = <
+					text = <"Kolikokrat v zadnjih 4. tednih so vas ponoči ali zgodaj zjutraj zbudili simptomi astme (piskanje, kašelj, dušenje, stiskanje ali bolečine v prsih)?">
+					description = <"Kolikokrat v zadnjih 4. tednih so vas ponoči ali zgodaj zjutraj zbudili simptomi astme (piskanje, kašelj, dušenje, stiskanje ali bolečine v prsih)?">
+				>
+				["at0037"] = <
+					text = <"Kolikokrat ste v zadnjih 4. tednih uporabili olaševalec v pršilu ali inhalaciji (kot so Ventolin®, Berotec® in Berodual®)??">
+					description = <"Kolikokrat ste v zadnjih 4. tednih uporabili olaševalec v pršilu ali inhalaciji (kot so Ventolin®, Berotec® in Berodual®)?">
+				>
+				["at0038"] = <
+					text = <"Kako bi ocenili vaš nadzor nad astmo v zadnjih 4. tednih?">
+					description = <"Kako bi ocenili vaš nadzor nad astmo v zadnjih 4. tednih?">
+				>
+				["at0039"] = <
+					text = <"Več časa">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Večino časa">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Nekaj časa">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Malo časa">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Nič časa">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Več kot enkrat na dan">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Enkrat na dan">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"3 do 6 krat na teden">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Enkrat do dvakrat na teden">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Nikoli">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"4 ali več noči na teden">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"2 do 3 noči na teden">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Enkrat na teden">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Enkrat ali dvakrat">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Nikoli">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"3 ali večkrat na teden">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"1 ali 2 krat na teden">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"2 ali 3 krat na teden">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"1 krat na teden ali manj">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Nikoli">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Sploh nisem imel nadzora">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Slab nadzor">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Dokaj dober nadzor">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Dober nadzor">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Popoln nadzor">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Komentar">
+					description = <"Komentar rezultatov testa">
+				>
+				["at0065"] = <
+					text = <"Vprašanja">
+					description = <"Pet vprašanj ACT vprašalnika.">
+				>
+				["at0066"] = <
+					text = <"Število točk">
+					description = <"Doseženo število točk pri ACT vprašalniku.">
+				>
+				["at0073"] = <
+					text = <"Kriterij urejenosti astme">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0075"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0076"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0077"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0078"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0079"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0080"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0081"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0082"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0083"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0084"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0085"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0086"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0087"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0088"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0089"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0090"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0091"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0092"] = <
+					text = <"False">
+					description = <"Astma je neurejena">
+				>
+				["at0093"] = <
+					text = <"True">
+					description = <"Astma je urejena">
+				>
+				["at0094"] = <
+					text = <"True">
+					description = <"Astma je urejena">
+				>
+				["at0095"] = <
+					text = <"True">
+					description = <"Astma je urejena">
+				>
+				["at0096"] = <
+					text = <"True">
+					description = <"Astma je urejena">
+				>
+				["at0097"] = <
+					text = <"True">
+					description = <"Astma je urejena">
+				>
+				["at0098"] = <
+					text = <"True">
+					description = <"Astma je urejena">
+				>
+			>
+		>
+	>

@@ -1,0 +1,78 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<sequence-diagram version="1.0.4" icons="true">  
+  <object id="1" language="java" name="si.pint.archetypes.init.ArchetypeManager" project="archetype-api" 
+    file="/archetype-api/src/main/java/si/pint/archetypes/init/ArchetypeManager.java" binary="false" 
+    label="archetypeManager" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="97" y="0"/>    
+    <execution id="1">      
+      <position height="171" width="135" x="5" y="99"/>    
+    </execution>  
+  </object>  
+  <object id="2" language="java" name="org.openehr.rm.util.SkeletonGenerator" project="rm-skeleton" 
+    file="/rm-skeleton/src/main/java/org/openehr/rm/util/SkeletonGenerator.java" binary="false" 
+    label="skeletonGenerator" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="301" y="0"/>    
+    <execution id="1">      
+      <position height="115" width="134" x="144" y="120"/>    
+    </execution>    
+    <execution id="2">      
+      <position height="21" width="0" x="0" y="162"/>    
+    </execution>    
+    <execution id="3">      
+      <position height="21" width="7" x="208" y="228"/>    
+    </execution>  
+  </object>  
+  <object id="3" language="java" name="org.openehr.am.archetype.Archetype" project="rm-skeleton" 
+    file="C:/Users/mate/.m2/repository/openehr/openehr-aom/1.0.2-SNAPSHOT/openehr-aom-1.0.2-SNAPSHOT.jar" binary="true" 
+    label="archetype" type="class" autoSize="true">    
+    <position height="0" width="0" x="0" y="0"/>    
+    <execution id="1">      
+      <position height="21" width="0" x="0" y="193"/>    
+    </execution>  
+  </object>  
+  <message 
+    operation="create(org.openehr.am.archetype.Archetype,java.lang.String,java.util.Map&lt;String,Archetype&gt;,org.openehr.rm.util.GenerationStrategy):java.lang.Object">    
+    <end type="SOURCE" nodeId="1" executionId="0"/>    
+    <end type="TARGET" nodeId="2" executionId="0"/>  
+  </message>  
+  <message>    
+    <end type="SOURCE" nodeId="1" executionId="0"/>    
+    <end type="TARGET" nodeId="2" executionId="2"/>  
+  </message>  
+  <message 
+    operation="createComplexObject(org.openehr.am.archetype.constraintmodel.CComplexObject,org.openehr.am.archetype.Archetype,java.lang.String,java.util.Map&lt;String,Archetype&gt;,org.openehr.rm.util.GenerationStrategy):java.lang.Object">    
+    <end type="SOURCE" nodeId="2" executionId="0"/>    
+    <end type="TARGET" nodeId="2" executionId="1"/>  
+  </message>  
+  <message operation="getDefinition():org.openehr.am.archetype.constraintmodel.CComplexObject">    
+    <end type="SOURCE" nodeId="2" executionId="0"/>    
+    <end type="TARGET" nodeId="3" executionId="0"/>  
+  </message>
+</sequence-diagram>

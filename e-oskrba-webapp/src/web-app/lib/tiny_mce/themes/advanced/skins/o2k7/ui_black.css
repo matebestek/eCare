@@ -1,0 +1,36 @@
+/***
+ * Copyright (c) 2013.
+ * University of Primorska, Andrej Marušič Institute. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met: 
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer. 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution. 
+ * 
+ * Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+ * Agency and Ministry of Health of Republic of Slovenia.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+/* Black */
+.o2k7SkinBlack .mceToolbar .mceToolbarStart span, .o2k7SkinBlack .mceToolbar .mceToolbarEnd span, .o2k7SkinBlack .mceButton, .o2k7SkinBlack .mceSplitButton, .o2k7SkinBlack .mceSeparator, .o2k7SkinBlack .mceSplitButton a.mceOpen, .o2k7SkinBlack .mceListBox a.mceOpen {background-image:url(img/button_bg_black.png)}
+.o2k7SkinBlack td.mceToolbar, .o2k7SkinBlack td.mceStatusbar, .o2k7SkinBlack .mceMenuItemTitle a, .o2k7SkinBlack .mceMenuItemTitle span.mceText, .o2k7SkinBlack .mceStatusbar div, .o2k7SkinBlack .mceStatusbar span, .o2k7SkinBlack .mceStatusbar a {background:#535353; color:#FFF}
+.o2k7SkinBlack table.mceListBoxEnabled .mceText, o2k7SkinBlack .mceListBox .mceText {background:#FFF; border:1px solid #CBCFD4; border-bottom-color:#989FA9; border-right:0}
+.o2k7SkinBlack table.mceListBoxEnabled:hover .mceText, .o2k7SkinBlack .mceListBoxHover .mceText, .o2k7SkinBlack .mceListBoxSelected .mceText {background:#FFF; border:1px solid #FFBD69; border-right:0}
+.o2k7SkinBlack .mceExternalToolbar, .o2k7SkinBlack .mceListBox .mceText, .o2k7SkinBlack div.mceMenu, .o2k7SkinBlack table.mceLayout, .o2k7SkinBlack .mceMenuItemTitle a, .o2k7SkinBlack table.mceLayout tr.mceFirst td, .o2k7SkinBlack table.mceLayout, .o2k7SkinBlack .mceMenuItemTitle a, .o2k7SkinBlack table.mceLayout tr.mceLast td, .o2k7SkinBlack .mceIframeContainer {border-color: #535353;}
+.o2k7SkinBlack table.mceSplitButtonEnabled:hover a.mceAction, .o2k7SkinBlack .mceSplitButtonHover a.mceAction, .o2k7SkinBlack .mceSplitButtonSelected {background-image:url(img/button_bg_black.png)}
+.o2k7SkinBlack .mceMenu .mceMenuItemEnabled a:hover, .o2k7SkinBlack .mceMenu .mceMenuItemActive {background-color:#FFE7A1}

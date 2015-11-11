@@ -1,0 +1,178 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<p>Žal niste pravilno odgovorili na vsa vprašanja. Prosimo, da še enkrat preberete vsebine, iz katerih so vprašanja ter ponovno odgovorite na vprašanja. Hvala!</p>
+	</br>
+	
+	<h2>
+		<a href="#">Vprašalnik - prehrana</a>
+	</h2>
+	<div>
+
+		<table>
+
+			<tr><td style="width: 120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera skupina živil je čisto na vrhu piramide in jo moramo uživati čim manj?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_02_v1__data_at0001__items_at0010__items_at0005__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '1')
+						Zelenjava
+					#elseif ($path == '2')						
+						Mleko in mlečni izdelki
+					#elseif ($path == '0')
+						Živila z veliko maščob in sladkorjev	Živila z veliko maščob in sladkorjev
+					#end
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Koliko enot škrobnega (ogljikohidratnega) živila predstavljata 2 kosa kruha (120 g)?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_02_v1__data_at0001__items_at0010__items_at0009__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '2')
+						1 enoto
+					#elseif ($path == '1')						
+						2 enoti
+					#elseif ($path == '0')
+						4 enote
+					#end
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Kakšna je optimalna izguba telesne mase v enem mesecu?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_02_v1__data_at0001__items_at0010__items_at0014__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '0')
+						2 do 2,5 kg
+					#elseif ($path == '1')						
+						Vsaj 5 kg
+					#elseif ($path == '2')
+						Čim več, tem bolje
+					#end
+				</td>				
+			</tr>			
+			
+		</table>
+
+	</div>			
+
+	<h2>
+		<a href="#">Vprašalnik - gibanje</a>
+	</h2>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera trditev velja za hojo?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_02_v1__data_at0001__items_at0019__items_at0029__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '1')
+						Hoja ni koristna v procesu hujšanja, ker je premalo intenzivna
+					#elseif ($path == '0')						
+						Primerna je zlasti za posameznike z zelo veliko telesno maso
+					#elseif ($path == '2')
+						Hoja je koristna samo, če hodimo po naravni podlagi
+					#end
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Individualni program telesne dejavnosti je pomemben:</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_02_v1__data_at0001__items_at0019__items_at0033__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '0')
+						Varnost in učinkovitost telesne dejavnosti
+					#elseif ($path == '2')						
+						Da lahko tekmujemo s prijatelji
+					#elseif ($path == '1')
+						Za manjšo motivacijo pri vadbi
+					#end
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Mavrični program hoje je:</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_02_v1__data_at0001__items_at0019__items_at0034__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '2')
+						Program hoje, teka in poskokov po barvah mavrice
+					#elseif ($path == '0')						
+						Začetni program hoje, pri katerem se zahtevnost postopno povečuje
+					#elseif ($path == '1')
+						Program hoje, ki svetuje, da hodimo, ko zunaj opazimo mavrico
+					#end
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Stopnjo telesne pripravljenosti lahko ocenimo/izmerimo:</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_02_v1__data_at0001__items_at0019__items_at0035__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '0')
+						S pomočjo preizkusa hoje na 2 km
+					#elseif ($path == '1')						
+						Z merjenjem obsega pasu
+					#elseif ($path == '2')
+						Z vodenjem dnevnika telesne dejavnosti
+					#end
+				</td>				
+			</tr>			
+				
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

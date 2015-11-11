@@ -1,0 +1,538 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.exam-generic-joint-zn.v1
+specialize
+	openEHR-EHR-CLUSTER.exam-generic-joint.v1
+
+concept
+	[at0000.1.1.1]	-- Examination of a named joint
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"23/04/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"A generic cluster for recording findings on physical examination of a joint.
+
+.">
+			use = <"">
+			keywords = <"examination", "physical", "joint">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Generični klaster za beleženje opazovanj na sklepih.
+
+">
+			use = <"">
+			keywords = <"sklepi", "ocena sklepov", "ocena ", "opazovanje">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, UK", "Biljana Prinčič, Marand d.o.o., Slovenia", "Uroš Rajkovič, Faculty of Organizational Sciences, University of Maribor, Slovenia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"92F6429FB1A6E330CEEFDD604CD3E9E6">
+	>
+
+definition
+	CLUSTER[at0000.1.1.1] matches {	-- Examination of a named joint
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0.9.1] matches {	-- Joint
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.0.0.5, 	-- Shoulder
+							at0.0.0.7, 	-- Elbow
+							at0.0.0.22, 	-- Wrist
+							at0.0.0.10, 	-- Hand / fingers
+							at0.0.0.24, 	-- Hip
+							at0.0.0.21, 	-- Knee
+							at0.0.0.13, 	-- Ankle
+							at0.0.0.15, 	-- Foot / toes
+							at0.0.0.3, 	-- Jaw
+							at0.0.0.17, 	-- Cervical spine
+							at0.0.0.18, 	-- Thoracic spine
+							at0.0.0.19, 	-- Lumbar spine
+							at0.0.0.20]	-- Sacro-iliac spine
+						}
+					}
+				}
+			}
+			ELEMENT[at0.0.0.25] occurrences matches {0..1} matches {	-- Side
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.0.0.26, 	-- Left
+							at0.0.0.27, 	-- Right
+							at0.0.0.28]	-- Bilateral
+						}
+					}
+				}
+			}
+			ELEMENT[at0.0.0.29] occurrences matches {0..1} matches {	-- Aspect
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.0.0.30, 	-- Anterior
+							at0.0.0.31]	-- Posterior
+						}
+					}
+				}
+			}
+			CLUSTER[at0004] occurrences matches {0..1} matches {	-- Normal statements
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0005] occurrences matches {0..*} matches {	-- Normal statement
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Clinical description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0008.0.1] occurrences matches {0..1} matches {	-- Joint findings
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0.0.2] occurrences matches {0..*} matches {	-- Joint detail
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.inspection-joint(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.inspection(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.move-joint(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.move(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.palpation-joint(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0.11] occurrences matches {0..1} matches {	-- Size
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0009] occurrences matches {0..*} matches {	-- Detail
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.exam-generic(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.inspection(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.palpation(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.percussion(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..*} matches {	-- Image
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							426, 
+							427, 
+							429]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.0.0.10"] = <
+					text = <"Hand / fingers">
+					description = <"Hand (including finger joints)">
+				>
+				["at0.0.0.11"] = <
+					text = <"Right hand (including finger joints)">
+					description = <"Right hand (including finger joints)">
+				>
+				["at0.0.0.12"] = <
+					text = <"Right knee">
+					description = <"Right knee">
+				>
+				["at0.0.0.13"] = <
+					text = <"Ankle">
+					description = <"Ankle joint.">
+				>
+				["at0.0.0.14"] = <
+					text = <"Right ankle">
+					description = <"Right ankle">
+				>
+				["at0.0.0.15"] = <
+					text = <"Foot / toes">
+					description = <"Foot (including toe joints)">
+				>
+				["at0.0.0.16"] = <
+					text = <"Right foot (including toe joints)">
+					description = <"Right foot (including toe joints)">
+				>
+				["at0.0.0.17"] = <
+					text = <"Cervical spine">
+					description = <"Neck / Cervical vertebrae joints">
+				>
+				["at0.0.0.18"] = <
+					text = <"Thoracic spine">
+					description = <"Mid-back / Thoracic vertebrae joints">
+				>
+				["at0.0.0.19"] = <
+					text = <"Lumbar spine">
+					description = <"Lower-back / Lumbar vertebrae joints">
+				>
+				["at0.0.0.20"] = <
+					text = <"Sacro-iliac spine">
+					description = <"Sacral vertebrae joints">
+				>
+				["at0.0.0.21"] = <
+					text = <"Knee">
+					description = <"Knee joint.">
+				>
+				["at0.0.0.22"] = <
+					text = <"Wrist">
+					description = <"Wrist joint.">
+				>
+				["at0.0.0.23"] = <
+					text = <"Right hip">
+					description = <"Right hip">
+				>
+				["at0.0.0.24"] = <
+					text = <"Hip">
+					description = <"Hip joint.">
+				>
+				["at0.0.0.25"] = <
+					text = <"Side">
+					description = <"Laterality of the joint.">
+				>
+				["at0.0.0.26"] = <
+					text = <"Left">
+					description = <"*">
+				>
+				["at0.0.0.27"] = <
+					text = <"Right">
+					description = <"*">
+				>
+				["at0.0.0.28"] = <
+					text = <"Bilateral">
+					description = <"*">
+				>
+				["at0.0.0.29"] = <
+					text = <"Aspect">
+					description = <"Anterior or posterior aspect of the joint.">
+				>
+				["at0.0.0.3"] = <
+					text = <"Jaw">
+					description = <"Mandibular joint">
+				>
+				["at0.0.0.30"] = <
+					text = <"Anterior">
+					description = <"Anterior aspect of the joint.">
+				>
+				["at0.0.0.31"] = <
+					text = <"Posterior">
+					description = <"Posterior aspect of the joint.">
+				>
+				["at0.0.0.4"] = <
+					text = <"Right mandibular joint">
+					description = <"Right mandibular joint">
+				>
+				["at0.0.0.5"] = <
+					text = <"Shoulder">
+					description = <"Shoulder joint.">
+				>
+				["at0.0.0.6"] = <
+					text = <"Right shoulder">
+					description = <"Right shoulder">
+				>
+				["at0.0.0.7"] = <
+					text = <"Elbow">
+					description = <"Elbow joint.">
+				>
+				["at0.0.0.8"] = <
+					text = <"Right elbow">
+					description = <"Right elbow">
+				>
+				["at0.0.0.9"] = <
+					text = <"Right wrist">
+					description = <"Right wrist">
+				>
+				["at0.0.2"] = <
+					text = <"Joint detail">
+					description = <"Detail relating to the joint.">
+				>
+				["at0.11"] = <
+					text = <"Size">
+					description = <"Information about the size of the object for examination.">
+				>
+				["at0.9"] = <
+					text = <"Object">
+					description = <"The object of examination.">
+				>
+				["at0.9.1"] = <
+					text = <"Joint">
+					description = <"The joint examined.">
+				>
+				["at0000"] = <
+					text = <"Examination">
+					description = <"Generic examination cluster for describing a finding on physical examination.">
+				>
+				["at0000.1"] = <
+					text = <"Examination of a named body part">
+					description = <"Generic examination cluster for describing a finding on physical examination.">
+				>
+				["at0000.1.1"] = <
+					text = <"Examination of a named joint">
+					description = <"For describing a finding on physical examination of a named joint.">
+				>
+				["at0000.1.1.1"] = <
+					text = <"Examination of a named joint">
+					description = <"For describing a finding on physical examination of a named joint according to ZN documentation.">
+				>
+				["at0002"] = <
+					text = <"Clinical description">
+					description = <"Textural description of the part examined.">
+				>
+				["at0004"] = <
+					text = <"Normal statements">
+					description = <"A group of statements about the normality of the examination.">
+				>
+				["at0005"] = <
+					text = <"Normal statement">
+					description = <"A specific statement of normality.">
+				>
+				["at0006"] = <
+					text = <"Image">
+					description = <"Drawing or image of the area examined.">
+				>
+				["at0008"] = <
+					text = <"Findings">
+					description = <"Clinical findings.">
+				>
+				["at0008.0.1"] = <
+					text = <"Joint findings">
+					description = <"Clinical findings for a single joint.">
+				>
+				["at0009"] = <
+					text = <"Detail">
+					description = <"More focused examination findings.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.0.0.10"] = <
+					text = <"Dlan vključno s prsti">
+					description = <"Dlan vključno s prsti">
+				>
+				["at0.0.0.11"] = <
+					text = <"Desna dlan vključno s prsti">
+					description = <"Desna dlan vključno s prsti">
+				>
+				["at0.0.0.12"] = <
+					text = <"Desno koleno">
+					description = <"Desno koleno">
+				>
+				["at0.0.0.13"] = <
+					text = <"Gleženj">
+					description = <"Gleženj.">
+				>
+				["at0.0.0.14"] = <
+					text = <"Desni gleženj">
+					description = <"Desni gleženj">
+				>
+				["at0.0.0.15"] = <
+					text = <"Stopalo (vključno s prsti)">
+					description = <"Stopalo (vključno s prsti)">
+				>
+				["at0.0.0.16"] = <
+					text = <"Desno stopalo (vključno s prsti)">
+					description = <"Desno stopalo (vključno s prsti)">
+				>
+				["at0.0.0.17"] = <
+					text = <"Vrat / Vratna vretenca">
+					description = <"Vrat / Vratna vretenca">
+				>
+				["at0.0.0.18"] = <
+					text = <"Srednji del hrbtenice /  Torakalni predel hrbtenice">
+					description = <"Srednji del hrbtenice /  Torakalni predel hrbtenice">
+				>
+				["at0.0.0.19"] = <
+					text = <"Spodnji del hrbtenice / Lumbalni predel hrbtenice(en)">
+					description = <"Spodnji del hrbtenice / Lumbalni predel hrbtenice(en)">
+				>
+				["at0.0.0.20"] = <
+					text = <"Križnica / Sakralni predel hrbtenice">
+					description = <"Križnica / Sakralni predel hrbtenice">
+				>
+				["at0.0.0.21"] = <
+					text = <"Koleno">
+					description = <"Koleno.">
+				>
+				["at0.0.0.22"] = <
+					text = <"Zapestje">
+					description = <"Zapestje.">
+				>
+				["at0.0.0.23"] = <
+					text = <"Desni kolk">
+					description = <"Desni kolk">
+				>
+				["at0.0.0.24"] = <
+					text = <"Kolk">
+					description = <"Kolk.">
+				>
+				["at0.0.0.25"] = <
+					text = <"Stran">
+					description = <"**(en)">
+				>
+				["at0.0.0.26"] = <
+					text = <"Levo">
+					description = <"**(en)">
+				>
+				["at0.0.0.27"] = <
+					text = <"Desno">
+					description = <"**(en)">
+				>
+				["at0.0.0.28"] = <
+					text = <"Obe strani">
+					description = <"**(en)">
+				>
+				["at0.0.0.29"] = <
+					text = <"Pogled">
+					description = <"**(en)">
+				>
+				["at0.0.0.3"] = <
+					text = <"Čeljustni sklep">
+					description = <"čeljustni sklep.">
+				>
+				["at0.0.0.30"] = <
+					text = <"Spredaj">
+					description = <"**(en)">
+				>
+				["at0.0.0.31"] = <
+					text = <"Zadaj">
+					description = <"**(en)">
+				>
+				["at0.0.0.4"] = <
+					text = <"Desni čeljustni sklep">
+					description = <"Desni čeljustni sklep">
+				>
+				["at0.0.0.5"] = <
+					text = <"Rama">
+					description = <"Rama.">
+				>
+				["at0.0.0.6"] = <
+					text = <"Desna rama">
+					description = <"Desna rama">
+				>
+				["at0.0.0.7"] = <
+					text = <"Komolec">
+					description = <"Komolec">
+				>
+				["at0.0.0.8"] = <
+					text = <"Desni komolec">
+					description = <"Desni komolec">
+				>
+				["at0.0.0.9"] = <
+					text = <"Desno zapestje">
+					description = <"Desno zapestje">
+				>
+				["at0.0.2"] = <
+					text = <"Detajli o sklepu">
+					description = <"Detajli o sklepu">
+				>
+				["at0.11"] = <
+					text = <"Velikost">
+					description = <"Velikost objekta opazovanja">
+				>
+				["at0.9"] = <
+					text = <"Objekt opazovanja">
+					description = <"Objekt opazovanja">
+				>
+				["at0.9.1"] = <
+					text = <"Sklep">
+					description = <"Sklep, ki se opazuje">
+				>
+				["at0000"] = <
+					text = <"Opazovanje">
+					description = <"Opazovanje">
+				>
+				["at0000.1"] = <
+					text = <"Opazovanje imenovanega dela telesa">
+					description = <"Opazovanje imenovanega dela telesa">
+				>
+				["at0000.1.1"] = <
+					text = <"Opazovanje imenovanega sklepa">
+					description = <"Opazovanje imenovanega sklepa">
+				>
+				["at0000.1.1.1"] = <
+					text = <"Opazovanje imenovanega sklepa">
+					description = <"Opazovanje imenovanega sklepa">
+				>
+				["at0002"] = <
+					text = <"Klinični opis">
+					description = <"Klinični opis">
+				>
+				["at0004"] = <
+					text = <"Opis opazovanja">
+					description = <"Opis opazovanja">
+				>
+				["at0005"] = <
+					text = <"Opis">
+					description = <"Opis">
+				>
+				["at0006"] = <
+					text = <"Slika">
+					description = <"Slika">
+				>
+				["at0008"] = <
+					text = <"Ugotovitve">
+					description = <"Ugotovitve">
+				>
+				["at0008.0.1"] = <
+					text = <"Ugotovitve za posamezni sklep">
+					description = <"Ugotovitve za posamezni sklep">
+				>
+				["at0009"] = <
+					text = <"Podrobnosti">
+					description = <"Podrobnosti">
+				>
+			>
+		>
+	>

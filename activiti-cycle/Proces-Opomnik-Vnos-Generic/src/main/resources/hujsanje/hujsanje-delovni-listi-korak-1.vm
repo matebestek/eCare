@@ -1,0 +1,434 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<h3><a href="#">Vprašalnik - Pot k spremembi</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Zakaj želite zmanjšati svojo telesno težo?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!pot!k!spremembi.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Kakšne cilje ste si postavili? Kakšno težo/videz želite doseči?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!pot!k!spremembi.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Kaj (kdo) menite, da vam bo v času hujšanja v oporo in kaj vas lahko ovira?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!pot!k!spremembi.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0007]?value" value="" type="text" class="">
+				</td>
+			</tr>				
+			<tr>
+				<td>
+					<p>Kako dolgo že doživljate težave s telesno težo? Kakšna je bila vaša teža v otroštvu?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!pot!k!spremembi.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0008]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kakšne so vaše dosedanje izkušnje s hujšanjem (na kakšen način ste hujšali, kolikokrat, s kakšnim uspehom)?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!pot!k!spremembi.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0009]?value" value="" type="text" class="">
+				</td>
+			</tr>
+		</table>	
+	
+	</div>
+	
+	
+	<h3><a href="#">Raven telesne dejavnosti</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Trditev, ki najbolje opisuje vaš odnos do telesne dejavnosti.</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!raven!td.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?value" class="activiti-size-short">
+						<option value="at0007">Trenutno nisem posebno telesno dejaven in tudi ne nameravam postati bolj telesno dejaven v naslednjih dveh mesecih/ trenutno nimam dovolj časa.</option>
+						<option value="at0008">Trenutno nisem najbolj telesno dejaven, vendar nameravam v naslednjih dveh mesecih svojo telesno dejav- nost povečati.</option>
+						<option value="at0009">Količina moje telesne dejavnosti se spreminja: včasih sem aktiven, včasih pa ne.</option>
+						<option value="at0010">Trenutno sem telesno dejaven večino dni v tednu, vendar to traja šele zadnja dva meseca.</option>
+						<option value="at0011">Večino dni v tednu sem telesno dejaven in to traja že več kot dva meseca.</option>
+						<option value="at0012">Pred letom sem bil telesno dejaven večino dni v tednu, v zadnjih dveh mesecih pa se je moja telesna dejavnost zmanjšala.</option>
+					</select>
+				</td>
+			</tr>					
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Vprašalnik - kontraindikacija</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Ali vam je zdravnik kdaj rekel, da imate bolno srce ali sladkorno bolezen?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0007]?value" value="" type="text" class="">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Ali so vam kdaj namerili previsok krvni tlak?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0011]?value" value="" type="text" class="">
+				</td>
+			</tr>				
+			<tr>
+				<td>
+					<p>Ali jemljete kakšna zdravila (npr. za krvni tlak, srce)?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0013]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Vas kdaj boli v prsih?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0014]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali se vam kdaj vrti, imate omedlevico, izgube zavesti?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0017]?value" value="" type="text" class="">
+				</td>
+			</tr>				
+			<tr>
+				<td>
+					<p>Ali ste imeli v zadnjem letu kakšno resno obolenje ali bili hospitalizirani?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0021]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Imate težave s sklepi ali kostmi, ki jih telesna dejavnost poslabša</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0024]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Imate sedaj ali ste pred kratkim imeli virusno obolenje, prehlad?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0023]?value" value="" type="text" class="">
+				</td>
+			</tr>				
+			<tr>
+				<td>
+					<p>Imate astmo, bronhitis, težko sapo pri hoji po ravnem?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0022]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali menite, da obstaja kakšen razlog, da ste za telesno dejavnost manj sposobni (npr. bolečina v hrbtu, nosečnost ali poporodno stanje) ali da potrebujete zdravniški nadzor?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!kontraindikacije!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0020]?value" value="" type="text" class="">
+				</td>
+			</tr>		
+			
+		</table>
+	
+	</div>
+	
+	<h3><a href="#">Vprašalnik - znanje</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Ali se strinjate, da redno gibanje koristi vašemu zdravju?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0007]?value" class="activiti-size-short">
+						<option value="at0022">Da</option>
+						<option value="at0023">Ne</option>
+						<option value="at0024">Ne vem</option>
+					</select>
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Ali poznate razliko med izrazoma telesna dejavnost in telesna vadba?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0008]?value" class="activiti-size-short">
+						<option value="at0025">Da</option>
+						<option value="at0026">Ne</option>
+						<option value="at0027">Ne vem</option>
+					</select>
+				</td>
+			</tr>				
+			<tr>
+				<td>
+					<p>Ali poznate pomen izraza »aktiven življenjski slog«?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0009]?value" class="activiti-size-short">
+						<option value="at0028">Da</option>
+						<option value="at0029">Ne</option>
+						<option value="at0030">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali je pol ure zmerno hitrega gibanja vsaj 5-krat tedensko dovolj za krepitev zdravja?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0011]?value" class="activiti-size-short">
+						<option value="at0031">Da</option>
+						<option value="at0032">Ne</option>
+						<option value="at0033">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali zmerna telesna dejavnost pomeni takšen telesni napor, pri katerem se ogrejemo in začnemo nekoliko pospešeno dihati?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0012]?value" class="activiti-size-short">
+						<option value="at0034">Da</option>
+						<option value="at0035">Ne</option>
+						<option value="at0036">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali intenzivna telesna dejavnost pomeni takšen telesni napor, pri katerem se zadihamo in spotimo?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0020]?value" class="activiti-size-short">
+						<option value="at0037">Da</option>
+						<option value="at0038">Ne</option>
+						<option value="at0039">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali se moramo pred bolj intenzivno telesno dejavnostjo vedno postopno ogreti in po njej ohladiti?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0021]?value" class="activiti-size-short">
+						<option value="at0040">Da</option>
+						<option value="at0041">Ne</option>
+						<option value="at0042">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali s preizkusom hoje na 2 kilometra ocenjujemo telesno zmogljivost posameznika?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0017]?value" class="activiti-size-short">
+						<option value="at0043">Da</option>
+						<option value="at0044">Ne</option>
+						<option value="at0045">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali veste kakšno gibanje je primerno za vas glede pogostosti, intenzivnosti, trajanja in tipa (vrste) telesne dejavnosti ali telesne vadbe?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0019]?value" class="activiti-size-short">
+						<option value="at0046">Da</option>
+						<option value="at0047">Ne</option>
+						<option value="at0048">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali uravnoteženo vadbo sestavlja: 50% vaj za vzdržljivost, 25% vaj za moč in 25% vaj za gibljivost?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0018]?value" class="activiti-size-short">
+						<option value="at0049">Da</option>
+						<option value="at0050">Ne</option>
+						<option value="at0051">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali redna aerobna vadba varuje srce, ožilje in dihala pred mnogimi obolenji, če jo izvajamo v ustreznem ciljnem območju srčnega utripa?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0016]?value" class="activiti-size-short">
+						<option value="at0052">Da</option>
+						<option value="at0053">Ne</option>
+						<option value="at0054">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali krepimo mišice in kosti, če izvajamo vaje za krepitev mišic 2 do 3-krat tedensko od 20 do 30 minut?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0014]?value" class="activiti-size-short">
+						<option value="at0055">Da</option>
+						<option value="at0056">Ne</option>
+						<option value="at0057">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali veste, kdaj moramo izvajati vaje za raztezanje mišic, s katerimi ohranjamo in izboljšujemo gibljivost mišic in sklepov?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0015]?value" class="activiti-size-short">
+						<option value="at0058">Da</option>
+						<option value="at0059">Ne</option>
+						<option value="at0060">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali poznate previdnostne ukrepe za varno telesno vadbo?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0013]?value" class="activiti-size-short">
+						<option value="at0061">Da</option>
+						<option value="at0062">Ne</option>
+						<option value="at0063">Ne vem</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Ali veste kateri so znaki pretirane vadbe?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!znanje!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0010]?value" class="activiti-size-short">
+						<option value="at0064">Da</option>
+						<option value="at0065">Ne</option>
+						<option value="at0066">Ne vem</option>
+					</select>
+				</td>
+			</tr>			
+
+			
+		</table>
+	
+	</div>
+	
+	<h3><a href="#">Pogodba s seboj</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:100%;">&nbsp;</td></tr>
+			<tr>
+				<td>
+					Pogodba s seboj nam lahko predstavlja enega od virov motivacije za zmanjševanje telesne mase – spreminjanje življenjskega sloga. Če se nečemu zavežemo, smo bolj motivirani in vztrajni tudi v trenutkih šibkosti, še posebej, če smo to obljubili pred neko drugo osebo, ki nas na naši poti podpira.
+					Naj podpis Pogodbe s seboj simbolno predstavlja vašo resno odločitev, da želite spremeniti vaš življenjski slog v bolj zdravega, čeprav sprememba ne bo zelo hitra in enostavna. 
+				</td>
+			</tr>
+			<tr><td style="width:100%;">&nbsp;</td></tr>
+			<tr>
+				<td>
+					Razmislek o pogodbi, odločitev za podpis in iskanje osebe, ki vas bo na vaši poti spreminjanja življenjskega sloga podpirala (in se bo k temu zavezala s podpisom), je del domače naloge do naslednjega tedna. 
+				</td>
+			</tr>
+			<tr><td style="width:100%;">&nbsp;</td></tr>
+			<tr>				
+				<td>
+					 Pogodbo lahko odprite s klikom na spodnjo povezavo, jo natisnete in podpišete. 
+				</td>				
+			</tr>			
+			
+		</table>
+	
+	</div>	
+	
+
+</div>
+
+	<table>
+		<tr><td style="width:220px;">&nbsp;</td></tr>
+		<tr><td>
+			<a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_1/POGODBA%20S%20SEBOJ.pdf">Natisnite pogodbo s seboj</a>
+		</td></tr>
+	</table>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

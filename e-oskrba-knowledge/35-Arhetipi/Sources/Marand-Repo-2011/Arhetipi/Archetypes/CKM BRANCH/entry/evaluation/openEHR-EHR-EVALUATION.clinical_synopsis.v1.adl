@@ -1,0 +1,130 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.clinical_synopsis.v1
+
+concept
+	[at0000]	-- Povzetek kliničnega opazovanja
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana. princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics, Australia">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"9/01/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To manually synthesise and record a narrative summary about a patient, from the perspective of a healthcare provider.">
+			use = <"Use to record a narrative, summary view of the patient's health.  This unstructured summary may include identified health issues; health care provided; associated interpretation; patient understanding; and enable communication about some of the softer, more subjective aspects of the patient’s experience and journey. Most commonly this summary is likely to be related to a specific health event such as a specific consultation or hospital admission, but may also be used to summarise the patient's health experience over varying time periods. 
+In practice, Clinical Synopsis is a meta observation that will complement the existing structured clinical record, allowing for expression of subtle, subjective or interpretive information about the patient that might not otherwise be obvious through structured data alone, providing balance and context to the EHR record.  
+For example, a Clinical Synopsis can communicate a succinct summary of the patient's hospital admission as one component of a comprehensive and structured Discharge Summary document.">
+			keywords = <"summary", "conclusion", "outline", "precis", "abstract", "assessment", "synopsis", "epicrisis", "comment", "note">
+			misuse = <"Not to be used to record specific and structured health information. For example, detailed information about Problems, Diagnoses, and Test Results should be recorded using the specific relevant archetypes EVALUATION.problem, EVALUATION.problem-diagnosis, and laboratory or radiology results in OBSERVATIONs. The Clinical Synopsis may convey some critical and selected numerical results from these structured details when judged important for completeness of the Synopsis but is NOT the primary recording site for them.
+The term “Clinical Synopsis” can sometimes refer to complex and comprehensive documents, such as a Discharge Summary or a Report. In openEHR these documents should be represented as aggregations of constrained archetypes, that is, a Discharge Summary template or a Report template, comprising a number of separate archetypes, of which this Clinical Synopsis archetype may be one.">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za opis kliničnih povzetkov">
+			use = <"">
+			keywords = <"povzetek", "zaključek", "opis">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"Koray Atalag, University of Auckland, New Zealand", "Marco Borges, P2D, Brazil", "Rong Chen, Cambio Healthcare Systems, Sweden", "Stephen Chu, NeHTA, Australia", "Tamsin Cockayne, Australia", "Paul Donaldson, Nursing Informatics Australia, Australia", "Shahla Foozonkhah, Ocean Informatics, Australia", "Sam Heard, Ocean Informatics, Australia", "Evelyn Hovenga, EJSH Consulting, Australia", "Eugene Igras, IRIS Systems, Inc., Canada", "Shinji Kobayashi, Ehime University, Japan", "Robert Legan, NEHTA, Australia", "Heather Leslie, Ocean Informatics, Australia", "Rikard Lovstrom, Swedish Medical Association, Sweden", "Rohan Martin, Ambulance Victoria, Australia", "Ian McNicoll, Ocean Informatics, United Kingdom", "Jeroen Meintjens, Medisch Centrum Alkmaar, Netherlands", "Arturo Romero, SESCAM, Spain">
+	other_details = <
+		["references"] = <"Clinical Synopsis (Data Specifications) Version 1.0 [Internet]. Sydney, Australia: National E-Health Transition Authority; 2007 Jun 29 [cited 2009 Oct 12]; Available at http://www.nehta.gov.au/DGL/Resources/Downloads/Clinical%20Synopsis%20v1.0.pdf">
+		["MD5-CAM-1.0.1"] = <"3A7D0F618F161E26D5F943F66FF2633D">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Povzetek kliničnega opazovanja
+		data matches {
+			ITEM_TREE[at0001] matches {	-- *List(en)
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Pasivna imunoprofilaksa
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Clinical Synopsis">
+					description = <"Narrative summary or overview about a patient, specifically from the perspective of a healthcare provider, and with or without associated interpretations.">
+				>
+				["at0001"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Synopsis">
+					description = <"The summary, assessment, conclusions or evaluation of the clinical findings.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Povzetek kliničnega opazovanja">
+					description = <"Povzetek kliničnega opazovanja pacienta">
+				>
+				["at0001"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"Pasivna imunoprofilaksa">
+					description = <"Povzetek, zaključek">
+				>
+			>
+		>
+	>

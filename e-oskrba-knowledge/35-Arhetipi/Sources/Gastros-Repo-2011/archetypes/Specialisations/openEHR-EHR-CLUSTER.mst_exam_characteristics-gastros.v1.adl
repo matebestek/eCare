@@ -1,0 +1,775 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_exam_characteristics-gastros.v1
+specialize
+	openEHR-EHR-CLUSTER.mst_exam_characteristics.v1
+
+concept
+	[at0000.1]	-- MST Examination Characteristics | GastrOS
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+		["organisation"] = <"The University of Auckland">
+		["email"] = <"k.atalag@auckland.ac.nz">
+		["date"] = <"01/12/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Define the extent and limits of upper and lower gastrointestinal endoscopy and ERCP.
+
+The characteristics of examination refer to the extent and limit of the examination.  Extent of the examination is defined as the anatomic extent of the examination.  Limit of the examination is defined as any limitation that impedes adequate execution of the procedure.  It is recognized that there is some overlap in the concept of extent and limit.  The intent of this section is to convey in an explicit manner those characteristics of the examination that affect the completeness of the examination,  any limitations that prevent a complete examination and any maneuvers necessary to execute a complete examination.
+
+Extent of the examination is specified by the furthest anatomic site reached or a list of the anatomic sites visualized.  For colonoscopy, if the cecum is reached, then the anatomic site \"cecum\" specifies the extent of examination.  For ERCP, if only the biliary tree is visualized, then it is necessary to specify that the extent of the examination was the biliary tree.
+
+Limit of examination is specified by any restrictions on the examination that are the result of inadequate preparation, anatomic anomalies or barriers. In colonoscopy the quality of bowel cleansing is a major factor for the quality of the procedure, especially when small and flat lesions are sought.  Poor preparation is considered a limit of the examination.  Stenosis of the segment of the gastrointestinal tract that requires intervention to complete an examination is also considered a limit of the examination.  For example, stenosis precludes the passage of the endoscope but dilation permits the instrument to be advanced. This is also the case for ERCP, where part of the endoscopic report should describe the various maneuvers which were performed to obtain cannulation and/or opacification of the ducts.">
+			use = <"It defines the terms describing the extent and limits of the endoscopy by using MST terms and extending its structure.">
+			keywords = <"endoscopy", "colonoscopy", "rectoscopy", "gastroenterology", "MST", "lower gastrointestinal endoscopy", "colon">
+			misuse = <"not appropriate for use other than upper and lower gastrointestinal endoscopy and ERCP.">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Delvaux M. Minimal standard terminology in digestive endoscopy. Endoscopy 2000; 32(2):162-88.">
+		["MD5-CAM-1.0.1"] = <"7F01A4E99C219A942DFFC8B56322B9CD">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {	-- MST Examination Characteristics | GastrOS
+		items cardinality matches {1..*; ordered} matches {
+			CLUSTER[at0005] occurrences matches {0..1} matches {	-- Upper and Lower Gastrointestinal Endoscopy
+				items cardinality matches {3..*; ordered} matches {
+					CLUSTER[at0125] matches {	-- Preparation
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0127] occurrences matches {0..1} matches {	-- Method
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0128] occurrences matches {0..1} matches {	-- Quality
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0129, 	-- Excellent
+											at0130, 	-- Adequate
+											at0131, 	-- Inadequate: examination completed
+											at0132]	-- Inadequate: precluding a complete examination
+										}
+									}
+								}
+							}
+							ELEMENT[at0110] occurrences matches {0..*} matches {	-- Site(s)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0111, 	-- Anus
+											at0112, 	-- Rectum
+											at0113, 	-- Sigmoid
+											at0114, 	-- Descending
+											at0115, 	-- Splenic
+											at0116, 	-- Transverse
+											at0117, 	-- Hepatic
+											at0118, 	-- Ascending
+											at0119, 	-- Cecum
+											at0120, 	-- Ileo-cecal valve
+											at0121, 	-- Stoma
+											at0122, 	-- Whole colon
+											at0123, 	-- Anastomosis
+											at0124, 	-- Rectal Pouch
+											at0184, 	-- Crico-pharyngeus
+											at0185, 	-- Upper third
+											at0186, 	-- Middle third
+											at0187, 	-- Lower third
+											at0188, 	-- Cardia
+											at0189, 	-- Whole esophagus
+											at0190, 	-- Anastomosis
+											at0191, 	-- Cardia
+											at0192, 	-- Fundus
+											at0193, 	-- Body
+											at0194, 	-- Incisura
+											at0195, 	-- Antrum
+											at0196, 	-- Pre-pyloric
+											at0197, 	-- Pylorus
+											at0198, 	-- Whole stomach
+											at0199, 	-- Anastomosis
+											at0200, 	-- Pyloroplasty
+											at0201, 	-- Bulb
+											at0202, 	-- 2nd part of the duodenum
+											at0203, 	-- Area of papilla
+											at0204, 	-- Anastomosis
+											at0205, 	-- Whole examined duodenum
+											at0206, 	-- Afferent jejunal loop
+											at0207, 	-- Efferent jejunal loop
+											at0208, 	-- Jejunal crest
+											at0.222, 	-- Anal canal
+											at0126]	-- Ileum
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0134] matches {	-- Extent of Examination
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT occurrences matches {0..1} /items[at0005]/items[at0125]/items[at0110]	-- /items[Upper and Lower Gastrointestinal Endoscopy]/items[Preparation]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0136] matches {	-- Limitation
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0137] occurrences matches {0..1} matches {	-- Reason
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0138, 	-- Adhesion
+											at0139, 	-- Colonic loop
+											at0140, 	-- Stenosis
+											at0141, 	-- Poor preparation
+											at0142, 	-- Patient Unstable: Specify
+											at0143]	-- Equipment Malfunction: Specify
+										}
+									}
+								}
+							}
+							ELEMENT[at0209] occurrences matches {0..1} matches {	-- Limitation description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0005]/items[at0125]/items[at0110]	-- /items[Upper and Lower Gastrointestinal Endoscopy]/items[Preparation]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0.210] occurrences matches {0..1} matches {	-- Inspection and Rectal Examination
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.211] occurrences matches {0..1} matches {	-- Inspection
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.212, 	-- Normal
+											at0.213, 	-- External hemorrhoid
+											at0.214, 	-- Skin tag
+											at0.215, 	-- Anal fissure
+											at0.216]	-- Other: Specify
+										}
+									}
+								}
+							}
+							ELEMENT[at0.217] occurrences matches {0..1} matches {	-- Inspection description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.218] occurrences matches {0..1} matches {	-- Digital rectam exam
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0144] occurrences matches {0..1} matches {	-- ERCP
+				items cardinality matches {3..*; ordered} matches {
+					CLUSTER[at0146] matches {	-- Access to the Papilla
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0147] occurrences matches {0..1} matches {	-- Access
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0148, 	-- Not reached
+											at0149, 	-- Not found
+											at0150]	-- Unaccessible
+										}
+									}
+								}
+							}
+							ELEMENT[at0151] occurrences matches {0..1} matches {	-- Reason
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0152] matches {	-- Cannulation
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0153] occurrences matches {0..1} matches {	-- Duct
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0154, 	-- Pancreatic
+											at0155, 	-- Biliary
+											at0.219]	-- Both
+										}
+									}
+								}
+							}
+							ELEMENT[at0156] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0157, 	-- Successful: Deep
+											at0158, 	-- Successful: Superficial
+											at0159, 	-- Failed
+											at0160, 	-- Not attempted
+											at0161, 	-- Submucosal Injection
+											at0.220]	-- Premucosal injection
+										}
+									}
+								}
+							}
+							ELEMENT[at0162] occurrences matches {0..1} matches {	-- Method
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0163, 	-- Free cannulation
+											at0164, 	-- Over a guide-wire
+											at0165]	-- After precut
+										}
+									}
+								}
+							}
+							ELEMENT[at0166] occurrences matches {0..1} matches {	-- Device
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0167, 	-- Cannula
+											at0168, 	-- Metal tip cannula
+											at0169, 	-- Papillotome
+											at0170, 	-- Balloon catheter
+											at0171]	-- Manometry catheter
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0172] matches {	-- Opacification
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0174] occurrences matches {0..1} matches {	-- Duct
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0175, 	-- Pancreatic
+											at0176, 	-- Biliary
+											at0.221]	-- Both
+										}
+									}
+								}
+							}
+							ELEMENT[at0177] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0178, 	-- Successful: Complete
+											at0179, 	-- Successful: Partial
+											at0180, 	-- Failed
+											at0181, 	-- Not attempted
+											at0182, 	-- Reflux of contrast medium
+											at0183]	-- Extravasation
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.210"] = <
+					text = <"Inspection and Rectal Examination">
+					description = <"*">
+				>
+				["at0.211"] = <
+					text = <"Inspection">
+					description = <"*">
+				>
+				["at0.212"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.213"] = <
+					text = <"External hemorrhoid">
+					description = <"*">
+				>
+				["at0.214"] = <
+					text = <"Skin tag">
+					description = <"*">
+				>
+				["at0.215"] = <
+					text = <"Anal fissure">
+					description = <"*">
+				>
+				["at0.216"] = <
+					text = <"Other: Specify">
+					description = <"*">
+				>
+				["at0.217"] = <
+					text = <"Inspection description">
+					description = <"*">
+				>
+				["at0.218"] = <
+					text = <"Digital rectam exam">
+					description = <"Specify">
+				>
+				["at0.219"] = <
+					text = <"Both">
+					description = <"*">
+				>
+				["at0.220"] = <
+					text = <"Premucosal injection">
+					description = <"*">
+				>
+				["at0.221"] = <
+					text = <"Both">
+					description = <"*">
+				>
+				["at0.222"] = <
+					text = <"Anal canal">
+					description = <"1120;Site: Colon">
+				>
+				["at0000"] = <
+					text = <"MST Examination Characteristics">
+					description = <"It defines the extent and limits of gastrointestinal endoscopy as described by the Minimal Standard Terminology for Gastrointestinal Endoscopy version 2 (MST-2). This is the official terminology endorsed by the World Endoscopy Society (OMED).">
+				>
+				["at0000.1"] = <
+					text = <"MST Examination Characteristics | GastrOS">
+					description = <"It defines the extent and limits of gastrointestinal endoscopy as described by the Minimal Standard Terminology for Gastrointestinal Endoscopy version 2 (MST-2). This is the official terminology endorsed by the World Endoscopy Society (OMED). This is GastrOS Specialisation">
+				>
+				["at0005"] = <
+					text = <"Upper and Lower Gastrointestinal Endoscopy">
+					description = <"HEADING">
+				>
+				["at0110"] = <
+					text = <"Site(s)">
+					description = <"Sites for Colon and EGD Organs">
+				>
+				["at0111"] = <
+					text = <"Anus">
+					description = <"1110;Site: Colon">
+				>
+				["at0112"] = <
+					text = <"Rectum">
+					description = <"1130;Site: Colon">
+				>
+				["at0113"] = <
+					text = <"Sigmoid">
+					description = <"1140;Site: Colon">
+				>
+				["at0114"] = <
+					text = <"Descending">
+					description = <"1150;Site: Colon">
+				>
+				["at0115"] = <
+					text = <"Splenic">
+					description = <"1160;Site: Colon">
+				>
+				["at0116"] = <
+					text = <"Transverse">
+					description = <"1170;Site: Colon">
+				>
+				["at0117"] = <
+					text = <"Hepatic">
+					description = <"1180;Site: Colon">
+				>
+				["at0118"] = <
+					text = <"Ascending">
+					description = <"1190;Site: Colon">
+				>
+				["at0119"] = <
+					text = <"Cecum">
+					description = <"1200;Site: Colon">
+				>
+				["at0120"] = <
+					text = <"Ileo-cecal valve">
+					description = <"1210;Site: Colon">
+				>
+				["at0121"] = <
+					text = <"Stoma">
+					description = <"1220;Site: Colon">
+				>
+				["at0122"] = <
+					text = <"Whole colon">
+					description = <"1230;Site: Colon">
+				>
+				["at0123"] = <
+					text = <"Anastomosis">
+					description = <"1240;Site: Colon">
+				>
+				["at0124"] = <
+					text = <"Rectal Pouch">
+					description = <"1250;Site: Colon">
+				>
+				["at0125"] = <
+					text = <"Preparation">
+					description = <"*">
+				>
+				["at0126"] = <
+					text = <"Ileum">
+					description = <"1260;Site: Ileum">
+				>
+				["at0127"] = <
+					text = <"Method">
+					description = <"Specify">
+				>
+				["at0128"] = <
+					text = <"Quality">
+					description = <"*">
+				>
+				["at0129"] = <
+					text = <"Excellent">
+					description = <"*">
+				>
+				["at0130"] = <
+					text = <"Adequate">
+					description = <"*">
+				>
+				["at0131"] = <
+					text = <"Inadequate: examination completed">
+					description = <"*">
+				>
+				["at0132"] = <
+					text = <"Inadequate: precluding a complete examination">
+					description = <"*">
+				>
+				["at0134"] = <
+					text = <"Extent of Examination">
+					description = <"*">
+				>
+				["at0136"] = <
+					text = <"Limitation">
+					description = <"*">
+				>
+				["at0137"] = <
+					text = <"Reason">
+					description = <"*">
+				>
+				["at0138"] = <
+					text = <"Adhesion">
+					description = <"*">
+				>
+				["at0139"] = <
+					text = <"Colonic loop">
+					description = <"*">
+				>
+				["at0140"] = <
+					text = <"Stenosis">
+					description = <"*">
+				>
+				["at0141"] = <
+					text = <"Poor preparation">
+					description = <"*">
+				>
+				["at0142"] = <
+					text = <"Patient Unstable: Specify">
+					description = <"*">
+				>
+				["at0143"] = <
+					text = <"Equipment Malfunction: Specify">
+					description = <"*">
+				>
+				["at0144"] = <
+					text = <"ERCP">
+					description = <"*">
+				>
+				["at0146"] = <
+					text = <"Access to the Papilla">
+					description = <"*">
+				>
+				["at0147"] = <
+					text = <"Access">
+					description = <"*">
+				>
+				["at0148"] = <
+					text = <"Not reached">
+					description = <"*">
+				>
+				["at0149"] = <
+					text = <"Not found">
+					description = <"*">
+				>
+				["at0150"] = <
+					text = <"Unaccessible">
+					description = <"*">
+				>
+				["at0151"] = <
+					text = <"Reason">
+					description = <"Specify">
+				>
+				["at0152"] = <
+					text = <"Cannulation">
+					description = <"*">
+				>
+				["at0153"] = <
+					text = <"Duct">
+					description = <"*">
+				>
+				["at0154"] = <
+					text = <"Pancreatic">
+					description = <"*">
+				>
+				["at0155"] = <
+					text = <"Biliary">
+					description = <"*">
+				>
+				["at0156"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0157"] = <
+					text = <"Successful: Deep">
+					description = <"*">
+				>
+				["at0158"] = <
+					text = <"Successful: Superficial">
+					description = <"*">
+				>
+				["at0159"] = <
+					text = <"Failed">
+					description = <"*">
+				>
+				["at0160"] = <
+					text = <"Not attempted">
+					description = <"*">
+				>
+				["at0161"] = <
+					text = <"Submucosal Injection">
+					description = <"*">
+				>
+				["at0162"] = <
+					text = <"Method">
+					description = <"*">
+				>
+				["at0163"] = <
+					text = <"Free cannulation">
+					description = <"*">
+				>
+				["at0164"] = <
+					text = <"Over a guide-wire">
+					description = <"*">
+				>
+				["at0165"] = <
+					text = <"After precut">
+					description = <"*">
+				>
+				["at0166"] = <
+					text = <"Device">
+					description = <"*">
+				>
+				["at0167"] = <
+					text = <"Cannula">
+					description = <"*">
+				>
+				["at0168"] = <
+					text = <"Metal tip cannula">
+					description = <"*">
+				>
+				["at0169"] = <
+					text = <"Papillotome">
+					description = <"*">
+				>
+				["at0170"] = <
+					text = <"Balloon catheter">
+					description = <"*">
+				>
+				["at0171"] = <
+					text = <"Manometry catheter">
+					description = <"*">
+				>
+				["at0172"] = <
+					text = <"Opacification">
+					description = <"*">
+				>
+				["at0174"] = <
+					text = <"Duct">
+					description = <"*">
+				>
+				["at0175"] = <
+					text = <"Pancreatic">
+					description = <"*">
+				>
+				["at0176"] = <
+					text = <"Biliary">
+					description = <"*">
+				>
+				["at0177"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0178"] = <
+					text = <"Successful: Complete">
+					description = <"*">
+				>
+				["at0179"] = <
+					text = <"Successful: Partial">
+					description = <"*">
+				>
+				["at0180"] = <
+					text = <"Failed">
+					description = <"*">
+				>
+				["at0181"] = <
+					text = <"Not attempted">
+					description = <"*">
+				>
+				["at0182"] = <
+					text = <"Reflux of contrast medium">
+					description = <"*">
+				>
+				["at0183"] = <
+					text = <"Extravasation">
+					description = <"*">
+				>
+				["at0184"] = <
+					text = <"Crico-pharyngeus">
+					description = <"2110;Site: Esophagus">
+				>
+				["at0185"] = <
+					text = <"Upper third">
+					description = <"2120;Site: Esophagus">
+				>
+				["at0186"] = <
+					text = <"Middle third">
+					description = <"2130;Site: Esophagus">
+				>
+				["at0187"] = <
+					text = <"Lower third">
+					description = <"2140;Site: Esophagus">
+				>
+				["at0188"] = <
+					text = <"Cardia">
+					description = <"2150;Site: Esophagus">
+				>
+				["at0189"] = <
+					text = <"Whole esophagus">
+					description = <"2160;Site: Esophagus">
+				>
+				["at0190"] = <
+					text = <"Anastomosis">
+					description = <"2170;Site: Esophagus">
+				>
+				["at0191"] = <
+					text = <"Cardia">
+					description = <"3110;Site: Stomach">
+				>
+				["at0192"] = <
+					text = <"Fundus">
+					description = <"3120;Site: Stomach">
+				>
+				["at0193"] = <
+					text = <"Body">
+					description = <"3130;Site: Stomach">
+				>
+				["at0194"] = <
+					text = <"Incisura">
+					description = <"3140;Site: Stomach">
+				>
+				["at0195"] = <
+					text = <"Antrum">
+					description = <"3150;Site: Stomach">
+				>
+				["at0196"] = <
+					text = <"Pre-pyloric">
+					description = <"3160;Site: Stomach">
+				>
+				["at0197"] = <
+					text = <"Pylorus">
+					description = <"3170;Site: Stomach">
+				>
+				["at0198"] = <
+					text = <"Whole stomach">
+					description = <"3180;Site: Stomach">
+				>
+				["at0199"] = <
+					text = <"Anastomosis">
+					description = <"3190;Site: Stomach">
+				>
+				["at0200"] = <
+					text = <"Pyloroplasty">
+					description = <"3200;Site: Stomach">
+				>
+				["at0201"] = <
+					text = <"Bulb">
+					description = <"4110;Site: Duodenum">
+				>
+				["at0202"] = <
+					text = <"2nd part of the duodenum">
+					description = <"4120;Site: Duodenum">
+				>
+				["at0203"] = <
+					text = <"Area of papilla">
+					description = <"4130;Site: Duodenum">
+				>
+				["at0204"] = <
+					text = <"Anastomosis">
+					description = <"4140;Site: Duodenum">
+				>
+				["at0205"] = <
+					text = <"Whole examined duodenum">
+					description = <"4150;Site: Duodenum">
+				>
+				["at0206"] = <
+					text = <"Afferent jejunal loop">
+					description = <"4160;Site: Jejunum">
+				>
+				["at0207"] = <
+					text = <"Efferent jejunal loop">
+					description = <"4170;Site: Jejunum">
+				>
+				["at0208"] = <
+					text = <"Jejunal crest">
+					description = <"4180;Site: Jejunum">
+				>
+				["at0209"] = <
+					text = <"Limitation description">
+					description = <"Specify">
+				>
+			>
+		>
+	>

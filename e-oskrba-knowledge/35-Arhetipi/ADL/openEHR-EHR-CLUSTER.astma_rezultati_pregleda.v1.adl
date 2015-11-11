@@ -1,0 +1,83 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.astma_rezultati_pregleda.v1
+
+concept
+	[at0000]	-- astma rezultati pregleda
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Rezultati pregleda, ki se opravi preden se pacienta vključi v klinično študijo.">
+			use = <"Rezultati pregleda, ki se opravi preden se pacienta vključi v klinično študijo.">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"1F830DAE560FC826DC9D559CE47670D1">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- astma rezultati pregleda
+		items cardinality matches {0..*; unordered} matches {
+			allow_archetype ELEMENT[at0001] occurrences matches {0..*} matches {	-- PEF
+				include
+					archetype_id/value matches {/openEHR-EHR-ELEMENT\.pef\.v1/}
+			}
+			allow_archetype ELEMENT occurrences matches {0..*} matches {
+				include
+					archetype_id/value matches {/openEHR-EHR-ELEMENT\.sample_menstrual_cycle_day(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"astma rezultati pregleda">
+					description = <"Rezultati pregleda, ki se opravi preden se pacienta vključi v klinično študijo.">
+				>
+				["at0001"] = <
+					text = <"PEF">
+					description = <"*">
+				>
+			>
+		>
+	>

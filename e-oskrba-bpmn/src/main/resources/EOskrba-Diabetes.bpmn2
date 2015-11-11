@@ -1,0 +1,124 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+             xs:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_pacientItem" structureRef="String" />
+  <itemDefinition id="_nurseItem" structureRef="String" />
+  <itemDefinition id="_meritevItem" structureRef="Float" />
+
+  <process processType="Private" isExecutable="true" id="eoskrba-diabetes" name="EOskrba-Diabetes.bp" tns:packageName="defaultPackage" >
+
+    <!-- process variables -->
+    <property id="pacient" itemSubjectRef="_pacientItem"/>
+    <property id="nurse" itemSubjectRef="_nurseItem"/>
+    <property id="meritev" itemSubjectRef="_meritevItem"/>
+
+    <!-- nodes -->
+    <startEvent id="_1" name="Start" />
+    <endEvent id="_2" name="End" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <callActivity id="_4" name="Vnos Glukoze Podproces" calledElement="eoskrba-proces-1-vnos-glukoze" tns:independent="false" >
+      <ioSpecification>
+        <dataInput id="_4_pacientInput" name="pacient" />
+        <dataInput id="_4_nurseInput" name="nurse" />
+        <dataOutput id="_4_glukozaOutput" name="glukoza" />
+        <inputSet>
+          <dataInputRefs>_4_pacientInput</dataInputRefs>
+          <dataInputRefs>_4_nurseInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_4_glukozaOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>pacient</sourceRef>
+        <targetRef>_4_pacientInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>nurse</sourceRef>
+        <targetRef>_4_nurseInput</targetRef>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_4_glukozaOutput</sourceRef>
+        <targetRef>meritev</targetRef>
+      </dataOutputAssociation>
+    </callActivity>
+    <scriptTask id="_5" name="Script" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Pacient=" + pacient + " ima vrednost glukoze: " + meritev);</script>
+    </scriptTask>
+
+    <!-- connections -->
+    <sequenceFlow id="_5-_2" sourceRef="_5" targetRef="_2" />
+    <sequenceFlow id="_1-_4" sourceRef="_1" targetRef="_4" />
+    <sequenceFlow id="_4-_5" sourceRef="_4" targetRef="_5" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="eoskrba-diabetes" >
+      <bpmndi:BPMNShape bpmnElement="_1" >
+        <dc:Bounds x="67" y="54" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2" >
+        <dc:Bounds x="765" y="50" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" >
+        <dc:Bounds x="265" y="35" width="160" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" >
+        <dc:Bounds x="597" y="46" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_5-_2" >
+        <di:waypoint x="637" y="70" />
+        <di:waypoint x="789" y="74" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_1-_4" >
+        <di:waypoint x="91" y="78" />
+        <di:waypoint x="345" y="59" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-_5" >
+        <di:waypoint x="345" y="59" />
+        <di:waypoint x="637" y="70" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

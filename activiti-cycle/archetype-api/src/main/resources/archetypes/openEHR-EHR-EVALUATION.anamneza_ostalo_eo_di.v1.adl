@@ -1,0 +1,298 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.anamneza_ostalo_eo_di.v1
+
+concept
+	[at0000]	-- Anamneza ostalo eo di
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Ostali podatki anamneze za eOskrbo - diabetes">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"E7C5D699DBA6EA7549987F1C0EDF7EBF">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Anamneza ostalo eo di
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0041] occurrences matches {0..1} matches {	-- Datum začetka bolezni
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Tip sladkorne bolezni
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0038, 	-- Tip 1
+									at0039]	-- Tip 2
+								}
+							}
+						}
+					}
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Očesno ozadje
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Pregled nog
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Zgodovina bolezni
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0006] occurrences matches {0..1} matches {	-- Uporaba merilnih inštrumentov
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Kako pogosto si oseba sama meri telesno težo?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0023, 	-- Ne meri vrednosti
+											at0024, 	-- 0 - 1 x na mesec
+											at0025, 	-- 2 - 3 x na mesec
+											at0026, 	-- 1 - 3 x na teden
+											at0027, 	-- 4 - 6 x na teden
+											at0028]	-- Vsakodnevno
+										}
+									}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Kako pogosto si oseba sama meri krvni sladkor?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0017, 	-- Ne meri vrednosti
+											at0018, 	-- 0 - 1 x na mesec
+											at0019, 	-- 2 - 3 x na mesec
+											at0020, 	-- 1 - 3 x na teden
+											at0021, 	-- 4 - 6 x na teden
+											at0022]	-- Vsakodnevno
+										}
+									}
+								}
+							}
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- Kako pogosto si oseba sama meri krvni tlak?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0029, 	-- Ne meri vrednosti
+											at0030, 	-- 0 - 1 x na mesec
+											at0031, 	-- 2 - 3 x na mesec
+											at0032, 	-- 1 - 3 x na teden
+											at0033, 	-- 4 - 6 x na teden
+											at0034]	-- Vsakodnevno
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0035] occurrences matches {0..1} matches {	-- Uporaba inzulina
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Uporaba merilca krvnega sladkorja
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Anamneza ostalo eo di">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Očesno ozadje">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Pregled nog">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Zgodovina bolezni">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Uporaba merilnih inštrumentov">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Kako pogosto si oseba sama meri krvni sladkor?">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Kako pogosto si oseba sama meri telesno težo?">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Kako pogosto si oseba sama meri krvni tlak?">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Ne meri vrednosti">
+					description = <"Oseba si ne meri vrednosti">
+				>
+				["at0018"] = <
+					text = <"0 - 1 x na mesec">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"2 - 3 x na mesec">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"1 - 3 x na teden">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"4 - 6 x na teden">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Vsakodnevno">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Ne meri vrednosti">
+					description = <"Oseba si ne meri vrednosti">
+				>
+				["at0024"] = <
+					text = <"0 - 1 x na mesec">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"2 - 3 x na mesec">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"1 - 3 x na teden">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"4 - 6 x na teden">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Vsakodnevno">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Ne meri vrednosti">
+					description = <"Oseba si ne meri vrednosti">
+				>
+				["at0030"] = <
+					text = <"0 - 1 x na mesec">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"2 - 3 x na mesec">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"1 - 3 x na teden">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"4 - 6 x na teden">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Vsakodnevno">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Uporaba inzulina">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Uporaba merilca krvnega sladkorja">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Tip sladkorne bolezni">
+					description = <"Vrsta (tip) sladkorne bolezni.">
+				>
+				["at0038"] = <
+					text = <"Tip 1">
+					description = <"Diabetes 1">
+				>
+				["at0039"] = <
+					text = <"Tip 2">
+					description = <"Diabetes 2">
+				>
+				["at0041"] = <
+					text = <"Datum začetka bolezni">
+					description = <"*">
+				>
+			>
+		>
+	>

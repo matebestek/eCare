@@ -1,0 +1,171 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.frekvenca_srca_eo.v1
+
+concept
+	[at0000]	-- Frekvenca srca eo
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis frekvence srca, predvsem za vrednotenje in načrovanje gibalne/telesne/športne aktivnosti.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2F1155874AD21694336B451D49FA5315">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Frekvenca srca eo
+		items cardinality matches {0..*; unordered} matches {
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Frekvenca srca
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::118]>
+					>
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Čas meritve
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005, 	-- V mirovanju
+							at0006, 	-- Pred vadbo
+							at0007, 	-- Med vadbo
+							at0008]	-- Po vadbi
+						}
+					}
+				}
+			}
+			ELEMENT[at0013] occurrences matches {0..1} matches {	-- Nivo vrednosti
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0014, 	-- Najvišja vrednost (FSmax)
+							at0015, 	-- Povprečna vrednost (FSavg)
+							at0016]	-- Najnižja vrednost (FSmin)
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Položaj merjenca
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- Stoje
+							at0011, 	-- Sede
+							at0012]	-- Leže
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Frekvenca srca eo">
+					description = <"unknown">
+				>
+				["at0003"] = <
+					text = <"Frekvenca srca">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Čas meritve">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"V mirovanju">
+					description = <"V mirovanju">
+				>
+				["at0006"] = <
+					text = <"Pred vadbo">
+					description = <"Pred vadbo">
+				>
+				["at0007"] = <
+					text = <"Med vadbo">
+					description = <"Med vadbo">
+				>
+				["at0008"] = <
+					text = <"Po vadbi">
+					description = <"Po vadbi">
+				>
+				["at0009"] = <
+					text = <"Položaj merjenca">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Stoje">
+					description = <"Stoje">
+				>
+				["at0011"] = <
+					text = <"Sede">
+					description = <"Sede">
+				>
+				["at0012"] = <
+					text = <"Leže">
+					description = <"Leže">
+				>
+				["at0013"] = <
+					text = <"Nivo vrednosti">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Najvišja vrednost (FSmax)">
+					description = <"Najvišja vrednost (FSmax)">
+				>
+				["at0015"] = <
+					text = <"Povprečna vrednost (FSavg)">
+					description = <"Povprečna vrednost (FSavg)">
+				>
+				["at0016"] = <
+					text = <"Najnižja vrednost (FSmin)">
+					description = <"Najnižja vrednost (FSmin)">
+				>
+			>
+		>
+	>

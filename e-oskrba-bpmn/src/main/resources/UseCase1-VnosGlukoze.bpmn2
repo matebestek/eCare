@@ -1,0 +1,297 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+             xs:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_pacientItem" structureRef="String" />
+  <itemDefinition id="_glukozaItem" structureRef="Float" />
+  <itemDefinition id="_nurseItem" structureRef="String" />
+  <itemDefinition id="_casPotekelItem" structureRef="Boolean" />
+
+  <process processType="Private" isExecutable="true" id="eoskrba-proces-1-vnos-glukoze" name="UseCase1-VnosGlukoze.bp" tns:packageName="defaultPackage" >
+
+    <!-- process variables -->
+    <property id="pacient" itemSubjectRef="_pacientItem"/>
+    <property id="glukoza" itemSubjectRef="_glukozaItem"/>
+    <property id="nurse" itemSubjectRef="_nurseItem"/>
+    <property id="casPotekel" itemSubjectRef="_casPotekelItem"/>
+
+    <!-- nodes -->
+    <startEvent id="_1" name="Start" />
+    <endEvent id="_4" name="End" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <userTask id="_7" name="Obvesti medicinsko sestro" >
+      <ioSpecification>
+        <dataInput id="_7_CommentInput" name="Comment" />
+        <dataInput id="_7_SkippableInput" name="Skippable" />
+        <dataInput id="_7_ContentInput" name="Content" />
+        <dataInput id="_7_TaskNameInput" name="TaskName" />
+        <dataInput id="_7_PriorityInput" name="Priority" />
+        <inputSet>
+          <dataInputRefs>_7_CommentInput</dataInputRefs>
+          <dataInputRefs>_7_SkippableInput</dataInputRefs>
+          <dataInputRefs>_7_ContentInput</dataInputRefs>
+          <dataInputRefs>_7_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_7_PriorityInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_7_CommentInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">Èas za vnos je potekel</from>
+          <to xs:type="tFormalExpression">_7_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_7_SkippableInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">true</from>
+          <to xs:type="tFormalExpression">_7_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_7_ContentInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">#{glukoza}</from>
+          <to xs:type="tFormalExpression">_7_ContentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_7_TaskNameInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">Medicinska sestra je obveèena, da je pacient izvedel meritev</from>
+          <to xs:type="tFormalExpression">_7_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_7_PriorityInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">1</from>
+          <to xs:type="tFormalExpression">_7_PriorityInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{nurse}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <inclusiveGateway id="_19" name="Gateway" gatewayDirection="Diverging" />
+    <userTask id="_18" name="Vnos Glukoze" >
+      <ioSpecification>
+        <dataInput id="_18_CommentInput" name="Comment" />
+        <dataInput id="_18_SkippableInput" name="Skippable" />
+        <dataInput id="_18_TaskNameInput" name="TaskName" />
+        <dataInput id="_18_ContentInput" name="Content" />
+        <dataInput id="_18_PriorityInput" name="Priority" />
+        <inputSet>
+          <dataInputRefs>_18_CommentInput</dataInputRefs>
+          <dataInputRefs>_18_SkippableInput</dataInputRefs>
+          <dataInputRefs>_18_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_18_ContentInput</dataInputRefs>
+          <dataInputRefs>_18_PriorityInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_18_CommentInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">komentar1</from>
+          <to xs:type="tFormalExpression">_18_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_18_SkippableInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">false</from>
+          <to xs:type="tFormalExpression">_18_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_18_TaskNameInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">Vnos Glukoze</from>
+          <to xs:type="tFormalExpression">_18_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_18_ContentInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">vsebina je tole1</from>
+          <to xs:type="tFormalExpression">_18_ContentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_18_PriorityInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">1</from>
+          <to xs:type="tFormalExpression">_18_PriorityInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{pacient}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <exclusiveGateway id="_21" name="Gateway" gatewayDirection="Converging" />
+    <userTask id="_20" name="Obestilo o vnosu" >
+      <ioSpecification>
+        <dataInput id="_20_CommentInput" name="Comment" />
+        <dataInput id="_20_SkippableInput" name="Skippable" />
+        <dataInput id="_20_TaskNameInput" name="TaskName" />
+        <dataInput id="_20_PriorityInput" name="Priority" />
+        <inputSet>
+          <dataInputRefs>_20_CommentInput</dataInputRefs>
+          <dataInputRefs>_20_SkippableInput</dataInputRefs>
+          <dataInputRefs>_20_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_20_PriorityInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_20_CommentInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">Èas za vnos ni potekel</from>
+          <to xs:type="tFormalExpression">_20_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_20_SkippableInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">true</from>
+          <to xs:type="tFormalExpression">_20_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_20_TaskNameInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">Èas za vnos ni potekel</from>
+          <to xs:type="tFormalExpression">_20_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_20_PriorityInput</targetRef>
+        <assignment>
+          <from xs:type="tFormalExpression">1</from>
+          <to xs:type="tFormalExpression">_20_PriorityInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{nurse}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+
+    <!-- connections -->
+    <sequenceFlow id="_21-_4" sourceRef="_21" targetRef="_4" />
+    <sequenceFlow id="_19-_7" sourceRef="_19" targetRef="_7" name="Cas za vnos potekel" >
+      <conditionExpression xs:type="tFormalExpression" language="http://www.java.com/java" >return (casPotekel == true);</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_18-_19" sourceRef="_18" targetRef="_19" />
+    <sequenceFlow id="_1-_18" sourceRef="_1" targetRef="_18" />
+    <sequenceFlow id="_20-_21" sourceRef="_20" targetRef="_21" />
+    <sequenceFlow id="_7-_21" sourceRef="_7" targetRef="_21" />
+    <sequenceFlow id="_19-_20" sourceRef="_19" targetRef="_20" name="Cas za vnos ni potekel" >
+      <conditionExpression xs:type="tFormalExpression" language="http://www.java.com/java" >return casPotekel == false;</conditionExpression>
+    </sequenceFlow>
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="eoskrba-proces-1-vnos-glukoze" >
+      <bpmndi:BPMNShape bpmnElement="_1" >
+        <dc:Bounds x="42" y="56" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" >
+        <dc:Bounds x="950" y="120" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7" >
+        <dc:Bounds x="432" y="0" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_19" >
+        <dc:Bounds x="288" y="96" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_18" >
+        <dc:Bounds x="108" y="60" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_21" >
+        <dc:Bounds x="648" y="132" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_20" >
+        <dc:Bounds x="432" y="240" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_21-_4" >
+        <di:waypoint x="672" y="156" />
+        <di:waypoint x="974" y="144" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_19-_7" >
+        <di:waypoint x="312" y="120" />
+        <di:waypoint x="482" y="24" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_18-_19" >
+        <di:waypoint x="158" y="84" />
+        <di:waypoint x="312" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_1-_18" >
+        <di:waypoint x="66" y="80" />
+        <di:waypoint x="158" y="84" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_20-_21" >
+        <di:waypoint x="482" y="264" />
+        <di:waypoint x="672" y="156" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7-_21" >
+        <di:waypoint x="482" y="24" />
+        <di:waypoint x="672" y="156" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_19-_20" >
+        <di:waypoint x="312" y="120" />
+        <di:waypoint x="482" y="264" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

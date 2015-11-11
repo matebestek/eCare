@@ -1,0 +1,203 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.family_history.v1
+
+concept
+	[at0000]	-- Family History
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"15/12/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record information about the problems or diagnoses found in genetic relatives.">
+			use = <"Use to record a summary of information about problems or diagnoses found in genetic relatives.
+
+Additional detail about a genetic relative's problem or diagnosis can be captured using the EVALUATION.problem_diagnosis archetype.">
+			keywords = <"family", "history", "health", "condition", "problem", "diagnosis", "genetic", "pedigree">
+			misuse = <"Not to be used to record information about the risk of developing a condition due to a family history of a condition - use the EVALUATION.risk family of archetypes.">
+			copyright = <"© 2011 NEHTA">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"John Bennett, NEHTA, Australia", "Stephen Chu, NEHTA, Australia (Editor)", "David Evans, Queensland Health, Australia", "Andrew Goodchild, NEHTA, Australia", "Mary Kelaher, NEHTA, Australia", "Robert L'egan, NEHTA, Australia", "Heather Leslie, Ocean Informatics, Australia (Editor)", "Hugh Leslie, Ocean Informatics, Australia", "Ian McNicoll, Ocean Informatics UK, United Kingdom", "Chris Mitchell, RACGP, Australia", "Stewart Morrison, NEHTA, Australia", "Lynne Parsons, Primary and Community Health Services, Australia", "Jodie Pycroft, Adelaide Northern Division of General Practice Ltd, Australia", "Robyn Richards, NEHTA - Clinical Terminology, Australia", "John Taylor, NEHTA, Australia", "Gordon Tomes, Australian Institute of Health and Welfare, Australia", "Donna Truran, ACCTI-UoW, Australia", "Sam Heard, Ocean Informatics, Australia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"6929278A780BD8B9EF19FC53885DEEAC">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Family History
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Summary
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0003] occurrences matches {0..*} matches {	-- Genetic relative
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0020] occurrences matches {0..1} matches {	-- Label
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- Name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0016] occurrences matches {0..1} matches {	-- Relationship
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Age at death
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+							CLUSTER[at0008] occurrences matches {0..*} matches {	-- Medical History
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Problem/Diagnosis
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Age of onset
+										value matches {
+											DV_DURATION matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Cause of death
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							ELEMENT[at0022] occurrences matches {0..1} matches {	-- Genetic marker description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Family History">
+					description = <"Summary information about the problems or diagnoses found in genetic relatives.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Summary">
+					description = <"Textual description about the problems, diagnoses, and genetic markers found in genetic relatives. This field may be used to capture unstructured family history information recorded in clinical records.">
+				>
+				["at0003"] = <
+					text = <"Genetic relative">
+					description = <"Details about a specific genetic relative.">
+				>
+				["at0004"] = <
+					text = <"Name">
+					description = <"Name of family member. For privacy reasons this may not be appropriate for sharing or public display and in this situation the 'label' should be used.">
+				>
+				["at0008"] = <
+					text = <"Medical History">
+					description = <"Detail about problems or diagnoses for this genetic relative.">
+				>
+				["at0009"] = <
+					text = <"Problem/Diagnosis">
+					description = <"Name of genetic relative's problem or diagnosis. Coding of the problem/diagnosis with a terminology is preferred, where possible.">
+				>
+				["at0010"] = <
+					text = <"Age of onset">
+					description = <"Age of onset of the genetic relative's problem/diagnosis.">
+				>
+				["at0011"] = <
+					text = <"Age at death">
+					description = <"Age of the genetic relative at death.">
+				>
+				["at0012"] = <
+					text = <"Description">
+					description = <"Narrative description about the genetic relative's problem or diagnosis.">
+				>
+				["at0014"] = <
+					text = <"Cause of death">
+					description = <"True if the problem/diagnosis was a direct cause of death in this genetic relative.">
+				>
+				["at0016"] = <
+					text = <"Relationship">
+					description = <"The relationship of the genetic relative to the individual. Coding of the relationship with a terminology is preferred, where possible.">
+				>
+				["at0020"] = <
+					text = <"Label">
+					description = <"A label or descriptor to uniquely identify a genetic relative. To be used to assist in distinguishing one individual from multiple genetic relatives with an identical relationship. For example, the label to distinguish one specific sister from three known sisters, without using a name, might be 'eldest sister' or 'sister #1'.">
+				>
+				["at0021"] = <
+					text = <"Comment">
+					description = <"Comment about genetic relative's problem or diagnosis.">
+				>
+				["at0022"] = <
+					text = <"Genetic marker description">
+					description = <"Description of risk-related genetic markers identified in this individual.">
+				>
+			>
+		>
+	>

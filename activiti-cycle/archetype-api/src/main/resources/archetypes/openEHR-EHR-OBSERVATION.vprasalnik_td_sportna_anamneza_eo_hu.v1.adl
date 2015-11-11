@@ -1,0 +1,336 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.vprasalnik_td_sportna_anamneza_eo_hu.v1
+
+concept
+	[at0000]	-- Vprasalnik TD sportna anamneza eo hu
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Športna anamneza posameznika vključenega v program eHujšanja (eOskrba).">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"82F7E209A06C417AA24E1C74490516C8">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Vprasalnik TD sportna anamneza eo hu
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Poklic in delo, ki ga opravljate
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Vaši hobiji
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Vaše športno-rekreativne dejavnosti
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Zdravstveno stanje
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Vas Vaše zdravstveno stanje s čimerkoli omejuje pri gibanju in izvajanju športnih dejavnosti?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0020] occurrences matches {0..1} matches {	-- Ali vam je zdravnik zaradi zdravja svetoval, da se ukvarjate s telesno dejavnostjo?
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0019] occurrences matches {0..1} matches {	-- Če da, katere športno-rekreativne dejavnosti vam je svetoval?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Katere telesne dejavnosti so vam blizu in katere športe obvladate?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- S katerimi športi in telesnimi dejavnostmi ste se doslej ukvarjali?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- Kolikokrat ste vadili na teden/mesec in koliko časa?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- S katerimi oblikami gibanja in športi se trenutno ukvarjate?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Kolikokrat na teden/mesec in koliko časa?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- S katerimi telesnimi dejavnostmi (vključno s hojo) in športi bi se želeli ukvarjati?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {	-- Imate dovolj prostega časa za šport?
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0025] occurrences matches {0..1} matches {	-- Imate dovolj denarja za športne potrebe?
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- Imate ustrezno športno ponudbo v svojem okolju (npr. programe, objekte, opremo)?
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0023] occurrences matches {0..1} matches {	-- Zakaj se ukvarjate s športno-rekreativnimi dejavnostmi?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {	-- Menite, da imate možnosti za vsakodnevno športno-rekreativno razvedrilo (npr. sprehajanje, kolesarjenje, vrtnarjenje)?
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {	-- Vaš odnos do telesne dejavnosti
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0029, 	-- Trenutno nisem posebno telesno dejaven in tudi ne nameravam postati bolj telesno dejaven v naslednjih dveh mesecih/ trenutno nimam dovolj časa.
+															at0030, 	-- Trenutno nisem najbolj telesno dejaven, vendar nameravam v naslednjih dveh mesecih svojo telesno dejavnost povečati.
+															at0031, 	-- Količina moje telesne dejavnosti se spreminja: včasih sem aktiven, včasih pa ne.
+															at0032, 	-- Trenutno sem telesno dejaven večino dni v tednu, vendar to traja šele zadnja dva meseca.
+															at0033, 	-- Večino dni v tednu sem telesno dejaven in to traja že več kot dva meseca.
+															at0034]	-- Pred letom sem bil telesno dejaven večino dni v tednu, v zadnjih dveh mesecih pa se je moja telesna dejavnost zmanjšala.
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Datum
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vprasalnik TD sportna anamneza eo hu">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vprašanja">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Datum">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Poklic in delo, ki ga opravljate">
+					description = <"Poklic in delo, ki ga opravljate">
+				>
+				["at0008"] = <
+					text = <"Vaši hobiji">
+					description = <"Vaši hobiji">
+				>
+				["at0009"] = <
+					text = <"Vaše športno-rekreativne dejavnosti">
+					description = <"Vaše športno-rekreativne dejavnosti">
+				>
+				["at0010"] = <
+					text = <"Zdravstveno stanje">
+					description = <"Zdravstveno stanje">
+				>
+				["at0011"] = <
+					text = <"Kolikokrat na teden/mesec in koliko časa?">
+					description = <"Kolikokrat na teden/mesec in koliko časa?">
+				>
+				["at0012"] = <
+					text = <"S katerimi telesnimi dejavnostmi (vključno s hojo) in športi bi se želeli ukvarjati?">
+					description = <"S katerimi telesnimi dejavnostmi (vključno s hojo) in športi bi se želeli ukvarjati?">
+				>
+				["at0014"] = <
+					text = <"Vas Vaše zdravstveno stanje s čimerkoli omejuje pri gibanju in izvajanju športnih dejavnosti?">
+					description = <"Vas Vaše zdravstveno stanje s čimerkoli omejuje pri gibanju in izvajanju športnih dejavnosti?">
+				>
+				["at0015"] = <
+					text = <"Kolikokrat ste vadili na teden/mesec in koliko časa?">
+					description = <"Kolikokrat ste vadili na teden/mesec in koliko časa?">
+				>
+				["at0016"] = <
+					text = <"S katerimi oblikami gibanja in športi se trenutno ukvarjate?">
+					description = <"S katerimi oblikami gibanja in športi se trenutno ukvarjate?">
+				>
+				["at0017"] = <
+					text = <"S katerimi športi in telesnimi dejavnostmi ste se doslej ukvarjali?">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Katere telesne dejavnosti so vam blizu in katere športe obvladate?">
+					description = <"Katere telesne dejavnosti so vam blizu in katere športe obvladate?">
+				>
+				["at0019"] = <
+					text = <"Če da, katere športno-rekreativne dejavnosti vam je svetoval?">
+					description = <"Če da, katere športno-rekreativne dejavnosti vam je svetoval?">
+				>
+				["at0020"] = <
+					text = <"Ali vam je zdravnik zaradi zdravja svetoval, da se ukvarjate s telesno dejavnostjo?">
+					description = <"Ali vam je zdravnik zaradi zdravja svetoval, da se ukvarjate s telesno dejavnostjo?">
+				>
+				["at0023"] = <
+					text = <"Zakaj se ukvarjate s športno-rekreativnimi dejavnostmi?">
+					description = <"Zakaj se ukvarjate s športno-rekreativnimi dejavnostmi?">
+				>
+				["at0024"] = <
+					text = <"Imate dovolj prostega časa za šport?">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Imate dovolj denarja za športne potrebe?">
+					description = <"Imate dovolj denarja za športne potrebe?">
+				>
+				["at0026"] = <
+					text = <"Imate ustrezno športno ponudbo v svojem okolju (npr. programe, objekte, opremo)?">
+					description = <"Imate ustrezno športno ponudbo v svojem okolju (npr. programe, objekte, opremo)?">
+				>
+				["at0027"] = <
+					text = <"Menite, da imate možnosti za vsakodnevno športno-rekreativno razvedrilo (npr. sprehajanje, kolesarjenje, vrtnarjenje)?">
+					description = <"Menite, da imate možnosti za vsakodnevno športno-rekreativno razvedrilo (npr. sprehajanje, kolesarjenje, vrtnarjenje)?">
+				>
+				["at0028"] = <
+					text = <"Vaš odnos do telesne dejavnosti">
+					description = <"Vaš odnos do telesne dejavnosti">
+				>
+				["at0029"] = <
+					text = <"Trenutno nisem posebno telesno dejaven in tudi ne nameravam postati bolj telesno dejaven v naslednjih dveh mesecih/ trenutno nimam dovolj časa.">
+					description = <"Trenutno nisem posebno telesno dejaven in tudi ne nameravam postati bolj telesno dejaven v naslednjih dveh mesecih/ trenutno nimam dovolj časa.">
+				>
+				["at0030"] = <
+					text = <"Trenutno nisem najbolj telesno dejaven, vendar nameravam v naslednjih dveh mesecih svojo telesno dejavnost povečati.">
+					description = <"Trenutno nisem najbolj telesno dejaven, vendar nameravam v naslednjih dveh mesecih svojo telesno dejavnost povečati.">
+				>
+				["at0031"] = <
+					text = <"Količina moje telesne dejavnosti se spreminja: včasih sem aktiven, včasih pa ne.">
+					description = <"Količina moje telesne dejavnosti se spreminja: včasih sem aktiven, včasih pa ne.">
+				>
+				["at0032"] = <
+					text = <"Trenutno sem telesno dejaven večino dni v tednu, vendar to traja šele zadnja dva meseca.">
+					description = <"Trenutno sem telesno dejaven večino dni v tednu, vendar to traja šele zadnja dva meseca.">
+				>
+				["at0033"] = <
+					text = <"Večino dni v tednu sem telesno dejaven in to traja že več kot dva meseca.">
+					description = <"Večino dni v tednu sem telesno dejaven in to traja že več kot dva meseca.">
+				>
+				["at0034"] = <
+					text = <"Pred letom sem bil telesno dejaven večino dni v tednu, v zadnjih dveh mesecih pa se je moja telesna dejavnost zmanjšala.">
+					description = <"Pred letom sem bil telesno dejaven večino dni v tednu, v zadnjih dveh mesecih pa se je moja telesna dejavnost zmanjšala.">
+				>
+			>
+		>
+	>

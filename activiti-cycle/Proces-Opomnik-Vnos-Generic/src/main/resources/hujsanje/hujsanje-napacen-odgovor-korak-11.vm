@@ -1,0 +1,168 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<p>Žal niste pravilno odgovorili na vsa vprašanja. Prosimo, da še enkrat preberete vsebine, iz katerih so vprašanja ter ponovno odgovorite na vprašanja. Hvala!</p>
+	</br>
+
+	<h2>
+		<a href="#">Vprašalnik - prehrana</a>
+	</h2>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>
+						<b>Kateri so zdravi načini priprave hrane?</b>
+					</p>
+				</td>
+			</tr>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Kuhanje v majhni količini vode, v vodni kopeli, v sopari in v aluminijasti foliji</p>
+				</td>
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0006__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'true')
+							DA
+						#elseif ($path == 'false')						
+							NE
+						#end
+					</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Cvrenje</p>
+				</td>
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0007__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'false')
+							DA
+						#elseif ($path == 'true')						
+							NE
+						#end
+					</td>			
+			</tr>
+			<tr>
+				<td>
+					<p>Kuhanje pod zvišanim pritiskom</p>
+				</td>
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0008__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'true')
+							DA
+						#elseif ($path == 'false')						
+							NE
+						#end
+					</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Dušenje v lastnem soku ter z malo maščob in vode</p>
+				</td>
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0009__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'true')
+							DA
+						#elseif ($path == 'false')						
+							NE
+						#end
+					</td>			
+			</tr>
+			<tr>
+				<td>
+					<p>Kuhanje z veliko soli</p>
+				</td>
+
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0010__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'false')
+							DA
+						#elseif ($path == 'true')						
+							NE
+						#end
+					</td>					
+			</tr>
+			<tr>
+				<td>
+					<p>Pečenje v ponvi, pečici, v foliji za pečenje in v aluminijasti foliji</p>
+				</td>
+
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0011__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'true')
+							DA
+						#elseif ($path == 'false')						
+							NE
+						#end
+					</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Pečenje v pečici na vroči zrak</p>
+				</td>
+
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0012__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'true')
+							DA
+						#elseif ($path == 'false')						
+							NE
+						#end
+					</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Kuhanje z maslom in smetano</p>
+				</td>
+
+					#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_11_v1__data_at0001__items_at0003__items_at0013__value)
+					<td #if ($path == 'true') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == 'false')
+							DA
+						#elseif ($path == 'true')						
+							NE
+						#end
+					</td>					
+			</tr>			
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

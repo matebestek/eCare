@@ -1,0 +1,274 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.hu_koraki_01.v1
+
+concept
+	[at0000]	-- Hu koraki 01
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Gradivo in validacija 1. koraka v programu hujšanja (eOskrba).">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"D97E134FEBAB03C4B0F7C2C2A05CDDD0">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Hu koraki 01
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- questionnaire_wl_01
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0009] occurrences matches {0..1} matches {	-- Vprašanja prehrana
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0017] occurrences matches {0..1} matches {	-- Kakšno je priporočeno število dnevnih obrokov?
+								value matches {
+									0|[local::at0020], 	-- 3 do 5
+									1|[local::at0021], 	-- 1 do 2
+									2|[local::at0022]  	-- 6 ali več
+								}
+							}
+							ELEMENT[at0018] occurrences matches {0..1} matches {	-- Kateri je najpomembnejši obrok v dnevni prehrani?
+								value matches {
+									0|[local::at0025], 	-- Zajtrk
+									1|[local::at0026], 	-- Malica
+									2|[local::at0027]  	-- Večerja
+								}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {	-- Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?
+								value matches {
+									0|[local::at0023], 	-- Predelana in pol pripravljena ter pripravljena živila kot so kruh, mesni izdelki, pite, pice, "konzerve"
+									1|[local::at0024]  	-- Sadje in zelenjava
+								}
+							}
+						}
+					}
+					CLUSTER[at0028] occurrences matches {0..1} matches {	-- Vprašanja gibanje
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Katera trditev drži za dnevnik vodenja telesne dejavnosti?
+								value matches {
+									0|[local::at0043], 	-- Pomaga pri spremljanju porabe energije in vrednotenju napredka
+									1|[local::at0044], 	-- Pomemben je za tekmovanje s prijatelji ali sodelavci
+									2|[local::at0045]  	-- Ni primeren, saj ustvarja prisilo
+								}
+							}
+							ELEMENT[at0030] occurrences matches {0..1} matches {	-- Katera trditev drzi za vaje mimogrede?
+								value matches {
+									0|[local::at0040], 	-- Pomagajo pri preprečevanju bolečin v sklepih in mišicah, ohranjanju prožnosti mišic in gibljivosti sklepov
+									1|[local::at0041], 	-- Z njimi lahko nadomestimo ostalo telesno vadbo
+									2|[local::at0042]  	-- Izvajati jih morajo samo ljudje z bolečinami v hrbtenici
+								}
+							}
+							ELEMENT[at0031] occurrences matches {0..1} matches {	-- Kaj pomeni aktivni življenjski slog?
+								value matches {
+									0|[local::at0037], 	-- Da smo telesno dejavni tudi pri vsakdanjih opravilih
+									1|[local::at0038], 	-- Da se ukvarjamo z različnimi vrstami rekreacije
+									2|[local::at0039]  	-- Da imamo mnogo prostočasnih aktivnosti
+								}
+							}
+							ELEMENT[at0032] occurrences matches {0..1} matches {	-- Katera trditev NE velja za varno in učinkovito vadbo?
+								value matches {
+									0|[local::at0033], 	-- Zadani cilj poskušamo doseči  čim hitreje
+									1|[local::at0034], 	-- Napredujemo postopoma
+									2|[local::at0035], 	-- Izberemo ustrezno vadbo
+									3|[local::at0036]  	-- Upočasnimo telesno dejavnost navkreber
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hu koraki 01">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"questionnaire_wl_01">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Vprašanja prehrana">
+					description = <"Vprašanja za validacijo gradiva o prehrani.">
+				>
+				["at0014"] = <
+					text = <"Komentar">
+					description = <"Komentar">
+				>
+				["at0017"] = <
+					text = <"Kakšno je priporočeno število dnevnih obrokov?">
+					description = <"Kakšno je priporočeno število dnevnih obrokov?">
+				>
+				["at0018"] = <
+					text = <"Kateri je najpomembnejši obrok v dnevni prehrani?">
+					description = <"Kateri je najpomembnejši obrok v dnevni prehrani?">
+				>
+				["at0019"] = <
+					text = <"Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?">
+					description = <"Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?">
+				>
+				["at0020"] = <
+					text = <"3 do 5">
+					description = <"3 do 5">
+				>
+				["at0021"] = <
+					text = <"1 do 2">
+					description = <"1 do 2">
+				>
+				["at0022"] = <
+					text = <"6 ali več">
+					description = <"6 ali več">
+				>
+				["at0023"] = <
+					text = <"Predelana in pol pripravljena ter pripravljena živila kot so kruh, mesni izdelki, pite, pice, \"konzerve\"">
+					description = <"Predelana in pol pripravljena ter pripravljena živila kot so kruh, mesni izdelki, pite, pice, \"konzerve\"">
+				>
+				["at0024"] = <
+					text = <"Sadje in zelenjava">
+					description = <"Sadje in zelenjava">
+				>
+				["at0025"] = <
+					text = <"Zajtrk">
+					description = <"Zajtrk">
+				>
+				["at0026"] = <
+					text = <"Malica">
+					description = <"Malica">
+				>
+				["at0027"] = <
+					text = <"Večerja">
+					description = <"Večerja">
+				>
+				["at0028"] = <
+					text = <"Vprašanja gibanje">
+					description = <"Vprašanja za validacijo gradiva o gibanju.">
+				>
+				["at0029"] = <
+					text = <"Katera trditev drži za dnevnik vodenja telesne dejavnosti?">
+					description = <"Katera tditev drži za dnevnik vodenja telesne dejavnosti?">
+				>
+				["at0030"] = <
+					text = <"Katera trditev drzi za vaje mimogrede?">
+					description = <"Katera trditev drzi za vaje mimogrede?">
+				>
+				["at0031"] = <
+					text = <"Kaj pomeni aktivni življenjski slog?">
+					description = <"Kaj pomeni aktivni življenjski slog?">
+				>
+				["at0032"] = <
+					text = <"Katera trditev NE velja za varno in učinkovito vadbo?">
+					description = <"Katera trditev NE velja za varno in učinkovito vadbo?">
+				>
+				["at0033"] = <
+					text = <"Zadani cilj poskušamo doseči  čim hitreje">
+					description = <"Zadani cilj poskušamo doseči  čim hitreje">
+				>
+				["at0034"] = <
+					text = <"Napredujemo postopoma">
+					description = <"Napredujemo postopoma">
+				>
+				["at0035"] = <
+					text = <"Izberemo ustrezno vadbo">
+					description = <"Izberemo ustrezno vadbo">
+				>
+				["at0036"] = <
+					text = <"Upočasnimo telesno dejavnost navkreber">
+					description = <"Upočasnimo telesno dejavnost navkreber">
+				>
+				["at0037"] = <
+					text = <"Da smo telesno dejavni tudi pri vsakdanjih opravilih">
+					description = <"Da smo telesno dejavni tudi pri vsakdanjih opravilih">
+				>
+				["at0038"] = <
+					text = <"Da se ukvarjamo z različnimi vrstami rekreacije">
+					description = <"Da se ukvarjamo z različnimi vrstami rekreacije">
+				>
+				["at0039"] = <
+					text = <"Da imamo mnogo prostočasnih aktivnosti">
+					description = <"Da imamo mnogo prostočasnih aktivnosti">
+				>
+				["at0040"] = <
+					text = <"Pomagajo pri preprečevanju bolečin v sklepih in mišicah, ohranjanju prožnosti mišic in gibljivosti sklepov">
+					description = <"Pomagajo pri preprečevanju bolečin v sklepih in mišicah, ohranjanju prožnosti mišic in gibljivosti sklepov">
+				>
+				["at0041"] = <
+					text = <"Z njimi lahko nadomestimo ostalo telesno vadbo">
+					description = <"Z njimi lahko nadomestimo ostalo telesno vadbo">
+				>
+				["at0042"] = <
+					text = <"Izvajati jih morajo samo ljudje z bolečinami v hrbtenici">
+					description = <"Izvajati jih morajo samo ljudje z bolečinami v hrbtenici">
+				>
+				["at0043"] = <
+					text = <"Pomaga pri spremljanju porabe energije in vrednotenju napredka">
+					description = <"Pomaga pri spremljanju porabe energije in vrednotenju napredka">
+				>
+				["at0044"] = <
+					text = <"Pomemben je za tekmovanje s prijatelji ali sodelavci">
+					description = <"Pomemben je za tekmovanje s prijatelji ali sodelavci">
+				>
+				["at0045"] = <
+					text = <"Ni primeren, saj ustvarja prisilo">
+					description = <"Ni primeren, saj ustvarja prisilo">
+				>
+			>
+		>
+	>

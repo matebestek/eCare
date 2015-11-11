@@ -1,0 +1,228 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.hu_koraki_05.v1
+
+concept
+	[at0000]	-- Hu koraki 05
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Gradivo in validacija 5. koraka v programu hujšanja (eOskrba).">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"DE4C0ECF43983545103A099E2A8AFC66">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Hu koraki 05
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- questionnaire_wl_05
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0003] occurrences matches {0..1} matches {	-- Vprašanja prehrana
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Katerim maščobnim živilom se moramo izogibati?
+								value matches {
+									0|[local::at0017], 	-- Mastnemu mesu, mesnim izdelkom, sirom, polnomastni skuti, maslu, smetani, jajcem, morskim sadežem
+									1|[local::at0018], 	-- Rastlinskim oljem (oljčno, repično in sončnično olje)
+									2|[local::at0019]  	-- Mastnim morskim ribam (tuna, skuša, losos…)
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- V katerih živilih se nahajajo škodljive trans maščobe?
+								value matches {
+									0|[local::at0014], 	-- Margarinah, piškotih, tortah, sladoledih, zamrznjenemu krompirčku, ocvrti in hitri hrani
+									1|[local::at0015], 	-- Oreških in semenih
+									2|[local::at0016]  	-- Olivnem olju
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Katerim živilom so dodani enostavni sladkorji?
+								value matches {
+									0|[local::at0012], 	-- Bonbonom, čokoladi, sadnim sokovom, marmeladam, džemom, sadnim želejem, v sirupu vloženemu sadju, čokoladnemu mleku, sadnemu jogurtu, pudingu, sladoledu
+									1|[local::at0013]  	-- Kruhu, mleku, navadnemu jogurtu, svežemu sadju 
+								}
+							}
+						}
+					}
+					CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja gibanje
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- Katera trditev NE velja za aerobno vadbo?
+								value matches {
+									0|[local::at0020], 	-- Pri aerobni vadbi se za energijo porabljajo pretežno beljakovine
+									1|[local::at0021], 	-- Pri aerobni vadbi se za energijo porabljajo maščobe
+									2|[local::at0022]  	-- K aerobni vadbi spadajo hitra hoja, kolesarjenje, nordijska hoja
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Katera trditev NE velja za samoocenjevanje intenzivnosti vadbe?
+								value matches {
+									0|[local::at0023], 	-- Za samoocenjevanje je nujno potreben merilec srčnega utripa
+									1|[local::at0024], 	-- Pri zmerno intenzivni vadbi se nekoliko zadihamo in dvigne se srčni utrip
+									2|[local::at0025], 	-- Pri zmerno intenzivni vadbi se še lahko pogovarjamo
+									3|[local::at0026]  	-- Za samoocenjevanje je najenostavnejši govorni test
+								}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hu koraki 05">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"questionnaire_wl_05">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Vprašanja prehrana">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Vprašanja gibanje">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Katerim maščobnim živilom se moramo izogibati?">
+					description = <"Katerim maščobnim živilom se moramo izogibati?">
+				>
+				["at0006"] = <
+					text = <"V katerih živilih se nahajajo škodljive trans maščobe?">
+					description = <"V katerih živilih se nahajajo škodljive trans maščobe?">
+				>
+				["at0007"] = <
+					text = <"Katerim živilom so dodani enostavni sladkorji?">
+					description = <"Katerim živilom so dodani enostavni sladkorji?">
+				>
+				["at0008"] = <
+					text = <"Katera trditev NE velja za aerobno vadbo?">
+					description = <"Katera trditev NE velja za aerobno vadbo?">
+				>
+				["at0009"] = <
+					text = <"Katera trditev NE velja za samoocenjevanje intenzivnosti vadbe?">
+					description = <"Katera trditev NE velja za samoocenjevanje intenzivnosti vadbe?">
+				>
+				["at0011"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Bonbonom, čokoladi, sadnim sokovom, marmeladam, džemom, sadnim želejem, v sirupu vloženemu sadju, čokoladnemu mleku, sadnemu jogurtu, pudingu, sladoledu">
+					description = <"Bonbonom, čokoladi, sadnim sokovom, marmeladam, džemom, sadnim želejem, v sirupu vloženemu sadju, čokoladnemu mleku, sadnemu jogurtu, pudingu, sladoledu">
+				>
+				["at0013"] = <
+					text = <"Kruhu, mleku, navadnemu jogurtu, svežemu sadju ">
+					description = <"Kruhu, mleku, navadnemu jogurtu, svežemu sadju ">
+				>
+				["at0014"] = <
+					text = <"Margarinah, piškotih, tortah, sladoledih, zamrznjenemu krompirčku, ocvrti in hitri hrani">
+					description = <"Margarinah, piškotih, tortah, sladoledih, zamrznjenemu krompirčku, ocvrti in hitri hrani">
+				>
+				["at0015"] = <
+					text = <"Oreških in semenih">
+					description = <"Oreških in semenih">
+				>
+				["at0016"] = <
+					text = <"Olivnem olju">
+					description = <"Olivnem olju">
+				>
+				["at0017"] = <
+					text = <"Mastnemu mesu, mesnim izdelkom, sirom, polnomastni skuti, maslu, smetani, jajcem, morskim sadežem">
+					description = <"Mastnemu mesu, mesnim izdelkom, sirom, polnomastni skuti, maslu, smetani, jajcem, morskim sadežem">
+				>
+				["at0018"] = <
+					text = <"Rastlinskim oljem (oljčno, repično in sončnično olje)">
+					description = <"Rastlinskim oljem (oljčno, repično in sončnično olje)">
+				>
+				["at0019"] = <
+					text = <"Mastnim morskim ribam (tuna, skuša, losos…)">
+					description = <"Mastnim morskim ribam (tuna, skuša, losos…)">
+				>
+				["at0020"] = <
+					text = <"Pri aerobni vadbi se za energijo porabljajo pretežno beljakovine">
+					description = <"Pri aerobni vadbi se za energijo porabljajo pretežno beljakovine">
+				>
+				["at0021"] = <
+					text = <"Pri aerobni vadbi se za energijo porabljajo maščobe">
+					description = <"Pri aerobni vadbi se za energijo porabljajo maščobe">
+				>
+				["at0022"] = <
+					text = <"K aerobni vadbi spadajo hitra hoja, kolesarjenje, nordijska hoja">
+					description = <"K aerobni vadbi spadajo hitra hoja, kolesarjenje, nordijska hoja">
+				>
+				["at0023"] = <
+					text = <"Za samoocenjevanje je nujno potreben merilec srčnega utripa">
+					description = <"Za samoocenjevanje je nujno potreben merilec srčnega utripa">
+				>
+				["at0024"] = <
+					text = <"Pri zmerno intenzivni vadbi se nekoliko zadihamo in dvigne se srčni utrip">
+					description = <"Pri zmerno intenzivni vadbi se nekoliko zadihamo in dvigne se srčni utrip">
+				>
+				["at0025"] = <
+					text = <"Pri zmerno intenzivni vadbi se še lahko pogovarjamo">
+					description = <"Pri zmerno intenzivni vadbi se še lahko pogovarjamo">
+				>
+				["at0026"] = <
+					text = <"Za samoocenjevanje je najenostavnejši govorni test">
+					description = <"Za samoocenjevanje je najenostavnejši govorni test">
+				>
+			>
+		>
+	>

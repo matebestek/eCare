@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="5.0.0" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-fd6d71bd-7c3a-48f0-a476-d644bf7a28e9" targetNamespace="http://www.signavio.com/bpmn20"
+	typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<!-- INPUT UserTask: 1.doctor 2.listenerDoctorObvestiloComplete 3.listenerDoctorObvestiloCreate -->
+	<process id="Proces-Opomnik-Vnos-Notifier-Zdravnik" name="ProcesOpomnikVnosNotifierZdravnik"
+		isExecutable="false">
+		<extensionElements>
+			<activiti:executionListener
+				class="si.pint.eoskrba.eastma.inputGeneric.listeners.ProcessExecutionListener"
+				event="start" />
+		</extensionElements>
+		<userTask completionQuantity="1"
+			id="sid-CDB15277-E877-42D2-BE16-87EA2048A119" implementation="humanTaskWebService"
+			isForCompensation="false" name="${userTaskName}" startQuantity="1"
+			activiti:assignee="${doctor.getUsername()}"
+			activiti:formKey="notify-doctor.form">
+			<documentation id="ProcesOpomnikVnosNotifier_Zdravnik">ProcesOpomnikVnosNotifierZdravnik</documentation>
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="[]" />
+				<activiti:taskListener event="complete"
+					delegateExpression="${listenerDoctorObvestiloComplete}" />
+				<activiti:taskListener event="create"
+					delegateExpression="${listenerDoctorObvestiloCreate}" />
+			</extensionElements>
+			<incoming>sid-34347955-C07C-4235-B89E-7FE3AEA76DFB</incoming>
+			<outgoing>sid-4FC32FA1-CC1D-47C3-ACEA-5DB15D855763</outgoing>
+		</userTask>
+		<startEvent id="sid-EDCEBD5C-6282-4B43-8FD5-749CE2A956F8"
+			name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>sid-34347955-C07C-4235-B89E-7FE3AEA76DFB</outgoing>
+		</startEvent>
+		<endEvent id="sid-8C44CAF5-3DCB-4DEE-A0B8-479EE6F43EF6" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-4FC32FA1-CC1D-47C3-ACEA-5DB15D855763</incoming>
+		</endEvent>
+		<sequenceFlow id="sid-34347955-C07C-4235-B89E-7FE3AEA76DFB"
+			name="" sourceRef="sid-EDCEBD5C-6282-4B43-8FD5-749CE2A956F8"
+			targetRef="sid-CDB15277-E877-42D2-BE16-87EA2048A119" />
+		<sequenceFlow id="sid-4FC32FA1-CC1D-47C3-ACEA-5DB15D855763"
+			name="" sourceRef="sid-CDB15277-E877-42D2-BE16-87EA2048A119"
+			targetRef="sid-8C44CAF5-3DCB-4DEE-A0B8-479EE6F43EF6" />
+	</process>
+	<bpmndi:BPMNDiagram id="sid-54790b0d-4632-41c9-89e4-9e694509f2f9">
+		<bpmndi:BPMNPlane bpmnElement="Proces-Opomnik-Vnos-Notifier-Zdravnik"
+			id="sid-faba9f96-33d5-4822-8a0c-e4cae2d793ef">
+			<bpmndi:BPMNShape bpmnElement="sid-CDB15277-E877-42D2-BE16-87EA2048A119"
+				id="sid-CDB15277-E877-42D2-BE16-87EA2048A119_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="155.0" y="50.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-EDCEBD5C-6282-4B43-8FD5-749CE2A956F8"
+				id="sid-EDCEBD5C-6282-4B43-8FD5-749CE2A956F8_gui">
+				<omgdc:Bounds height="30.0" width="30.0" x="55.0" y="75.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-8C44CAF5-3DCB-4DEE-A0B8-479EE6F43EF6"
+				id="sid-8C44CAF5-3DCB-4DEE-A0B8-479EE6F43EF6_gui">
+				<omgdc:Bounds height="28.0" width="28.0" x="315.0" y="76.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="sid-4FC32FA1-CC1D-47C3-ACEA-5DB15D855763"
+				id="sid-4FC32FA1-CC1D-47C3-ACEA-5DB15D855763_gui">
+				<omgdi:waypoint x="255.0" y="90.0" />
+				<omgdi:waypoint x="315.0" y="90.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-34347955-C07C-4235-B89E-7FE3AEA76DFB"
+				id="sid-34347955-C07C-4235-B89E-7FE3AEA76DFB_gui">
+				<omgdi:waypoint x="85.0" y="90.0" />
+				<omgdi:waypoint x="155.0" y="90.0" />
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

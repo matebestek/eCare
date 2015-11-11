@@ -1,0 +1,370 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.hydration.v1
+
+concept
+	[at0000]	-- Hidracija
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"12/03/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record clinical findings related to the fluid balance of the body.">
+			use = <"To be used to capture clinical assessment of hydration.">
+			keywords = <"hydration", "fluid", "turgor">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje opazovanj hidracije telesa pacienta">
+			use = <"Za beleženje opazovanj hidracije telesa pacienta">
+			keywords = <"turgor", "hidracija", "turgor", "sluznice">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, UK", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"96D0BF2D789EAEBF854676CF1B11C211">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Hidracija
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {	-- Ugotovitve
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Klinični opis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Sluznica
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- Suha
+							at0007]	-- Vlažna
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Sprednja mečava
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008, 	-- Izbočena
+							at0009, 	-- Normalna
+							at0010, 	-- V ravnini
+							at0011]	-- Udrta
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0025] occurrences matches {0..1} matches {	-- Gostota sline
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.fluid(-[a-zA-Z0-9_]+)*\.v1/}
+				exclude
+					archetype_id/value matches {/.*/}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Turgor
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016, 	-- Normalen
+							at0017, 	-- Zmanjšan
+							at0028, 	-- Zelo zmanjšan
+							at0029]	-- Povečan
+						}
+					}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {	-- Izgled oči
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0019, 	-- Normalen
+							at0020]	-- Udrte
+						}
+					}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {	-- Kapilarna polnitev 
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0022, 	-- Normalna
+							at0023]	-- Zmanjšana
+						}
+					}
+					DV_DURATION matches {
+						value matches {PTS/|PT0S..PT120S|}
+					}
+				}
+			}
+			ELEMENT[at0026] occurrences matches {0..1} matches {	-- Ocena dehidracije
+				value matches {
+					DV_PROPORTION matches {
+						type matches {2}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hydration">
+					description = <"Clinical findings related to the fluid balance of the body.">
+				>
+				["at0001"] = <
+					text = <"Normal statements">
+					description = <"General statements of normaility with respect to hyrdation.">
+				>
+				["at0003"] = <
+					text = <"Clinical description">
+					description = <"A text description of the subject's hydration status.">
+				>
+				["at0004"] = <
+					text = <"Mucous membranes">
+					description = <"Finding of state of mucous membranes including mouth and lips.">
+				>
+				["at0005"] = <
+					text = <"Anterior fontanelle">
+					description = <"Describing state of infant's anteroir fontanelle.">
+				>
+				["at0006"] = <
+					text = <"Dry">
+					description = <"The mucous membranes are dry.">
+				>
+				["at0007"] = <
+					text = <"Moist">
+					description = <"The mucous membranes are moist.">
+				>
+				["at0008"] = <
+					text = <"Raised">
+					description = <"The anterior fontanelle is raised.">
+				>
+				["at0009"] = <
+					text = <"Normal">
+					description = <"The anterior fontanelle is normal.">
+				>
+				["at0010"] = <
+					text = <"Flat">
+					description = <"The anterior fontanelle is flat.">
+				>
+				["at0011"] = <
+					text = <"Sunken">
+					description = <"The anterior fontanelle is sunken.">
+				>
+				["at0015"] = <
+					text = <"Skin turgor">
+					description = <"Describing state of skin/tissue turgor.">
+				>
+				["at0016"] = <
+					text = <"Normal">
+					description = <"Skin turgor is normal.">
+				>
+				["at0017"] = <
+					text = <"Decreased">
+					description = <"Skin turgor is decreased.">
+				>
+				["at0018"] = <
+					text = <"Appearance of eyes">
+					description = <"Describes state of eyes.">
+				>
+				["at0019"] = <
+					text = <"Normal">
+					description = <"The eyes are not sunken.">
+				>
+				["at0020"] = <
+					text = <"Sunken in orbits">
+					description = <"The eyes appear sunken in the orbits.">
+				>
+				["at0021"] = <
+					text = <"Capillary return">
+					description = <"Description of state of capillary return.">
+				>
+				["at0022"] = <
+					text = <"Normal">
+					description = <"Capillary return is normal.">
+				>
+				["at0023"] = <
+					text = <"Reduced">
+					description = <"Capillary return is diminished.">
+				>
+				["at0025"] = <
+					text = <"Saliva thickness">
+					description = <"Details of thickness of saliva.">
+				>
+				["at0026"] = <
+					text = <"Estimate of dehydration">
+					description = <"Clinical estimate of dehydration.">
+				>
+				["at0028"] = <
+					text = <"Markedly decreased">
+					description = <"Skin turgor is markedly decreased.">
+				>
+				["at0029"] = <
+					text = <"Increased">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hidracija">
+					description = <"Ugotovitve glede uravnoteženosti tekočin v telesu">
+				>
+				["at0001"] = <
+					text = <"Ugotovitve">
+					description = <"Ugotovitve ">
+				>
+				["at0003"] = <
+					text = <"Klinični opis">
+					description = <"Klinični opis">
+				>
+				["at0004"] = <
+					text = <"Sluznica">
+					description = <"Ugotovitve glede membran sluznic, vključno z usti in ustnicami">
+				>
+				["at0005"] = <
+					text = <"Sprednja mečava">
+					description = <"Opis sprednje mečave pri novorojenčkih">
+				>
+				["at0006"] = <
+					text = <"Suha">
+					description = <"Suha ">
+				>
+				["at0007"] = <
+					text = <"Vlažna">
+					description = <"Vlažna">
+				>
+				["at0008"] = <
+					text = <"Izbočena">
+					description = <"Izbočena">
+				>
+				["at0009"] = <
+					text = <"Normalna">
+					description = <"Normalna">
+				>
+				["at0010"] = <
+					text = <"V ravnini">
+					description = <"V ravnini">
+				>
+				["at0011"] = <
+					text = <"Udrta">
+					description = <"Udrta">
+				>
+				["at0015"] = <
+					text = <"Turgor">
+					description = <"Turgor">
+				>
+				["at0016"] = <
+					text = <"Normalen">
+					description = <"Normalen">
+				>
+				["at0017"] = <
+					text = <"Zmanjšan">
+					description = <"Zmanjšan">
+				>
+				["at0018"] = <
+					text = <"Izgled oči">
+					description = <"Izgled oči">
+				>
+				["at0019"] = <
+					text = <"Normalen">
+					description = <"Normalen">
+				>
+				["at0020"] = <
+					text = <"Udrte">
+					description = <"Udrte">
+				>
+				["at0021"] = <
+					text = <"Kapilarna polnitev ">
+					description = <"Kapilarna polnitev">
+				>
+				["at0022"] = <
+					text = <"Normalna">
+					description = <"Normalna">
+				>
+				["at0023"] = <
+					text = <"Zmanjšana">
+					description = <"Zmanjšana">
+				>
+				["at0025"] = <
+					text = <"Gostota sline">
+					description = <"Gostota sline">
+				>
+				["at0026"] = <
+					text = <"Ocena dehidracije">
+					description = <"Ocena dehidracije">
+				>
+				["at0028"] = <
+					text = <"Zelo zmanjšan">
+					description = <"Zelo zmanjšan">
+				>
+				["at0029"] = <
+					text = <"Povečan">
+					description = <"Povečan">
+				>
+			>
+		>
+	>

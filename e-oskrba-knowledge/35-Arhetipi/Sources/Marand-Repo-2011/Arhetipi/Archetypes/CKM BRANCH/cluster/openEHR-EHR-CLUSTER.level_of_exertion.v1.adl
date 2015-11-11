@@ -1,0 +1,244 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.level_of_exertion.v1
+
+concept
+	[at0000]	-- Napor
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Slovenia">
+				["name"] = <"Uroš Rajkovič, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"27/10/2008">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Record information about the amount of energy expenditure that has been, or is being, experienced by the patient.">
+			use = <"Record information about phase and levels of exertion - to provide state/context information within OBSERVATIONS such as Blood Pressure.">
+			keywords = <"exercise", "work", "exertion", "activity", "energy">
+			misuse = <"Not to be used to record actual exercise activities and measurements which should be recorded as OBSERVATIONS in their own right.">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Beleženje podatkov o delovnem naporu, ki ga je ali ga opravi pacient">
+			use = <"Beleženje podatkov o fazi in stopnji naporta za vnos kontekstnih informacij vezanih na del posameznega drugega arhetipa \"STATE\" (stanje), kot npr. pri merjenju krvnega tlaka">
+			keywords = <"vadba", "delo", "napor", "delovni napor", "energija", "aktivnost">
+			misuse = <"Se ne uporablja za beleženje opravljenega dela oz. podatkov, ki jih predstavljajo drugi arhetipi">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B720572534081F8A506FCB1B6DC60178">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Napor
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0010] occurrences matches {0..1} matches {	-- Intenzivnost aktivnosti
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Aktivnost
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Intenziteta
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0012, 	-- Majhna
+									at0013, 	-- Srednja
+									at0014, 	-- Visoka
+									at0015]	-- Zelo visoka
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Izmerjena stopnja  
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::130]>
+								list = <
+									["1"] = <
+										units = <"J/min">
+										magnitude = <|0.0..1000.0|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Faza
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- V mirovanju
+							at0007, 	-- Med aktivnostjo
+							at0008]	-- Po aktivnosti
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Level of exertion">
+					description = <"Record information about level of exertion.">
+				>
+				["at0005"] = <
+					text = <"Measured">
+					description = <"The measured level of exertion.">
+				>
+				["at0006"] = <
+					text = <"At rest">
+					description = <"The person is at rest, prior to undertaking exercise.">
+				>
+				["at0007"] = <
+					text = <"During exertion">
+					description = <"The person is exerting themselves at the time.">
+				>
+				["at0008"] = <
+					text = <"Post-exertion">
+					description = <"Measurement is taken after exertion has ceased.">
+				>
+				["at0009"] = <
+					text = <"Phase">
+					description = <"The phase or context of exercise.">
+				>
+				["at0010"] = <
+					text = <"Exercise intensity">
+					description = <"Amount of work being done during exercise.">
+				>
+				["at0011"] = <
+					text = <"Intensity">
+					description = <"Semiquantitative description of the intensity of exercise undertaken.">
+				>
+				["at0012"] = <
+					text = <"Low Intensity">
+					description = <"Up to 80% Maximal Heart Rate.">
+				>
+				["at0013"] = <
+					text = <"Medium Intensity">
+					description = <"80-84% of Maximal Heart Rate.">
+				>
+				["at0014"] = <
+					text = <"High Intensity">
+					description = <"85-89% Maximal Heart Rate.">
+				>
+				["at0015"] = <
+					text = <"Flat Out">
+					description = <"91-100% Maximal Heart Rate.">
+				>
+				["at0016"] = <
+					text = <"Description">
+					description = <"Description of the exertion.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Napor">
+					description = <"Beleženj stopnje napora">
+				>
+				["at0005"] = <
+					text = <"Izmerjena stopnja  ">
+					description = <"Izmerjena stopnja napora">
+				>
+				["at0006"] = <
+					text = <"V mirovanju">
+					description = <"Pacient je v fazi mirovanja, npr. pred pričetkom aktivnosti">
+				>
+				["at0007"] = <
+					text = <"Med aktivnostjo">
+					description = <"V času merjenja je pacient opravljal aktivnosti, ki zahtevajo povečan delovni napor">
+				>
+				["at0008"] = <
+					text = <"Po aktivnosti">
+					description = <"Merjenje se je izvajalo, ko je bila aktivnost prekinjena ali zaključena">
+				>
+				["at0009"] = <
+					text = <"Faza">
+					description = <"Faza aktivnosti">
+				>
+				["at0010"] = <
+					text = <"Intenzivnost aktivnosti">
+					description = <"Opis količine opravljenega dela">
+				>
+				["at0011"] = <
+					text = <"Intenziteta">
+					description = <"Opis količine opravljenega dela">
+				>
+				["at0012"] = <
+					text = <"Majhna">
+					description = <"Do 80% maksimalnega srčnega utripa">
+				>
+				["at0013"] = <
+					text = <"Srednja">
+					description = <"80%-84% ajvečjega srčnega utripa (maksimalnega pulza)">
+				>
+				["at0014"] = <
+					text = <"Visoka">
+					description = <"Nad 85% in do 89% največjega srčnega utripa (maksimalnega pulza)">
+				>
+				["at0015"] = <
+					text = <"Zelo visoka">
+					description = <"Nad 91% največjega srčnega utripa (maksimalnega pulza)">
+				>
+				["at0016"] = <
+					text = <"Aktivnost">
+					description = <"Besedni opis aktivnosti">
+				>
+			>
+		>
+	>

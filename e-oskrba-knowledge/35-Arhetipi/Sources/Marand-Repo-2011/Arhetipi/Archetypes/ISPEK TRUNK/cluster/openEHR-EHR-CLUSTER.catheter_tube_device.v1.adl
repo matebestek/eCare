@@ -1,0 +1,197 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.catheter_tube_device.v1
+
+concept
+	[at0000]	-- Catheter, tube, cannula details
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"01/12/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of an insertable catheter, cannula or other tube.
+
+Examples include vascular catheters and cannula, surgical drain tubes and feeding tubes.">
+			use = <"Used within an Instruction, Action or Observation archetype to record the device to be used, the device actually used, or the device referred to as part of an observation.
+May be specialised for particular kinds of catheter with additional facets or recording requirements.">
+			keywords = <"catheter", "cannula", "tube", "drain">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", ...>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"5B4D223737BDE99475C16341E0918738">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Catheter, tube, cannula details
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Catheter / tube class
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Catheter / tube name 
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Site of entry
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Site of tip
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Length
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Width
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {*}
+			CLUSTER[at0012] occurrences matches {0..1} matches {	-- External tube
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Length
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Reference point
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0009] occurrences matches {0..1} matches {	-- Cuff / balloon fixation
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0010] occurrences matches {0..*} matches {	-- Structured detail
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype CLUSTER[at0008] occurrences matches {0..1} matches {	-- Device
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Catheter, tube, cannula details">
+					description = <"Details of a catheter, cannula  or other insertable tube.">
+				>
+				["at0001"] = <
+					text = <"Catheter / tube class">
+					description = <"Broad grouping of catheter e.g. arterial, venous, urinary, drain tube.">
+				>
+				["at0002"] = <
+					text = <"Catheter / tube name ">
+					description = <"Specific type of catheter e.g Hickman line or umbilical catheter.">
+				>
+				["at0003"] = <
+					text = <"Site of tip">
+					description = <"Site where the tip of the catheter or tube is positioned within the body.">
+				>
+				["at0004"] = <
+					text = <"Site of entry">
+					description = <"Site where the catheter or tube enters the body.">
+				>
+				["at0005"] = <
+					text = <"Length">
+					description = <"The length of the catheter or tube. Expressed as text since length may not be expressed in quantifiable units.">
+				>
+				["at0006"] = <
+					text = <"Width">
+					description = <"The width or diameter of the catheter or tube. Expressed as text since length may not be expressed in quantifiable units.">
+				>
+				["at0007"] = <
+					text = <"Lumens">
+					description = <"The number of lumens encompassed within the tube">
+				>
+				["at0008"] = <
+					text = <"Device">
+					description = <"Details of the device used">
+				>
+				["at0009"] = <
+					text = <"Cuff / balloon fixation">
+					description = <"Text description of any cuuf or balloon used to fix the tube in place e.g. '2 cm cuff' or '3cm ballon inflated with 2cm sterile water.'">
+				>
+				["at0010"] = <
+					text = <"Structured detail">
+					description = <"Slot to allow more structured detail to be added where required for paerticular types of tube or catheter.">
+				>
+				["at0011"] = <
+					text = <"Description">
+					description = <"Other textual description of the catheter/ tube device.">
+				>
+				["at0012"] = <
+					text = <"External tube">
+					description = <"Details of external tube.">
+				>
+				["at0013"] = <
+					text = <"Length">
+					description = <"The length of texternal tube. May be expressed a a length or as visble marks e.g on an endotracheal tube.">
+				>
+				["at0014"] = <
+					text = <"Reference point">
+					description = <"The reference point for measuring external length of a tube e.g. dentition, entry wound.">
+				>
+			>
+		>
+	>

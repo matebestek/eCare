@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+			 xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
+			 xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" 
+			 xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" 
+			 xmlns:signavio="http://www.signavio.com" 
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			 xmlns:activiti="http://activiti.org/bpmn" 
+			 exporter="Signavio Process Editor, http://www.signavio.com" 
+			 exporterVersion="5.2.1" 
+			 expressionLanguage="http://www.w3.org/1999/XPath" 
+			 id="sid-ec351224-6b0c-4487-90d5-2ef9011b60fd" 
+			 targetNamespace="http://www.signavio.com/bpmn20" 
+			 typeLanguage="http://www.w3.org/2001/XMLSchema" 
+			 xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+			 
+	<process id="Astma-Proces-Opomnik-Redni-Pregled" isExecutable="false"
+		name="Astma-Proces-Opomnik-Redni-Pregled">
+		
+		<startEvent id="startEvent-start" name="startEvent-start" />
+		
+		<sequenceFlow id="sid-8ECE6543-85F7-4131-99F6-F1211E2D260D"
+			sourceRef="startEvent-start"
+			targetRef="sid-6F5F80B6-3CF0-49D5-A884-040B51BBCA17"/>
+      
+		<parallelGateway gatewayDirection="Diverging"
+			id="sid-6F5F80B6-3CF0-49D5-A884-040B51BBCA17" name="" />
+			
+		<sequenceFlow id="sid-FA9862E9-6A2D-43B9-A3E9-33944D489FC8"
+			sourceRef="sid-6F5F80B6-3CF0-49D5-A884-040B51BBCA17"
+			targetRef="sid-C001683A-9A1B-4D48-AE9C-41DC0C2393E9" />
+			
+		<sequenceFlow id="sid-B2FACFFF-2565-4EDD-A12C-913EA43D874E"
+			sourceRef="sid-6F5F80B6-3CF0-49D5-A884-040B51BBCA17"
+			targetRef="serviceTask-prepareEmail" />
+      
+		<serviceTask id="sid-C001683A-9A1B-4D48-AE9C-41DC0C2393E9" completionQuantity="1"
+			implementation="webService" isForCompensation="false"
+			name="Obvestilo pacientu po SMS" startQuantity="1"
+			activiti:class="si.pint.eoskrba.eastma.regularCheckup.PatientNotifierGeneralSmsDelegate">
+			<extensionElements>
+         		<activiti:field name="mobilePhoneNum">
+         			<activiti:expression>${mobilePhoneNum}</activiti:expression>
+         		</activiti:field>
+         		<activiti:field name="messageSmsText">
+         			<activiti:expression>${messageSmsText}</activiti:expression>
+         		</activiti:field>
+         		<activiti:field name="username">
+         			<activiti:expression>${username}</activiti:expression>
+         		</activiti:field>
+			</extensionElements>
+		</serviceTask>
+		
+		<sequenceFlow id="sid-091DED8B-75D4-4903-A9FF-C35F8550B3FD"
+			sourceRef="sid-C001683A-9A1B-4D48-AE9C-41DC0C2393E9"
+			targetRef="sid-36B6C66C-1480-4DB7-BEEF-81D26370C42F" />
+			
+		<serviceTask id="serviceTask-prepareEmail" completionQuantity="1"
+			implementation="webService" isForCompensation="false"
+			name="Pripravi e-mail" startQuantity="1"
+			activiti:class="si.pint.eoskrba.eastma.regularCheckup.PatientNotifierPrepareEmailDelegate" />
+      
+		<sequenceFlow id="seqFlow-prepareEmail-1A8538870488"
+			sourceRef="serviceTask-prepareEmail"
+			targetRef="sid-AE55BCC1-3C27-40BA-ABFF-1A8538870488" />
+      
+		<sendTask id="sid-AE55BCC1-3C27-40BA-ABFF-1A8538870488" completionQuantity="1"
+			implementation="webService" isForCompensation="false"
+			name="Obvestilo pacientu po eMail-u" startQuantity="1" activiti:type="mail">
+			<extensionElements>
+				<activiti:field name="to"      expression="${email.to}"></activiti:field>
+				<activiti:field name="from"    expression="${email.from}"></activiti:field>
+				<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+				<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+				<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+				<activiti:field name="html">
+					<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+				</activiti:field>
+			</extensionElements>
+		</sendTask>
+		
+		<sequenceFlow id="sid-0EDCA4E9-D311-4CC5-A760-5A4A01BFFA58"
+			sourceRef="sid-AE55BCC1-3C27-40BA-ABFF-1A8538870488"
+			targetRef="sid-36B6C66C-1480-4DB7-BEEF-81D26370C42F" />
+			
+		<parallelGateway gatewayDirection="Converging"
+			id="sid-36B6C66C-1480-4DB7-BEEF-81D26370C42F" name="" />
+			
+		<sequenceFlow id="sid-11DE1A8D-4A63-4532-8E15-D0481A572F9A"
+			sourceRef="sid-36B6C66C-1480-4DB7-BEEF-81D26370C42F"
+			targetRef="sid-7F18D58D-2338-438D-954B-53B1DBFE0509" />
+      
+      	<endEvent id="sid-7F18D58D-2338-438D-954B-53B1DBFE0509" name="" />
+
+   </process>
+
+</definitions>

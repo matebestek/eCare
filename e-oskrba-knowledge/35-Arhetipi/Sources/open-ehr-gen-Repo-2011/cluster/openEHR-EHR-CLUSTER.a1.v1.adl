@@ -1,0 +1,209 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.a1.v1
+
+concept
+	[at0000]	-- a1
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["date"] = <"11/09/2009">
+		["name"] = <"pab">
+		["email"] = <"pab@pab.com">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"proposito a1">
+			use = <"uso a1">
+			misuse = <"mal uso a1">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"F7D06102AF8D47789813884FB785C807">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- a1
+		items cardinality matches {0..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..3} matches {	-- cantidad 1
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..1000|}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- cantidad 2
+				value matches {
+					C_DV_QUANTITY <
+						property = <[openehr::127]>
+						list = <
+							["1"] = <
+								units = <"°C">
+								magnitude = <|0.0..100.0|>
+								precision = <|2|>
+							>
+							["2"] = <
+								units = <"°F">
+								magnitude = <|-100.0..100.0|>
+								precision = <|2|>
+							>
+							["3"] = <
+								units = <"K">
+								magnitude = <|-273.0..273.0|>
+								precision = <|2|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..3} matches {	-- texto 1
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..3} matches {	-- texto 2
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0008, 	-- opcion 1
+							at0009, 	-- opcion 2
+							at0010]	-- opcion 3
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- fecha 1
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- fecha 2
+				value matches {
+					DV_DATE matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..3} matches {	-- ordinal 1
+				value matches {
+					1|[local::at0012], 	-- opcion 1
+					2|[local::at0013], 	-- opcion 2
+					3|[local::at0014]  	-- opcion 3
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..3} matches { -- boolean 1
+                value matches {
+                    DV_BOOLEAN matches {
+                        value matches {True, False}
+                    }
+                }
+            }
+			allow_archetype CLUSTER[at0006] occurrences matches {0..*} matches {	-- slot 1
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.a2/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"a1">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"cantidad 1">
+					description = <"descripcion cantidad">
+				>
+				["at0002"] = <
+					text = <"cantidad 2">
+					description = <"descripcion temperatura">
+				>
+				["at0003"] = <
+					text = <"texto 1">
+					description = <"descripcion texto 1">
+				>
+				["at0004"] = <
+					text = <"fecha 1">
+					description = <"descripcion fecha">
+				>
+				["at0005"] = <
+					text = <"ordinal 1">
+					description = <"desc ordinal">
+				>
+				["at0006"] = <
+					text = <"slot 1">
+					description = <"a2">
+				>
+				["at0007"] = <
+					text = <"texto 2">
+					description = <"descripcion texto 2">
+				>
+				["at0008"] = <
+					text = <"opcion 1">
+					description = <"desc opcion 1">
+				>
+				["at0009"] = <
+					text = <"opcion 2">
+					description = <"desc opcion 2">
+				>
+				["at0010"] = <
+					text = <"opcion 3">
+					description = <"desc opcion 3">
+				>
+				["at0011"] = <
+					text = <"fecha 2">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"opcion 1">
+					description = <"desc opcion 1">
+				>
+				["at0013"] = <
+					text = <"opcion 2">
+					description = <"desc opcion 2">
+				>
+				["at0014"] = <
+					text = <"opcion 3">
+					description = <"desc opcion 3">
+				>
+				["at0015"] = <
+                    text = <"boolean 1">
+                    description = <"desc boolean 1">
+                >
+			>
+		>
+	>

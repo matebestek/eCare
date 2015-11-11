@@ -1,0 +1,113 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_complications.v1
+
+concept
+	[at0000]	-- MST Complications
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+		["organisation"] = <"The University of Auckland">
+		["email"] = <"k.atalag@auckland.ac.nz">
+		["date"] = <"12/01/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Defines the complications of gastrointestinal endoscopy.">
+			use = <"The complications of upper and lower gastrointestinal endoscopy and ERCP using MST are recorded using this archetype.">
+			keywords = <"endoscopy", "gastroenterology", "MST">
+			misuse = <"Not appropriate for use other than upper and lower gastrointestinal endoscopy and ERCP.">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Delvaux M. Minimal standard terminology in digestive endoscopy. Endoscopy 2000; 32(2):162-88.">
+		["MD5-CAM-1.0.1"] = <"FCEFC050A0219E68823A4B5C711471A2">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Complications
+		items cardinality matches {0..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {	-- Complications
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- Cardio-respiratory
+							at0003, 	-- Perforation
+							at0004, 	-- Hemorrhage
+							at0005, 	-- Pancreatitis
+							at0006]	-- Infection
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Complications">
+					description = <"It defines the complications of gastrointestinal endoscopy as described by the Minimal Standard Terminology for Gastrointestinal Endoscopy version 2 (MST-2). This is the official terminology endorsed by the World Endoscopy Society (OMED).">
+				>
+				["at0001"] = <
+					text = <"Complications">
+					description = <"MST Complications.">
+				>
+				["at0002"] = <
+					text = <"Cardio-respiratory">
+					description = <"MST Complication.">
+				>
+				["at0003"] = <
+					text = <"Perforation">
+					description = <"MST Complication.">
+				>
+				["at0004"] = <
+					text = <"Hemorrhage">
+					description = <"MST Complication.">
+				>
+				["at0005"] = <
+					text = <"Pancreatitis">
+					description = <"MST Complication.">
+				>
+				["at0006"] = <
+					text = <"Infection">
+					description = <"MST Complication.">
+				>
+			>
+		>
+	>

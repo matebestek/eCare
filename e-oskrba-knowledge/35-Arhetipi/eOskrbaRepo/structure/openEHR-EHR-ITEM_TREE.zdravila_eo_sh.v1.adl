@@ -1,0 +1,178 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ITEM_TREE.zdravila_eo_sh.v1
+
+concept
+	[at0000]	-- Zdravila eo sh
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"068FC23402D8467AC39A63260FDAC72B">
+	>
+
+definition
+	ITEM_TREE[at0000] occurrences matches {0..*} matches {	-- Zdravila eo sh
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {1..*} matches {	-- Ime učinkovine
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::]}
+					}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..*} matches {	-- Generično ime
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::]}
+					}
+				}
+			}
+			CLUSTER[at0015] occurrences matches {0..*} matches {	-- Predpisana zdravila
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..*} matches {	-- Velikost pakiranja
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::129]>
+								list = <
+									["1"] = <
+										units = <"ml">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..*} matches {	-- Število predpisanih škatlic/stekleničk
+						value matches {
+							C_DV_QUANTITY <
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0004] occurrences matches {0..1} matches {	-- Doziranje
+				items cardinality matches {2..*; unordered} matches {
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Število tablet na odmerek
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::445]>
+								list = <
+									["1"] = <
+										units = <"U">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Volumen odmerka
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::129]>
+								list = <
+									["1"] = <
+										units = <"ml">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Število odmerkov na dan
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Zdravila eo sh">
+					description = <"unknown">
+				>
+				["at0002"] = <
+					text = <"Ime učinkovine">
+					description = <"Ime učinkovine.">
+				>
+				["at0003"] = <
+					text = <"Generično ime">
+					description = <"Generično ime zdravila.">
+				>
+				["at0004"] = <
+					text = <"Doziranje">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Število odmerkov na dan">
+					description = <"Število odmerkov na dan.">
+				>
+				["at0015"] = <
+					text = <"Predpisana zdravila">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Velikost pakiranja">
+					description = <"Število tablet/kapsul/odmerkov oz. volumen stekleničke.">
+				>
+				["at0017"] = <
+					text = <"Število predpisanih škatlic/stekleničk">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Število tablet na odmerek">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Volumen odmerka">
+					description = <"*">
+				>
+			>
+		>
+	>

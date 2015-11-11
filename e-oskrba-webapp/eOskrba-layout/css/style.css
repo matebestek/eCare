@@ -1,0 +1,246 @@
+/***
+ * Copyright (c) 2013.
+ * University of Primorska, Andrej Marušič Institute. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met: 
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer. 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution. 
+ * 
+ * Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+ * Agency and Ministry of Health of Republic of Slovenia.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+/* 
+ *   eOskrba-layout
+ *   RC version 11.07.21
+ *   
+ *   Aleksander Bešir
+ *   alex.besir(at)gmail.com
+ *
+ */
+
+/*  ---------------------------------------------------------
+ *  CSS STRUCTURE
+ *  ---------------------------------------------------------
+ *  
+ *  1) HTML reset
+ *  2) Main layout design
+ *
+ */ 
+  
+/*  ---------------------------------------------------------
+ *  1) HTML RESET
+ *  ---------------------------------------------------------
+ *  
+ *  Resets all HTML objects' styles. Required for making CSS
+ *  cross-browser almost identical.
+ *
+ */ 
+ 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: arial, sans-serif;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*  ---------------------------------------------------------
+ *  2) MAIN LAYOUT DESIGN
+ *  ---------------------------------------------------------
+ */ 
+ 
+body {
+	background-color: #daeef3;
+	background-image: url('../img/top-underbanner.png');
+	background-repeat: repeat-x;
+}
+
+p {
+	font-size: 13px;
+	line-height:17px;
+}
+
+a {
+	color: #c00000;
+}
+
+a:visited {
+	color: #c00000;
+}
+
+#layout-app {
+	width:100%;
+	height:100%;
+	min-height: 300px;
+	background-image: url('../img/top-banner.png');
+	background-repeat: no-repeat;
+}
+
+#layout-mainmenu {
+	position: absolute;
+	top: 66px;
+	left:25px;
+}
+
+#layout-mainmenu a {
+	padding-right: 25px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #215968;
+	text-decoration: none;
+}
+
+#layout-mainmenu a:hover {
+	text-decoration:underline;
+}
+
+#layout-infobox {
+	z-index:500;
+	position: absolute;
+	top: 15px;
+	right: 50px;
+	width: 175px;
+	height: 200px;
+	background-color: #daeef3;
+	border:1px solid #215968;
+	box-shadow: 0 0 7px #0084ff;
+    -webkit-box-shadow: 0 0 7px #0084ff; 
+    -moz-box-shadow: 0 0 7px #0084ff; 
+}
+
+#layout-infobox img {
+	width: 175px;
+	height: 115px;
+}
+
+#layout-infobox h2 {
+	position: absolute;
+	bottom: 85px;
+	left: 0px;
+	padding: 5px;
+	background-image: url('../img/half-opaque-layer.png');
+}
+
+#layout-mainframe {
+	position: absolute;
+	overflow: hidden;
+	top: 100px;
+	left: 25px;
+	background-color: #ffffff;
+	border:1px solid #215968;
+	box-shadow: 0 0 7px #0084ff;
+    -webkit-box-shadow: 0 0 7px #0084ff; 
+    -moz-box-shadow: 0 0 7px #0084ff; 
+}
+
+#layout-widgetframe {
+	float:left;
+}
+
+.layout-widget {
+	margin: 7px;
+}
+
+.layout-widget-header {
+	cursor: pointer;
+}
+
+.layout-widget h2 {
+	padding:7px;
+	margin-bottom: 7px;
+	color: #215968;
+	font-size:14px;
+	background-color: #daeef3;
+}
+
+.layout-widget-content {
+	display: none;
+	padding-left: 7px;
+	overflow: auto;
+}
+
+.layout-widget-content p {
+	margin-bottom:7px;
+}
+.layout-widget-content .date {
+	color: #a6a6a6;
+	font-style: italic;
+}
+
+#layout-panelframe {
+	float:left;
+}
+
+#layout-panel-header {
+	width: 100%;
+	height: 120px;
+}
+
+#layout-panel-header-info {
+	padding-top: 7px;
+	padding-left: 7px;
+	color: #a6a6a6;
+}
+
+#layout-panel-header-info a {
+	color: #c00000;
+}
+
+#layout-panel-header h1 {
+	padding-top: 3px;
+	padding-left: 7px;
+	margin-top:7px;
+	font-size:26px;
+	font-weight: normal;
+}
+
+#layout-panel-content {
+	margin: 7px;
+	width: 100%;
+	height: 100px;
+	border-top: 1px solid #a6a6a6;
+	overflow: auto;
+}
+
+#layout-panel-content p {
+	padding-top:7px;
+	padding-bottom:7px;
+}

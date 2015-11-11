@@ -1,0 +1,241 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.telesna_dejavnost_eo_pp.v1
+
+concept
+	[at0000]	-- Telesna dejavnost eo pp
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis pogostosti izvajanje telesne dejavnosti za opis osnovnega gibalnega stanja posameznika.">
+			use = <"Uporablja se za zapis telesne dejavnosti (stanja) posameznika.">
+			misuse = <"Ne uporablja se za zapis posamezne vadbene enote.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"3A363A9A2907BD04441EECBDD0BE3959">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Telesna dejavnost eo pp
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Visoko intenzivna vadba
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- 0
+									at0004, 	-- 1
+									at0005, 	-- 2
+									at0006, 	-- 3
+									at0007, 	-- 4
+									at0008, 	-- 5
+									at0009, 	-- 6
+									at0010, 	-- 7
+									at0011]	-- 7+
+								}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Zmerno intenzivna vadba
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0013, 	-- 0
+									at0014, 	-- 1
+									at0015, 	-- 2
+									at0016, 	-- 3
+									at0017, 	-- 4
+									at0018, 	-- 5
+									at0019, 	-- 6
+									at0020, 	-- 7
+									at0021]	-- 7+
+								}
+							}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Število doseženih točk
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Ogroženost
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0025, 	-- Ni ogrožen
+									at0026, 	-- Srednje visoka ogroženost
+									at0027]	-- Visoka ogroženost
+								}
+							}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Telesna dejavnost eo pp">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Visoko intenzivna vadba">
+					description = <"Kolikokrat se v običajnem tednu (med delovnim časom, na poti v službo ali po opravkih in nazaj, doma ter v prostem času skupaj) ukvarjate z intenzivno telesno dejavnostjo najmanj 25 minut vsakokrat do take mere, da se zadihate in oznojite (npr. tek, squash, hitro plavanje, hoja po stopnicah, aerobika, tenis, nogomet, hitro kolesarjenje, kolesarjenje po hribovitem terenu, dvigovanje/ prenašanje težkih bremen, lopatanje in druga težka fizična dela (npr. gozdarska, cestna, gradbena, kmečka))?">
+				>
+				["at0003"] = <
+					text = <"0">
+					description = <"0">
+				>
+				["at0004"] = <
+					text = <"1">
+					description = <"1">
+				>
+				["at0005"] = <
+					text = <"2">
+					description = <"2">
+				>
+				["at0006"] = <
+					text = <"3">
+					description = <"3">
+				>
+				["at0007"] = <
+					text = <"4">
+					description = <"4">
+				>
+				["at0008"] = <
+					text = <"5">
+					description = <"5">
+				>
+				["at0009"] = <
+					text = <"6">
+					description = <"6">
+				>
+				["at0010"] = <
+					text = <"7">
+					description = <"7">
+				>
+				["at0011"] = <
+					text = <"7+">
+					description = <"več kot 7x teden">
+				>
+				["at0012"] = <
+					text = <"Zmerno intenzivna vadba">
+					description = <"Kolikokrat se v običajnem tednu (med delovnim časom, na poti v službo ali po opravkih in nazaj, doma ter v prostem času skupaj) ukvarjate z zmerno telesno dejavnostjo najmanj 30 minut vsakokrat do take mere, da nekoliko pospešeno dihate in se ogrejete (lahko upoštevate tudi 3x po vsaj 10 minut naenkrat ali 2x po 15 minut, če je bilo to v istem dnevu) (npr. hitra hoja, lahkotno kolesarjenje po ravnem terenu, ples, počasno plavanje, golf, lahkoten tenis, badmington, dvigovanje/ prenašanje srednje težkih bremen, težja industrijska ali gospodinjska opravila (npr. ribanje tal, intenzivno sesanje tal, pomivanje oken))?">
+				>
+				["at0013"] = <
+					text = <"0">
+					description = <"0">
+				>
+				["at0014"] = <
+					text = <"1">
+					description = <"1">
+				>
+				["at0015"] = <
+					text = <"2">
+					description = <"2">
+				>
+				["at0016"] = <
+					text = <"3">
+					description = <"3">
+				>
+				["at0017"] = <
+					text = <"4">
+					description = <"4">
+				>
+				["at0018"] = <
+					text = <"5">
+					description = <"5">
+				>
+				["at0019"] = <
+					text = <"6">
+					description = <"6">
+				>
+				["at0020"] = <
+					text = <"7">
+					description = <"7">
+				>
+				["at0021"] = <
+					text = <"7+">
+					description = <"več kot 7x teden">
+				>
+				["at0022"] = <
+					text = <"Število doseženih točk">
+					description = <"Število doseženih točk.">
+				>
+				["at0023"] = <
+					text = <"Komentar">
+					description = <"Komentar">
+				>
+				["at0024"] = <
+					text = <"Ogroženost">
+					description = <"Opis stopnje ogroženosti">
+				>
+				["at0025"] = <
+					text = <"Ni ogrožen">
+					description = <"Posameznik predvidoma ni ogrožen">
+				>
+				["at0026"] = <
+					text = <"Srednje visoka ogroženost">
+					description = <"Posameznik je zmerno ogrožen, potrebni so ukrepi.">
+				>
+				["at0027"] = <
+					text = <"Visoka ogroženost">
+					description = <"Posameznik je zelo ogrožen, nujni so ukrepi.">
+				>
+			>
+		>
+	>

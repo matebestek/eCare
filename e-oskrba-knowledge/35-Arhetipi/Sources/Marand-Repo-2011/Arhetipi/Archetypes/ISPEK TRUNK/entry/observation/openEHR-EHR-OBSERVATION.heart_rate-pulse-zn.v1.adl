@@ -1,0 +1,1308 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.heart_rate-pulse-zn.v1
+specialize
+	openEHR-EHR-OBSERVATION.heart_rate-pulse.v1
+
+concept
+	[at0000.1.1]	-- Srčni utrip
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["organisation"] = <"University of Heidelberg, Central Queensland University">
+				["name"] = <"Jasmin Buck, Sebastian Garde">
+			>
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand; University of Maribor, FOV Kranj">
+				["name"] = <"Biljana Prinčič, Uroš Rajkovič">
+				["email"] = <"biljana.princic@marand.si; uros.rajkovic@fov.uni-mb.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"26/03/2006">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Dokumentation der mechanischen Herzfrequenz, Herzrhythmus und Charakteristik des Pulses.">
+			use = <"Zur Dokumentation der mechanischen Herzfrequenz ermittelt durch Abtasten oder ein geeignetes Gerät.">
+			keywords = <"Frequenz", "Rhythmus", "Charakteristik", "Puls">
+			misuse = <"Nicht zur Dokumentation des periphären Pulses.">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Uporablja se za opazovanje srčnega utripa pri pacientu.
+">
+			use = <"">
+			keywords = <"Pulz", "Srčni utrip">
+			misuse = <"">
+			copyright = <"">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the mechanical rate, rhythm and character of the pulse as evidence of 'out-put' heart rate.">
+			use = <"For recording mechanical rate of the heart as determined by palpation or suitable device.">
+			keywords = <"rate", "rhythm", "character", "pulse">
+			misuse = <"Not for recording peripheral pulses.">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B60B0F9B23AA01D6B80E8A8B663684FE">
+	>
+
+definition
+	OBSERVATION[at0000.1.1] matches {	-- Srčni utrip
+		data matches {
+			HISTORY[at0002] matches {	-- *history(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0003] occurrences matches {0..*} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0001] matches {	-- *structure(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at1005.1] occurrences matches {0..1} matches {	-- Prisoten
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Utrip
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::382]>
+												list = <
+													["1"] = <
+														units = <"/min">
+														magnitude = <|>=0.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0.42] occurrences matches {0..1} matches {	-- Opis srčnega utripa
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.43, 	-- Normalen
+													at0.44, 	-- Tahikardia
+													at0.45, 	-- Bradikardia
+													at0.46]	-- Trahi-bradi sindrom
+												}
+											}
+										}
+									}
+									ELEMENT[at0.11] occurrences matches {0..1} matches {	-- Ne izvedeni srčni utripi na minuto
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|>=0|}
+											}
+										}
+									}
+									ELEMENT[at0.36] occurrences matches {0..1} matches {	-- Kakovost
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.37, 	-- Močen
+													at0.38, 	-- Normalen
+													at0.39, 	-- Šibek
+													at0.40, 	-- Polovičen
+													at0.41]	-- Četrtinski
+												}
+											}
+										}
+									}
+									ELEMENT[at0.27] occurrences matches {0..1} matches {	-- Kakovost
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.28, 	-- Močan 
+													at0.29, 	-- Šibak
+													at0.30, 	-- Normalen
+													at0.31, 	-- Počasi dvigajoč
+													at0.32, 	-- Razbijajoč
+													at0.33, 	-- Počasi padajoč
+													at0.34, 	-- Usihajoč
+													at0.35]	-- Paradoksalen
+												}
+											}
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Ritem
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0006, 	-- Enakomeren
+													at0.0.47, 	-- Neenakomeren 
+													at0007]	-- Redno nereden
+												}
+											}
+										}
+									}
+									CLUSTER[at0.24] occurrences matches {0..1} matches {	-- Primanjkljaj utripa
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0.13] occurrences matches {0..1} matches {	-- Razlika
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::]}
+													}
+												}
+											}
+											ELEMENT[at0.25] occurrences matches {0..2} matches {	-- Mesto
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0.15, 	-- Ulnarna arterija
+															at0.17, 	-- Brahialna arterija
+															at0.20, 	-- Posterior Pedis
+															at0.21, 	-- Tibialis Posterior
+															at0.3, 	-- Radialna arterija
+															at0.4, 	-- Srčni apex
+															at0.5, 	-- Karotidna arterija
+															at0.6, 	-- Femoralna arterija
+															at0.19]	-- Poplitealena arterija
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Opombe
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0012] matches {	-- *List(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Položaj pacienta
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at1000, 	-- Leži
+													at1001, 	-- Sedi
+													at1002, 	-- Kot 45%
+													at1003; 	-- Stoji
+													at1001]	-- assumed value
+												}
+											}
+										}
+									}
+									ELEMENT[at1018] occurrences matches {0..1} matches {	-- Opombe
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									allow_archetype CLUSTER[at1017] occurrences matches {0..*} matches {	-- Napor
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.level_of_exertion(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {	-- *List(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at1019] occurrences matches {0..1} matches {	-- Metoda
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at1020, 	-- Osluškovanje
+									at1021]	-- Naprava
+								}
+							}
+						}
+					}
+					ELEMENT[at1014] occurrences matches {0..1} matches {	-- Opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at1013] occurrences matches {0..1} matches {	-- Naprava
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+						exclude
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0.2] occurrences matches {0..1} matches {	-- Lokacija 
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.3, 	-- Radialna arterija
+									at0.4, 	-- Srčni apex
+									at0.5, 	-- Karotidna arterija
+									at0.6, 	-- Femoralna arterija
+									at0.15, 	-- Ulnarna arterija
+									at0.17, 	-- Brahialna arterija
+									at0.19, 	-- Poplitealena arterija
+									at0.20, 	-- Posterior Pedis
+									at0.21, 	-- Tibialis Posterior
+									at0.22, 	-- Temporalno
+									at0.0.48, 	-- Levo uho
+									at0.0.49, 	-- Desno uho
+									at0.0.50, 	-- Dimlje
+									at0.0.51, 	-- Leva roka
+									at0.0.52, 	-- Desna roka
+									at0.0.53, 	-- Levo stegno
+									at0.0.54, 	-- Desno stegno
+									at0.0.55, 	-- Levi gleženj
+									at0.0.56, 	-- Desni gleženj
+									at0.0.57, 	-- Levo zapestje
+									at0.0.58, 	-- Desno zapestje
+									at0.0.59, 	-- Prsti na roki
+									at0.0.60]	-- Prsti na nogi
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["de"] = <
+			items = <
+				["at0.0.47"] = <
+					text = <"*Irregular(en)">
+					description = <"*The pulse is irregular.(en)">
+				>
+				["at0.0.48"] = <
+					text = <"*Left ear(en)">
+					description = <"**(en)">
+				>
+				["at0.0.49"] = <
+					text = <"*Right ear(en)">
+					description = <"**(en)">
+				>
+				["at0.0.50"] = <
+					text = <"*Groin(en)">
+					description = <"**(en)">
+				>
+				["at0.0.51"] = <
+					text = <"*Left arm(en)">
+					description = <"*Left arm(en)">
+				>
+				["at0.0.52"] = <
+					text = <"*Right arm(en)">
+					description = <"**(en)">
+				>
+				["at0.0.53"] = <
+					text = <"*Left thigh(en)">
+					description = <"*Left thigh(en)">
+				>
+				["at0.0.54"] = <
+					text = <"*Right thigh(en)">
+					description = <"**(en)">
+				>
+				["at0.0.55"] = <
+					text = <"*Left ankle(en)">
+					description = <"*Left ankle(en)">
+				>
+				["at0.0.56"] = <
+					text = <"*Right ankle(en)">
+					description = <"*Right ankle(en)">
+				>
+				["at0.0.57"] = <
+					text = <"*Left wirst(en)">
+					description = <"*Left wirst(en)">
+				>
+				["at0.0.58"] = <
+					text = <"*Right wirst(en)">
+					description = <"*Right wirst(en)">
+				>
+				["at0.0.59"] = <
+					text = <"*Fingers(en)">
+					description = <"*Fingers(en)">
+				>
+				["at0.0.60"] = <
+					text = <"*Toes(en)">
+					description = <"*Toes(en)">
+				>
+				["at0.10"] = <
+					text = <"Häufig ausgelassene Schläge">
+					description = <"Mehr als zwei ausgelassene Schläge pro Minute">
+				>
+				["at0.11"] = <
+					text = <"*Missed beats per minute(en)">
+					description = <"*The number of missed beats per minute(en)">
+				>
+				["at0.13"] = <
+					text = <"Defizit">
+					description = <"Differenz der Raten">
+				>
+				["at0.15"] = <
+					text = <"Ulnararterie">
+					description = <"Die Ulnararterie">
+				>
+				["at0.17"] = <
+					text = <"Brachialarterie">
+					description = <"Die Brachialarterie">
+				>
+				["at0.19"] = <
+					text = <"Poplitealarterie">
+					description = <"Die Poplitealarterie">
+				>
+				["at0.2"] = <
+					text = <"Messstelle">
+					description = <"Die Körperstelle, an der der Puls gemessen wurde.">
+				>
+				["at0.20"] = <
+					text = <"Dorsalis-Pedis-Arterie">
+					description = <"Die Dorsalis-Pedis-Arterie">
+				>
+				["at0.21"] = <
+					text = <"Tibialis-Posterior-Arterie">
+					description = <"Die Tibialis-Posterior-Arterie">
+				>
+				["at0.22"] = <
+					text = <"temporal">
+					description = <"*">
+				>
+				["at0.24"] = <
+					text = <"*Pulse deficit(en)">
+					description = <"*Difference between the rate at the heart apex and a peripheral pulse.(en)">
+				>
+				["at0.25"] = <
+					text = <"Stellen">
+					description = <"Körperstelle(n) der Messung">
+				>
+				["at0.27"] = <
+					text = <"*Character(en)">
+					description = <"*Shape of the pulse wave on palpation(en)">
+				>
+				["at0.28"] = <
+					text = <"Kräftig">
+					description = <"*">
+				>
+				["at0.29"] = <
+					text = <"Kraftlos">
+					description = <"*">
+				>
+				["at0.3"] = <
+					text = <"Radialarterie">
+					description = <"Die Radialarterie">
+				>
+				["at0.30"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.31"] = <
+					text = <"Langsam ansteigend">
+					description = <"*">
+				>
+				["at0.32"] = <
+					text = <"Wasserhammer-Puls">
+					description = <"*">
+				>
+				["at0.33"] = <
+					text = <"Kollabierend">
+					description = <"*">
+				>
+				["at0.34"] = <
+					text = <"Bisferiens">
+					description = <"*">
+				>
+				["at0.35"] = <
+					text = <"Paradoxical">
+					description = <"*">
+				>
+				["at0.36"] = <
+					text = <"Volumen">
+					description = <"Volumen des Puls">
+				>
+				["at0.37"] = <
+					text = <"Groß/Voll">
+					description = <"*">
+				>
+				["at0.38"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.39"] = <
+					text = <"Klein/Gering">
+					description = <"*">
+				>
+				["at0.4"] = <
+					text = <"Herzspitze">
+					description = <"Die Herzspitze (linker 5. interkostal-Raum, mid-clavicular)">
+				>
+				["at0.40"] = <
+					text = <"Halb">
+					description = <"*">
+				>
+				["at0.41"] = <
+					text = <"Viertel">
+					description = <"*">
+				>
+				["at0.42"] = <
+					text = <"*Rate description(en)">
+					description = <"*Description of the pulse rate.(en)">
+				>
+				["at0.43"] = <
+					text = <"*Normal pulse rate(en)">
+					description = <"*The pulse rate is normal.(en)">
+				>
+				["at0.44"] = <
+					text = <"Tachykardie">
+					description = <"*">
+				>
+				["at0.45"] = <
+					text = <"Bradykardie">
+					description = <"*">
+				>
+				["at0.46"] = <
+					text = <"Vermischte Tachykardie und Bradykardie">
+					description = <"Tachy-brady-Syndrom">
+				>
+				["at0.5"] = <
+					text = <"Karotis-Arterie">
+					description = <"Die Karotis-Arterie / Halsschlagader">
+				>
+				["at0.6"] = <
+					text = <"Oberschenkelarterie">
+					description = <"Die Oberschenkelarterie">
+				>
+				["at0.7"] = <
+					text = <"Bigeminie">
+					description = <"Doppelschlägigkeit">
+				>
+				["at0.8"] = <
+					text = <"Trigeminie">
+					description = <"Allorhythmie mit Aktions-Dreiergruppen (2 Sinusschläge u. 1 Extrasystole oder umgekehrt)">
+				>
+				["at0.9"] = <
+					text = <"Gelegentlich verpasste Schläge">
+					description = <"Weniger als zwei verpasste Schläge pro Minute">
+				>
+				["at0000"] = <
+					text = <"*Heart rate and rhythm(en)">
+					description = <"*The characteristics of the heart rate and rhythm.(en)">
+				>
+				["at0000.1"] = <
+					text = <"Puls">
+					description = <"Die mechanische Herzfrequenz - üblicherweise durch Abtastung gemessen">
+				>
+				["at0000.1.1"] = <
+					text = <"*Pulse - ZN(en)">
+					description = <"*The mechanical heart rate  - usually measured by palpation. Added terms for ZN requirements.(en)">
+				>
+				["at0001"] = <
+					text = <"Structure">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"*Any event(en)">
+					description = <"*Default and unspecified event.(en)">
+				>
+				["at0004"] = <
+					text = <"*Rate(en)">
+					description = <"*The rate of the heart in beats per minute.(en)">
+				>
+				["at0005"] = <
+					text = <"*Rhythm pattern(en)">
+					description = <"*The observed rhythm of the heartbeat.(en)">
+				>
+				["at0006"] = <
+					text = <"*Regular(en)">
+					description = <"*Heart rhythm is regular.(en)">
+				>
+				["at0007"] = <
+					text = <"*Regularly Irregular(en)">
+					description = <"*Heart rhythm is regularly irregular.(en)">
+				>
+				["at0008"] = <
+					text = <"Unregulär unregulär">
+					description = <"Unregulär in einer chaotischen Art und Weise">
+				>
+				["at0009"] = <
+					text = <"*Comment(en)">
+					description = <"*Comment about the heart rate and rhythm.(en)">
+				>
+				["at0010"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0012"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0013"] = <
+					text = <"Position">
+					description = <"Die Position des Patienten während der Messung der Herzfrequenz">
+				>
+				["at1000"] = <
+					text = <"*Lying(en)">
+					description = <"*Lying supine.(en)">
+				>
+				["at1001"] = <
+					text = <"Sitzend">
+					description = <"Auf dem Bett oder einem Stuhl sitzend">
+				>
+				["at1002"] = <
+					text = <"Liegesitz">
+					description = <"Person sitzt im 45° Winkel mit erhöhten Beinen">
+				>
+				["at1003"] = <
+					text = <"Stehend">
+					description = <"Aufrecht stehend">
+				>
+				["at1005"] = <
+					text = <"*Pulse present(en)">
+					description = <"*The heart rate is present (implied true if rate >0).(en)">
+				>
+				["at1005.1"] = <
+					text = <"*Pulse present(en)">
+					description = <"*The heart rate is present (implied true if rate >0).(en)">
+				>
+				["at1013"] = <
+					text = <"*Device(en)">
+					description = <"*Details about the device used to measure heart rate and rhythm.(en)">
+				>
+				["at1014"] = <
+					text = <"*Description(en)">
+					description = <"*Details about the method or machine used to record the heart rate and rhythm.(en)">
+				>
+				["at1017"] = <
+					text = <"*Exertion(en)">
+					description = <"*Details about physical exertion being undertaken at the time of recording heart rate and/or rhythm.(en)">
+				>
+				["at1018"] = <
+					text = <"*Confounding factors(en)">
+					description = <"*Comment on and record other incidental factors that may be contributing to the heart rate and rhythm measurement. For example, level of anxiety; pain or fever etc.(en)">
+				>
+				["at1019"] = <
+					text = <"*Method(en)">
+					description = <"*Source of heart rate and rhythm record.(en)">
+				>
+				["at1020"] = <
+					text = <"*Auscultation(en)">
+					description = <"*Direct auscultation of the heart.(en)">
+				>
+				["at1021"] = <
+					text = <"*Device(en)">
+					description = <"*Derived from the electrical activity of the heart, commonly via an electrocardiograph.(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.0.47"] = <
+					text = <"Neenakomeren ">
+					description = <"Srčni utrip je ne enakomeren">
+				>
+				["at0.0.48"] = <
+					text = <"Levo uho">
+					description = <"*">
+				>
+				["at0.0.49"] = <
+					text = <"Desno uho">
+					description = <"*">
+				>
+				["at0.0.50"] = <
+					text = <"Dimlje">
+					description = <"*">
+				>
+				["at0.0.51"] = <
+					text = <"Leva roka">
+					description = <"Left arm">
+				>
+				["at0.0.52"] = <
+					text = <"Desna roka">
+					description = <"*">
+				>
+				["at0.0.53"] = <
+					text = <"Levo stegno">
+					description = <"Left thigh">
+				>
+				["at0.0.54"] = <
+					text = <"Desno stegno">
+					description = <"*">
+				>
+				["at0.0.55"] = <
+					text = <"Levi gleženj">
+					description = <"Left ankle">
+				>
+				["at0.0.56"] = <
+					text = <"Desni gleženj">
+					description = <"Right ankle">
+				>
+				["at0.0.57"] = <
+					text = <"Levo zapestje">
+					description = <"Left wirst">
+				>
+				["at0.0.58"] = <
+					text = <"Desno zapestje">
+					description = <"Right wirst">
+				>
+				["at0.0.59"] = <
+					text = <"Prsti na roki">
+					description = <"Fingers">
+				>
+				["at0.0.60"] = <
+					text = <"Prsti na nogi">
+					description = <"Toes">
+				>
+				["at0.10"] = <
+					text = <"Pogosto pomanjkanje utripov">
+					description = <"Število ne izvedenih srčnih utripov je večje kot 2 na minuto">
+				>
+				["at0.11"] = <
+					text = <"Ne izvedeni srčni utripi na minuto">
+					description = <"Število ne izvedenih srčnih utripov na minuto">
+				>
+				["at0.13"] = <
+					text = <"Razlika">
+					description = <"Razlika v srčnih utripih????">
+				>
+				["at0.15"] = <
+					text = <"Ulnarna arterija">
+					description = <"Ulnarna arterija">
+				>
+				["at0.17"] = <
+					text = <"Brahialna arterija">
+					description = <"Brahialna arterija">
+				>
+				["at0.19"] = <
+					text = <"Poplitealena arterija">
+					description = <"Poplitealena srterija">
+				>
+				["at0.2"] = <
+					text = <"Lokacija ">
+					description = <"Stran telesa na kateri je merjen srčni utrip">
+				>
+				["at0.20"] = <
+					text = <"Posterior Pedis">
+					description = <"Arterija pedis posterior ">
+				>
+				["at0.21"] = <
+					text = <"Tibialis Posterior">
+					description = <"Arterija tibialis posterior">
+				>
+				["at0.22"] = <
+					text = <"Temporalno">
+					description = <"Temporalno">
+				>
+				["at0.24"] = <
+					text = <"Primanjkljaj utripa">
+					description = <"Razlika med utripoma izmerjenima na srčnem apex-u in periferno ">
+				>
+				["at0.25"] = <
+					text = <"Mesto">
+					description = <"Mesto na telesu kjer je bil izmerjeno pomanjkanje utripa">
+				>
+				["at0.27"] = <
+					text = <"Kakovost">
+					description = <"Kakovost srčnega utripa na otip">
+				>
+				["at0.28"] = <
+					text = <"Močan ">
+					description = <"Močan">
+				>
+				["at0.29"] = <
+					text = <"Šibak">
+					description = <"Šibak">
+				>
+				["at0.3"] = <
+					text = <"Radialna arterija">
+					description = <"Radialna arterija">
+				>
+				["at0.30"] = <
+					text = <"Normalen">
+					description = <"Normalen">
+				>
+				["at0.31"] = <
+					text = <"Počasi dvigajoč">
+					description = <"Počasi dvigajoč">
+				>
+				["at0.32"] = <
+					text = <"Razbijajoč">
+					description = <"Razbijajoč">
+				>
+				["at0.33"] = <
+					text = <"Počasi padajoč">
+					description = <"Počasi padajoč">
+				>
+				["at0.34"] = <
+					text = <"Usihajoč">
+					description = <"Usihajoč">
+				>
+				["at0.35"] = <
+					text = <"Paradoksalen">
+					description = <"Paradoksalen">
+				>
+				["at0.36"] = <
+					text = <"Kakovost">
+					description = <"Obseg srčnega utripa">
+				>
+				["at0.37"] = <
+					text = <"Močen">
+					description = <"Obširen/Poln">
+				>
+				["at0.38"] = <
+					text = <"Normalen">
+					description = <"Normalen">
+				>
+				["at0.39"] = <
+					text = <"Šibek">
+					description = <"Ozek/Majhen">
+				>
+				["at0.4"] = <
+					text = <"Srčni apex">
+					description = <"Utrip srčnega apex-a ">
+				>
+				["at0.40"] = <
+					text = <"Polovičen">
+					description = <"Polovičen">
+				>
+				["at0.41"] = <
+					text = <"Četrtinski">
+					description = <"Četrtinski">
+				>
+				["at0.42"] = <
+					text = <"Opis srčnega utripa">
+					description = <"Opis srčnega utripa">
+				>
+				["at0.43"] = <
+					text = <"Normalen">
+					description = <"Normalen srčni utrip">
+				>
+				["at0.44"] = <
+					text = <"Tahikardia">
+					description = <"Pojav, pri katerem število impulzov iz preddvorov presega 100 na minuto">
+				>
+				["at0.45"] = <
+					text = <"Bradikardia">
+					description = <"Manjše zvišanje frekvence pulza kot bi bilo pričakovano pri zvišani telesni temperaturi">
+				>
+				["at0.46"] = <
+					text = <"Trahi-bradi sindrom">
+					description = <"Mešano tahikardia in bradikardia">
+				>
+				["at0.5"] = <
+					text = <"Karotidna arterija">
+					description = <"Karotidna arterija v vratu">
+				>
+				["at0.6"] = <
+					text = <"Femoralna arterija">
+					description = <"Femoralna arterija">
+				>
+				["at0.7"] = <
+					text = <"Dvojni">
+					description = <"Dvojni utripi v intervencijskem intervalu">
+				>
+				["at0.8"] = <
+					text = <"Trojni">
+					description = <"Trojni utripi v intervencijskem intervalu">
+				>
+				["at0.9"] = <
+					text = <"Občasno pomanjkanje utripov">
+					description = <"Število ne izvedenih srčnih utripov je manjše kot 2 na minuto">
+				>
+				["at0000"] = <
+					text = <"Srčni utrip in ritem">
+					description = <"Opis srčnega utripa in ritma">
+				>
+				["at0000.1"] = <
+					text = <"Srčni utrip">
+					description = <"Srčni utrip, ponavadi merjen ročno">
+				>
+				["at0000.1.1"] = <
+					text = <"Srčni utrip">
+					description = <"Srčni utrip">
+				>
+				["at0001"] = <
+					text = <"*structure(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0003"] = <
+					text = <"*Any event(en)">
+					description = <"*Default unspecified event.(en)">
+				>
+				["at0004"] = <
+					text = <"Utrip">
+					description = <"Število srčnih utripovna minuto">
+				>
+				["at0005"] = <
+					text = <"Ritem">
+					description = <"Opazovani ritem utripov srca">
+				>
+				["at0006"] = <
+					text = <"Enakomeren">
+					description = <"Srčni ritem je enakomeren">
+				>
+				["at0007"] = <
+					text = <"Redno nereden">
+					description = <"Srčni utrip je redno ne-enakomeren">
+				>
+				["at0008"] = <
+					text = <"Neenakomeren">
+					description = <"Srčni utrip je neenakomeren">
+				>
+				["at0009"] = <
+					text = <"Opombe">
+					description = <"Dodatne opombe glede srčnega utripa">
+				>
+				["at0010"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0012"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0013"] = <
+					text = <"Položaj pacienta">
+					description = <"Položaj pacienta pri merjenju srčnega utripa">
+				>
+				["at1000"] = <
+					text = <"Leži">
+					description = <"Pacient leži">
+				>
+				["at1001"] = <
+					text = <"Sedi">
+					description = <"Pacient sedi">
+				>
+				["at1002"] = <
+					text = <"Kot 45%">
+					description = <"Pacient leži pod kotom 45%">
+				>
+				["at1003"] = <
+					text = <"Stoji">
+					description = <"Stoji">
+				>
+				["at1005"] = <
+					text = <"Srčni utrip je prisoten">
+					description = <"Srčni utrip je prisoten (označi z \"true\", je utrip >0)">
+				>
+				["at1005.1"] = <
+					text = <"Prisoten">
+					description = <"Srčni utrip je prisoten (označi z \"true\", je utrip >0)">
+				>
+				["at1013"] = <
+					text = <"Naprava">
+					description = <"Podatki o napravi, ki je uporabljena za merjenje srčnega utripa">
+				>
+				["at1014"] = <
+					text = <"Opis">
+					description = <"Opis načina meritve in naprave, ki je uporabljena pri merjenju srčnega utripa">
+				>
+				["at1017"] = <
+					text = <"Napor">
+					description = <"Podatki o naporu pacienta v času merjenja srčnega utripa">
+				>
+				["at1018"] = <
+					text = <"Opombe">
+					description = <"Dodatni komentariji in opombe glede počutja pacienta v času meritve srčnega utripa, npr. bolečina, vročina...">
+				>
+				["at1019"] = <
+					text = <"Metoda">
+					description = <"Vir podatkov in metoda za merjenje srčnega utripa">
+				>
+				["at1020"] = <
+					text = <"Osluškovanje">
+					description = <"Osluškovanje srčnega utripa">
+				>
+				["at1021"] = <
+					text = <"Naprava">
+					description = <"Merjenje srčnega utripa in aktivnosti srca z elektronsko napravo, ponavadi je to elektrokardiograf">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0.0.47"] = <
+					text = <"Irregular">
+					description = <"The pulse is irregular.">
+				>
+				["at0.0.48"] = <
+					text = <"Left ear">
+					description = <"*">
+				>
+				["at0.0.49"] = <
+					text = <"Right ear">
+					description = <"*">
+				>
+				["at0.0.50"] = <
+					text = <"Groin">
+					description = <"*">
+				>
+				["at0.0.51"] = <
+					text = <"Left arm">
+					description = <"Left arm">
+				>
+				["at0.0.52"] = <
+					text = <"Right arm">
+					description = <"*">
+				>
+				["at0.0.53"] = <
+					text = <"Left thigh">
+					description = <"Left thigh">
+				>
+				["at0.0.54"] = <
+					text = <"Right thigh">
+					description = <"*">
+				>
+				["at0.0.55"] = <
+					text = <"Left ankle">
+					description = <"Left ankle">
+				>
+				["at0.0.56"] = <
+					text = <"Right ankle">
+					description = <"Right ankle">
+				>
+				["at0.0.57"] = <
+					text = <"Left wirst">
+					description = <"Left wirst">
+				>
+				["at0.0.58"] = <
+					text = <"Right wirst">
+					description = <"Right wirst">
+				>
+				["at0.0.59"] = <
+					text = <"Fingers">
+					description = <"Fingers">
+				>
+				["at0.0.60"] = <
+					text = <"Toes">
+					description = <"Toes">
+				>
+				["at0.10"] = <
+					text = <"Frequent missed beats">
+					description = <"Missed beats of greater than 2 per minute">
+				>
+				["at0.11"] = <
+					text = <"Missed beats per minute">
+					description = <"The number of missed beats per minute">
+				>
+				["at0.13"] = <
+					text = <"Deficit">
+					description = <"Difference between the rates">
+				>
+				["at0.15"] = <
+					text = <"Ulnar artery">
+					description = <"The ulnar artery">
+				>
+				["at0.17"] = <
+					text = <"Brachial artery">
+					description = <"The brachial artery">
+				>
+				["at0.19"] = <
+					text = <"Popliteal">
+					description = <"The popliteal artery">
+				>
+				["at0.2"] = <
+					text = <"Location of measurement">
+					description = <"The body site where the pulse was measured">
+				>
+				["at0.20"] = <
+					text = <"Dorsalis Pedis">
+					description = <"The dorsalis pedis artery">
+				>
+				["at0.21"] = <
+					text = <"Tibialis Posterior">
+					description = <"The tibialis posterior artery">
+				>
+				["at0.22"] = <
+					text = <"temporal">
+					description = <"*">
+				>
+				["at0.24"] = <
+					text = <"Pulse deficit">
+					description = <"Difference between the rate at the heart apex and a peripheral pulse.">
+				>
+				["at0.25"] = <
+					text = <"Sites">
+					description = <"Sites where deficit is measured">
+				>
+				["at0.27"] = <
+					text = <"Character">
+					description = <"Shape of the pulse wave on palpation">
+				>
+				["at0.28"] = <
+					text = <"Bounding">
+					description = <"*">
+				>
+				["at0.29"] = <
+					text = <"Thready">
+					description = <"*">
+				>
+				["at0.3"] = <
+					text = <"Radial artery">
+					description = <"The radial artery">
+				>
+				["at0.30"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.31"] = <
+					text = <"Slow-rising">
+					description = <"*">
+				>
+				["at0.32"] = <
+					text = <"Water-hammer">
+					description = <"*">
+				>
+				["at0.33"] = <
+					text = <"Collapsing">
+					description = <"*">
+				>
+				["at0.34"] = <
+					text = <"Bisferiens">
+					description = <"*">
+				>
+				["at0.35"] = <
+					text = <"Paradoxical">
+					description = <"*">
+				>
+				["at0.36"] = <
+					text = <"Volume">
+					description = <"Volume of pulse">
+				>
+				["at0.37"] = <
+					text = <"Large/full">
+					description = <"*">
+				>
+				["at0.38"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.39"] = <
+					text = <"Low/small">
+					description = <"*">
+				>
+				["at0.4"] = <
+					text = <"Apex of heart">
+					description = <"The apex beat of the heart (left 5th intercostal space, mid-clavicular line)">
+				>
+				["at0.40"] = <
+					text = <"Half">
+					description = <"*">
+				>
+				["at0.41"] = <
+					text = <"Quarter">
+					description = <"*">
+				>
+				["at0.42"] = <
+					text = <"Rate description">
+					description = <"Description of the pulse rate.">
+				>
+				["at0.43"] = <
+					text = <"Normal pulse rate">
+					description = <"The pulse rate is normal.">
+				>
+				["at0.44"] = <
+					text = <"Tachycardia">
+					description = <"*">
+				>
+				["at0.45"] = <
+					text = <"Bradycardia">
+					description = <"*">
+				>
+				["at0.46"] = <
+					text = <"Mixed tachycardia and bradycardia">
+					description = <"Tachy-brady syndrome">
+				>
+				["at0.5"] = <
+					text = <"Carotid artery">
+					description = <"The carotid artery in the neck">
+				>
+				["at0.6"] = <
+					text = <"Femoral artery">
+					description = <"The femoral artery">
+				>
+				["at0.7"] = <
+					text = <"Bigeminy">
+					description = <"Double beats with intervening gap">
+				>
+				["at0.8"] = <
+					text = <"Trigeminy">
+					description = <"Triple beat with intervening gap">
+				>
+				["at0.9"] = <
+					text = <"Occasional missed beats">
+					description = <"Missed beats less than 2 per minute">
+				>
+				["at0000"] = <
+					text = <"Heart rate and rhythm">
+					description = <"The characteristics of the heart rate and rhythm.">
+				>
+				["at0000.1"] = <
+					text = <"Pulse">
+					description = <"The mechanical heart rate  - usually measured by palpation">
+				>
+				["at0000.1.1"] = <
+					text = <"Pulse">
+					description = <"The mechanical heart rate  - usually measured by palpation. Added terms for ZN requirements.">
+				>
+				["at0001"] = <
+					text = <"structure">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Any event">
+					description = <"Default unspecified event.">
+				>
+				["at0004"] = <
+					text = <"Rate">
+					description = <"The rate of the heart in beats per minute.">
+				>
+				["at0005"] = <
+					text = <"Rhythm pattern">
+					description = <"The observed rhythm of the heartbeat.">
+				>
+				["at0006"] = <
+					text = <"Regular">
+					description = <"Heart rhythm is regular.">
+				>
+				["at0007"] = <
+					text = <"Regularly Irregular">
+					description = <"Heart rhythm is regularly irregular.">
+				>
+				["at0008"] = <
+					text = <"Irregularly irregular">
+					description = <"Heart rhythm is irregular in a chaotic manner.">
+				>
+				["at0009"] = <
+					text = <"Comment">
+					description = <"Comment about the heart rate and rhythm.">
+				>
+				["at0010"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0012"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0013"] = <
+					text = <"Position">
+					description = <"The position of the patient when the heartbeat was recorded.">
+				>
+				["at1000"] = <
+					text = <"Lying">
+					description = <"Lying supine.">
+				>
+				["at1001"] = <
+					text = <"Sitting">
+					description = <"Sitting on bed or chair.">
+				>
+				["at1002"] = <
+					text = <"Reclining">
+					description = <"Person reclining at 45 degrees with legs raised.">
+				>
+				["at1003"] = <
+					text = <"Standing">
+					description = <"Standing upright.">
+				>
+				["at1005"] = <
+					text = <"Pulse present">
+					description = <"The heart rate is present (implied true if rate >0).">
+				>
+				["at1005.1"] = <
+					text = <"Pulse present">
+					description = <"The heart rate is present (implied true if rate >0).">
+				>
+				["at1013"] = <
+					text = <"Device">
+					description = <"Details about the device used to measure heart rate and rhythm.">
+				>
+				["at1014"] = <
+					text = <"Description">
+					description = <"Details about the method or machine used to record the heart rate and rhythm.">
+				>
+				["at1017"] = <
+					text = <"Exertion">
+					description = <"Details about physical exertion being undertaken at the time of recording heart rate and/or rhythm.">
+				>
+				["at1018"] = <
+					text = <"Confounding factors">
+					description = <"Comment on and record other incidental factors that may be contributing to the heart rate and rhythm measurement. For example, level of anxiety; pain or fever etc.">
+				>
+				["at1019"] = <
+					text = <"Method">
+					description = <"Source of heart rate and rhythm record.">
+				>
+				["at1020"] = <
+					text = <"Auscultation">
+					description = <"Direct auscultation of the heart.">
+				>
+				["at1021"] = <
+					text = <"Device">
+					description = <"Derived from the electrical activity of the heart, commonly via an electrocardiograph.">
+				>
+			>
+		>
+	>

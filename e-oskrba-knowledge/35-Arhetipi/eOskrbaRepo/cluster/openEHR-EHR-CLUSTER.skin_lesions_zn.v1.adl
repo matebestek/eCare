@@ -1,0 +1,1408 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.skin_lesions_zn.v1
+
+concept
+	[at0000]	-- Assessment of skin lesions
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"29.10.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Skin lesions - nursing assessment">
+			use = <"To assess specific skin lesion.">
+			keywords = <"skin lesion", "nursing assessment", "skin assessment">
+			misuse = <"Not used for assessing open wounds and/or scars.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za opisovanje sprememb na koži - zdravstvena nega">
+			use = <"Za opazovanje sprememb na koži">
+			keywords = <"kožne spremembe", "koža", "znamenja">
+			misuse = <"Se ne uporablja za oceno odprtih ran ali brazgotin, stalnejših znamenj">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"mag. Biljana Prinčič, Marand, Slovenija", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"AECB419C5F55944787D2FA5B3153E4DD">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Assessment of skin lesions
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {	-- Color
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- black
+							at0007, 	-- blue
+							at0008, 	-- orange
+							at0009, 	-- yellow
+							at0010, 	-- gray
+							at0011, 	-- silver
+							at0012, 	-- violet
+							at0013, 	-- green
+							at0014, 	-- white
+							at0015, 	-- darker
+							at0016]	-- paler
+						}
+					}
+					0|[local::at0002], 	-- no redness
+					1|[local::at0003], 	-- light redness
+					2|[local::at0004], 	-- medium redness
+					3|[local::at0005]  	-- dark redness
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {	-- Pressure ulcer
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0019, 	-- present
+							at0020]	-- not present
+						}
+					}
+				}
+			}
+			ELEMENT[at0021] occurrences matches {0..1} matches {	-- Edema
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0022, 	-- present
+							at0023]	-- not present
+						}
+					}
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {	-- Dryness
+				value matches {
+					0|[local::at0025], 	-- very dry
+					1|[local::at0026], 	-- dry
+					2|[local::at0027], 	-- somewhat moist
+					3|[local::at0028], 	-- moist
+					4|[local::at0029]  	-- oozing
+				}
+			}
+			ELEMENT[at0030] occurrences matches {0..1} matches {	-- Scaling
+				value matches {
+					0|[local::at0031], 	-- not present
+					1|[local::at0032], 	-- light, some
+					2|[local::at0033], 	-- medium
+					3|[local::at0034]  	-- heavy
+				}
+			}
+			ELEMENT[at0035] occurrences matches {0..1} matches {	-- Skin plaque
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0036, 	-- present
+							at0037]	-- not present
+						}
+					}
+				}
+			}
+			ELEMENT[at0038] occurrences matches {0..1} matches {	-- Burning pain
+				value matches {
+					0|[local::at0039], 	-- no pain
+					1|[local::at0040], 	-- mild pain
+					2|[local::at0041], 	-- moderate pain
+					3|[local::at0042]  	-- severe pain
+				}
+			}
+			ELEMENT[at0043] occurrences matches {0..1} matches {	-- Itching
+				value matches {
+					0|[local::at0044], 	-- no itching
+					1|[local::at0045], 	-- mild
+					2|[local::at0046], 	-- moderate
+					3|[local::at0047]  	-- severe
+				}
+			}
+			ELEMENT[at0048] occurrences matches {0..1} matches {	-- Pain
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0049, 	-- present
+							at0050]	-- not present
+						}
+					}
+				}
+			}
+			CLUSTER[at0051] occurrences matches {0..1} matches {	-- Size
+				items cardinality matches {1; unordered} matches {
+					CLUSTER[at0054] occurrences matches {0..1} matches {	-- Height, depth
+						items cardinality matches {1; unordered} matches {
+							ELEMENT[at0055] occurrences matches {0..1} matches {	-- Height
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+											>
+											["2"] = <
+												units = <"m">
+											>
+											["3"] = <
+												units = <"mm">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Level
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0057, 	-- raised
+											at0058, 	-- sunken
+											at0059, 	-- flat
+											at0060]	-- hanging
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0052] occurrences matches {0..1} matches {	-- Length
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+									>
+									["2"] = <
+										units = <"m">
+									>
+									["3"] = <
+										units = <"mm">
+										magnitude = <|>=0.0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0053] occurrences matches {0..1} matches {	-- Width
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+										magnitude = <|>=0.0|>
+									>
+									["2"] = <
+										units = <"m">
+									>
+									["3"] = <
+										units = <"mm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			CLUSTER[at0061] occurrences matches {0..1} matches {	-- Blister
+				items cardinality matches {1; unordered} matches {
+					ELEMENT[at0062] occurrences matches {0..1} matches {	-- Blister presence
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0063, 	-- present
+									at0064]	-- not present
+								}
+							}
+						}
+					}
+					ELEMENT[at0065] occurrences matches {0..1} matches {	-- Squeezable
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0066, 	-- yes
+									at0067]	-- no
+								}
+							}
+						}
+					}
+					ELEMENT[at0068] occurrences matches {0..1} matches {	-- Content
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0069, 	-- clear fluid
+									at0070, 	-- blood
+									at0071]	-- pus
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0072] occurrences matches {0..1} matches {	-- Distribution data
+				items cardinality matches {1; unordered} matches {
+					ELEMENT[at0073] occurrences matches {0..1} matches {	-- Coverage
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0074, 	-- localised
+									at0075]	-- generalised
+								}
+							}
+						}
+					}
+					ELEMENT[at0076] occurrences matches {0..1} matches {	-- Distribution
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0077, 	-- scattered
+									at0078]	-- diffused
+								}
+							}
+						}
+					}
+					ELEMENT[at0079] occurrences matches {0..1} matches {	-- Warmth
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0080, 	-- cooler
+									at0081, 	-- warmer
+									at0082]	-- normal
+								}
+							}
+						}
+					}
+					ELEMENT[at0083] occurrences matches {0..1} matches {	-- Quantity
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0084, 	-- solitary
+									at0085, 	-- a few/some
+									at0086]	-- multiple
+								}
+							}
+						}
+					}
+					ELEMENT[at0087] occurrences matches {0..1} matches {	-- Symmetry
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0088, 	-- symmetrical
+									at0089]	-- asymmetrical
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0090] occurrences matches {0..1} matches {	-- Specific skin lesion type
+				items cardinality matches {1; unordered} matches {
+					ELEMENT[at0091] occurrences matches {0..*} matches {	-- Lesion type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0092, 	-- urticaria
+									at0093, 	-- petechiae
+									at0094, 	-- purpura
+									at0095, 	-- angioedema
+									at0096, 	-- wart
+									at0097, 	-- hemangioma
+									at0098, 	-- hematoma
+									at0099, 	-- suffusion
+									at0100, 	-- cafe au lait sports
+									at0101, 	-- milium
+									at0102, 	-- candidiasis
+									at0121, 	-- hemorrhagic rash
+									at0122]	-- butterfly rash
+								}
+							}
+						}
+					}
+					ELEMENT[at0103] occurrences matches {0..1} matches {	-- Urticaria
+						value matches {
+							1|[local::at0104], 	-- mild
+							2|[local::at0105], 	-- moderate
+							3|[local::at0106]  	-- severe
+						}
+					}
+					ELEMENT[at0107] occurrences matches {0..1} matches {	-- Purpura
+						value matches {
+							1|[local::at0108], 	-- single
+							2|[local::at0109], 	-- two
+							3|[local::at0110]  	-- more than two
+						}
+					}
+					ELEMENT[at0111] occurrences matches {0..*} matches {	-- Angioedema
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0112, 	-- lips
+									at0113, 	-- tongue
+									at0114, 	-- neck
+									at0115, 	-- eyes
+									at0116]	-- ears
+								}
+							}
+						}
+					}
+					ELEMENT[at0117] occurrences matches {0..1} matches {	-- Cafe au lait spots
+						value matches {
+							1|[local::at0118], 	-- some
+							2|[local::at0119], 	-- many
+							3|[local::at0120]  	-- numerous
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Assessment of skin lesions">
+					description = <"Skin lesion - nursing assessment">
+				>
+				["at0001"] = <
+					text = <"Color">
+					description = <"Redness or other color">
+				>
+				["at0002"] = <
+					text = <"no redness">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"light redness">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"medium redness">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"dark redness">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"black">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"blue">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"orange">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"yellow">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"gray">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"silver">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"violet">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"green">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"white">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"darker">
+					description = <"darker than the surrounding skin">
+				>
+				["at0016"] = <
+					text = <"paler">
+					description = <"paler than the surrounding skin">
+				>
+				["at0018"] = <
+					text = <"Pressure ulcer">
+					description = <"Presence of pressure ulcer; used also for quality control">
+				>
+				["at0019"] = <
+					text = <"present">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Edema">
+					description = <"Presence of edema (other terms: oedema, swelling)">
+				>
+				["at0022"] = <
+					text = <"present">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Dryness">
+					description = <"Dryness of skin area">
+				>
+				["at0025"] = <
+					text = <"very dry">
+					description = <"dried out">
+				>
+				["at0026"] = <
+					text = <"dry">
+					description = <"dry">
+				>
+				["at0027"] = <
+					text = <"somewhat moist">
+					description = <"not fully moist">
+				>
+				["at0028"] = <
+					text = <"moist">
+					description = <"moist">
+				>
+				["at0029"] = <
+					text = <"oozing">
+					description = <"appearance of waterly drops on the area">
+				>
+				["at0030"] = <
+					text = <"Scaling">
+					description = <"Scaling at skin area">
+				>
+				["at0031"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"light, some">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"medium">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"heavy">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Skin plaque">
+					description = <"Presence of skin plaque(s)">
+				>
+				["at0036"] = <
+					text = <"present">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Burning pain">
+					description = <"Presence of burning (stinging) pain at the area of skin lesion">
+				>
+				["at0039"] = <
+					text = <"no pain">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"mild pain">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"moderate pain">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"severe pain">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Itching">
+					description = <"Itching at the area of skin lesion">
+				>
+				["at0044"] = <
+					text = <"no itching">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"mild">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"moderate">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"severe">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Pain">
+					description = <"Presence of pain (any type of pain) at the area of skin lesion">
+				>
+				["at0049"] = <
+					text = <"present">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Size">
+					description = <"Size of skin lesion">
+				>
+				["at0052"] = <
+					text = <"Length">
+					description = <"Length between most distant points of the skin lesion">
+				>
+				["at0053"] = <
+					text = <"Width">
+					description = <"Width of skin lesion as a length measure perpendicular in regard to length of skin lesion.">
+				>
+				["at0054"] = <
+					text = <"Height, depth">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Height">
+					description = <"Height of skin lesion above surround skin ; depth of skin lesion below surrounding skin">
+				>
+				["at0056"] = <
+					text = <"Level">
+					description = <"Level of skin lesion in regard to the surrounding skin">
+				>
+				["at0057"] = <
+					text = <"raised">
+					description = <"elevated">
+				>
+				["at0058"] = <
+					text = <"sunken">
+					description = <"depressed">
+				>
+				["at0059"] = <
+					text = <"flat">
+					description = <"leveled with surrounding skin">
+				>
+				["at0060"] = <
+					text = <"hanging">
+					description = <"pendant">
+				>
+				["at0061"] = <
+					text = <"Blister">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Blister presence">
+					description = <"Presence of a blister or blisters">
+				>
+				["at0063"] = <
+					text = <"present">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Squeezable">
+					description = <"If a blister is squeezable, or if it can be pinched or crushed">
+				>
+				["at0066"] = <
+					text = <"yes">
+					description = <"blister is squeezable">
+				>
+				["at0067"] = <
+					text = <"no">
+					description = <"blister is not squeezable">
+				>
+				["at0068"] = <
+					text = <"Content">
+					description = <"Describe the content of a blister(s); maximum occurences are 2: blood + pus">
+				>
+				["at0069"] = <
+					text = <"clear fluid">
+					description = <"serum, plasma, water blister">
+				>
+				["at0070"] = <
+					text = <"blood">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"pus">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"Distribution data">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"Coverage">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"localised">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"generalised">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Distribution">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"scattered">
+					description = <"*">
+				>
+				["at0078"] = <
+					text = <"diffused">
+					description = <"*">
+				>
+				["at0079"] = <
+					text = <"Warmth">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"cooler">
+					description = <"cooler than the surround skin">
+				>
+				["at0081"] = <
+					text = <"warmer">
+					description = <"hotter, warmer than the surrounding skin">
+				>
+				["at0082"] = <
+					text = <"normal">
+					description = <"same or approx. the same as the surrounding skin">
+				>
+				["at0083"] = <
+					text = <"Quantity">
+					description = <"*">
+				>
+				["at0084"] = <
+					text = <"solitary">
+					description = <"*">
+				>
+				["at0085"] = <
+					text = <"a few/some">
+					description = <"*">
+				>
+				["at0086"] = <
+					text = <"multiple">
+					description = <"many">
+				>
+				["at0087"] = <
+					text = <"Symmetry">
+					description = <"*">
+				>
+				["at0088"] = <
+					text = <"symmetrical">
+					description = <"*">
+				>
+				["at0089"] = <
+					text = <"asymmetrical">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Specific skin lesion type">
+					description = <"*">
+				>
+				["at0091"] = <
+					text = <"Lesion type">
+					description = <"*">
+				>
+				["at0092"] = <
+					text = <"urticaria">
+					description = <"*">
+				>
+				["at0093"] = <
+					text = <"petechiae">
+					description = <"*">
+				>
+				["at0094"] = <
+					text = <"purpura">
+					description = <"*">
+				>
+				["at0095"] = <
+					text = <"angioedema">
+					description = <"*">
+				>
+				["at0096"] = <
+					text = <"wart">
+					description = <"*">
+				>
+				["at0097"] = <
+					text = <"hemangioma">
+					description = <"*">
+				>
+				["at0098"] = <
+					text = <"hematoma">
+					description = <"*">
+				>
+				["at0099"] = <
+					text = <"suffusion">
+					description = <"*">
+				>
+				["at0100"] = <
+					text = <"cafe au lait sports">
+					description = <"giraffe spots">
+				>
+				["at0101"] = <
+					text = <"milium">
+					description = <"*">
+				>
+				["at0102"] = <
+					text = <"candidiasis">
+					description = <"trush">
+				>
+				["at0103"] = <
+					text = <"Urticaria">
+					description = <"Severity of urticaria">
+				>
+				["at0104"] = <
+					text = <"mild">
+					description = <"less than 3 lesions">
+				>
+				["at0105"] = <
+					text = <"moderate">
+					description = <"3 to 10 lesions">
+				>
+				["at0106"] = <
+					text = <"severe">
+					description = <"generalised (more than 10 lesions)">
+				>
+				["at0107"] = <
+					text = <"Purpura">
+					description = <"Severity of purpura(s)">
+				>
+				["at0108"] = <
+					text = <"single">
+					description = <"one">
+				>
+				["at0109"] = <
+					text = <"two">
+					description = <"two">
+				>
+				["at0110"] = <
+					text = <"more than two">
+					description = <"three or more">
+				>
+				["at0111"] = <
+					text = <"Angioedema">
+					description = <"Extend of angioedema">
+				>
+				["at0112"] = <
+					text = <"lips">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"tongue">
+					description = <"*">
+				>
+				["at0114"] = <
+					text = <"neck">
+					description = <"*">
+				>
+				["at0115"] = <
+					text = <"eyes">
+					description = <"*">
+				>
+				["at0116"] = <
+					text = <"ears">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"Cafe au lait spots">
+					description = <"Number of café au lait spots">
+				>
+				["at0118"] = <
+					text = <"some">
+					description = <"*">
+				>
+				["at0119"] = <
+					text = <"many">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"numerous">
+					description = <"*">
+				>
+				["at0121"] = <
+					text = <"hemorrhagic rash">
+					description = <"hemorrhagic rash">
+				>
+				["at0122"] = <
+					text = <"butterfly rash">
+					description = <"butterfly rash">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ocena sprememb vidnih na koži">
+					description = <"*Skin lesion - nursing assessment(en)">
+				>
+				["at0001"] = <
+					text = <"Barva">
+					description = <"*Redness or other color(en)">
+				>
+				["at0002"] = <
+					text = <"Ni rdečine">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"Malo rdeča">
+					description = <"**(en)">
+				>
+				["at0004"] = <
+					text = <"Srednje rdeča">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"Močno rdeča">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"Črna">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"Modra">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"Oranžna">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"Rumena">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"Siva">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"Srebrna">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"Vijolična">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"Zelena">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"Bela">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"Temnejša">
+					description = <"*darker than the surrounding skin(en)">
+				>
+				["at0016"] = <
+					text = <"Svetlejša">
+					description = <"*paler than the surrounding skin(en)">
+				>
+				["at0018"] = <
+					text = <"Razjeda zaradi pritiska">
+					description = <"*Presence of pressure ulcer; used also for quality control(en)">
+				>
+				["at0019"] = <
+					text = <"Da">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0021"] = <
+					text = <"Edema">
+					description = <"*Presence of edema (other terms: oedema, swelling)(en)">
+				>
+				["at0022"] = <
+					text = <"Da">
+					description = <"**(en)">
+				>
+				["at0023"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0024"] = <
+					text = <"Vlažnost">
+					description = <"*Dryness of skin area(en)">
+				>
+				["at0025"] = <
+					text = <"Zelo suha">
+					description = <"*dried out(en)">
+				>
+				["at0026"] = <
+					text = <"Suha">
+					description = <"*dry(en)">
+				>
+				["at0027"] = <
+					text = <"Malo vlažna">
+					description = <"*not fully moist(en)">
+				>
+				["at0028"] = <
+					text = <"Vlažna">
+					description = <"*moist(en)">
+				>
+				["at0029"] = <
+					text = <"Kapljice">
+					description = <"*appearance of waterly drops on the area(en)">
+				>
+				["at0030"] = <
+					text = <"Luščenje">
+					description = <"*Scaling at skin area(en)">
+				>
+				["at0031"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"Malo">
+					description = <"**(en)">
+				>
+				["at0033"] = <
+					text = <"Srednje">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"Močno">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"Plaki">
+					description = <"*Presence of skin plaque(s)(en)">
+				>
+				["at0036"] = <
+					text = <"Da">
+					description = <"**(en)">
+				>
+				["at0037"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0038"] = <
+					text = <"Peče /zbada">
+					description = <"*Presence of burning (stinging) pain at the area of skin lesion(en)">
+				>
+				["at0039"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0040"] = <
+					text = <"Malo">
+					description = <"**(en)">
+				>
+				["at0041"] = <
+					text = <"Srednje">
+					description = <"**(en)">
+				>
+				["at0042"] = <
+					text = <"Močno">
+					description = <"**(en)">
+				>
+				["at0043"] = <
+					text = <"Srbenje">
+					description = <"*Itching at the area of skin lesion(en)">
+				>
+				["at0044"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0045"] = <
+					text = <"Malo">
+					description = <"**(en)">
+				>
+				["at0046"] = <
+					text = <"Srednje">
+					description = <"**(en)">
+				>
+				["at0047"] = <
+					text = <"Močno">
+					description = <"**(en)">
+				>
+				["at0048"] = <
+					text = <"Bolečina">
+					description = <"*Presence of pain (any type of pain) at the area of skin lesion(en)">
+				>
+				["at0049"] = <
+					text = <"Da">
+					description = <"**(en)">
+				>
+				["at0050"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0051"] = <
+					text = <"Velikost">
+					description = <"*Size of skin lesion(en)">
+				>
+				["at0052"] = <
+					text = <"Dolžina">
+					description = <"*Length between most distant points of the skin lesion(en)">
+				>
+				["at0053"] = <
+					text = <"Širina">
+					description = <"*Width of skin lesion as a length measure perpendicular in regard to length of skin lesion.(en)">
+				>
+				["at0054"] = <
+					text = <"Globina">
+					description = <"**(en)">
+				>
+				["at0055"] = <
+					text = <"Višina">
+					description = <"*Height of skin lesion above surround skin ; depth of skin lesion below surrounding skin(en)">
+				>
+				["at0056"] = <
+					text = <"Nivo">
+					description = <"*Level of skin lesion in regard to the surrounding skin(en)">
+				>
+				["at0057"] = <
+					text = <"Nad nivojem">
+					description = <"*elevated(en)">
+				>
+				["at0058"] = <
+					text = <"Pod nivojem">
+					description = <"*depressed(en)">
+				>
+				["at0059"] = <
+					text = <"V ravni kože">
+					description = <"*leveled with surrounding skin(en)">
+				>
+				["at0060"] = <
+					text = <"Viseč">
+					description = <"*pendant(en)">
+				>
+				["at0061"] = <
+					text = <"Mehur">
+					description = <"**(en)">
+				>
+				["at0062"] = <
+					text = <"Prisotnost mehurja">
+					description = <"*Presence of a blister or blisters(en)">
+				>
+				["at0063"] = <
+					text = <"Da">
+					description = <"**(en)">
+				>
+				["at0064"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0065"] = <
+					text = <"Stisljiv">
+					description = <"*If a blister is squeezable, or if it can be pinched or crushed(en)">
+				>
+				["at0066"] = <
+					text = <"Da">
+					description = <"*blister is squeezable(en)">
+				>
+				["at0067"] = <
+					text = <"Ne">
+					description = <"*blister is not squeezable(en)">
+				>
+				["at0068"] = <
+					text = <"Vsebina mehurja">
+					description = <"*Describe the content of a blister(s); maximum occurences are 2: blood + pus(en)">
+				>
+				["at0069"] = <
+					text = <"Čist">
+					description = <"*serum, plasma, water blister(en)">
+				>
+				["at0070"] = <
+					text = <"Kri">
+					description = <"**(en)">
+				>
+				["at0071"] = <
+					text = <"Gnoj">
+					description = <"**(en)">
+				>
+				["at0072"] = <
+					text = <"Obseg kožne spremembe">
+					description = <"**(en)">
+				>
+				["at0073"] = <
+					text = <"Razširjenost">
+					description = <"**(en)">
+				>
+				["at0074"] = <
+					text = <"Lokaliziran">
+					description = <"**(en)">
+				>
+				["at0075"] = <
+					text = <"Generaliziran">
+					description = <"**(en)">
+				>
+				["at0076"] = <
+					text = <"Rzdelitev">
+					description = <"**(en)">
+				>
+				["at0077"] = <
+					text = <"Razpršen">
+					description = <"**(en)">
+				>
+				["at0078"] = <
+					text = <"Zlivajoč">
+					description = <"**(en)">
+				>
+				["at0079"] = <
+					text = <"Toplota">
+					description = <"**(en)">
+				>
+				["at0080"] = <
+					text = <"Hladna ">
+					description = <"*cooler than the surround skin(en)">
+				>
+				["at0081"] = <
+					text = <"Topla">
+					description = <"*hotter, warmer than the surrounding skin(en)">
+				>
+				["at0082"] = <
+					text = <"Normalno topla">
+					description = <"*same or approx. the same as the surrounding skin(en)">
+				>
+				["at0083"] = <
+					text = <"Količina">
+					description = <"**(en)">
+				>
+				["at0084"] = <
+					text = <"Posamičen">
+					description = <"**(en)">
+				>
+				["at0085"] = <
+					text = <"Nekaj">
+					description = <"**(en)">
+				>
+				["at0086"] = <
+					text = <"Veliko">
+					description = <"*many(en)">
+				>
+				["at0087"] = <
+					text = <"Simetričnost">
+					description = <"**(en)">
+				>
+				["at0088"] = <
+					text = <"Simetričen ">
+					description = <"**(en)">
+				>
+				["at0089"] = <
+					text = <"Ne simetričen">
+					description = <"**(en)">
+				>
+				["at0090"] = <
+					text = <"Ostale spremembe na koži">
+					description = <"**(en)">
+				>
+				["at0091"] = <
+					text = <"Tip spremembe">
+					description = <"**(en)">
+				>
+				["at0092"] = <
+					text = <"Urtikarija">
+					description = <"**(en)">
+				>
+				["at0093"] = <
+					text = <"Petehije">
+					description = <"**(en)">
+				>
+				["at0094"] = <
+					text = <"Purpura">
+					description = <"**(en)">
+				>
+				["at0095"] = <
+					text = <"Angioedem">
+					description = <"**(en)">
+				>
+				["at0096"] = <
+					text = <"Bradavica">
+					description = <"**(en)">
+				>
+				["at0097"] = <
+					text = <"Hemangiom">
+					description = <"Hemangiom">
+				>
+				["at0098"] = <
+					text = <"Hematoma">
+					description = <"**(en)">
+				>
+				["at0099"] = <
+					text = <"Sufuzija">
+					description = <"**(en)">
+				>
+				["at0100"] = <
+					text = <"Madeži bele kave">
+					description = <"Madeži bele kave">
+				>
+				["at0101"] = <
+					text = <"Milije">
+					description = <"**(en)">
+				>
+				["at0102"] = <
+					text = <"Sednost">
+					description = <"*trush(en)">
+				>
+				["at0103"] = <
+					text = <"Urtikarija">
+					description = <"*Severity of urticaria(en)">
+				>
+				["at0104"] = <
+					text = <"Blaga (do 3 urtike)">
+					description = <"*less than 3 lesions(en)">
+				>
+				["at0105"] = <
+					text = <"Srednja (do 10 urtik)">
+					description = <"*3 to 10 lesions(en)">
+				>
+				["at0106"] = <
+					text = <"Huda (več kot 10 urtika)">
+					description = <"*generalised (more than 10 lesions)(en)">
+				>
+				["at0107"] = <
+					text = <"Purpura">
+					description = <"*Severity of purpura(s)(en)">
+				>
+				["at0108"] = <
+					text = <"Ena">
+					description = <"*one(en)">
+				>
+				["at0109"] = <
+					text = <"Dve">
+					description = <"*two(en)">
+				>
+				["at0110"] = <
+					text = <"Več kot dve">
+					description = <"*three or more(en)">
+				>
+				["at0111"] = <
+					text = <"Angioedema">
+					description = <"*Extend of angioedema(en)">
+				>
+				["at0112"] = <
+					text = <"Ustnice">
+					description = <"**(en)">
+				>
+				["at0113"] = <
+					text = <"Jezik">
+					description = <"**(en)">
+				>
+				["at0114"] = <
+					text = <"Vrat">
+					description = <"**(en)">
+				>
+				["at0115"] = <
+					text = <"Oči">
+					description = <"**(en)">
+				>
+				["at0116"] = <
+					text = <"Ušesa">
+					description = <"**(en)">
+				>
+				["at0117"] = <
+					text = <"Madeži bele kave">
+					description = <"Madeži bele kave">
+				>
+				["at0118"] = <
+					text = <"Malo">
+					description = <"**(en)">
+				>
+				["at0119"] = <
+					text = <"Srednje">
+					description = <"**(en)">
+				>
+				["at0120"] = <
+					text = <"Veliko">
+					description = <"**(en)">
+				>
+				["at0121"] = <
+					text = <"Hemoragičen izpuščaj">
+					description = <"Hemoragičen izpuščaj">
+				>
+				["at0122"] = <
+					text = <"Metuljasti izpuščaj">
+					description = <"Metuljasti izpuščaj">
+				>
+			>
+		>
+	>

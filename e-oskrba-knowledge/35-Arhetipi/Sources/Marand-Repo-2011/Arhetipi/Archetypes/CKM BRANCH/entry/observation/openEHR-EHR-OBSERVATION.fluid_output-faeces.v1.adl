@@ -1,0 +1,374 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.fluid_output-faeces.v1
+specialize
+	openEHR-EHR-OBSERVATION.fluid_output.v1
+
+concept
+	[at0000.1]	-- Defekacija
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"11/11/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record findings of, and measurements of defaecation.">
+			use = <"Use to record defaecation as part of routine nursing care or in more specialised circumstances.
+May be used for descriptive assessments of faecal output or to record detailed amounts and totals over a period.
+
+Used in combination with CLUSTER.bodily_output-faeces.v1 to describe the bodily substance involved.">
+			keywords = <"production", "output", "fluid", "fluid balance", "input output", "io", "stool", "faeces", "constipation", "diarrhoea">
+			misuse = <"Do not use to record fluid input.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Se uporablja za beleženje opažanja blata v procesu ZN">
+			use = <"Se uporablja za beleženje opažanja blata v procesu ZN
+
+Se uporablja v kombinaciji z CLUSTER.bodily_output-faeces.v1 to">
+			keywords = <"defekacija", "izloček", "blato", "opazovanje">
+			misuse = <"Se ne uporablja za beleženja vnosa tekočin">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", "Heather Leslie, Ocean Informatics, Australia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"43391E75A407FF80072D91C629C8357B">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- Defekacija
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *List(en)
+								items cardinality matches {1..*; unordered} matches {
+									allow_archetype CLUSTER[at0016.1] occurrences matches {0..1} matches {	-- Podatki o blatu
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.bodily_substance-faeces(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									CLUSTER[at0.32] occurrences matches {0..1} matches {	-- Odvajanje blata 
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0.33] occurrences matches {0..1} matches {	-- Odvajal mekonij
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0.34] occurrences matches {0..1} matches {	-- Zadnja defekacija
+												value matches {
+													DV_DATE_TIME matches {*}
+												}
+											}
+											ELEMENT[at0.35] occurrences matches {0..1} matches {	-- Čas od zadnje defekacije
+												value matches {
+													DV_DURATION matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0.36] occurrences matches {0..1} matches {	-- Težave
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0.37] occurrences matches {0..1} matches {	-- Opis
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					INTERVAL_EVENT[at0006] occurrences matches {0..*} matches {	-- V celoti
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::148]}
+							}
+						}
+						data matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/data[at0003]	-- /data[*Event Series(en)]/events[Any event]/data[*List(en)]
+						}
+					}
+					INTERVAL_EVENT[at0007] occurrences matches {0..*} matches {	-- Aktualna
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::640]}
+							}
+						}
+						data matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/data[at0003]	-- /data[*Event Series(en)]/events[Any event]/data[*List(en)]
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0008] matches {	-- *List(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Preciznost meritve
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0018, 	-- Približna
+									at0019, 	-- Izmerjena
+									at0020]	-- Določeo
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0028] occurrences matches {0..1} matches {	-- Naprava
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+						exclude
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.32"] = <
+					text = <"Voiding">
+					description = <"Findings related to faecal voiding.">
+				>
+				["at0.33"] = <
+					text = <"Bowels moved">
+					description = <"Have the subject's bowels moved?">
+				>
+				["at0.34"] = <
+					text = <"Datetime bowels last moved">
+					description = <"The date and /or time that faeces was last voided.">
+				>
+				["at0.35"] = <
+					text = <"Period since bowels last moved">
+					description = <"The time elpased since faeces was last voided.">
+				>
+				["at0.36"] = <
+					text = <"Difficulty">
+					description = <"Findings related to difficulty passing faeces.">
+				>
+				["at0.37"] = <
+					text = <"Description">
+					description = <"Description of difficulty passing faeces.">
+				>
+				["at0.38"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0.39"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0000"] = <
+					text = <"Fluid output">
+					description = <"Recording of findings and measurement (or estimation) of bodily output such as fluid output and defaecation.">
+				>
+				["at0000.1"] = <
+					text = <"Defaecation">
+					description = <"Recording of findings and measuremenrealted to defaecation.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"The estimation of fluid output without specifying the period of time.">
+				>
+				["at0003"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Total">
+					description = <"For recording total fluid output over a period (may transcend a number of interval or point in time records).">
+				>
+				["at0007"] = <
+					text = <"Actual">
+					description = <"For recording the fluid output over a period of time when this will later be totalled.">
+				>
+				["at0008"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Fluid detail">
+					description = <"Details of the fluid or substance observed being observed.">
+				>
+				["at0016.1"] = <
+					text = <"Faeces detail">
+					description = <"Details of the faeces.">
+				>
+				["at0018"] = <
+					text = <"Estimated">
+					description = <"The fluid volume has been estimated.">
+				>
+				["at0019"] = <
+					text = <"Measured">
+					description = <"The fluid volume has been directly measured.">
+				>
+				["at0020"] = <
+					text = <"Stated">
+					description = <"The fluid output has been stated.">
+				>
+				["at0028"] = <
+					text = <"Measurement device ">
+					description = <"Details of device used to measure the fluid output.">
+				>
+				["at0031"] = <
+					text = <"Measurement precision">
+					description = <"Records the level of precision of the fluid output observation.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.32"] = <
+					text = <"Odvajanje blata ">
+					description = <"Ugotovitve glede izločanja blata">
+				>
+				["at0.33"] = <
+					text = <"Odvajal mekonij">
+					description = <"ALi je pacient že odvajal?">
+				>
+				["at0.34"] = <
+					text = <"Zadnja defekacija">
+					description = <"Datum in čas zadnje defekacije">
+				>
+				["at0.35"] = <
+					text = <"Čas od zadnje defekacije">
+					description = <"Pretekli čas od zadnje defekacije">
+				>
+				["at0.36"] = <
+					text = <"Težave">
+					description = <"Morebitne težave pri defekaciji">
+				>
+				["at0.37"] = <
+					text = <"Opis">
+					description = <"Opis težav">
+				>
+				["at0.38"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0.39"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0000"] = <
+					text = <"Ugotovitve">
+					description = <"Ugotovitve">
+				>
+				["at0000.1"] = <
+					text = <"Defekacija">
+					description = <"Ugotovitve glede defekacije">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*The estimation of fluid output without specifying the period of time.(en)">
+				>
+				["at0003"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0006"] = <
+					text = <"V celoti">
+					description = <"Celotna izločena količina">
+				>
+				["at0007"] = <
+					text = <"Aktualna">
+					description = <"Aktualna izločena količina">
+				>
+				["at0008"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0016"] = <
+					text = <"Podatki o izločku">
+					description = <"Podatki o izločku">
+				>
+				["at0016.1"] = <
+					text = <"Podatki o blatu">
+					description = <"Podatki o blatu">
+				>
+				["at0018"] = <
+					text = <"Približna">
+					description = <"Približna količina">
+				>
+				["at0019"] = <
+					text = <"Izmerjena">
+					description = <"Izmerjena količina">
+				>
+				["at0020"] = <
+					text = <"Določeo">
+					description = <"Določena količina">
+				>
+				["at0028"] = <
+					text = <"Naprava">
+					description = <"Naprava s katero je izvedena meritev">
+				>
+				["at0031"] = <
+					text = <"Preciznost meritve">
+					description = <"Podatki o preciznosti meritve">
+				>
+			>
+		>
+	>

@@ -1,0 +1,426 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.lab_test-hba1c.v1
+specialize
+	openEHR-EHR-OBSERVATION.lab_test.v1
+
+concept
+	[at0000.1]	-- Hemoglobin A1c
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"26/08/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the glycosylated  haemaglobin levels in the blood as a proxy for the level of glucose in the blood over a period of 3 months (life of red blood cell).
+">
+			use = <"Normally used within a Lab report composition">
+			keywords = <"lab", "pathology", "biochemistry", "laboratory", "hba1c", "glycosylated Hb", "haemaglobin", "haemoglobin">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za bleženje opazovanja količine hemoglobina v krvi kot pokazatelj količine glukoze v krvi v času treh mesecev (življenska doba rdečih krvničk)
+
+">
+			use = <"Običajno se uporablja z laboratorijskimi compositions">
+			keywords = <"patologija", "hemaglobin", "hba1c">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie AEG / Ocean Infomatics", "Sam Heard Ocean Informatics">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"3A719756084C53012C564DFC660584C9">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- Hemoglobin A1c
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Naziv testa
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0077] occurrences matches {0..1} matches {	-- Naziv diagnostičnega laboratorija
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0073] occurrences matches {0..1} matches {	-- Status testa
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0037, 	-- Začasen
+													at0038, 	-- Končni
+													at0039, 	-- Dodaten
+													at0040, 	-- Popravek
+													at0074, 	-- Ni razvit
+													at0079]	-- Nikoli izveden
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0065] occurrences matches {0..*} matches {	-- Podatki o vzorcu
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.specimen\.v1/}
+										exclude
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0078.1] occurrences matches {0..1} matches {	-- HbA1c
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|0.0..100.0|}
+												denominator matches {|100.0|}
+												is_integral matches {False}
+												type matches {0, 2}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0089] occurrences matches {0..*} matches {	-- Opombe (v času izvedbe testa)
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.lab_result_annotation(-[a-zA-Z0-9_]+)*\.v1/}
+										exclude
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0057] occurrences matches {0..1} matches {	-- Razlaga testa
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..*} matches {	-- Multimedia
+										value matches {
+											DV_MULTIMEDIA matches {
+												media_type matches {[openEHR::]}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0004] matches {	-- *Tree(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0062] occurrences matches {0..1} matches {	-- ID naročnika
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0090] occurrences matches {0..*} matches {	-- Naročnik
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0063] occurrences matches {0..1} matches {	-- ID prejemnika
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {	-- Laboratorij
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.organisation\.v1/}
+						exclude
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0068] occurrences matches {0..1} matches {	-- ID laboratorijskega testa
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0075] occurrences matches {0..1} matches {	-- Datum in čas dobljenih rezultatov 
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Laboratory test">
+					description = <"To record the result of a laboratory test which may be used to record a single valued test but will often be specialised or templated to represent multiple value or 'panel' tests.
+This archetype also acts as the parent for specialisations appropriate for more specific laboratory tests microbiology, histopathology.">
+				>
+				["at0000.1"] = <
+					text = <"Haemoglobin A1c">
+					description = <"The proportion of haemaglobin in the blood that is glycosylated.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Test name">
+					description = <"Specific identifier for this lab test. e.g. Full blood count , blood glucose, urine microbiology.  May equate to the result name for a single value result. Commonly a coded term e.g from LOINC or SNOMED-CT.">
+				>
+				["at0010"] = <
+					text = <"Multimedia representation">
+					description = <"Representations of the whole test in mutlimedia e.g image, audio, video.">
+				>
+				["at0017"] = <
+					text = <"Receiving laboratory ">
+					description = <"Demographic details of the laboratory with responsibility for the test. Details of secondary laboratories may also be included.">
+				>
+				["at0037"] = <
+					text = <"Interim">
+					description = <"This is an initial or interim result - further updates are anticipated">
+				>
+				["at0038"] = <
+					text = <"Final">
+					description = <"This is the final result. No further alterations are anticipated">
+				>
+				["at0039"] = <
+					text = <"Supplementary">
+					description = <"This is a supplememtary result in addition to the Interim result">
+				>
+				["at0040"] = <
+					text = <"Corrected (amended)">
+					description = <"This is a Correction which should replace any previous results">
+				>
+				["at0057"] = <
+					text = <"Overall interpretation">
+					description = <"An overall interpretative comment on this test.">
+				>
+				["at0062"] = <
+					text = <"Requestor order identifier">
+					description = <"The local ID assigned to the order by the order requester. Equivalent to the Placer Order Identifier.">
+				>
+				["at0063"] = <
+					text = <"Receiver order Identifier">
+					description = <"The local ID assigned to the test order by the order filler, usually by the (LIS) Laboratory Information System. Equivalent to the DICOM Accession Number and the Filler Order Identifier.">
+				>
+				["at0065"] = <
+					text = <"Specimen detail">
+					description = <"Details of the specimen being reported where all individual results are derived from the same specimen">
+				>
+				["at0068"] = <
+					text = <"Laboratory test result identifier">
+					description = <"The identifier given to the laboratory test result of a pathology 
+investigation.">
+				>
+				["at0073"] = <
+					text = <"Test status">
+					description = <"The status of the lab test as a whole.">
+				>
+				["at0074"] = <
+					text = <"Aborted">
+					description = <"*">
+				>
+				["at0075"] = <
+					description = <"The date and/or time that the result was issued for the recorded 
+‘test status’. ">
+					text = <"Datetime result issued">
+					comment = <"The date and time related to the results status is
+useful for version control and cumulative results for the report.">
+				>
+				["at0077"] = <
+					text = <"Diagnostic service">
+					description = <"The type of high-level diagnostic service e.g. biochemistry, haematology. ">
+				>
+				["at0078"] = <
+					text = <"Result">
+					description = <"The result of the test.">
+				>
+				["at0078.1"] = <
+					text = <"HbA1c">
+					description = <"Haemaglobin A 1c">
+				>
+				["at0079"] = <
+					text = <"Never performed">
+					description = <"The test was never performed.">
+				>
+				["at0089"] = <
+					text = <"Per-result annotation">
+					description = <"Slot to allow an annotation to be added to a particular test result at run-time.">
+				>
+				["at0090"] = <
+					text = <"Requestor ">
+					description = <"Details of the clinician or organisation requesting the laboratory test.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Laboratorijski test">
+					description = <"Laboratorijski test">
+				>
+				["at0000.1"] = <
+					text = <"Hemoglobin A1c">
+					description = <"Razmerje hemoglobina v krvi, ki je \"glycolysed\"">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0005"] = <
+					text = <"Naziv testa">
+					description = <"Naziv testa, ki identificira test ">
+				>
+				["at0010"] = <
+					text = <"Multimedia">
+					description = <"Predstavitev celotnih rezultatov z multimedio">
+				>
+				["at0017"] = <
+					text = <"Laboratorij">
+					description = <"Podatki o laboratoriju, ki je odgovoren za  izvajanje testa">
+				>
+				["at0037"] = <
+					text = <"Začasen">
+					description = <"Začasni rezultati testa">
+				>
+				["at0038"] = <
+					text = <"Končni">
+					description = <"Končni rezultati testa">
+				>
+				["at0039"] = <
+					text = <"Dodaten">
+					description = <"Dodatni rezultati testa kot dodatek začasnim rezultatom">
+				>
+				["at0040"] = <
+					text = <"Popravek">
+					description = <"Popravljeni rezltati testa, ki postavijo vse prejšnje rezultate v status ne veljavnosti">
+				>
+				["at0057"] = <
+					text = <"Razlaga testa">
+					description = <"Celovita razlaga rezultatov testa">
+				>
+				["at0062"] = <
+					text = <"ID naročnika">
+					description = <"ID naročnika testa">
+				>
+				["at0063"] = <
+					text = <"ID prejemnika">
+					description = <"ID prejemnika naročila testa">
+				>
+				["at0065"] = <
+					text = <"Podatki o vzorcu">
+					description = <"Podatki o vzorcu">
+				>
+				["at0068"] = <
+					text = <"ID laboratorijskega testa">
+					description = <"ID laboratorijskega testa">
+				>
+				["at0073"] = <
+					text = <"Status testa">
+					description = <"Status testa">
+				>
+				["at0074"] = <
+					text = <"Ni razvit">
+					description = <"Test se ni razvil">
+				>
+				["at0075"] = <
+					description = <"Datum in čas dobljenih rezultatov ">
+					text = <"Datum in čas dobljenih rezultatov ">
+					comment = <"*The date and time related to the results status is
+useful for version control and cumulative results for the report.(en)">
+				>
+				["at0077"] = <
+					text = <"Naziv diagnostičnega laboratorija">
+					description = <"Naziv diagnostičnega laboratorija">
+				>
+				["at0078"] = <
+					text = <"Rezultat testa">
+					description = <"Rezultat testa">
+				>
+				["at0078.1"] = <
+					text = <"HbA1c">
+					description = <"HbA1c">
+				>
+				["at0079"] = <
+					text = <"Nikoli izveden">
+					description = <"Nikoli izveden">
+				>
+				["at0089"] = <
+					text = <"Opombe (v času izvedbe testa)">
+					description = <"Opombe (v času izvedbe testa)">
+				>
+				["at0090"] = <
+					text = <"Naročnik">
+					description = <"Podatki o naročniku testa">
+				>
+			>
+		>
+	>

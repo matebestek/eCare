@@ -1,0 +1,451 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.personal_and_social_history.v1draft
+
+concept
+	[at0000]	-- Personal and Social History
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Inforatics">
+		["date"] = <"12/03/2007">
+		["email"] = <"sam.heard@oceaninformatics.biz">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a person's personal and social circumstances">
+			use = <"">
+			keywords = <"social", "circumstances", "personal", "history">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"Heather Leslie", ...>
+
+definition
+	OBSERVATION[at0000] matches {	-- Personal and Social History
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Education
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0033] occurrences matches {0..1} matches {	-- Age at starting formal education
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::128]>
+														list = <
+															["1"] = <
+																units = <"a">
+															>
+															["2"] = <
+																units = <"mo">
+															>
+														>
+													>
+												}
+											}
+											CLUSTER[at0031] occurrences matches {0..1} matches {	-- Current education
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0030] occurrences matches {0..1} matches {	-- Current education level
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0029] occurrences matches {0..1} matches {	-- Special education needs
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0026] occurrences matches {0..1} matches {	-- Education milestones achieved
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0019] occurrences matches {0..*} matches {	-- Education level achieved
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0020, 	-- Primary school
+																	at0021, 	-- Secondary school
+																	at0022, 	-- University undergraduate education
+																	at0023, 	-- Non-university tertiary vocational education and training
+																	at0024]	-- University postgraduate education
+																}
+															}
+														}
+													}
+													ELEMENT[at0006] occurrences matches {0..*} matches {	-- Date achieved
+														value matches {
+															DV_DATE matches {
+																value matches {yyyy-??-XX}
+															}
+														}
+													}
+												}
+											}
+											CLUSTER[at0032] occurrences matches {0..1} matches {	-- Completed education
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0005] occurrences matches {0..1} matches {	-- Highest level of education achieved
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0028] occurrences matches {0..1} matches {	-- Age at leaving formal education
+														value matches {
+															C_DV_QUANTITY <
+																property = <[openehr::128]>
+																list = <
+																	["1"] = <
+																		units = <"a">
+																	>
+																	["2"] = <
+																		units = <"mo">
+																	>
+																>
+															>
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0007] occurrences matches {0..1} matches {	-- Employment
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0008] occurrences matches {0..*} matches {	-- Current Employment status
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0009, 	-- Fully employed
+															at0010, 	-- Employed part time
+															at0011, 	-- Unemployed
+															at0027, 	-- Retired
+															at0034, 	-- Volunteer
+															at0035]	-- Carer
+														}
+													}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..*} matches {	-- Current Occupation
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0036] occurrences matches {0..*} matches {	-- Previous Occupations
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0038] occurrences matches {0..*} matches {	-- Social and community network
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0039] occurrences matches {0..1} matches {	-- Type of accomodation
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0043, 	-- House
+															at0044, 	-- Flat/apartment/maisonette
+															at0045, 	-- Caravan/Mobile home
+															at0046, 	-- Residential Hostel
+															at0047, 	-- Institution
+															at0048, 	-- Supported accomodation
+															at0049, 	-- Hotel
+															at0050]	-- Homeless
+														}
+													}
+												}
+											}
+											ELEMENT[at0037] occurrences matches {0..*} matches {	-- Household composition
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0041, 	-- Lives with partner
+															at0042, 	-- Lives with family/relatives
+															at0051, 	-- Lives alone
+															at0052, 	-- Lives with friend/s
+															at0053, 	-- Lives in a residential community
+															at0054, 	-- Lives with children
+															at0055, 	-- Lives with parents
+															at0056]	-- Lives with pet/s
+														}
+													}
+												}
+											}
+											ELEMENT[at0057] occurrences matches {0..1} matches {	-- Interests and Hobbies
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0040] occurrences matches {0..1} matches {	-- Spiritual & Religious beliefs
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0058] occurrences matches {0..1} matches {	-- Ethnicity
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					description = <"Record the personal and social circumstances of the person">
+					text = <"Personal and Social History">
+				>
+				["at0001"] = <
+					description = <"@ internal @">
+					text = <"Event Series">
+				>
+				["at0002"] = <
+					description = <"*">
+					text = <"Any event">
+				>
+				["at0003"] = <
+					description = <"@ internal @">
+					text = <"Tree">
+				>
+				["at0004"] = <
+					description = <"*">
+					text = <"Education">
+				>
+				["at0005"] = <
+					description = <"The highest level of education achieved">
+					text = <"Highest level of education achieved">
+				>
+				["at0006"] = <
+					description = <"The date that this level was achieved">
+					text = <"Date achieved">
+				>
+				["at0007"] = <
+					description = <"Employment details about the subject">
+					text = <"Employment">
+				>
+				["at0008"] = <
+					description = <"The current employment status of the person">
+					text = <"Current Employment status">
+				>
+				["at0009"] = <
+					description = <"Working on a full time basis">
+					text = <"Fully employed">
+				>
+				["at0010"] = <
+					description = <"Employed on a part time basis">
+					text = <"Employed part time">
+				>
+				["at0011"] = <
+					description = <"Not working at present">
+					text = <"Unemployed">
+				>
+				["at0012"] = <
+					description = <"The subject's current occupation">
+					text = <"Current Occupation">
+				>
+				["at0019"] = <
+					description = <"Level of education achieved">
+					text = <"Education level achieved">
+				>
+				["at0020"] = <
+					description = <"*">
+					text = <"Primary school">
+				>
+				["at0021"] = <
+					description = <"*">
+					text = <"Secondary school">
+				>
+				["at0022"] = <
+					description = <"*">
+					text = <"University undergraduate education">
+				>
+				["at0023"] = <
+					description = <"*">
+					text = <"Non-university tertiary vocational education and training">
+				>
+				["at0024"] = <
+					description = <"*">
+					text = <"University postgraduate education">
+				>
+				["at0026"] = <
+					description = <"Details about education milestones that have been achieved">
+					text = <"Education milestones achieved">
+				>
+				["at0027"] = <
+					description = <"*">
+					text = <"Retired">
+				>
+				["at0028"] = <
+					description = <"Age of subject on leaving formal education">
+					text = <"Age at leaving formal education">
+				>
+				["at0029"] = <
+					description = <"Description of special education needs">
+					text = <"Special education needs">
+				>
+				["at0030"] = <
+					description = <"Description of current education level achieved to date">
+					text = <"Current education level">
+				>
+				["at0031"] = <
+					description = <"Details about current education">
+					text = <"Current education">
+				>
+				["at0032"] = <
+					description = <"Details about completed education">
+					text = <"Completed education">
+				>
+				["at0033"] = <
+					description = <"Age of subject on commencement of formal education">
+					text = <"Age at starting formal education">
+				>
+				["at0034"] = <
+					description = <"*">
+					text = <"Volunteer">
+				>
+				["at0035"] = <
+					description = <"*">
+					text = <"Carer">
+				>
+				["at0036"] = <
+					description = <"The subject's previous occupations">
+					text = <"Previous Occupations">
+				>
+				["at0037"] = <
+					description = <"Description of others with whom the subject resides">
+					text = <"Household composition">
+				>
+				["at0038"] = <
+					description = <"Details about subject's social and community network">
+					text = <"Social and community network">
+				>
+				["at0039"] = <
+					description = <"Onset of exposure">
+					text = <"Type of accomodation">
+				>
+				["at0040"] = <
+					description = <"Description of spiritual and religious beliefs and values">
+					text = <"Spiritual & Religious beliefs">
+				>
+				["at0041"] = <
+					description = <"*">
+					text = <"Lives with partner">
+				>
+				["at0042"] = <
+					description = <"*">
+					text = <"Lives with family/relatives">
+				>
+				["at0043"] = <
+					description = <"*">
+					text = <"House">
+				>
+				["at0044"] = <
+					description = <"*">
+					text = <"Flat/apartment/maisonette">
+				>
+				["at0045"] = <
+					description = <"*">
+					text = <"Caravan/Mobile home">
+				>
+				["at0046"] = <
+					description = <"*">
+					text = <"Residential Hostel">
+				>
+				["at0047"] = <
+					description = <"*">
+					text = <"Institution">
+				>
+				["at0048"] = <
+					description = <"*">
+					text = <"Supported accomodation">
+				>
+				["at0049"] = <
+					description = <"*">
+					text = <"Hotel">
+				>
+				["at0050"] = <
+					description = <"*">
+					text = <"Homeless">
+				>
+				["at0051"] = <
+					description = <"*">
+					text = <"Lives alone">
+				>
+				["at0052"] = <
+					description = <"*">
+					text = <"Lives with friend/s">
+				>
+				["at0053"] = <
+					description = <"*">
+					text = <"Lives in a residential community">
+				>
+				["at0054"] = <
+					description = <"*">
+					text = <"Lives with children">
+				>
+				["at0055"] = <
+					description = <"*">
+					text = <"Lives with parents">
+				>
+				["at0056"] = <
+					description = <"*">
+					text = <"Lives with pet/s">
+				>
+				["at0057"] = <
+					description = <"Description of interests and hobbies">
+					text = <"Interests and Hobbies">
+				>
+				["at0058"] = <
+					description = <"Describe patient's ethnicity">
+					text = <"Ethnicity">
+				>
+			>
+		>
+	>

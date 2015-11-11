@@ -1,0 +1,193 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<formdesign xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/FormDesign">
+  <Object type="System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="EhrGateUserControl" children="Controls" xmlns="">
+    <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox1" children="Controls">
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity1" children="Controls">
+        <Property name="ElementName">VrednostPEF</Property>
+        <Property name="ElementPath">/data[at0002]/events[at0028]/data[at0001]/item[at0004]</Property>
+        <Property name="QuantityMaximum">800</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">79, 26</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity1</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">169, 20</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAVsL21pbg0DCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">0</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">0</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">45</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">l/min</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label1" children="Controls">
+        <Property name="TabIndex">1</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">72, 13</Property>
+        <Property name="Text">Vrednost PEF</Property>
+        <Property name="Location">97, 23</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label1</Property>
+      </Object>
+      <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox2" children="Controls">
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text1" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Lokacija</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/data[at0002]/events[at0028]/state[at0029]/items[at0030]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">190, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName">Snomed</Property>
+          <Property name="Location">169, 20</Property>
+          <Property name="Name">dV_Text1</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName">
+          </Property>
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAEAAAAQAgAAAAQAAAAJAwAAAAkEAAAADQIMBQAAAFBFaHJDbGFzc2VzLCBWZXJzaW9uPTEuNS4zMTY5LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49ODMzNjY5MzQ5ZmNlNjM2NAUDAAAAK0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkRWX0NPREVEX1RFWFQSAAAADl9kZWZpbmluZ19jb2RlGV9kZXNjcmlwdGlvbl9pbl9hcmNoZXR5cGUFX3RleHQJX2xhbmd1YWdlCV9lbmNvZGluZwpfaHlwZXJsaW5rDl9saXN0X21hcHBpbmdzEF9kYXRhX2NvbnN0cmFpbnQNRFZfVEVYVCtfdGV4dBFEVl9URVhUK19sYW5ndWFnZRFEVl9URVhUK19lbmNvZGluZxJEVl9URVhUK19oeXBlcmxpbmsWRFZfVEVYVCtfbGlzdF9tYXBwaW5ncxJEVl9URVhUK2Zvcm1hdHRpbmcYRFZfVEVYVCtfZGF0YV9jb25zdHJhaW50FURBVEFfVkFMVUUrX3ZhbHVlX3NldBdEQVRBX1ZBTFVFK1ZhbHVlQ2hhbmdlZBtEQVRBX1ZBTFVFK19kYXRhX2NvbnN0cmFpbnQEAQEEBAEDBAEEBAEDAQQABAQpRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UFAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFBQAAAClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQUAAAAcU3lzdGVtLkNvbGxlY3Rpb25zLkhhc2h0YWJsZTlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQFAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFBQAAAClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQUAAAAcU3lzdGVtLkNvbGxlY3Rpb25zLkhhc2h0YWJsZTlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQFAAAAATVFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DaGFuZ2VWYWx1ZUV2ZW50SGFuZGxlcgUAAAA5RWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9URVhUBQAAAAUAAAAJBgAAAAYHAAAAASoGCAAAAAREb21hCgoKCgkJAAAACQgAAAAKCgoKCgkJAAAAAQoJCQAAAAEEAAAAAwAAAAkMAAAABg0AAAABKgYOAAAAFFpkcmF2c3R2ZW5hIHVzdGFub3ZhCgoKCgkPAAAACQ4AAAAKCgoKCgkPAAAAAQoJDwAAAAUGAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFAwAAAAtfY29uc3RyYWludA1UZXJtaW5vbG9neUlEDF9jb2RlX3N0cmluZwQEAUBFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX0NPREVfUEhSQVNFBQAAADBFaHJDbGFzc2VzLm9wZW5FSFIuQ29tbW9uLkdlbmVyaWMuVEVSTUlOT0xPR1lfSUQFAAAABQAAAAkSAAAACRMAAAAGFAAAAAZhdDAwMzEFCQAAADlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQOAAAAFV90ZXh0X2NvbnN0cmFpbnRfdHlwZRBfY29uc3RyYWludF9jb2RlEF9jb25zdHJhaW50X3RleHQOX2xpbWl0X3RvX2xpc3QbX2NvZGVkX3RleHRfc2V0X2luX3RlbXBsYXRlF19jb25zdHJhaW50X2Rlc2NyaXB0aW9uCV9xdWVyeV9pZA9fdGVybWlub2xvZ3lfaWQPX2FsbG93ZWRfdmFsdWVzDl9hc3N1bWVkX3ZhbHVlEF9jb25zdHJhaW50X3R5cGUkQ09OU1RSQUlOVF9XSVRIX1ZBTFVFK19hc3N1bWVkX3ZhbHVlJkNPTlNUUkFJTlRfV0lUSF9WQUxVRStfY29uc3RyYWludF90eXBlG0NPTlNUUkFJTlQrX2NvbnN0cmFpbnRfdHlwZQQBAQAAAQEBAwIEAgQETEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVCtUZXh0Q29uc3RyYWludFR5cGUFAAAAAQEcU3lzdGVtLkNvbGxlY3Rpb25zLkFycmF5TGlzdENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAAUAAAAF6////0xFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQrVGV4dENvbnN0cmFpbnRUeXBlAQAAAAd2YWx1ZV9fAAgFAAAAAAAAAAoKAQAKCgoJFgAAAAoF6f///0NFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlAQAAAAd2YWx1ZV9fAAgFAAAAWwAAAAoB6P///+n///9bAAAAAef////p////WwAAAAEMAAAABgAAAAkaAAAACRsAAAAGHAAAAAZhdDAwMzIBDwAAAAkAAAAB4////+v///8AAAAACgoBAAoKCgkeAAAACgHh////6f///1sAAAAKAeD////p////WwAAAAHf////6f///1sAAAAFEgAAAEBFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX0NPREVfUEhSQVNFBAAAAA9fYWxsb3dlZF92YWx1ZXMNVGVybWlub2xvZ3lJZBBfY29uc3RyYWludF90eXBlG0NPTlNUUkFJTlQrX2NvbnN0cmFpbnRfdHlwZQMBBAR/U3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXUNFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAAUAAAAJIgAAAAoB3f///+n///8CAAAAAdz////p////AgAAAAwlAAAASVN5c3RlbSwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFEwAAADBFaHJDbGFzc2VzLm9wZW5FSFIuQ29tbW9uLkdlbmVyaWMuVEVSTUlOT0xPR1lfSUQEAAAAA19pZAhfdmVyc2lvbhVPQkpFQ1RfSUQrX3JlZ3VsYXJFeHAQT0JKRUNUX0lEK192YWx1ZQEBBAEkU3lzdGVtLlRleHQuUmVndWxhckV4cHJlc3Npb25zLlJlZ2V4JQAAAAUAAAAGJgAAAAVsb2NhbAYnAAAAAAoKARYAAAABAAAACSgAAAAAAAAAAAAAAAEaAAAAEgAAAAkpAAAACgHW////6f///wIAAAAB1f///+n///8CAAAAARsAAAATAAAACSYAAAAJJwAAAAoKAR4AAAABAAAACSgAAAAAAAAAAAAAAAQiAAAAf1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0DAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgYAAAgICS8AAAAAAAAAAAAAABAoAAAAAAAAAAEpAAAAIgAAAAkvAAAAAAAAAAAAAAARLwAAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">Internal</Property>
+          <Property name="TermLanguage">en-GB</Property>
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">0</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label2" children="Controls">
+          <Property name="TabIndex">1</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">47, 13</Property>
+          <Property name="Text">Lokacija</Property>
+          <Property name="Location">122, 23</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label2</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text2" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Položajtelesa</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/data[at0002]/events[at0028]/state[at0029]/items[at0033]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">190, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName">Snomed</Property>
+          <Property name="Location">169, 48</Property>
+          <Property name="Name">dV_Text2</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName">
+          </Property>
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAEAAAAQAgAAAAQAAAAJAwAAAAkEAAAADQIMBQAAAFBFaHJDbGFzc2VzLCBWZXJzaW9uPTEuNS4zMTY5LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49ODMzNjY5MzQ5ZmNlNjM2NAUDAAAAK0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkRWX0NPREVEX1RFWFQSAAAADl9kZWZpbmluZ19jb2RlGV9kZXNjcmlwdGlvbl9pbl9hcmNoZXR5cGUFX3RleHQJX2xhbmd1YWdlCV9lbmNvZGluZwpfaHlwZXJsaW5rDl9saXN0X21hcHBpbmdzEF9kYXRhX2NvbnN0cmFpbnQNRFZfVEVYVCtfdGV4dBFEVl9URVhUK19sYW5ndWFnZRFEVl9URVhUK19lbmNvZGluZxJEVl9URVhUK19oeXBlcmxpbmsWRFZfVEVYVCtfbGlzdF9tYXBwaW5ncxJEVl9URVhUK2Zvcm1hdHRpbmcYRFZfVEVYVCtfZGF0YV9jb25zdHJhaW50FURBVEFfVkFMVUUrX3ZhbHVlX3NldBdEQVRBX1ZBTFVFK1ZhbHVlQ2hhbmdlZBtEQVRBX1ZBTFVFK19kYXRhX2NvbnN0cmFpbnQEAQEEBAEDBAEEBAEDAQQABAQpRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UFAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFBQAAAClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQUAAAAcU3lzdGVtLkNvbGxlY3Rpb25zLkhhc2h0YWJsZTlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQFAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFBQAAAClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQUAAAAcU3lzdGVtLkNvbGxlY3Rpb25zLkhhc2h0YWJsZTlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQFAAAAATVFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DaGFuZ2VWYWx1ZUV2ZW50SGFuZGxlcgUAAAA5RWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9URVhUBQAAAAUAAAAJBgAAAAYHAAAAASoGCAAAAAVTdG9qZQoKCgoJCQAAAAkIAAAACgoKCgoJCQAAAAEKCQkAAAABBAAAAAMAAAAJDAAAAAYNAAAAASoGDgAAAARTZWRlCgoKCgkPAAAACQ4AAAAKCgoKCgkPAAAAAQoJDwAAAAUGAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFAwAAAAtfY29uc3RyYWludA1UZXJtaW5vbG9neUlEDF9jb2RlX3N0cmluZwQEAUBFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX0NPREVfUEhSQVNFBQAAADBFaHJDbGFzc2VzLm9wZW5FSFIuQ29tbW9uLkdlbmVyaWMuVEVSTUlOT0xPR1lfSUQFAAAABQAAAAkSAAAACRMAAAAGFAAAAAZhdDAwMzQFCQAAADlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQOAAAAFV90ZXh0X2NvbnN0cmFpbnRfdHlwZRBfY29uc3RyYWludF9jb2RlEF9jb25zdHJhaW50X3RleHQOX2xpbWl0X3RvX2xpc3QbX2NvZGVkX3RleHRfc2V0X2luX3RlbXBsYXRlF19jb25zdHJhaW50X2Rlc2NyaXB0aW9uCV9xdWVyeV9pZA9fdGVybWlub2xvZ3lfaWQPX2FsbG93ZWRfdmFsdWVzDl9hc3N1bWVkX3ZhbHVlEF9jb25zdHJhaW50X3R5cGUkQ09OU1RSQUlOVF9XSVRIX1ZBTFVFK19hc3N1bWVkX3ZhbHVlJkNPTlNUUkFJTlRfV0lUSF9WQUxVRStfY29uc3RyYWludF90eXBlG0NPTlNUUkFJTlQrX2NvbnN0cmFpbnRfdHlwZQQBAQAAAQEBAwIEAgQETEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVCtUZXh0Q29uc3RyYWludFR5cGUFAAAAAQEcU3lzdGVtLkNvbGxlY3Rpb25zLkFycmF5TGlzdENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAAUAAAAF6////0xFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQrVGV4dENvbnN0cmFpbnRUeXBlAQAAAAd2YWx1ZV9fAAgFAAAAAAAAAAoKAQAKCgoJFgAAAAoF6f///0NFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlAQAAAAd2YWx1ZV9fAAgFAAAAWwAAAAoB6P///+n///9bAAAAAef////p////WwAAAAEMAAAABgAAAAkaAAAACRsAAAAGHAAAAAZhdDAwMzUBDwAAAAkAAAAB4////+v///8AAAAACgoBAAoKCgkeAAAACgHh////6f///1sAAAAKAeD////p////WwAAAAHf////6f///1sAAAAFEgAAAEBFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX0NPREVfUEhSQVNFBAAAAA9fYWxsb3dlZF92YWx1ZXMNVGVybWlub2xvZ3lJZBBfY29uc3RyYWludF90eXBlG0NPTlNUUkFJTlQrX2NvbnN0cmFpbnRfdHlwZQMBBAR/U3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMuTGlzdGAxW1tTeXN0ZW0uU3RyaW5nLCBtc2NvcmxpYiwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODldXUNFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBQAAAAUAAAAJIgAAAAoB3f///+n///8CAAAAAdz////p////AgAAAAwlAAAASVN5c3RlbSwgVmVyc2lvbj0yLjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFEwAAADBFaHJDbGFzc2VzLm9wZW5FSFIuQ29tbW9uLkdlbmVyaWMuVEVSTUlOT0xPR1lfSUQEAAAAA19pZAhfdmVyc2lvbhVPQkpFQ1RfSUQrX3JlZ3VsYXJFeHAQT0JKRUNUX0lEK192YWx1ZQEBBAEkU3lzdGVtLlRleHQuUmVndWxhckV4cHJlc3Npb25zLlJlZ2V4JQAAAAUAAAAGJgAAAAVsb2NhbAYnAAAAAAoKARYAAAABAAAACSgAAAAAAAAAAAAAAAEaAAAAEgAAAAkpAAAACgHW////6f///wIAAAAB1f///+n///8CAAAAARsAAAATAAAACSYAAAAJJwAAAAoKAR4AAAABAAAACSgAAAAAAAAAAAAAAAQiAAAAf1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV0DAAAABl9pdGVtcwVfc2l6ZQhfdmVyc2lvbgYAAAgICS8AAAAAAAAAAAAAABAoAAAAAAAAAAEpAAAAIgAAAAkvAAAAAAAAAAAAAAARLwAAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">Internal</Property>
+          <Property name="TermLanguage">en-GB</Property>
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">2</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label3" children="Controls">
+          <Property name="TabIndex">3</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">72, 13</Property>
+          <Property name="Text">Položaj telesa</Property>
+          <Property name="Location">97, 51</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label3</Property>
+        </Object>
+        <Property name="TabIndex">2</Property>
+        <Property name="Size">377, 86</Property>
+        <Property name="Text">state</Property>
+        <Property name="Location">10, 49</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="Name">groupBox2</Property>
+      </Object>
+      <Property name="TabIndex">0</Property>
+      <Property name="Size">395, 145</Property>
+      <Property name="Text">*Peak Expiratory Flow (PEF)(en)</Property>
+      <Property name="Location">-15, -15</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">groupBox1</Property>
+    </Object>
+    <Property name="Size">478, 171</Property>
+    <Property name="DataBindings">
+      <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+    </Property>
+    <Property name="Name">EhrGateUserControl</Property>
+  </Object>
+</formdesign>

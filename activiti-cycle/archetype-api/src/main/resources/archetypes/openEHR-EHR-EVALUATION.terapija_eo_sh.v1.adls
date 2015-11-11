@@ -1,0 +1,1666 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.5; generated)
+	openEHR-EHR-EVALUATION.terapija_eo_sh.v1
+
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis terapije za eOskrba - shizofrenija.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"8EA29C21269D87670BB593F49277A3ED">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Terapija eo sh
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Opis terapije
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0003] occurrences matches {0..1} matches {	-- Zdravilo1
+						items matches {
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Ime zdravila
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Generično ime
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {	-- Število pakiranj
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							CLUSTER[at0016] occurrences matches {0..1} matches {	-- Režim jemanja zdravil
+								items matches {
+									ELEMENT[at0019] occurrences matches {0..1} matches {	-- Količina (št/ml/mg/vdih)
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0022] occurrences matches {0..1} matches {	-- Pogostost jemanja
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0023, 	-- 1x/dan
+													at0024, 	-- 2x/dan
+													at0025, 	-- 3x/dan
+													at0026, 	-- 4x/dan
+													at0027]	-- Po potrebi
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0004] occurrences matches {0..1} matches {	-- Zdravilo2
+						items matches {
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- Ime zdravila
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Generično ime
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0040, 	-- Akineton 2 mg tablete, 50 tablet
+											at0041, 	-- Akineton 5 mg/ml raztopina za injiciranje, 5 x 5 mg
+											at0042, 	-- Amisulprid Teva 100 mg tablete
+											at0043, 	-- Amisulprid Teva 200 mg tablete
+											at0044, 	-- Amisulprid Teva 400 mg tablete
+											at0045, 	-- Ansilan 10 mg trde kapsule
+											at0046, 	-- Ansilan 5 mg trde kapsule
+											at0047, 	-- Apaurin 10 mg tablete
+											at0048, 	-- APAURIN 10 mg/2 ml raztopina za injiciranje
+											at0049, 	-- APAURIN 2 mg obložene tablete
+											at0050, 	-- APAURIN 5 mg obložene tablete
+											at0051, 	-- ATIVAN Injection 2 mg/ml raztopina za injiciranje
+											at0052, 	-- CERSON 5 mg tablete
+											at0053, 	-- Clopixol 10 mg filmsko obložene tablete
+											at0054, 	-- Clopixol Acuphase 50 mg/ml raztopina za injiciranje
+											at0055, 	-- Clopixol Depot 200 mg/ml raztopina za injiciranje
+											at0056, 	-- Clozalux 100 mg tablete
+											at0057, 	-- Clozalux 25 mg tablete
+											at0058, 	-- Clozalux 50 mg tablete
+											at0059, 	-- CP ABILIFY 1 mg/ml peroralna raztopina
+											at0060, 	-- CP ABILIFY 10 mg tablete
+											at0061, 	-- CP ABILIFY 15 mg tablete
+											at0062, 	-- CP ABILIFY 5 mg tablete
+											at0063, 	-- CP ABILIFY 7,5 mg/ml raztopina za injiciranje
+											at0064, 	-- CP CIRCADIN 2 mg tablete s podaljšanim sproščanjem
+											at0065, 	-- CP INVEGA 12 mg tablete s podaljšanim sproščanjem
+											at0066, 	-- CP INVEGA 3 mg tablete s podaljšanim sproščanjem
+											at0067, 	-- CP INVEGA 6 mg tablete s podaljšanim sproščanjem
+											at0068, 	-- CP INVEGA 9 mg tablete s podaljšanim sproščanjem
+											at0069, 	-- CP Olanzapin Teva 10 mg filmsko obložene tablete
+											at0070, 	-- CP Olanzapin Teva 10 mg orodisperzibilne tablete
+											at0071, 	-- CP Olanzapin Teva 15 mg filmsko obložene tablete
+											at0072, 	-- CP Olanzapin Teva 15 mg orodisperzibilne tablete
+											at0073, 	-- CP Olanzapin Teva 2,5 mg filmsko obložene tablete
+											at0074, 	-- CP Olanzapin Teva 20 mg filmsko obložene tablete
+											at0075, 	-- CP Olanzapin Teva 20 mg orodisperzibilne tablete
+											at0076, 	-- CP Olanzapin Teva 5 mg filmsko obložene tablete
+											at0077, 	-- CP Olanzapin Teva 5 mg orodisperzibilne tablete
+											at0078, 	-- CP Olanzapin Teva 7,5 mg filmsko obložene tablete
+											at0079, 	-- CP Zalasta 10 mg orodisperzibilna tableta
+											at0080, 	-- CP Zalasta 10 mg tablete
+											at0081, 	-- CP Zalasta 15 mg orodisperzibilna tableta
+											at0082, 	-- CP Zalasta 20 mg orodisperzibilna tableta
+											at0083, 	-- CP Zalasta 5 mg orodisperzibilna tablete
+											at0084, 	-- CP Zalasta 5 mg tablete
+											at0085, 	-- CP ZYPADHERA 210 mg prašek in topilo za suspenzijo za injiciranje s podaljšanim sproščanjem
+											at0086, 	-- CP ZYPADHERA 300 mg prašek in topilo za suspenzijo za injiciranje s podaljšanim sproščanjem
+											at0087, 	-- CP Zypadhera 405 mg prašek in topilo za suspenzijo za injiciranje s podaljšanim sproščanjem
+											at0088, 	-- CP ZYPREXA 10 mg obložene tablete
+											at0089, 	-- CP ZYPREXA 10 mg prašek za raztopino za injiciranje
+											at0090, 	-- CP ZYPREXA 15 mg obložene tablete
+											at0091, 	-- CP ZYPREXA 20 mg obložene tablete
+											at0092, 	-- CP ZYPREXA 5 mg obložene tablete
+											at0093, 	-- CP ZYPREXA VELOTAB 10 mg peroralne disperzibilne tablete
+											at0094, 	-- CP ZYPREXA VELOTAB 15 mg peroralne disperzibilne tablete
+											at0095, 	-- CP ZYPREXA VELOTAB 20 mg peroralne disperzibilne tablete
+											at0096, 	-- CP ZYPREXA VELOTAB 5 mg peroralne disperzibilne tablete
+											at0097, 	-- Distraneurin 192 mg mehke kapsule
+											at0098, 	-- Dormicum 1 mg/ml raztopina za injiciranje
+											at0099, 	-- Dormicum 15 mg filmsko obložene tablete
+											at0100, 	-- Dormicum 5 mg/1ml raztopina za injiciranje
+											at0101, 	-- Dormicum 5 mg/5 ml raztopina za injiciranje
+											at0102, 	-- Dormicum 7,5 mg filmsko obložene tablete
+											at0103, 	-- EGLONYL 200 mg tablete
+											at0104, 	-- EGLONYL 50 mg trde kapsule
+											at0105, 	-- Fluanxol 3 mg obložene tablete
+											at0106, 	-- Fluanxol Depot 20 mg/ml raztopina za injiciranje
+											at0107, 	-- Fluzepam 15 mg trde kapsule
+											at0108, 	-- Fluzepam 30 mg kapsule
+											at0109, 	-- FRISIUM 10 mg tablete
+											at0110, 	-- Haldol depo raztopina za injiciranje 50 mg/ml
+											at0111, 	-- Haldol peroralne kapljice 10 mg/1ml
+											at0112, 	-- Haldol peroralne kapljice 2 mg/1ml
+											at0113, 	-- Haldol raztopina za injiciranje 5 mg/1ml
+											at0114, 	-- Haldol tablete 10 mg
+											at0115, 	-- Haldol tablete 2 mg
+											at0116, 	-- Helex 0,25 mg tablete
+											at0117, 	-- Helex 0,5 mg tablete
+											at0118, 	-- Helex 1 mg tablete
+											at0119, 	-- Helex retard 0,5 mg tablete s podaljšanim sproščanjem
+											at0120, 	-- Helex retard 1 mg tablete s podaljšanim sproščanjem
+											at0121, 	-- Helex retard 2 mg tablete s podaljšanim sproščanjem
+											at0122, 	-- Ketilept 100 mg filmsko obložene tablete
+											at0123, 	-- Ketilept 150 mg filmsko obložene tablete
+											at0124, 	-- Ketilept 200 mg filmsko obložene tablete
+											at0125, 	-- Ketilept 25 mg filmsko obložene tablete
+											at0126, 	-- Ketilept 300 mg filmsko obložene tablete
+											at0127, 	-- Kvelux 100 mg filmsko obložene tablete
+											at0128, 	-- Kvelux 200 mg filmsko obložene tablete
+											at0129, 	-- Kvelux 25 mg filmsko obložene tablete
+											at0130, 	-- Kvelux 300 mg filmsko obložene tablete
+											at0131, 	-- Kventiax 100 mg filmsko obložene tablete
+											at0132, 	-- Kventiax 150 mg filmsko obložene tablete
+											at0133, 	-- Kventiax 200 mg filmsko obložene tablete
+											at0134, 	-- Kventiax 25 mg filmsko obložene tablete
+											at0135, 	-- Kventiax 300 mg filmsko obložene tablete
+											at0136, 	-- Kvetiapin Lek 100 mg filmsko obložene tablete
+											at0137, 	-- Kvetiapin Lek 200 mg filmsko obložene tablete
+											at0138, 	-- Kvetiapin Lek 25 mg filmsko obložene tablete
+											at0139, 	-- Kvetiapin Lek 300 mg filmsko obložene tablete
+											at0140, 	-- Kvetiapin Lek 50 mg filmsko obložene tablete
+											at0141, 	-- Kvetiapin Mylan 100 mg filmsko obložene tablete
+											at0142, 	-- Kvetiapin Mylan 200 mg filmsko obložene tablete
+											at0143, 	-- Kvetiapin Mylan 25 mg filmsko obložene tablete
+											at0144, 	-- Kvetiapin Mylan 300 mg filmsko obložene tablete
+											at0145, 	-- Lekotam 1,5 mg tablete
+											at0146, 	-- Lekotam 3 mg tablete
+											at0147, 	-- Lekotam 6 mg tablete
+											at0148, 	-- Leponex 100 mg tablete
+											at0149, 	-- Leponex 25 mg tablete
+											at0150, 	-- Lexaurin 1,5 mg tablete
+											at0151, 	-- Lexaurin 3 mg tablete
+											at0152, 	-- Lexaurin 6 mg tablete
+											at0153, 	-- LEXILIUM 1,5 mg tablete
+											at0154, 	-- LEXILIUM 3 mg tablete
+											at0155, 	-- LEXILIUM 6 mg tablete
+											at0156, 	-- Litijev karbonat Lekarna Ljubljana 300 mg tablete
+											at0157, 	-- Loquen 100 mg filmsko obložene tablete
+											at0158, 	-- Loquen 150 mg filmsko obložene tablete
+											at0159, 	-- Loquen 200 mg filmsko obložene tablete
+											at0160, 	-- Loquen 25 mg filmsko obložene tablete
+											at0161, 	-- Loquen 300 mg filmsko obložene tablete
+											at0162, 	-- Loram 2,5 mg tablete
+											at0163, 	-- LORAZEPAM Injection, USP, CIV 2 mg/ml raztopina za injiciranje
+											at0164, 	-- Lorsilan 1 mg tablete
+											at0165, 	-- Lorsilan 2,5 mg tablete
+											at0166, 	-- MENDILEX 2 mg tablete, 50 tablet
+											at0167, 	-- Midazolam Accord 1 mg/ml raztopina za injiciranje
+											at0168, 	-- Midazolam Accord 5 mg/ml raztopina za injiciranje
+											at0169, 	-- Midazolam Torrex 1 mg/ml raztopina za injiciranje
+											at0170, 	-- Midazolam Torrex 5 mg/ml raztopina za injiciranje
+											at0171, 	-- Moditen 1 mg obložene tablete
+											at0172, 	-- Moditen 2,5 mg obložene tablete
+											at0173, 	-- Moditen 5 mg obložene tablete
+											at0174, 	-- Moditen depo 25 mg/ml raztopina za injiciranje
+											at0175, 	-- Nozinan 100 mg filmsko obložene tablete
+											at0176, 	-- Nozinan 25 mg filmsko obložene tablete
+											at0177, 	-- OKSAZEPAM BELUPO 10 mg tablete
+											at0178, 	-- Olanzapin Actavis 10 mg orodisperzibilne tablete
+											at0179, 	-- Olanzapin Actavis 15 mg orodisperzibilne tablete
+											at0180, 	-- Olanzapin Actavis 20 mg orodisperzibilne tablete
+											at0181, 	-- Olanzapin Actavis 5 mg orodisperzibilne tablete
+											at0182, 	-- Olanzapin Jacobsen 10 mg orodisperzibilne tablete
+											at0183, 	-- Olanzapin Jacobsen 10 mg tablete
+											at0184, 	-- Olanzapin Jacobsen 15 mg orodisperzibilne tablete
+											at0185, 	-- Olanzapin Jacobsen 15 mg tablete
+											at0186, 	-- Olanzapin Jacobsen 2,5 mg tablete
+											at0187, 	-- Olanzapin Jacobsen 20 mg orodisperzibilne tablete
+											at0188, 	-- Olanzapin Jacobsen 20 mg tablete
+											at0189, 	-- Olanzapin Jacobsen 5 mg orodisperzibilne tablete
+											at0190, 	-- Olanzapin Jacobsen 5 mg tablete
+											at0191, 	-- Olanzapin Jacobsen 7,5 mg orodisperzibilne tablete
+											at0192, 	-- Olanzapin Jacobsen 7,5 mg tablete
+											at0193, 	-- Olanzapin Pliva 10 mg filmsko obložene tablete
+											at0194, 	-- Olanzapin Pliva 15 mg filmsko obložene tablete
+											at0195, 	-- Olanzapin Pliva 2,5 mg filmsko obložene tablete
+											at0196, 	-- Olanzapin Pliva 20 mg filmsko obložene tablete
+											at0197, 	-- Olanzapin Pliva 5 mg filmsko obložene tablete
+											at0198, 	-- Olanzapin Pliva 7,5 mg filmsko obložene tablete
+											at0199, 	-- Olanzapin Synthon 10 mg tablete
+											at0200, 	-- Olanzapin Synthon 2,5 mg tablete
+											at0201, 	-- Olanzapin Synthon 5 mg tablete
+											at0202, 	-- Olanzapin Synthon 7,5 mg tablete
+											at0203, 	-- PRAXITEN 15 mg
+											at0204, 	-- PRAZINE 100 mg obložene tablete
+											at0205, 	-- PRAZINE 25 mg obložene tablete
+											at0206, 	-- Quepigal 100 mg filmsko obložene tablete
+											at0207, 	-- Quepigal 150 mg filmsko obložene tablete
+											at0208, 	-- Quepigal 200 mg filmsko obložene tablete
+											at0209, 	-- Quepigal 25 mg filmsko obložene tablete
+											at0210, 	-- Quepigal 300 mg filmsko obložene tablete
+											at0211, 	-- Quepigal 4-dnevno začetno pakiran
+											at0212, 	-- Quilonorm-Retard Filmtabletten
+											at0213, 	-- RISPERDAL 1 mg filmsko obložene tablete
+											at0214, 	-- RISPERDAL 1 mg/ml peroralna raztopina
+											at0215, 	-- RISPERDAL 2 mg filmsko obložene tablete
+											at0216, 	-- RISPERDAL 3 mg filmsko obložene tablete
+											at0217, 	-- RISPERDAL 4 mg filmsko obložene tablete
+											at0218, 	-- RISPERDAL CONSTA 25 mg prašek in vehikel za suspenzijo za injiciranje s podaljšanim sproščanjem
+											at0219, 	-- RISPERDAL CONSTA 37,5 mg prašek in vehikel za suspenzijo za injiciranje s podaljšanim sproščanjem
+											at0220, 	-- RISPERDAL CONSTA 50 mg prašek in vehikel za suspenzijo za injiciranje s podaljšanim sproščanjem
+											at0221, 	-- Risperidon Alkaloid 2 mg filmsko obložene tablete
+											at0222, 	-- Risperidon Alkaloid 3 mg filmsko obložene tablete
+											at0223, 	-- Risperidon Arrow 1 mg filmsko obložene tablete
+											at0224, 	-- Risperidon Arrow 2 mg filmsko obložene tablete
+											at0225, 	-- Risperidon Arrow 3 mg filmsko obložene tablete
+											at0226, 	-- Risperidon Arrow 4 mg filmsko obložene tablete
+											at0227, 	-- Risperidon Mylan 0,5 mg orodisperzibilne tablete
+											at0228, 	-- Risperidon Mylan 1 mg orodisperzibilne tablete
+											at0229, 	-- Risperidon Mylan 1 mg/ml peroralna raztopin
+											at0230, 	-- Risperidon Mylan 1 mg/ml peroralna raztopina
+											at0231, 	-- Risperidon Mylan 2 mg orodisperzibilne tablete
+											at0232, 	-- Risperidon Teva 2 mg orodisperzibilne tablete
+											at0233, 	-- Risperidon Teva 3 mg orodisperzibilne tablete
+											at0234, 	-- Risperidon Teva 4 mg orodisperzibilne tablete
+											at0235, 	-- Risperidon Teva 4 mg orodisperzibilne tablete
+											at0236, 	-- Risperidon Teva 6 mg orodisperzibilne tablete
+											at0237, 	-- Risperidon Teva 6 mg orodisperzibilne tablete
+											at0238, 	-- Risperigamma 1 mg filmsko obložene tablete
+											at0239, 	-- Risperigamma 2 mg filmsko obložene tablete
+											at0240, 	-- Risperigamma 3 mg filmsko obložene tablete
+											at0241, 	-- Risperigamma 4 mg filmsko obložene tablete
+											at0242, 	-- Rispolux 0,25 mg filmsko obložene tablete
+											at0243, 	-- Rispolux 0,5 mg filmsko obložene tablete
+											at0244, 	-- Rispolux 1 mg filmsko obložene tablete
+											at0245, 	-- Rispolux 1 mg/ml peroralna raztopina
+											at0246, 	-- Rispolux 2 mg filmsko obložene tablete
+											at0247, 	-- Rispolux 3 mg filmsko obložene tablete
+											at0248, 	-- Rispolux 4 mg filmsko obložene tablete
+											at0249, 	-- Rispolux 6 mg filmsko obložene tablete
+											at0250, 	-- Rispons 1 mg filmsko obložene tablete
+											at0251, 	-- Rispons 2 mg filmsko obložene tablete
+											at0252, 	-- Rispons 3 mg filmsko obložene tablete
+											at0253, 	-- Rispons 4 mg filmsko obložene tablete
+											at0254, 	-- RISSET filmsko obložene tablete 1 mg
+											at0255, 	-- RISSET filmsko obložene tablete 2 mg
+											at0256, 	-- RISSET filmsko obložene tablete 3 mg
+											at0257, 	-- RISSET filmsko obložene tablete 4 mg
+											at0258, 	-- Sanval 10 mg filmsko obložene tablete
+											at0259, 	-- Sanval 5 mg filmsko obložene tablete
+											at0260, 	-- Seroquel 100 mg filmsko obložene tablete
+											at0261, 	-- Seroquel 200 mg filmsko obložene tablete
+											at0262, 	-- Seroquel 25 mg filmsko obložene tablete
+											at0263, 	-- Seroquel 300 mg filmsko obložene tablete
+											at0264, 	-- Seroquel SR 150 mg tablete s podaljšanim sproščanjem
+											at0265, 	-- Seroquel SR 200 mg tablete s podaljšanim sproščanjem
+											at0266, 	-- Seroquel SR 300 mg tablete s podaljšanim sproščanjem
+											at0267, 	-- Seroquel SR 400 mg tablete s podaljšanim sproščanjem
+											at0268, 	-- Seroquel SR 50 mg tablete s podaljšanim sproščanjem
+											at0269, 	-- Setinin 100 mg filmsko obložene tablete
+											at0270, 	-- Setinin 150 mg filmsko obložene tablete
+											at0271, 	-- Setinin 200 mg filmsko obložene tablete
+											at0272, 	-- Setinin 25 mg filmsko obložene tablete
+											at0273, 	-- Setinin 300 mg filmsko obložene tablete
+											at0274, 	-- Solian 100 mg tablete
+											at0275, 	-- Solian 200 mg tablete
+											at0276, 	-- Solian 400 mg filmsko obložene tablete
+											at0277, 	-- Stesolid 10 mg rektalna raztopina
+											at0278, 	-- Stesolid 5 mg rektalna raztopina
+											at0279, 	-- SULPIRID 50 mg trde kapsule
+											at0280, 	-- TEMESTA 2 mg/ml raztopina za injiciranje
+											at0281, 	-- THIOPENTAL INRESA 0,5 g prašek za pripravo raztopine za injiciranje
+											at0282, 	-- THIOPENTAL INRESA 1 g prašek za pripravo raztopine za injiciranje
+											at0283, 	-- THIOPENTAL ROTEXMEDICA 0,5 g prašek za pripravo raztopine za injiciranje
+											at0284, 	-- THIOPENTAL ROTEXMEDICA 1 g prašek za pripravo raztopine za injiciranje
+											at0285, 	-- Torendo filmsko obložene tablete 1 mg
+											at0286, 	-- Torendo filmsko obložene tablete 2 mg
+											at0287, 	-- Torendo filmsko obložene tablete 3 mg
+											at0288, 	-- Torendo filmsko obložene tablete 4 mg
+											at0289, 	-- Torendo peroralna raztopina 1 mg/1 ml
+											at0290, 	-- Torendo Q-Tab orodisperzibilne tablete 0,5 mg
+											at0291, 	-- Torendo Q-Tab orodisperzibilne tablete 1 mg
+											at0292, 	-- Torendo Q-Tab orodisperzibilne tablete 2 mg
+											at0293, 	-- XANAX 0,25 mg tablete
+											at0294, 	-- XANAX 0,5 mg tablete
+											at0295, 	-- XANAX 1 mg tablete
+											at0296, 	-- XANAX SR 0,5 mg tablete s podaljšanim sproščanjem
+											at0297, 	-- XANAX SR 1 mg tablete s podaljšanim sproščanjem
+											at0298, 	-- XANAX SR 2 mg tablete s podaljšanim sproščanjem
+											at0299]	-- Xomolix 2,5 mg/ml raztopina za injiciranje
+										}
+									}
+								}
+							}
+							ELEMENT[at0014] occurrences matches {0..1} matches {	-- Število pakiranj
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							CLUSTER[at0017] occurrences matches {0..1} matches {	-- Režim jemanja zdravil
+								items matches {
+									ELEMENT[at0020] occurrences matches {0..1} matches {	-- Količina (št/ml/mg/vdih)
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Pogostost jemanja
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0029, 	-- 1x/dan
+													at0030, 	-- 2x/dan
+													at0031, 	-- 3x/dan
+													at0032, 	-- 4x/dan
+													at0033]	-- Po potrebi
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0005] occurrences matches {0..1} matches {	-- Zdravilo3
+						items matches {
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Ime zdravila
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- Generično ime
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- Število pakiranj
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							CLUSTER[at0018] occurrences matches {0..1} matches {	-- Režim jemanja zdravil
+								items matches {
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- Količina (št/ml/mg/vdih)
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Pogostost jemanja
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0035, 	-- 1x/dan
+													at0036, 	-- 2x/dan
+													at0037, 	-- 3x/dan
+													at0038, 	-- 4x/dan
+													at0039]	-- Po potrebi
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Druga zdravila
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			["at0000"] = <
+				text = <"Terapija eo sh">
+				description = <"Arhetip za zapis terapije za eOskrba - shizofrenija.">
+			>
+			["at0001"] = <
+				text = <"Tree">
+				description = <"@ internal @">
+			>
+			["at0002"] = <
+				text = <"Opis terapije">
+				description = <"*">
+			>
+			["at0003"] = <
+				text = <"Zdravilo1">
+				description = <"*">
+			>
+			["at0004"] = <
+				text = <"Zdravilo2">
+				description = <"*">
+			>
+			["at0005"] = <
+				text = <"Zdravilo3">
+				description = <"*">
+			>
+			["at0006"] = <
+				text = <"Druga zdravila">
+				description = <"*">
+			>
+			["at0007"] = <
+				text = <"Ime zdravila">
+				description = <"*">
+			>
+			["at0008"] = <
+				text = <"Ime zdravila">
+				description = <"*">
+			>
+			["at0009"] = <
+				text = <"Ime zdravila">
+				description = <"*">
+			>
+			["at0010"] = <
+				text = <"Generično ime">
+				description = <"*">
+			>
+			["at0011"] = <
+				text = <"Generično ime">
+				description = <"*">
+			>
+			["at0012"] = <
+				text = <"Generično ime">
+				description = <"*">
+			>
+			["at0013"] = <
+				text = <"Število pakiranj">
+				description = <"*">
+			>
+			["at0014"] = <
+				text = <"Število pakiranj">
+				description = <"*">
+			>
+			["at0015"] = <
+				text = <"Število pakiranj">
+				description = <"*">
+			>
+			["at0016"] = <
+				text = <"Režim jemanja zdravil">
+				description = <"*">
+			>
+			["at0017"] = <
+				text = <"Režim jemanja zdravil">
+				description = <"*">
+			>
+			["at0018"] = <
+				text = <"Režim jemanja zdravil">
+				description = <"*">
+			>
+			["at0019"] = <
+				text = <"Količina (št/ml/mg/vdih)">
+				description = <"*">
+			>
+			["at0020"] = <
+				text = <"Količina (št/ml/mg/vdih)">
+				description = <"*">
+			>
+			["at0021"] = <
+				text = <"Količina (št/ml/mg/vdih)">
+				description = <"*">
+			>
+			["at0022"] = <
+				text = <"Pogostost jemanja">
+				description = <"*">
+			>
+			["at0023"] = <
+				text = <"1x/dan">
+				description = <"1x/dan">
+			>
+			["at0024"] = <
+				text = <"2x/dan">
+				description = <"2x/dan">
+			>
+			["at0025"] = <
+				text = <"3x/dan">
+				description = <"3x/dan">
+			>
+			["at0026"] = <
+				text = <"4x/dan">
+				description = <"4x/dan">
+			>
+			["at0027"] = <
+				text = <"Po potrebi">
+				description = <"Po potrebi">
+			>
+			["at0028"] = <
+				text = <"Pogostost jemanja">
+				description = <"*">
+			>
+			["at0029"] = <
+				text = <"1x/dan">
+				description = <"1x/dan">
+			>
+			["at0030"] = <
+				text = <"2x/dan">
+				description = <"2x/dan">
+			>
+			["at0031"] = <
+				text = <"3x/dan">
+				description = <"3x/dan">
+			>
+			["at0032"] = <
+				text = <"4x/dan">
+				description = <"4x/dan">
+			>
+			["at0033"] = <
+				text = <"Po potrebi">
+				description = <"Po potrebi">
+			>
+			["at0034"] = <
+				text = <"Pogostost jemanja">
+				description = <"*">
+			>
+			["at0035"] = <
+				text = <"1x/dan">
+				description = <"1x/dan">
+			>
+			["at0036"] = <
+				text = <"2x/dan">
+				description = <"2x/dan">
+			>
+			["at0037"] = <
+				text = <"3x/dan">
+				description = <"3x/dan">
+			>
+			["at0038"] = <
+				text = <"4x/dan">
+				description = <"4x/dan">
+			>
+			["at0039"] = <
+				text = <"Po potrebi">
+				description = <"Po potrebi">
+			>
+			["at0040"] = <
+				text = <"Akineton 2 mg tablete, 50 tablet">
+				description = <"">
+			>
+			["at0041"] = <
+				text = <"Akineton 5 mg/ml raztopina za injiciranje, 5 x 5 mg">
+				description = <"">
+			>
+			["at0042"] = <
+				text = <"Amisulprid Teva 100 mg tablete">
+				description = <"">
+			>
+			["at0043"] = <
+				text = <"Amisulprid Teva 200 mg tablete">
+				description = <"">
+			>
+			["at0044"] = <
+				text = <"Amisulprid Teva 400 mg tablete">
+				description = <"">
+			>
+			["at0045"] = <
+				text = <"Ansilan 10 mg trde kapsule">
+				description = <"">
+			>
+			["at0046"] = <
+				text = <"Ansilan 5 mg trde kapsule">
+				description = <"">
+			>
+			["at0047"] = <
+				text = <"Apaurin 10 mg tablete">
+				description = <"">
+			>
+			["at0048"] = <
+				text = <"APAURIN 10 mg/2 ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0049"] = <
+				text = <"APAURIN 2 mg obložene tablete">
+				description = <"">
+			>
+			["at0050"] = <
+				text = <"APAURIN 5 mg obložene tablete">
+				description = <"">
+			>
+			["at0051"] = <
+				text = <"ATIVAN Injection 2 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0052"] = <
+				text = <"CERSON 5 mg tablete">
+				description = <"">
+			>
+			["at0053"] = <
+				text = <"Clopixol 10 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0054"] = <
+				text = <"Clopixol Acuphase 50 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0055"] = <
+				text = <"Clopixol Depot 200 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0056"] = <
+				text = <"Clozalux 100 mg tablete">
+				description = <"">
+			>
+			["at0057"] = <
+				text = <"Clozalux 25 mg tablete">
+				description = <"">
+			>
+			["at0058"] = <
+				text = <"Clozalux 50 mg tablete">
+				description = <"">
+			>
+			["at0059"] = <
+				text = <"CP ABILIFY 1 mg/ml peroralna raztopina">
+				description = <"">
+			>
+			["at0060"] = <
+				text = <"CP ABILIFY 10 mg tablete">
+				description = <"">
+			>
+			["at0061"] = <
+				text = <"CP ABILIFY 15 mg tablete">
+				description = <"">
+			>
+			["at0062"] = <
+				text = <"CP ABILIFY 5 mg tablete">
+				description = <"">
+			>
+			["at0063"] = <
+				text = <"CP ABILIFY 7,5 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0064"] = <
+				text = <"CP CIRCADIN 2 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0065"] = <
+				text = <"CP INVEGA 12 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0066"] = <
+				text = <"CP INVEGA 3 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0067"] = <
+				text = <"CP INVEGA 6 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0068"] = <
+				text = <"CP INVEGA 9 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0069"] = <
+				text = <"CP Olanzapin Teva 10 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0070"] = <
+				text = <"CP Olanzapin Teva 10 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0071"] = <
+				text = <"CP Olanzapin Teva 15 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0072"] = <
+				text = <"CP Olanzapin Teva 15 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0073"] = <
+				text = <"CP Olanzapin Teva 2,5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0074"] = <
+				text = <"CP Olanzapin Teva 20 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0075"] = <
+				text = <"CP Olanzapin Teva 20 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0076"] = <
+				text = <"CP Olanzapin Teva 5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0077"] = <
+				text = <"CP Olanzapin Teva 5 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0078"] = <
+				text = <"CP Olanzapin Teva 7,5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0079"] = <
+				text = <"CP Zalasta 10 mg orodisperzibilna tableta">
+				description = <"">
+			>
+			["at0080"] = <
+				text = <"CP Zalasta 10 mg tablete">
+				description = <"">
+			>
+			["at0081"] = <
+				text = <"CP Zalasta 15 mg orodisperzibilna tableta">
+				description = <"">
+			>
+			["at0082"] = <
+				text = <"CP Zalasta 20 mg orodisperzibilna tableta">
+				description = <"">
+			>
+			["at0083"] = <
+				text = <"CP Zalasta 5 mg orodisperzibilna tablete">
+				description = <"">
+			>
+			["at0084"] = <
+				text = <"CP Zalasta 5 mg tablete">
+				description = <"">
+			>
+			["at0085"] = <
+				text = <"CP ZYPADHERA 210 mg prašek in topilo za suspenzijo za injiciranje s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0086"] = <
+				text = <"CP ZYPADHERA 300 mg prašek in topilo za suspenzijo za injiciranje s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0087"] = <
+				text = <"CP Zypadhera 405 mg prašek in topilo za suspenzijo za injiciranje s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0088"] = <
+				text = <"CP ZYPREXA 10 mg obložene tablete">
+				description = <"">
+			>
+			["at0089"] = <
+				text = <"CP ZYPREXA 10 mg prašek za raztopino za injiciranje">
+				description = <"">
+			>
+			["at0090"] = <
+				text = <"CP ZYPREXA 15 mg obložene tablete">
+				description = <"">
+			>
+			["at0091"] = <
+				text = <"CP ZYPREXA 20 mg obložene tablete">
+				description = <"">
+			>
+			["at0092"] = <
+				text = <"CP ZYPREXA 5 mg obložene tablete">
+				description = <"">
+			>
+			["at0093"] = <
+				text = <"CP ZYPREXA VELOTAB 10 mg peroralne disperzibilne tablete">
+				description = <"">
+			>
+			["at0094"] = <
+				text = <"CP ZYPREXA VELOTAB 15 mg peroralne disperzibilne tablete">
+				description = <"">
+			>
+			["at0095"] = <
+				text = <"CP ZYPREXA VELOTAB 20 mg peroralne disperzibilne tablete">
+				description = <"">
+			>
+			["at0096"] = <
+				text = <"CP ZYPREXA VELOTAB 5 mg peroralne disperzibilne tablete">
+				description = <"">
+			>
+			["at0097"] = <
+				text = <"Distraneurin 192 mg mehke kapsule">
+				description = <"">
+			>
+			["at0098"] = <
+				text = <"Dormicum 1 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0099"] = <
+				text = <"Dormicum 15 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0100"] = <
+				text = <"Dormicum 5 mg/1ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0101"] = <
+				text = <"Dormicum 5 mg/5 ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0102"] = <
+				text = <"Dormicum 7,5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0103"] = <
+				text = <"EGLONYL 200 mg tablete">
+				description = <"">
+			>
+			["at0104"] = <
+				text = <"EGLONYL 50 mg trde kapsule">
+				description = <"">
+			>
+			["at0105"] = <
+				text = <"Fluanxol 3 mg obložene tablete">
+				description = <"">
+			>
+			["at0106"] = <
+				text = <"Fluanxol Depot 20 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0107"] = <
+				text = <"Fluzepam 15 mg trde kapsule">
+				description = <"">
+			>
+			["at0108"] = <
+				text = <"Fluzepam 30 mg kapsule">
+				description = <"">
+			>
+			["at0109"] = <
+				text = <"FRISIUM 10 mg tablete">
+				description = <"">
+			>
+			["at0110"] = <
+				text = <"Haldol depo raztopina za injiciranje 50 mg/ml">
+				description = <"">
+			>
+			["at0111"] = <
+				text = <"Haldol peroralne kapljice 10 mg/1ml">
+				description = <"">
+			>
+			["at0112"] = <
+				text = <"Haldol peroralne kapljice 2 mg/1ml">
+				description = <"">
+			>
+			["at0113"] = <
+				text = <"Haldol raztopina za injiciranje 5 mg/1ml">
+				description = <"">
+			>
+			["at0114"] = <
+				text = <"Haldol tablete 10 mg">
+				description = <"">
+			>
+			["at0115"] = <
+				text = <"Haldol tablete 2 mg">
+				description = <"">
+			>
+			["at0116"] = <
+				text = <"Helex 0,25 mg tablete">
+				description = <"">
+			>
+			["at0117"] = <
+				text = <"Helex 0,5 mg tablete">
+				description = <"">
+			>
+			["at0118"] = <
+				text = <"Helex 1 mg tablete">
+				description = <"">
+			>
+			["at0119"] = <
+				text = <"Helex retard 0,5 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0120"] = <
+				text = <"Helex retard 1 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0121"] = <
+				text = <"Helex retard 2 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0122"] = <
+				text = <"Ketilept 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0123"] = <
+				text = <"Ketilept 150 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0124"] = <
+				text = <"Ketilept 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0125"] = <
+				text = <"Ketilept 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0126"] = <
+				text = <"Ketilept 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0127"] = <
+				text = <"Kvelux 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0128"] = <
+				text = <"Kvelux 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0129"] = <
+				text = <"Kvelux 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0130"] = <
+				text = <"Kvelux 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0131"] = <
+				text = <"Kventiax 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0132"] = <
+				text = <"Kventiax 150 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0133"] = <
+				text = <"Kventiax 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0134"] = <
+				text = <"Kventiax 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0135"] = <
+				text = <"Kventiax 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0136"] = <
+				text = <"Kvetiapin Lek 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0137"] = <
+				text = <"Kvetiapin Lek 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0138"] = <
+				text = <"Kvetiapin Lek 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0139"] = <
+				text = <"Kvetiapin Lek 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0140"] = <
+				text = <"Kvetiapin Lek 50 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0141"] = <
+				text = <"Kvetiapin Mylan 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0142"] = <
+				text = <"Kvetiapin Mylan 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0143"] = <
+				text = <"Kvetiapin Mylan 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0144"] = <
+				text = <"Kvetiapin Mylan 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0145"] = <
+				text = <"Lekotam 1,5 mg tablete">
+				description = <"">
+			>
+			["at0146"] = <
+				text = <"Lekotam 3 mg tablete">
+				description = <"">
+			>
+			["at0147"] = <
+				text = <"Lekotam 6 mg tablete">
+				description = <"">
+			>
+			["at0148"] = <
+				text = <"Leponex 100 mg tablete">
+				description = <"">
+			>
+			["at0149"] = <
+				text = <"Leponex 25 mg tablete">
+				description = <"">
+			>
+			["at0150"] = <
+				text = <"Lexaurin 1,5 mg tablete">
+				description = <"">
+			>
+			["at0151"] = <
+				text = <"Lexaurin 3 mg tablete">
+				description = <"">
+			>
+			["at0152"] = <
+				text = <"Lexaurin 6 mg tablete">
+				description = <"">
+			>
+			["at0153"] = <
+				text = <"LEXILIUM 1,5 mg tablete">
+				description = <"">
+			>
+			["at0154"] = <
+				text = <"LEXILIUM 3 mg tablete">
+				description = <"">
+			>
+			["at0155"] = <
+				text = <"LEXILIUM 6 mg tablete">
+				description = <"">
+			>
+			["at0156"] = <
+				text = <"Litijev karbonat Lekarna Ljubljana 300 mg tablete">
+				description = <"">
+			>
+			["at0157"] = <
+				text = <"Loquen 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0158"] = <
+				text = <"Loquen 150 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0159"] = <
+				text = <"Loquen 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0160"] = <
+				text = <"Loquen 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0161"] = <
+				text = <"Loquen 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0162"] = <
+				text = <"Loram 2,5 mg tablete">
+				description = <"">
+			>
+			["at0163"] = <
+				text = <"LORAZEPAM Injection, USP, CIV 2 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0164"] = <
+				text = <"Lorsilan 1 mg tablete">
+				description = <"">
+			>
+			["at0165"] = <
+				text = <"Lorsilan 2,5 mg tablete">
+				description = <"">
+			>
+			["at0166"] = <
+				text = <"MENDILEX 2 mg tablete, 50 tablet">
+				description = <"">
+			>
+			["at0167"] = <
+				text = <"Midazolam Accord 1 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0168"] = <
+				text = <"Midazolam Accord 5 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0169"] = <
+				text = <"Midazolam Torrex 1 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0170"] = <
+				text = <"Midazolam Torrex 5 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0171"] = <
+				text = <"Moditen 1 mg obložene tablete">
+				description = <"">
+			>
+			["at0172"] = <
+				text = <"Moditen 2,5 mg obložene tablete">
+				description = <"">
+			>
+			["at0173"] = <
+				text = <"Moditen 5 mg obložene tablete">
+				description = <"">
+			>
+			["at0174"] = <
+				text = <"Moditen depo 25 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0175"] = <
+				text = <"Nozinan 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0176"] = <
+				text = <"Nozinan 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0177"] = <
+				text = <"OKSAZEPAM BELUPO 10 mg tablete">
+				description = <"">
+			>
+			["at0178"] = <
+				text = <"Olanzapin Actavis 10 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0179"] = <
+				text = <"Olanzapin Actavis 15 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0180"] = <
+				text = <"Olanzapin Actavis 20 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0181"] = <
+				text = <"Olanzapin Actavis 5 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0182"] = <
+				text = <"Olanzapin Jacobsen 10 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0183"] = <
+				text = <"Olanzapin Jacobsen 10 mg tablete">
+				description = <"">
+			>
+			["at0184"] = <
+				text = <"Olanzapin Jacobsen 15 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0185"] = <
+				text = <"Olanzapin Jacobsen 15 mg tablete">
+				description = <"">
+			>
+			["at0186"] = <
+				text = <"Olanzapin Jacobsen 2,5 mg tablete">
+				description = <"">
+			>
+			["at0187"] = <
+				text = <"Olanzapin Jacobsen 20 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0188"] = <
+				text = <"Olanzapin Jacobsen 20 mg tablete">
+				description = <"">
+			>
+			["at0189"] = <
+				text = <"Olanzapin Jacobsen 5 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0190"] = <
+				text = <"Olanzapin Jacobsen 5 mg tablete">
+				description = <"">
+			>
+			["at0191"] = <
+				text = <"Olanzapin Jacobsen 7,5 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0192"] = <
+				text = <"Olanzapin Jacobsen 7,5 mg tablete">
+				description = <"">
+			>
+			["at0193"] = <
+				text = <"Olanzapin Pliva 10 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0194"] = <
+				text = <"Olanzapin Pliva 15 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0195"] = <
+				text = <"Olanzapin Pliva 2,5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0196"] = <
+				text = <"Olanzapin Pliva 20 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0197"] = <
+				text = <"Olanzapin Pliva 5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0198"] = <
+				text = <"Olanzapin Pliva 7,5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0199"] = <
+				text = <"Olanzapin Synthon 10 mg tablete">
+				description = <"">
+			>
+			["at0200"] = <
+				text = <"Olanzapin Synthon 2,5 mg tablete">
+				description = <"">
+			>
+			["at0201"] = <
+				text = <"Olanzapin Synthon 5 mg tablete">
+				description = <"">
+			>
+			["at0202"] = <
+				text = <"Olanzapin Synthon 7,5 mg tablete">
+				description = <"">
+			>
+			["at0203"] = <
+				text = <"PRAXITEN 15 mg">
+				description = <"">
+			>
+			["at0204"] = <
+				text = <"PRAZINE 100 mg obložene tablete">
+				description = <"">
+			>
+			["at0205"] = <
+				text = <"PRAZINE 25 mg obložene tablete">
+				description = <"">
+			>
+			["at0206"] = <
+				text = <"Quepigal 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0207"] = <
+				text = <"Quepigal 150 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0208"] = <
+				text = <"Quepigal 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0209"] = <
+				text = <"Quepigal 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0210"] = <
+				text = <"Quepigal 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0211"] = <
+				text = <"Quepigal 4-dnevno začetno pakiran">
+				description = <"">
+			>
+			["at0212"] = <
+				text = <"Quilonorm-Retard Filmtabletten">
+				description = <"">
+			>
+			["at0213"] = <
+				text = <"RISPERDAL 1 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0214"] = <
+				text = <"RISPERDAL 1 mg/ml peroralna raztopina">
+				description = <"">
+			>
+			["at0215"] = <
+				text = <"RISPERDAL 2 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0216"] = <
+				text = <"RISPERDAL 3 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0217"] = <
+				text = <"RISPERDAL 4 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0218"] = <
+				text = <"RISPERDAL CONSTA 25 mg prašek in vehikel za suspenzijo za injiciranje s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0219"] = <
+				text = <"RISPERDAL CONSTA 37,5 mg prašek in vehikel za suspenzijo za injiciranje s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0220"] = <
+				text = <"RISPERDAL CONSTA 50 mg prašek in vehikel za suspenzijo za injiciranje s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0221"] = <
+				text = <"Risperidon Alkaloid 2 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0222"] = <
+				text = <"Risperidon Alkaloid 3 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0223"] = <
+				text = <"Risperidon Arrow 1 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0224"] = <
+				text = <"Risperidon Arrow 2 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0225"] = <
+				text = <"Risperidon Arrow 3 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0226"] = <
+				text = <"Risperidon Arrow 4 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0227"] = <
+				text = <"Risperidon Mylan 0,5 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0228"] = <
+				text = <"Risperidon Mylan 1 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0229"] = <
+				text = <"Risperidon Mylan 1 mg/ml peroralna raztopin">
+				description = <"">
+			>
+			["at0230"] = <
+				text = <"Risperidon Mylan 1 mg/ml peroralna raztopina">
+				description = <"">
+			>
+			["at0231"] = <
+				text = <"Risperidon Mylan 2 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0232"] = <
+				text = <"Risperidon Teva 2 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0233"] = <
+				text = <"Risperidon Teva 3 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0234"] = <
+				text = <"Risperidon Teva 4 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0235"] = <
+				text = <"Risperidon Teva 4 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0236"] = <
+				text = <"Risperidon Teva 6 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0237"] = <
+				text = <"Risperidon Teva 6 mg orodisperzibilne tablete">
+				description = <"">
+			>
+			["at0238"] = <
+				text = <"Risperigamma 1 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0239"] = <
+				text = <"Risperigamma 2 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0240"] = <
+				text = <"Risperigamma 3 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0241"] = <
+				text = <"Risperigamma 4 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0242"] = <
+				text = <"Rispolux 0,25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0243"] = <
+				text = <"Rispolux 0,5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0244"] = <
+				text = <"Rispolux 1 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0245"] = <
+				text = <"Rispolux 1 mg/ml peroralna raztopina">
+				description = <"">
+			>
+			["at0246"] = <
+				text = <"Rispolux 2 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0247"] = <
+				text = <"Rispolux 3 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0248"] = <
+				text = <"Rispolux 4 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0249"] = <
+				text = <"Rispolux 6 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0250"] = <
+				text = <"Rispons 1 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0251"] = <
+				text = <"Rispons 2 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0252"] = <
+				text = <"Rispons 3 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0253"] = <
+				text = <"Rispons 4 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0254"] = <
+				text = <"RISSET filmsko obložene tablete 1 mg">
+				description = <"">
+			>
+			["at0255"] = <
+				text = <"RISSET filmsko obložene tablete 2 mg">
+				description = <"">
+			>
+			["at0256"] = <
+				text = <"RISSET filmsko obložene tablete 3 mg">
+				description = <"">
+			>
+			["at0257"] = <
+				text = <"RISSET filmsko obložene tablete 4 mg">
+				description = <"">
+			>
+			["at0258"] = <
+				text = <"Sanval 10 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0259"] = <
+				text = <"Sanval 5 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0260"] = <
+				text = <"Seroquel 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0261"] = <
+				text = <"Seroquel 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0262"] = <
+				text = <"Seroquel 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0263"] = <
+				text = <"Seroquel 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0264"] = <
+				text = <"Seroquel SR 150 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0265"] = <
+				text = <"Seroquel SR 200 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0266"] = <
+				text = <"Seroquel SR 300 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0267"] = <
+				text = <"Seroquel SR 400 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0268"] = <
+				text = <"Seroquel SR 50 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0269"] = <
+				text = <"Setinin 100 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0270"] = <
+				text = <"Setinin 150 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0271"] = <
+				text = <"Setinin 200 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0272"] = <
+				text = <"Setinin 25 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0273"] = <
+				text = <"Setinin 300 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0274"] = <
+				text = <"Solian 100 mg tablete">
+				description = <"">
+			>
+			["at0275"] = <
+				text = <"Solian 200 mg tablete">
+				description = <"">
+			>
+			["at0276"] = <
+				text = <"Solian 400 mg filmsko obložene tablete">
+				description = <"">
+			>
+			["at0277"] = <
+				text = <"Stesolid 10 mg rektalna raztopina">
+				description = <"">
+			>
+			["at0278"] = <
+				text = <"Stesolid 5 mg rektalna raztopina">
+				description = <"">
+			>
+			["at0279"] = <
+				text = <"SULPIRID 50 mg trde kapsule">
+				description = <"">
+			>
+			["at0280"] = <
+				text = <"TEMESTA 2 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+			["at0281"] = <
+				text = <"THIOPENTAL INRESA 0,5 g prašek za pripravo raztopine za injiciranje">
+				description = <"">
+			>
+			["at0282"] = <
+				text = <"THIOPENTAL INRESA 1 g prašek za pripravo raztopine za injiciranje">
+				description = <"">
+			>
+			["at0283"] = <
+				text = <"THIOPENTAL ROTEXMEDICA 0,5 g prašek za pripravo raztopine za injiciranje">
+				description = <"">
+			>
+			["at0284"] = <
+				text = <"THIOPENTAL ROTEXMEDICA 1 g prašek za pripravo raztopine za injiciranje">
+				description = <"">
+			>
+			["at0285"] = <
+				text = <"Torendo filmsko obložene tablete 1 mg">
+				description = <"">
+			>
+			["at0286"] = <
+				text = <"Torendo filmsko obložene tablete 2 mg">
+				description = <"">
+			>
+			["at0287"] = <
+				text = <"Torendo filmsko obložene tablete 3 mg">
+				description = <"">
+			>
+			["at0288"] = <
+				text = <"Torendo filmsko obložene tablete 4 mg">
+				description = <"">
+			>
+			["at0289"] = <
+				text = <"Torendo peroralna raztopina 1 mg/1 ml">
+				description = <"">
+			>
+			["at0290"] = <
+				text = <"Torendo Q-Tab orodisperzibilne tablete 0,5 mg">
+				description = <"">
+			>
+			["at0291"] = <
+				text = <"Torendo Q-Tab orodisperzibilne tablete 1 mg">
+				description = <"">
+			>
+			["at0292"] = <
+				text = <"Torendo Q-Tab orodisperzibilne tablete 2 mg">
+				description = <"">
+			>
+			["at0293"] = <
+				text = <"XANAX 0,25 mg tablete">
+				description = <"">
+			>
+			["at0294"] = <
+				text = <"XANAX 0,5 mg tablete">
+				description = <"">
+			>
+			["at0295"] = <
+				text = <"XANAX 1 mg tablete">
+				description = <"">
+			>
+			["at0296"] = <
+				text = <"XANAX SR 0,5 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0297"] = <
+				text = <"XANAX SR 1 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0298"] = <
+				text = <"XANAX SR 2 mg tablete s podaljšanim sproščanjem">
+				description = <"">
+			>
+			["at0299"] = <
+				text = <"Xomolix 2,5 mg/ml raztopina za injiciranje">
+				description = <"">
+			>
+		>
+	>

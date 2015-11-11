@@ -1,0 +1,938 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.admission_details_zn.v1
+
+concept
+	[at0000]	-- Nursing history - basic data
+language
+	original_language = <[ISO_639-1::sl]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"19.10.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To document basic data from nursing history">
+			use = <"To document some elements of nursing history">
+			keywords = <"nursing history", "nursing anamnesis", "basic data">
+			misuse = <"To document medical history">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"To document basic data from nursing history">
+			use = <"">
+			keywords = <"nursing history", ...>
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", ...>
+	other_details = <
+		["references"] = <"Education:
+http://www.mss.gov.si/fileadmin/mss.gov.si/pageuploads/podrocje/Struktura/Shema_iz_sistema_SLO_08.pdf
+
+Human race:
+http://en.wikipedia.org/wiki/Congoid_race
+http://en.wikipedia.org/wiki/File:Neighbor-joining_Tree.svg">
+		["MD5-CAM-1.0.1"] = <"AA9E82A542B374D8BC7D2E474A66012A">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Nursing history - basic data
+		data matches {
+			ITEM_TREE[at0003] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Nickname
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Marital status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Single (never married)
+									at0007, 	-- Married
+									at0008, 	-- Divorced
+									at0009, 	-- Widowed
+									at0010]	-- Cohabitation
+								}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Profession
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Education
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015, 	-- Preschool
+									at0016, 	-- Unfinished primary school
+									at0017, 	-- Primary school
+									at0018, 	-- Vocational school
+									at0019, 	-- Secondary school
+									at0020, 	-- Technical college
+									at0021, 	-- College
+									at0022, 	-- University
+									at0023, 	-- Specialisation
+									at0024, 	-- MSc
+									at0025]	-- PhD
+								}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Race
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0026, 	-- Caucasoid
+									at0027, 	-- Negroid
+									at0028]	-- Mongoloid (incl. australoid)
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Photo
+						value matches {
+							DV_MULTIMEDIA matches {
+								media_type matches {
+									[openEHR::
+									425, 
+									426, 
+									427, 
+									428, 
+									429, 
+									401, 
+									402, 
+									404, 
+									405, 
+									406, 
+									407, 
+									414]
+								}
+							}
+						}
+					}
+					ELEMENT[at0029] occurrences matches {0..3} matches {	-- Critical sign
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[ac0001]}		-- MZN-SIF-BARVE
+							}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {	-- Taking photos
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0031, 	-- Not allowed
+									at0032, 	-- Doesn't want to fill in the form
+									at0033, 	-- Hasn't filled in the form
+									at0034, 	-- Only for patient identification
+									at0035, 	-- Only for medical documentation
+									at0036, 	-- For patient identification and medical documentation
+									at0037, 	-- Also for reserach pourposes
+									at0038]	-- May also be published in media
+								}
+							}
+						}
+					}
+					ELEMENT[at0039] occurrences matches {0..1} matches {	-- Visit limitations
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0040, 	-- No visits allowed
+									at0041, 	-- Doesn't want to fill in the form
+									at0042, 	-- Hasn't filled in the form
+									at0043, 	-- Not restricted
+									at0044]	-- See table for detailed info per every person
+								}
+							}
+						}
+					}
+					CLUSTER[at0045] occurrences matches {0..*} matches {	-- Detailed visit limitations
+						items cardinality matches {1; unordered} matches {
+							ELEMENT[at0046] occurrences matches {0..1} matches {	-- Name
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0047] matches {	-- Restriction
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0048, 	-- Allowed
+											at0049]	-- Restricted
+										}
+									}
+								}
+							}
+							ELEMENT[at0050] occurrences matches {0..1} matches {	-- Comments
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0051] occurrences matches {0..1} matches {	-- Hospitalisation of patient's mother
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0052, 	-- Declined
+									at0053]	-- Not declined
+								}
+							}
+						}
+					}
+					ELEMENT[at0054] occurrences matches {0..1} matches {	-- Date hospitalisation declined
+						value matches {
+							DV_DATE matches {
+								value matches {yyyy-mm-dd}
+							}
+						}
+					}
+					CLUSTER[at0055] occurrences matches {0..*} matches {	-- School/occupation
+						items cardinality matches {1; unordered} matches {
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Role
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0057, 	-- Staying at home
+											at0058, 	-- Kindergarten
+											at0059, 	-- Daycare (private)
+											at0060, 	-- Pupil
+											at0061, 	-- student (secondary)
+											at0062, 	-- student (tertiary)
+											at0063, 	-- Employed
+											at0064, 	-- Farmer
+											at0065, 	-- Retired
+											at0066]	-- Unemployed
+										}
+									}
+								}
+							}
+							ELEMENT[at0067] occurrences matches {0..1} matches {	-- Startdate
+								value matches {
+									DV_DATE matches {*}
+								}
+							}
+							ELEMENT[at0068] occurrences matches {0..1} matches {	-- Institution
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0069] occurrences matches {0..1} matches {	-- Address
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0070] occurrences matches {0..1} matches {	-- City
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0071] occurrences matches {0..1} matches {	-- Postal code
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|1000..9999|}
+									}
+								}
+							}
+							ELEMENT[at0072] occurrences matches {0..1} matches {	-- Position
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0073] occurrences matches {0..1} matches {	-- Contact person
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0074] occurrences matches {0..1} matches {	-- Phone number
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"MZN-SIF-BARVE", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Nursing history - basic data">
+					description = <"For documenting part of nursing anamnesis: nursing history - basic data.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Nickname">
+					description = <"Patient's nickname, used in pediatrics">
+				>
+				["at0005"] = <
+					text = <"Marital status">
+					description = <"Marital status of a patient.">
+				>
+				["at0006"] = <
+					text = <"Single (never married)">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Married">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Divorced">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Widowed">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Cohabitation">
+					description = <"Life partnership - unmarried partners living together">
+				>
+				["at0011"] = <
+					text = <"Profession">
+					description = <"May refer to finished secondary education (i.e. practical nurse, salesman, ...) or to current occupation (universitay professor, ...).">
+				>
+				["at0012"] = <
+					text = <"Education">
+					description = <"Highest level of finished education.">
+				>
+				["at0013"] = <
+					text = <"Race">
+					description = <"Human race (for future use in decision support systems as normal values may depend on human race).">
+				>
+				["at0014"] = <
+					text = <"Photo">
+					description = <"Patient's photo for recognition pourposes (current face photo is preferred).">
+				>
+				["at0015"] = <
+					text = <"Preschool">
+					description = <"up to 6 yrs of age">
+				>
+				["at0016"] = <
+					text = <"Unfinished primary school">
+					description = <"was enrolled but hasn't finished OR is enrolled and hasn't finished yet">
+				>
+				["at0017"] = <
+					text = <"Primary school">
+					description = <"6-15 yrs of age">
+				>
+				["at0018"] = <
+					text = <"Vocational school">
+					description = <"secondary education, up to 3 yrs programme">
+				>
+				["at0019"] = <
+					text = <"Secondary school">
+					description = <"secondary education, 4yrs programme, uppen or technical">
+				>
+				["at0020"] = <
+					text = <"Technical college">
+					description = <"2 yrs programme, 120 credits">
+				>
+				["at0021"] = <
+					text = <"College">
+					description = <"3-4 yrs programme, 180-240 credits">
+				>
+				["at0022"] = <
+					text = <"University">
+					description = <"3-4 yrs programme, 180-240 credits, university diploma">
+				>
+				["at0023"] = <
+					text = <"Specialisation">
+					description = <"1-2 yrs programme before the bologna reform">
+				>
+				["at0024"] = <
+					text = <"MSc">
+					description = <"1-2 yrs programme, 60-120 credits">
+				>
+				["at0025"] = <
+					text = <"PhD">
+					description = <"approx. 3 yrs programme, 180 credits">
+				>
+				["at0026"] = <
+					text = <"Caucasoid">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Negroid">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Mongoloid (incl. australoid)">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Critical sign">
+					description = <"Symbols used (up to 3 per patient) are always clearly visible when viewing patient's health documentation, used to denote critical signs such as: MRSA infection, strict isolation, contact isolation, respiratory isolation, self-agressive, agressive, HIV positive...">
+				>
+				["at0030"] = <
+					text = <"Taking photos">
+					description = <"if health care personnel is allowed to take photos of patient">
+				>
+				["at0031"] = <
+					text = <"Not allowed">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Doesn't want to fill in the form">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Hasn't filled in the form">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Only for patient identification">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Only for medical documentation">
+					description = <"i.e. wounds">
+				>
+				["at0036"] = <
+					text = <"For patient identification and medical documentation">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Also for reserach pourposes">
+					description = <"May not be published in media">
+				>
+				["at0038"] = <
+					text = <"May also be published in media">
+					description = <"i.e. school photo in annual report">
+				>
+				["at0039"] = <
+					text = <"Visit limitations">
+					description = <"Not used for detailed information per single person">
+				>
+				["at0040"] = <
+					text = <"No visits allowed">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Doesn't want to fill in the form">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Hasn't filled in the form">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Not restricted">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"See table for detailed info per every person">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Detailed visit limitations">
+					description = <"Detailed visit limitations per single person or group of people">
+				>
+				["at0046"] = <
+					text = <"Name">
+					description = <"Person's name (i.e. Justin Case OR father) or group of people (i.e. grandparents)">
+				>
+				["at0047"] = <
+					text = <"Restriction">
+					description = <"Visits allowed or restricted">
+				>
+				["at0048"] = <
+					text = <"Allowed">
+					description = <"Allowed to visit the patient">
+				>
+				["at0049"] = <
+					text = <"Restricted">
+					description = <"Not allowed to visit the patient">
+				>
+				["at0050"] = <
+					text = <"Comments">
+					description = <"Comments (i.e. injunction details, time limitations such as from... till...)">
+				>
+				["at0051"] = <
+					text = <"Hospitalisation of patient's mother">
+					description = <"Has the patient's mother declined hospitalisation?">
+				>
+				["at0052"] = <
+					text = <"Declined">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Not declined">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Date hospitalisation declined">
+					description = <"The date that hospitalisation was declined bythe patient's mother.">
+				>
+				["at0055"] = <
+					text = <"School/occupation">
+					description = <"A list of patient's previous and current scholls / employers.">
+				>
+				["at0056"] = <
+					text = <"Role">
+					description = <"Patient's role">
+				>
+				["at0057"] = <
+					text = <"Staying at home">
+					description = <"For a preschool patient">
+				>
+				["at0058"] = <
+					text = <"Kindergarten">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Daycare (private)">
+					description = <"*">
+				>
+				["at0060"] = <
+					text = <"Pupil">
+					description = <"primary education">
+				>
+				["at0061"] = <
+					text = <"student (secondary)">
+					description = <"secondary education">
+				>
+				["at0062"] = <
+					text = <"student (tertiary)">
+					description = <"tertiary education">
+				>
+				["at0063"] = <
+					text = <"Employed">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Farmer">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Retired">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Unemployed">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Startdate">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Institution">
+					description = <"Name of institution">
+				>
+				["at0069"] = <
+					text = <"Address">
+					description = <"Address of the institution">
+				>
+				["at0070"] = <
+					text = <"City">
+					description = <"City (part of address)">
+				>
+				["at0071"] = <
+					text = <"Postal code">
+					description = <"Postal code in Slovenia">
+				>
+				["at0072"] = <
+					text = <"Position">
+					description = <"For occupation only, not for schooling patients">
+				>
+				["at0073"] = <
+					text = <"Contact person">
+					description = <"Name of a contact person">
+				>
+				["at0074"] = <
+					text = <"Phone number">
+					description = <"Contact information to reach contact person">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Nursing history - basic data">
+					description = <"For documenting part of nursing anamnesis: nursing history - basic data">
+				>
+				["at0003"] = <
+					text = <"*Tree(sl)">
+					description = <"*@ internal @(sl)">
+				>
+				["at0004"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0005"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0006"] = <
+					text = <"*Single (never married)(sl)">
+					description = <"**(sl)">
+				>
+				["at0007"] = <
+					text = <"*Married(sl)">
+					description = <"**(sl)">
+				>
+				["at0008"] = <
+					text = <"*Divorced(sl)">
+					description = <"**(sl)">
+				>
+				["at0009"] = <
+					text = <"*Widowed(sl)">
+					description = <"**(sl)">
+				>
+				["at0010"] = <
+					text = <"*Cohabitation(sl)">
+					description = <"*Life partnership - unmarried partners living together(sl)">
+				>
+				["at0011"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0012"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0013"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0014"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0015"] = <
+					text = <"*Preschool(sl)">
+					description = <"*up to 6 yrs of age(sl)">
+				>
+				["at0016"] = <
+					text = <"*Unfinished primary school(sl)">
+					description = <"*was enrolled but hasn't finished OR is enrolled and hasn't finished yet(sl)">
+				>
+				["at0017"] = <
+					text = <"*Primary school(sl)">
+					description = <"*6-15 yrs of age(sl)">
+				>
+				["at0018"] = <
+					text = <"*Vocational school(sl)">
+					description = <"*secondary education, up to 3 yrs programme(sl)">
+				>
+				["at0019"] = <
+					text = <"*Secondary school(sl)">
+					description = <"*secondary education, 4yrs programme, uppen or technical(sl)">
+				>
+				["at0020"] = <
+					text = <"*Technical college(sl)">
+					description = <"*2 yrs programme, 120 credits(sl)">
+				>
+				["at0021"] = <
+					text = <"*College(sl)">
+					description = <"*3-4 yrs programme, 180-240 credits(sl)">
+				>
+				["at0022"] = <
+					text = <"*University(sl)">
+					description = <"*3-4 yrs programme, 180-240 credits, university diploma(sl)">
+				>
+				["at0023"] = <
+					text = <"*Specialisation(sl)">
+					description = <"*1-2 yrs programme before the bologna reform(sl)">
+				>
+				["at0024"] = <
+					text = <"*MSc(sl)">
+					description = <"*1-2 yrs programme, 60-120 credits(sl)">
+				>
+				["at0025"] = <
+					text = <"*PhD(sl)">
+					description = <"*approx. 3 yrs programme, 180 credits(sl)">
+				>
+				["at0026"] = <
+					text = <"*Caucasoid(sl)">
+					description = <"**(sl)">
+				>
+				["at0027"] = <
+					text = <"*Negroid(sl)">
+					description = <"**(sl)">
+				>
+				["at0028"] = <
+					text = <"*Mongoloid (incl. australoid)(sl)">
+					description = <"**(sl)">
+				>
+				["at0029"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0030"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0031"] = <
+					text = <"*Not allowed(sl)">
+					description = <"**(sl)">
+				>
+				["at0032"] = <
+					text = <"*Doesn't want to fill in the form(sl)">
+					description = <"**(sl)">
+				>
+				["at0033"] = <
+					text = <"*Hasn't filled in the form(sl)">
+					description = <"**(sl)">
+				>
+				["at0034"] = <
+					text = <"*Only for patient identification(sl)">
+					description = <"**(sl)">
+				>
+				["at0035"] = <
+					text = <"*Only for medical documentation(sl)">
+					description = <"*i.e. wounds(sl)">
+				>
+				["at0036"] = <
+					text = <"*For patient identification and medical documentation(sl)">
+					description = <"**(sl)">
+				>
+				["at0037"] = <
+					text = <"*Also for reserach pourposes(sl)">
+					description = <"*May not be published in media(sl)">
+				>
+				["at0038"] = <
+					text = <"*May also be published in media(sl)">
+					description = <"*i.e. school photo in annual report(sl)">
+				>
+				["at0039"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0040"] = <
+					text = <"*No visits allowed(sl)">
+					description = <"**(sl)">
+				>
+				["at0041"] = <
+					text = <"*Doesn't want to fill in the form(sl)">
+					description = <"**(sl)">
+				>
+				["at0042"] = <
+					text = <"*Hasn't filled in the form(sl)">
+					description = <"**(sl)">
+				>
+				["at0043"] = <
+					text = <"*Not restricted(sl)">
+					description = <"**(sl)">
+				>
+				["at0044"] = <
+					text = <"*See table for detailed info per every person(sl)">
+					description = <"**(sl)">
+				>
+				["at0045"] = <
+					text = <"*New cluster(sl)">
+					description = <"**(sl)">
+				>
+				["at0046"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0047"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0048"] = <
+					text = <"*Allowed(sl)">
+					description = <"*Allowed to visit the patient(sl)">
+				>
+				["at0049"] = <
+					text = <"*Restricted(sl)">
+					description = <"*Not allowed to visit the patient(sl)">
+				>
+				["at0050"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0051"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0052"] = <
+					text = <"*Declined(sl)">
+					description = <"**(sl)">
+				>
+				["at0053"] = <
+					text = <"*Not declined(sl)">
+					description = <"**(sl)">
+				>
+				["at0054"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0055"] = <
+					text = <"*New cluster(sl)">
+					description = <"**(sl)">
+				>
+				["at0056"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0057"] = <
+					text = <"*Staying at home(sl)">
+					description = <"**(sl)">
+				>
+				["at0058"] = <
+					text = <"*Kindergarten(sl)">
+					description = <"**(sl)">
+				>
+				["at0059"] = <
+					text = <"*Daycare (private)(sl)">
+					description = <"**(sl)">
+				>
+				["at0060"] = <
+					text = <"*Pupil(sl)">
+					description = <"*primary education(sl)">
+				>
+				["at0061"] = <
+					text = <"*student (secondary)(sl)">
+					description = <"*secondary education(sl)">
+				>
+				["at0062"] = <
+					text = <"*student (tertiary)(sl)">
+					description = <"*tertiary education(sl)">
+				>
+				["at0063"] = <
+					text = <"*Employed(sl)">
+					description = <"**(sl)">
+				>
+				["at0064"] = <
+					text = <"*Farmer(sl)">
+					description = <"**(sl)">
+				>
+				["at0065"] = <
+					text = <"*Retired(sl)">
+					description = <"**(sl)">
+				>
+				["at0066"] = <
+					text = <"*Unemployed(sl)">
+					description = <"**(sl)">
+				>
+				["at0067"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0068"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0069"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0070"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0071"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0072"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0073"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+				["at0074"] = <
+					text = <"*New element(sl)">
+					description = <"**(sl)">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0001"] = <
+					text = <"MZN-SIF-BARVE">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["ac0001"] = <
+					text = <"*New constraint(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["MZN-SIF-BARVE"] = <
+			items = <
+			>
+		>
+	>
+	constraint_bindings = <
+		["MZN-SIF-BARVE"] = <
+			items = <
+				["ac0001"] = <terminology:MZN-SIF-BARVE?subset=MZN-SIF-BARVE>
+			>
+		>
+	>

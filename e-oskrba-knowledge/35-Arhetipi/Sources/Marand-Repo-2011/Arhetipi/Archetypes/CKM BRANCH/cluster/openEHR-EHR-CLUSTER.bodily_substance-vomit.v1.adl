@@ -1,0 +1,941 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.bodily_substance-vomit.v1
+specialize
+	openEHR-EHR-CLUSTER.bodily_substance.v1
+
+concept
+	[at0000.1]	-- Bruhanje
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o.; Univerza v Mariboru, Fakulteta za organizacijske vede Kranj">
+				["name"] = <"Biljana Prinčič, Uroš Rajkovič">
+				["email"] = <"biljana.princic@marand.si; uros.rajkovic@fov.uni-mb.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"12/06/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To describe vomit.">
+			use = <"To record details of vomit e.g. as part of fluid output monitoring.">
+			keywords = <"fluid", "excretion", "substance", "secretion", "output", "vomit">
+			misuse = <"Faecal output should be represented via the CLUSTER.bodily_substance-faeces archetype.
+Urine output should be represented via the CLUSTER.bodily_substance-urine archetype.
+Should not be used to repesent fluid input, even of a bodily fluid such as whole blood.">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za dokumentiranje bruhanja">
+			use = <"Za dokumentiranje bruhanja kot dela funkcije dokumentiranja izločanja tekočin
+
+">
+			keywords = <"bruhanje", "izločanje", "tekočina">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", "Uroš Rajkovič, Univerza v Mariboru, Fakulteta za organizacijske vede Kranj", "Biljana Prinčič, Marand d.o.o. Slovenia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"73C50054DB13A6A8649828F5D2378C4B">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {	-- Bruhanje
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001.1] occurrences matches {0..1} matches {	-- Bruhanje
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0.95]}		-- Bruhanje
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Vir telesnega izločka
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype CLUSTER[at0084] occurrences matches {0..*} matches {	-- Lokacija
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[at0003] occurrences matches {0..*} matches {	-- Ugotovitve
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Opis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0075.1] occurrences matches {0..1} matches {	-- Prisotnost bruhanja
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True, False}
+					}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {	-- Opis količine telesnega izločka
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Volumen
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::129]>
+								list = <
+									["1"] = <
+										units = <"ml">
+										magnitude = <|>=0.0|>
+										precision = <|1|>
+									>
+									["2"] = <
+										units = <"l">
+										magnitude = <|>=0.0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Količina
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0026, 	-- Ni prisoten
+									at0027, 	-- V sledovih
+									at0028, 	-- Malo
+									at0087, 	-- Malo
+									at0029, 	-- Zmerno
+									at0090, 	-- Veliko
+									at0030, 	-- Zelo veliko
+									at0031]	-- Veliko
+								}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Sprememba v količini
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Naraščajoča
+									at0010, 	-- Stalna
+									at0011, 	-- Upadajoča
+									at0012]	-- 0
+								}
+							}
+						}
+					}
+					ELEMENT[at0070] occurrences matches {0..1} matches {	-- Opomba
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0085] occurrences matches {0..1} matches {	-- Količina
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0069] occurrences matches {0..1} matches {	-- Volumen
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::126]>
+							>
+						}
+					}
+					ELEMENT[at0068] occurrences matches {0..1} matches {	-- Opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0086] occurrences matches {0..1} matches {	-- Značilnosti telesnega izločka
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Barva
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0067] occurrences matches {0..*} matches {	-- Vonj
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0067.1] occurrences matches {0..*} matches {	-- Vonj
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.105, 	-- Normalen
+									at0.106, 	-- Po kislem
+									at0.107, 	-- Neprijeten
+									at0.108]	-- Po fekalijah
+								}
+							}
+						}
+					}
+					ELEMENT[at0081] occurrences matches {0..1} matches {	-- Starost
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0049, 	-- Svež
+									at0050]	-- Star
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Barva primesi v telesnem izločku
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015, 	-- Serozen
+									at0016, 	-- Malo 
+									at0017, 	-- Zmerno 
+									at0018, 	-- Veliko
+									at0019]	-- Zelo veliko
+								}
+							}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Gostota
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0093, 	-- Normalen
+									at0021, 	-- Redek
+									at0022, 	-- Viskozen
+									at0023, 	-- Lepljiv
+									at0024, 	-- Gost
+									at0063, 	-- Voskast
+									at0082, 	-- Zmešan
+									at0091, 	-- Penast
+									at0092]	-- Čepek
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Količina primesi
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0038, 	-- Zelo malo
+									at0039, 	-- Zmereno
+									at0040, 	-- Veliko
+									at0088]	-- Bister
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0032] occurrences matches {0..1} matches {	-- Primesi
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0094] occurrences matches {0..*} matches {	-- Naziv
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0094.1] occurrences matches {0..*} matches {	-- Naziv
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.96, 	-- Hrana
+									at0.97, 	-- Želočni sokovi
+									at0.98, 	-- Sluz
+									at0.99, 	-- Žolč
+									at0.100, 	-- Kri
+									at0.101, 	-- Sveža kri
+									at0.102, 	-- Stara kri
+									at0.103, 	-- Gnoj
+									at0.104]	-- Fekalije
+								}
+							}
+						}
+					}
+					ELEMENT[at0089] occurrences matches {0..1} matches {	-- Opis dodatnih primesi
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0083] occurrences matches {0..*} matches {	-- Primesi
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.bodily_substance(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.100"] = <
+					text = <"Blood">
+					description = <"There is blood within the vomit.">
+				>
+				["at0.101"] = <
+					text = <"Fresh blood">
+					description = <"There is fresh blood within the vomit.">
+				>
+				["at0.102"] = <
+					text = <"Old blood">
+					description = <"There is old blood within the vomit">
+				>
+				["at0.103"] = <
+					text = <"Pus">
+					description = <"There is pus within the vomit.">
+				>
+				["at0.104"] = <
+					text = <"Faecal material">
+					description = <"There is faecal material within the vomit.">
+				>
+				["at0.105"] = <
+					text = <"Normal">
+					description = <"The vomit has a normal smell.">
+				>
+				["at0.106"] = <
+					text = <"Acidic">
+					description = <"The vomit smells acidic.">
+				>
+				["at0.107"] = <
+					text = <"Offensive">
+					description = <"The vomit has an offensive smell.">
+				>
+				["at0.108"] = <
+					text = <"Faeculent">
+					description = <"The vomit smells faeculent.">
+				>
+				["at0.95"] = <
+					text = <"Vomit">
+					description = <"The fluid is vomit.">
+				>
+				["at0.96"] = <
+					text = <"Food">
+					description = <"There is food material within the vomit.">
+				>
+				["at0.97"] = <
+					text = <"Gastric juice">
+					description = <"THere is gastric juice within the vomit.">
+				>
+				["at0.98"] = <
+					text = <"Mucus">
+					description = <"There is mucus within the vomit.">
+				>
+				["at0.99"] = <
+					text = <"Bile">
+					description = <"There is bile within the vomit.">
+				>
+				["at0000"] = <
+					text = <"Bodily substance">
+					description = <"An excreted, secreted or otherwise output bodily substance such as blood, sputum, vomit, urine, faeces.">
+				>
+				["at0000.1"] = <
+					text = <"Vomit">
+					description = <"Vomited fluid.">
+				>
+				["at0001"] = <
+					text = <"Name of substance">
+					description = <"The name of the bodily substance.">
+				>
+				["at0001.1"] = <
+					text = <"Substance - vomit">
+					description = <"The name of the bodily substance.">
+				>
+				["at0002"] = <
+					text = <"Source">
+					description = <"The source of the fluid or substance. Often a device or container.">
+				>
+				["at0003"] = <
+					text = <"Normal statements">
+					description = <"A statement about the normality of the fluid or substance.">
+				>
+				["at0005"] = <
+					text = <"Clinical description">
+					description = <"A text description of the fluid or substance.">
+				>
+				["at0006"] = <
+					text = <"Quantity">
+					description = <"Statements about the quantity of the bodily substance.">
+				>
+				["at0007"] = <
+					text = <"Fluid volume">
+					description = <"The volume of the substance as a fluid.">
+				>
+				["at0008"] = <
+					text = <"Change in amount">
+					description = <"Statement about the change in the quantity of substance.">
+				>
+				["at0009"] = <
+					text = <"Increasing">
+					description = <"Increasing volumes of fluid.">
+				>
+				["at0010"] = <
+					text = <"Stable">
+					description = <"The volume of fluid or liquid is stable.">
+				>
+				["at0011"] = <
+					text = <"Decreasing">
+					description = <"The volume of fluid is decreasing.">
+				>
+				["at0012"] = <
+					text = <"Ceased">
+					description = <"The quantity of body fluid is now zero.">
+				>
+				["at0013"] = <
+					text = <"Colour">
+					description = <"The colour of the substance.">
+				>
+				["at0014"] = <
+					text = <"Turbidity">
+					description = <"The degree of solid material suspended in the substance as a fluid.">
+				>
+				["at0015"] = <
+					text = <"Clear">
+					description = <"The fluid or secretion is crystal clear.">
+				>
+				["at0016"] = <
+					text = <"Slightly cloudy">
+					description = <"There is a small amount of solid suspended in the fluid.">
+				>
+				["at0017"] = <
+					text = <"Cloudy">
+					description = <"There is a large amount of solid suspended but it still transmits light.">
+				>
+				["at0018"] = <
+					text = <"Opaque">
+					description = <"There is so much solid suspended that the fluid does not transmit light.">
+				>
+				["at0019"] = <
+					text = <"Flocculent">
+					description = <"The fluid is mostly composed of suspended solids.">
+				>
+				["at0020"] = <
+					text = <"Consistency">
+					description = <"The viscosity of the substance as a fluid.">
+				>
+				["at0021"] = <
+					text = <"Watery">
+					description = <"The fluid flows like water.">
+				>
+				["at0022"] = <
+					text = <"Oily/viscous">
+					description = <"The fluid flows like an oil.">
+				>
+				["at0023"] = <
+					text = <"Creamy/sticky">
+					description = <"The fluid is quite thick and flows like cream.">
+				>
+				["at0024"] = <
+					text = <"Thick">
+					description = <"The fluid does not flow.">
+				>
+				["at0025"] = <
+					text = <"Amount">
+					description = <"The amount of substance as a text category.">
+				>
+				["at0026"] = <
+					text = <"None">
+					description = <"There is no longer any fluid /substance.">
+				>
+				["at0027"] = <
+					text = <"Scant">
+					description = <"There is a small amount of fluid/substance.">
+				>
+				["at0028"] = <
+					text = <"Minimal">
+					description = <"There is a minimal amount of fluid/substance.">
+				>
+				["at0029"] = <
+					text = <"Moderate">
+					description = <"There is a moderate amount of fluid/ substance.">
+				>
+				["at0030"] = <
+					text = <"Heavy">
+					description = <"There is a heavy amount of fluid/substance.">
+				>
+				["at0031"] = <
+					text = <"Large">
+					description = <"There is a large amount of fluid or substance.">
+				>
+				["at0032"] = <
+					text = <"Contained substances">
+					description = <"Other substances mixed within the main bodily substance being described.">
+				>
+				["at0037"] = <
+					text = <"Sediment">
+					description = <"The amount of sediment in the substance as fluid.">
+				>
+				["at0038"] = <
+					text = <"Scant">
+					description = <"There is a very small amount of sediment in the fluid.">
+				>
+				["at0039"] = <
+					text = <"Moderate">
+					description = <"There is a moderate amount of sediment in the fluid.">
+				>
+				["at0040"] = <
+					text = <"Profuse">
+					description = <"There is a large amount of sediment in the fluid.">
+				>
+				["at0049"] = <
+					text = <"Fresh">
+					description = <"The bodily substance appears fresh.">
+				>
+				["at0050"] = <
+					text = <"Old">
+					description = <"The bodily substance appears old.">
+				>
+				["at0063"] = <
+					text = <"Waxy">
+					description = <"The fluid has a consistency like wax.">
+				>
+				["at0067"] = <
+					text = <"Odour">
+					description = <"The  odour(s) of the substance.">
+				>
+				["at0067.1"] = <
+					text = <"Vomit odour">
+					description = <"The  odour(s) of the substance.">
+				>
+				["at0068"] = <
+					text = <"Flow amount">
+					description = <"A text description of the flow rate of the fluid or secretion.">
+				>
+				["at0069"] = <
+					text = <"Flow rate">
+					description = <"A numerical expression of flow rate of the fluid or secretion.">
+				>
+				["at0070"] = <
+					text = <"Comment">
+					description = <"A text comment about the substance quantity.">
+				>
+				["at0075"] = <
+					text = <"Substance present">
+					description = <"The fluid or substance is present.">
+				>
+				["at0075.1"] = <
+					text = <"Vomit present">
+					description = <"The fluid or substance is present.">
+				>
+				["at0081"] = <
+					text = <"Age">
+					description = <"Estimated age of the bodily substance.">
+				>
+				["at0082"] = <
+					text = <"Particulate">
+					description = <"The fluid has become partially solidified and dispersed within a containing fluid e.g. particulate meconium within liquor.">
+				>
+				["at0083"] = <
+					text = <"Contained substance detail">
+					description = <"Details of a contained substance.">
+				>
+				["at0084"] = <
+					text = <"Location">
+					description = <"The location of the body from where the fluid or substance was collected.">
+				>
+				["at0085"] = <
+					text = <"Flow">
+					description = <"Findings related to flow of bodily substances as fluids.">
+				>
+				["at0086"] = <
+					text = <"Characteristics">
+					description = <"Findings related to characteristics of the bodily substance.">
+				>
+				["at0087"] = <
+					text = <"Small">
+					description = <"The amount of the substance is small.">
+				>
+				["at0088"] = <
+					text = <"Clear">
+					description = <"There is no sediment present.">
+				>
+				["at0089"] = <
+					text = <"Description">
+					description = <"Description of contained substances.">
+				>
+				["at0090"] = <
+					text = <"Copious">
+					description = <"There is a copious amount of bodily substance/fluid.">
+				>
+				["at0091"] = <
+					text = <"Frothy">
+					description = <"The substance has a frothy consistency">
+				>
+				["at0092"] = <
+					text = <"Solid">
+					description = <"The substance has solidified.">
+				>
+				["at0093"] = <
+					text = <"Normal">
+					description = <"The consistency of the substance is normal.">
+				>
+				["at0094"] = <
+					text = <"Substance name">
+					description = <"The name(s) of the contained substance.">
+				>
+				["at0094.1"] = <
+					text = <"Substances within vomit">
+					description = <"The name(s) of substances within the vomit.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.100"] = <
+					text = <"Kri">
+					description = <"Prisotnost krvi">
+				>
+				["at0.101"] = <
+					text = <"Sveža kri">
+					description = <"Prisotnost sveže krvi">
+				>
+				["at0.102"] = <
+					text = <"Stara kri">
+					description = <"Prisotnost stare krvi">
+				>
+				["at0.103"] = <
+					text = <"Gnoj">
+					description = <"Prisotnost gnoja">
+				>
+				["at0.104"] = <
+					text = <"Fekalije">
+					description = <"Prisotnost fekalij">
+				>
+				["at0.105"] = <
+					text = <"Normalen">
+					description = <"Vonj je normalen">
+				>
+				["at0.106"] = <
+					text = <"Po kislem">
+					description = <"Vonj je po kislem">
+				>
+				["at0.107"] = <
+					text = <"Neprijeten">
+					description = <"Vonj je neprijeten">
+				>
+				["at0.108"] = <
+					text = <"Po fekalijah">
+					description = <"*The vomit smells faeculent.(en)">
+				>
+				["at0.95"] = <
+					text = <"Bruhanje">
+					description = <"*The fluid is vomit.(en)">
+				>
+				["at0.96"] = <
+					text = <"Hrana">
+					description = <"*There is food material within the vomit.(en)">
+				>
+				["at0.97"] = <
+					text = <"Želočni sokovi">
+					description = <"*THere is gastric juice within the vomit.(en)">
+				>
+				["at0.98"] = <
+					text = <"Sluz">
+					description = <"*There is mucus within the vomit.(en)">
+				>
+				["at0.99"] = <
+					text = <"Žolč">
+					description = <"*There is bile within the vomit.(en)">
+				>
+				["at0000"] = <
+					text = <"Telesna tekočina">
+					description = <"*An excreted, secreted or otherwise output bodily substance such as blood, sputum, vomit, urine, faeces.(en)">
+				>
+				["at0000.1"] = <
+					text = <"Bruhanje">
+					description = <"*Vomited fluid.(en)">
+				>
+				["at0001"] = <
+					text = <"Naziv telesnega izločka">
+					description = <"Naziv snovi">
+				>
+				["at0001.1"] = <
+					text = <"Bruhanje">
+					description = <"Naziv izločene tekočine  je bruhanje">
+				>
+				["at0002"] = <
+					text = <"Vir telesnega izločka">
+					description = <"Vir telesnega izločka">
+				>
+				["at0003"] = <
+					text = <"Ugotovitve">
+					description = <"Ugotovitve glede izločene tekočine">
+				>
+				["at0005"] = <
+					text = <"Opis">
+					description = <"Tekstovni opis telesnega izločka">
+				>
+				["at0006"] = <
+					text = <"Opis količine telesnega izločka">
+					description = <"Količina telesnega izločka">
+				>
+				["at0007"] = <
+					text = <"Volumen">
+					description = <"Volumen telesnega izločka">
+				>
+				["at0008"] = <
+					text = <"Sprememba v količini">
+					description = <"Spremembe v količini izločene tekočine">
+				>
+				["at0009"] = <
+					text = <"Naraščajoča">
+					description = <"Količina narašča">
+				>
+				["at0010"] = <
+					text = <"Stalna">
+					description = <"Količina je stalna">
+				>
+				["at0011"] = <
+					text = <"Upadajoča">
+					description = <"Količina upada">
+				>
+				["at0012"] = <
+					text = <"0">
+					description = <"Količina tekočine je enaka 0">
+				>
+				["at0013"] = <
+					text = <"Barva">
+					description = <"Barva telesnega izločka">
+				>
+				["at0014"] = <
+					text = <"Barva primesi v telesnem izločku">
+					description = <"Barva primesi v telesnem izločku">
+				>
+				["at0015"] = <
+					text = <"Serozen">
+					description = <"Telesni izloček je bister">
+				>
+				["at0016"] = <
+					text = <"Malo ">
+					description = <"Malo primesi">
+				>
+				["at0017"] = <
+					text = <"Zmerno ">
+					description = <"Zmerna količina primesi">
+				>
+				["at0018"] = <
+					text = <"Veliko">
+					description = <"Veliko primesi">
+				>
+				["at0019"] = <
+					text = <"Zelo veliko">
+					description = <"Zelo veliko primesi">
+				>
+				["at0020"] = <
+					text = <"Gostota">
+					description = <"Gostota telesnega izločka">
+				>
+				["at0021"] = <
+					text = <"Redek">
+					description = <"Redek">
+				>
+				["at0022"] = <
+					text = <"Viskozen">
+					description = <"Viskozen">
+				>
+				["at0023"] = <
+					text = <"Lepljiv">
+					description = <"Lepljiv">
+				>
+				["at0024"] = <
+					text = <"Gost">
+					description = <"Gost">
+				>
+				["at0025"] = <
+					text = <"Količina">
+					description = <"Količina">
+				>
+				["at0026"] = <
+					text = <"Ni prisoten">
+					description = <"Ni prisoten">
+				>
+				["at0027"] = <
+					text = <"V sledovih">
+					description = <"V sledovih">
+				>
+				["at0028"] = <
+					text = <"Malo">
+					description = <"Malo">
+				>
+				["at0029"] = <
+					text = <"Zmerno">
+					description = <"Zmerno">
+				>
+				["at0030"] = <
+					text = <"Zelo veliko">
+					description = <"Zelo veliko">
+				>
+				["at0031"] = <
+					text = <"Veliko">
+					description = <"Veliko">
+				>
+				["at0032"] = <
+					text = <"Primesi">
+					description = <"Ali so prisotne kakšne primesi?">
+				>
+				["at0037"] = <
+					text = <"Količina primesi">
+					description = <"Količina primesi">
+				>
+				["at0038"] = <
+					text = <"Zelo malo">
+					description = <"Zelo malo">
+				>
+				["at0039"] = <
+					text = <"Zmereno">
+					description = <"Zmerno">
+				>
+				["at0040"] = <
+					text = <"Veliko">
+					description = <"Veliko">
+				>
+				["at0049"] = <
+					text = <"Svež">
+					description = <"Svež">
+				>
+				["at0050"] = <
+					text = <"Star">
+					description = <"Star">
+				>
+				["at0063"] = <
+					text = <"Voskast">
+					description = <"Voskast">
+				>
+				["at0067"] = <
+					text = <"Vonj">
+					description = <"Vonj">
+				>
+				["at0067.1"] = <
+					text = <"Vonj">
+					description = <"Vonj">
+				>
+				["at0068"] = <
+					text = <"Opis">
+					description = <"Opis količine tekočine">
+				>
+				["at0069"] = <
+					text = <"Volumen">
+					description = <"Količina pretoka">
+				>
+				["at0070"] = <
+					text = <"Opomba">
+					description = <"Opomba glede količine primesi">
+				>
+				["at0075"] = <
+					text = <"Prisotnost primesi">
+					description = <"Prisotnost primesi">
+				>
+				["at0075.1"] = <
+					text = <"Prisotnost bruhanja">
+					description = <"Bruhanje je prisotno">
+				>
+				["at0081"] = <
+					text = <"Starost">
+					description = <"Starost telesnega izločka">
+				>
+				["at0082"] = <
+					text = <"Zmešan">
+					description = <"Izločena tekočina j ezmešana s primesjo">
+				>
+				["at0083"] = <
+					text = <"Primesi">
+					description = <"Podatki o primesi">
+				>
+				["at0084"] = <
+					text = <"Lokacija">
+					description = <"Lokacija v telesu od kod prihaja primes">
+				>
+				["at0085"] = <
+					text = <"Količina">
+					description = <"Pretok primesi v izločku">
+				>
+				["at0086"] = <
+					text = <"Značilnosti telesnega izločka">
+					description = <"Značilnosti telesnega izločka">
+				>
+				["at0087"] = <
+					text = <"Malo">
+					description = <"Majhna količina telesnega izločka">
+				>
+				["at0088"] = <
+					text = <"Bister">
+					description = <"Bister">
+				>
+				["at0089"] = <
+					text = <"Opis dodatnih primesi">
+					description = <"Opis dodatnih primesi">
+				>
+				["at0090"] = <
+					text = <"Veliko">
+					description = <"Velika količina telesnega izločka">
+				>
+				["at0091"] = <
+					text = <"Penast">
+					description = <"Penast">
+				>
+				["at0092"] = <
+					text = <"Čepek">
+					description = <"Čepek">
+				>
+				["at0093"] = <
+					text = <"Normalen">
+					description = <"Normal">
+				>
+				["at0094"] = <
+					text = <"Naziv">
+					description = <"Naziv primesi">
+				>
+				["at0094.1"] = <
+					text = <"Naziv">
+					description = <"Naziv primesi">
+				>
+			>
+		>
+	>

@@ -1,0 +1,260 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.person_status.v1draft
+
+concept
+	[at0000]	-- Person Status
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"????">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the general clinical status of a person">
+			use = <"">
+			keywords = <"alive", "dead", "death", "chronic", "disease", "well">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+
+definition
+	OBSERVATION[at0000] matches {	-- Person Status
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Living Status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Alive
+													at0006]	-- Deceased
+												}
+											}
+										}
+									}
+									CLUSTER[at0016] occurrences matches {0..1} matches {	-- Well-being
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Well and Healthy
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True}
+													}
+												}
+											}
+											CLUSTER[at0011] occurrences matches {0..1} matches {	-- Functional Impairment
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0008] occurrences matches {0..*} matches {	-- Description of impairment
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0012] occurrences matches {0..1} matches {	-- Degree
+														value matches {
+															1|[local::at0013], 	-- Slight disability
+															2|[local::at0014], 	-- Moderate disability
+															3|[local::at0015]  	-- Severe disability
+														}
+													}
+												}
+											}
+											CLUSTER[at0017] occurrences matches {0..1} matches {	-- Physical impairment
+												items cardinality matches {0..*; unordered} matches {
+													use_node ELEMENT /data[at0001]/events[at0002]/data[at0003]/items[at0016]/items[at0011]/items[at0008]
+													use_node ELEMENT /data[at0001]/events[at0002]/data[at0003]/items[at0016]/items[at0011]/items[at0012]
+												}
+											}
+											CLUSTER[at0020] occurrences matches {0..1} matches {	-- Psychological impairment
+												items cardinality matches {0..*; unordered} matches {
+													use_node ELEMENT /data[at0001]/events[at0002]/data[at0003]/items[at0016]/items[at0011]/items[at0008]
+													use_node ELEMENT /data[at0001]/events[at0002]/data[at0003]/items[at0016]/items[at0011]/items[at0012]
+												}
+											}
+											CLUSTER[at0021] occurrences matches {0..1} matches {	-- Social impairment
+												items cardinality matches {0..*; unordered} matches {
+													use_node ELEMENT /data[at0001]/events[at0002]/data[at0003]/items[at0016]/items[at0011]/items[at0008]
+													use_node ELEMENT /data[at0001]/events[at0002]/data[at0003]/items[at0016]/items[at0011]/items[at0012]
+												}
+											}
+										}
+									}
+									CLUSTER[at0018] occurrences matches {0..1} matches {	-- Death details
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0019] occurrences matches {0..1} matches {	-- Date of Death
+												value matches {
+													DV_DATE matches {
+														value matches {yyyy-??-??}
+													}
+												}
+											}
+											ELEMENT[at0022] occurrences matches {0..1} matches {	-- Age at Death
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::128]>
+														list = <
+															["1"] = <
+																units = <"a">
+															>
+															["2"] = <
+																units = <"mo">
+															>
+															["3"] = <
+																units = <"d">
+															>
+															["4"] = <
+																units = <"h">
+															>
+															["5"] = <
+																units = <"min">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0023] occurrences matches {0..1} matches {	-- Cause of Death
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					description = <"Recordin the general status of the subject">
+					text = <"Person Status">
+				>
+				["at0001"] = <
+					description = <"@ internal @">
+					text = <"Event Series">
+				>
+				["at0002"] = <
+					description = <"*">
+					text = <"Any event">
+				>
+				["at0003"] = <
+					description = <"@ internal @">
+					text = <"Tree">
+				>
+				["at0004"] = <
+					description = <"The status of the person">
+					text = <"Living Status">
+				>
+				["at0005"] = <
+					description = <"*">
+					text = <"Alive">
+				>
+				["at0006"] = <
+					description = <"*">
+					text = <"Deceased">
+				>
+				["at0008"] = <
+					description = <"Description of impairment">
+					text = <"Description of impairment">
+				>
+				["at0010"] = <
+					description = <"Is subject well and healthy?">
+					text = <"Well and Healthy">
+				>
+				["at0011"] = <
+					description = <"Description of any functional impairment experienced by person">
+					text = <"Functional Impairment">
+				>
+				["at0012"] = <
+					description = <"Degree of impairment">
+					text = <"Degree">
+				>
+				["at0013"] = <
+					description = <"*">
+					text = <"Slight disability">
+				>
+				["at0014"] = <
+					description = <"*">
+					text = <"Moderate disability">
+				>
+				["at0015"] = <
+					description = <"*">
+					text = <"Severe disability">
+				>
+				["at0016"] = <
+					description = <"Description of state of well-being">
+					text = <"Well-being">
+				>
+				["at0017"] = <
+					description = <"Description of any physical impairment or disability experienced by person">
+					text = <"Physical impairment">
+				>
+				["at0018"] = <
+					description = <"Details about person's death">
+					text = <"Death details">
+				>
+				["at0019"] = <
+					description = <"Date of person's death">
+					text = <"Date of Death">
+				>
+				["at0020"] = <
+					description = <"Description of any psychological or mental impairment or disability experienced by person">
+					text = <"Psychological impairment">
+				>
+				["at0021"] = <
+					description = <"Description of any social impairment or disability experienced by person">
+					text = <"Social impairment">
+				>
+				["at0022"] = <
+					description = <"Age of person at death">
+					text = <"Age at Death">
+				>
+				["at0023"] = <
+					description = <"Details about cause of death">
+					text = <"Cause of Death">
+				>
+			>
+		>
+	>

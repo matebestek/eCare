@@ -1,0 +1,193 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.physical_activity_summary.v1
+
+concept
+	[at0000]	-- Physical Activity Summary
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Hugh Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"hugh.leslie@oceaninformatics.com">
+		["date"] = <"17/12/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a summary of an individual's physical activity with regard to assessing the general level of physical activity and fitness of an individual.">
+			use = <"Use to record a summary of physical activity.">
+			keywords = <"activity", "exercise", "physical", "fitness">
+			misuse = <"Not to be used to record diary-like observations of physical activity.">
+			copyright = <"© 2011 NEHTA">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapisati povzetek posameznikove gibalne aktivnosti z namenom ocene splošnega niovja gibalne aktivnosti in fizične pripravljenosti">
+			use = <"Uporabno za zapis povzetka gibalne aktivnosti.">
+			keywords = <"fitnes", "fizična", "vadba", "aktivnost", "gibanje", "šport">
+			misuse = <"Ni uporabno za opis vsakodnevnih giblanih aktivnosti.">
+			copyright = <"© 2011 NEHTA">
+		>
+	>
+	lifecycle_state = <"CommitteeDraft">
+	other_contributors = <"Stephen Chu, NEHTA, Australia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"FDC87088C9DD5CBE6A6A503E8E4420E9">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Physical Activity Summary
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Physical activity status
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Physical activity note
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Barriers to activity
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Enabling factors
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Moderate exercise/week
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..14|}
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Vigorous exercise/week
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..14|}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Physical Activity Summary">
+					description = <"A record of the level of physical activity undertaken by the individual as assessed by a clinician.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Physical activity status">
+					description = <"A short description of the general level of physical activity undertaken by the individual as described by a clinician.  Coding with a terminology is desirable, where possible.">
+				>
+				["at0003"] = <
+					text = <"Physical activity note">
+					description = <"A more detailed description of the physical activity status of the individual.">
+				>
+				["at0005"] = <
+					text = <"Barriers to activity">
+					description = <"Identified barriers to the individual being involved in physical activity.">
+				>
+				["at0006"] = <
+					text = <"Enabling factors">
+					description = <"Identified enabling factors to the individual being involved in physical activity, for example, lives close to a swimming pool or previously an elite athlete.">
+				>
+				["at0007"] = <
+					text = <"Vigorous exercise/week">
+					description = <"Number of times per week of 20 min vigorous exercise.">
+				>
+				["at0008"] = <
+					text = <"Moderate exercise/week">
+					description = <"Number of times per week of 30 min moderate exercise.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Povzetek gibalne aktivnosti">
+					description = <"Zapis nivoja gibalne aktivnosti posameznika ugotovljene pri zdravniku.">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"Status gibalne aktivnosti">
+					description = <"*A short description of the general level of physical activity undertaken by the individual as described by a clinician.  Coding with a terminology is desirable, where possible.(en)">
+				>
+				["at0003"] = <
+					text = <"Opis gibalne aktivnosti">
+					description = <"*A more detailed description of the physical activity status of the individual.(en)">
+				>
+				["at0005"] = <
+					text = <"Ovire za gibalno aktivnost">
+					description = <"*Identified barriers to the individual being involved in physical activity.(en)">
+				>
+				["at0006"] = <
+					text = <"Dejavniki, ki omogočajo gibalno aktivnost">
+					description = <"*Identified enabling factors to the individual being involved in physical activity, for example, lives close to a swimming pool or previously an elite athlete.(en)">
+				>
+				["at0007"] = <
+					text = <"Visoko intenzivna vadba/teden">
+					description = <"*Number of times per week of 20 min vigorous exercise.(en)">
+				>
+				["at0008"] = <
+					text = <"Zmerno intenzivna vadba/teden">
+					description = <"*Number of times per week of 30 min moderate exercise.(en)">
+				>
+			>
+		>
+	>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="5.0.0" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-71880261-d9ee-412b-8090-31d79534bcd3" name="ProcesOpomnikVnosGeneric"
+	targetNamespace="http://www.signavio.com/bpmn20" typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+
+	<process id="Hujsanje-Proces-Vnos-Vrednosti" isExecutable="false"
+		name="Hujsanje-Proces-Vnos-Vrednosti">
+		<extensionElements>
+			<activiti:executionListener
+				class="si.pint.eoskrba.ehujsanje.inputFlat.listeners.ProcessExecutionListenerInputFlat"
+				event="start" />
+		</extensionElements>
+		<startEvent id="StartEvent" name="" activiti:formKey="enterWeightLossValues.form">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>StartEvent-ServiceTaskInitProcess</outgoing>
+		</startEvent>
+		<serviceTask completionQuantity="1"
+			activiti:class="si.pint.eoskrba.ehujsanje.inputFlat.delegate.InitProcessDelegate" id="ServiceTask-InitProcess"
+			implementation="webService" isForCompensation="false" name="InitProcess"
+			startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+			</extensionElements>
+			<incoming>StartEvent-ServiceTaskInitProcess</incoming>
+			<outgoing>ServiceTaskInitProcess-ServiceTaskIzracunKategorije
+			</outgoing>
+		</serviceTask>
+
+		<serviceTask completionQuantity="1"
+			activiti:delegateExpression="${izracunKategorijeDelegate}" id="ServiceTask-IzracunKategorije"
+			implementation="webService" isForCompensation="false" name="Izracun kategorije "
+			startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#969696" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="[]" />
+			</extensionElements>
+			<incoming>CallActivityVnosVrednostiPacienta-ServiceTaskIzracunKategorije
+			</incoming>
+			<outgoing>IzracunKategorijeServiceTask-ExclusiveGatewayDiverging
+			</outgoing>
+		</serviceTask>
+
+		<exclusiveGateway gatewayDirection="Diverging"
+			id="sid-FB1DEDA6-FC6C-49F9-A0BD-28F041AE15B0" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-98D01037-AB24-47DB-B376-D126CC5D57DB</incoming>
+			<outgoing>sid-28C7B6D7-5B9C-439C-BBEA-973EE6805570</outgoing>
+			<outgoing>sid-63834818-5B8A-4F07-A670-25DA0552A670</outgoing>
+		</exclusiveGateway>
+
+		<exclusiveGateway gatewayDirection="Diverging" id="ExclusiveGatewayDiverging" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#00FF00" />
+			</extensionElements>
+			<incoming>IzracunKategorijeServiceTask-ExclusiveGatewayDiverging</incoming>
+			<outgoing>sid-96D4D5CC-A0CC-47F3-8F5C-33B0233C1A75</outgoing>
+			<outgoing>ExclusiveGatewayDiverging-CallActivityNotifierCmPacient</outgoing>
+		</exclusiveGateway>
+		<exclusiveGateway gatewayDirection="Converging" id="ExclusiveGatewayConverging" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#00FF00" />
+			</extensionElements>
+			<incoming>CallActivityNotifierCmPacient-ExclusiveGatewayConverging</incoming>
+			<incoming>CallActivityNotifierPacient-ExclusiveGatewayConverging</incoming>
+			<outgoing>ExclusiveGatewayConverging-EndEvent</outgoing>
+		</exclusiveGateway>		
+		
+		<callActivity calledElement="Proces-Opomnik-Notifier-CM-Pacient"
+			completionQuantity="1" id="CallActivity-NotifierCmPacient"
+			isForCompensation="false" name="NOTIFIER-CM-Pacient" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyPatientForm" target="notifyPatientForm" />
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />				
+				<activiti:in source="patientEmail" target="patientEmail" />
+				<activiti:in source="caremanagerEmail" target="caremanagerEmail" />			
+				<activiti:in source="patient" target="patient" />			
+				<activiti:in source="patientNotifySmsDelegate" target="patientNotifySmsDelegate" />
+				<activiti:in source="listenerPatientObvestiloComplete" target="listenerPatientObvestiloComplete" />
+				<activiti:in source="listenerPatientObvestiloCreate" target="listenerPatientObvestiloCreate" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete" target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />	
+				<activiti:in source="patientUserTaskName" target="patientUserTaskName" />
+				<activiti:in source="cmUserTaskName" target="cmUserTaskName" />		
+				<activiti:in source="categoryCritical" target="categoryCritical" />					
+			</extensionElements>
+			<incoming>ExclusiveGatewayDiverging-CallActivityNotifierCmPacient</incoming>
+			<outgoing>CallActivityNotifierCmPacient-ExclusiveGatewayConverging</outgoing>
+		</callActivity>		
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Pacient"
+			completionQuantity="1" id="CallActivity-NotifierPacient"
+			isForCompensation="false" name="NOTIFIER-Pacient" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyPatientForm" target="notifyPatientForm" />
+				<activiti:in source="patientNotifySmsDelegate" target="patientNotifySmsDelegate" />
+				<activiti:in source="patientEmail" target="email" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="listenerPatientObvestiloComplete" target="listenerPatientObvestiloComplete" />
+				<activiti:in source="listenerPatientObvestiloCreate" target="listenerPatientObvestiloCreate" />
+				<activiti:in source="patientUserTaskName" target="userTaskName" />
+				<activiti:in source="categoryCritical" target="categoryCritical" />
+			</extensionElements>
+			<incoming>sid-96D4D5CC-A0CC-47F3-8F5C-33B0233C1A75</incoming>
+			<outgoing>CallActivityNotifierPacient-ExclusiveGatewayConverging</outgoing>
+		</callActivity>
+		<endEvent id="EndEvent" name="EndEvent">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#FF0000" />
+			</extensionElements>
+			<incoming>ExclusiveGatewayConverging-EndEvent</incoming>
+			<incoming>sid-98D01037-AB24-47DB-B376-D126CC5D57DB</incoming>
+		</endEvent>
+		<sequenceFlow id="IzracunKategorijeServiceTask-ExclusiveGatewayDiverging"
+			isImmediate="true" name="" sourceRef="ServiceTask-IzracunKategorije"
+			targetRef="ExclusiveGatewayDiverging">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="StartEvent-ServiceTaskInitProcess"
+			isImmediate="true" name="" sourceRef="StartEvent" targetRef="ServiceTask-InitProcess">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="ServiceTaskInitProcess-ServiceTaskIzracunKategorije"
+			name="" sourceRef="ServiceTask-InitProcess" targetRef="ServiceTask-IzracunKategorije" />
+		<sequenceFlow id="CallActivityNotifierCmPacient-ExclusiveGatewayConverging"
+			name="" sourceRef="CallActivity-NotifierCmPacient" targetRef="ExclusiveGatewayConverging">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>		
+		<sequenceFlow id="CallActivityNotifierPacient-ExclusiveGatewayConverging"
+			name="" sourceRef="CallActivity-NotifierPacient" targetRef="ExclusiveGatewayConverging">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="ExclusiveGatewayConverging-EndEvent"
+			name="" sourceRef="ExclusiveGatewayConverging" targetRef="EndEvent">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>		
+		
+		<sequenceFlow id="sid-96D4D5CC-A0CC-47F3-8F5C-33B0233C1A75"
+			isImmediate="true" name="Kategorija vrednosti OK&#10;" sourceRef="ExclusiveGatewayDiverging"
+			targetRef="CallActivity-NotifierPacient">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="sid-ecd96731-410b-47f1-9874-55739cdd735d"
+				xsi:type="tFormalExpression">${categoryOk}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="ExclusiveGatewayDiverging-CallActivityNotifierCmPacient"
+			isImmediate="true" name="Kategorija vrednosti kriticna" sourceRef="ExclusiveGatewayDiverging"
+			targetRef="CallActivity-NotifierCmPacient">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression xsi:type="tFormalExpression">${categoryNotOk}</conditionExpression>
+		</sequenceFlow>		
+		<association associationDirection="None"
+			id="sid-44F56AC5-25B8-4A5B-8244-101DCE53329B" sourceRef="sid-544DB89B-947F-49F7-A500-194F626AB7AA"
+			targetRef="StartEvent" />
+
+		<textAnnotation id="sid-544DB89B-947F-49F7-A500-194F626AB7AA"
+			textFormat="text/plain">
+			<text>Vnos &lt;Generic&gt; vrednosti</text>
+		</textAnnotation>
+		<textAnnotation id="sid-B57CAE3B-F4CE-497A-B128-BA2274AD522D"
+			textFormat="text/plain">
+			<text>O nevnosu vrednosti meritve</text>
+		</textAnnotation>
+	</process>
+
+</definitions>

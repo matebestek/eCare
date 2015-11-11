@@ -1,0 +1,376 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.nutritional_history.v1
+
+concept
+	[at0000]	-- Nutritional history
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"25892FBE29CF95BC18827385FDD0E813">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Nutritional history
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Breast feeding
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Breast feeding
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Duration of breastfeeding without supplements
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Total duration of breastfeeding
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Type of mother nutrition while breast feeding
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0034] occurrences matches {0..1} matches {	-- Feeding problems
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0035, 	-- Vomiting
+															at0036, 	-- Poor feeding
+															at0037]	-- Painful nipples
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0005] occurrences matches {0..1} matches {	-- Artificial milk
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Child feeding with adapted preparations
+												name matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0019, 	-- Popolno
+															at0020]	-- Delno dojen
+														}
+													}
+												}
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- Preparation type
+												name matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0027, 	-- Normalna
+															at0028]	-- Alergija na hranila
+														}
+													}
+												}
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0029] occurrences matches {0..1} matches {	-- Start feeding
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0038] occurrences matches {0..1} matches {	-- Feeding problems
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0035, 	-- Vomiting
+															at0036, 	-- Poor feeding
+															at0039]	-- Poor milk preparation
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0006] occurrences matches {0..1} matches {	-- Mixed diet
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0032] occurrences matches {0..1} matches {	-- Type of mix food
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0044] occurrences matches {0..1} matches {	-- Start feeding
+												value matches {
+													DV_DURATION matches {
+														value matches {PM}
+													}
+												}
+											}
+											ELEMENT[at0042] occurrences matches {0..1} matches {	-- Feeding problems
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0043, 	-- Different mixed diet feeding problem
+															at0035]	-- Vomiting
+														}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0007] occurrences matches {0..1} matches {	-- Solid diet
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0108] occurrences matches {0..1} matches {	-- Type of solid diet
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0109] occurrences matches {0..1} matches {	-- Feeding problems
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::]}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									CLUSTER[at0110] occurrences matches {0..1} matches {	-- Special diet
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0111] occurrences matches {0..1} matches {	-- Artificial feeding route
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::]}
+													}
+												}
+											}
+											ELEMENT[at0113] occurrences matches {0..1} matches {	-- Type of special diet
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {[local::]}
+													}
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Nutritional history">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Breast feeding">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Artificial milk">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Mixed diet">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Solid diet">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Breast feeding">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Duration of breastfeeding without supplements">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Total duration of breastfeeding">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Type of mother nutrition while breast feeding">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Child feeding with adapted preparations">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Popolno">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Delno dojen">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Preparation type">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Normalna">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Alergija na hranila">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Start feeding">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Type of mix food">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Feeding problems">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Vomiting">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Poor feeding">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Painful nipples">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Feeding problems">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Poor milk preparation">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Feeding problems">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Different mixed diet feeding problem">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Start feeding">
+					description = <"*">
+				>
+				["at0108"] = <
+					text = <"Type of solid diet">
+					description = <"*">
+				>
+				["at0109"] = <
+					text = <"Feeding problems">
+					description = <"*">
+				>
+				["at0110"] = <
+					text = <"Special diet">
+					description = <"*">
+				>
+				["at0111"] = <
+					text = <"Artificial feeding route">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"Type of special diet">
+					description = <"*">
+				>
+			>
+		>
+	>

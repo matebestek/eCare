@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="" id="sid-fea29ea9-6aba-4d6c-86ec-8a062a9d3708" targetNamespace="http://www.signavio.com/bpmn20" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="Proces-Vkljucitev-Pacienta-V-Studijo" isExecutable="false" name="Proces-Vkljucitev-Pacienta-V-Studijo">
+      <userTask id="Vnos_osnovnih_podatkov" name="Vnos osnovnih podatkov">
+         <documentation id="sid-1b37fd51-0962-4091-ba32-57d866007cc9">Original ID: "sid-A8124DF1-6B45-459B-9455-15BEC344EC79"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_3</incoming>
+         <outgoing>SequenceFlow_4</outgoing>
+      </userTask>
+      <startEvent id="StartNoneEvent" name="StartNoneEvent">
+         <documentation id="sid-a31ebc9a-e9af-4bcd-bd0b-23aba751a019">Original Name: "" Original ID: "sid-9ECD6A17-7C48-4D29-A2E8-9B84C95F2E8F"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <outgoing>SequenceFlow_3</outgoing>
+      </startEvent>
+      <userTask id="Vnos_klinicnih_podatkov" name="Vnos kliničnih podatkov">
+         <documentation id="sid-9476cbff-6ba6-46fd-85b5-e306a8c8ab02">Original ID: "sid-57AB65A7-6691-4B46-9CB4-BE4D59D4B005"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_4</incoming>
+         <outgoing>SequenceFlow_5</outgoing>
+      </userTask>
+      <userTask id="Vnos_vprasalnika_" name="Vnos vprašalnika&#10;">
+         <documentation id="sid-946b84e1-79f0-4b79-ab4b-2a2ae29f204d">Original ID: "sid-946F8DA0-2198-471D-A4BE-216291DE933B"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_5</incoming>
+         <outgoing>SequenceFlow_9</outgoing>
+      </userTask>
+      <userTask id="Pregled_vnesenih_podatkov" name="Pregled vnešenih podatkov">
+         <documentation id="sid-8b2d76c5-251b-4a42-b215-ee4aa5795837">Original ID: "sid-4B52C25D-2A76-45DD-85A1-2FB34CBBB4B9"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_9</incoming>
+         <outgoing>SequenceFlow_7</outgoing>
+      </userTask>
+      <userTask id="Vnos_diagnoze" name="Vnos diagnoze">
+         <documentation id="sid-a4118ac9-2c26-4567-acd7-64a6251afe35">Original ID: "sid-1BC547E7-81FE-4746-AC40-2639B2F6846C"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_7</incoming>
+         <outgoing>SequenceFlow_11</outgoing>
+         <outgoing>SequenceFlow_10</outgoing>
+      </userTask>
+      <serviceTask id="Doloci_skupino_" name="Določi skupino&#10;" activiti:class="si.pint.eastma.addPatient.delegate.SelectGroupDelegate">
+         <documentation id="sid-c46afb32-f4a8-4f4a-ac13-6afb1b002c36">Original ID: "sid-4105A3B1-4808-4E76-9CEB-D120814ECB9B"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_11</incoming>
+         <outgoing>SequenceFlow_2</outgoing>
+      </serviceTask>
+      <parallelGateway gatewayDirection="Diverging" id="ParallelGateway" name="ParallelGateway">
+         <documentation id="sid-fff68b17-5f73-47ea-880e-e97f2e5a6c9c">Original Name: "" Original ID: "sid-AA6B4682-4847-4706-9021-DFFA162BD0CB"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_2</incoming>
+         <outgoing>skupina_kontrolna</outgoing>
+         <outgoing>skupina_eksperiment</outgoing>
+      </parallelGateway>
+      <serviceTask id="Dodaj_pacienta_v_kontrolno" name="Dodaj pacienta v kontrolno" activiti:class="si.pint.eastma.addPatient.delegate.AddToControlDelegate">
+         <documentation id="sid-9492f0d0-ed06-4e19-aa9f-024453e573c6">Original ID: "sid-53F63D5E-59DE-4CB1-A604-799759AD90D8"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>skupina_kontrolna</incoming>
+         <outgoing>SequenceFlow_6</outgoing>
+      </serviceTask>
+      <parallelGateway gatewayDirection="Converging" id="ParallelGateway_2" name="ParallelGateway">
+         <documentation id="sid-103b3684-dc67-4c7f-ac71-5e60e2de63f3">Original Name: "" Original ID: "sid-E9EB5778-3082-43C5-9398-2F65D29ED294"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow_6</incoming>
+         <incoming>SequenceFlow_8</incoming>
+         <outgoing>SequenceFlow</outgoing>
+      </parallelGateway>
+      <serviceTask id="Dodaj_pacienta_v__eksperimentalno" name="Dodaj pacienta v  eksperimentalno" activiti:class="si.pint.eastma.addPatient.delegate.AddToExperimentalDelegate">
+         <documentation id="sid-ff15349d-b4cf-47bc-81e4-8f5027301608">Original ID: "sid-38EFED0E-61D3-40E6-82C1-3BC2624DC4BE"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>skupina_eksperiment</incoming>
+         <outgoing>SequenceFlow_8</outgoing>
+      </serviceTask>
+      <endEvent id="EndNoneEvent" name="EndNoneEvent">
+         <documentation id="sid-cb1e1f07-950c-499f-bf06-a103566ead24">Original Name: "" Original ID: "sid-27BC825B-FF22-4C91-AAAF-AA5941BDAC2D"</documentation>
+         <extensionElements>
+            
+         </extensionElements>
+         <incoming>SequenceFlow</incoming>
+         <incoming>SequenceFlow_10</incoming>
+      </endEvent>
+      <sequenceFlow id="SequenceFlow_4" name="SequenceFlow" sourceRef="Vnos_osnovnih_podatkov" targetRef="Vnos_klinicnih_podatkov">
+         <documentation id="sid-bd87c7bb-52dc-4e9b-a9c7-4e0549b98aa1">Original Name: "" Original ID: "sid-2134D53A-B7E2-4731-B21D-A5A76A0D7F23"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_5" name="SequenceFlow" sourceRef="Vnos_klinicnih_podatkov" targetRef="Vnos_vprasalnika_">
+         <documentation id="sid-f6fa3b75-f91b-470b-847c-edf4aef88653">Original Name: "" Original ID: "sid-CDCD4124-83BD-4BD9-A750-760891F9AD1F"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_9" name="SequenceFlow" sourceRef="Vnos_vprasalnika_" targetRef="Pregled_vnesenih_podatkov">
+         <documentation id="sid-0233aafa-4b93-4972-a0d4-eed671514995">Original Name: "" Original ID: "sid-E6FC23AC-D212-41AC-A751-4309D2E67DD8"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_7" name="SequenceFlow" sourceRef="Pregled_vnesenih_podatkov" targetRef="Vnos_diagnoze">
+         <documentation id="sid-fd742733-f375-4f3f-ab55-f8e8fb2951a6">Original Name: "" Original ID: "sid-D3016C7B-F4E4-4CC4-812A-595631CBBF2A"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_11" name="SequenceFlow" sourceRef="Vnos_diagnoze" targetRef="Doloci_skupino_">
+         <documentation id="sid-57a0b2c6-05d2-40ec-9241-a9cc750775c9">Original Name: "" Original ID: "sid-D43C1FDF-1B7D-490C-83D1-1C8CEEC5A01F"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_2" name="SequenceFlow" sourceRef="Doloci_skupino_" targetRef="ParallelGateway">
+         <documentation id="sid-10976c0d-b6cf-45f9-8e76-2a3576b25c5a">Original Name: "" Original ID: "sid-BCD55F6E-B952-40BD-AC8E-655A9B1E2275"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_8" name="SequenceFlow" sourceRef="Dodaj_pacienta_v__eksperimentalno" targetRef="ParallelGateway_2">
+         <documentation id="sid-43ebddc5-32ca-485f-a557-689f1130be64">Original Name: "" Original ID: "sid-920F4271-5F46-4E7A-8F49-C638613F3575"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_6" name="SequenceFlow" sourceRef="Dodaj_pacienta_v_kontrolno" targetRef="ParallelGateway_2">
+         <documentation id="sid-39be53a8-f216-485c-a3cb-acb3055bd5b7">Original Name: "" Original ID: "sid-110182E7-1D50-4DB9-A572-64ACAD471D20"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_3" name="SequenceFlow" sourceRef="StartNoneEvent" targetRef="Vnos_osnovnih_podatkov">
+         <documentation id="sid-71a46e74-fdc6-4370-b0a2-ac7060ef86d2">Original Name: "" Original ID: "sid-BDDA066D-F501-4104-BBD6-56DF3605F499"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow" name="SequenceFlow" sourceRef="ParallelGateway_2" targetRef="EndNoneEvent">
+         <documentation id="sid-0dc94d43-2861-4b1a-9e68-a75c518d7572">Original Name: "" Original ID: "sid-AB723A31-EE2F-47D5-8303-6591938AEB6F"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="skupina_eksperiment" name="skupina_eksperiment" sourceRef="ParallelGateway" targetRef="Dodaj_pacienta_v__eksperimentalno">
+         <documentation id="sid-2770daa1-1aac-4cb0-92a5-c8f202224b0b">Original ID: "sid-CEFDACB2-BDCE-4D82-84D7-BE982D6DE771"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="skupina_kontrolna" name="skupina_kontrolna" sourceRef="ParallelGateway" targetRef="Dodaj_pacienta_v_kontrolno">
+         <documentation id="sid-8181495d-ae16-455a-beb7-5f3b5c10dcf1">Original ID: "sid-C547E31F-2B48-47F1-A659-9DCE8FE2B465"</documentation>
+      </sequenceFlow>
+      <sequenceFlow id="SequenceFlow_10" name="SequenceFlow" sourceRef="Vnos_diagnoze" targetRef="EndNoneEvent">
+         <documentation id="sid-1d8c74d2-4079-4658-8170-7c11a8ce9d66">Original Name: "" Original ID: "sid-724EE4BF-A081-48DC-A52F-037308FE395D"</documentation>
+      </sequenceFlow>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-2983e7f6-3347-436d-a83b-c2bc54e04905">
+      <bpmndi:BPMNPlane bpmnElement="Proces-Vkljucitev-Pacienta-V-Studijo" id="sid-fdd943ab-47c7-4304-bd06-54e2b86ea414">
+         <bpmndi:BPMNShape bpmnElement="Vnos_osnovnih_podatkov" id="Vnos_osnovnih_podatkov_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="75.0" y="210.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="StartNoneEvent" id="StartNoneEvent_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="15.0" y="239.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Vnos_klinicnih_podatkov" id="Vnos_klinicnih_podatkov_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="360.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Vnos_vprasalnika_" id="Vnos_vprasalnika__gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="195.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Pregled_vnesenih_podatkov" id="Pregled_vnesenih_podatkov_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="375.0" y="353.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Vnos_diagnoze" id="Vnos_diagnoze_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="499.0" y="214.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Doloci_skupino_" id="Dolo_i_skupino__gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="825.0" y="150.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="ParallelGateway" id="ParallelGateway_gui">
+            <omgdc:Bounds height="40.0" width="40.0" x="844.0" y="377.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Dodaj_pacienta_v_kontrolno" id="Dodaj_pacienta_v_kontrolno_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="990.0" y="465.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="ParallelGateway_2" id="ParallelGateway_2_gui">
+            <omgdc:Bounds height="40.0" width="40.0" x="839.0" y="598.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="Dodaj_pacienta_v__eksperimentalno" id="Dodaj_pacienta_v__eksperimentalno_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="645.0" y="465.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="EndNoneEvent" id="EndNoneEvent_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="845.0" y="687.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="skupina_kontrolna" id="skupina_kontrolna_gui">
+            <omgdi:waypoint x="884.0" y="397.0"/>
+            <omgdi:waypoint x="1040.0" y="397.5"/>
+            <omgdi:waypoint x="1040.0" y="465.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_8" id="SequenceFlow_8_gui">
+            <omgdi:waypoint x="695.0" y="545.0"/>
+            <omgdi:waypoint x="695.0" y="618.0"/>
+            <omgdi:waypoint x="839.0" y="618.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_9" id="SequenceFlow_9_gui">
+            <omgdi:waypoint x="370.0" y="235.0"/>
+            <omgdi:waypoint x="425.0" y="235.0"/>
+            <omgdi:waypoint x="425.0" y="353.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_6" id="SequenceFlow_6_gui">
+            <omgdi:waypoint x="1040.0" y="545.0"/>
+            <omgdi:waypoint x="1040.0" y="618.0"/>
+            <omgdi:waypoint x="879.0" y="618.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_7" id="SequenceFlow_7_gui">
+            <omgdi:waypoint x="475.0" y="393.0"/>
+            <omgdi:waypoint x="549.0" y="393.0"/>
+            <omgdi:waypoint x="549.0" y="294.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_4" id="SequenceFlow_4_gui">
+            <omgdi:waypoint x="175.0" y="250.0"/>
+            <omgdi:waypoint x="215.0" y="250.0"/>
+            <omgdi:waypoint x="215.0" y="360.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_5" id="SequenceFlow_5_gui">
+            <omgdi:waypoint x="265.0" y="400.0"/>
+            <omgdi:waypoint x="320.0" y="400.0"/>
+            <omgdi:waypoint x="320.0" y="275.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_2" id="SequenceFlow_2_gui">
+            <omgdi:waypoint x="875.0" y="230.0"/>
+            <omgdi:waypoint x="875.0" y="303.5"/>
+            <omgdi:waypoint x="864.0" y="303.5"/>
+            <omgdi:waypoint x="864.0" y="377.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_3" id="SequenceFlow_3_gui">
+            <omgdi:waypoint x="45.0" y="254.0"/>
+            <omgdi:waypoint x="75.0" y="252.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_11" id="SequenceFlow_11_gui">
+            <omgdi:waypoint x="599.0" y="254.0"/>
+            <omgdi:waypoint x="717.0" y="254.0"/>
+            <omgdi:waypoint x="717.0" y="190.0"/>
+            <omgdi:waypoint x="825.0" y="190.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow" id="SequenceFlow_gui">
+            <omgdi:waypoint x="859.0" y="638.0"/>
+            <omgdi:waypoint x="859.0" y="687.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="SequenceFlow_10" id="SequenceFlow_10_gui">
+            <omgdi:waypoint x="575.0" y="294.0"/>
+            <omgdi:waypoint x="608.0" y="342.0"/>
+            <omgdi:waypoint x="608.0" y="701.0"/>
+            <omgdi:waypoint x="845.0" y="701.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="skupina_eksperiment" id="skupina_eksperiment_gui">
+            <omgdi:waypoint x="844.0" y="397.0"/>
+            <omgdi:waypoint x="695.0" y="397.5"/>
+            <omgdi:waypoint x="695.0" y="465.0"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

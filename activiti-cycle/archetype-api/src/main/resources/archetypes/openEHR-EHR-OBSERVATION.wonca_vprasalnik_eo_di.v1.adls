@@ -1,0 +1,349 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.5; generated)
+	openEHR-EHR-OBSERVATION.wonca_vprasalnik_eo_di.v1
+
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"WONCA vprašalnik za eOskrbo - diabetes">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"008F925FE17650F86D346A7B547291DF">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Wonca vprasalnik eo di
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {7; unordered} matches {
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Telesno počutje
+												value matches {
+													1|[local::at0017], 	-- Zelo težka, npr. hitri tek
+													2|[local::at0018], 	-- Težka, npr. počasen tek
+													3|[local::at0019], 	-- Srednje težka, npr. hitra hoja
+													4|[local::at0020], 	-- Lahka, npr. zmerna hoja
+													5|[local::at0021]  	-- Zelo lahka, npr. počasna hoja ali nisem mogel hoditi
+												}
+											}
+											ELEMENT[at0005] occurrences matches {0..1} matches {	-- Čustva
+												value matches {
+													1|[local::at0022], 	-- Nič
+													2|[local::at0023], 	-- Malo
+													3|[local::at0024], 	-- Srednje veliko
+													4|[local::at0025], 	-- Veliko
+													5|[local::at0026]  	-- Zelo veliko
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Vsakodnevna opravila
+												value matches {
+													1|[local::at0027], 	-- Nič
+													2|[local::at0028], 	-- Malo
+													3|[local::at0029], 	-- Srednje veliko
+													4|[local::at0030], 	-- Veliko
+													5|[local::at0031]  	-- Zelo veliko
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Družabno življenje
+												value matches {
+													1|[local::at0032], 	-- Nič
+													2|[local::at0033], 	-- Malo
+													3|[local::at0034], 	-- Srednje veliko
+													4|[local::at0035], 	-- Veliko
+													5|[local::at0036]  	-- Zelo veliko
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Sprememba zdravja
+												value matches {
+													1|[local::at0037], 	-- Precej boljše
+													2|[local::at0038], 	-- Nekoliko boljše
+													3|[local::at0039], 	-- Približno enako
+													4|[local::at0040], 	-- Nekoliko slabše
+													5|[local::at0041]  	-- Precej slabše
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Splošno stanje
+												value matches {
+													1|[local::at0042], 	-- Odlično
+													2|[local::at0043], 	-- Zelo dobro
+													3|[local::at0044], 	-- Dobro
+													4|[local::at0045], 	-- Slabo
+													5|[local::at0046]  	-- Zelo slabo
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Bolečina
+												value matches {
+													1|[local::at0012], 	-- Nič bolečin
+													2|[local::at0013], 	-- Zelo blage bolečine
+													3|[local::at0014], 	-- Blage bolečine
+													4|[local::at0015], 	-- Zmerne bolečine
+													5|[local::at0016]  	-- Hude bolečine
+												}
+											}
+										}
+									}
+									ELEMENT[at0047] occurrences matches {0..1} matches {	-- Število točk
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..35|}
+											}
+										}
+									}
+									ELEMENT[at0048] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			["at0000"] = <
+				text = <"Wonca vprasalnik eo di">
+				description = <"unknown">
+			>
+			["at0001"] = <
+				text = <"Event Series">
+				description = <"@ internal @">
+			>
+			["at0002"] = <
+				text = <"Any event">
+				description = <"*">
+			>
+			["at0003"] = <
+				text = <"Tree">
+				description = <"@ internal @">
+			>
+			["at0004"] = <
+				text = <"Vprašanja">
+				description = <"Sedem vprašanj WONCA vprašalnika">
+			>
+			["at0005"] = <
+				text = <"Čustva">
+				description = <"Kako močno so vas v zadnjih dveh tednih pestile čustvene težave, kot so občutek tesnobe, depresije, razdražljivosti, potrtost ali žalost?">
+			>
+			["at0006"] = <
+				text = <"Telesno počutje">
+				description = <"Katera fizična aktivnost, ki se jo lahko opravljali vsaj dve minuti je bila v zadnjih dveh tednih najtežja?">
+			>
+			["at0007"] = <
+				text = <"Družabno življenje">
+				description = <"Koliko je v zadnjih dveh tednih vaše telesno in duševno zdravje omejevalo vaše družabne aktivnosti z družino, prijatelji, sosedi ali drugimi skupinami?">
+			>
+			["at0008"] = <
+				text = <"Vsakodnevna opravila">
+				description = <"Koliko težav ste imeli v zadnjih dveh tednih pri svojih običajnih dejavnosti doma in drugje zaradi svojega telesnega in duševnega zdravja?">
+			>
+			["at0009"] = <
+				text = <"Bolečina">
+				description = <"Koliko telesnih bolečin ste imeli v zadnjih štirih tednih oziroma kako izrazite so bile?">
+			>
+			["at0010"] = <
+				text = <"Sprememba zdravja">
+				description = <"Kako bi ocenili svoje trenutno telesno in duševno zdravstveno stanje glede na tisto pred dvemi tedni? ">
+			>
+			["at0011"] = <
+				text = <"Splošno stanje">
+				description = <"Kako bi na splošno ocenili svoje telesno in duševno zdravstveno stanje zadnja dva tedna?">
+			>
+			["at0012"] = <
+				text = <"Nič bolečin">
+				description = <"Nič bolečin">
+			>
+			["at0013"] = <
+				text = <"Zelo blage bolečine">
+				description = <"Zelo blage bolečine">
+			>
+			["at0014"] = <
+				text = <"Blage bolečine">
+				description = <"Blage bolečine">
+			>
+			["at0015"] = <
+				text = <"Zmerne bolečine">
+				description = <"Zmerne bolečine">
+			>
+			["at0016"] = <
+				text = <"Hude bolečine">
+				description = <"Hude bolečine">
+			>
+			["at0017"] = <
+				text = <"Zelo težka, npr. hitri tek">
+				description = <"Zelo težka, npr. hitri tek">
+			>
+			["at0018"] = <
+				text = <"Težka, npr. počasen tek">
+				description = <"Težka, npr. počasen tek">
+			>
+			["at0019"] = <
+				text = <"Srednje težka, npr. hitra hoja">
+				description = <"Srednje težka, npr. hitra hoja">
+			>
+			["at0020"] = <
+				text = <"Lahka, npr. zmerna hoja">
+				description = <"Lahka, npr. zmerna hoja">
+			>
+			["at0021"] = <
+				text = <"Zelo lahka, npr. počasna hoja ali nisem mogel hoditi">
+				description = <"Zelo lahka, npr. počasna hoja ali nisem mogel hoditi">
+			>
+			["at0022"] = <
+				text = <"Nič">
+				description = <"Nič">
+			>
+			["at0023"] = <
+				text = <"Malo">
+				description = <"Malo">
+			>
+			["at0024"] = <
+				text = <"Srednje veliko">
+				description = <"Srednje veliko">
+			>
+			["at0025"] = <
+				text = <"Veliko">
+				description = <"Veliko">
+			>
+			["at0026"] = <
+				text = <"Zelo veliko">
+				description = <"Zelo veliko">
+			>
+			["at0027"] = <
+				text = <"Nič">
+				description = <"Nič">
+			>
+			["at0028"] = <
+				text = <"Malo">
+				description = <"Malo">
+			>
+			["at0029"] = <
+				text = <"Srednje veliko">
+				description = <"Srednje veliko">
+			>
+			["at0030"] = <
+				text = <"Veliko">
+				description = <"Veliko">
+			>
+			["at0031"] = <
+				text = <"Zelo veliko">
+				description = <"Zelo veliko">
+			>
+			["at0032"] = <
+				text = <"Nič">
+				description = <"Nič">
+			>
+			["at0033"] = <
+				text = <"Malo">
+				description = <"Malo">
+			>
+			["at0034"] = <
+				text = <"Srednje veliko">
+				description = <"Srednje veliko">
+			>
+			["at0035"] = <
+				text = <"Veliko">
+				description = <"Veliko">
+			>
+			["at0036"] = <
+				text = <"Zelo veliko">
+				description = <"Zelo veliko">
+			>
+			["at0037"] = <
+				text = <"Precej boljše">
+				description = <"Precej boljše">
+			>
+			["at0038"] = <
+				text = <"Nekoliko boljše">
+				description = <"Nekoliko boljše">
+			>
+			["at0039"] = <
+				text = <"Približno enako">
+				description = <"Približno enako">
+			>
+			["at0040"] = <
+				text = <"Nekoliko slabše">
+				description = <"Nekoliko slabše">
+			>
+			["at0041"] = <
+				text = <"Precej slabše">
+				description = <"Precej slabše">
+			>
+			["at0042"] = <
+				text = <"Odlično">
+				description = <"Odlično">
+			>
+			["at0043"] = <
+				text = <"Zelo dobro">
+				description = <"Zelo dobro">
+			>
+			["at0044"] = <
+				text = <"Dobro">
+				description = <"Dobro">
+			>
+			["at0045"] = <
+				text = <"Slabo">
+				description = <"Slabo">
+			>
+			["at0046"] = <
+				text = <"Zelo slabo">
+				description = <"Zelo slabo">
+			>
+			["at0047"] = <
+				text = <"Število točk">
+				description = <"Število doseženih točk pri WONCA vprašalniku.">
+			>
+			["at0048"] = <
+				text = <"Komentar">
+				description = <"*">
+			>
+		>
+	>

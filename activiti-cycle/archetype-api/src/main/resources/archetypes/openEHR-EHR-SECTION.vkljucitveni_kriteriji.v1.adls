@@ -1,0 +1,103 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.vkljucitveni_kriteriji.v1
+
+concept
+	[at0000]	-- Vkljucitveni kriteriji
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Ugotavljanje izpolnjevanja pogojev za vključitev v klinično študijo.">
+			use = <"Pri prvem vnosu pacienta v sistem.">
+			misuse = <"Kjerkoli drugje">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"EA10CDDFBF5B39223864EC783D930A4F">
+	>
+
+definition
+	SECTION[at0000] matches {	-- Vkljucitveni kriteriji
+		items cardinality matches {7..*; ordered} matches {
+			allow_archetype ADMIN_ENTRY[at0006] matches {	-- Osnovni podatki
+				include
+					archetype_id/value matches {/openEHR-EHR-ADMIN_ENTRY\.admission_details_eo_as(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			allow_archetype EVALUATION[at0007] matches {	-- Družinska anamneza
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.druzinska_anamneza_eo_as(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			allow_archetype ENTRY[at0008] occurrences matches {1..*} matches {	-- Anamneza
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.alkohol_eo_pp(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-EVALUATION\.kajenje_eo_pp(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-EVALUATION\.physical_activity_summary(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-OBSERVATION\.asthma_control_test_questionary(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-OBSERVATION\.body_weight(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-OBSERVATION\.height(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-EVALUATION\.substance_use_summary-tobacco(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-EVALUATION\.telesna_dejavnost_eo_pp(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-EVALUATION\.anamneza_ostalo_eo_as(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			allow_archetype ENTRY[at0010] occurrences matches {0..*} matches {	-- Terapija
+				include
+					archetype_id/value matches {/openEHR-EHR-EVALUATION\.terapija(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vkljucitveni kriteriji">
+					description = <"Vsi podatki, ki jih zdravnik vnese ob vključitvi novega pacienta.">
+				>
+				["at0006"] = <
+					text = <"Osnovni podatki">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Družinska anamneza">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Anamneza">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Terapija">
+					description = <"*">
+				>
+			>
+		>
+	>

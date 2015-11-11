@@ -1,0 +1,978 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<archetype xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.openehr.org/v1">
+  <original_language>
+    <terminology_id>
+      <value>ISO_639-1</value>
+    </terminology_id>
+    <code_string>en</code_string>
+  </original_language>
+  <description>
+    <original_author id="name">eOskrba</original_author>
+    <original_author id="date">10.5.2011</original_author>
+    <lifecycle_state>AuthorDraft</lifecycle_state>
+    <other_details id="MD5-CAM-1.0.1">D5E200BA7CA42BF60FDEB8F290E8CED0</other_details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>pt-br</code_string>
+      </language>
+      <purpose>Para registrar o peso corporal de um indivíduo - tanto real como aproximado.</purpose>
+      <keywords>*weight(en)</keywords>
+      <keywords>*gain(en)</keywords>
+      <keywords>*loss(en)</keywords>
+      <keywords>*increase(en)</keywords>
+      <keywords>*decrease(en)</keywords>
+      <keywords>*mass(en)</keywords>
+      <keywords>*estimate(en)</keywords>
+      <keywords>*actual(en)</keywords>
+      <use>Usado para gravar a medição real de peso corporal, inclusive quando o indivíduo tem faltando uma parte do corpo devido a uma causa congênita ou após a remoção cirúrgica. A indicação da imperfeição física do corpo pode ser registrada no elemento 'fatores de erro', se necessário.
+Este é o arquétipo para ser utilizado para uma medição típica de peso, por exemplo, auto-medido pelo indivíduo em casa, uma medida médico em uma clínica / hospital, ou um instrutor de fitness em um ginásio. 
+
+Também pode ser usado para a gravar uma aproximação da medição do peso corporal em um cenário clínico no qual não é possível medir com precisão o peso do corpo - por exemplo, pesar uma criança inquieta, ou estimar o peso de um feto (quando 'sujeito' é um feto e a gravação ocorre no registro da saúde da mãe). Isso não é modelado explicitamente no arquétipo como o modelo de referência da openEHR permite que o atributo de aproximação para qualquer tipo de dados quantitativos. Na execução, por exemplo, uma interface de usuário do aplicativo pode permitir que os clínicos para selecionar uma caixa de seleção devidamente setados junto ao campo de dados de peso, indicando que o peso verificado é uma aproximação, ao invés de reais. 
+
+Usada para gravar a mudança de peso, ou seja, qualquer perda ou ganho de peso. Pode ser modelado por restringir a 'qualquer evento' a um intervalo associado com funções matemáticas de aumentar ou diminuir, conforme o caso.</use>
+      <misuse>Não deve ser utilizado para gravar o primeiro peso de um bebê logo após o nascimento, que é designado como o seu 'peso' - use a especialização de seu nascimento arquétipo OBSERVATION.body_weight-birth.
+Não deve ser usado para registrar o peso do corpo ajustado por exemplo, um cálculo do peso de corpo inteiro de uma pessoa com amputação de membros, com base em medições de outro corpo e um algoritmo -OBSERVATION.body_weight-adjusted.
+Não deve ser usado para registrar o peso de um objeto ou parte do corpo.</misuse>
+      <copyright>© 2011 openEHR Foundation</copyright>
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>sl</code_string>
+      </language>
+      <purpose>Izmeriti volumen forsirano izdihanega zraka v prvi sekundi</purpose>
+      <keywords>astma</keywords>
+      <keywords>fev1</keywords>
+      <use>Izmeriti volumen forsirano izdihanega zraka v prvi sekundi</use>
+      <misuse />
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>de</code_string>
+      </language>
+      <purpose>Zur Dokumentation des Gewichtes eines Individuums, sowohl exakt als auch ungefähr.</purpose>
+      <keywords>Gewicht</keywords>
+      <keywords>Zunahme</keywords>
+      <keywords>Verlust</keywords>
+      <keywords>Masse</keywords>
+      <keywords>Schätzung</keywords>
+      <use>Zur Dokumentation des tatsächlichen Körpergewichts, auch wenn das Individuum einen Körperteil (angeboren oder später amputiert) vermisst. Sofern benötigt, kann dies im Datenelement 'Störfaktoren' dokumentiert werden. Dies ist der Archetyp, der gewöhnlicherweise für eine typische Gewichtsmessung benutzt werden sollte, z.B. bei Selbstmessung durch das Individuum zu Hause, durch einen Kliniker im Krankenhaus, oder einen Fitness-Trainer in einem Fitness-Center.
+
+Der Archetyp kann auch benutzt werden, um eine Schätzung des Körpergewichts zu dokumentieren, wenn es nicht möglich ist, das Gewicht genau zu bestimmen - z.B. bei der Messung des Gewichts eines nicht kooperativen Kindes, oder bei einem ungeborenen Fötus (hier ist das 'Subjekt der Daten' der Fötus und die Dokumentation erfolgt in der Akte der Mutter). Dass es sich um eine Schätzung handelt wird in diesem Archetyp nicht explizit modelliert, da das openEHR Referenzmodell dies direkt für 'Quantity'-Datentypen unterstützt. In einer konkreten klinischen Anwendung könnte die Benutzerschnittstelle es dem Kliniker z.B. über eine Checkbox ermöglichen, zu dokumentieren, dass es sich um eine Schätzung handelt.</use>
+      <misuse>Nicht zur Dokumentation des ersten Gewichts eines Neugeboren (Geburtsgewicht) - benutzen Sie hierzu den spezialisierten Archetyp OBSERVATION.body_weight-birth.
+Nicht zur Dokumentation des angepassten Körpergewichts, z.B. eine Berechnung des vollständigen Körpergewichts bei einer Person mit amputierter Extremität auf Basis der anderen Körperteile und eines Algorithmus - benutzen Sie OBSERVATION.body_weight-adjusted.
+Nicht zur Dokumentation eines Objekts oder eines Teils des Körpers.</misuse>
+      <copyright>© 2011 openEHR Foundation</copyright>
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>en</code_string>
+      </language>
+      <purpose>To record VC -&gt; the volume change of the lung between a full inspiration and a maximal expiration. </purpose>
+      <keywords>peak</keywords>
+      <keywords>flow</keywords>
+      <keywords>spirometry</keywords>
+      <keywords>pulmonary</keywords>
+      <keywords>asthma</keywords>
+      <keywords>COPD</keywords>
+      <keywords>VC</keywords>
+      <keywords>vital</keywords>
+      <keywords>capacity</keywords>
+      <use>To be used for recording the vital capacity of an individual.
+To be used for recording vital capacity change.</use>
+      <misuse />
+      <copyright>© 2011 eOskrba</copyright>
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>ru</code_string>
+      </language>
+      <purpose>Для записи массы тела человека: фактической или приблизительной.</purpose>
+      <keywords>вес</keywords>
+      <keywords>масса тела</keywords>
+      <keywords>прибавка</keywords>
+      <keywords>потеря</keywords>
+      <keywords>увеличение</keywords>
+      <keywords>уменьшение</keywords>
+      <keywords>оценка</keywords>
+      <keywords>актуально</keywords>
+      <use>Использовать для записи фактического измерения массы тела, включая случаи отсутсвия части(-ей) тела, врожденное или после хирургического удаления. Отметка о физической неполноте тела может быть зарегистрирована в элементе данных "стохастическая погрешность", если требуется. Это - обычный архетип, используемый для типичного измерения веса, например самоизмеренного человеком дома, измерение клинициста в клинике/больнице, или фитнес-инструктором в гимнастическом зале. 
+
+Может также использоваться для записи примерного измерения массы тела в клиническом сценарии, где не возможно взвешивание - например, сопротивляющийся ребёнок, или для оценики веса внутриутробного плода (где 'предметом данных' является плод, и регистрация происходит в пределах записи о состоянии здоровья матери). Это не оформлено явно в архетипе, поскольку модель openEHR позволяет атрибут «приблизительно» для любого типа данных «количество». При работе, например, прикладной пользовательский интерфейс позволяет клиницистам выбирать соответствующую отметку, смежную с полем данных «вес», чтобы указать, что зарегистрированный вес - приблизительный, а не фактический. 
+
+Использовать для записи изменения веса, то есть, потери веса или увеличения веса.
+Это может в настоящее время моделироваться, привязывая 'каждый случай' к интервалу со связанной математической функцией увеличения или уменьшения, соответственно.</use>
+      <misuse>Не использовать для записи первого веса младенца после рождение, которое обозначено как 'вес при рождении' - использовать специализацию этого архетипа OBSERVATION.body_weight-birth. 
+Не использовать для записи массы тела человека с протезами / приспособлениями для вычисление полной массы тела человека с ампутацией, основанной на других измерениях и алгоритме  - использовать архетип OBSERVATION.body_weight-adjusted.
+Не использовать, чтобы сделать запись веса части тела или объекта.</misuse>
+      <copyright>© 2011 openEHR Foundation</copyright>
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>nl</code_string>
+      </language>
+      <purpose>Om het lichaamsgewicht van een persoon te registreren - zowel exact als geschat gewicht.</purpose>
+      <keywords>gewicht</keywords>
+      <keywords>stijging</keywords>
+      <keywords>verlies</keywords>
+      <keywords>toename</keywords>
+      <keywords>daling</keywords>
+      <keywords>massa</keywords>
+      <keywords>schatting</keywords>
+      <keywords>werkelijk</keywords>
+      <keywords>afname</keywords>
+      <use>Registreren van een actuele meting van het lichaamsgewicht, ook als deze persoon een lichaamsdeel mist, door een geboorteafwijking of na een chirurgische ingreep. Een verklaring over de fysieke inclompleetheid van het lichaam, kan zo nodig opgeslagen worden in het data element 'beïnvloedende factoren'. Dit is het gebruikelijke archetype voor gewichtmetingen, bij voorbeeld thuis gemeten door de persoon zelf, een klinische meting in een kliniek/ziekenhuis, of door een fitness instructeur in een sportschool.
+
+Kan ook gebruikt worden om een geschat lichaamsgewicht te registreren in een klinische setting als het niet mogelijk is om het exacte lichaamsgewicht te meten - bijvoorbeeld, het wegen van een tegenwerkend kind, of een schatting van het gewicht van een ongeboren kind (waar het onderwerp van de gegevens de foetus is en de opslag in het patiënten dossier van de moeder plaatsvindt). Dit is niet expliciet gemodelleerd in het archetype, omdat het openEHR Referentie model een schatting in ieder kwantitatief data type toestaat. Bij de uitvoering, bijvoorbeeld, zou een applicatie gebruikersinterface, clinici een adequaat geëtiketteerd selectievakje kunnen aanbieden, naast de gegevens over het gewicht, waarin door selecteren aangegeven kan worden dat het opgenomen gewicht een schatting is, in plaats van het werkelijke gewicht.
+
+Dient te worden gebruikt om gewichtsverandering op te slaan, zowel gewichtsverlies als gewichtstoename.  Dit kan gemodelleerd worden door 'any event' - elke gebeurtenis - in voorkomende gevallen, te beperken tot een interval met met bijbehorende rekenkundige functie van stijging of daling.</use>
+      <misuse>Dient niet te worden gebruikt voor het registreren van het eerste gewicht van een kind, na geboorte, welke wordt aangewezen als geboortegewicht. Gebruik hiervoor de specialisatie van dit archetype, OBSERVATION.body_weight-birth (OBSERVATION.lichaamsgewicht-geboorte.
+Dient niet te worden gebruikt voor het registreren van het aangepaste lichaamsgewicht, bijvoorbeeld een berekening van het volledige lichaamsgewicht van een persoon met een amputatie van ledematen, gebaseerd op metingen van lichaamsdelen en een algoritme - gebruik hiervoor OBSERVATION.body_weight-adjusted. (OBSERVATION.lichaamsgewicht-aangepast).
+Dient niet te worden gebruikt voor het vastleggen van het gewicht van een object of lichaamsdeel.</misuse>
+      <copyright>© 2011 openEHR Foundation</copyright>
+    </details>
+  </description>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>pt-br</code_string>
+    </language>
+    <author id="name">Marco Borges</author>
+    <author id="email">marco.borges@p2d.com.br</author>
+    <author id="organisation">P2D</author>
+    <accreditation>P2D Health Advisor Council</accreditation>
+  </translations>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>sl</code_string>
+    </language>
+    <author id="name">?</author>
+  </translations>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>de</code_string>
+    </language>
+    <author id="name">Sebastian Garde, Jasmin Buck</author>
+    <author id="organisation">Ocean Informatics, University of Heidelberg</author>
+  </translations>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>ru</code_string>
+    </language>
+    <author id="name">Igor Lizunov</author>
+    <author id="email">i.lizunov@infinnity.ru</author>
+  </translations>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>nl</code_string>
+    </language>
+    <author id="name">Marja Buur</author>
+    <author id="email">m.buur-krom@mca.nl</author>
+    <author id="organisation">Medisch Centrum Alkmaar, Nederland</author>
+    <accreditation>Nurse informatics</accreditation>
+  </translations>
+  <archetype_id>
+    <value>openEHR-EHR-OBSERVATION.forced_expiratory_flow.v1</value>
+  </archetype_id>
+  <adl_version>1.4</adl_version>
+  <concept>at0000</concept>
+  <definition>
+    <rm_type_name>OBSERVATION</rm_type_name>
+    <occurrences>
+      <lower_included>true</lower_included>
+      <upper_included>true</upper_included>
+      <lower_unbounded>false</lower_unbounded>
+      <upper_unbounded>false</upper_unbounded>
+      <lower>1</lower>
+      <upper>1</upper>
+    </occurrences>
+    <node_id>at0000</node_id>
+    <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+      <rm_attribute_name>data</rm_attribute_name>
+      <existence>
+        <lower_included>true</lower_included>
+        <upper_included>true</upper_included>
+        <lower_unbounded>false</lower_unbounded>
+        <upper_unbounded>false</upper_unbounded>
+        <lower>1</lower>
+        <upper>1</upper>
+      </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>HISTORY</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>1</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0002</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>events</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>EVENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0030</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>data</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ITEM_SINGLE</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0001</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>item</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>ELEMENT</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id>at0004</node_id>
+                    <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                      <rm_attribute_name>value</rm_attribute_name>
+                      <existence>
+                        <lower_included>true</lower_included>
+                        <upper_included>true</upper_included>
+                        <lower_unbounded>false</lower_unbounded>
+                        <upper_unbounded>false</upper_unbounded>
+                        <lower>1</lower>
+                        <upper>1</upper>
+                      </existence>
+                      <children xsi:type="C_DV_QUANTITY">
+                        <rm_type_name>DV_QUANTITY</rm_type_name>
+                        <occurrences>
+                          <lower_included>true</lower_included>
+                          <upper_included>true</upper_included>
+                          <lower_unbounded>false</lower_unbounded>
+                          <upper_unbounded>false</upper_unbounded>
+                          <lower>1</lower>
+                          <upper>1</upper>
+                        </occurrences>
+                        <node_id />
+                        <property>
+                          <terminology_id>
+                            <value>openehr</value>
+                          </terminology_id>
+                          <code_string>129</code_string>
+                        </property>
+                        <list>
+                          <magnitude>
+                            <lower_included>true</lower_included>
+                            <upper_included>true</upper_included>
+                            <lower_unbounded>false</lower_unbounded>
+                            <upper_unbounded>false</upper_unbounded>
+                            <lower>0</lower>
+                            <upper>8</upper>
+                          </magnitude>
+                          <precision>
+                            <lower_included>true</lower_included>
+                            <upper_included>true</upper_included>
+                            <lower_unbounded>false</lower_unbounded>
+                            <upper_unbounded>false</upper_unbounded>
+                            <lower>1</lower>
+                            <upper>1</upper>
+                          </precision>
+                          <units>l</units>
+                        </list>
+                      </children>
+                    </attributes>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>state</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ITEM_LIST</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0031</node_id>
+                <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+                  <rm_attribute_name>items</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>ELEMENT</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id>at0034</node_id>
+                    <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                      <rm_attribute_name>value</rm_attribute_name>
+                      <existence>
+                        <lower_included>true</lower_included>
+                        <upper_included>true</upper_included>
+                        <lower_unbounded>false</lower_unbounded>
+                        <upper_unbounded>false</upper_unbounded>
+                        <lower>1</lower>
+                        <upper>1</upper>
+                      </existence>
+                      <children xsi:type="C_COMPLEX_OBJECT">
+                        <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                        <occurrences>
+                          <lower_included>true</lower_included>
+                          <upper_included>true</upper_included>
+                          <lower_unbounded>false</lower_unbounded>
+                          <upper_unbounded>false</upper_unbounded>
+                          <lower>1</lower>
+                          <upper>1</upper>
+                        </occurrences>
+                        <node_id />
+                        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                          <rm_attribute_name>defining_code</rm_attribute_name>
+                          <existence>
+                            <lower_included>true</lower_included>
+                            <upper_included>true</upper_included>
+                            <lower_unbounded>false</lower_unbounded>
+                            <upper_unbounded>false</upper_unbounded>
+                            <lower>1</lower>
+                            <upper>1</upper>
+                          </existence>
+                          <children xsi:type="C_CODE_PHRASE">
+                            <rm_type_name>CODE_PHRASE</rm_type_name>
+                            <occurrences>
+                              <lower_included>true</lower_included>
+                              <upper_included>true</upper_included>
+                              <lower_unbounded>false</lower_unbounded>
+                              <upper_unbounded>false</upper_unbounded>
+                              <lower>1</lower>
+                              <upper>1</upper>
+                            </occurrences>
+                            <node_id />
+                            <assumed_value>
+                              <terminology_id>
+                                <value>local</value>
+                              </terminology_id>
+                              <code_string>at0035</code_string>
+                            </assumed_value>
+                            <terminology_id>
+                              <value>local</value>
+                            </terminology_id>
+                            <code_list>at0035</code_list>
+                            <code_list>at0036</code_list>
+                          </children>
+                        </attributes>
+                      </children>
+                    </attributes>
+                  </children>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>ELEMENT</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id>at0032</node_id>
+                    <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                      <rm_attribute_name>value</rm_attribute_name>
+                      <existence>
+                        <lower_included>true</lower_included>
+                        <upper_included>true</upper_included>
+                        <lower_unbounded>false</lower_unbounded>
+                        <upper_unbounded>false</upper_unbounded>
+                        <lower>1</lower>
+                        <upper>1</upper>
+                      </existence>
+                      <children xsi:type="C_COMPLEX_OBJECT">
+                        <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                        <occurrences>
+                          <lower_included>true</lower_included>
+                          <upper_included>true</upper_included>
+                          <lower_unbounded>false</lower_unbounded>
+                          <upper_unbounded>false</upper_unbounded>
+                          <lower>1</lower>
+                          <upper>1</upper>
+                        </occurrences>
+                        <node_id />
+                        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                          <rm_attribute_name>defining_code</rm_attribute_name>
+                          <existence>
+                            <lower_included>true</lower_included>
+                            <upper_included>true</upper_included>
+                            <lower_unbounded>false</lower_unbounded>
+                            <upper_unbounded>false</upper_unbounded>
+                            <lower>1</lower>
+                            <upper>1</upper>
+                          </existence>
+                          <children xsi:type="C_CODE_PHRASE">
+                            <rm_type_name>CODE_PHRASE</rm_type_name>
+                            <occurrences>
+                              <lower_included>true</lower_included>
+                              <upper_included>true</upper_included>
+                              <lower_unbounded>false</lower_unbounded>
+                              <upper_unbounded>false</upper_unbounded>
+                              <lower>1</lower>
+                              <upper>1</upper>
+                            </occurrences>
+                            <node_id />
+                            <assumed_value>
+                              <terminology_id>
+                                <value>local</value>
+                              </terminology_id>
+                              <code_string>at0033</code_string>
+                            </assumed_value>
+                            <terminology_id>
+                              <value>local</value>
+                            </terminology_id>
+                            <code_list>at0033</code_list>
+                          </children>
+                        </attributes>
+                      </children>
+                    </attributes>
+                  </children>
+                  <cardinality>
+                    <is_ordered>false</is_ordered>
+                    <is_unique>false</is_unique>
+                    <interval>
+                      <lower_included>true</lower_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>true</upper_unbounded>
+                      <lower>2</lower>
+                    </interval>
+                  </cardinality>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>1</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+    </attributes>
+    <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+      <rm_attribute_name>protocol</rm_attribute_name>
+      <existence>
+        <lower_included>true</lower_included>
+        <upper_included>true</upper_included>
+        <lower_unbounded>false</lower_unbounded>
+        <upper_unbounded>false</upper_unbounded>
+        <lower>1</lower>
+        <upper>1</upper>
+      </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ITEM_SINGLE</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>1</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0015</node_id>
+      </children>
+    </attributes>
+  </definition>
+  <ontology>
+    <term_definitions language="pt-br">
+      <items code="at0000">
+        <items id="text">*Vital capacity(en)</items>
+        <items id="description">*Measurement of vital capacity (VC) of an individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">history</items>
+        <items id="description">@ internal @</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">*Vital Capacity (VC)(en)</items>
+        <items id="description">*Vital capacity (VC) of the individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">*Any event(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">*List(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">*Zdravstvena ustanova(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0034">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">*Stoje(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">*Sede(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="sl">
+      <items code="at0000">
+        <items id="text">Volumen forsirano izdihanega zraka v prvi sekundi</items>
+        <items id="description">Volumen forsirano izdihanega zraka v prvi sekundi</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">Single</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">*history(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">FEV1</items>
+        <items id="description">Volumen forsirano izdihanega zraka v prvi sekundi</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">Single</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">*Any event(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">List</items>
+        <items id="description">@ internal @</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">Lokacija</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">Zdravstvena ustanova</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0034">
+        <items id="text">Položaj telesa</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">Stoje</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">Sede</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="de">
+      <items code="at0000">
+        <items id="text">*Vital capacity(en)</items>
+        <items id="description">*Measurement of vital capacity (VC) of an individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">History</items>
+        <items id="description">@ internal @</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">*Vital Capacity (VC)(en)</items>
+        <items id="description">*Vital capacity (VC) of the individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">*Any event(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">*List(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">*Zdravstvena ustanova(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0034">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">*Stoje(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">*Sede(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="en">
+      <items code="at0000">
+        <items id="text">Vital capacity</items>
+        <items id="description">Measurement of vital capacity (VC) of an individual.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">Single</items>
+        <items id="description">@ internal @</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">history</items>
+        <items id="description">@ internal @</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">Vital Capacity (VC)</items>
+        <items id="description">Vital capacity (VC) of the individual.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">Single</items>
+        <items id="description">@ internal @</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">Any event</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">*List(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">*Zdravstvena ustanova(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0034">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">*Stoje(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">*Sede(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="ru">
+      <items code="at0000">
+        <items id="text">*Vital capacity(en)</items>
+        <items id="description">*Measurement of vital capacity (VC) of an individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">*history(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">*Vital Capacity (VC)(en)</items>
+        <items id="description">*Vital capacity (VC) of the individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">*Any event(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">*List(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">*Zdravstvena ustanova(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0034">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">*Stoje(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">*Sede(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="nl">
+      <items code="at0000">
+        <items id="text">*Vital capacity(en)</items>
+        <items id="description">*Measurement of vital capacity (VC) of an individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">*history(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">*Vital Capacity (VC)(en)</items>
+        <items id="description">*Vital capacity (VC) of the individual.(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">*Single(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">*Any event(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">*List(en)</items>
+        <items id="description">*@ internal @(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">*Zdravstvena ustanova(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0034">
+        <items id="text">*New element(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0035">
+        <items id="text">*Stoje(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+      <items code="at0036">
+        <items id="text">*Sede(en)</items>
+        <items id="description">**(en)</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+  </ontology>
+</archetype>

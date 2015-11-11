@@ -1,0 +1,368 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.imaging_test.v1
+
+concept
+	[at0000]	-- Imaging test
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+		["organisation"] = <"NEHTA">
+		["email"] = <"clinicalinfo@nehta.gov.au">
+		["date"] = <"27-Apr-2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The result of an imaging test or study.  This also acts as the parent for specialisations appropriate for more specific imaging tests, e.g.  magnetic resonance imaging, ultrasound, CT scanning , nucelar medicine.">
+			use = <"">
+			keywords = <"CAT", "CT", "Computed Tomography", "Imaging", "Magnetic Resonance Imaging", "MRI", "Nuclear Medicine Imaging", "Radiology", "Scan", "Ultrasound", "Xray", "X-ray">
+			misuse = <"">
+			copyright = <"© 2010 National E-Health Transition Authority">
+		>
+	>
+	lifecycle_state = <"Candidate">
+	other_contributors = <"Eric Browne", "Stephen Chu", "Eleanor Royle", "Ning Pan", "Robert L'egan", "Don Stewart", "Stephen Royce", "Ian McNicoll">
+	other_details = <
+		["references"] = <"IHE.netTechnical Frameworks - Radiology [Internet]. [date unknown];[cited 2011 Jan 2 ] Available from: http://www.ihe.net/Technical_Framework/index.cfm#radiology
+RSNA.org: Radiology Reporting [Internet]. [date unknown];[cited 2011 Jan 2 ] Available from: http://www.rsna.org/Informatics/radreports.cfm
+
+
+">
+		["MD5-CAM-1.0.1"] = <"78AF7EDDE116415630DC03A04B247F3B">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Imaging test
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0001] matches {	-- Event Series
+						data matches {
+							ITEM_TREE[at0002] matches {	-- Any event
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0013] matches {	-- Imaging procedure
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Imaging modality
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									allow_archetype CLUSTER[at0007] occurrences matches {0..1} matches {	-- Anatomical site
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+										exclude
+											archetype_id/value matches {/.*/}
+									}
+									CLUSTER[at0034] occurrences matches {0..*} matches {	-- View
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0035] occurrences matches {0..1} matches {	-- View name
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0042] occurrences matches {0..1} matches {	-- View identifiers
+												name matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0043, 	-- Series Instance UID
+															at0044, 	-- SOP Instance UID
+															at0045]	-- SOP Class UID
+														}
+													}
+												}
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {	-- Image
+												value matches {
+													DV_MULTIMEDIA matches {
+														media_type matches {[openEHR::]}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0036] occurrences matches {0..1} matches {	-- Comparison
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0037] occurrences matches {0..1} matches {	-- Comparative findings
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											CLUSTER[at0040] occurrences matches {0..*} matches {	-- Compared image
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0038] occurrences matches {0..1} matches {	-- Date of image
+														value matches {
+															DV_DATE_TIME matches {*}
+														}
+													}
+													ELEMENT[at0039] occurrences matches {0..1} matches {	-- Name of image
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+													ELEMENT[at0046] occurrences matches {0..1} matches {	-- Image
+														value matches {
+															DV_MULTIMEDIA matches {
+																media_type matches {[openEHR::]}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0010] occurrences matches {0..*} matches {	-- Findings
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0041] occurrences matches {0..1} matches {	-- Finding name
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0023] occurrences matches {0..1} matches {	-- Finding
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0033] occurrences matches {0..1} matches {	-- Finding description
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Overall interpretation
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0015] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Requestor order identifier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {	-- Requestor
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Receiver order Identifier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0019] occurrences matches {0..*} matches {	-- Receiving Imaging Service 
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- Study identifier
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Imaging technique description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					dc_id = <"16145">
+					detail_docref = <"data_groups/NEHTA-16145-Imaging_Test-Data_Group.xml">
+					description = <"The result of an imaging laboratory test which may be used to record a single valued test but will often be specialised or templated to represent multiple value or 'panel' tests.  This also acts as the parent for specialisations appropriate for more specific imaging laboratory tests, e.g.  radiology, magnetic resonance imaging, ultrasound.">
+					spec_id = <"95">
+					text = <"Imaging test">
+					status = <"Candidate">
+					version = <"1.0">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0007"] = <
+					dc_id = <"16189.95.1">
+					status = <"Candidate">
+					description = <"The anatomical site being imaged.">
+					text = <"Anatomical site">
+					detail_docref = <"data_groups/NEHTA-16189-Imaging_Detail-Data_Group.xml">
+					version = <"1.0">
+				>
+				["at0009"] = <
+					dc_id = <"16205">
+					status = <"Candidate">
+					description = <"The summary of imaging findings.">
+					text = <"Overall interpretation">
+					detail_docref = <"data_elements/NEHTA-16205-Overall_Finding-Data_Element.xml">
+					version = <"1.0">
+				>
+				["at0010"] = <
+					dc_id = <"16131">
+					status = <"Candidate">
+					description = <"Detailed findings of the imaging procedure.">
+					text = <"Findings">
+					detail_docref = <"data_groups/NEHTA-16131-Protocol-Data_Group.xml">
+					version = <"1.0">
+				>
+				["at0011"] = <
+					dc_id = <"16206">
+					status = <"Candidate">
+					description = <"The broad category of imaging performed e.g Ultrasound, CT, X-ray.">
+					text = <"Imaging modality">
+					detail_docref = <"data_elements/NEHTA-16206-Study_Identifier-Data_Element.xml">
+					version = <"1.0">
+				>
+				["at0013"] = <
+					text = <"Imaging procedure">
+					description = <"The name, normally coded, of the specific imaging procedure performed e.g. CT scan. Equates to HL7 Universal Status ID.">
+				>
+				["at0015"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Requestor order identifier">
+					description = <"Equates to HL7 Placer Order Number.">
+				>
+				["at0017"] = <
+					text = <"Requestor">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Receiver order Identifier">
+					description = <"Equates to HL7 Filler Order Number">
+				>
+				["at0019"] = <
+					text = <"Receiving Imaging Service ">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Finding">
+					description = <"Brief, often coded, text, describing an individual finding of an imaging procedure e.g. '2cm node in left upper lobe'.">
+				>
+				["at0024"] = <
+					text = <"Image">
+					description = <"An attached or referenced image od a current view.">
+				>
+				["at0026"] = <
+					text = <"Study identifier">
+					description = <"Unique identifier of this study allocated by the imaging service, equates to DICOM Study Instance UID.">
+				>
+				["at0027"] = <
+					text = <"Imaging technique description">
+					description = <"Details of image acquisition e.g. parameters, contrast materials, patient position.">
+				>
+				["at0033"] = <
+					text = <"Finding description">
+					description = <"A more detailed description of an individual finding.">
+				>
+				["at0034"] = <
+					text = <"View">
+					description = <"Technical description of the view or views performed.">
+				>
+				["at0035"] = <
+					text = <"View name">
+					description = <"The name of the specific imaging view e.g Lateral or AP.">
+				>
+				["at0036"] = <
+					text = <"Comparison">
+					description = <"Details of comparisons with previous images.">
+				>
+				["at0037"] = <
+					text = <"Comparative findings">
+					description = <"Findings related to comparisons with previous images.">
+				>
+				["at0038"] = <
+					text = <"Date of image">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Name of image">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Compared image">
+					description = <"Details of previous images used for comparison.">
+				>
+				["at0041"] = <
+					text = <"Finding name">
+					description = <"The name of the finding e.g Chest, heart or bones for a Chest x-ray.">
+				>
+				["at0042"] = <
+					text = <"View identifiers">
+					description = <"DICOM identfiers for the specific view.">
+				>
+				["at0043"] = <
+					text = <"Series Instance UID">
+					description = <"DICOM Series Instance UID.">
+				>
+				["at0044"] = <
+					text = <"SOP Instance UID">
+					description = <"DICOM SOP Instance UID.">
+				>
+				["at0045"] = <
+					text = <"SOP Class UID">
+					description = <"DICOM SOP Class UID.">
+				>
+				["at0046"] = <
+					text = <"Image">
+					description = <"A previous image used for comparison, attached or referenced.">
+				>
+			>
+		>
+	>

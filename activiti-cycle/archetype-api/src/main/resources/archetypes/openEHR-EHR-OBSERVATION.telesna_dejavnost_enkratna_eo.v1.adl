@@ -1,0 +1,329 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.telesna_dejavnost_enkratna_eo.v1
+
+concept
+	[at0000]	-- Telesna dejavnost enkratna eo
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis gibalne dejavnosti za potrebe projekta eo.">
+			use = <"Zapis posamezne gibalne dejavnosti (enote, vadbe, treninga).">
+			misuse = <"Ne uporablja se za zapis splošnega statusa gibanja.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"5CC53A05F384AD8C210040D80C7E6A4F">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Telesna dejavnost enkratna eo
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0019] occurrences matches {0..1} matches {	-- Datum vadbe
+										value matches {
+											DV_DATE matches {*}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Športna panoga
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0022, 	-- Aerobika (različne oblike)
+													at0023, 	-- Cooperjev test - 2400 m
+													at0024, 	-- Cooperjev test - 12 min
+													at0025, 	-- Fitnes (delo z utežmi)
+													at0026, 	-- Hoja
+													at0027, 	-- Igre z loparjem (tenis, badminton, squash)
+													at0028, 	-- Igre z žogo (nogomet, košarka, odbojka, rokomet)
+													at0029, 	-- Kolesarjenje (cestno, gorsko)
+													at0030, 	-- Kolesarjenje (sobno)
+													at0031, 	-- Plavanje
+													at0032, 	-- Pohodništvo
+													at0033, 	-- Rolanje
+													at0034, 	-- Smučanje
+													at0035, 	-- Sproščanje
+													at0036, 	-- Tek
+													at0037, 	-- Tek na smučeh
+													at0038, 	-- Test hoje 2 km
+													at0039, 	-- Vaje za gibljivost
+													at0040, 	-- Vaje za koordinacijo
+													at0041, 	-- Vaje za moč (doma, ne v fitnesu)
+													at0042]	-- Drugo
+												}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Trajanje vadbe
+										value matches {
+											DV_TIME matches {*}
+										}
+									}
+									ELEMENT[at0055] occurrences matches {0..*} matches {	-- Razdalja
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"m">
+													>
+													["2"] = <
+														units = <"km">
+													>
+												>
+											>
+										}
+									}
+									allow_archetype CLUSTER[at0051] occurrences matches {0..*} matches {	-- Intenzivnost vadbe
+										include
+											archetype_id/value matches {/.*/}
+									}
+									allow_archetype CLUSTER[at0054] occurrences matches {0..*} matches {	-- Število ponovitev
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.stevilo_ponovitev_eo(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									allow_archetype CLUSTER[at0053] occurrences matches {0..*} matches {	-- Srčni utrip
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.frekvenca_srca_eo(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									allow_archetype CLUSTER[at0052] occurrences matches {0..*} matches {	-- Počutje med vadbo
+										include
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0057] occurrences matches {0..1} matches {	-- Porabljena energija
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::121]>
+												list = <
+													["1"] = <
+														units = <"kcal">
+													>
+													["2"] = <
+														units = <"J">
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- Vadba opravljena
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0050] occurrences matches {0..*} matches {	-- Razlogi za neopravljeno vadbo
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.telesna_dejavnost_neopravljena_razlogi(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {	-- Opombe
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Telesna dejavnost enkratna eo">
+					description = <"Arhetip za zapis gibalne dejavnosti (enote, vadbe, treninga).">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Športna panoga">
+					description = <"Športna panoga s seznama.">
+				>
+				["at0006"] = <
+					text = <"Trajanje vadbe">
+					description = <"Zapis trajanja vadbe (v minutah).">
+				>
+				["at0018"] = <
+					text = <"Opombe">
+					description = <"Komentar k zapisu vadbe.">
+				>
+				["at0019"] = <
+					text = <"Datum vadbe">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Vadba opravljena">
+					description = <"Ali je bila vadba opravljena?">
+				>
+				["at0022"] = <
+					text = <"Aerobika (različne oblike)">
+					description = <"Aerobika (različne oblike)">
+				>
+				["at0023"] = <
+					text = <"Cooperjev test - 2400 m">
+					description = <"Cooperjev test na 2400 m (beleži se čas)">
+				>
+				["at0024"] = <
+					text = <"Cooperjev test - 12 min">
+					description = <"Cooperjev test 12 minut - beleži se prehojena/pretečena dolžina">
+				>
+				["at0025"] = <
+					text = <"Fitnes (delo z utežmi)">
+					description = <"Fitnes (delo z utežmi)">
+				>
+				["at0026"] = <
+					text = <"Hoja">
+					description = <"Hoja">
+				>
+				["at0027"] = <
+					text = <"Igre z loparjem (tenis, badminton, squash)">
+					description = <"Igre z loparjem (tenis, badminton, squash)">
+				>
+				["at0028"] = <
+					text = <"Igre z žogo (nogomet, košarka, odbojka, rokomet)">
+					description = <"Igre z žogo (nogomet, košarka, odbojka, rokomet)">
+				>
+				["at0029"] = <
+					text = <"Kolesarjenje (cestno, gorsko)">
+					description = <"Kolesarjenje (cestno, gorsko)">
+				>
+				["at0030"] = <
+					text = <"Kolesarjenje (sobno)">
+					description = <"Sobno kolo (doma, skupinsko)">
+				>
+				["at0031"] = <
+					text = <"Plavanje">
+					description = <"Plavanje">
+				>
+				["at0032"] = <
+					text = <"Pohodništvo">
+					description = <"Pohodništvo">
+				>
+				["at0033"] = <
+					text = <"Rolanje">
+					description = <"Rolanje">
+				>
+				["at0034"] = <
+					text = <"Smučanje">
+					description = <"Smučanje">
+				>
+				["at0035"] = <
+					text = <"Sproščanje">
+					description = <"Sproščanje">
+				>
+				["at0036"] = <
+					text = <"Tek">
+					description = <"Tek">
+				>
+				["at0037"] = <
+					text = <"Tek na smučeh">
+					description = <"Tek na smučeh">
+				>
+				["at0038"] = <
+					text = <"Test hoje 2 km">
+					description = <"Test hoje na 2 kilometra">
+				>
+				["at0039"] = <
+					text = <"Vaje za gibljivost">
+					description = <"Vaje za gibljivost">
+				>
+				["at0040"] = <
+					text = <"Vaje za koordinacijo">
+					description = <"Vaje za koordinacijo">
+				>
+				["at0041"] = <
+					text = <"Vaje za moč (doma, ne v fitnesu)">
+					description = <"Vaje za moč (delo z lastno težo, manjšimi utežmi)">
+				>
+				["at0042"] = <
+					text = <"Drugo">
+					description = <"Drugo, ni na seznamu">
+				>
+				["at0050"] = <
+					text = <"Razlogi za neopravljeno vadbo">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Intenzivnost vadbe">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Počutje med vadbo">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Srčni utrip">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Število ponovitev">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Razdalja">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Porabljena energija">
+					description = <"*">
+				>
+			>
+		>
+	>

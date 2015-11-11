@@ -1,0 +1,331 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.telesna_dejavnost_eo.v1
+
+concept
+	[at0000]	-- Telesna dejavnost eo
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis gibalne dejavnosti za potrebe projekta eo.">
+			use = <"Zapis posamezne gibalne dejavnosti (enote, vadbe, treninga) in zapis količine vadbe v časovnem obdobju.">
+			misuse = <"Ne uporablja se za zapis splošnega statusa gibanja.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"5ECC08960AD2E305F08D67B29987A123">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Telesna dejavnost eo
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0020] occurrences matches {0..1000} matches {	-- Opis ene vadbene enote
+										items cardinality matches {0..1000; unordered} matches {
+											ELEMENT[at0043] occurrences matches {0..1000} matches {	-- Datum vadbe
+												value matches {
+													DV_DATE matches {*}
+												}
+											}
+											ELEMENT[at0004] occurrences matches {0..1000} matches {	-- Vrsta vadbe
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0044, 	-- Aerobika (različne oblike)
+															at0045, 	-- Cooperjev test - 2400 m
+															at0046, 	-- Cooperjev test - 12 min
+															at0047, 	-- Fitnes (delo z utežmi)
+															at0048, 	-- Hoja
+															at0049, 	-- Igre z loparjem (tenis, badminton, squash)
+															at0050, 	-- Igre z žogo (nogomet, košarka, odbojka)
+															at0051, 	-- Kolesarjenje (cestno, gorsko)
+															at0052, 	-- Kolesarjenje (sobno)
+															at0053, 	-- Plavanje
+															at0054, 	-- Pohodništvo
+															at0055, 	-- Rolanje
+															at0056, 	-- Smučanje
+															at0057, 	-- Sproščanje
+															at0058, 	-- Tek
+															at0059, 	-- Tek na smučeh
+															at0060, 	-- Test hoje 2 km
+															at0061, 	-- Vaje za gibljivost
+															at0062, 	-- Vaje za koordinacijo
+															at0063, 	-- Vaje za moč (doma, ne v fitnesu)
+															at0064]	-- Drugo
+														}
+													}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1000} matches {	-- Intenzivnost vadbe
+												value matches {
+													1|[local::at0013], 	-- Zelo nizka intenzivnost
+													2|[local::at0014], 	-- Nizka intenzivnost
+													3|[local::at0015], 	-- Zmerna intenzivnost
+													4|[local::at0016], 	-- Visoka intenzivnost
+													5|[local::at0017]  	-- Zelo visoka intenzivnost
+												}
+											}
+											ELEMENT[at0006] occurrences matches {0..1000} matches {	-- Trajanje vadbe (minute)
+												value matches {
+													DV_TIME matches {
+														value matches {HH:MM:??}
+													}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..985} matches {	-- Komentar
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {	-- Kolikokrat na teden ste bili v zadnjih 14 dnevih gibalno aktivni (30 min zmerne ali visoke intenzivnosti)?
+										value matches {
+											0|[local::at0024], 	-- 0 - nikoli
+											1|[local::at0025], 	-- 1
+											2|[local::at0026], 	-- 2
+											3|[local::at0027], 	-- 3
+											4|[local::at0028], 	-- 4
+											5|[local::at0029], 	-- 5
+											6|[local::at0030], 	-- 6
+											7|[local::at0031]  	-- 7 - vsak dan
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Telesna dejavnost eo">
+					description = <"Arhetip za zapis gibalne dejavnosti (enote, vadbe, treninga).">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vrsta vadbe">
+					description = <"Športna panoga s seznama.">
+				>
+				["at0006"] = <
+					text = <"Trajanje vadbe (minute)">
+					description = <"Zapis trajanja vadbe (v minutah).">
+				>
+				["at0012"] = <
+					text = <"Intenzivnost vadbe">
+					description = <"Opis intenzivnosti vadbe - pet območij (določeno s % FSmax in splošnim opisom).">
+				>
+				["at0013"] = <
+					text = <"Zelo nizka intenzivnost">
+					description = <"Regeneracija (do 60 % FSmax). Med aktivnostjo je mogoč sproščen pogovor.">
+				>
+				["at0014"] = <
+					text = <"Nizka intenzivnost">
+					description = <"Aerobno I (60 do 70 % FSmax). Med aktivnostjo je mogoč pogovor s krajšimi prekinitvami.">
+				>
+				["at0015"] = <
+					text = <"Zmerna intenzivnost">
+					description = <"Aerobno II (70 do 80 % FSmax). Med vadbo je pogovor otežen, pogovarja se lahko le v zelo kratkih stavkih.">
+				>
+				["at0016"] = <
+					text = <"Visoka intenzivnost">
+					description = <"Aerobno in anaerobno (80 do 90 % FSmax). Med vadbo je pogovor otežen, pogovarja se lahko le v zelo kratkih stavkih.">
+				>
+				["at0017"] = <
+					text = <"Zelo visoka intenzivnost">
+					description = <"Pretežno anaerobno (90 do 100 % FSmax). Med vadbo pogovor praktično ni mogoč.">
+				>
+				["at0018"] = <
+					text = <"Komentar">
+					description = <"Komentar k zapisu vadbe.">
+				>
+				["at0020"] = <
+					text = <"Opis ene vadbene enote">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Kolikokrat na teden ste bili v zadnjih 14 dnevih gibalno aktivni (30 min zmerne ali visoke intenzivnosti)?">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"0 - nikoli">
+					description = <"0 - nikoli">
+				>
+				["at0025"] = <
+					text = <"1">
+					description = <"1 x na teden">
+				>
+				["at0026"] = <
+					text = <"2">
+					description = <"2 x na teden">
+				>
+				["at0027"] = <
+					text = <"3">
+					description = <"3 x na teden">
+				>
+				["at0028"] = <
+					text = <"4">
+					description = <"4 x na teden">
+				>
+				["at0029"] = <
+					text = <"5">
+					description = <"5 x na teden">
+				>
+				["at0030"] = <
+					text = <"6">
+					description = <"6 x na teden">
+				>
+				["at0031"] = <
+					text = <"7 - vsak dan">
+					description = <"Vsak dan">
+				>
+				["at0043"] = <
+					text = <"Datum vadbe">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Aerobika (različne oblike)">
+					description = <"Aerobika (različne oblike)">
+				>
+				["at0045"] = <
+					text = <"Cooperjev test - 2400 m">
+					description = <"Cooperjev test na 2400 m (beleži se čas)">
+				>
+				["at0046"] = <
+					text = <"Cooperjev test - 12 min">
+					description = <"Cooperjev test 12 minut - beleži se prehojena/pretečena dolžina">
+				>
+				["at0047"] = <
+					text = <"Fitnes (delo z utežmi)">
+					description = <"Fitnes (delo z utežmi)">
+				>
+				["at0048"] = <
+					text = <"Hoja">
+					description = <"Hoja">
+				>
+				["at0049"] = <
+					text = <"Igre z loparjem (tenis, badminton, squash)">
+					description = <"Igre z loparjem (tenis, badminton, squash)">
+				>
+				["at0050"] = <
+					text = <"Igre z žogo (nogomet, košarka, odbojka)">
+					description = <"Igre z žogo (nogomet, košarka, odbojka)">
+				>
+				["at0051"] = <
+					text = <"Kolesarjenje (cestno, gorsko)">
+					description = <"Kolesarjenje (cestno, gorsko)">
+				>
+				["at0052"] = <
+					text = <"Kolesarjenje (sobno)">
+					description = <"Sobno kolo (doma, skupinsko)">
+				>
+				["at0053"] = <
+					text = <"Plavanje">
+					description = <"Plavanje">
+				>
+				["at0054"] = <
+					text = <"Pohodništvo">
+					description = <"Pohodništvo">
+				>
+				["at0055"] = <
+					text = <"Rolanje">
+					description = <"Rolanje">
+				>
+				["at0056"] = <
+					text = <"Smučanje">
+					description = <"Smučanje">
+				>
+				["at0057"] = <
+					text = <"Sproščanje">
+					description = <"Sproščanje">
+				>
+				["at0058"] = <
+					text = <"Tek">
+					description = <"Tek">
+				>
+				["at0059"] = <
+					text = <"Tek na smučeh">
+					description = <"Tek na smučeh">
+				>
+				["at0060"] = <
+					text = <"Test hoje 2 km">
+					description = <"Test hoje na 2 kilometra">
+				>
+				["at0061"] = <
+					text = <"Vaje za gibljivost">
+					description = <"Vaje za gibljivost">
+				>
+				["at0062"] = <
+					text = <"Vaje za koordinacijo">
+					description = <"Vaje za koordinacijo">
+				>
+				["at0063"] = <
+					text = <"Vaje za moč (doma, ne v fitnesu)">
+					description = <"Vaje za moč (delo z lastno težo, manjšimi utežmi)">
+				>
+				["at0064"] = <
+					text = <"Drugo">
+					description = <"Drugo, ni na seznamu">
+				>
+			>
+		>
+	>

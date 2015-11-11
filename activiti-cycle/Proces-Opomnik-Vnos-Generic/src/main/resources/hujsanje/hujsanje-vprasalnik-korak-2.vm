@@ -1,0 +1,147 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<h3>
+		<a href="#">Vprašalnik - prehrana</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr><td style="width: 120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera skupina živil je čisto na vrhu piramide in jo moramo uživati čim manj?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!02.v1]?data[at0001]?items[at0010]?items[at0005]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0021">Zelenjava</option>
+						<option value="at0022">Mleko in mlečni izdelki</option>
+						<option value="at0020">Živila z veliko maščob in sladkorjev</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Koliko enot škrobnega (ogljikohidratnega) živila predstavljata 2 kosa kruha (120 g)?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!02.v1]?data[at0001]?items[at0010]?items[at0009]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0025">1 enoto</option>
+						<option value="at0024">2 enoti</option>
+						<option value="at0023">4 enote</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kakšna je optimalna izguba telesne mase v enem mesecu?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!02.v1]?data[at0001]?items[at0010]?items[at0014]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0026">2 do 2,5 kg</option>
+						<option value="at0027">Vsaj 5 kg</option>
+						<option value="at0028">Čim več, tem bolje</option>
+					</select>
+				</td>
+			</tr>			
+			
+		</table>
+
+	</div>			
+
+	<h3>
+		<a href="#">Vprašalnik - gibanje</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera trditev velja za hojo?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!02.v1]?data[at0001]?items[at0019]?items[at0029]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0031">Hoja ni koristna v procesu hujšanja, ker je premalo intenzivna</option>
+						<option value="at0030">Primerna je zlasti za posameznike z zelo veliko telesno maso</option>
+						<option value="at0032">Hoja je koristna samo, če hodimo po naravni podlagi</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Individualni program telesne dejavnosti je pomemben:</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!02.v1]?data[at0001]?items[at0019]?items[at0033]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0036">Varnost in učinkovitost telesne dejavnosti</option>
+						<option value="at0038">Da lahko tekmujemo s prijatelji</option>
+						<option value="at0037">Za manjšo motivacijo pri vadbi</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Mavrični program hoje je:</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!02.v1]?data[at0001]?items[at0019]?items[at0034]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0041">Program hoje, teka in poskokov po barvah mavrice</option>
+						<option value="at0039">Začetni program hoje, pri katerem se zahtevnost postopno povečuje</option>
+						<option value="at0040">Program hoje, ki svetuje, da hodimo, ko zunaj opazimo mavrico</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Stopnjo telesne pripravljenosti lahko ocenimo/izmerimo:</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!02.v1]?data[at0001]?items[at0019]?items[at0035]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0042">S pomočjo preizkusa hoje na 2 km</option>
+						<option value="at0043">Z merjenjem obsega pasu</option>
+						<option value="at0044">Z vodenjem dnevnika telesne dejavnosti</option>
+					</select>
+				</td>
+			</tr>			
+				
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

@@ -1,0 +1,162 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.endoscopy_findings.v1
+
+concept
+	[at0000]	-- Endoscopy Findings
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["tr"] = <
+			language = <[ISO_639-1::tr]>
+			author = <
+				["organisation"] = <"The University of Auckland">
+				["name"] = <"Koray Atalag">
+				["email"] = <"k.atalag@auckland.ac.nz">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+		["organisation"] = <"The University of Auckland">
+		["email"] = <"koray@cs.auckland.ac.nz">
+		["date"] = <"7/01/2010">
+	>
+	details = <
+		["tr"] = <
+			language = <[ISO_639-1::tr]>
+			purpose = <"Genel olarak gastrointestinal sistem endoskopisi bulgularını tanımlar ve ayrıca özel olarak ta organ bazlı MST Bulguları CLUSTER arketiplerini kapsar.">
+			use = <"Gastrointestinal endoskopi bulgularını tanımlar ve organ bazlı belirli MST Bulguları CLUSTER arketiplerini için bir slot içerir.">
+			keywords = <"endoskopi", "gastroenteroloji", "MST">
+			misuse = <"Endoskopi dışında kullanımı uygun değildir.">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"It records gastrointestinal endoscopy findings in general and specifically acts as the container for organ specific MST Findings CLUSTER archetypes.">
+			use = <"To describe gastrointestinal endoscopy findings which also includes a slot for organ specific MST Findings CLUSTER archetypes.">
+			keywords = <"endoscopy", "gastroenterology", "MST">
+			misuse = <"Not appropriate for use other than gastrointestinal endoscopy.">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Delvaux M. Minimal standard terminology in digestive endoscopy. Endoscopy 2000; 32(2):162-88.">
+		["MD5-CAM-1.0.1"] = <"755C2E45D61F179EB77D825EBA634ECB">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Endoscopy Findings
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0005] matches {	-- Tree
+								items cardinality matches {1..*; unordered} matches {
+									allow_archetype CLUSTER[at0009] occurrences matches {0..*} matches {	-- MST Findings
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.mst_findings_stomach(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.mst_findings_esophagus(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.mst_findings_duodenum(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.mst_findings_biliary_system(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.mst_findings_colon(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.mst_findings_pancreas(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.mst_findings_papilla_major(-[a-zA-Z0-9_]+)*\.v1|openEHR-EHR-CLUSTER\.mst_findings_papilla_minor(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["tr"] = <
+			items = <
+				["at0000"] = <
+					text = <"Endoskopi Bulguları">
+					description = <"Jenerik arketip">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"*Description(en)">
+					description = <"Diğer içerik">
+				>
+				["at0009"] = <
+					text = <"*MST Findings(en)">
+					description = <"*MST describes findings per organ for this exam type.(en)">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Endoscopy Findings">
+					description = <"Generic archetype which contains a slot for CLUSTER archetypes describing Findings for each organ in MST. 
+It is intended to fit into the FINDINGS slot in the main COMPOSITION archetype.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Description">
+					description = <"Any other content (i.e. non-MST free text).">
+				>
+				["at0009"] = <
+					text = <"MST Findings">
+					description = <"MST describes findings per organ for this exam type.">
+				>
+			>
+		>
+	>

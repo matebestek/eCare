@@ -1,0 +1,202 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_vkljucitevPacientaVStudijo_accordion">
+
+	<h3><a href="#">Vnos osnovnih podatkov pacienta</a></h3>
+	<div>
+	
+		<table class="layout-tf">
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Identifikacijska �tevilka pacienta</p>
+				</td>
+				<td>
+					<input name="birpisId" value="" type="text">
+					<input name="birpisId_type" value="String" type="hidden">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Spol</p>
+				</td>
+				<td>
+					<p><input name="spol" value="male" type="radio"> moški</p>
+					<p><input name="spol" value="female" type="radio"> ženska</p>
+					<input name="spol_type" value="String" type="hidden">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Rojstni datum</p>
+				</td>
+				<td>
+					<input name="birthDate" value="" type="text">
+					<input name="birthDate_type" value="Date" type="hidden">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Naslov elektronske pošte</p>
+				</td>
+				<td>
+					<input name="eMail" value="" type="text">
+					<input name="eMail_type" value="String" type="hidden">
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>
+	
+	<h3><a href="#">Vnos kliničnih podatkov pacienta</a></h3>
+	<div>
+		
+		<table class="layout-tf">
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Teža (kg)</p>
+				</td>
+				<td>
+					<input name="weight" value="" type="text">
+					<input name="weight_type" value="Integer" type="hidden">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Višina (cm)</p>
+				</td>
+				<td>
+					<input name="height" value="" type="text">
+					<input name="height_type" value="Integer" type="hidden">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Kadilski status</p>
+				</td>
+				<td>
+					<select name="smokingIntensity">
+						<option value="at0003">Trenutni uporabnik</option>
+						<option value="at0004">Redni užvalec tobaka v preteklosti</option>
+						<option value="at0006">Običajni uživalec tobaka v preteklosti</option>
+						<option value="at0016">Nikoli kadilec</option>
+					</select>
+					<input name="smokingIntensity_type" value="String" type="hidden">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Oblika uživanja tobaka</p>
+				</td>
+				<td>
+					<select name="smokingType">
+						<option value="at0.18">Cigarete - tovarniške</option>
+						<option value="at0.19">Cigarete - doma izdelane</option>
+						<option value="at0.20">Cigare</option>
+						<option value="at0.21">Pipa</option>
+					</select>
+					<input name="smokingType_type" value="String" type="hidden">
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>
+
+	<h3><a href="#">Vprašalnik za ugotavljanje urejenosti astme (ACT vprašalnik)</a></h3>
+	<div>
+	
+		<p>Koliko časa vam je v zadnjih 4. tednih astma onemogočala, da bi v službi, šoli, univerzi ali doma izvajali svoje običajne aktivnosti?</p>
+		<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0034]?value">
+			<option value="at0039">Več časa</option>
+			<option value="at0040">Večino časa</option>
+			<option value="at0041">Nekaj časa</option>
+			<option value="at0042">Malo časa</option>
+			<option value="at0043">Nič časa</option>
+		</select>
+		<input name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0034]?value_type" value="String" type="hidden">
+	
+		<p>Kolikokrat ste v zadnjih 4. Tednih imeli kratko sapo?</p>
+		<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0035]?value">
+			<option value="at0044">Več kot enkrat na dan</option>
+			<option value="at0045">Enkrat na dan</option>
+			<option value="at0046">3 do 6 krat na teden</option>
+			<option value="at0047">Enkrat do dvakrat na teden</option>
+			<option value="at0048">Nikoli</option>
+		</select>
+		<input name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0035]?value_type" value="String" type="hidden">
+	
+		<p>Kolikokrat v zadnjih 4. tednih so vas ponoči ali zgodaj zjutraj zbudili simptomi astme (piskanje, kašelj, dušenje, stiskanje ali bolečine v prsih)?</p>
+		<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0036]?value">
+			<option value="at0049">4 ali več noči na teden</option>
+			<option value="at0050">2 do 3 noči na teden</option>
+			<option value="at0051">Enkrat na teden</option>
+			<option value="at0052">Enkrat ali dvakrat</option>
+			<option value="at0053">Nikoli</option>
+		</select>
+		<input name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0036]?value_type" value="String" type="hidden">
+		
+		<p>Kolikokrat ste v zadnjih 4. tednih uporabili olajševalec v pršilu ali inhalaciji (kot so Ventolin®, Berotec® in Berodual®)?</p>
+							<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value">
+			<option value="at0054">3 ali večkrat na teden</option>
+			<option value="at0055">1 ali 2 krat na teden</option>
+			<option value="at0056">2 ali 3 krat na teden</option>
+			<option value="at0057">1 krat na teden ali manj</option>
+			<option value="at0058">Nikoli</option>
+		</select>
+		<input name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value_type" value="String" type="hidden">
+		
+		<p>Kako bi ocenili vaš nadzor nad astmo v zadnjih 4. tednih?</p>
+		<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0038]?value">
+			<option value="at0059">Sploh nisem imel nadzora</option>
+			<option value="at0060">Slab nadzor</option>
+			<option value="at0061">Dokaj dober nadzor</option>
+			<option value="at0062">Dober nadzor</option>
+			<option value="at0063">Popoln nadzor</option>
+		</select>
+		<input name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0038]?value_type" value="String" type="hidden">
+	
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	activiti_vkljucitevPacientaVStudijo_onLoad();
+</script>

@@ -1,0 +1,381 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.findrisc_questionnaire_eo.v1
+
+concept
+	[at0000]	-- FINDRISC questionnaire
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Določanje tveganja za razvoj sladkorne bolezni tip 2.">
+			use = <"Vprašalnik se uporablja za presejanje ljudi s tveganjm za razvoj sladkorne bolezni tip 2.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"38DD17B013F085987C29DFED4B7CAA10">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- FINDRISC questionnaire
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Starost
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0006, 	-- pod 45 let
+													at0007, 	-- 45-54 let
+													at0008, 	-- 55-64 let
+													at0009]	-- nad 64 let
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- ITM
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0010, 	-- pod 25
+													at0011, 	-- 25-30
+													at0012]	-- nad 30
+												}
+											}
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {	-- Obseg pasu (M)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0020, 	-- pod 94 cm
+													at0021, 	-- 94-102 cm
+													at0022]	-- nad 102 cm
+												}
+											}
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {	-- Obseg pasu (Ž)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0023, 	-- pod 80 cm
+													at0024, 	-- 80-88 cm
+													at0025]	-- nad 88 cm
+												}
+											}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {	-- Ste navadno dnevno aktivni vsaj 30 minut med delom in/ali prostim časom?
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0027, 	-- Da
+													at0028]	-- Ne
+												}
+											}
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {	-- Kako pogosto jeste zelenjavo in sadje?
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0030, 	-- Vsak dan
+													at0031]	-- Redkeje
+												}
+											}
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {	-- Ste kdaj redno jemali zdravila za nižanje krvnega tlaka?
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0033, 	-- Ne
+													at0034]	-- Da
+												}
+											}
+										}
+									}
+									ELEMENT[at0035] occurrences matches {0..1} matches {	-- So vam kdaj izmerili zvišano koncentracijo krvnega sladkorja (kadarkoli)?
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0036, 	-- Ne
+													at0037]	-- Da
+												}
+											}
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {	-- Je imal kdo od bližnjih ali širših sorodnikov sladkorno bolezen (diabetes tipa 1 ali 2)?
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0039, 	-- Ne
+													at0040, 	-- Da, drugo koleno
+													at0041]	-- Da, prvo koleno
+												}
+											}
+										}
+									}
+									ELEMENT[at0042] occurrences matches {0..1} matches {	-- Seštevek točk
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..26|}
+											}
+										}
+									}
+									ELEMENT[at0043] occurrences matches {0..1} matches {	-- Tveganje
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0044, 	-- pod 7
+													at0045, 	-- 7-11
+													at0046, 	-- 12-14
+													at0047, 	-- 15-20
+													at0048]	-- nad 20
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"FINDRISC questionnaire">
+					description = <"Določanje tveganja za razvoj sladkorne bolezni tip 2">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Starost">
+					description = <"Starost osebe.">
+				>
+				["at0005"] = <
+					text = <"ITM">
+					description = <"Indeks telesne mase posameznika.">
+				>
+				["at0006"] = <
+					text = <"pod 45 let">
+					description = <"Starost manj kot 45 let (0 točk)">
+				>
+				["at0007"] = <
+					text = <"45-54 let">
+					description = <"Starost 45-54 let (2 točki).">
+				>
+				["at0008"] = <
+					text = <"55-64 let">
+					description = <"Starost 55-64 let (3 točke).">
+				>
+				["at0009"] = <
+					text = <"nad 64 let">
+					description = <"Starost nad 64 let (4 točke).">
+				>
+				["at0010"] = <
+					text = <"pod 25">
+					description = <"Manj kot 25 kg/m2 (0 točk)">
+				>
+				["at0011"] = <
+					text = <"25-30">
+					description = <"25 do 30 kg/m2 (1 točka)">
+				>
+				["at0012"] = <
+					text = <"nad 30">
+					description = <"Več kot 30 kg/m2 (3 točka)">
+				>
+				["at0018"] = <
+					text = <"Obseg pasu (M)">
+					description = <"Obseg pasu v višini popka za moške.">
+				>
+				["at0019"] = <
+					text = <"Obseg pasu (Ž)">
+					description = <"Obseg pasu v višini popka za ženske.">
+				>
+				["at0020"] = <
+					text = <"pod 94 cm">
+					description = <"Obseg pasu je manj kot 94 cm (0 točk).">
+				>
+				["at0021"] = <
+					text = <"94-102 cm">
+					description = <"Obseg pasu je med 94 in 102 cm (3 točke).">
+				>
+				["at0022"] = <
+					text = <"nad 102 cm">
+					description = <"Obseg pasu je več kot 102 cm (4 točke).">
+				>
+				["at0023"] = <
+					text = <"pod 80 cm">
+					description = <"Obseg pasu je manj kot 80 cm (0 točk).">
+				>
+				["at0024"] = <
+					text = <"80-88 cm">
+					description = <"Obseg pasu je med 80 in 88 cm (3 točke).">
+				>
+				["at0025"] = <
+					text = <"nad 88 cm">
+					description = <"Obseg pasu je nad 88 cm (4 točke).">
+				>
+				["at0026"] = <
+					text = <"Ste navadno dnevno aktivni vsaj 30 minut med delom in/ali prostim časom?">
+					description = <"Ste navadno dnevno aktivni vsaj 30 minut med delom in/ali prostim časom?">
+				>
+				["at0027"] = <
+					text = <"Da">
+					description = <"Da (0 točk)">
+				>
+				["at0028"] = <
+					text = <"Ne">
+					description = <"Ne (2 točki).">
+				>
+				["at0029"] = <
+					text = <"Kako pogosto jeste zelenjavo in sadje?">
+					description = <"Kako pogosto jeste zelenjavo in sadje?">
+				>
+				["at0030"] = <
+					text = <"Vsak dan">
+					description = <"Vsak dan (0 točk).">
+				>
+				["at0031"] = <
+					text = <"Redkeje">
+					description = <"Redkeje, ne vsak dan (1 točka).">
+				>
+				["at0032"] = <
+					text = <"Ste kdaj redno jemali zdravila za nižanje krvnega tlaka?">
+					description = <"Ste kdaj redno jemali zdravila za nižanje krvnega tlaka?">
+				>
+				["at0033"] = <
+					text = <"Ne">
+					description = <"Ne (0 točk).">
+				>
+				["at0034"] = <
+					text = <"Da">
+					description = <"Da (2 točki).">
+				>
+				["at0035"] = <
+					text = <"So vam kdaj izmerili zvišano koncentracijo krvnega sladkorja (kadarkoli)?">
+					description = <"So vam kdaj izmerili zvišano koncentracijo krvnega sladkorja (kadarkoli)?">
+				>
+				["at0036"] = <
+					text = <"Ne">
+					description = <"Ne (0 točk)">
+				>
+				["at0037"] = <
+					text = <"Da">
+					description = <"Da (5 točk).">
+				>
+				["at0038"] = <
+					text = <"Je imal kdo od bližnjih ali širših sorodnikov sladkorno bolezen (diabetes tipa 1 ali 2)?">
+					description = <"Je imal kdo od bližnjih ali širših sorodnikov sladkorno bolezen (diabetes tipa 1 ali 2)?">
+				>
+				["at0039"] = <
+					text = <"Ne">
+					description = <"Ne (0 točk).">
+				>
+				["at0040"] = <
+					text = <"Da, drugo koleno">
+					description = <"Da: stari stariši, teta, stric, bratranec idr. (3 točke).">
+				>
+				["at0041"] = <
+					text = <"Da, prvo koleno">
+					description = <"Da: starši, brat, sestra, otrok (5 točk).">
+				>
+				["at0042"] = <
+					text = <"Seštevek točk">
+					description = <"Seštevek točk.">
+				>
+				["at0043"] = <
+					text = <"Tveganje">
+					description = <"Ugotovljeno tveganje na podlagi seštevka točk.">
+				>
+				["at0044"] = <
+					text = <"pod 7">
+					description = <"Nizko: 1 od 100 bo zbolel.">
+				>
+				["at0045"] = <
+					text = <"7-11">
+					description = <"Rahlo zvečano: 1 od 25 bo zbolel.">
+				>
+				["at0046"] = <
+					text = <"12-14">
+					description = <"Zmerno: 1 od 6 bo zbolel.">
+				>
+				["at0047"] = <
+					text = <"15-20">
+					description = <"Visoko: 1 od 3 bo zbolel.">
+				>
+				["at0048"] = <
+					text = <"nad 20">
+					description = <"Zelo visoko: 1 od 2 bo zbolel.">
+				>
+			>
+		>
+	>

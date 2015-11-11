@@ -1,0 +1,866 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>eŠport - Navodila in pomoč uporabnikom</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+		<link href="css/style-1.0.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+	</head>
+	<body>	
+		
+		<div id="top-banner">
+			<img id="eo-logo" src="img/1_100_eo.png" />
+		</div>
+		
+		<div id="eo-container">
+		
+			<div class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/eSport.png" />&nbsp;&nbsp;</td>
+						<td>
+							<div style="font-size:125%;">
+							
+								<b><a name="1">Navodila in pomoč uporabnikom portala <span style="color:#8C3836;">eŠport</span></a></b><br />
+								
+								<p>Portal eŠport je uporabna aplikacija za vse, ki si želijo dodatno motivacijo pri uvajanju pogostejše telesne
+								aktivnosti. Uporabnik opravljene aktivnosti vnaša v sistem, iz katerih se avtomatsko konstruirajo statistični
+								pregledi vseh opravljenih aktivnosti. Na voljo je tudi Facebook integracija, s katero lahko sistem samodejno
+								objavi uporabnikove nove dosežke na njegovem javnem profilu.</p>
+							
+							</div>
+							
+							<div id="eo-intro-more">
+								
+								<table>
+									<tr>
+										<td>
+											<p id="v" class="eo-contents-title">Navodila in pomoč za uporabnike:</p>
+											<ol>
+												<li><a class="scroll" href="#o1">Kaj je eOskrba? Kaj je eŠport?</a></li>
+												<li><a class="scroll" href="#o2">Kako postanem uporabnik / uporabnica?</a></li>
+												<li><a class="scroll" href="#o3">Kakše so zahteve za uporabo?</a></li>
+												<li><a class="scroll" href="#o4">Kako se prijavim v platformo?</a></li>
+												<li><a class="scroll" href="#o5">Kako uporabljam spletno aplikacijo?</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o6">Moje naloge</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o7">Moja poročila</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o8">Moja zdravila</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o9">Novice in priporočila</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o10">Izobraževalne vsebine</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o11">Vprašanja</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o12">Pogovor v živo</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o13">Nastavitve</a></li>
+												<li style="margin-left:48px;"><a class="scroll" href="#o14">Sprememba gesla</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o15">Opravila</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o16">Napredek</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o17">Podatki o mojem zdravniku</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#o18">Odjava</a></li>
+												<li><a class="scroll" href="#o19">Kako do pomoči, če odgovora ne najdem tukaj?</a></li>
+											</ol>
+										</td>
+										<td>
+											<p class="eo-contents-title">Navodila in pomoč za zdravniško osebje:</p>
+											<ol>
+												<li><a class="scroll" href="#z1">O različici za zdravniško osebje</a></li>
+												<li><a class="scroll" href="#z2">Kakšne so razlike z uporabniško različico?</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#z3">Stanje pacientov</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#z4">Administracija</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#z5">Vprašanja</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#z6">V živo</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#z7">Vsebine</a></li>
+												<li style="margin-left:24px;"><a class="scroll" href="#z8">Podrobnosti</a></li>
+												<li><a class="scroll" href="#z9">Prijava napak in oddaja predlogov</a></li>
+											</ol>
+										</td>
+									</tr>
+								</table>
+							
+							</div>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o1" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o1.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Kaj je eOskrba? Kaj je eŠport?</a></b><br />
+							
+							<p><b>eOskrba</b> je skupno ime za celovito platformo, ki se razvija z namenom kliničnega ovrednotenja inovativne
+							zdravstvene intervencije, ki za podporo zdravstvene oskrbe uporabljajo sodobne informacijsko-komunikacijske tehnologije.</p>
+							
+							<p><b>eŠport</b> je tako le eden izmed portalov, ki deluje na skupni platformi. Portal eŠport je uporabna aplikacija za vse, ki si želijo
+							dodatno motivacijo pri uvajanju pogostejše telesne aktivnosti. Uporabnik opravljene aktivnosti vnaša v sistem, iz katerih se avtomatsko
+							konstruirajo statistični pregledi vseh opravljenih aktivnosti. Na voljo je tudi Facebook integracija, s katero lahko sistem samodejno objavi
+							uporabnikove nove dosežke na njegovem javnem profilu.</p>
+							
+							<img class="scrshot" src="img/o1i1.png" />
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o2" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o2.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Kako postanem uporabnik / uporabnica?</a></b><br />
+							
+							<p>Ker je trenutno glavni namen eOskrbe izpeljava kliničnih študij, prosta registracija v sistem še ni na voljo.</p>
+							
+							<p>Uporabnik platforme lahko trenutno postanete le, če se za to dogovorite z zdravniškim osebjem v eni izmed
+							zdravstvenih ustanov, ki sodelujejo pri študiji. Pri registraciji pa boste v tem primeru naključno razvrščeni
+							bodisi v eksperimentalno skupino ali kontrolno skupino. Le člani eksperimentalne skupine pridobijo dostop do
+							spletne aplikacije.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o3" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o3.jpg" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Kakšne so zahteve za uporabo?</a></b><br />
+							
+							<p>Za uporabo platforme potrebujete naslednje:</p>
+							
+							<ul>
+								<li>Osebni ali tablični računalnik z internetno povezavo</li>
+								<li>Internetni brskalnik (več o tem spodaj)</li>
+								<li>E-poštni predal</li>
+								<li>Mobilni telefon</li>
+							</ul>
+							
+							<p>Izbira pravilnega internetnega brskalnika lahko bistveno vpliva na uporabniško izkušnjo. Platforma eOskrba uradno
+							podpira naslednje brskalnike:</p>
+							
+							<ul>
+								<li><a href="https://www.google.com/intl/sl/chrome/browser/?hl=sl">Google Chrome</a></li>
+								<li><a href="http://www.apple.com/safari/">Apple Safari</a></li>
+								<li><a href="http://www.mozilla.org/sl/firefox/new/">Mozilla Firefox</a></li>
+								<li><a href="http://windows.microsoft.com/sl-si/internet-explorer/products/ie/home">Internet Explorer</a></li>
+							</ul>
+							
+							<p>Brskalnik Internet Explorer sicer uradno podpiramo, vendar njegovo izbiro odsvetujemo. Če imate možnost namestitve
+							enega izmed prvih treh naštetih, Vam svetujemo, da to tudi naredite.</p>
+							
+							<p style="font-size:80%;">Tehnične podrobnosti: Vaš brskalnik mora imeti omogočeno izvajanje JavaScript funkcij
+							ter delo s piškotki (cookies).</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o4" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o4.jpg" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Kako se prijavim v platformo?</a></b><br />
+							
+							<p>Ko z zdravniškim osebjem uredite odprtje novega uporabniškega računa, boste na e-poštni naslov, ki ste ga podali
+							Vašemu zdravniku, prejeli sporočilo, v katerem bo navedeno Vaše uporabniško ime in naključno dodeljeno geslo.</p>
+							
+							<p>Vaše <b>uporabniško ime</b> je enako naslovu e-pošte, na katerega ste prejeli sporočilo (npr. <i>janez.novak@acme.com</i>).
+							<b>Dodeljeno geslo</b> boste potrebovali za prijavo v sistem, zato ga skrbno hranite. Geslo lahko po prvi prijavi spremenite.</p>
+							
+							<p>Za prijavo v sistem na prvi spletni strani kliknite na velik rdeč gumb, kakršen je tale:</p>
+							
+							<a href="/eOskrba-webapp" id="eo-p"></a>
+							
+							<p>V brskalniku se bo prikazal prijavni obrazec, v katerega vpišite svoje uporabniško ime in dodeljeno geslo.</p>
+							
+							<img class="scrshot" src="img/o4i1.png" />
+							
+							<p>Obrazec potrdite s klikom na gumb <b>Prijavi se</b>. Če so bili vnešeni podatki pravilni, boste preusmerjeni v
+							spletno aplikacijo. Zaradi Vaše varnosti bodo najprej prikazane informacije o zadnji prijavi in Vaše
+							<b>osebno pozdravno sporočilo</b>, ki ga lahko kadarkoli spremenite</p>.
+							
+							<img class="scrshot" src="img/o4i2.png" />
+							
+							<p>Ko se prepričate, da so varnostne informacije v redu, kliknite na gumb <b>V redu</b>. Uspešno ste se prijavili
+							v platformo.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o5" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o5.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Kako uporabljam spletno aplikacijo?</a></b><br />
+							
+							<p>Po uspešni prijavi v sistem bo v vašem brskalniku ogrodje spletne aplikacije, ki Vam nudi dostop do različnih
+							funkcionalnosti. Ogrodje sestavlja nekaj osnovnih delov, ki se jih morate naučiti uporabljati.
+							</p>
+							
+							<img class="scrshot" src="img/o1i1.png" />
+							
+							<p>Na spodnji sliki, ki je enaka zgornji, so označeni glavni uporabniški deli ogrodja.</p>
+							
+							<img class="scrshot" src="img/o5i1.png" />
+							
+							<p>Z <b>rdečo barvo</b> so označeni <b>zavihki</b>. Zavihki imajo vlogo glavnega menuja - s klikanjem nanje lahko
+							določamo vsebino vseh ostalih delov ogrodja.</p>
+							
+							<p>Z <b>rumeno barvo</b> je označen <b>menu zavihka</b>. Vsak zavihek ponuja različne funkcionalnosti, ki so naštete
+							v tem delu ogrodja. S klikom na funkcijo v menuju se njene prikažejo podrobnosti.</p>
+							
+							<p>Z <b>zeleno barvo</b> je označeno <b>vsebinsko okno</b>. To je glavno okno, v katerem bo prikazana vsebina, ki pa je
+							odvisna od izbrane funkcije v levem menuju.</p>
+							
+							<p>Nazadnje je z <b>violično barvo</b> označeno <b>statusno okno</b>. V njem so prikazane glavne informacije (število
+							nedokončanih nalog, opravil za današnji dan, zadnje meritve, ipd.). Okno je privzeto v <i>skrčeni obliki</i>, da ne
+							zaseda preveč prostora na zaslonu. Če želite videti vse informacije, ki so v statusnem oknu, se samo z miškinim
+							kazalcem zapeljite čezenj. S tem se okno razširi v <i>polno obliko</i> - tako pa lahko dostopate do možnosti
+							<b>Nastavitve</b> in <b>Odjava</b>.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o6" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o6.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Moje naloge</a></b><br />
+							
+							<p>Kot uporabniku platforme Vam bodo periodično dodeljene razne naloge. <b>Naloga</b> je v aplikaciji bodisi
+							obrazec, ki ga morate izpolniti ali pa le besedilo, ki ga morate prebrati in <u>potrditi, da ste to opravili</u>.</p>
+							
+							<p>Ko prejmete novo nalogo, boste o tem obveščeni na vaš e-poštni naslov ter telefonsko številko mobilnika.</p>
+							
+							<p>Število nalog, ki čakajo, da jih rešite (to naj bi storili takoj oz. čimprej), so v spletni aplikaciji vidne v
+							<b>statusnem oknu</b>.</p>
+							
+							<img class="scrshot" src="img/o6i1.png" />
+							
+							<p>Do seznama nalog pridete tako, da bodisi kliknete na število nalog v statusnem oknu, ali pa v zavihku <b>eŠport in jaz</b>
+							izberete <b>Moje naloge</b>. Za prikaz naloge kliknite nanjo (v primeru na zgornji sliki je samo 1 naloga, "Vnesite vrednost PEF").</p>
+							
+							<p>V <b>vsebinskem oknu</b> se bo prikazalo besedilo naloge. Kot že omenjeno, gre lahko za obrazec ali besedilo, ki ga
+							morate prebrati.</p>
+							
+							<img class="scrshot" src="img/o6i2.png" />
+							
+							<p>Če je naloga obrazec, ga morate izpolniti, če pa samo besedilo, prebrati. Ne glede na tip naloge, pa morate <b>nalogo oddati</b>.
+							To storite tako, da na dnu <b>vsebinskega okna</b> kliknete na <b>Zaključi to nalogo</b>.</p>
+							
+							<p>Aplikacija bo pri obrazcih prverila, ali ste izpolnili vsa obvezna polja in ali so vrednosti v njih korektne. Nekaj trenutnko
+							kasneje se bo na zaslonu prikazalo potrdilo o uspešnosti oddaje naloge.</p>
+							
+							<p>Nekatere naloge so sestavljene iz <b>več korakov</b>. Tak je tudi zgornji primer s slike (vnos vrednosti PEF). Po oddaji obrazca
+							morate v sklopu naloge še prebrati besedilo, ki se prikaže na zaslonu.</p>
+							
+							<img class="scrshot" src="img/o6i3.png" />
+							
+							<p>Da ste opravili vse svoje obveznosti, se lahko prepričate tako, da preverite število nalog v statusnem oknu. To mora biti
+							enako nič.</p>
+							
+							<img class="scrshot" src="img/o6i4.png" />
+							
+							<p> </p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o7" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o7.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Moja poročila</a></b><br />
+							
+							<p>Ko boste že nekajkrat v sklopu nalog oddali različne meritve, boste lahko v svojih poročilih pregledovali
+							vnešene vrednosti v obliki tabele in grafično. Do poročil dostopate tako, da v zavihku <b>eŠport in jaz</b> izberete
+							<b>Moja poročila</b>. Prikazal se bo kratek obrazec, s katerim izberete tip in obdobje poročila, ki ga želite pregledati.</p>
+							
+							<img class="scrshot" src="img/o7i1.png" style="border:1px solid #ccc;" />
+							
+							<p>V razdelku <b>meritve</b> izberite eno izmed vrednosti, za katero želite pregedati poročilo. V razdelku <b>od</b>
+							izberite mesec (in leto) začetka obdobja prikaza. V razdelku <b>do</b> izberite mesec (in leto) konca obdobja prikaza.
+							Izbira obdobja npr. od <i>Avgust 2012</i> do <i>Avgust 2012</i> (kot na zgornji in spodnji sliki) prikaže poročilo za obdobje
+							od 1. do 31. avgusta 2012.</p>
+							
+							<p>Po kliku na gumb <b>Prikaži</b> se bo v <b>vsebisnkem oknu</b> prikazalo poročilo.</p>
+							
+							<img class="scrshot" src="img/o7i2.png" style="border:1px solid #ccc;" />
+							
+							<p>S klikom na izrisan graf lahko odprete celozaslonski pregled podatkov. S pomikanjem miškinega kazalca čez točke na
+							grafu lahko ugotovite podrobnosti meritve. Pod grafom so meritve naštete še v tabelarni obliki.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o8" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o8.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Moja zdravila</a></b><br />
+							
+							<p>Zdravila, ki jih orate jemati med zdravljenjem, Vam določi Vaš zdravnik ob začetku študije. Do seznama zdravil lahko
+							kadarkoli dostopate tako, da v zavihku <b>eŠport in jaz</b> izberete <b>Moja zdravila</b>.</p>
+							
+							<img class="scrshot" src="img/o8i1.png" />
+							
+							<p>S klikom  gumb <b>Prikaži vse</b> lahko pregledujete vse podrobnosti o zdravilih, ki so Vam bila predpisana:
+							
+							<ul>
+								<li>Ime zdravila</li>
+								<li>Generično ime</li>
+								<li>Število pakiranj, ki ste jih prejeli</li>
+								<li>Količina vnosa (število vdihov / miligramov / ipd.)</li>
+								<li>Pogostost jemanja</li>
+							</ul>
+							
+							<p>Na spodnji sliki je primer vsebine v vsebinskem oknu, ki se prikaže po kliku na gumb <b>Prikaži vse</b>.</p>
+							
+							<img class="scrshot" src="img/o8i2.png" style="border:1px solid #ccc;" />
+							
+							<p> </p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o9" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o9.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Novice in priporočila</a></b><br />
+							
+								<p>V zavihku <b>Novice</b> lahko dostopate do dveh funkcij:</p>
+								
+								<ul>
+									<li>Novice</li>
+									<li>Priporočila</li>
+								</ul>
+								
+								<p><b>Novice</b> so kratki članki, ki jih objavlja zdravniško osebje Vaše zdravstvene ustanove. Pogostost objavljanja
+								in vsebina sta odvisni od Vaše ustanove.</p>
+								
+								<img class="scrshot" src="img/o9i1.png" />
+								
+								<p>Tudi <b>Priporočila</b> objavlja zdravniško osebje Vaše ustanove. Gre za uporabne in pomembne napotke, ki veljajo
+								za določeno obdobje. Priporočamo, da jih skrbno preberete in poskušate upoštevati.</p>
+								
+								<img class="scrshot" src="img/o9i2.png" />
+								
+								<p>Vsa priporočila, ki se prikažejo, so aktualna. Priporočila, ki niso več aktualna, se ne prikažejo.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o10" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o10.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Izobraževalne vsebine</a></b><br />
+							
+							<p>V zavihku <b>Izobraževanje</b> lahko dostopate do izobraževalnih vsebin, ki jih objavljajo različne
+							zdravniške ustanove (ne samo Vaša). Vsebine so odličen vir, če želite svoje znanje o astmi razširiti.</p>
+							
+							<img class="scrshot" src="img/o10i1.png" />
+							
+							<p> </p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o11" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o11.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Vprašanja</a></b><br />
+							
+							<p>Platforma eOskrba Vam med drugim omogoča tudi to, da Vašemu medicinskemu osebju postavite vprašanje,
+							na katerega bodo lahko odgovorili takoj, ko se bodo tudi sami prijavili v aplikacijo.</p>
+							
+							<p>Novo vprašanje postavite tako, da v zavihku <b>Vprašanja</b> izberete <b>Novo vprašanje</b> in kliknete na gumb.
+							V <b>vsebinskem oknu</b> se bo prikazal obrazec, preko katerega lahko postavite novo vprašanje. Po kliku na gumb
+							<b>Oddaj vprašanje</b> bo Vaše vprašanje odposlano naprej.</p>
+							
+							<img class="scrshot" src="img/o11i1.png" />
+							
+							<p>Vsako vaše novo vprašanje se po oddaji smatra kot <b>odprto</b> vprašanje. Svoja odprta vprašanja lahko pregledujete
+							v istem zavihku s klikom na <b>Moja odprta vprašanja</b>. Ko bo zdravniško osebje odgovorilo na vaše vprašanje,
+							boste tukaj lahko odgovorili nazaj.</p>
+							
+							<img class="scrshot" src="img/o11i2.png" />
+							
+							<p>Vprašanja ostanejo <b>odprta</b> vse dokler se Vi ne odločite, da ste dobili dovolj natančen odgovor. Ko ste z
+							odgovorom zadovoljni, morate vprašanje <b>zapreti</b>. Tako bo zdravniško osebje vedelo, da ste z odgovorom zadovoljni
+							in da se lahko posvetijo ostalim vprašanjem.</p>
+							
+							<p>Tudi zaprta vprašanja in odgovore nanj lahko kasneje pregledujete v istem zavihku in sicer s klikom na
+							<b>Moja zaprta vprašanja</b>.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o12" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o12.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Pogovor v živo</a></b><br />
+							
+								<p>Če imate nujnejše vprašanje, na katerega bi radi dobili odgovor čimprej, lahko poskusite postaviti
+								zahtevo za pogovor v živo (chat). To storite v zavihku <b>Vprašanja</b> z izbiro <b>Pogovor v živo</b>
+								in klikom na gumb <b>Zahtevaj pogovor v živo</b>.</p>
+								
+								<p>V <b>vsebinskem oknu</b> se bo prikazalo besedilo, da je vaša zahteva aktualna. Vaše zdravniško osebje bo na
+								svojih računalnikih takoj obveščeno, da čakate na pogovor. Če kdorkoli izmed osebja ugodi Vaši zahtevi, se bo
+								v <b>vsebinskem oknu</b> pričel klepet.</p>
+								
+								<p>Stare pogovore lahko pregledujete v istem zavihku z izbiro <b>Zgodovina pogovorov v živo</b>.</p>
+								
+								<p>Zgoraj opisan postopek je prikazan tudi v spodnjem videu.</p>
+								
+								<center>
+									<iframe style="border-top:4px solid black;border-bottom:4px solid black;" width="640" height="360" src="http://www.youtube.com/embed/_4rVmznbntk?rel=0" frameborder="0" allowfullscreen></iframe>
+								</center>
+								
+								<p> </p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o13" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o13.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Nastavitve</a></b><br />
+							
+							<p>Do nastavitev svojega uporabniškega računa pridete tako, da se najprej z miškinim kazalcem popeljete čez
+							<b>statusno okno</b> tako, da se to odpre v <i>polni prikaz</i>.</p>
+							
+							<img class="scrshot" src="img/o13i1.png" />
+							
+							<p>Kliknite na besedo <b>Nastavitve</b>. Čez celotno ogrodje aplikacije se bo prikazalo nastavitveno okno, v katerem lahko:</p>
+							
+							<ul>
+								<li>Zamenjate svojo osebno profilno sliko</li>
+								<li>Spremenite Vaš e-poštni naslov</li>
+								<li>Spremenite Vašo telefonsko številko (GSM)</li>
+								<li>Spremenite geslo</li>
+							</ul>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o14" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o14.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Sprememba gesla</a></b><br />
+							
+							<p>V oknu z <b>nastavitvami</b> (preberite zgornjo vsebino) lahko spremenite geslo za prijavo v spletno aplikacijo.</p>
+							
+							<p>Ker je geslo, ki ga dobite od Vaše zdravstvene ustanove, naključno, Vam priporočamo, da si po prvi prijavi
+							<b>geslo spremenite</b> v tako, ki si ga boste lažje zapomnili.</p>
+							
+							<p>Geslo spremenite tako, da v polje <b>Novo geslo</b> vpišete izbrano novo geslo. Prikazali se bosta še 2 polji, ki ju
+							morate izpolniti:</p>
+							
+							<ul>
+								<li>Novo geslo (ponovno): V to polje še enkrat vpišite novo izbrano geslo</li>
+								<li>Staro geslo: V to polje vpišite trenutno gelso - torej geslo, ki ga želite spremeniti.</li>
+							</ul>
+							
+							<img style="border:1px solid #ccc;" class="scrshot" src="img/o14i1.png" />
+							
+							<p>Ko izpolnete vsa tri polja, kliknite na gumb <b>Shrani spremembe</b>.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o15" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o15.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Opravila</a></b><br />
+							
+							<p>Opravila so načrtovani dogodki / naloge / aktivnosti, ki jih lahko sami vnesete v svoj koledar, ali pa to stori Vaše
+							zdravniško osebje. Če Vam opravilo v koledar vnese zdravniško osebje, boste o tem takoj obveščeni po elektronski pošti.</p>
+							
+							<p>V <b>statusnem oknu</b> je zmeraj prikazano število <b>današnjih opravil</b>, torej opravil, ki so bila dodana za trenuten
+							datum.</p>
+							
+							<img class="scrshot" src="img/o15i1.png" />
+							
+							<p>S klikom na število opravil v <b>statusnem oknu</b> se bo v <b>vsebinskem oknu</b> prikazal koledar.</p>
+							
+							<img style="border:1px solid #ccc;" class="scrshot" src="img/o15i2.png" />
+							
+							<p>S klikom na dan v koledarju se bodo pod koledarjem prikazale vse podrobnosti o vseh opravilih za izbran
+							dan.</p>
+							
+							<img style="border:1px solid #ccc;" class="scrshot" src="img/o15i3.png" />
+							
+							<p>Opravilo lahko odstranite s klikom na <b>rdeč križec</b> ob njem. Opravila pa lahko tudi sami dodajate s
+							klikom na gumb <b>Dodaj opravilo</b>.</p>
+							
+							<p>Vsak dan boste ob <b>7:00 uri zjutraj</b> po e-pošti obveščeni o vseh opravilih, ki jih imate v koledarju za
+							trenutni dan. Če opravil na ta dan nimate, e-poštnega sporočila ne boste prejeli.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o16" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o16.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Napredek</a></b><br />
+							
+							<p>Pri prvem pregledu pri zdravniku (ko tudi postanete uporabnik platforme) bo Vaše zdravniško osebje opravilo nekaj
+							meritev. Nato pa boste v prihodnjih tednih nekaj meritev morali opravljati tudi sami (glej <i>Moje naloge</i>).</p>
+							
+							<p>Ko bo v sistemu vnešenih dovolj meritev, bo avtomatsko izračunan Vaš napredek pri zdravljenju. Svoj napredek lahko
+							preverite tako, da se z miškinim kazalcem zapeljete čez <b>statusno okno</b> tako, da se to odpre v <i>polni način</i>.
+							Pod številom nalog in opravil bodo nanizane razne vrednosti, ki poročajo o Vašem napredku.</p>
+							
+							<img class="scrshot" src="img/o16i1.png" />
+							
+							<p>Napredek pri določeni meritvi je označen z eno izmed naslednjih sličic:</p>
+							
+							<ul>
+								<li><b>Puščica navzgor</b>: Vaše zdravstveno stanje se je izboljšalo</li>
+								<li><b>Krog</b>: Vaše zdravstveno stanje se ni niti izboljšalo, niti poslabšalo</li>
+								<li><b>Puščica navzdol</b>: Vaše zdravstveno stanje se je poslabšalo</li>
+								<li><b>Vprašaj</b>: V sistemu še ni dovolj meritev</li>
+							</ul>
+							
+							<p>Ne glede na napredek pa je še z barvo sličic izražen pomen vrednosti meritve:</p>
+							
+							<ul>
+								<li><b>Zelena barva</b>: Vrednost zadnje meritve je dobra</li>
+								<li><b>Rumena barva</b>: Vrednost zadnje meritve je mejna.</li>
+								<li><b>Rdeča barva</b>: Vrednost zadnje meritve ni dobra.</li>
+							</ul>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o17" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o17.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Podatki o mojem zdravniku</a></b><br />
+							
+							<p>S klikom na ime vašega dodeljenega zdravnika v <b>statusnem oknu</b> se bodo prikazale informacije o Vašem
+							zdravniku.</p>
+							
+							<img style="border:1px solid #ccc;" class="scrshot" src="img/o17i1.png" />
+							
+							<p>S klikom na gumb <b>Pošlji sporočilo</b> se prikaže obrazec za pošiljanje sporočila na zdravnikov
+							e-poštni naslov. Svetujemo, da <b>raje odprete novo vprašanje</b>, če Vas zanima karkoli v zvezi
+							z Vašim zdravljenjem.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o18" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o18.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Odjava</a></b><br />
+							
+							<p>Ko ste preko spletne aplikacije končali z delom, se je potrebno odjaviti, zato, da ne bi nihče drugi po pomoti ali
+							zlonamerno dostopal do Vašega uporabniškega računa. To sotrite tako, da v <b>Statusnem oknu</b>, nad katerega postavite
+							miškin kazalec, kliknete na besedo <b>Odjava</b>.</p>
+							
+							<img class="scrshot" src="img/o13i1.png" />
+							
+							<p> </p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="o19" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/o19.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Kako do pomoči, če odgovora ne najdem tukaj?</a></b><br />
+							
+							<p>Če imate tehnična ali vsebinska vprašanja ali težave z uporabo aplikacije eOskrba in odgovora niste našli v
+							teh navodilih, nam prosim pišite na e-poštni naslov:</p>
+							
+							<p style="padding-left:24px;"><img src="img/link.png" /> <a href="mailto:esport@pint.upr.si">esport@pint.upr.si</a></p>
+							
+							<p>Kontaktirate nas lahko tudi preko telefona:</p>
+							
+							<p id="eo-help-center">Številka za tehnično pomoč: <a>040-928-668</a></p>
+							
+							<p>Če imate vprašanja, ki so povezana z <b>Vašim zdravljenjem</b> in ne s samo aplikacijo, prosimo kontaktirajte
+							Vaše zdravniško osebje. To lahko storite v živo v Vaši zdravstveni ustanovi ali pa uporabite eno izmed možnosti, ki Vam
+							jih ponuja spletna aplikacija (odprtje novega vprašanja, pogovor v živo ali pošiljanje osebnega sporočila).</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			<div class="eo-hr"></div>
+			
+			<div id="z1" class="eo-chapter eo-chapter-l">
+				<table>
+					<tr>
+						<td><img class="eo-chapter-image-l" src="img/z1.png" />&nbsp;&nbsp;</td>
+						<td>
+							<b><a name="2">Navodila in pomoč za zdravniško osebje</a></b><br />
+							
+							<p><b>O različici za zdravniško osebje</b></p>
+							
+							<p style="padding-left:24px;">Spletna aplikaicija za zdravniško osebje ima v primerjavi z različico, ki je namenjena pacientom, več funkcionalnosti.
+							Vendar so <b>ogordje</b>, <b>pojmi</b> in <b>načela</b> enaki. Zato zdravniškemu osebju svetujemo, da si <b>najprej preberejo
+							navodila za uporabnike</b> (zgoraj) in šele nato sledeče besedilo.</p>
+							
+							<p id="z2"><b>Kakšne so razlike z uporabniško različico?</b></p>
+							
+							<p style="padding-left:24px;">Načina komunikacije z ogrodjem aplikacije je popolnoma enak, kot pri uporabniški različici aplikacije. Prijava, reševanje
+							nalog, pregled poročil in sorodne funkcije potekajo na enak način, kot pri uporabikih. Če iščete pomoč ali navodila za določen
+							del aplikacije, ki je prisoten tudi v uporabniški različici, Vas prosimo, da odgovore poiščete v navodilih za uporabnike.</p>
+							
+							<p id="z2" style="padding-left:24px;">Glavna razika je v številu in vrsti <b>zavihkov</b>, ki jih je v Vaši različici aplikacije več. Naslednji zavihki
+							v uporabniški različici niso prisotni:</p>
+							
+							<p id="z3" style="padding-left:24px;"><b>Stanje pacientov</b></p>
+							
+								<p style="padding-left:48px;">Zavihek ponuja možnost vpogleda v zadnje meritve vseh pacientov.
+								S klikom na ustrezno količino se bo prikazala tabela z Vašimi pacienti. S klikanjem po imenih stolpcev
+								tabele lahko vsebino tabele sortirate.</p>
+							
+							<p id="z4" style="padding-left:24px;"><b>Administracija</b></p>
+							
+								<p style="padding-left:48px;">Zavihek ponuja naslednje funkcionalnosti:</p>
+								
+								<ul style="padding-left:72px;">
+									<li><b>Nov postopek vključitve</b>: Odpre obrazec za dodajanje novega pacienta v sistem</li>
+									<li><b>Podatki pacientov</b>: Omogoča vpogled in popravljanje podatkov izbranih pacientov</li>
+									<li><b>Nov obisk</b>: Odpre obrazec za dodajanje novega obiska pacienta</li>
+									<li><b>Obiski pacientov</b>: Omogoča pregled preteklih obiskov</li>
+								</ul>
+							
+							<p id="z5" style="padding-left:24px;"><b>Vprašanja</b></p>
+							
+								<p style="padding-left:48px;">Vprašanja pacientov se delijo v 2 skupini: <b>Moja odprta vprašanja</b> in
+								<b>Čakajoča vprašanja</b>. V prvo skupino spadajo vsa vprašanja, ki ste jih prevzeli in nanje odogovorili,
+								vendar uporabnik še ni vprašanje zaprl (ga označil kot razrešenega). Če uporabnik tega ne stori, kljub temu,
+								da je vprašanje razrešeno, lahko sami prisilno zaprete vprašanje in ga tako odstranite iz te skupine.</p>
+								
+								<p style="padding-left:48px;">V drugo skupino spadajo vsa vprašanja, ki so bila postavljena, a jih ni še nobeden izmed zdravnikov
+								prevzel. Vprašanje lahko prevzamete tako, da odgovorite nanj. V tem primeru se bo vprašanje premaknilo v
+								prvo skupino.</p>
+							
+							<p id="z6" style="padding-left:24px;"><b>V živo</b></p>
+							
+								<p style="padding-left:48px;">Če kdo izmed uporabnikov sproži zahtevo za pogovor v živo (chat), se bo na vrhu Vaše
+								aplikacije prikazalo obvestilo o čakajočih zahtevah. O tem boste tudi opozorjeni z zvočnim signalom.</p>
+								
+								<p style="padding-left:48px;">Obvestilo (in zvočni signal) ostane prisotno vse dokler nekdo izmed zdravniškega osebja ne prevzame zahteve.
+								To lahko storite tako, da v zavihku <b>V živo</b> kliknete na ime uporabnika, ki čaka na izpolnitev zahteve.</p>
+							
+							<p id="z7" style="padding-left:24px;"><b>Vsebine</b></p>
+							
+								<p style="padding-left:48px;">Poleg pregleda obstoječih vsebin (novic, priporočil in izobraževalnih vsebin) imate tudi
+								možnost ustvarjanja (dodajanja) novih. V zavihku <b>Vsebine</b> lahko izberete <b>Dodajanje vsebin</b> in nato izberete
+								vrsto vsebine, ki jo želite ustvariti.</p>
+								
+								<p style="padding-left:48px;">Vse vsebine, ki ste sami dodali v sistem, lahko kasneje urejate. To storite tako, da si
+								vsebino ogledate in kliknete na gumb <b>Uredi</b>, ki se nahaja pri naslovu vsebine.
+							
+							<p id="z8" style="padding-left:24px;"><b>Podrobnosti</b></p>
+							
+								<p style="padding-left:48px;">Priporočamo, da v <b>Nastavitvah</b> izpolnete obrazec z vašimi podatki (lokacija,
+								uradne ure, dodatne informacije), ki jih lahko potem Vaši pacienti vidijo.</p>
+								
+							<p id="z9"><b>Prijava napak in oddaja predlogov</b></p>
+							
+							<p style="padding-left:24px;">Ker je spletna aplikacija neprestano v razvoju, obstaja veliko možnosti, da pride med uporabo
+							do napak. Zelo bomo veseli, če nas boste o napakah takoj obvestili, poleg opisa napake pa še podrobno obrazložili
+							postopek, po katerem se je napaka zgodila. Veseli bomo tudi kakšnega posnetka zaslona, če računalnika orodja dobro
+							poznate.</p>
+							
+							<p style="padding-left:24px;">Veseli bomo tudi predlogov in komentarjev.</p>
+							
+							<a class="scroll" href="#v"><img src="img/link.png" /> Nazaj na vrh</a>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+		</div>
+		<div id="eo-footer">
+			<span style="color:#acacac;">&copy; eOskrba 2012</span>
+			&nbsp;&middot;&nbsp;
+			<span style="color:#acacac;">Navodila so bila nazadnje urejena 14.08.2012</span>
+			&nbsp;&middot;&nbsp;
+			<a href="https://eoskrba.pint.upr.si">Prijava v spletno aplikacijo eOskrba</a>
+		</div>
+		
+		<script type="text/javascript">
+			$(".scroll").click(function(event){		
+				event.preventDefault();
+				$('body').scrollTo($(this).attr("href"),{duration:1000});
+			});
+		</script>
+		
+	</body>
+</html>

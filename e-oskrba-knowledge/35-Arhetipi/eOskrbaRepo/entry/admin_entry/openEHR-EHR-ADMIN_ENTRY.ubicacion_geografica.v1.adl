@@ -1,0 +1,204 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.ubicacion_geografica.v1
+
+concept
+	[at0000]	-- ubicacion geografica
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"contexto del evento traumatico">
+			use = <"contexto del evento traumatico">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"81EC74933FDD91D3346D0F1FE0B93DAC">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- ubicacion geografica
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Arbol
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0002] occurrences matches {0..1} matches {	-- Ubicacion
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- Departamento
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {[departamentos_uy::ac0001]}		-- departamentos_uy
+									}
+								}
+							}
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- Localidad
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							CLUSTER[at0005] occurrences matches {0..1} matches {	-- Via
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Nombre
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Tipo
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0008, 	-- calle
+													at0009, 	-- ruta
+													at0010, 	-- camino
+													at0011, 	-- bulevar
+													at0012, 	-- avenida
+													at0013]	-- paso
+												}
+											}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Numero
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+								}
+							}
+							CLUSTER[at0015] occurrences matches {0..1} matches {	-- Cruce
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0016] occurrences matches {0..1} matches {	-- Nombre
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									use_node ELEMENT occurrences matches {0..1} /data[at0001]/items[at0002]/items[at0005]/items[at0007]	-- /data[Arbol]/items[Ubicacion]/items[Via]/items[Tipo]
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"ubicacion geografica">
+					description = <"ubicacion geografica">
+				>
+				["at0001"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Ubicacion">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Departamento">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Localidad">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Via">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Nombre">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Tipo">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"calle">
+					description = <"calle">
+				>
+				["at0009"] = <
+					text = <"ruta">
+					description = <"ruta">
+				>
+				["at0010"] = <
+					text = <"camino">
+					description = <"camino">
+				>
+				["at0011"] = <
+					text = <"bulevar">
+					description = <"bulevar">
+				>
+				["at0012"] = <
+					text = <"avenida">
+					description = <"avenida">
+				>
+				["at0013"] = <
+					text = <"paso">
+					description = <"paso">
+				>
+				["at0014"] = <
+					text = <"Numero">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Cruce">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Nombre">
+					description = <"*">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["es"] = <
+			items = <
+				["ac0001"] = <
+					text = <"departamentos_uy">
+					description = <"*">
+				>
+			>
+		>
+	>

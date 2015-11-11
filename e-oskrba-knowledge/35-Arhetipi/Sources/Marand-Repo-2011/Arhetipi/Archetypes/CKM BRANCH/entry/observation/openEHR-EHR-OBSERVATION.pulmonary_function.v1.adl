@@ -1,0 +1,1155 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.pulmonary_function.v1
+
+concept
+	[at0000]	-- Testi pljučnih funkcij
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, UK">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"24/08/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record results of pulmonary function tests, including spirometry and lung volume testing. ">
+			use = <"Used to record all representations of pulmonary function testing, including spirometry. Multiple events and state information may be used to capture pre and post bronchial challenge or bronchodilation results. 
+">
+			keywords = <"respiratory", "pulmonary", "spirometry", "peak flow", "PFT", "lung", "bronchial">
+			misuse = <"Supporting subject information, often required  to interpret the tests, such as smoking status or oxygenation, should be captured in separate, specific archetypes.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Izmeriti rezultate testov pljučnih fukcij, vključno s spirometrijo in testi pljučnih volumnov.">
+			use = <"Uporablja se za zapis vseh meritev funkiconalnih zmogljivosti pljuč, vključno s spirometrijo. 
+Uporabljenih je lahko več dogodkov in podatkov o stanju za opis pre in post bronhialnega testa ali rezultatov bronhodilatacije.">
+			keywords = <"respiracija", "pljučna", "spirometrija", "največji pretok", "PFT", "pljuča", "bronhialen", "dihanje">
+			misuse = <"Informacije, ki služijo kot podpora pri odločitvah in so pogoste pri tovrstnih testiranjih (npr. kadilski status ali oksieganacija krvi) naj se zajamejo v ločenih, specifičnih arhetipih.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Valeria Lecca, Sardegna Ricerche, Italia", "Derek Corrigan, Royal College of Surgeons in Ireland, Ireland", "Heather Leslie, Ocean Informatics, Australia">
+	other_details = <
+		["references"] = <"Lung volumes [Internet]. [date unknown];[cited 2010 Aug 25 ] Available from: http://en.wikipedia.org/wiki/Lung_volumes
+Spirometry [Internet]. [date unknown];[cited 2010 Aug 25 ] Available from: http://en.wikipedia.org/wiki/Spirometry
+Johns DP, Pierce R. Pocket guide to spirometry.  McGraw-Hill Medical; 2007.
+Pingul EM, de Guia TS, Ayuyao FG. FEV1/FEV6 VS FEV1/FVC IN THE SPIROMETRIC DIAGNOSIS OF AIRWAYS OBSTRUCTION AMONG ASIANS.  In: Chest Meeting Abstracts.  2007 p. 491c.
+Tiffeneau R, Pinelli A. Air circulant et air captif dans l'exploration de la fonction ventilatrice pulmonaire. Paris Med 1947;133:624-8.">
+		["MD5-CAM-1.0.1"] = <"52DA50AC3DE04CA2300185E998887D6F">
+	>
+
+definition
+	OBSERVATION[at0000] occurrences matches {0..1} matches {	-- Testi pljučnih funkcij
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0052] occurrences matches {0..*} matches {	-- Pljučni volumni
+										items cardinality matches {1..*; ordered} matches {
+											ELEMENT[at0087] occurrences matches {0..1} matches {	-- Ime testa
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0065, 	-- Forsirana vitalna kapaciteta (FVC)
+															at0067, 	-- Forsirani izdihani volumen v prvi sekundi (FEV1)
+															at0070, 	-- Forsirani izdihani volumen v .75 sek (FEV.75)
+															at0068, 	-- Forsirani izdihani volumen v 3 sek (FEV3)
+															at0069, 	-- Forsirani izdihani volumen v 6 sek (FEV6)
+															at0064, 	-- Počasna vitalna kapaciteta (SVC/EVC)
+															at0066, 	-- Celotna pljučna kapaciteta (TLC)
+															at0076, 	-- Inspiratorna kapaciteta (IC/IVC)
+															at0077, 	-- Ekspiratorni rezervni volumen (ERV)
+															at0078, 	-- Inspiratorni rezervni volumen (IRV)
+															at0082, 	-- Dihalni volumen
+															at0083, 	-- Rezidualni volumen (RV)
+															at0084]	-- Funkcionalna rezidualna kapaciteta (FRC)
+														}
+													}
+												}
+											}
+											ELEMENT[at0054] occurrences matches {0..1} matches {	-- Predviden
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::129]>
+														list = <
+															["1"] = <
+																units = <"l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"ml">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0053] occurrences matches {0..1} matches {	-- Izmerjen
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::129]>
+														list = <
+															["1"] = <
+																units = <"l">
+																magnitude = <|>=0.0|>
+															>
+															["2"] = <
+																units = <"ml">
+																magnitude = <|>=0.0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0044] occurrences matches {0..1} matches {	-- Razmerje izmerjen/predviden
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														denominator matches {|0.0..100.0|}
+														type matches {0, 2}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0057] occurrences matches {0..*} matches {	-- PEF
+										items cardinality matches {1..*; ordered} matches {
+											ELEMENT[at0088] occurrences matches {0..1} matches {	-- Ime testa
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0071, 	-- *Peak expiratory flow (PEF)(en)
+															at0072, 	-- *Forced expiratory flow 25-75% (FEF25-75%)(en)
+															at0073, 	-- *Forced expiratory flow 25-50% (FEF25-50%)(en)
+															at0074, 	-- *Forced inspratory flow 25-75% (FIF25-75%)(en)
+															at0075, 	-- *Forced inspratory flow 25-50% (FIF25-50%)(en)
+															at0079]	-- *Maximum voluntary ventilation(en)
+														}
+													}
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Predviden
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::126]>
+														list = <
+															["1"] = <
+																units = <"l/s">
+																magnitude = <|0.0..60000.0|>
+																precision = <|0|>
+															>
+															["2"] = <
+																units = <"ml/s">
+																magnitude = <|0.0..200000.0|>
+																precision = <|0|>
+															>
+															["3"] = <
+																units = <"l/min">
+																magnitude = <|0.0..1000.0|>
+																precision = <|0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0058] occurrences matches {0..1} matches {	-- Izmerjen
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::126]>
+														list = <
+															["1"] = <
+																units = <"l/s">
+																magnitude = <|0.0..60000.0|>
+																precision = <|0|>
+															>
+															["2"] = <
+																units = <"ml/s">
+																magnitude = <|0.0..200000.0|>
+																precision = <|0|>
+															>
+															["3"] = <
+																units = <"l/min">
+																magnitude = <|0.0..1000.0|>
+																precision = <|0|>
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0122] occurrences matches {0..1} matches {	-- Razmerje izmerjen/predviden
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|0.0..100.0|}
+														denominator matches {|0.0..100.0|}
+														type matches {0, 2}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0055] occurrences matches {0..*} matches {	-- Razmerja pljučnih volumnov
+										items cardinality matches {1..*; ordered} matches {
+											ELEMENT[at0089] occurrences matches {0..1} matches {	-- Ime testa
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0081, 	-- FEV1/FVC razmerje (FEV1%FVC)
+															at0080]	-- Tiffenau-jev index (FEV1/SVC)
+														}
+													}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Predvideno
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														denominator matches {|>=0.0|}
+														type matches {0, 2}
+													}
+												}
+											}
+											ELEMENT[at0056] occurrences matches {0..1} matches {	-- Izmerjeno
+												value matches {
+													DV_PROPORTION matches {
+														numerator matches {|>=0.0|}
+														type matches {0, 2}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Čas forsiranega izdiha
+										value matches {
+											DV_DURATION matches {
+												value matches {PTS/|PT0S..PT300S|}
+											}
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {	-- Anatomski mrtvi prostor
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::129]>
+												list = <
+													["1"] = <
+														units = <"ml">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0037] occurrences matches {0..1} matches {	-- Faktor prenosa CO (DLCO test)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::380]>
+												list = <
+													["1"] = <
+														units = <"">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0038] occurrences matches {0..1} matches {	-- Največji privem kisika (VO2max)
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::126]>
+												list = <
+													["1"] = <
+														units = <"l/m">
+														magnitude = <|>=0.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0101] occurrences matches {0..1} matches {	-- Komentarji
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									CLUSTER[at0033] occurrences matches {0..1} matches {	-- Spirografija
+										items cardinality matches {1..*; ordered} matches {
+											ELEMENT[at0034] occurrences matches {0..1} matches {	-- Volumen-čas krivulje
+												value matches {
+													DV_MULTIMEDIA matches {
+														media_type matches {
+															[openEHR::
+															425, 
+															426, 
+															427, 
+															428, 
+															429]
+														}
+													}
+												}
+											}
+											ELEMENT[at0035] occurrences matches {0..1} matches {	-- Pretok-volumen krivulje
+												value matches {
+													DV_MULTIMEDIA matches {
+														media_type matches {
+															[openEHR::
+															425, 
+															426, 
+															427, 
+															428, 
+															429]
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0099] occurrences matches {0..*} matches {	-- Ugotovitve interpretacije
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0031] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0115] occurrences matches {0..1} matches {	-- Položaj telesa
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0116, 	-- Stoje
+													at0117, 	-- Sede
+													at0118, 	-- *Reclining(en)
+													at0119; 	-- Leže
+													at0116]	-- assumed value
+												}
+											}
+										}
+									}
+									CLUSTER[at0046] occurrences matches {0..1} matches {	-- Bronhialni izziv
+										items cardinality matches {1..*; ordered} matches {
+											ELEMENT[at0047] occurrences matches {0..1} matches {	-- Sredstvo/način
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0048] occurrences matches {0..1} matches {	-- Količina
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											allow_archetype CLUSTER[at0093] occurrences matches {0..*} matches {	-- Agent detail(en)
+												include
+													archetype_id/value matches {/.*/}
+											}
+											ELEMENT[at0091] occurrences matches {0..1} matches {	-- Čas
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0094, 	-- Pred bronihialnim izzivom
+															at0095]	-- Po bronhialnim izzivu
+														}
+													}
+												}
+											}
+											ELEMENT[at0097] occurrences matches {0..1} matches {	-- Trajanje
+												value matches {
+													DV_DURATION matches {
+														value matches {PDTHMS/|>=PT0S|}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0049] occurrences matches {0..1} matches {	-- Bronhodilatacija
+										items cardinality matches {1..*; ordered} matches {
+											ELEMENT[at0051] occurrences matches {0..1} matches {	-- Sredstvo
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											use_node ELEMENT occurrences matches {0..1} /data[at0001]/events[at0002]/state[at0031]/items[at0046]/items[at0048]	-- /data[*Event Series(en)]/events[*Any event(en)]/state[*Tree(en)]/items[Bronhialni izziv]/items[Količina]
+											use_node ELEMENT occurrences matches {0..1} /data[at0001]/events[at0002]/state[at0031]/items[at0046]/items[at0091]	-- /data[*Event Series(en)]/events[*Any event(en)]/state[*Tree(en)]/items[Bronhialni izziv]/items[Čas]
+											use_node ELEMENT occurrences matches {0..1} /data[at0001]/events[at0002]/state[at0031]/items[at0046]/items[at0097]	-- /data[*Event Series(en)]/events[*Any event(en)]/state[*Tree(en)]/items[Bronhialni izziv]/items[Trajanje]
+										}
+									}
+									ELEMENT[at0098] occurrences matches {0..1} matches {	-- Ostali dejavniki
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0029] matches {	-- *Tree(en)
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0030] occurrences matches {0..*} matches {	-- Naprava
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0102] occurrences matches {0..1} matches {	-- Vzrok za neopravljen test (bolnik)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0107, 	-- Zadrževanje
+									at0108, 	-- Kašelj
+									at0109, 	-- Dodatni vdih
+									at0110, 	-- Prezgodnji zaključek
+									at0111, 	-- Blokada ustnika
+									at0112, 	-- Izdih ni neprekinjen.
+									at0113, 	-- Meritev prekinjega s strani zdravnika/sestre
+									at0114, 	-- Slaba telesna drža
+									at0123, 	-- Premlad
+									at0124]	-- Fizično nezmožen opraviti test
+								}
+							}
+						}
+					}
+					ELEMENT[at0103] occurrences matches {0..1} matches {	-- Vzrok za neopravljen test (naprava)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0104, 	-- Neopravljena kalibracija
+									at0105, 	-- Zaznano uhajanje
+									at0106]	-- Poškodba naprave
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Pulmonary function tests">
+					description = <"Pulmonary function testing including spirometry and other lung volume testing.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any event">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Predicted">
+					description = <"Predicted pulmonary flow rate result.">
+				>
+				["at0013"] = <
+					text = <"Forced expiratory time (FET)">
+					description = <"The time taken to complete  a forced expiration.">
+				>
+				["at0018"] = <
+					text = <"Predicted">
+					description = <"Predicted pulmonary test ratio result.">
+				>
+				["at0027"] = <
+					text = <"Anatomical dead space">
+					description = <"The volume of the conducting airways.">
+				>
+				["at0029"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0030"] = <
+					text = <"Device">
+					description = <"Details of the device used to measure pulmonary function.">
+				>
+				["at0031"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0033"] = <
+					text = <"Spirography">
+					description = <"Graphs produced by spirometry.">
+				>
+				["at0034"] = <
+					text = <"Volume-time curve">
+					description = <"Shows volume (liters) along the Y-axis and time (seconds) along the X-axis.">
+				>
+				["at0035"] = <
+					text = <"Flow-volume loop">
+					description = <"Graphically depicts the rate of airflow on the Y-axis and the total volume inspired or expired on the X-axis">
+				>
+				["at0037"] = <
+					description = <"Also called carbon monoxide diffusing capacity test .">
+					text = <"CO transfer factor (DLCO test)">
+					comment = <"In North America the unit for D, co is mL CO/min/mm Hg.
+The Systeme Internationale unit is mmol/min/kPa, and in
+Europe the test is called the CO transfer factor. The following
+equation converts between the 2 units:
+D,   2.986 X T">
+				>
+				["at0038"] = <
+					text = <"Maximal oxygen consumption (VO2max)">
+					description = <"The maximum capacity of an individual's body to transport and utilize oxygen during incremental exercise.">
+				>
+				["at0044"] = <
+					text = <"Actual/predicted ratio">
+					description = <"The ratio of actual to predicted test result.">
+				>
+				["at0046"] = <
+					text = <"Bronchial challenge">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Agent/modality">
+					description = <"The agent or physical modality used e.g exercise.">
+				>
+				["at0048"] = <
+					text = <"Dose">
+					description = <"The dose of agent used in the test.">
+				>
+				["at0049"] = <
+					text = <"Bronchodilation">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Agent">
+					description = <"The bronchodilating agent used in the test.">
+				>
+				["at0052"] = <
+					text = <"Pulmonary volume">
+					description = <"Pulmonary function test that returns a measured volume or caclulated capacity.">
+				>
+				["at0053"] = <
+					text = <"Actual">
+					description = <"Actual pulmonary volume test result.">
+				>
+				["at0054"] = <
+					text = <"Predicted">
+					description = <"Predicted pulmonary  volume test result.">
+				>
+				["at0055"] = <
+					text = <"Pulmonary ratio">
+					description = <"A pulmonary function test result expressed as a ratio.">
+				>
+				["at0056"] = <
+					text = <"Actual">
+					description = <"Actual pulmonary test ratio result.">
+				>
+				["at0057"] = <
+					text = <"Pulmonary flow rate">
+					description = <"Pulmonary function test that returns a measured flow rate.">
+				>
+				["at0058"] = <
+					text = <"Actual">
+					description = <"Actual pulmonary flow rate result.">
+				>
+				["at0064"] = <
+					text = <"Slow vital capacity (SVC/EVC)">
+					description = <"The amount of air that can be forced out of the lungs after a maximal inspiration. Emphasis on completeness of expiration. Also termed expiratory vital capacity (EVC) Calculated= IRV+ Vt+ ERV">
+				>
+				["at0065"] = <
+					text = <"Forced vital capacity (FVC)">
+					description = <"The volume change of the lung between a full inspiration to total lung capacity and a maximal expiration to residual volume.">
+				>
+				["at0066"] = <
+					text = <"Total lung capacity (TLC)">
+					description = <"The volume of gas contained in the lung after a full inhalation.">
+				>
+				["at0067"] = <
+					text = <"Forced expiratory volume in 1 sec (FEV1)">
+					description = <"The amount of air that can be forcibly blown out in one second.">
+				>
+				["at0068"] = <
+					text = <"Forced expiratory volume in 3 sec (FEV3)">
+					description = <"The amount of air that can be forcibly blown out in three seconds.">
+				>
+				["at0069"] = <
+					text = <"Forced expiratory volume in 6 sec (FEV6)">
+					description = <"The amount of air that can be forcibly blown out in six seconds.">
+				>
+				["at0070"] = <
+					text = <"Forced expiratory volume in .75 sec (FEV.75)">
+					description = <"The amount of air that can be forcibly blown out in 0.75 of a second.">
+				>
+				["at0071"] = <
+					text = <"Peak expiratory flow (PEF)">
+					description = <"The maximum flow generated during expiration performed with maximal force and started after a full inspiration. Also termed Peak Expiratory Flow Rate (PEFR).">
+				>
+				["at0072"] = <
+					text = <"Forced expiratory flow 25-75% (FEF25-75%)">
+					description = <"The average flow of air from the lung during the middle portion (25-75%) of expiration (also sometimes referred to as the MMEF, for maximal mid-expiratory flow).">
+				>
+				["at0073"] = <
+					text = <"Forced expiratory flow 25-50% (FEF25-50%)">
+					description = <"The average flow of air from the lung during the middle portion (25-50%) of expiration (also sometimes referred to as the MMEF, for maximal mid-expiratory flow).">
+				>
+				["at0074"] = <
+					text = <"Forced inspratory flow 25-75% (FIF25-75%)">
+					description = <"The average flow of air into the lung during the middle portion (25-75%) of inspiration.">
+				>
+				["at0075"] = <
+					text = <"Forced inspratory flow 25-50% (FIF25-50%)">
+					description = <"The average flow of air into the lung during the middle portion (25-50%) of inspiration.">
+				>
+				["at0076"] = <
+					text = <"Inspiratory capacity (IC/IVC)">
+					description = <"The maximal volume that can be inspired following a normal expiration. Also termed Inspiratory vital capacity (IVC). Calculated = TV+IRV">
+				>
+				["at0077"] = <
+					text = <"Expiratory reserve volume (ERV)">
+					description = <"The amount of additional air that can be pushed out after the end expiratory level of normal breathing.">
+				>
+				["at0078"] = <
+					text = <"Inspiratory reserve volume (IRV)">
+					description = <"The additional air that can be inhaled after a normal tidal breath in. ">
+				>
+				["at0079"] = <
+					text = <"Maximum voluntary ventilation">
+					description = <"A measure of the maximum amount of air that can be inhaled and exhaled in one minute. Also termed Maximum ventilation per minute">
+				>
+				["at0080"] = <
+					text = <"Tiffenau index (FEV1/SVC)">
+					description = <"The ratio of Forced Expiratory volume in 1 second to Inspired vital capacity. Calculated = FEV1/ IVC.">
+				>
+				["at0081"] = <
+					text = <"FEV1/FVC ratio (FEV1%FVC)">
+					description = <"The ration of Forced expiratory volume in 1 second to Forced vital capacity.">
+				>
+				["at0082"] = <
+					text = <"Tidal volume (Vt)">
+					description = <"The volume of air inspired and then expired from the lung during one respiratory cycle.">
+				>
+				["at0083"] = <
+					text = <"Residual volume (RV)">
+					description = <"The amount of air left in the lungs after a maximal exhalation.">
+				>
+				["at0084"] = <
+					text = <"Functional residual capacity (FRC)">
+					description = <"The amount of air left in the lungs after a tidal breath out. Calculated = ERV+RV.">
+				>
+				["at0087"] = <
+					text = <"Test name">
+					description = <"The name of the pulmonary volume test/parameter.">
+				>
+				["at0088"] = <
+					text = <"Test name">
+					description = <"The name of the pulmonary flow rate test.">
+				>
+				["at0089"] = <
+					text = <"Test name">
+					description = <"The nameof the pulmonary ratio test.">
+				>
+				["at0091"] = <
+					text = <"Timing">
+					description = <"The timin of the event in ">
+				>
+				["at0093"] = <
+					text = <"Agent detail">
+					description = <"Details of the agent used in the test.">
+				>
+				["at0094"] = <
+					text = <"Before bronchial challenge">
+					description = <"The test was taken before  the challenge.">
+				>
+				["at0095"] = <
+					text = <"After bronchial challenge">
+					description = <"The test was performed after the bronchial challenge.">
+				>
+				["at0097"] = <
+					text = <"Duration">
+					description = <"The timing of the test in relation to the challenge.">
+				>
+				["at0098"] = <
+					text = <"Confounding factors">
+					description = <"Comment on and record other incidental factors that may affect interpretation of the observation. ">
+				>
+				["at0099"] = <
+					text = <"Interpretive findings">
+					description = <"Textual or coded interpretations of the test results.">
+				>
+				["at0101"] = <
+					text = <"Comment">
+					description = <"*">
+				>
+				["at0102"] = <
+					text = <"Patient-related failure">
+					description = <"Patient related reason for failure of test.">
+				>
+				["at0103"] = <
+					text = <"Instrument-related failure">
+					description = <"Instrument related reason for failure of test result.">
+				>
+				["at0104"] = <
+					text = <"Calibration failed">
+					description = <"Equipment failed calibration test.">
+				>
+				["at0105"] = <
+					text = <"Leak detected">
+					description = <"Volume displacement spirometer shows a leak detected.">
+				>
+				["at0106"] = <
+					text = <"Rip or tear in flowhead">
+					description = <"Rip or tear detected in flowhead connector tube for flow spirometers.">
+				>
+				["at0107"] = <
+					text = <"Hesitation">
+					description = <"Patient hesistated during expiration.">
+				>
+				["at0108"] = <
+					text = <"Cough">
+					description = <"Patient coughed.">
+				>
+				["at0109"] = <
+					text = <"Additional breath">
+					description = <"Patient took additional breath during expiration.">
+				>
+				["at0110"] = <
+					text = <"Premature termination">
+					description = <"Patient did not perform expiration for sufficient duration.">
+				>
+				["at0111"] = <
+					text = <"Obstruction of mouthpiece">
+					description = <"Mouthpiece of measuring equipment obstructed by tongue or teeth.">
+				>
+				["at0112"] = <
+					text = <"Expiration not continuous">
+					description = <"Patient stopped or started expiration during manoeuvre.">
+				>
+				["at0113"] = <
+					text = <"Clinician terminated measurement">
+					description = <"Patient stopped expiration on instructions from clinician.">
+				>
+				["at0114"] = <
+					text = <"Poor posture">
+					description = <"The patients posture was too poor to achieve a reliable result.">
+				>
+				["at0115"] = <
+					text = <"Position">
+					description = <"The body position of the subject at the time of measurement.">
+				>
+				["at0116"] = <
+					text = <"Standing">
+					description = <"Standing at the time of measurement.">
+				>
+				["at0117"] = <
+					text = <"Sitting">
+					description = <"Sitting (for example on bed or chair) at the time of measurement.">
+				>
+				["at0118"] = <
+					text = <"Reclining">
+					description = <"Reclining at the time of measurement.">
+				>
+				["at0119"] = <
+					text = <"Lying">
+					description = <"Lying flat at the time of measurement.">
+				>
+				["at0122"] = <
+					text = <"Actual/predicted ratio">
+					description = <"The ratio of actual to predicted test result.">
+				>
+				["at0123"] = <
+					text = <"Too young">
+					description = <"The patient is too young to perform the test.">
+				>
+				["at0124"] = <
+					text = <"Physically unable to perform test">
+					description = <"The subject is physically unable to perform the test.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Testi pljučnih funkcij">
+					description = <"Testi pljučnih funkcij vključno s spirometrijo in ostalimi testiranji pljučnih volumnov.">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Any event(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0008"] = <
+					text = <"Predviden">
+					description = <"Predviden PEF">
+				>
+				["at0013"] = <
+					text = <"Čas forsiranega izdiha">
+					description = <"Trajanje forsiranega izdiha.">
+				>
+				["at0018"] = <
+					text = <"Predvideno">
+					description = <"Predvideno razmerje pljučnih vrednosti.">
+				>
+				["at0027"] = <
+					text = <"Anatomski mrtvi prostor">
+					description = <"Volumen mrtvega prostora.">
+				>
+				["at0029"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0030"] = <
+					text = <"Naprava">
+					description = <"Podrobnosti naprave uporabljene pri testiranju pljučnih fukcij.">
+				>
+				["at0031"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0033"] = <
+					text = <"Spirografija">
+					description = <"Grafični prikaz spirometrije.">
+				>
+				["at0034"] = <
+					text = <"Volumen-čas krivulje">
+					description = <"Prikazuje volumen (litri) vzdolž Y-osi in čas (sekunde) vzdolž X-osi.">
+				>
+				["at0035"] = <
+					text = <"Pretok-volumen krivulje">
+					description = <"Grafični prikaz stopnje pretoka zraka na Y-osi in totalnega volumna vdihanega in izdihanega zraka na X-osi.">
+				>
+				["at0037"] = <
+					comment = <"*In North America the unit for D, co is mL CO/min/mm Hg.
+The Systeme Internationale unit is mmol/min/kPa, and in
+Europe the test is called the CO transfer factor. The following
+equation converts between the 2 units:
+D,   2.986 X T(en)">
+					text = <"Faktor prenosa CO (DLCO test)">
+					description = <"Poimenovan tudi test difuzijske kapacitete ogljikovega monoksida.">
+				>
+				["at0038"] = <
+					text = <"Največji privem kisika (VO2max)">
+					description = <"Maksimalna kapaciteta posameznikovega telesa za transport in porabo kisika pri večstopenjskem obremnitvenem testu.">
+				>
+				["at0044"] = <
+					text = <"Razmerje izmerjen/predviden">
+					description = <"Razmerje izmerjenih vrednosti glede na predvidene.">
+				>
+				["at0046"] = <
+					text = <"Bronhialni izziv">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Sredstvo/način">
+					description = <"Sredstvo ali način npr. gibanje.">
+				>
+				["at0048"] = <
+					text = <"Količina">
+					description = <"Količina uporabljena pri testu.">
+				>
+				["at0049"] = <
+					text = <"Bronhodilatacija">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Sredstvo">
+					description = <"Bronhodilatacijsko sredstvo uporabljeno pri testu.">
+				>
+				["at0052"] = <
+					text = <"Pljučni volumni">
+					description = <"Testi pljučnih fukcij, rezultat katerih je izmerjen volumen ali razmerje.">
+				>
+				["at0053"] = <
+					text = <"Izmerjen">
+					description = <"Izmerjene vrednost testa pljučnih kapacitet.">
+				>
+				["at0054"] = <
+					text = <"Predviden">
+					description = <"Predvidena vrednost testa pljučnih kapacitet.">
+				>
+				["at0055"] = <
+					text = <"Razmerja pljučnih volumnov">
+					description = <"Rezultati pljučnega testiranja prikazani v razmerjih.">
+				>
+				["at0056"] = <
+					text = <"Izmerjeno">
+					description = <"Izmerjeno razmerje pljučnih vrednosti.">
+				>
+				["at0057"] = <
+					text = <"PEF">
+					description = <"Merjenje največjega pretoka zraka pri ustih">
+				>
+				["at0058"] = <
+					text = <"Izmerjen">
+					description = <"Dejanski, izmerjen PEF">
+				>
+				["at0064"] = <
+					text = <"Počasna vitalna kapaciteta (SVC/EVC)">
+					description = <"Količina zraka izdihana po maksimalnem vdihu. Poudarek je na popolnem izdihu. Imenovano tudi ekspiratorna vitalna kapaciteta (EVC) Izračunano = IRV+ Vt+ ERV">
+				>
+				["at0065"] = <
+					text = <"Forsirana vitalna kapaciteta (FVC)">
+					description = <"*The volume change of the lung between a full inspiration to total lung capacity and a maximal expiration to residual volume.(en)">
+				>
+				["at0066"] = <
+					text = <"Celotna pljučna kapaciteta (TLC)">
+					description = <"Volumen zraka v pljučih po popolnem vdihu.">
+				>
+				["at0067"] = <
+					text = <"Forsirani izdihani volumen v prvi sekundi (FEV1)">
+					description = <"Volumen zraka, ki ga človek po maksimalnem izdihu z manevrom forsiranega izdihovanja izdihne v eni sekundi.">
+				>
+				["at0068"] = <
+					text = <"Forsirani izdihani volumen v 3 sek (FEV3)">
+					description = <"Volumen zraka, ki ga človek po maksimalnem izdihu z manevrom forsiranega izdihovanja izdihne v treh sekundah.">
+				>
+				["at0069"] = <
+					text = <"Forsirani izdihani volumen v 6 sek (FEV6)">
+					description = <"Volumen zraka, ki ga človek po maksimalnem izdihu z manevrom forsiranega izdihovanja izdihne v šestih sekundah.">
+				>
+				["at0070"] = <
+					text = <"Forsirani izdihani volumen v .75 sek (FEV.75)">
+					description = <"Volumen zraka, ki ga človek po maksimalnem izdihu z manevrom forsiranega izdihovanja izdihne v 0.75 sekunde.">
+				>
+				["at0071"] = <
+					text = <"*Peak expiratory flow (PEF)(en)">
+					description = <"*The maximum flow generated during expiration performed with maximal force and started after a full inspiration. Also termed Peak Expiratory Flow Rate (PEFR).(en)">
+				>
+				["at0072"] = <
+					text = <"*Forced expiratory flow 25-75% (FEF25-75%)(en)">
+					description = <"*The average flow of air from the lung during the middle portion (25-75%) of expiration (also sometimes referred to as the MMEF, for maximal mid-expiratory flow).(en)">
+				>
+				["at0073"] = <
+					text = <"*Forced expiratory flow 25-50% (FEF25-50%)(en)">
+					description = <"*The average flow of air from the lung during the middle portion (25-50%) of expiration (also sometimes referred to as the MMEF, for maximal mid-expiratory flow).(en)">
+				>
+				["at0074"] = <
+					text = <"*Forced inspratory flow 25-75% (FIF25-75%)(en)">
+					description = <"*The average flow of air into the lung during the middle portion (25-75%) of inspiration.(en)">
+				>
+				["at0075"] = <
+					text = <"*Forced inspratory flow 25-50% (FIF25-50%)(en)">
+					description = <"*The average flow of air into the lung during the middle portion (25-50%) of inspiration.(en)">
+				>
+				["at0076"] = <
+					text = <"Inspiratorna kapaciteta (IC/IVC)">
+					description = <"Največji volumen vdihanega zraka po normalnem izdihu. Imenovana tudi inspiratorna vitalna kapaciteta (IVC). Izračunana = TV+IRV">
+				>
+				["at0077"] = <
+					text = <"Ekspiratorni rezervni volumen (ERV)">
+					description = <"Količina dodatnega zraka, ki se izdiha po običjanem izdihu.">
+				>
+				["at0078"] = <
+					text = <"Inspiratorni rezervni volumen (IRV)">
+					description = <"Količina zraka, ki se lahko vdihne po običajnem vdihu.">
+				>
+				["at0079"] = <
+					text = <"*Maximum voluntary ventilation(en)">
+					description = <"*A measure of the maximum amount of air that can be inhaled and exhaled in one minute. Also termed Maximum ventilation per minute(en)">
+				>
+				["at0080"] = <
+					text = <"Tiffenau-jev index (FEV1/SVC)">
+					description = <"Razmerje med FEV1 (forsiran ekspiratorni volumen v eni sekundi) in SVC (inspiracijska vitalna kapaciteta). Izračunano = FEV1/ IVC.">
+				>
+				["at0081"] = <
+					text = <"FEV1/FVC razmerje (FEV1%FVC)">
+					description = <"Razmerje med FEV1 (forsiran ekspiratorni volumen v 1 sekundi) in FVC (forsirana vitalna kapaciteta).">
+				>
+				["at0082"] = <
+					text = <"Dihalni volumen">
+					description = <"Količina vdihanega in izdihanega zraka tekom enega dihalnega cikla.">
+				>
+				["at0083"] = <
+					text = <"Rezidualni volumen (RV)">
+					description = <"Količina zraka, ki ostane v pljučih po maksimalnem izdihu.">
+				>
+				["at0084"] = <
+					text = <"Funkcionalna rezidualna kapaciteta (FRC)">
+					description = <"Količina zraka v pljučih po običajenm izdihut. Izračunano = ERV+RV.">
+				>
+				["at0087"] = <
+					text = <"Ime testa">
+					description = <"Ime testa pljučnih kapacitet/parametra.">
+				>
+				["at0088"] = <
+					text = <"Ime testa">
+					description = <"Ime testa">
+				>
+				["at0089"] = <
+					text = <"Ime testa">
+					description = <"Ime testa razmerij pljučnih vrednosti.">
+				>
+				["at0091"] = <
+					text = <"Čas">
+					description = <"Čas dogodka.">
+				>
+				["at0093"] = <
+					text = <"Agent detail(en)">
+					description = <"Podrobnosti o uporabljenem sredstvu v testu.">
+				>
+				["at0094"] = <
+					text = <"Pred bronihialnim izzivom">
+					description = <"Test je bil opravljen pred izzivom.">
+				>
+				["at0095"] = <
+					text = <"Po bronhialnim izzivu">
+					description = <"Test je bil opravljen po bronhialnem izzivu.">
+				>
+				["at0097"] = <
+					text = <"Trajanje">
+					description = <"Čas testa v primerjavi z izzivom.">
+				>
+				["at0098"] = <
+					text = <"Ostali dejavniki">
+					description = <"Opis in komentar ostalih dejavnikov, ki bi lahko vplivali na interpretacijo pregleda.">
+				>
+				["at0099"] = <
+					text = <"Ugotovitve interpretacije">
+					description = <"Tekstovna ali s kodami označena interpretacija rezultatov testov.">
+				>
+				["at0101"] = <
+					text = <"Komentarji">
+					description = <"*">
+				>
+				["at0102"] = <
+					text = <"Vzrok za neopravljen test (bolnik)">
+					description = <"Vzrok za neopravljen test (bolnik).">
+				>
+				["at0103"] = <
+					text = <"Vzrok za neopravljen test (naprava)">
+					description = <"Vzrok za neopravljen test (naprava).">
+				>
+				["at0104"] = <
+					text = <"Neopravljena kalibracija">
+					description = <"Kalibracijski test ni bil zadovoljivo opravljen zaradi napake naprave.">
+				>
+				["at0105"] = <
+					text = <"Zaznano uhajanje">
+					description = <"Spirometer zazna uhajanje.">
+				>
+				["at0106"] = <
+					text = <"Poškodba naprave">
+					description = <"Pretrganje ali raztrganje povezovalne tube.">
+				>
+				["at0107"] = <
+					text = <"Zadrževanje">
+					description = <"Bolnik je zadrževal med izdihom.">
+				>
+				["at0108"] = <
+					text = <"Kašelj">
+					description = <"Bolnik kašlja.">
+				>
+				["at0109"] = <
+					text = <"Dodatni vdih">
+					description = <"Bolnik je med izdihom dodatno vdihnil.">
+				>
+				["at0110"] = <
+					text = <"Prezgodnji zaključek">
+					description = <"Bolnik ni dovolj časa izvajal izdihovanja.">
+				>
+				["at0111"] = <
+					text = <"Blokada ustnika">
+					description = <"Blokada ustnika merilne napravez jezikom ali zobmi.">
+				>
+				["at0112"] = <
+					text = <"Izdih ni neprekinjen.">
+					description = <"Bolnik je med manevrom ustavil ali na novo začel izdih.">
+				>
+				["at0113"] = <
+					text = <"Meritev prekinjega s strani zdravnika/sestre">
+					description = <"Bolnik je končal izdih zaradi navodil zdravstvenega osebja.">
+				>
+				["at0114"] = <
+					text = <"Slaba telesna drža">
+					description = <"Bolnikova telesna drža je bila preslaba za dosego relevantnih rezultatov.">
+				>
+				["at0115"] = <
+					text = <"Položaj telesa">
+					description = <"Položaj telesa v času meritve.">
+				>
+				["at0116"] = <
+					text = <"Stoje">
+					description = <"Stoji v času meritve.">
+				>
+				["at0117"] = <
+					text = <"Sede">
+					description = <"Sedi (npr. na postelji ali stolu)  v času meritve.">
+				>
+				["at0118"] = <
+					text = <"*Reclining(en)">
+					description = <"*Reclining at the time of measurement.(en)">
+				>
+				["at0119"] = <
+					text = <"Leže">
+					description = <"Leži na ravnem v času meritve.">
+				>
+				["at0122"] = <
+					text = <"Razmerje izmerjen/predviden">
+					description = <"Razmerje izmerjenega PEFa glede na predvideni PEF">
+				>
+				["at0123"] = <
+					text = <"Premlad">
+					description = <"Bolnik je premlad za opravljanje testa.">
+				>
+				["at0124"] = <
+					text = <"Fizično nezmožen opraviti test">
+					description = <"Bolnik je fizično nezmožen opraviti test.">
+				>
+			>
+		>
+	>

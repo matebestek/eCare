@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC"
+	xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:activiti="http://activiti.org/bpmn"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-be0e2c30-8145-4d80-96f3-757293b44354" targetNamespace="http://www.signavio.com/bpmn20"
+	typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<process id="Hujsanje-Proces-Delovni-List-Prikaz" name="Hujsanje-Proces-Delovni-List-Prikaz"
+		isExecutable="false">
+		<startEvent id="startEvent"
+			name="ProcesPeriodicnoProzenjeStartEvent">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>startEvent-serviceTask</outgoing>        	 
+		</startEvent>
+		<serviceTask
+			activiti:class="si.pint.eoskrba.ehujsanje.workingSheets.InitWorkingSheetDelegate"
+			completionQuantity="1" id="serviceTask"
+			implementation="webService" isForCompensation="false" name="Izberi delovni list"
+			startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+			</extensionElements>
+			<incoming>startEvent-serviceTask</incoming>
+			<outgoing>serviceTask-userTask</outgoing>
+		</serviceTask>
+		
+		<userTask activiti:assignee="${usernameApp}"
+			activiti:formKey="hujsanjeDelovniList.form" completionQuantity="1"
+			id="userTask1" implementation="webService"
+			isForCompensation="false" name="${userTaskName}"
+			startQuantity="1">
+			<documentation id="TaskPrikazDelovnegaLista">TaskPrikazDelovnegaLista</documentation>
+
+			<incoming>serviceTask-userTask</incoming>
+			<outgoing>userTask-endEvent</outgoing>
+		</userTask>
+				
+		<endEvent id="endEvent" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>serviceTask-userTask</incoming>
+		</endEvent>
+		<sequenceFlow id="startEvent-serviceTask" name="" sourceRef="startEvent" targetRef="serviceTask" />
+		<sequenceFlow id="serviceTask-userTask"	name="" sourceRef="serviceTask"	targetRef="userTask1" />
+		<sequenceFlow id="userTask-endEvent" name="" sourceRef="userTask1" targetRef="endEvent" />
+	</process>
+	<bpmndi:BPMNDiagram id="sid-08756e05-88b5-4c2f-8aef-74d93b25ee06">
+		<bpmndi:BPMNPlane bpmnElement="Hujsanje-Proces-Delovni-List-Prikaz"
+			id="sid-04fa2377-d5ad-4cee-835c-9a83ae4bb019">
+			<bpmndi:BPMNShape bpmnElement="startEvent"
+				id="sid-A2A6D278-8F85-4DE1-B019-4D846C8AEB74_gui">
+				<omgdc:Bounds height="30.0" width="30.0" x="120.0" y="226.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="serviceTask"
+				id="sid-4D4874C3-5EE0-45D0-83DD-FC39D458D9C2_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="270.0" y="201.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="endEvent"
+				id="sid-A8E5C83B-3516-48CE-81F8-847F6D3EA7C7_gui">
+				<omgdc:Bounds height="28.0" width="28.0" x="480.0" y="227.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="serviceTask-userTask"
+				id="serviceTask-userTask_gui">
+				<omgdi:waypoint x="370.0" y="241.0" />
+				<omgdi:waypoint x="480.0" y="241.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="startEvent-serviceTask"
+				id="startEvent-serviceTask_gui">
+				<omgdi:waypoint x="150.0" y="241.0" />
+				<omgdi:waypoint x="270.0" y="241.0" />
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

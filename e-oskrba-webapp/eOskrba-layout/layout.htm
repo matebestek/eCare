@@ -1,0 +1,131 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<html>
+	<head>
+		<title>Title</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.8.14.custom.css" />
+		<script type="text/javascript" src="js/jquery-1.6.1.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.14.custom.min.js" ></script>
+		<script type="text/javascript" src="js/style.js" /></script>
+	</head>
+	<body>
+	
+		<div id="layout-app">
+		</div>
+		
+		<div id="layout-mainmenu">
+			<a href="#">Moje naloge</a>
+			<a href="#">Poročila</a>
+			<a href="#">Novice in priporočila</a>
+			<a href="#">Izobraževanje</a>
+			<a href="#">Vprašanja</a>
+		</div>
+		
+		<div id="layout-infobox">
+			<img src="img/avatar-sample.jpg" />
+			<h2>Ivan Pacient</h2>
+		</div>
+		
+		<div id="layout-mainframe">
+		
+			<div id="layout-widgetframe">
+			
+				<div id="widget1" class="layout-widget">
+					<div class="layout-widget-header" onclick="layout_widget_onClick('#widget1');">
+						<h2>Sample widget</h2>
+					</div>
+					<div class="layout-widget-content">
+						<p>Sample text. Text example. Widget's sample text example.</p>
+					</div>
+				</div>
+				
+				<div id="widget2" class="layout-widget">
+					<div class="layout-widget-header" onclick="layout_widget_onClick('#widget2');">
+						<h2>Another widget</h2>
+					</div>
+					<div class="layout-widget-content">
+						<p>
+							<a href="#">Vabljeni na predavanje dr. Migliča o soočanju z astmo v zgodnjem otroštvu</a><br />
+							<span class="date">objavljeno 14. julija 2011</span>
+						</p>
+						<p>
+							<a href="#">Poletni urnik ordinacije v Ljubljani</a>
+							<span class="date">objavljeno 11. julija 2011</span>
+						</p>
+					</div>
+				</div>
+				
+				<div id="widget3" class="layout-widget">
+					<div class="layout-widget-header" onclick="layout_widget_onClick('#widget3');">
+						<h2>Yet another widget</h2>
+					</div>
+					<div class="layout-widget-content">
+						<p>Ta widget ima ogromno texta. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+						<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.</p>
+					</div>
+				</div>
+				
+				<div id="widget4" class="layout-widget">
+					<div class="layout-widget-header" onclick="layout_widget_onClick('#widget4');">
+						<h2>Last widget</h2>
+					</div>
+					<div class="layout-widget-content">
+						<p>Last widget's text.</p>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div id="layout-panelframe">
+			
+				<div id="layout-panel-header">
+					<p id="layout-panel-header-info">Novice. Napisal-a <a href="#">Miha Zdravnik</a>, dne 12. julija 2011.</p>
+					<h1>Naredili prvi avtomobil popolnoma prilagojen za astmatike</h1>
+				</div>
+				
+				<div id="layout-panel-content">
+					<p>Volvo v model S80 vgrajuje novo tehnologijo za čist zrak v avtomobilu.<img style="float: right; margin-top: 20px; margin-bottom: 20px; margin-left: 30px; margin-right: 30px;" src="http://img.rtvslo.si/upload/zabava/p2006_1100_show.jpg" alt="" height="210" width="280"></p>
+					<p><strong>Notranji paket za čisto območje (CZIP) je ime nove tehnologije, ki proizvaja v avtu čist zrak in naredi vožnjo prijetnejšo.</strong></p>
+					<p>To tehnologijo najdete pri novem volvu S80. Ta je hkrati tudi prvi model, ki izpolnjuje visoke standarde švedske organizacije za astmo in alergije.</p>
+					<p>"<em>Merilo organizacije za astmo in alergije za priporočilo proizvoda določa nizke stopnje formaldehida, trdnih delcev, različnih dražil, škodljivega ogljikovega vodika in vonjev</em>," pravi Anders Löfvendahl, projektni vodja pri podjetju Volvo Cars in specialist za notranje okolje avtomobila.</p>
+					<p><strong>Notranji zrak samodejno prezračen</strong></p>
+					<p><strong></strong>CZIP vključuje daljinsko nadzorovani samodejni kabinski prezračevalni sistem. Vključi se, ko z daljinskim upravljavcem odklenemo avtomobilska vrata, in učinkovito izključi izpuste in močne vonjave, ki so se razvile v parkiranem avtomobilu, ter tako pospešuje bolj zdravo notranje okolje. Funkcija postopoma zmanjšuje moč, saj so škodljive snovi notranjih delov in tkanin potratene.</p>
+					<p><img style="float: left; margin-top: 20px; margin-bottom: 20px; margin-left: 30px; margin-right: 30px;" src="http://img.rtvslo.si/upload/zabava/p2006_1075_show.jpg" alt="" height="210" width="280"><strong>Čista notranjost v vseh Volvih avtomobilih</strong></p>
+					<p>Notranji paket za čisto območje - Clean Zone Interior Package (CZIP), ki ga priporoča švedska organizacija za astmo in alergije, bo na začetku na voljo kot izbira novega volva S80. CZIP bo postopoma na voljo v drugih modelih. Vsi Volvovi modeli že izpolnjujejo visoke zahteve zdrave notranje klime. Volvovo oblazinjenje in notranje tkanine izpolnjujejo Öko-Tex Standard 100 – mednarodni standard, ki prepoveduje uporabo velikega število alergenov.</p>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,356 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.patient_state_zn.v1
+
+concept
+	[at0000]	-- Stanje pacienta
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"18/10/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za opisovanje stanja pacienta">
+			use = <"Za opisovanje stanja pacienta">
+			keywords = <"stanje", ...>
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"DC8ACDAAEAECAD963AED1E7826D977A1">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Stanje pacienta
+		items cardinality matches {1..*; unordered} matches {
+			allow_archetype CLUSTER[at0001] occurrences matches {0..1} matches {	-- Aktivnost
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.level_of_exertion(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[at0015] occurrences matches {0..*} matches {	-- Lega pacienta
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0016, 	-- Levi bok
+							at0017, 	-- Desni bok
+							at0018, 	-- Stoji
+							at0019, 	-- Kot 30%
+							at0020, 	-- Leži na trebuhu
+							at0021, 	-- Leži na hrbtu
+							at0022, 	-- Trendelenburg
+							at0024, 	-- Kot 15°
+							at0025, 	-- Kot 45°
+							at0026]	-- Dvignjeno vzglavje
+						}
+					}
+				}
+			}
+			ELEMENT[at0023] occurrences matches {0..1} matches {	-- Drugo
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..*} matches {	-- Aktivnost
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0005, 	-- Spi
+							at0006, 	-- Joka
+							at0007, 	-- Nemiren
+							at0008, 	-- Utrujen
+							at0009, 	-- Zaspan
+							at0010]	-- Izčrpan
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..*} matches {	-- Aktivnost dojenčka 
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0011, 	-- Razdražljiv
+							at0012, 	-- Zaspan
+							at0013, 	-- Cvileč jok
+							at0014]	-- Mirna pozorna budnost
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Patient state">
+					description = <"Aspects of patient state which may affect observation results.">
+				>
+				["at0001"] = <
+					text = <"Activity phase">
+					description = <"The phase of activity being undertaken.">
+				>
+				["at0003"] = <
+					text = <"Confounding factors">
+					description = <"Other confounding factors in adults.">
+				>
+				["at0004"] = <
+					text = <"Infant confounding factors">
+					description = <"Confounding factors in infants">
+				>
+				["at0005"] = <
+					text = <"Sleeping">
+					description = <"The subject is sleeping.">
+				>
+				["at0006"] = <
+					text = <"Crying">
+					description = <"The subject is crying.">
+				>
+				["at0007"] = <
+					text = <"Restless">
+					description = <"The subject is restless.">
+				>
+				["at0008"] = <
+					text = <"Tired">
+					description = <"The subject is tired.">
+				>
+				["at0009"] = <
+					text = <"Sleepy">
+					description = <"The subject is sleepy.">
+				>
+				["at0010"] = <
+					text = <"Exhausted">
+					description = <"The subject is exhausted.">
+				>
+				["at0011"] = <
+					text = <"Irritable">
+					description = <"The subject is irritable.">
+				>
+				["at0012"] = <
+					text = <"Sleepy">
+					description = <"The subject is sleepy">
+				>
+				["at0013"] = <
+					text = <"Squeaking crying (squealing cry)">
+					description = <"The subject is squeaking/crying.">
+				>
+				["at0014"] = <
+					text = <"Awake, calm / still and watchful / attentive">
+					description = <"The subject is awake and alert.">
+				>
+				["at0015"] = <
+					text = <"Body position">
+					description = <"The position of the subject's body at the time of examination.">
+				>
+				["at0016"] = <
+					text = <"Left lateral (lying on left side)">
+					description = <"Left lateral position (lying on left side)">
+				>
+				["at0017"] = <
+					text = <"Right lateral">
+					description = <"Right lateral position.">
+				>
+				["at0018"] = <
+					text = <"Standing">
+					description = <"Standing position.">
+				>
+				["at0019"] = <
+					text = <"30° (head) tilt">
+					description = <"30° (head) tilt position.">
+				>
+				["at0020"] = <
+					text = <"Lying, prone (down)">
+					description = <"Lying, prone (down) position.">
+				>
+				["at0021"] = <
+					text = <"Lying, supine (on the back)">
+					description = <"Lying, supine (on the back) position.">
+				>
+				["at0022"] = <
+					text = <"Trendelenburg">
+					description = <"Trendelenburg position.">
+				>
+				["at0023"] = <
+					text = <"Other body position">
+					description = <"An unlisted body position.">
+				>
+				["at0024"] = <
+					text = <"15° (head) tilt">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"45° (head) tilt">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"to raise the head of the patient's bed ">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Stanje pacienta">
+					description = <"Stanje pacienta, ki vpliva na opazovanje">
+				>
+				["at0001"] = <
+					text = <"Aktivnost">
+					description = <"Ocena aktivnost pacienta">
+				>
+				["at0003"] = <
+					text = <"Aktivnost">
+					description = <"Aktivnost pacienta">
+				>
+				["at0004"] = <
+					text = <"Aktivnost dojenčka ">
+					description = <"Odzivanje dojenčka">
+				>
+				["at0005"] = <
+					text = <"Spi">
+					description = <"Spi">
+				>
+				["at0006"] = <
+					text = <"Joka">
+					description = <"Joka">
+				>
+				["at0007"] = <
+					text = <"Nemiren">
+					description = <"Nemiren">
+				>
+				["at0008"] = <
+					text = <"Utrujen">
+					description = <"Utrujen">
+				>
+				["at0009"] = <
+					text = <"Zaspan">
+					description = <"Zaspan">
+				>
+				["at0010"] = <
+					text = <"Izčrpan">
+					description = <"Izčrpan">
+				>
+				["at0011"] = <
+					text = <"Razdražljiv">
+					description = <"Razdražljiv">
+				>
+				["at0012"] = <
+					text = <"Zaspan">
+					description = <"Zaspan">
+				>
+				["at0013"] = <
+					text = <"Cvileč jok">
+					description = <"Cvileč jok">
+				>
+				["at0014"] = <
+					text = <"Mirna pozorna budnost">
+					description = <"Mirna pozorna budnost">
+				>
+				["at0015"] = <
+					text = <"Lega pacienta">
+					description = <"Lega pacienta">
+				>
+				["at0016"] = <
+					text = <"Levi bok">
+					description = <"Levi bok">
+				>
+				["at0017"] = <
+					text = <"Desni bok">
+					description = <"Desni bok">
+				>
+				["at0018"] = <
+					text = <"Stoji">
+					description = <"Stoji">
+				>
+				["at0019"] = <
+					text = <"Kot 30%">
+					description = <"Kot 30%">
+				>
+				["at0020"] = <
+					text = <"Leži na trebuhu">
+					description = <"Leži na trebuhu">
+				>
+				["at0021"] = <
+					text = <"Leži na hrbtu">
+					description = <"Leži na hrbtu">
+				>
+				["at0022"] = <
+					text = <"Trendelenburg">
+					description = <"Trendelenburg">
+				>
+				["at0023"] = <
+					text = <"Drugo">
+					description = <"Drugi položaji">
+				>
+				["at0024"] = <
+					text = <"Kot 15°">
+					description = <"Kot 15°">
+				>
+				["at0025"] = <
+					text = <"Kot 45°">
+					description = <"Kot 45°">
+				>
+				["at0026"] = <
+					text = <"Dvignjeno vzglavje">
+					description = <"Dvignjeno vzglavje">
+				>
+			>
+		>
+	>

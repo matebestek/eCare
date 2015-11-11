@@ -1,0 +1,551 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+
+<div id="activiti_form_holder">
+
+	<h3><a href="#">Vsebine - Prehrana - Zakaj so pomembni ogljikovi hidrati?</a></h3>
+	<div style="font-family: arial, sans-serif;">
+	<center>
+		<span style="font-size: 14pt;"><font color="#FF8040"><b>ZAKAJ SO POMEMBNI OGLJIKOVI HIDRATI?</b></font></span>
+	</center>
+	
+	<p align="justify">
+		Ogljikovi hidrati oskrbujejo telo predvsem z <b>energijo</b>, vendar so s svojimi sestavinami vključeni tudi v vsako telesno celico. Ogljikovi hidrati so <b>glavna hranilna snov</b>, ki organizmu zagotavlja energijo. Poznamo <b>enostavne in sestavljene ogljikove hidrate.</b>
+	</p>
+	<p align="justify">
+		Med enostavne ogljikove hidrate uvrščamo: 
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				monosaharide (glukoza, fruktoza, manoza in galaktoza) in 
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				disaharide (saharoza, laktoza, maltoza).
+				</td>
+		</tr>
+	</table>
+	</p>
+	<p>
+		Po zaužitju se hitro prebavijo, zagotavljajo hiter vir energije in povzročijo hitro izločanje inzulina.<br>
+	</p>
+	<p align="justify">
+		Med sestavljene ogljikove hidrate spadajo:
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				polisaharidi (glikogen, škrob in prehranska vlaknina).
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p>
+	Priporočen vnos ogljikovih hidratov v dnevni prehrani je več kot <b>50% dnevnega energijskega vnosa</b>. Priporočljiva so predvsem ogljikohidratna živila, ki vsebujejo za življenje nujno potrebne hranilne snovi in prehransko vlaknino.<br>
+	</p>
+	<p align="justify">
+		Enostavni sladkorji naj ne bi prispevali več kakor 10% dnevnega energijskega vnosa in se med ogljikovimi hidrati najhitreje prebavijo in povzročijo tudi hiter porast inzulina. Nahajajo se v kuhinjskem sladkorju, medu, čokoladi, slaščicah, sladkih pijačah; naravno pa so prisotni v sadju. Če človek potrebuje 2000 kcal na dan, naj bi enostavni sladkorji doprinesli do 200 kcal energije. En gram sladkorja vsebuje 4 kcal, kar predstavlja približno 50 gramov celokupnih enostavnih sladkorjev na dan. Prekomerno zaužiti enostavni sladkorji so velik dejavnik tveganja za prekomerno telesno maso in debelost. <b>Kuhinjski sladkor tudi ne vsebuje hranil, ki jih naše telo potrebuje, in zvišuje energijsko gostoto obrokov.</b><br>
+	</p>
+	<p align="justify">
+		Za ovrednotenje ogljikohidratnih živil na porast glukoze v krvi se poslužujemo vrednosti glikemičnega indeksa. Glikemični indeks (GI) je parameter, ki opisuje, kako hitro se ogljikovi hidrati po zaužitju absorbirajo v kri v primerjavi s čisto glukozo. Zaužitje živil z visokim GI hitreje in v večji meri poviša vrednost glukoze v krvi in povzroči povečano izločanje inzulina. Obremenitve hormonskega sistema trebušne slinavke, ki izloča inzulin, se kažejo v kronično povišani koncentraciji glukoze v krvi in inzulina, kar lahko vodi v moteno presnovo glukoze in inzulinsko rezistenco. Prednost sestavljenih ogljikovih hidratov je v večji vsebnosti prehranske vlaknine. Prehranska vlaknina je v zdravi in uravnoteženi prehrani izredno pomembna tudi zato, ker znižuje GI živilu/obroku in ugodno vpliva na prebavo. Pri ovrednotenju ogljikohidratnih živil/obrokov na porast glukoze v krvi se je kasneje uvedla vrednost glikemične obremenitve, ki poleg vrednosti glikemičnega indeksna vključuje tudi količino ogljikovih hidratov v enoti živila oziroma obroku.</span><br>
+	</p>
+	<center>
+		<h4><b><font color="#FF8040">Prehranska vlaknina</font></b></h4>
+	</center>
+	<p align="justify">
+		Prehranska vlaknina je snov rastlinskega izvora, za katere prebavni trakt človeškega organizma nima ustreznih encimov, da bi jih prebavil in tako ostane neprebavljena in se takšna tudi izloči. Med neprebavljive ogljikove hidrate spadajo celuloza, hemiceluloza, pektin, lignin in oligofruktoze.
+		</p>
+		<p align="justify">
+		Prehranska vlaknina praviloma nima izkoristljive energijske vrednosti, vpliva pa na različne pomembne funkcije v prebavnem traktu. Prekomerna količina zaužite prehranske vlaknine delno zmanjšuje absorpcijo hranil v prebavilih, kar je prav tako treba upoštevati pri načrtovanju prehrane, še zlasti pri otrocih in starostnikih.
+		</p>
+		<p align="justify">
+		Prehranska vlaknina naj bi zavirala nastanek številnih bolezni in funkcijskih motenj. Najpomembnejše so zaprtost, divertikuloza debelega črevesa, rak na debelem črevesu, žolčni kamni, prekomerna telesna masa, povišan holesterol v krvi, sladkorna bolezen in arterioskleroza. Prehransko vlaknino v črevesu deloma razgradijo bakterije v maščobne kisline s kratkimi verigami. Te znižujejo pH-vrednost vsebine črevesja in črevesni sluznici služijo kot hranljive snovi. Vlaknina sodi torej med varovalne snovi, zmanjšuje energijsko gostoto hrane, upočasni praznjenje želodca, hkrati pa pospešuje prebavo v tankem in debelem črevesju. Ločimo topne vlaknine, kot so ß-glukani, pektini, gume in delno hemiceluloza, ki se nahajajo v pečkatem sadju, pomarančah, grenivkah, grahu, leči, soji, zelenjavi ter netopne vlaknine kot so celuloza, hemiceluloza in lignin, ki se nahajajo predvsem v polnovrednih žitnih izdelkih.
+		</p>
+	</div>
+	
+<h3><a href="#">Vsebine - Prehrana - Žita in žitni izdelki</a></h3>
+	<div style="font-family: arial, sans-serif;">
+	<center>
+		<span style="font-size: 14pt;"><font color="#FF8040"><b>ŽITA IN ŽITNI IZDELKI</b></font></span>
+	</center>
+	</br>
+	<center>
+		<b><font color="#FF8040">Pomen žit in žitnih izdelkov</font></b>
+	</center>
+	<p align="justify">
+		Med živili rastlinskega izvora so pomembna žita, saj vsebujejo veliko pomembnih hranilnih snovi, kot so:</br>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				vitamini (bogat vir folata, niacina, riboflavina, tiamina),
+		</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				minerali (bogat vir železa, magnezija in selena),
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				nenasičene maščobne kisline in
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				prehranska vlaknina (lupina in kalčki žitnih zrn).
+				</td>
+		</tr>
+	</table>
+	</p>
+	
+		<p align="justify">
+		Zaradi prisotnih zaščitnih snovi se priporoča vključitev v dnevno prehrano približno <b>polovico polnovrednih žit in žitnih izdelkov</b> (polnozrnati kruh in izdelki iz polnozrnate moke, izdelki iz ajde, kaše in kosmiči iz ovsa, rži, pire, ječmena, naravni (neoluščeni) riž, testenine iz polnozrnate moke).
+		</p>
+		<p align="justify">
+		Raziskave kažejo, da ima prehrana, ki vsebuje veliko škrobnih živil, škodljive posledice za zdravje. Pri osebah, ki zaužijejo veliko krompirja, oluščenega riža in izdelkov iz bele moke, je pojavnost <b>sladkorne bolezni ter bolezni srca in ožilja</b> večja, v primerjavi z osebami, ki zaužijejo pretežno polnovredna žita. V raziskavi so poskusne osebe imele za okoli 30-40% manjše tveganje za nastanek sladkorne bolezni pri uživanju polnovrednih žit in semen ter oreškov namesto slaščic in peciva iz bele moke. Krompir zaužit štirikrat na teden, v raziskavi, ki je trajala 20 let, so ugotovili, da je uživanje krompirja štirikrat na teden povzročilo za 14% večje tveganje za nastanek sladkorne bolezni v primerjavi z ženskami, ki so uživale krompir le dvakrat na mesec.
+		</p>
+	</p>
+	<center>
+		<font color="#FF8040"><b>Pomen prehranske vlaknine</b></font>
+	</center>
+	
+	<p align="justify">
+		<b>Topne vlaknine (pektin, rastlinska guma)</b>, ki se nahajajo v pečkatem sadju, pomarančah, grenivkah, grahu, leči, soji, zelenjavi:
+				<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				zmanjšajo inzulinsko rezistenco,</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				serumsko koncentracijo trigliceridov,
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				glukozo, 
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				LDL/HDL razmerje in 
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				tudi krvni tlak,
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				vežejo holesterol in žolčne kisline (preventiva žolčnih kamnov),
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				zmanjšajo absorbcijo glukoze in koncentracijo inzulina,
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				pri fermentaciji pa se tvori propionat, ki v jetrih zmanjša sintezo holesterola.
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p align="justify">
+		<b>Netopne vlaknine (celuloza, hemiceluloza, lignin)</b>, ki se nahaja predvsem v polnovrednih žitnih izdelkih:
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				povečajo volumen blata,
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				skrajšajo prehod himusa oziroma blata skozi tanko in debelo črevo.
+				</td>
+		</tr>
+	</table>
+	</p>
+	<br>
+	<center>
+		<font color="#FF8040"><b>Zaščitna vloga prehranske vlaknine</b></font>
+	</center>
+	<p align="justify">
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Prehrana, ki vsebuje zadostne količine prehranske vlaknine je sicer varovalna prehrana pred zaprtjem, divertikulozo, rakom (zlasti na debelem črevesju), žolčnimi kamni, debelostjo, sladkorno boleznijo, povišanim krvnim tlakom in boleznimi srca in ožilja arterioskleroze.
+		</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Prekomerno uživanje prehranske vlaknine pa ima za posledico oteženo absorpcijo esencialnih snovi iz črevesa, še posebno pri majhnih otrocih.
+			</td>
+		</tr>
+	</table>
+	</p>
+	<center>
+		<font color="#FF8040"><b>Priporočila</b></font>
+	</center>
+	<p align="justify">
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Priporočljivo je uživanje živil, ki vsebujejo sestavljene ogljikove hidrate, ker imajo nižji glikemični indeks (GI). To so črni kruh, polnozrnati kruh, neoluščen riž, testenine iz črne moke… 
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Prednost sestavljenih ogljikovih hidratov je v večji vsebnosti prehranske vlaknine. 
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Prehranska vlaknina je v zdravi in uravnoteženi prehrani izredno pomembna tudi zato, ker znižuje GI živilu/obroku in ugodno vpliva na prebavo.
+				</td>
+		</tr>
+	</table>
+	</p>
+	<center>
+	<table width="40%" border="1" bgcolor="#FFEAC1">
+		<tbody>
+			<tr>
+				<!-- Row 1 -->
+				<td>
+					Ogljikovi hidrati</td>
+				<!-- Col 1 -->
+				<td>
+					>= 50% skupne energije</td>
+				<!-- Col 2 -->
+			</tr>
+			<tr>
+				<!-- Row 2 -->
+				<td>
+					Mono in disaharidi (sladkorji)</td>
+				<!-- Col 1 -->
+				<td>
+					&lt; 10% skupne energije</td>
+				<!-- Col 2 -->
+			</tr>
+			<tr>
+				<!-- Row 3 -->
+				<td>
+					Prehranska vlaknina</td>
+				<!-- Col 1 -->
+				<td>
+					3,8 g/MJ - ženske<br>
+					2,9 g/MJ - moški </td>
+				<!-- Col 2 -->
+			</tr>
+		</tbody>
+	</table>
+	</center>
+	<p align="justify">
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Za dnevni energijski vnos 1200 kcal: 8 enot na dan.
+		</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Za dnevni energijski vnos 1500 kcal: 9 enot na dan.
+		</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Za dnevni energijski vnos 1800 kcal: 10 enot na dan.
+			</td>
+		</tr>
+	</table>
+	
+	</p>
+	<center>
+	<div align="left" style="width:510px;height:150px;border:2px solid orange;">
+		<b>1 enota predstavlja:</b> </br>
+		
+				&nbsp;&nbsp;- pol kosa kruha (20 g - 30 g),</br>
+			
+				&nbsp;&nbsp;- ena velika žlica surove (20g),</br>
+			
+				&nbsp;&nbsp;- dve veliki žlici kuhane ajdove kaše, moke, ješprenja, ovsenih kosmičev, prosene kaše, testenin, riža.</br>
+		
+	</div>
+	</center>
+	</br>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Spoznavanje osnovne strukture vadbene enote</a></h3>
+	<div style="font-family: arial, sans-serif;">
+	
+	<center>
+		<span style="font-size: 14pt;"><font color="#0000FF"><b>SPOZNAVANJE OSNOVNE STRUKTURE VADBENE ENOTE</b></font></span>
+	</center>
+	<p align="justify">
+		Vsaka enota telesne vadbe mora vključevati ogrevanje, glavni del in ohlajanje.<br>
+		<b>OGREVANJE (5-15 minut)</b> naj vsebuje enostavne ogrevalne vaje (hoja, korakanje na mestu, počepi, kroženje v ramenih, z rokami, boki in gležnji ipd.) in raztezanje.<br>
+		<b>GLAVNI DEL (20-60 minut)</b> vsebuje izbrano vrsto telesne vadbe. V procesu hujšanja je najbolj primerna aerobna vadba (hitra hoja, nordijska hoja, kolesarjenje, plavanje, ples, aerobika ipd), dodatno pa izvajamo še vaje za krepitev mišic ter vaje za ravnotežje in koordinacijo.<br>
+		<b>OHLAJANJE (5-15 minut)</b> naj ponovno vsebuje raztezanje in sproščanje.<br>
+		(Dodali bomo še konkretne vaje, morda tudi slike ali linke do posnetkov.)<br>
+	</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Pomen pravilne drže in dihanja med vadbo</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>POMEN PRAVILNE DRŽE IN DIHANJA MED VADBO</b></font></span>
+		</center>
+		<p align="justify">
+			Pri izvedbi telesne vadbe je za ohranjanje zdravja hrbtenice in razbremenitev sklepov med vadbo pomembna pravilna telesna drža. Poravnavo telesne drže izvedemo na začetku vadbene enote in smo na držo pozorni ves čas vadbe: 
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Telesna teža je enakomerno porazdeljena na obe stopali.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Stopala so postavljena v širini ramen, obrnjena rahlo navzven, v bazenu je stik z dnom bazena po vsej površini stopal.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Kolena so rahlo pokrčena in poravnana s smerjo stopal.
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>				
+				Medenični obroč je v nevtralnem položaju.
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Hrbtenica je vzravnana, v nevtralnem položaju v obliki dvojne črke S.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Trebušne in hrbtne mišice so rahlo napete in opravljajo funkcijo stabilizatorjev trupa.
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Prsni koš je rahlo privzdignjen.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Ramena so potisnjena nazaj in navzdol.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Zgornje okončine so sproščene ob telesu.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Glava je v podaljšku hrbtenice.
+				</td>
+		</tr>
+	</table>
+	</p>
+			<p align="justify">
+			Za zdravje hrbtenice je med vadbo predvsem potrebno ustrezno stabilizirati ledveni del hrbtenice in medenico, kar dosežemo s čvrstim "mišičnim steznikom". Med vadbo vedno napnemo globoko trebušno mišico, kar storimo tako, da rahlo povlečemo spodnji del trebuha navznoter (popek proti hrbtenici) ter mišice medeničnega dna, kar storimo tako, da povlečemo mišice med nogami skupaj in navzgor, kot da bi hoteli ustaviti curek urina in uhajanje vetrov iz zadnjika. Aktivacija globoke trebušne mišice in mišic medeničnega dna se svetuje tudi pri dvigovanju in nošenju težjih bremen.
+			</p>
+			<p align="justify">
+			Izrednega pomena med vadbo pa je tudi dihanje. Med vadbo dihamo enakomerno (vdihnemo skozi nos, izdihnemo skozi usta) in pri vajah ne zadržujemo sape. Med naporom izdihnemo.
+			</p>
+			Na spletni strani CINDI Slovenija pa najdete zloženko z <a target="_blank" href="http://www.cindi-slovenija.net/images/stories/cindi/programi/vaje_za_zdrav_hrbet.pdf">"Vajami za zdrav hrbet"</a>.<br>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Spoznavanje pomena ogrevanja</a></h3>
+	<div style="font-family: arial, sans-serif;">
+			<center>
+				<span style="font-size: 14pt;"><font color="#0000FF"><b>SPOZNAVANJE POMENA OGREVANJA</b></font></span>
+			</center>
+			<p align="justify">
+				Ogrevanje je začetni ali uvodni del telesne vadbe, katerega namen je varno pripraviti telo na zahtevnejši del vadbe in po navadi vključuje dinamične vaje in vaje za raztezanje mišic (imenovane tudi vaje za povečanje gibljivosti).
+				<br>
+				Ogrevanje pred intenzivnejšo telesno vadbo je ključnega pomena, zato ga ne smemo izpuščati. Z ogrevanjem se telo, predvsem mišice pripravijo na obremenitev, tako se preprečujejo bolečine ali celo poškodbe med vadbo. Ogrejemo se z enostavnimi vajami kot so hoja, korakanje na mestu, kolesarjenje na sobnem kolesu, počepi, kroženje v ramenih, z rokami, boki in gležnji ipd., in z vajami za raztezanje večjih mišičnih skupin, ki bodo sodelovale pri vadbi.</span><br>
+			</p>	
+				<center>
+					<img title="Ogrevanje" style="border-width: 0px; border-style: solid; width: 551px; height: 372px;" src="/eOskrba-webapp/uploads/Image/3_korak/ogrevanje.jpg" alt=""></span>
+				</center>
+				<br>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Dinamične vaje in vaje za raztezanje</a></h3>
+	<div style="font-family: arial, sans-serif;">
+				<center>
+					<span style="font-size: 14pt;"><font color="#0000FF"><b>DINAMIČNE VAJE IN VAJE ZA RAZTEZANJE</b></font></span>
+				</center>
+				<p align="justify">
+				Dinamične vaje so vse tiste vaje, pri katerih se zgodi vidni gib v sklepu in premik telesnega segmenta. Če se mišica ob kontrakciji skrajša, je kontrakcija koncentrična, če se mišica ob kontrakciji pod vplivom sile podaljša, pa je kontrakcija ekscentrična. Primeri dinamičnih vaj so npr. kroženje z glavo, v ramenih, z rokami, boki, gležnji ipd.
+				</p>
+				<p align="justify">
+				Vaje za raztezanje (imenovane tudi vaje za gibljivost) pa so vaje, s katerimi želimo podaljšati mehkotkivne strukture zato, da pripravimo telo na bolj zahtevno vadbo, zmanjšamo mišično napetost po vadbi, preprečimo pojav mišičnih poškodb in preprečimo nastanek bolečin v mišicah. V raztezanje vedno vključimo večje mišične skupine, ki bodo ali so bile aktivne med vadbo (npr. pri nogah raztezamo sprednje in zadnje stegenske mišice ter mišice meč). Pomembno je, da ob raztezanju mišic ne čutimo bolečine, ampak samo razteg. Razteg mišic zadržimo 20-30 sekund in naredimo 2-4 ponovitve.
+				</p>
+				<center>
+					<img align="middle" title="Dinamične vaje in vaje za raztezanje" style="border-width: 0px; border-style: solid; width: 553px; height: 391px;" src="/eOskrba-webapp/uploads/Image/3_korak/dinamicne_raztezne_vaje.jpg" alt="">
+				</center>
+				
+				S pomočjo vprašanj preverite, kaj ste se naučili.<br>
+	</div>	
+		
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_3/3%20Okus%20po%20zdravem_zivila_korak%203.pdf">Okus po zdravem - živila</a></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/18779490">6. oddaja: Zdrava telesna teža</a></p>
+				</td>
+			</tr>				
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>	

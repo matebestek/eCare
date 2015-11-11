@@ -1,0 +1,293 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.aspiration_zn.v1
+
+concept
+	[at0000]	-- Aspiration
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"University of Maribor, Slovenia, Marand d.o.o., Slovenia">
+				["name"] = <"Uroš Rajkovič, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"21.9.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record respiratory aspiration according to ZN documentation.">
+			use = <"To document implementation of activity of pumping the aspiration out of respiratory pathway.
+To document changing consumables of the aspiration device - aspirator.">
+			keywords = <"Aspiration", "Aspirator">
+			misuse = <"To document secretions of the process.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Beleženje aktivnosti aspiracije in aktivnosti na aspiratorju">
+			use = <"Beleženje načina, poti skozi katero pacienta aspiriramo.
+Beleženje menjave potrošnega materiala na aspiratorju (napravi).">
+			keywords = <"Aspiracija", ...>
+			misuse = <"Ne uporablja se za ocenjevanje aspirata">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o. Slovenia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E8C7FBB0D42D128C8F7054D223ED111F">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Aspiration
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Datetime filter last changed
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Datetime collection unit last changed
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Datetime catheter last changed
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Reason collection unit changed
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- used for 24 hours
+							at0016]	-- 2/3 full
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..*} matches {	-- Aspiration route
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009, 	-- Mouth
+							at0010, 	-- Nose
+							at0011, 	-- Tube
+							at0012]	-- Cannula
+						}
+					}
+				}
+			}
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Ventilation type
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0013, 	-- Closed system 
+							at0014]	-- Open system 
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Assisted ventilation?
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True, False}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0007] occurrences matches {0..1} matches {	-- Sputum
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.bodily_substance-sputum(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Aspiration">
+					description = <"Respiratory aspiration according to ZN documentation.">
+				>
+				["at0001"] = <
+					text = <"Ventilation type">
+					description = <"Type of ventilation used.">
+				>
+				["at0002"] = <
+					text = <"Datetime filter last changed">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Datetime collection unit last changed">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Datetime catheter last changed">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Aspiration route">
+					description = <"The route of aspiration.">
+				>
+				["at0006"] = <
+					text = <"Reason collection unit changed">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Sputum">
+					description = <"Details of sputum.">
+				>
+				["at0008"] = <
+					text = <"Assisted ventilation?">
+					description = <"Is the patient being ventilated?">
+				>
+				["at0009"] = <
+					text = <"Mouth">
+					description = <"Aspiration was carried out by mouth.">
+				>
+				["at0010"] = <
+					text = <"Nose">
+					description = <"Aspiration was carried out by nose.">
+				>
+				["at0011"] = <
+					text = <"Tube">
+					description = <"Aspiration was carried out by tube.">
+				>
+				["at0012"] = <
+					text = <"Cannula">
+					description = <"Aspiration was carried out by cannula.">
+				>
+				["at0013"] = <
+					text = <"Closed system ">
+					description = <"Closed system (during suction process mechanical ventilator remains in place)">
+				>
+				["at0014"] = <
+					text = <"Open system ">
+					description = <"Open system (during suction process mechanical ventilator must be removed)">
+				>
+				["at0015"] = <
+					text = <"used for 24 hours">
+					description = <"The collection unit has been used for over 24 hours.">
+				>
+				["at0016"] = <
+					text = <"2/3 full">
+					description = <"The collection unit is over 2/3rds full.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Aspiracija">
+					description = <"Respiratorna aspiracija, ki se izvede v okviru ZN">
+				>
+				["at0001"] = <
+					text = <"Tip ventilacije">
+					description = <"Uporabljeni sistem ventilacije">
+				>
+				["at0002"] = <
+					text = <"Filtra">
+					description = <"Kdaj je bil zadnjič zamenjan filter na aspiratorju">
+				>
+				["at0003"] = <
+					text = <"Vrečke">
+					description = <"Kdaj je bila zadnjič zamenjana vrečka na aspiratorju">
+				>
+				["at0004"] = <
+					text = <"Aspiracijska cevka">
+					description = <"Kdaj je bila zadnjič zamenjana aspiracijska cev na aspiratorju">
+				>
+				["at0005"] = <
+					text = <"Pot aspiracije">
+					description = <"Pot aspiracije pacienta">
+				>
+				["at0006"] = <
+					text = <"Razlog menjave vrečke">
+					description = <"Zakaj je bila zamenjana vrečka na aspiratorju?">
+				>
+				["at0007"] = <
+					text = <"Sputum">
+					description = <"Podrobnosti o sputumu">
+				>
+				["at0008"] = <
+					text = <"Umetna ventilacija">
+					description = <"Ali je pacient bil umetno ventiliran?">
+				>
+				["at0009"] = <
+					text = <"Usta">
+					description = <"Aspiracija skozi usta">
+				>
+				["at0010"] = <
+					text = <"Nos">
+					description = <"Aspiracija skozi nos">
+				>
+				["at0011"] = <
+					text = <"Tubus">
+					description = <"Aspiracija skozi tubus">
+				>
+				["at0012"] = <
+					text = <"Kanila">
+					description = <"Aspiracija skozi kanilo">
+				>
+				["at0013"] = <
+					text = <"Zaprt sistem">
+					description = <"Zaprt sistem ventialcije">
+				>
+				["at0014"] = <
+					text = <"Odprt sistem">
+					description = <"Odprt sistem ventilacije">
+				>
+				["at0015"] = <
+					text = <"na 24 ur">
+					description = <"Menjava vrečke n a24 ur">
+				>
+				["at0016"] = <
+					text = <"2/3 polna">
+					description = <"Menjava vrečke, ko je ta polna 2/3">
+				>
+			>
+		>
+	>

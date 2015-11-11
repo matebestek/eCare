@@ -1,0 +1,111 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-COMPOSITION.history-medical_surgical.v1draft
+specialize
+	openEHR-EHR-COMPOSITION.history.v1draft
+
+concept
+	[at0000.1]	-- Past medical and surgical history
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Tony Shannon">
+		["organisation"] = <"NHS UK">
+		["date"] = <"7/03/2007">
+		["email"] = <"tony.shannon@nhs.net">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To maintain a persistent store of significant surgical and medical interventions, problems, diagnoses and procedures that are likely to impact future health and health care.">
+			use = <"The section constrained to organise the entries in this composition precludes information about pregnancies.">
+			keywords = <"past", "history", "surgery", "surgical", "medicine", "medical">
+			misuse = <"Do not record information about psychiatric, social or obstetric events or conditions.">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <"Sam Heard, Ocean", ...>
+
+definition
+	COMPOSITION[at0000.1] matches {	-- Past medical and surgical history
+		category matches {
+			DV_CODED_TEXT matches {
+				defining_code matches {[openehr::431]}
+			}
+		}
+		context matches {
+			EVENT_CONTEXT matches {
+				other_context matches {
+					ITEM_LIST[at0001] matches {	-- List
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0002] occurrences matches {0..1} matches {	-- Perspective
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		content cardinality matches {0..*; unordered} matches {
+			allow_archetype SECTION occurrences matches {0..1} matches {
+				include
+					archetype_id/value matches {/history_medical_surgical\.v1draft/}
+				exclude
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					description = <"The persistent record of significant health-related history.">
+					text = <"Past history">
+				>
+				["at0000.1"] = <
+					description = <"The persistent record of significant health-related diagnoses, problems and events.">
+					text = <"Past medical and surgical history">
+				>
+				["at0001"] = <
+					description = <"@ internal @">
+					text = <"List">
+				>
+				["at0002"] = <
+					description = <"The perspective of this record of significant health-related history">
+					text = <"Perspective">
+				>
+			>
+		>
+	>

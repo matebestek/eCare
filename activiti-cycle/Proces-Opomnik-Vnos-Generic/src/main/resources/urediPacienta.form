@@ -1,0 +1,1199 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder">
+
+	<h3><a href="#">Vnos osnovnih podatkov pacienta</a></h3>
+	<div>
+	
+		<table>
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+
+			<tr>
+				<td>
+					<p>Ime</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0004]?value" value="" type="text" readonly="readonly">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Priimek</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0075]?value" value="" type="text" readonly="readonly">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Identifikacijska številka pacienta</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0011]?value" value="" type="text" readonly="readonly">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Spol</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0076]?value" value="at0077" type="radio" class="activiti-validation-req"> moški
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0076]?value" value="at0078" type="radio" class="activiti-validation-req"> ženska
+				</td>
+			</tr>
+				
+			
+			<tr>
+				<td>
+					<p>Rojstni datum</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0080]?value" value="" type="text" readonly="readonly">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Telesna višina (cm)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.height.v1 and name?value='Telesna višina']?data[at0001]?events[at0002]?data[at0003]?items[at0004 and name?value='Višina']?value" value="" type="text" class="activiti-validation-int activiti-validation-req activiti-size-short">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Telesna teža (kg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.body!weight.v1 and name?value='Telesna masa']?data[at0002]?events[at0003]?data[at0001]?items[at0004 and name?value='Teža']?value" value="" type="text" class="activiti-validation-int activiti-validation-req activiti-size-short">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Naslov elektronske pošte</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0081]?value" value="" type="text" readonly="readonly">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Številka mobilnega telefona</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0082]?value" value="" type="text" readonly="readonly">
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<p>Zdravstvena ustanova</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0083]?value" value="" type="text" readonly="readonly">
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Poklic</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0084]?value" value="" type="text">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Izpolnjuje vključitvene kriterije</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0094]?value" value="true" type="radio" readonly="readonly"> DA
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0094]?value" value="false" type="radio" readonly="readonly"> NE					
+				</td>				
+			</tr>			
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Bivalno okolje</b></p>
+				</td>
+			</tr>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Vlažno stanovanje</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0086]?items[at0087]?value" value="at0088" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0086]?items[at0087]?value" value="at0089" type="radio" class="activiti-validation-req"> NE
+				</td>
+			</tr>			
+			
+			<tr>
+				<td>
+					<p>Vsakodnevno delo v hlevu</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0086]?items[at0090]?value" value="at0091" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0086]?items[at0090]?value" value="at0092" type="radio" class="activiti-validation-req"> NE
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Druge posebnosti</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-ADMIN!ENTRY.admission!details!eo!as.v1]?data[at0003]?items[at0086]?items[at0093]?value" value="" type="text">
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>
+
+
+	<h3><a href="#">Družinska anamneza</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Astma v družini</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.druzinska!anamneza!eo!as.v1]?data[at0001]?items[at0032]?value" value="" type="text" class="activiti-validation-req">
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Alergije v družini</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.druzinska!anamneza!eo!as.v1]?data[at0001]?items[at0033]?value" value="" type="text" class="activiti-validation-req">
+				</td>
+			</tr>			
+		</table>
+	
+	</div>
+	
+	<h3><a href="#">Kajenje, alkohol in gibalna dejavnost</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Kajenje</b></p>
+				</td>
+			</tr>			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Kadilski status</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0003">Redni</option>
+						<option value="at0004">Občasni</option>
+						<option value="at0015">Pasivni</option>
+						<option value="at0027">Pasivni v nosečnosti matere</option>
+						<option value="at0026">Pasivni v otroštvu</option>
+						<option value="at0006">Abstinent</option>
+						<option value="at0005">Nekadilec</option>
+					</select>
+				</td>
+			</tr>		
+			
+			<tr>
+				<td>
+					<p>Dnevno število cigaret</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0008]?items[at0007]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>			
+			
+			<tr>
+				<td>
+					<p>Starost ob začetku uživanja (v letih)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0008]?items[at0011]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Poskus prenehanja</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0016]?items[at0017]?value" class="activiti-size-short">
+						<option value="at0020">Poskusil, uspešno</option>
+						<option value="at0019">Poskusil, neuspešno</option>
+						<option value="at0018">Nikoli poskusil prenehati</option>
+						<option value="at0021">Želi pomoč</option>
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Stopnja ogroženosti</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.kajenje!eo!pp.v1]?data[at0001]?items[at0022]?value" class="activiti-size-short">
+						<option value="at0023">Ni ogrožen</option>
+						<option value="at0024">Srednje visoka ogroženost</option>
+						<option value="at0025">Visoka ogroženost</option>
+					</select>
+				</td>
+			</tr>			
+
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Alkohol</b></p>
+				</td>
+			</tr>			
+			<tr><td style="width:120px;"></td><td></td></tr>	
+			
+			<tr>
+				<td>
+					<p>Pogostost pitja (v zadnjih 12 mesecih)</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0003">Nikoli</option>
+						<option value="at0004">Enkrat na mesec ali manj</option>
+						<option value="at0005">2 do 4 krat na mesec</option>
+						<option value="at0006">2 do 3 krat na teden</option>
+						<option value="at0007">4 ali večkrat na teden</option>
+					</select>
+				</td>
+			</tr>			
+
+			<tr>
+				<td>
+					<p>Količina pijače ob običajnem pitju</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0008]?value" class="activiti-size-short">
+						<option value="at0009">od nič do 1 merice</option>
+						<option value="at0010">2 merici</option>
+						<option value="at0011">3 ali 4 merice</option>
+						<option value="at0012">5 ali 6 meric</option>
+						<option value="at0013">7 ali več meric</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Pogostost pitja večjih količin (M 6 ali več, Ž 4 ali več meric)</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0014]?value" class="activiti-size-short">
+						<option value="at0015">Nikoli</option>
+						<option value="at0016">Manj kot enkrat na mesec</option>
+						<option value="at0017">1 do 3 krat na mesec</option>
+						<option value="at0018">1 do 3 krat na teden</option>
+						<option value="at0019">Dnevno ali skoraj vsak dan</option>
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Ocena ogroženosti</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.alkohol!eo!pp.v1]?data[at0001]?items[at0022]?value" class="activiti-size-short">
+						<option value="at0023">Ni ogrožen</option>
+						<option value="at0024">Manj tvegano pitje</option>
+						<option value="at0025">Tvegano oz. škodljivo pitje</option>
+						<option value="at0026">Zasvojenost</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Telesna dejavnost</b></p>
+				</td>
+			</tr>			
+			<tr><td style="width:120px;"></td><td></td></tr>				
+			
+			<tr>
+				<td>
+					<p>Visoko intenzivna vadba</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.telesna!dejavnost!eo!pp.v1]?data[at0001]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0003">0x tedensko</option>
+						<option value="at0004">1x tedensko</option>
+						<option value="at0005">2x tedensko</option>
+						<option value="at0006">3x tedensko</option>
+						<option value="at0007">4x tedensko</option>
+						<option value="at0008">5x tedensko</option>
+						<option value="at0009">6x tedensko</option>
+						<option value="at0010">7x tedensko</option>
+						<option value="at0011">več kot 7x tedensko</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Zmerno intenzivna vadba</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.telesna!dejavnost!eo!pp.v1]?data[at0001]?items[at0012]?value" class="activiti-size-short">
+						<option value="at0013">0x tedensko</option>
+						<option value="at0014">1x tedensko</option>
+						<option value="at0015">2x tedensko</option>
+						<option value="at0016">3x tedensko</option>
+						<option value="at0017">4x tedensko</option>
+						<option value="at0018">5x tedensko</option>
+						<option value="at0019">6x tedensko</option>
+						<option value="at0020">7x tedensko</option>
+						<option value="at0021">več kot 7x tedensko</option>
+					</select>
+				</td>
+			</tr>	
+
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.telesna!dejavnost!eo!pp.v1]?data[at0001]?items[at0023]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Anamneza ostalo</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Domače živali</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.anamneza!ostalo!eo!as.v1]?data[at0001]?items[at0014]?value" value="true" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-EVALUATION.anamneza!ostalo!eo!as.v1]?data[at0001]?items[at0014]?value" value="false" type="radio" class="activiti-validation-req"> NE
+				</td>
+			</tr>		
+			
+			<tr>
+				<td>
+					<p>Alergije</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.anamneza!ostalo!eo!as.v1]?data[at0001]?items[at0004]?value" class="activiti-validation-req activiti-size-short">
+						<option value="at0020">Pacient nima alergije</option>
+						<option value="at0005">Breza</option>
+						<option value="at0006">Leska</option>
+						<option value="at0007">Trave</option>
+						<option value="at0008">Pršice</option>
+						<option value="at0009">Pes/mačka</option>
+						<option value="at0010">Plesni</option>
+						<option value="at0011">Ostalo</option>
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Alergije ostalo</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.anamneza!ostalo!eo!as.v1]?data[at0001]?items[at0012]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Druge bolezni</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.anamneza!ostalo!eo!as.v1]?data[at0001]?items[at0016]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>			
+
+			<tr>
+				<td>
+					<p>Druga zdravila</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.anamneza!ostalo!eo!as.v1]?data[at0001]?items[at0019]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>			
+		</table>
+	
+	</div>	
+
+
+	<h3><a href="#">Vprašalnik za ugotavljanje urejenosti astme (ACT vprašalnik)</a></h3>
+	<div>
+	
+		<p>Koliko časa vam je v zadnjih 4. tednih astma onemogočala, da bi v službi, šoli, univerzi ali doma izvajali svoje običajne aktivnosti?</p>
+		<select name="?items[openEHR-EHR-OBSERVATION.asthma!control!test!questionary.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0034]?value" class="activiti-validation-req activiti-size-short">
+			<option value="at0039">Več časa</option>
+			<option value="at0040">Večino časa</option>
+			<option value="at0041">Nekaj časa</option>
+			<option value="at0042">Malo časa</option>
+			<option value="at0043">Nič časa</option>
+		</select>
+	
+		<p>Kolikokrat ste v zadnjih 4. Tednih imeli kratko sapo?</p>
+		<select name="?items[openEHR-EHR-OBSERVATION.asthma!control!test!questionary.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0035]?value" class="activiti-validation-req activiti-size-short">
+			<option value="at0044">Več kot enkrat na dan</option>
+			<option value="at0045">Enkrat na dan</option>
+			<option value="at0046">3 do 6 krat na teden</option>
+			<option value="at0047">Enkrat do dvakrat na teden</option>
+			<option value="at0048">Nikoli</option>
+		</select>
+	
+		<p>Kolikokrat v zadnjih 4. tednih so vas ponoči ali zgodaj zjutraj zbudili simptomi astme (piskanje, kašelj, dušenje, stiskanje ali bolečine v prsih)?</p>
+		<select name="?items[openEHR-EHR-OBSERVATION.asthma!control!test!questionary.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0036]?value" class="activiti-validation-req activiti-size-short">
+			<option value="at0049">4 ali več noči na teden</option>
+			<option value="at0050">2 do 3 noči na teden</option>
+			<option value="at0051">Enkrat na teden</option>
+			<option value="at0052">Enkrat ali dvakrat</option>
+			<option value="at0053">Nikoli</option>
+		</select>
+		
+		<p>Kolikokrat ste v zadnjih 4. tednih uporabili olajševalec v pršilu ali inhalaciji (kot so Ventolin®, Berotec® in Berodual®)?</p>
+		<select name="?items[openEHR-EHR-OBSERVATION.asthma!control!test!questionary.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value" class="activiti-validation-req activiti-size-short">
+			<option value="at0054">3 ali večkrat na teden</option>
+			<option value="at0055">1 ali 2 krat na teden</option>
+			<option value="at0056">2 ali 3 krat na teden</option>
+			<option value="at0057">1 krat na teden ali manj</option>
+			<option value="at0058">Nikoli</option>
+		</select>
+		
+		<p>Kako bi ocenili vaš nadzor nad astmo v zadnjih 4. tednih?</p>
+		<select name="?items[openEHR-EHR-OBSERVATION.asthma!control!test!questionary.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0038]?value" class="activiti-validation-req activiti-size-short">
+			<option value="at0059">Sploh nisem imel nadzora</option>
+			<option value="at0060">Slab nadzor</option>
+			<option value="at0061">Dokaj dober nadzor</option>
+			<option value="at0062">Dober nadzor</option>
+			<option value="at0063">Popoln nadzor</option>
+		</select>
+	
+	</div>
+	
+	<h3><a href="#">Pljučne funkcije</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>PEF (l/min)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.pljucne!funkcije!eo!as.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" value="" type="text" class="activiti-validation-req activiti-validation-int activiti-size-short">
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>FEV1 (l)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.pljucne!funkcije!eo!as.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?value" value="" type="text" class="activiti-validation-req activiti-validation-float activiti-size-short">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>VC (l)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.pljucne!funkcije!eo!as.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?value" value="" type="text" class="activiti-validation-req activiti-validation-float activiti-size-short">
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Terapija</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Diagnoza</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0002]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>				
+
+			<tr>
+				<td>
+					<p>Opis terapije</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0137]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Terapija - Zdravilo #1</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Ime zdravila</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0138]?items[at0439]?value" class="activiti-size-short">
+						<option value="at0440">beklometazondipropionat 100mcg, formoterolijev fumarat dihidrat 6mcg</option>
+						<option value="at0441">budezonid</option>						
+						<option value="at0442">budezonid 160mcg, formoterol 4,5mcg</option>
+						<option value="at0443">budezonid 320mcg, formoterol 9mcg</option>
+						<option value="at0444">budezonid 80mcg, formoterol 4,5mcg</option>						
+						<option value="at0445">ciklesonid</option>						
+						<option value="at0446">fenoterol</option>
+						<option value="at0447">fenoterol 0,05mg, ipratropijev bromid 0,02mg</option>
+						<option value="at0448">fenoterol 0,5mg, ipratropijev bromid 0,25mg</option>						
+						<option value="at0449">flutikazon</option>						
+						<option value="at0450">formoterol</option>						
+						<option value="at0451">indakaterol</option>
+						<option value="at0452">mometazon</option>						
+						<option value="at0453">montelukast</option>						
+						<option value="at0454">omalizumab</option>						
+						<option value="at0455">salbutamol</option>
+						<option value="at0456">salbutamol</option>						
+						<option value="at0457">salmeterol</option>
+						<option value="at0458">salmeterol 25mcg, flutikazon 125mcg</option>
+						<option value="at0459">salmeterol 25mcg, flutikazon 250mcg</option>
+						<option value="at0460">salmeterol 25mcg, flutikazon 50mcg</option>
+						<option value="at0461">salmeterol 25mcg, flutikazonpropionat 125mcg</option>
+						<option value="at0462">salmeterol 25mcg, flutikazonpropionat 250mcg</option>
+						<option value="at0463">salmeterol 25mcg, flutikazonpropionat 50mcg</option>
+						<option value="at0464">salmeterol 50mcg, flutikazon 100mcg</option>
+						<option value="at0465">salmeterol 50mcg, flutikazon 250mcg</option>
+						<option value="at0466">salmeterol 50mcg, flutikazon 500mcg</option>
+						<option value="at0467">salmeterol 50mcg, flutikazonpropionat 100mcg</option>
+						<option value="at0468">salmeterol 50mcg, flutikazonpropionat 250mcg</option>
+						<option value="at0469">salmeterol 50mcg, flutikazonpropionat 500mcg</option>
+						<option value="at0470">teofilin</option>
+						<option value="at0471">tiotropijev bromid</option>
+						<option value="at0472">zafirlukast</option>
+					</select>
+				</td>
+			</tr>			
+		
+			<tr>
+				<td>
+					<p>Generično ime</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0138]?items[at0037]?value" class="activiti-size-short">
+						<option value="at0038">Accolate 20 mg filmsko obložene tablete, 56 tablet</option>
+						<option value="at0039">Alvesco 160 mikrogramov, 60 odmerkov</option>
+						<option value="at0040">Alvesco 160 mikrogramov, 120 odmerkov</option>
+						<option value="at0041">Alvesco 40 mikrogramov, 120 odmerkov</option>
+						<option value="at0042">Alvesco 80 mikrogramov, 60 odmerkov</option>
+						<option value="at0043">Alvesco 80 mikrogramov, 120 odmerkov</option>
+						<option value="at0044">Asmanex Twisthaler 200 mikrogramov/vdih, 60 odmerkov</option>
+						<option value="at0045">Asmanex Twisthaler 400 mikrogramov/vdih, 60 odmerkov</option>
+						<option value="at0046">Atimos 12 mikrogramov, 100 odmerkov</option>
+						<option value="at0047">Atimos 12 mikrogramov, 120 odmerkov</option>
+						<option value="at0048">Berodual 0,5 mg/0,25 mg v 1 ml inhalacijska raztopina, 20 ml</option>
+						<option value="at0049">Berodual N 0,05 mg/0,02 mg na odmerek, 200 odmerkov</option>
+						<option value="at0050">Berotec 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0051">Budiair 200 mikrogramov, 200 odmerkov in Jet nastavek</option>
+						<option value="at0052">Budiair 200 mikrogramov, 200 odmerkov in standardni nastavek</option>
+						<option value="at0053">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0054">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0055">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0056">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0057">Flixotide 250 mikrogramov, 60 odmerkov</option>
+						<option value="at0058">Flixotide 250 mikrogramov, 60 odmerkov</option>
+						<option value="at0059">*</option>
+						<option value="at0060">Flixotide 50 mikrogramov, 120 odmerkov</option>
+						<option value="at0061">Flixotide diskus 100 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0062">Flixotide diskus 250 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0063">Flixotide diskus 50 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0064">Flixotide diskus 500 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0065">Formodual 100/6 mikrogramov na spr, 120 odmerkov</option>
+						<option value="at0066">Formodual 100/6 mikrogramov na spr, 180 odmerkov</option>
+						<option value="at0067">Foster 100/ 6mcg na sprožitev, 120 odmerkov</option>
+						<option value="at0068">Foster 100/ 6mcg na sprožitev, 180 odmerkov</option>
+						<option value="at0069">Monkasta 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0070">Monkasta 4 mg žvecjive tablete, 28 tablet</option>
+						<option value="at0071">Monkasta 5 mg žvecjive tablete, 28 tablet</option>
+						<option value="at0072">Montelukast Teva 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0073">Montelukast Teva 4 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0074">Montelukast Teva 5 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0075">Neplit Easyhaler 100 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0076">Neplit Easyhaler 100 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0077">Neplit Easyhaler 100 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0078">Neplit Easyhaler 200 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0079">Neplit Easyhaler 200 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0080">Neplit Easyhaler 200 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0081">Neplit Easyhaler 400 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0082">Neplit Easyhaler 400 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0083">Neplit Easyhaler 400 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0084">Onbrez Breezhaler 150 mikrogramov, 30 odmerkov</option>
+						<option value="at0085">Onbrez Breezhaler 300 mikrogramov, 30 odmerkov</option>
+						<option value="at0086">Oxis Turbuhaler 4,5 mikrograma, 60 odmerkov</option>
+						<option value="at0087">OxisTurbuhaler 9 mikrogramov, 60 odmerkov</option>
+						<option value="at0088">Pulmicort Turbuhaler 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0089">Pulmicort Turbuhaler 200 mikrogramov, 100 odmerkov</option>
+						<option value="at0090">Pulmicort Turbuhaler 400 mikrogramov, 100 odmerkov</option>
+						<option value="at0091">Seretide 25 mcg/125mcg/vpih, 120 odmerkov</option>
+						<option value="at0092">Seretide 25 mcg/50mcg/vpih, 120 odmerkov</option>
+						<option value="at0093">Seretide diskus 50mcg/100mcg/odmerek, 60 odmerkov</option>
+						<option value="at0094">Seretide diskus 50mcg/250mcg/odmerek, 60 odmerkov</option>
+						<option value="at0095">Seretide diskus 50mcg/500mcg/odmerek , 60 odmerkov</option>
+						<option value="at0096">Serevent 25 mcg, 120 odmerkov in ustnik</option>
+						<option value="at0097">Singulair 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0098">Singulair 4 mg zrnca, 28 vreck</option>
+						<option value="at0099">Singulair 4 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0100">Singulair 5 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0101">Spiriva 18 mikrogr, prašek, 30 kapsul</option>
+						<option value="at0102">Spiriva 18 mikrogr, prašek, 30 kapsul in vdihovalnik</option>
+						<option value="at0103">Spiriva 18 mikrogr, prašek, 90 kapsul</option>
+						<option value="at0104">Spiriva Respimat 2,5 mikrogramov, 30 odmerkov</option>
+						<option value="at0105">Symbicort Turbuhaler 160 mikrogramov, 120 odmerkov</option>
+						<option value="at0106">Symbicort Turbuhaler 320 mikrogramov, 60 odmerkov</option>
+						<option value="at0107">Symbicort Turbuhaler 80 mikrogramov, 120 odmerkov</option>
+						<option value="at0108">Tafen Novolizer 200 mikrogramov, 100 odmerkov in vdihovalnik</option>
+						<option value="at0109">Tafen Novolizer 200 mikrogramov, 200 odmerkov in vdihovalnik</option>
+						<option value="at0110">Tafen Novolizer 200 mikrogramov, 100 odmerkov</option>
+						<option value="at0111">Tafen Novolizer 200 mikrogramov, 200 odmerkov</option>
+						<option value="at0112">Teotard 200 mg, 40 kapsul</option>
+						<option value="at0113">Teotard 350 mg, 40 kapsul</option>
+						<option value="at0114">Ventilastin Novolizer 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0115">Ventilastin Novolizer 100 mikrogramov, 200 odmerkov in inhalator</option>
+						<option value="at0116">Ventilastin Novolizer 100 mikrogramov, 400 odmerkov</option>
+						<option value="at0117">Ventolin inhalacijska raztopina za nebulator, 20 ml</option>
+						<option value="at0118">Ventolin inhalacijska suspenzija pod tlakom, 200 odmerkov</option>
+						<option value="at0119">Ventolin sirup, 150 ml, merica 5ml/2mg</option>
+						<option value="at0120">Ventolin tablete, 100 tablet, tableta 2 mg</option>
+						<option value="at0121">Viani 25 mikrogramov/125 mikro, 120 odmerkov</option>
+						<option value="at0122">Viani 25 mikrogramov/250 mikro, 120 odmerkov</option>
+						<option value="at0123">Viani 25 mikrogramov/50 mikro, 120 odmerkov</option>
+						<option value="at0124">Viani diskus 50 mikrogramov/100 mikro, 60 odmerkov</option>
+						<option value="at0125">Viani diskus 50 mikrogramov/250 mikro, 60 odmerkov</option>
+						<option value="at0126">Viani diskus 50 mikrogramov/500 mikro, 60 odmerkov</option>
+						<option value="at0127">Xolair, 150 mg prašek</option>
+						<option value="at0128">Xolair, 75 mg prašek</option>					
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Število pakiranj</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0138]?items[at0129]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>		
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Režim jemanja zdravil</b></p>
+				</td>
+			</tr>			
+			<tr><td style="width:120px;"></td><td></td></tr>			
+
+			<tr>
+				<td>
+					<p>Količina (vdih/število/mg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0138]?items[at0130]?items[at0479]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>			
+			
+			<tr>
+				<td>
+					<p>Pogostost jemanja</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0138]?items[at0130]?items[at0480]?value" class="activiti-size-short">
+						<option value="at0481">1x/dan</option>
+						<option value="at0482">2x/dan</option>
+						<option value="at0483">3x/dan</option>
+						<option value="at0484">4x/dan</option>
+						<option value="at0485">po potrebi</option>
+					</select>				
+			</tr>			
+			
+		</table>
+	
+	</div>	
+
+	<h3><a href="#">Terapija - Zdravilo #2</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr>
+				<td>
+					<p>Ime zdravila</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0142]?items[at0223]?value" class="activiti-size-short">
+						<option value="at0224">beklometazondipropionat 100mcg, formoterolijev fumarat dihidrat 6mcg</option>
+						<option value="at0225">budezonid</option>						
+						<option value="at0226">budezonid 160mcg, formoterol 4,5mcg</option>
+						<option value="at0227">budezonid 320mcg, formoterol 9mcg</option>
+						<option value="at0228">budezonid 80mcg, formoterol 4,5mcg</option>						
+						<option value="at0229">ciklesonid</option>						
+						<option value="at0230">fenoterol</option>
+						<option value="at0231">fenoterol 0,05mg, ipratropijev bromid 0,02mg</option>
+						<option value="at0232">fenoterol 0,5mg, ipratropijev bromid 0,25mg</option>						
+						<option value="at0233">flutikazon</option>						
+						<option value="at0234">formoterol</option>						
+						<option value="at0235">indakaterol</option>
+						<option value="at0236">mometazon</option>						
+						<option value="at0237">montelukast</option>						
+						<option value="at0238">omalizumab</option>						
+						<option value="at0239">salbutamol</option>
+						<option value="at0240">salbutamol</option>						
+						<option value="at0241">salmeterol</option>
+						<option value="at0242">salmeterol 25mcg, flutikazon 125mcg</option>
+						<option value="at0243">salmeterol 25mcg, flutikazon 250mcg</option>
+						<option value="at0244">salmeterol 25mcg, flutikazon 50mcg</option>
+						<option value="at0245">salmeterol 25mcg, flutikazonpropionat 125mcg</option>
+						<option value="at0246">salmeterol 25mcg, flutikazonpropionat 250mcg</option>
+						<option value="at0247">salmeterol 25mcg, flutikazonpropionat 50mcg</option>
+						<option value="at0248">salmeterol 50mcg, flutikazon 100mcg</option>
+						<option value="at0249">salmeterol 50mcg, flutikazon 250mcg</option>
+						<option value="at0250">salmeterol 50mcg, flutikazon 500mcg</option>
+						<option value="at0251">salmeterol 50mcg, flutikazonpropionat 100mcg</option>
+						<option value="at0252">salmeterol 50mcg, flutikazonpropionat 250mcg</option>
+						<option value="at0253">salmeterol 50mcg, flutikazonpropionat 500mcg</option>
+						<option value="at0254">teofilin</option>
+						<option value="at0255">tiotropijev bromid</option>
+						<option value="at0256">zafirlukast</option>
+					</select>
+				</td>
+			</tr>			
+		
+			<tr>
+				<td>
+					<p>Generično ime</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0142]?items[at0145]?value" class="activiti-size-short">
+						<option value="at0257">Accolate 20 mg filmsko obložene tablete, 56 tablet</option>
+						<option value="at0258">Alvesco 160 mikrogramov, 60 odmerkov</option>
+						<option value="at0259">Alvesco 160 mikrogramov, 120 odmerkov</option>
+						<option value="at0260">Alvesco 40 mikrogramov, 120 odmerkov</option>
+						<option value="at0261">Alvesco 80 mikrogramov, 60 odmerkov</option>
+						<option value="at0262">Alvesco 80 mikrogramov, 120 odmerkov</option>
+						<option value="at0263">Asmanex Twisthaler 200 mikrogramov/vdih, 60 odmerkov</option>
+						<option value="at0264">Asmanex Twisthaler 400 mikrogramov/vdih, 60 odmerkov</option>
+						<option value="at0265">Atimos 12 mikrogramov, 100 odmerkov</option>
+						<option value="at0266">Atimos 12 mikrogramov, 120 odmerkov</option>
+						<option value="at0267">Berodual 0,5 mg/0,25 mg v 1 ml inhalacijska raztopina, 20 ml</option>
+						<option value="at0268">Berodual N 0,05 mg/0,02 mg na odmerek, 200 odmerkov</option>
+						<option value="at0269">Berotec 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0270">Budiair 200 mikrogramov, 200 odmerkov in Jet nastavek</option>
+						<option value="at0271">Budiair 200 mikrogramov, 200 odmerkov in standardni nastavek</option>
+						<option value="at0272">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0273">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0274">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0275">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0276">Flixotide 250 mikrogramov, 60 odmerkov</option>
+						<option value="at0277">Flixotide 250 mikrogramov, 60 odmerkov</option>
+						<option value="at0278">*</option>
+						<option value="at0279">Flixotide 50 mikrogramov, 120 odmerkov</option>
+						<option value="at0280">Flixotide diskus 100 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0281">Flixotide diskus 250 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0282">Flixotide diskus 50 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0283">Flixotide diskus 500 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0284">Formodual 100/6 mikrogramov na spr, 120 odmerkov</option>
+						<option value="at0285">Formodual 100/6 mikrogramov na spr, 180 odmerkov</option>
+						<option value="at0286">Foster 100/ 6mcg na sprožitev, 120 odmerkov</option>
+						<option value="at0287">Foster 100/ 6mcg na sprožitev, 180 odmerkov</option>
+						<option value="at0288">Monkasta 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0289">Monkasta 4 mg žvecjive tablete, 28 tablet</option>
+						<option value="at0290">Monkasta 5 mg žvecjive tablete, 28 tablet</option>
+						<option value="at0291">Montelukast Teva 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0292">Montelukast Teva 4 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0293">Montelukast Teva 5 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0294">Neplit Easyhaler 100 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0295">Neplit Easyhaler 100 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0296">Neplit Easyhaler 100 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0297">Neplit Easyhaler 200 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0298">Neplit Easyhaler 200 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0299">Neplit Easyhaler 200 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0300">Neplit Easyhaler 400 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0301">Neplit Easyhaler 400 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0302">Neplit Easyhaler 400 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0303">Onbrez Breezhaler 150 mikrogramov, 30 odmerkov</option>
+						<option value="at0304">Onbrez Breezhaler 300 mikrogramov, 30 odmerkov</option>
+						<option value="at0305">Oxis Turbuhaler 4,5 mikrograma, 60 odmerkov</option>
+						<option value="at0306">OxisTurbuhaler 9 mikrogramov, 60 odmerkov</option>
+						<option value="at0307">Pulmicort Turbuhaler 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0308">Pulmicort Turbuhaler 200 mikrogramov, 100 odmerkov</option>
+						<option value="at0309">Pulmicort Turbuhaler 400 mikrogramov, 100 odmerkov</option>
+						<option value="at0310">Seretide 25 mcg/125mcg/vpih, 120 odmerkov</option>
+						<option value="at0311">Seretide 25 mcg/50mcg/vpih, 120 odmerkov</option>
+						<option value="at0312">Seretide diskus 50mcg/100mcg/odmerek, 60 odmerkov</option>
+						<option value="at0313">Seretide diskus 50mcg/250mcg/odmerek, 60 odmerkov</option>
+						<option value="at0314">Seretide diskus 50mcg/500mcg/odmerek , 60 odmerkov</option>
+						<option value="at0315">Serevent 25 mcg, 120 odmerkov in ustnik</option>
+						<option value="at0316">Singulair 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0317">Singulair 4 mg zrnca, 28 vreck</option>
+						<option value="at0318">Singulair 4 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0319">Singulair 5 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0320">Spiriva 18 mikrogr, prašek, 30 kapsul</option>
+						<option value="at0321">Spiriva 18 mikrogr, prašek, 30 kapsul in vdihovalnik</option>
+						<option value="at0322">Spiriva 18 mikrogr, prašek, 90 kapsul</option>
+						<option value="at0323">Spiriva Respimat 2,5 mikrogramov, 30 odmerkov</option>
+						<option value="at0324">Symbicort Turbuhaler 160 mikrogramov, 120 odmerkov</option>
+						<option value="at0325">Symbicort Turbuhaler 320 mikrogramov, 60 odmerkov</option>
+						<option value="at0326">Symbicort Turbuhaler 80 mikrogramov, 120 odmerkov</option>
+						<option value="at0327">Tafen Novolizer 200 mikrogramov, 100 odmerkov in vdihovalnik</option>
+						<option value="at0328">Tafen Novolizer 200 mikrogramov, 200 odmerkov in vdihovalnik</option>
+						<option value="at0329">Tafen Novolizer 200 mikrogramov, 100 odmerkov</option>
+						<option value="at0330">Tafen Novolizer 200 mikrogramov, 200 odmerkov</option>
+						<option value="at0331">Teotard 200 mg, 40 kapsul</option>
+						<option value="at0332">Teotard 350 mg, 40 kapsul</option>
+						<option value="at0333">Ventilastin Novolizer 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0334">Ventilastin Novolizer 100 mikrogramov, 200 odmerkov in inhalator</option>
+						<option value="at0335">Ventilastin Novolizer 100 mikrogramov, 400 odmerkov</option>
+						<option value="at0336">Ventolin inhalacijska raztopina za nebulator, 20 ml</option>
+						<option value="at0337">Ventolin inhalacijska suspenzija pod tlakom, 200 odmerkov</option>
+						<option value="at0338">Ventolin sirup, 150 ml, merica 5ml/2mg</option>
+						<option value="at0339">Ventolin tablete, 100 tablet, tableta 2 mg</option>
+						<option value="at0340">Viani 25 mikrogramov/125 mikro, 120 odmerkov</option>
+						<option value="at0341">Viani 25 mikrogramov/250 mikro, 120 odmerkov</option>
+						<option value="at0342">Viani 25 mikrogramov/50 mikro, 120 odmerkov</option>
+						<option value="at0343">Viani diskus 50 mikrogramov/100 mikro, 60 odmerkov</option>
+						<option value="at0344">Viani diskus 50 mikrogramov/250 mikro, 60 odmerkov</option>
+						<option value="at0345">Viani diskus 50 mikrogramov/500 mikro, 60 odmerkov</option>
+						<option value="at0346">Xolair, 150 mg prašek</option>
+						<option value="at0347">Xolair, 75 mg prašek</option>					
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Število pakiranj</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0142]?items[at0146]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>		
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Režim jemanja zdravil</b></p>
+				</td>
+			</tr>			
+			<tr><td style="width:120px;"></td><td></td></tr>			
+
+			<tr>
+				<td>
+					<p>Količina (vdih/število/mg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0142]?items[at0147]?items[at0486]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>			
+			
+			<tr>
+				<td>
+					<p>Pogostost jemanja</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0142]?items[at0147]?items[at0487]?value" class="activiti-size-short">
+						<option value="at0490">1x/dan</option>
+						<option value="at0491">2x/dan</option>
+						<option value="at0492">3x/dan</option>
+						<option value="at0493">4x/dan</option>
+						<option value="at0494">po potrebi</option>
+					</select>				
+			</tr>		
+			
+		</table>
+	
+	</div>		
+	
+	<h3><a href="#">Terapija - Zdravilo #3</a></h3>
+	<div>
+		
+		<table>
+			
+			<tr>
+				<td>
+					<p>Ime zdravila</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0143]?items[at0149]?value" class="activiti-size-short">
+						<option value="at0190">beklometazondipropionat 100mcg, formoterolijev fumarat dihidrat 6mcg</option>
+						<option value="at0191">budezonid</option>						
+						<option value="at0192">budezonid 160mcg, formoterol 4,5mcg</option>
+						<option value="at0193">budezonid 320mcg, formoterol 9mcg</option>
+						<option value="at0194">budezonid 80mcg, formoterol 4,5mcg</option>						
+						<option value="at0195">ciklesonid</option>						
+						<option value="at0196">fenoterol</option>
+						<option value="at0197">fenoterol 0,05mg, ipratropijev bromid 0,02mg</option>
+						<option value="at0198">fenoterol 0,5mg, ipratropijev bromid 0,25mg</option>						
+						<option value="at0199">flutikazon</option>						
+						<option value="at0200">formoterol</option>						
+						<option value="at0201">indakaterol</option>
+						<option value="at0202">mometazon</option>						
+						<option value="at0203">montelukast</option>						
+						<option value="at0204">omalizumab</option>						
+						<option value="at0205">salbutamol</option>
+						<option value="at0206">salbutamol</option>						
+						<option value="at0207">salmeterol</option>
+						<option value="at0208">salmeterol 25mcg, flutikazon 125mcg</option>
+						<option value="at0209">salmeterol 25mcg, flutikazon 250mcg</option>
+						<option value="at0210">salmeterol 25mcg, flutikazon 50mcg</option>
+						<option value="at0211">salmeterol 25mcg, flutikazonpropionat 125mcg</option>
+						<option value="at0212">salmeterol 25mcg, flutikazonpropionat 250mcg</option>
+						<option value="at0213">salmeterol 25mcg, flutikazonpropionat 50mcg</option>
+						<option value="at0214">salmeterol 50mcg, flutikazon 100mcg</option>
+						<option value="at0215">salmeterol 50mcg, flutikazon 250mcg</option>
+						<option value="at0216">salmeterol 50mcg, flutikazon 500mcg</option>
+						<option value="at0217">salmeterol 50mcg, flutikazonpropionat 100mcg</option>
+						<option value="at0218">salmeterol 50mcg, flutikazonpropionat 250mcg</option>
+						<option value="at0219">salmeterol 50mcg, flutikazonpropionat 500mcg</option>
+						<option value="at0220">teofilin</option>
+						<option value="at0221">tiotropijev bromid</option>
+						<option value="at0222">zafirlukast</option>
+					</select>
+				</td>
+			</tr>			
+		
+			<tr>
+				<td>
+					<p>Generično ime</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0143]?items[at0148]?value" class="activiti-size-short">
+						<option value="at0348">Accolate 20 mg filmsko obložene tablete, 56 tablet</option>
+						<option value="at0349">Alvesco 160 mikrogramov, 60 odmerkov</option>
+						<option value="at0350">Alvesco 160 mikrogramov, 120 odmerkov</option>
+						<option value="at0351">Alvesco 40 mikrogramov, 120 odmerkov</option>
+						<option value="at0352">Alvesco 80 mikrogramov, 60 odmerkov</option>
+						<option value="at0353">Alvesco 80 mikrogramov, 120 odmerkov</option>
+						<option value="at0354">Asmanex Twisthaler 200 mikrogramov/vdih, 60 odmerkov</option>
+						<option value="at0355">Asmanex Twisthaler 400 mikrogramov/vdih, 60 odmerkov</option>
+						<option value="at0356">Atimos 12 mikrogramov, 100 odmerkov</option>
+						<option value="at0357">Atimos 12 mikrogramov, 120 odmerkov</option>
+						<option value="at0358">Berodual 0,5 mg/0,25 mg v 1 ml inhalacijska raztopina, 20 ml</option>
+						<option value="at0359">Berodual N 0,05 mg/0,02 mg na odmerek, 200 odmerkov</option>
+						<option value="at0360">Berotec 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0361">Budiair 200 mikrogramov, 200 odmerkov in Jet nastavek</option>
+						<option value="at0362">Budiair 200 mikrogramov, 200 odmerkov in standardni nastavek</option>
+						<option value="at0363">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0364">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0365">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0366">Flixotide 125 mikrogramov, , 60 odmerkov</option>
+						<option value="at0367">Flixotide 250 mikrogramov, 60 odmerkov</option>
+						<option value="at0368">Flixotide 250 mikrogramov, 60 odmerkov</option>
+						<option value="at0369">*</option>
+						<option value="at0370">Flixotide 50 mikrogramov, 120 odmerkov</option>
+						<option value="at0371">Flixotide diskus 100 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0372">Flixotide diskus 250 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0373">Flixotide diskus 50 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0374">Flixotide diskus 500 mcg/odmerek, 60 odmerkov</option>
+						<option value="at0375">Formodual 100/6 mikrogramov na spr, 120 odmerkov</option>
+						<option value="at0376">Formodual 100/6 mikrogramov na spr, 180 odmerkov</option>
+						<option value="at0377">Foster 100/ 6mcg na sprožitev, 120 odmerkov</option>
+						<option value="at0378">Foster 100/ 6mcg na sprožitev, 180 odmerkov</option>
+						<option value="at0379">Monkasta 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0380">Monkasta 4 mg žvecjive tablete, 28 tablet</option>
+						<option value="at0381">Monkasta 5 mg žvecjive tablete, 28 tablet</option>
+						<option value="at0382">Montelukast Teva 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0383">Montelukast Teva 4 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0384">Montelukast Teva 5 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0385">Neplit Easyhaler 100 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0386">Neplit Easyhaler 100 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0387">Neplit Easyhaler 100 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0388">Neplit Easyhaler 200 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0389">Neplit Easyhaler 200 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0390">Neplit Easyhaler 200 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0391">Neplit Easyhaler 400 mikrogramov, 200 odmerkov, 1x inhalator</option>
+						<option value="at0392">Neplit Easyhaler 400 mikrogramov, 200 odmerkov, zašcitni pokrovcek</option>
+						<option value="at0393">Neplit Easyhaler 400 mikrogramov, 400 odmerkov, 2x inhalator</option>
+						<option value="at0394">Onbrez Breezhaler 150 mikrogramov, 30 odmerkov</option>
+						<option value="at0395">Onbrez Breezhaler 300 mikrogramov, 30 odmerkov</option>
+						<option value="at0396">Oxis Turbuhaler 4,5 mikrograma, 60 odmerkov</option>
+						<option value="at0397">OxisTurbuhaler 9 mikrogramov, 60 odmerkov</option>
+						<option value="at0398">Pulmicort Turbuhaler 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0399">Pulmicort Turbuhaler 200 mikrogramov, 100 odmerkov</option>
+						<option value="at0400">Pulmicort Turbuhaler 400 mikrogramov, 100 odmerkov</option>
+						<option value="at0401">Seretide 25 mcg/125mcg/vpih, 120 odmerkov</option>
+						<option value="at0402">Seretide 25 mcg/50mcg/vpih, 120 odmerkov</option>
+						<option value="at0403">Seretide diskus 50mcg/100mcg/odmerek, 60 odmerkov</option>
+						<option value="at0404">Seretide diskus 50mcg/250mcg/odmerek, 60 odmerkov</option>
+						<option value="at0405">Seretide diskus 50mcg/500mcg/odmerek , 60 odmerkov</option>
+						<option value="at0406">Serevent 25 mcg, 120 odmerkov in ustnik</option>
+						<option value="at0407">Singulair 10 mg filmsko obložene tablete, 28 tablet</option>
+						<option value="at0408">Singulair 4 mg zrnca, 28 vreck</option>
+						<option value="at0409">Singulair 4 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0410">Singulair 5 mg žvecljive tablete, 28 tablet</option>
+						<option value="at0411">Spiriva 18 mikrogr, prašek, 30 kapsul</option>
+						<option value="at0412">Spiriva 18 mikrogr, prašek, 30 kapsul in vdihovalnik</option>
+						<option value="at0413">Spiriva 18 mikrogr, prašek, 90 kapsul</option>
+						<option value="at0414">Spiriva Respimat 2,5 mikrogramov, 30 odmerkov</option>
+						<option value="at0415">Symbicort Turbuhaler 160 mikrogramov, 120 odmerkov</option>
+						<option value="at0416">Symbicort Turbuhaler 320 mikrogramov, 60 odmerkov</option>
+						<option value="at0417">Symbicort Turbuhaler 80 mikrogramov, 120 odmerkov</option>
+						<option value="at0418">Tafen Novolizer 200 mikrogramov, 100 odmerkov in vdihovalnik</option>
+						<option value="at0419">Tafen Novolizer 200 mikrogramov, 200 odmerkov in vdihovalnik</option>
+						<option value="at0420">Tafen Novolizer 200 mikrogramov, 100 odmerkov</option>
+						<option value="at0421">Tafen Novolizer 200 mikrogramov, 200 odmerkov</option>
+						<option value="at0422">Teotard 200 mg, 40 kapsul</option>
+						<option value="at0423">Teotard 350 mg, 40 kapsul</option>
+						<option value="at0424">Ventilastin Novolizer 100 mikrogramov, 200 odmerkov</option>
+						<option value="at0425">Ventilastin Novolizer 100 mikrogramov, 200 odmerkov in inhalator</option>
+						<option value="at0426">Ventilastin Novolizer 100 mikrogramov, 400 odmerkov</option>
+						<option value="at0427">Ventolin inhalacijska raztopina za nebulator, 20 ml</option>
+						<option value="at0428">Ventolin inhalacijska suspenzija pod tlakom, 200 odmerkov</option>
+						<option value="at0429">Ventolin sirup, 150 ml, merica 5ml/2mg</option>
+						<option value="at0430">Ventolin tablete, 100 tablet, tableta 2 mg</option>
+						<option value="at0431">Viani 25 mikrogramov/125 mikro, 120 odmerkov</option>
+						<option value="at0432">Viani 25 mikrogramov/250 mikro, 120 odmerkov</option>
+						<option value="at0433">Viani 25 mikrogramov/50 mikro, 120 odmerkov</option>
+						<option value="at0434">Viani diskus 50 mikrogramov/100 mikro, 60 odmerkov</option>
+						<option value="at0435">Viani diskus 50 mikrogramov/250 mikro, 60 odmerkov</option>
+						<option value="at0436">Viani diskus 50 mikrogramov/500 mikro, 60 odmerkov</option>
+						<option value="at0437">Xolair, 150 mg prašek</option>
+						<option value="at0438">Xolair, 75 mg prašek</option>					
+					</select>
+				</td>
+			</tr>		
+
+			<tr>
+				<td>
+					<p>Število pakiranj</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0143]?items[at0150]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>		
+			
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p><b>Režim jemanja zdravil</b></p>
+				</td>
+			</tr>			
+			<tr><td style="width:120px;"></td><td></td></tr> 			
+
+			<tr>
+				<td>
+					<p>Količina (vdih/število/mg)</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0143]?items[at0151]?items[at0488]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>			
+			
+			<tr>
+				<td>
+					<p>Pogostost jemanja</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0143]?items[at0151]?items[at0489]?value" class="activiti-size-short">
+						<option value="at0495">1x/dan</option>
+						<option value="at0496">2x/dan</option>
+						<option value="at0497">3x/dan</option>
+						<option value="at0498">4x/dan</option>
+						<option value="at0499">po potrebi</option>
+					</select>				
+			</tr>
+		</table>
+	
+	</div>		
+	
+	<h3><a href="#">Ostala zdravila</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Druga zdravila</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-EVALUATION.terapija.v1]?data[at0001]?items[at0478]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>		
+			
+		</table>
+	
+	</div>	
+
+</div>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

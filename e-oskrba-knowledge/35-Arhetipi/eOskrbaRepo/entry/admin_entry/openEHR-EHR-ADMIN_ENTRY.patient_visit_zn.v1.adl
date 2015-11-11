@@ -1,0 +1,160 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.patient_visit_zn.v1
+
+concept
+	[at0000]	-- Visits to patient.
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"19/10/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", "Ian McNicoll, Ocean Informatics, UK">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"8522C8E4C8A3431C5A0938840DF5BD41">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Visits to patient.
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Visitor
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Datetime of visit
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Duration
+						value matches {
+							DV_DURATION matches {
+								value matches {PMDTHM/|>=P0D|}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Breast milk
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Comments
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Visits to patient.">
+					description = <"Details of a visit to a patient.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Visitor">
+					description = <"Description or name of visitor.">
+				>
+				["at0003"] = <
+					text = <"Datetime of visit">
+					description = <"Start of visit, when the visitor arrived.">
+				>
+				["at0004"] = <
+					text = <"Duration">
+					description = <"Duration of a visit.">
+				>
+				["at0005"] = <
+					text = <"Breast milk">
+					description = <"Used to record the quantity of the breast milk delivered in a bottle to the hospital. May be used to record the storage time of the expressed breast milk.">
+				>
+				["at0006"] = <
+					text = <"Comments">
+					description = <"Comments about the visit.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Visits to patient.(en)">
+					description = <"*Details of a visit to a patient.(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Visitor(en)">
+					description = <"*Description or name of visitor.(en)">
+				>
+				["at0003"] = <
+					text = <"*Datetime of visit(en)">
+					description = <"*Start of visit, when the visitor arrived.(en)">
+				>
+				["at0004"] = <
+					text = <"*Duration(en)">
+					description = <"*Duration of a visit.(en)">
+				>
+				["at0005"] = <
+					text = <"*Breast milk(en)">
+					description = <"*Used to record the quantity of the breast milk delivered in a bottle to the hospital. May be used to record the storage time of the expressed breast milk.(en)">
+				>
+				["at0006"] = <
+					text = <"*Comments(en)">
+					description = <"*Commetns about the visit.(en)">
+				>
+			>
+		>
+	>

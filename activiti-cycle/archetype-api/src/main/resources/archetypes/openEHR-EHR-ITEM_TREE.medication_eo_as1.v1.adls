@@ -1,0 +1,1371 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.5; generated)
+	openEHR-EHR-ITEM_TREE.medication_eo_as1.v1
+
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"12/03/2006">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Specifies the description of the medication as part of an INSTRUCTION or ACTION recording taken with regard to medication. This will usually be in response to a medication order or prescription, but may be self administered or supplied by a pharmacy.">
+			use = <"For use with INSTRUCTION.medication and ACTION.medication to describe the medication">
+			keywords = <"medication", "description">
+			misuse = <"">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Specifies the description of the medication as part of an INSTRUCTION or ACTION recording taken with regard to medication. This will usually be in response to a medication order or prescription, but may be self administered or supplied by a pharmacy.">
+			use = <"*For use with INSTRUCTION.medication and ACTION.medication to describe the medication(en)">
+			keywords = <"*medication(en)", "*description(en)">
+			misuse = <"*(en)">
+			copyright = <"*© 2011 openEHR Foundation(en)">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"4C5ACF434A9A02559E5357DA175A1384">
+	>
+
+definition
+	ITEM_TREE[at0000] occurrences matches {0..*} matches {	-- Zdravila
+		items cardinality matches {2; ordered} matches {
+			ELEMENT[at0001] matches {	-- Ime zdravila
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0075, 	-- fenoterol
+							at0076, 	-- formoterol
+							at0077, 	-- indakaterol
+							at0078, 	-- salbutamol
+							at0079, 	-- salmeterol
+							at0080, 	-- beklometazondipropionat 100mcg, formoterolijev fumarat dihidrat 6mcg
+							at0081, 	-- budezonid 80mcg, formoterol 4,5mcg
+							at0082, 	-- budezonid 160mcg, formoterol 4,5mcg
+							at0083, 	-- budezonid 320mcg, formoterol 9mcg
+							at0084, 	-- fenoterol 0,05mg, ipratropijev bromid 0,02mg
+							at0085, 	-- fenoterol 0,5mg, ipratropijev bromid 0,25mg
+							at0086, 	-- salmeterol 25mcg, flutikazon 50mcg
+							at0087, 	-- salmeterol 50mcg, flutikazon 100mcg
+							at0088, 	-- salmeterol 50mcg, flutikazon 250mcg
+							at0089, 	-- salmeterol 50mcg, flutikazon 500mcg
+							at0090, 	-- salmeterol 25mcg, flutikazon 125mcg
+							at0091, 	-- salmeterol 25mcg, flutikazon 250mcg
+							at0092, 	-- salmeterol 50mcg, flutikazonpropionat 100mcg
+							at0093, 	-- salmeterol 50mcg, flutikazonpropionat 250mcg
+							at0094, 	-- salmeterol 50mcg, flutikazonpropionat 500mcg
+							at0095, 	-- salmeterol 25mcg, flutikazonpropionat 50mcg
+							at0096, 	-- salmeterol 25mcg, flutikazonpropionat 125mcg
+							at0097, 	-- salmeterol 25mcg, flutikazonpropionat 250mcg
+							at0098, 	-- budezonid
+							at0099, 	-- ciklesonid
+							at0100, 	-- flutikazon
+							at0101, 	-- mometazon
+							at0102, 	-- tiotropijev bromid
+							at0103, 	-- salbutamol
+							at0104, 	-- teofilin
+							at0105, 	-- montelukast
+							at0106, 	-- zafirlukast
+							at0107]	-- omalizumab
+						}
+					}
+				}
+			}
+			ELEMENT[at0012] occurrences matches {0..1} matches {	-- Generično ime
+				name matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[ac0003]}		-- *=Generic name OR Brand name(en)
+					}
+				}
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0109, 	-- Accolate 20 mg filmsko obložene tablete, 56 tablet
+							at0110, 	-- Alvesco 160 mikrogramov, 60 odmerkov
+							at0111, 	-- Alvesco 160 mikrogramov, 120 odmerkov
+							at0112, 	-- Alvesco 40 mikrogramov, 120 odmerkov
+							at0113, 	-- Alvesco 80 mikrogramov, 60 odmerkov
+							at0114, 	-- Alvesco 80 mikrogramov, 120 odmerkov
+							at0115, 	-- Asmanex Twisthaler 200 mikrogramov/vdih, 60 odmerkov
+							at0116, 	-- Asmanex Twisthaler 400 mikrogramov/vdih, 60 odmerkov
+							at0117, 	-- Atimos 12 mikrogramov, 100 odmerkov
+							at0118, 	-- Atimos 12 mikrogramov, 120 odmerkov
+							at0119, 	-- Berodual 0,5 mg/0,25 mg v 1 ml inhalacijska raztopina, 20 ml
+							at0120, 	-- Berodual N 0,05 mg/0,02 mg na odmerek, 200 odmerkov
+							at0121, 	-- Berotec 100 mikrogramov, 200 odmerkov
+							at0122, 	-- Budiair 200 mikrogramov, 200 odmerkov in Jet nastavek
+							at0123, 	-- Budiair 200 mikrogramov, 200 odmerkov in standardni nastavek
+							at0124, 	-- Flixotide 125 mikrogramov, , 60 odmerkov
+							at0125, 	-- Flixotide 250 mikrogramov, 60 odmerkov
+							at0126, 	-- Flixotide 50 mikrogramov, 120 odmerkov
+							at0127, 	-- Flixotide diskus 100 mcg/odmerek, 60 odmerkov
+							at0128, 	-- Flixotide diskus 250 mcg/odmerek, 60 odmerkov
+							at0129, 	-- Flixotide diskus 50 mcg/odmerek, 60 odmerkov
+							at0130, 	-- Flixotide diskus 500 mcg/odmerek, 60 odmerkov
+							at0131, 	-- Formodual 100/6 mikrogramov na spr, 120 odmerkov
+							at0132, 	-- Formodual 100/6 mikrogramov na spr, 180 odmerkov
+							at0133, 	-- Foster 100/ 6mcg na sprožitev, 120 odmerkov
+							at0134, 	-- Foster 100/ 6mcg na sprožitev, 180 odmerkov
+							at0135, 	-- Monkasta 10 mg filmsko obložene tablete, 28 tablet
+							at0136, 	-- Monkasta 4 mg žvečjive tablete, 28 tablet
+							at0137, 	-- Monkasta 5 mg žvečjive tablete, 28 tablet
+							at0138, 	-- Montelukast Teva 10 mg filmsko obložene tablete, 28 tablet
+							at0139, 	-- Montelukast Teva 4 mg žvečljive tablete, 28 tablet
+							at0140, 	-- Montelukast Teva 5 mg žvečljive tablete, 28 tablet
+							at0141, 	-- Neplit Easyhaler 100 mikrogramov, 200 odmerkov, 1x inhalator
+							at0142, 	-- Neplit Easyhaler 100 mikrogramov, 200 odmerkov, zaščitni pokrovček
+							at0143, 	-- Neplit Easyhaler 100 mikrogramov, 400 odmerkov, 2x inhalator
+							at0144, 	-- Neplit Easyhaler 200 mikrogramov, 200 odmerkov, 1x inhalator
+							at0145, 	-- Neplit Easyhaler 200 mikrogramov, 200 odmerkov, zaščitni pokrovček
+							at0146, 	-- Neplit Easyhaler 200 mikrogramov, 400 odmerkov, 2x inhalator
+							at0147, 	-- Neplit Easyhaler 400 mikrogramov, 200 odmerkov, 1x inhalator
+							at0148, 	-- Neplit Easyhaler 400 mikrogramov, 200 odmerkov, zaščitni pokrovček
+							at0149, 	-- Neplit Easyhaler 400 mikrogramov, 400 odmerkov, 2x inhalator
+							at0150, 	-- Onbrez Breezhaler 150 mikrogramov, 30 odmerkov
+							at0151, 	-- Onbrez Breezhaler 300 mikrogramov, 30 odmerkov
+							at0152, 	-- Oxis Turbuhaler 4,5 mikrograma, 60 odmerkov
+							at0153, 	-- OxisTurbuhaler 9 mikrogramov, 60 odmerkov
+							at0154, 	-- Pulmicort Turbuhaler 100 mikrogramov, 200 odmerkov
+							at0155, 	-- Pulmicort Turbuhaler 200 mikrogramov, 100 odmerkov
+							at0156, 	-- Pulmicort Turbuhaler 400 mikrogramov, 100 odmerkov
+							at0157, 	-- Seretide 25 mcg/125mcg/vpih, 120 odmerkov
+							at0158, 	-- Seretide 25 mcg/50mcg/vpih, 120 odmerkov
+							at0159, 	-- Seretide diskus 50mcg/100mcg/odmerek, 60 odmerkov
+							at0160, 	-- Seretide diskus 50mcg/250mcg/odmerek, 60 odmerkov
+							at0161, 	-- Seretide diskus 50mcg/500mcg/odmerek , 60 odmerkov
+							at0162, 	-- Serevent 25 mcg, 120 odmerkov in ustnik
+							at0163, 	-- Singulair 10 mg filmsko obložene tablete, 28 tablet
+							at0164, 	-- Singulair 4 mg zrnca, 28 vrečk
+							at0165, 	-- Singulair 4 mg žvečljive tablete, 28 tablet
+							at0166, 	-- Singulair 5 mg žvečljive tablete, 28 tablet
+							at0167, 	-- Spiriva 18 mikrogr, prašek, 30 kapsul
+							at0168, 	-- Spiriva 18 mikrogr, prašek, 30 kapsul in vdihovalnik
+							at0169, 	-- Spiriva 18 mikrogr, prašek, 90 kapsul
+							at0170, 	-- Spiriva Respimat 2,5 mikrogramov, 30 odmerkov
+							at0171, 	-- Symbicort Turbuhaler 160 mikrogramov, 120 odmerkov
+							at0172, 	-- Symbicort Turbuhaler 320 mikrogramov, 60 odmerkov
+							at0173, 	-- Symbicort Turbuhaler 80 mikrogramov, 120 odmerkov
+							at0174, 	-- Tafen Novolizer 200 mikrogramov, 100 odmerkov in vdihovalnik
+							at0175, 	-- Tafen Novolizer 200 mikrogramov, 200 odmerkov in vdihovalnik
+							at0176, 	-- Tafen Novolizer 200 mikrogramov, 100 odmerkov
+							at0177, 	-- Tafen Novolizer 200 mikrogramov, 200 odmerkov
+							at0178, 	-- Teotard 200 mg, 40 kapsul
+							at0179, 	-- Teotard 350 mg, 40 kapsul
+							at0180, 	-- Ventilastin Novolizer 100 mikrogramov, 200 odmerkov
+							at0181, 	-- Ventilastin Novolizer 100 mikrogramov, 200 odmerkov in inhalator
+							at0182, 	-- Ventilastin Novolizer 100 mikrogramov, 400 odmerkov
+							at0183, 	-- Ventolin inhalacijska raztopina za nebulator, 20 ml
+							at0184, 	-- Ventolin inhalacijska suspenzija pod tlakom, 200 odmerkov
+							at0185, 	-- Ventolin sirup, 150 ml, merica 5ml/2mg
+							at0186, 	-- Ventolin tablete, 100 tablet, tableta 2 mg
+							at0187, 	-- Viani 25 mikrogramov/125 mikro, 120 odmerkov
+							at0188, 	-- Viani 25 mikrogramov/250 mikro, 120 odmerkov
+							at0189, 	-- Viani 25 mikrogramov/50 mikro, 120 odmerkov
+							at0190, 	-- Viani diskus 50 mikrogramov/100 mikro, 60 odmerkov
+							at0191, 	-- Viani diskus 50 mikrogramov/250 mikro, 60 odmerkov
+							at0192, 	-- Viani diskus 50 mikrogramov/500 mikro, 60 odmerkov
+							at0193, 	-- Xolair, 150 mg prašek
+							at0194]	-- Xolair, 75 mg prašek
+						}
+					}
+				}
+			}
+			CLUSTER[at0195] occurrences matches {0..1} matches {	-- Doziranje
+				items cardinality matches {2..*; unordered} matches {
+					ELEMENT[at0196] occurrences matches {0..1} matches {	-- Število odmerkov na dan
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=1|}
+							}
+						}
+					}
+					ELEMENT[at0198] occurrences matches {0..1} matches {	-- Število enot v odmerku
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[at0036] occurrences matches {1..2} matches {	-- Enota - volumen
+						value matches {
+							(C_DV_QUANTITY) <
+								property = <[openehr::129]>
+								list = <
+									["1"] = <
+										units = <"ml">
+										magnitude = <|>=0.0|>
+									>
+									["2"] = <
+										units = <"l">
+										magnitude = <|>=0.0|>
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Enota - masa
+						value matches {
+							(C_DV_QUANTITY) <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"µg">
+										magnitude = <|>=0.0|>
+									>
+									["2"] = <
+										units = <"mg">
+									>
+									["3"] = <
+										units = <"gm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Trajanje zdravljenja
+				value matches {
+					(C_DV_QUANTITY) <
+						property = <[openehr::128]>
+						list = <
+							["1"] = <
+								units = <"d">
+							>
+							["2"] = <
+								units = <"h">
+							>
+							["3"] = <
+								units = <"min">
+							>
+							["4"] = <
+								units = <"s">
+								magnitude = <|>=0.0|>
+							>
+						>
+					>
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Razlogi za začetek
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0051] occurrences matches {0..1} matches {	-- Razlogi za prenehanje
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			["at0000"] = <
+				text = <"Medication description">
+				description = <"The description of a medication for recording as part of an ACTION or INSTRUCTION">
+			>
+			["at0001"] = <
+				text = <"Name of medication">
+				description = <"The name of the intervention - which may be coded">
+			>
+			["at0007"] = <
+				text = <"Dose duration">
+				description = <"The time over which an individual dose is to be administered">
+			>
+			["at0012"] = <
+				text = <"Generic name">
+				description = <"The generic name of the drug which is an alternative name to the name of medication">
+			>
+			["at0036"] = <
+				text = <"Quantity by volume">
+				description = <"The quantity (or range) to be administered as a single dose">
+			>
+			["at0037"] = <
+				text = <"Quantity by mass">
+				description = <"*">
+			>
+			["at0050"] = <
+				text = <"Reason for commencement">
+				description = <"Reason for commencement of medication">
+			>
+			["at0051"] = <
+				text = <"Reason for ceasing">
+				description = <"Reason for ceasing of medication">
+			>
+			["at0075"] = <
+				text = <"*Fenoterol(en)">
+				description = <"**(en)">
+			>
+			["at0076"] = <
+				text = <"*Formoterol(en)">
+				description = <"**(en)">
+			>
+			["at0077"] = <
+				text = <"*Indakaterol(en)">
+				description = <"**(en)">
+			>
+			["at0078"] = <
+				text = <"*Salbutamol(en)">
+				description = <"**(en)">
+			>
+			["at0079"] = <
+				text = <"*salmeterol(en)">
+				description = <"**(en)">
+			>
+			["at0080"] = <
+				text = <"*beklometazondipropionat 100mcg, formoterolijev fumarat dihidrat 6mcg(en)">
+				description = <"**(en)">
+			>
+			["at0081"] = <
+				text = <"*budezonid 80mcg, formoterol 4,5mcg(en)">
+				description = <"**(en)">
+			>
+			["at0082"] = <
+				text = <"*budezonid 160mcg, formoterol 4,5mcg(en)">
+				description = <"**(en)">
+			>
+			["at0083"] = <
+				text = <"*budezonid 320mcg, formoterol 9mcg(en)">
+				description = <"**(en)">
+			>
+			["at0084"] = <
+				text = <"*fenoterol 0,05mg, ipratropijev bromid 0,02mg(en)">
+				description = <"**(en)">
+			>
+			["at0085"] = <
+				text = <"*fenoterol 0,5mg, ipratropijev bromid 0,25mg(en)">
+				description = <"**(en)">
+			>
+			["at0086"] = <
+				text = <"*salmeterol 25mcg, flutikazon 50mcg(en)">
+				description = <"**(en)">
+			>
+			["at0087"] = <
+				text = <"*salmeterol 50mcg, flutikazon 100mcg(en)">
+				description = <"**(en)">
+			>
+			["at0088"] = <
+				text = <"*salmeterol 50mcg, flutikazon 250mcg(en)">
+				description = <"**(en)">
+			>
+			["at0089"] = <
+				text = <"*salmeterol 50mcg, flutikazon 500mcg(en)">
+				description = <"**(en)">
+			>
+			["at0090"] = <
+				text = <"*salmeterol 25mcg, flutikazon 125mcg(en)">
+				description = <"**(en)">
+			>
+			["at0091"] = <
+				text = <"*salmeterol 25mcg, flutikazon 250mcg(en)">
+				description = <"**(en)">
+			>
+			["at0092"] = <
+				text = <"*salmeterol 50mcg, flutikazonpropionat 100mcg(en)">
+				description = <"**(en)">
+			>
+			["at0093"] = <
+				text = <"*salmeterol 50mcg, flutikazonpropionat 250mcg(en)">
+				description = <"**(en)">
+			>
+			["at0094"] = <
+				text = <"*salmeterol 50mcg, flutikazonpropionat 500mcg(en)">
+				description = <"**(en)">
+			>
+			["at0095"] = <
+				text = <"*salmeterol 25mcg, flutikazonpropionat 50mcg(en)">
+				description = <"**(en)">
+			>
+			["at0096"] = <
+				text = <"*salmeterol 25mcg, flutikazonpropionat 125mcg(en)">
+				description = <"**(en)">
+			>
+			["at0097"] = <
+				text = <"*salmeterol 25mcg, flutikazonpropionat 250mcg(en)">
+				description = <"**(en)">
+			>
+			["at0098"] = <
+				text = <"*budezonid(en)">
+				description = <"**(en)">
+			>
+			["at0099"] = <
+				text = <"*ciklesonid(en)">
+				description = <"**(en)">
+			>
+			["at0100"] = <
+				text = <"*flutikazon(en)">
+				description = <"**(en)">
+			>
+			["at0101"] = <
+				text = <"*mometazon(en)">
+				description = <"**(en)">
+			>
+			["at0102"] = <
+				text = <"*tiotropijev bromid(en)">
+				description = <"**(en)">
+			>
+			["at0103"] = <
+				text = <"*salbutamol(en)">
+				description = <"**(en)">
+			>
+			["at0104"] = <
+				text = <"*teofilin(en)">
+				description = <"**(en)">
+			>
+			["at0105"] = <
+				text = <"*montelukast(en)">
+				description = <"**(en)">
+			>
+			["at0106"] = <
+				text = <"*zafirlukast(en)">
+				description = <"**(en)">
+			>
+			["at0107"] = <
+				text = <"*omalizumab(en)">
+				description = <"**(en)">
+			>
+			["at0109"] = <
+				text = <"*Berotec 100 mikrogramov/vdih inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0110"] = <
+				text = <"*Atimos 12 mikrogramov/sprožitev inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0111"] = <
+				text = <"*Oxis Turbuhaler 4,5 mikrograma/odmerek prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0112"] = <
+				text = <"*OxisTurbuhaler 9 mikrogramov/odmerek prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0113"] = <
+				text = <"*CP Onbrez Breezhaler 150 mikrogramov prašek za inhaliranje, trde kapsule(en)">
+				description = <"**(en)">
+			>
+			["at0114"] = <
+				text = <"*CP Onbrez Breezhaler 300 mikrogramov prašek za inhaliranje, trde kapsule(en)">
+				description = <"**(en)">
+			>
+			["at0115"] = <
+				text = <"*Ventilastin Novolizer 100 mikrogramov/odmerek prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0116"] = <
+				text = <"*VENTOLIN inhalacijska raztopina za nebulator(en)">
+				description = <"**(en)">
+			>
+			["at0117"] = <
+				text = <"*VENTOLIN inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0118"] = <
+				text = <"*SEREVENT 25 mcg/vpih inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0119"] = <
+				text = <"*Formodual 100/6 mikrogramov na spr inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0120"] = <
+				text = <"*Foster 100/ 6mcg na sprožitev inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0121"] = <
+				text = <"*Symbicort Turbuhaler 80 mikrogramov/4,5 mikro prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0122"] = <
+				text = <"*Symbicort Turbuhaler 160 mikrogramov/4,5 mikr prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0123"] = <
+				text = <"*Symbicort Turbuhaler 320 mikrogramov/9 mikrog prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0124"] = <
+				text = <"*BERODUAL N 0,05 mg/0,02 mg na odmer inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0125"] = <
+				text = <"*Berodual 0,5 mg/0,25 mg v 1 ml inhalacijska raztopina za nebulator(en)">
+				description = <"**(en)">
+			>
+			["at0126"] = <
+				text = <"*SERETIDE 25 mcg/50mcg/vpih inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0127"] = <
+				text = <"*SERETIDE DISKUS 50mcg/100mcg/odme odmerjeni prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0128"] = <
+				text = <"*SERETIDE DISKUS 50mcg/250mcg/odme odmerjeni prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0129"] = <
+				text = <"*SERETIDE DISKUS 50mcg/500mcg/odme odmerjeni prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0130"] = <
+				text = <"*SERETIDE 25 mcg/125mcg/vpih inhalacijska suspenzija pod tlakom	(en)">
+				description = <"**(en)">
+			>
+			["at0131"] = <
+				text = <"*SERETIDE 25 mcg/250mcg/vpih inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0132"] = <
+				text = <"*VIANI DISKUS 50 mikrogramov/100 mikro prašek za inhaliranje, odmerjen(en)">
+				description = <"**(en)">
+			>
+			["at0133"] = <
+				text = <"*VIANI DISKUS 50 mikrogramov/250 mikro prašek za inhaliranje, odmerjen(en)">
+				description = <"**(en)">
+			>
+			["at0134"] = <
+				text = <"*VIANI DISKUS 50 mikrogramov/500 mikro prašek za inhaliranje, odmerjen(en)">
+				description = <"**(en)">
+			>
+			["at0135"] = <
+				text = <"*VIANI 25 mikrogramov/50 mikrog inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0136"] = <
+				text = <"*VIANI 25 mikrogramov/125 mikro inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0137"] = <
+				text = <"*VIANI 25 mikrogramov/250 mikro inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0138"] = <
+				text = <"*Budiair 200 mikrogramov inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0139"] = <
+				text = <"*Neplit Easyhaler 100 mikrogramov/ odmerek prašek za inhaliranje	(en)">
+				description = <"**(en)">
+			>
+			["at0140"] = <
+				text = <"*Neplit Easyhaler 200 mikrogramov/ odmerek prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0141"] = <
+				text = <"*Neplit Easyhaler 400 mikrogramov/ odmerek prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0142"] = <
+				text = <"*Pulmicort Turbuhaler 100 mikrogramov/vdih prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0143"] = <
+				text = <"*Pulmicort Turbuhaler 200 mikrogramov/vdih prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0144"] = <
+				text = <"*Pulmicort Turbuhaler 400 mikrogramov/vdih prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0145"] = <
+				text = <"*Tafen Novolizer 200 mikrogramo prašek za inhaliranje, odmerjen(en)">
+				description = <"**(en)">
+			>
+			["at0146"] = <
+				text = <"*Alvesco 40 mikrogramov inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0147"] = <
+				text = <"*Alvesco 80 mikrogramov inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0148"] = <
+				text = <"*Alvesco 160 mikrogramov inhalacijska raztopina pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0149"] = <
+				text = <"*FLIXOTIDE DISKUS 50 mcg/odmerek odmerjeni prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0150"] = <
+				text = <"*FLIXOTIDE DISKUS 100 mcg/odmerek odmerjeni prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0151"] = <
+				text = <"*FLIXOTIDE DISKUS 250 mcg/odmerek odmerjeni prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0152"] = <
+				text = <"*FLIXOTIDE DISKUS 500 mcg/odmerek odmerjeni prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0153"] = <
+				text = <"*Flixotide 50 mikrogramov/vpih inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0154"] = <
+				text = <"*Flixotide 125 mikrogramov/vpih inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0155"] = <
+				text = <"*Flixotide 250 mikrogramov/vpih inhalacijska suspenzija pod tlakom(en)">
+				description = <"**(en)">
+			>
+			["at0156"] = <
+				text = <"*Asmanex Twisthaler 200 mikrogramov/vdih prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0157"] = <
+				text = <"*Asmanex Twisthaler 400 mikrogramov/vdih prašek za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0158"] = <
+				text = <"*Spiriva Respimat 2,5 mikrogramov raztopina za inhaliranje(en)">
+				description = <"**(en)">
+			>
+			["at0159"] = <
+				text = <"*SPIRIVA 18 mikrogramov prašek za inhaliranje, trde kapsule(en)">
+				description = <"**(en)">
+			>
+			["at0160"] = <
+				text = <"*VENTOLIN sirup(en)">
+				description = <"**(en)">
+			>
+			["at0161"] = <
+				text = <"*VENTOLIN tablete(en)">
+				description = <"**(en)">
+			>
+			["at0162"] = <
+				text = <"*Serevent 25 mcg, 120 odmerkov in ustnik(en)">
+				description = <"**(en)">
+			>
+			["at0163"] = <
+				text = <"*Singulair 10 mg filmsko obložene tablete, 28 tablet(en)">
+				description = <"**(en)">
+			>
+			["at0164"] = <
+				text = <"*Singulair 4 mg zrnca, 28 vrečk(en)">
+				description = <"**(en)">
+			>
+			["at0165"] = <
+				text = <"*Singulair 4 mg žvečljive tablete, 28 tablet(en)">
+				description = <"**(en)">
+			>
+			["at0166"] = <
+				text = <"*Singulair 5 mg žvečljive tablete, 28 tablet(en)">
+				description = <"**(en)">
+			>
+			["at0167"] = <
+				text = <"*Spiriva 18 mikrogr, prašek, 30 kapsul(en)">
+				description = <"**(en)">
+			>
+			["at0168"] = <
+				text = <"*Spiriva 18 mikrogr, prašek, 30 kapsul in vdihovalnik(en)">
+				description = <"**(en)">
+			>
+			["at0169"] = <
+				text = <"*Spiriva 18 mikrogr, prašek, 90 kapsul(en)">
+				description = <"**(en)">
+			>
+			["at0170"] = <
+				text = <"*Spiriva Respimat 2,5 mikrogramov, 30 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0171"] = <
+				text = <"*Symbicort Turbuhaler 160 mikrogramov, 120 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0172"] = <
+				text = <"*Symbicort Turbuhaler 320 mikrogramov, 60 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0173"] = <
+				text = <"*Symbicort Turbuhaler 80 mikrogramov, 120 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0174"] = <
+				text = <"*Tafen Novolizer 200 mikrogramov, 100 odmerkov in vdihovalnik(en)">
+				description = <"**(en)">
+			>
+			["at0175"] = <
+				text = <"*Tafen Novolizer 200 mikrogramov, 200 odmerkov in vdihovalnik(en)">
+				description = <"**(en)">
+			>
+			["at0176"] = <
+				text = <"*Tafen Novolizer 200 mikrogramov, 100 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0177"] = <
+				text = <"*Tafen Novolizer 200 mikrogramov, 200 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0178"] = <
+				text = <"*Teotard 200 mg, 40 kapsul(en)">
+				description = <"**(en)">
+			>
+			["at0179"] = <
+				text = <"*Teotard 350 mg, 40 kapsul(en)">
+				description = <"**(en)">
+			>
+			["at0180"] = <
+				text = <"*Ventilastin Novolizer 100 mikrogramov, 200 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0181"] = <
+				text = <"*Ventilastin Novolizer 100 mikrogramov, 200 odmerkov in inhalator(en)">
+				description = <"**(en)">
+			>
+			["at0182"] = <
+				text = <"*Ventilastin Novolizer 100 mikrogramov, 400 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0183"] = <
+				text = <"*Ventolin inhalacijska raztopina za nebulator, 20 ml(en)">
+				description = <"**(en)">
+			>
+			["at0184"] = <
+				text = <"*Ventolin inhalacijska suspenzija pod tlakom, 200 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0185"] = <
+				text = <"*Ventolin sirup, 150 ml, merica 5ml/2mg(en)">
+				description = <"**(en)">
+			>
+			["at0186"] = <
+				text = <"*Ventolin tablete, 100 tablet, tableta 2 mg(en)">
+				description = <"**(en)">
+			>
+			["at0187"] = <
+				text = <"*Viani 25 mikrogramov/125 mikro, 120 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0188"] = <
+				text = <"*Viani 25 mikrogramov/250 mikro, 120 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0189"] = <
+				text = <"*Viani 25 mikrogramov/50 mikro, 120 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0190"] = <
+				text = <"*Viani diskus 50 mikrogramov/100 mikro, 60 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0191"] = <
+				text = <"*Viani diskus 50 mikrogramov/250 mikro, 60 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0192"] = <
+				text = <"*Viani diskus 50 mikrogramov/500 mikro, 60 odmerkov(en)">
+				description = <"**(en)">
+			>
+			["at0193"] = <
+				text = <"*Xolair, 150 mg prašek(en)">
+				description = <"**(en)">
+			>
+			["at0194"] = <
+				text = <"*Xolair, 75 mg prašek(en)">
+				description = <"**(en)">
+			>
+			["at0195"] = <
+				text = <"*New cluster(en)">
+				description = <"**(en)">
+			>
+			["at0196"] = <
+				text = <"*New element(en)">
+				description = <"**(en)">
+			>
+			["at0198"] = <
+				text = <"*New element(en)">
+				description = <"**(en)">
+			>
+		>
+		["sl"] = <
+			["at0000"] = <
+				text = <"Zdravila">
+				description = <"Opis zdravil (kot del ACTION ali INSTRUCTION)">
+			>
+			["at0001"] = <
+				text = <"Ime zdravila">
+				description = <"Ime intervencije/zdravila - lahko v kodah.">
+			>
+			["at0007"] = <
+				text = <"Trajanje zdravljenja">
+				description = <"Predviden čas trajanja jemanja zdravil.">
+			>
+			["at0012"] = <
+				text = <"Generično ime">
+				description = <"Generično ime zdravila, ki je lahko alternativno imenu zdravila.">
+			>
+			["at0036"] = <
+				text = <"Enota - volumen">
+				description = <"Količina zdravil za eno enoto - volumen.">
+			>
+			["at0037"] = <
+				text = <"Enota - masa">
+				description = <"Količina zdravil za en odmerek - masa.">
+			>
+			["at0050"] = <
+				text = <"Razlogi za začetek">
+				description = <"Razlogi za začetek jemanja zdravil.">
+			>
+			["at0051"] = <
+				text = <"Razlogi za prenehanje">
+				description = <"Razlogi za prenehanje jemanja zdravil.">
+			>
+			["at0075"] = <
+				text = <"fenoterol">
+				description = <"*">
+			>
+			["at0076"] = <
+				text = <"formoterol">
+				description = <"*">
+			>
+			["at0077"] = <
+				text = <"indakaterol">
+				description = <"*">
+			>
+			["at0078"] = <
+				text = <"salbutamol">
+				description = <"*">
+			>
+			["at0079"] = <
+				text = <"salmeterol">
+				description = <"*">
+			>
+			["at0080"] = <
+				text = <"beklometazondipropionat 100mcg, formoterolijev fumarat dihidrat 6mcg">
+				description = <"*">
+			>
+			["at0081"] = <
+				text = <"budezonid 80mcg, formoterol 4,5mcg">
+				description = <"*">
+			>
+			["at0082"] = <
+				text = <"budezonid 160mcg, formoterol 4,5mcg">
+				description = <"*">
+			>
+			["at0083"] = <
+				text = <"budezonid 320mcg, formoterol 9mcg">
+				description = <"*">
+			>
+			["at0084"] = <
+				text = <"fenoterol 0,05mg, ipratropijev bromid 0,02mg">
+				description = <"*">
+			>
+			["at0085"] = <
+				text = <"fenoterol 0,5mg, ipratropijev bromid 0,25mg">
+				description = <"*">
+			>
+			["at0086"] = <
+				text = <"salmeterol 25mcg, flutikazon 50mcg">
+				description = <"*">
+			>
+			["at0087"] = <
+				text = <"salmeterol 50mcg, flutikazon 100mcg">
+				description = <"*">
+			>
+			["at0088"] = <
+				text = <"salmeterol 50mcg, flutikazon 250mcg">
+				description = <"*">
+			>
+			["at0089"] = <
+				text = <"salmeterol 50mcg, flutikazon 500mcg">
+				description = <"*">
+			>
+			["at0090"] = <
+				text = <"salmeterol 25mcg, flutikazon 125mcg">
+				description = <"*">
+			>
+			["at0091"] = <
+				text = <"salmeterol 25mcg, flutikazon 250mcg">
+				description = <"*">
+			>
+			["at0092"] = <
+				text = <"salmeterol 50mcg, flutikazonpropionat 100mcg">
+				description = <"*">
+			>
+			["at0093"] = <
+				text = <"salmeterol 50mcg, flutikazonpropionat 250mcg">
+				description = <"*">
+			>
+			["at0094"] = <
+				text = <"salmeterol 50mcg, flutikazonpropionat 500mcg">
+				description = <"*">
+			>
+			["at0095"] = <
+				text = <"salmeterol 25mcg, flutikazonpropionat 50mcg">
+				description = <"*">
+			>
+			["at0096"] = <
+				text = <"salmeterol 25mcg, flutikazonpropionat 125mcg">
+				description = <"*">
+			>
+			["at0097"] = <
+				text = <"salmeterol 25mcg, flutikazonpropionat 250mcg">
+				description = <"*">
+			>
+			["at0098"] = <
+				text = <"budezonid">
+				description = <"*">
+			>
+			["at0099"] = <
+				text = <"ciklesonid">
+				description = <"*">
+			>
+			["at0100"] = <
+				text = <"flutikazon">
+				description = <"*">
+			>
+			["at0101"] = <
+				text = <"mometazon">
+				description = <"*">
+			>
+			["at0102"] = <
+				text = <"tiotropijev bromid">
+				description = <"*">
+			>
+			["at0103"] = <
+				text = <"salbutamol">
+				description = <"*">
+			>
+			["at0104"] = <
+				text = <"teofilin">
+				description = <"*">
+			>
+			["at0105"] = <
+				text = <"montelukast">
+				description = <"*">
+			>
+			["at0106"] = <
+				text = <"zafirlukast">
+				description = <"*">
+			>
+			["at0107"] = <
+				text = <"omalizumab">
+				description = <"*">
+			>
+			["at0109"] = <
+				text = <"Accolate 20 mg filmsko obložene tablete, 56 tablet">
+				description = <"*">
+			>
+			["at0110"] = <
+				text = <"Alvesco 160 mikrogramov, 60 odmerkov">
+				description = <"*">
+			>
+			["at0111"] = <
+				text = <"Alvesco 160 mikrogramov, 120 odmerkov">
+				description = <"*">
+			>
+			["at0112"] = <
+				text = <"Alvesco 40 mikrogramov, 120 odmerkov">
+				description = <"*">
+			>
+			["at0113"] = <
+				text = <"Alvesco 80 mikrogramov, 60 odmerkov">
+				description = <"*">
+			>
+			["at0114"] = <
+				text = <"Alvesco 80 mikrogramov, 120 odmerkov">
+				description = <"*">
+			>
+			["at0115"] = <
+				text = <"Asmanex Twisthaler 200 mikrogramov/vdih, 60 odmerkov">
+				description = <"*">
+			>
+			["at0116"] = <
+				text = <"Asmanex Twisthaler 400 mikrogramov/vdih, 60 odmerkov">
+				description = <"*">
+			>
+			["at0117"] = <
+				text = <"Atimos 12 mikrogramov, 100 odmerkov">
+				description = <"*">
+			>
+			["at0118"] = <
+				text = <"Atimos 12 mikrogramov, 120 odmerkov">
+				description = <"*">
+			>
+			["at0119"] = <
+				text = <"Berodual 0,5 mg/0,25 mg v 1 ml inhalacijska raztopina, 20 ml">
+				description = <"*">
+			>
+			["at0120"] = <
+				text = <"Berodual N 0,05 mg/0,02 mg na odmerek, 200 odmerkov">
+				description = <"*">
+			>
+			["at0121"] = <
+				text = <"Berotec 100 mikrogramov, 200 odmerkov">
+				description = <"*">
+			>
+			["at0122"] = <
+				text = <"Budiair 200 mikrogramov, 200 odmerkov in Jet nastavek">
+				description = <"*">
+			>
+			["at0123"] = <
+				text = <"Budiair 200 mikrogramov, 200 odmerkov in standardni nastavek">
+				description = <"*">
+			>
+			["at0124"] = <
+				text = <"Flixotide 125 mikrogramov, , 60 odmerkov
+Flixotide 125 mikrogramov, , 60 odmerkov
+Flixotide 125 mikrogramov, , 60 odmerkov
+Flixotide 125 mikrogramov, , 60 odmerkov">
+				description = <"*">
+			>
+			["at0125"] = <
+				text = <"Flixotide 250 mikrogramov, 60 odmerkov
+Flixotide 250 mikrogramov, 60 odmerkov
+">
+				description = <"*">
+			>
+			["at0126"] = <
+				text = <"Flixotide 50 mikrogramov, 120 odmerkov">
+				description = <"*">
+			>
+			["at0127"] = <
+				text = <"Flixotide diskus 100 mcg/odmerek, 60 odmerkov">
+				description = <"*">
+			>
+			["at0128"] = <
+				text = <"Flixotide diskus 250 mcg/odmerek, 60 odmerkov">
+				description = <"*">
+			>
+			["at0129"] = <
+				text = <"Flixotide diskus 50 mcg/odmerek, 60 odmerkov">
+				description = <"*">
+			>
+			["at0130"] = <
+				text = <"Flixotide diskus 500 mcg/odmerek, 60 odmerkov">
+				description = <"*">
+			>
+			["at0131"] = <
+				text = <"Formodual 100/6 mikrogramov na spr, 120 odmerkov">
+				description = <"*">
+			>
+			["at0132"] = <
+				text = <"Formodual 100/6 mikrogramov na spr, 180 odmerkov">
+				description = <"*">
+			>
+			["at0133"] = <
+				text = <"Foster 100/ 6mcg na sprožitev, 120 odmerkov">
+				description = <"*">
+			>
+			["at0134"] = <
+				text = <"Foster 100/ 6mcg na sprožitev, 180 odmerkov">
+				description = <"*">
+			>
+			["at0135"] = <
+				text = <"Monkasta 10 mg filmsko obložene tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0136"] = <
+				text = <"Monkasta 4 mg žvečjive tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0137"] = <
+				text = <"Monkasta 5 mg žvečjive tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0138"] = <
+				text = <"Montelukast Teva 10 mg filmsko obložene tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0139"] = <
+				text = <"Montelukast Teva 4 mg žvečljive tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0140"] = <
+				text = <"Montelukast Teva 5 mg žvečljive tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0141"] = <
+				text = <"Neplit Easyhaler 100 mikrogramov, 200 odmerkov, 1x inhalator">
+				description = <"*">
+			>
+			["at0142"] = <
+				text = <"Neplit Easyhaler 100 mikrogramov, 200 odmerkov, zaščitni pokrovček">
+				description = <"*">
+			>
+			["at0143"] = <
+				text = <"Neplit Easyhaler 100 mikrogramov, 400 odmerkov, 2x inhalator">
+				description = <"*">
+			>
+			["at0144"] = <
+				text = <"Neplit Easyhaler 200 mikrogramov, 200 odmerkov, 1x inhalator">
+				description = <"*">
+			>
+			["at0145"] = <
+				text = <"Neplit Easyhaler 200 mikrogramov, 200 odmerkov, zaščitni pokrovček">
+				description = <"*">
+			>
+			["at0146"] = <
+				text = <"Neplit Easyhaler 200 mikrogramov, 400 odmerkov, 2x inhalator">
+				description = <"*">
+			>
+			["at0147"] = <
+				text = <"Neplit Easyhaler 400 mikrogramov, 200 odmerkov, 1x inhalator">
+				description = <"*">
+			>
+			["at0148"] = <
+				text = <"Neplit Easyhaler 400 mikrogramov, 200 odmerkov, zaščitni pokrovček">
+				description = <"*">
+			>
+			["at0149"] = <
+				text = <"Neplit Easyhaler 400 mikrogramov, 400 odmerkov, 2x inhalator">
+				description = <"*">
+			>
+			["at0150"] = <
+				text = <"Onbrez Breezhaler 150 mikrogramov, 30 odmerkov">
+				description = <"*">
+			>
+			["at0151"] = <
+				text = <"Onbrez Breezhaler 300 mikrogramov, 30 odmerkov">
+				description = <"*">
+			>
+			["at0152"] = <
+				text = <"Oxis Turbuhaler 4,5 mikrograma, 60 odmerkov">
+				description = <"*">
+			>
+			["at0153"] = <
+				text = <"OxisTurbuhaler 9 mikrogramov, 60 odmerkov">
+				description = <"*">
+			>
+			["at0154"] = <
+				text = <"Pulmicort Turbuhaler 100 mikrogramov, 200 odmerkov">
+				description = <"*">
+			>
+			["at0155"] = <
+				text = <"Pulmicort Turbuhaler 200 mikrogramov, 100 odmerkov">
+				description = <"*">
+			>
+			["at0156"] = <
+				text = <"Pulmicort Turbuhaler 400 mikrogramov, 100 odmerkov">
+				description = <"*">
+			>
+			["at0157"] = <
+				text = <"Seretide 25 mcg/125mcg/vpih, 120 odmerkov">
+				description = <"*">
+			>
+			["at0158"] = <
+				text = <"Seretide 25 mcg/50mcg/vpih, 120 odmerkov">
+				description = <"*">
+			>
+			["at0159"] = <
+				text = <"Seretide diskus 50mcg/100mcg/odmerek, 60 odmerkov">
+				description = <"*">
+			>
+			["at0160"] = <
+				text = <"Seretide diskus 50mcg/250mcg/odmerek, 60 odmerkov">
+				description = <"*">
+			>
+			["at0161"] = <
+				text = <"Seretide diskus 50mcg/500mcg/odmerek , 60 odmerkov">
+				description = <"*">
+			>
+			["at0162"] = <
+				text = <"Serevent 25 mcg, 120 odmerkov in ustnik">
+				description = <"*">
+			>
+			["at0163"] = <
+				text = <"Singulair 10 mg filmsko obložene tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0164"] = <
+				text = <"Singulair 4 mg zrnca, 28 vrečk">
+				description = <"*">
+			>
+			["at0165"] = <
+				text = <"Singulair 4 mg žvečljive tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0166"] = <
+				text = <"Singulair 5 mg žvečljive tablete, 28 tablet">
+				description = <"*">
+			>
+			["at0167"] = <
+				text = <"Spiriva 18 mikrogr, prašek, 30 kapsul">
+				description = <"*">
+			>
+			["at0168"] = <
+				text = <"Spiriva 18 mikrogr, prašek, 30 kapsul in vdihovalnik">
+				description = <"*">
+			>
+			["at0169"] = <
+				text = <"Spiriva 18 mikrogr, prašek, 90 kapsul">
+				description = <"*">
+			>
+			["at0170"] = <
+				text = <"Spiriva Respimat 2,5 mikrogramov, 30 odmerkov">
+				description = <"*">
+			>
+			["at0171"] = <
+				text = <"Symbicort Turbuhaler 160 mikrogramov, 120 odmerkov">
+				description = <"*">
+			>
+			["at0172"] = <
+				text = <"Symbicort Turbuhaler 320 mikrogramov, 60 odmerkov">
+				description = <"*">
+			>
+			["at0173"] = <
+				text = <"Symbicort Turbuhaler 80 mikrogramov, 120 odmerkov">
+				description = <"*">
+			>
+			["at0174"] = <
+				text = <"Tafen Novolizer 200 mikrogramov, 100 odmerkov in vdihovalnik">
+				description = <"*">
+			>
+			["at0175"] = <
+				text = <"Tafen Novolizer 200 mikrogramov, 200 odmerkov in vdihovalnik">
+				description = <"*">
+			>
+			["at0176"] = <
+				text = <"Tafen Novolizer 200 mikrogramov, 100 odmerkov">
+				description = <"*">
+			>
+			["at0177"] = <
+				text = <"Tafen Novolizer 200 mikrogramov, 200 odmerkov">
+				description = <"*">
+			>
+			["at0178"] = <
+				text = <"Teotard 200 mg, 40 kapsul">
+				description = <"*">
+			>
+			["at0179"] = <
+				text = <"Teotard 350 mg, 40 kapsul">
+				description = <"*">
+			>
+			["at0180"] = <
+				text = <"Ventilastin Novolizer 100 mikrogramov, 200 odmerkov">
+				description = <"*">
+			>
+			["at0181"] = <
+				text = <"Ventilastin Novolizer 100 mikrogramov, 200 odmerkov in inhalator">
+				description = <"*">
+			>
+			["at0182"] = <
+				text = <"Ventilastin Novolizer 100 mikrogramov, 400 odmerkov">
+				description = <"*">
+			>
+			["at0183"] = <
+				text = <"Ventolin inhalacijska raztopina za nebulator, 20 ml">
+				description = <"*">
+			>
+			["at0184"] = <
+				text = <"Ventolin inhalacijska suspenzija pod tlakom, 200 odmerkov">
+				description = <"*">
+			>
+			["at0185"] = <
+				text = <"Ventolin sirup, 150 ml, merica 5ml/2mg">
+				description = <"*">
+			>
+			["at0186"] = <
+				text = <"Ventolin tablete, 100 tablet, tableta 2 mg">
+				description = <"*">
+			>
+			["at0187"] = <
+				text = <"Viani 25 mikrogramov/125 mikro, 120 odmerkov">
+				description = <"*">
+			>
+			["at0188"] = <
+				text = <"Viani 25 mikrogramov/250 mikro, 120 odmerkov">
+				description = <"*">
+			>
+			["at0189"] = <
+				text = <"Viani 25 mikrogramov/50 mikro, 120 odmerkov">
+				description = <"*">
+			>
+			["at0190"] = <
+				text = <"Viani diskus 50 mikrogramov/100 mikro, 60 odmerkov">
+				description = <"*">
+			>
+			["at0191"] = <
+				text = <"Viani diskus 50 mikrogramov/250 mikro, 60 odmerkov">
+				description = <"*">
+			>
+			["at0192"] = <
+				text = <"Viani diskus 50 mikrogramov/500 mikro, 60 odmerkov">
+				description = <"*">
+			>
+			["at0193"] = <
+				text = <"Xolair, 150 mg prašek">
+				description = <"*">
+			>
+			["at0194"] = <
+				text = <"Xolair, 75 mg prašek">
+				description = <"*">
+			>
+			["at0195"] = <
+				text = <"Doziranje">
+				description = <"*">
+			>
+			["at0196"] = <
+				text = <"Število odmerkov na dan">
+				description = <"Število odmerkov na dan.">
+			>
+			["at0198"] = <
+				text = <"Število enot v odmerku">
+				description = <"Število enot v odmerku.">
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			["ac0003"] = <
+				text = <"=Generic name OR Brand name">
+				description = <"*">
+			>
+		>
+		["sl"] = <
+			["ac0003"] = <
+				text = <"*=Generic name OR Brand name(en)">
+				description = <"**(en)">
+			>
+		>
+	>

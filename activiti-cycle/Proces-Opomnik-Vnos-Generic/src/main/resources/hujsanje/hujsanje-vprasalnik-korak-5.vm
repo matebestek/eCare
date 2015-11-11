@@ -1,0 +1,122 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<h3>
+		<a href="#">Vprašalnik - prehrana</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr><td style="width: 120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katerim maščobnim živilom se moramo izogibati?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!05.v1]?data[at0001]?items[at0003]?items[at0005]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0018">Rastlinskim oljem (oljčno, repično in sončnično olje)</option>
+						<option value="at0019">Mastnim morskim ribam (tuna, skuša, losos…)</option>
+						<option value="at0017">Mastnemu mesu, mesnim izdelkom, sirom, polnomastni skuti, maslu, smetani, jajcem, morskim sadežem</option>
+					</select>
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>V katerih živilih se nahajajo škodljive trans maščobe?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!05.v1]?data[at0001]?items[at0003]?items[at0006]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0014">Margarinah, piškotih, tortah, sladoledih, zamrznjenemu krompirčku, ocvrti in hitri hrani</option>
+						<option value="at0015">Oreških in semenih</option>
+						<option value="at0016">Olivnem olju</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katerim živilom so dodani enostavni sladkorji?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!05.v1]?data[at0001]?items[at0003]?items[at0007]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0013">Kruhu, mleku, navadnemu jogurtu, svežemu sadju</option>
+						<option value="at0012">Bonbonom, čokoladi, sadnim sokovom, marmeladam, džemom, sadnim želejem, v sirupu vloženemu sadju, čokoladnemu mleku, sadnemu jogurtu, pudingu, sladoledu</option>
+					</select>
+				</td>
+			</tr>						
+			
+		</table>
+
+	</div>			
+
+	<h3>
+		<a href="#">Vprašalnik - gibanje</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera trditev NE velja za aerobno vadbo?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!05.v1]?data[at0001]?items[at0004]?items[at0008]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0020">Pri aerobni vadbi se za energijo porabljajo pretežno beljakovine</option>
+						<option value="at0022">K aerobni vadbi spadajo hitra hoja, kolesarjenje, nordijska hoja</option>
+						<option value="at0021">Pri aerobni vadbi se za energijo porabljajo maščobe</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Katera trditev NE velja za samoocenjevanje intenzivnosti vadbe?</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-EVALUATION.hu!koraki!05.v1]?data[at0001]?items[at0004]?items[at0009]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0024">Pri zmerno intenzivni vadbi se nekoliko zadihamo in dvigne se srčni utrip</option>
+						<option value="at0023">Za samoocenjevanje je nujno potreben merilec srčnega utripa</option>
+						<option value="at0025">Pri zmerno intenzivni vadbi se še lahko pogovarjamo</option>
+						<option value="at0026">Za samoocenjevanje je najenostavnejši govorni test</option>
+					</select>
+				</td>
+			</tr>				
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

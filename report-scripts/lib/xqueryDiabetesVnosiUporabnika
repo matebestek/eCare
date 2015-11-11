@@ -1,0 +1,62 @@
+xquery version "1.0";
+declare namespace functx = "http://www.functx.com";
+declare function functx:id-untyped
+  ( $node as node()* ,
+    $id as xs:anyAtomicType )  as element()* {
+
+  $node//*[@* = $id]
+} ;
+declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
+
+let $users := xmldb:get-child-collections('/db/eDiabetes/')
+
+return
+concat("&#10;", string-join(
+for $user in $users
+    for $value in collection(concat('/db/eDiabetes/', $user, '/openEHR-EHR-SECTION.opomnik_eo_di.v1/'))
+
+        let $date := replace(substring(functx:id-untyped($value,'at0001')[2]/node()[2]/node()/text(), 1, 19), 'T', ', ')
+        
+        let $aALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.body_weight.v1')
+        let $a1 := functx:id-untyped($aALL,'at0004')/node()[2]/node()[2]/text()
+
+        let $bALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.telesna_dejavnost_eo.v1')
+        let $b1 := replace(functx:id-untyped($bALL,'at0004')/node()[2]/node()[1]/text(), ',', ';')
+        let $b2 := functx:id-untyped($bALL,'at0012')/node()[2]/node()[2]/node()[1]/text()
+        let $b3 := functx:id-untyped($bALL,'at0006')/node()[2]/node()[1]/text()
+        let $b4 := replace(functx:id-untyped($bALL,'at0018')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $cALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.prehrana_eo.v1')
+        let $c1 := replace(functx:id-untyped($cALL,'at0004')/node()[2]/node()[1]/text(), ',', ';')
+        let $c2 := replace(functx:id-untyped($cALL,'at0005')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $dALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.krvni_tlak_eo.v1')
+        let $d1 := functx:id-untyped($dALL,'at0004')/node()[2]/node()[2]/text()
+        let $d2 := functx:id-untyped($dALL,'at0005')/node()[2]/node()[2]/text()
+        let $d3 := replace(functx:id-untyped($dALL,'at0006')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $eALL := functx:id-untyped($value,'openEHR-EHR-CLUSTER.zdravila_eo.v1')
+        let $e1 := functx:id-untyped($eALL,'at0021')/node()[2]/node()[1]/text()
+        let $e2 := functx:id-untyped($eALL,'at0019')/node()[2]/node()[1]/text()
+
+        let $fALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.krvni_sladkor_eo_di.v1')
+        let $f1 := functx:id-untyped($fALL,'at0004')/node()[2]/node()[2]/text()
+        let $f2 := functx:id-untyped($fALL,'at0006')/node()[2]/node()[1]/text()
+        let $f3 := replace(functx:id-untyped($fALL,'at0005')/node()[2]/node()[1]/text(), ',', ';')
+
+        let $gALL := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.wonca_vprasalnik_eo_di.v1')
+        let $g1 := replace(functx:id-untyped($gALL,'at0006')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+        let $g2 := replace(functx:id-untyped($gALL,'at0005')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+        let $g3 := replace(functx:id-untyped($gALL,'at0008')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+        let $g4 := replace(functx:id-untyped($gALL,'at0007')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+        let $g5 := replace(functx:id-untyped($gALL,'at0010')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+        let $g6 := replace(functx:id-untyped($gALL,'at0011')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+        let $g7 := replace(functx:id-untyped($gALL,'at0009')/node()[2]/node()[2]/node()[1]/text(), ',', ';')
+
+        return string-join(( string($user), string($date), string($a1), string($b1), string($b2),
+				 string($b3), string($b4), string($c1), string($c2), string($d1),
+                                 string($d2), string($d3), string($e1), string($e2),
+                                 string($f1), string($f2), string($f3), string($g1),
+                                 string($g2), string($g3), string($g4), string($g5),
+                                 string($g6), string($g7)
+                                 ), ", " ) , "&#10;"), "&#10;")

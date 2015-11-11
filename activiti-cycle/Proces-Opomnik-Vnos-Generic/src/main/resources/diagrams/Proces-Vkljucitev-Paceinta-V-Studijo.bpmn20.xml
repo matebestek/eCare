@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="" id="sid-fea29ea9-6aba-4d6c-86ec-8a062a9d3708"
+	targetNamespace="http://www.signavio.com/bpmn20"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<process id="Proces-Vkljucitev-Pacienta-V-Studijo"
+		isExecutable="false" name="Proces-Vkljucitev-Pacienta-V-Studijo">
+		<extensionElements>
+			<activiti:executionListener
+				class="si.pint.eoskrba.eastma.inputGeneric.listeners.ProcessExecutionListener"
+				event="start" />
+		</extensionElements>
+		<startEvent id="VnosPacientaStartEvent" name="VnosPacientaStartEvent"
+			activiti:formKey="vnosPacienta.form">
+			<extensionElements>
+			</extensionElements>
+			<outgoing>VnosPacientaStartEvent-SelectClinicalTrialGroup</outgoing>
+		</startEvent>
+		<serviceTask id="SelectClinicalTrialGroup" name="Določi skupino&#10;"
+			activiti:class="si.pint.eoskrba.eastma.vnosPacienta.delegate.SelectClinicalTrialGroupDelegate">
+			<extensionElements>
+
+			</extensionElements>
+			<incoming>VnosPacientaStartEvent-SelectClinicalTrialGroup</incoming>
+			<outgoing>SelectClinicalTrialGroup-ExclusiveGateway</outgoing>
+		</serviceTask>
+		<exclusiveGateway gatewayDirection="Diverging" id="ExclusiveGateway"
+			name="ExclusiveGateway">
+			<extensionElements>
+
+			</extensionElements>
+			<incoming>SelectClinicalTrialGroup-ExclusiveGateway</incoming>
+			<outgoing>skupina_kontrolna</outgoing>
+			<outgoing>skupina_eksperiment</outgoing>
+		</exclusiveGateway>
+		<serviceTask id="DodajPacientaVKontrolnoSkupino" name="Dodaj pacienta v kontrolno"
+			activiti:class="si.pint.eoskrba.eastma.vnosPacienta.delegate.AddToControlDelegate">
+			<extensionElements>
+
+			</extensionElements>
+			<incoming>skupina_kontrolna</incoming>
+			<outgoing>DodajPacientaVKontrolnoSkupino-ExclusiveGatewayConverging_1
+			</outgoing>
+		</serviceTask>
+		<serviceTask id="DodajPacientaVEksperimentalnoSkupino"
+			name="Dodaj pacienta v  eksperimentalno"
+			activiti:class="si.pint.eoskrba.eastma.vnosPacienta.delegate.AddToExperimentalDelegate">
+			<extensionElements>
+
+			</extensionElements>
+			<incoming>skupina_eksperiment</incoming>
+			<outgoing>DodajPacientaVEksperimentalnoSkupino-sendTaskPatientCredentials
+			</outgoing>
+		</serviceTask>
+		<sendTask activiti:type="mail" completionQuantity="1"
+			id="sendTaskPatientCredentials" implementation="webService"
+			isForCompensation="false" name="sendTaskPatientCredentials"
+			startQuantity="1">
+			<extensionElements>
+				<activiti:field name="to"      expression="${email.to}"></activiti:field>
+				<activiti:field name="from"    expression="${email.from}"></activiti:field>
+				<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+				<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+				<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+				<activiti:field name="html">
+					<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+				</activiti:field>
+			</extensionElements>
+			<incoming>DodajPacientaVEksperimentalnoSkupino-sendTaskPatientCredentials
+			</incoming>
+			<outgoing>sendTaskPatientCredentials-ExclusiveGatewayConverging_1
+			</outgoing>
+		</sendTask>
+		<exclusiveGateway gatewayDirection="Converging"
+			id="ExclusiveGatewayConverging_1" name="ExclusiveGatewayConverging_1">
+			<extensionElements>
+			</extensionElements>
+			<incoming>sendTaskPatientCredentials-ExclusiveGatewayConverging_1
+			</incoming>
+			<incoming>DodajPacientaVKontrolnoSkupino-ExclusiveGatewayConverging_1
+			</incoming>
+			<outgoing>ExclusiveGatewayConverging_1-CallActivityNotifierCmZdravnik
+			</outgoing>
+		</exclusiveGateway>
+		<callActivity calledElement="Proces-Opomnik-Notifier-CM-Zdravnik"
+			completionQuantity="1" id="CallActivityNotifierCmZdravnik"
+			isForCompensation="false" name="NOTIFIER-ALL" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyDoctorForm_1" target="notifyDoctorForm" />
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="caremanagerEmail" target="caremanagerEmail" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="doctor" target="doctor" />
+				<activiti:in source="doctorEmail" target="doctorEmail" />
+				<activiti:in source="listenerDoctorObvestiloCreate"	target="listenerDoctorObvestiloCreate" />
+				<activiti:in source="listenerDoctorObvestiloComplete" target="listenerDoctorObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete" target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="cmUserTaskName" target="cmUserTaskName" />
+				<activiti:in source="doctorUserTaskName" target="doctorUserTaskName" />				
+			</extensionElements>
+			<incoming>ExclusiveGatewayConverging_1-CallActivityNotifierCmZdravnik
+			</incoming>
+			<outgoing>CallActivityNotifierCmZdravnik-ExclusiveGatewayConverging
+			</outgoing>
+		</callActivity>
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Zdravnik"
+			completionQuantity="1" id="ProceVnosPacientaNotifierZdravnik"
+			isForCompensation="false" name="NOTIFIER-Zdravnik" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyDoctorForm" target="notifyDoctorForm" />
+				<activiti:in source="doctor" target="doctor" />
+				<activiti:in source="doctorEmail" target="email" />
+				<activiti:in source="listenerDoctorObvestiloCreate"	target="listenerDoctorObvestiloCreate" />
+				<activiti:in source="listenerDoctorObvestiloComplete" target="listenerDoctorObvestiloComplete" />
+				<activiti:in source="patientUserTaskName" target="patientUserTaskName" />
+				<activiti:in source="doctorUserTaskName" target="userTaskName" />				
+			</extensionElements>
+			<incoming>ExclusiveGateway-ProceVnosPacientaNotifierZdravnik
+			</incoming>
+			<outgoing>ProceVnosPacientaNotifierZdravnik-VnosPacientaEndEvent
+			</outgoing>
+		</callActivity>
+		<exclusiveGateway gatewayDirection="Converging"
+			id="ExclusiveGatewayConverging" name="ExclusiveGatewayConverging">
+			<extensionElements>
+			</extensionElements>
+			<incoming>ProceVnosPacientaNotifierZdravnik-ExclusiveGatewayConverging
+			</incoming>
+			<incoming>CallActivityNotifierCmZdravnik-ExclusiveGatewayConverging
+			</incoming>
+			<outgoing>ExclusiveGatewayConverging-VnosPacientaEndEvent</outgoing>
+		</exclusiveGateway>
+		<endEvent id="VnosPacientaEndEvent" name="VnosPacientaEndEvent">
+			<extensionElements>
+			</extensionElements>
+			<incoming>ExclusiveGatewayConverging-VnosPacientaEndEvent</incoming>
+		</endEvent>
+		<sequenceFlow id="VnosPacientaStartEvent-SelectClinicalTrialGroup"
+			name="SequenceFlow" sourceRef="VnosPacientaStartEvent" targetRef="SelectClinicalTrialGroup">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="SelectClinicalTrialGroup-ExclusiveGateway"
+			name="SequenceFlow" sourceRef="SelectClinicalTrialGroup" targetRef="ExclusiveGateway">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="skupina_eksperiment" name="skupina_eksperiment"
+			sourceRef="ExclusiveGateway" targetRef="DodajPacientaVEksperimentalnoSkupino">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="Pogoj_SkupinaEksperiment"
+				xsi:type="tFormalExpression">${skupinaEksperiment}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow id="skupina_kontrolna" name="skupina_kontrolna"
+			sourceRef="ExclusiveGateway" targetRef="DodajPacientaVKontrolnoSkupino">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="Pogoj_SkupinaKontrolna"
+				xsi:type="tFormalExpression">${skupinaKontrolna}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow
+			id="DodajPacientaVKontrolnoSkupino-ExclusiveGatewayConverging_1"
+			name="SequenceFlow" sourceRef="DodajPacientaVKontrolnoSkupino"
+			targetRef="ExclusiveGatewayConverging_1">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow
+			id="sendTaskPatientCredentials-ExclusiveGatewayConverging_1"
+			name="SequenceFlow" sourceRef="sendTaskPatientCredentials"
+			targetRef="ExclusiveGatewayConverging_1">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>		
+		<sequenceFlow
+			id="DodajPacientaVEksperimentalnoSkupino-sendTaskPatientCredentials"
+			name="SequenceFlow" sourceRef="DodajPacientaVEksperimentalnoSkupino"
+			targetRef="sendTaskPatientCredentials">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="ExclusiveGateway-ProceVnosPacientaNotifierZdravnik"
+			name="SequenceFlow" sourceRef="ExclusiveGateway" targetRef="ProceVnosPacientaNotifierZdravnik">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="Pogoj_NeIzpolnjujePogojevZaVkljucitevVStudijo"
+				xsi:type="tFormalExpression">${notSatisfyingConditions}</conditionExpression>
+		</sequenceFlow>
+		<sequenceFlow
+			id="ProceVnosPacientaNotifierZdravnik-ExclusiveGatewayConverging"
+			name="SequenceFlow" sourceRef="ProceVnosPacientaNotifierZdravnik"
+			targetRef="ExclusiveGatewayConverging">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow
+			id="ExclusiveGatewayConverging_1-CallActivityNotifierCmZdravnik"
+			name="SequenceFlow" sourceRef="ExclusiveGatewayConverging_1"
+			targetRef="CallActivityNotifierCmZdravnik">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow
+			id="CallActivityNotifierCmZdravnik-ExclusiveGatewayConverging" name="SequenceFlow"
+			sourceRef="CallActivityNotifierCmZdravnik" targetRef="ExclusiveGatewayConverging">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		<sequenceFlow id="ExclusiveGatewayConverging-VnosPacientaEndEvent"
+			name="SequenceFlow" sourceRef="ExclusiveGatewayConverging" targetRef="VnosPacientaEndEvent">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+	</process>
+</definitions>

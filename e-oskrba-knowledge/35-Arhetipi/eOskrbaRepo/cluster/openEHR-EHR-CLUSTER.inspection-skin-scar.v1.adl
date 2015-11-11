@@ -1,0 +1,515 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.inspection-skin-scar.v1
+specialize
+	openEHR-EHR-CLUSTER.inspection-skin.v1
+
+concept
+	[at0000.1.1]	-- Inspection of scar
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"10/04/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording the findings on inspection of a scar.">
+			use = <"For use with the exam clusters for recording findings on inspection of a scar.">
+			keywords = <"inspect", "visual", "skin", "scar">
+			misuse = <"Should only be used in the exam observation">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, UK", ...>
+	other_details = <
+		["references"] = <"Bayat A, McGrouther DA, Ferguson MWJ. Skin scarring [Internet]. BMJ 2003 Jan;326(7380):88-92.[cited 2010 Jun 13 ] Available from: http://www.bmj.com.ezp1.bath.ac.uk/
+
+">
+		["MD5-CAM-1.0.1"] = <"6F6BAC8BE2DECDCA4F25CD7B467836E1">
+	>
+
+definition
+	CLUSTER[at0000.1.1] occurrences matches {0..1} matches {	-- Inspection of scar
+		items cardinality matches {1..*; ordered} matches {
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- Normal statements
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0048] occurrences matches {0..1} matches {	-- Clinical description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {	-- Findings
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0053] occurrences matches {0..1} matches {	-- Location
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0054] occurrences matches {0..1} matches {	-- Physical properties
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0.0.61] occurrences matches {0..1} matches {	-- Type of scar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Colour
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.81] occurrences matches {0..1} matches {	-- Colour match
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.82, 	-- Perfect
+									at0.0.83, 	-- Slight mismatch
+									at0.0.84, 	-- Obvious mismatch
+									at0.0.85]	-- Gross mismatch
+								}
+							}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- Translucent
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0.0.87] occurrences matches {0..1} matches {	-- Shine
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.60] occurrences matches {0..1} matches {	-- Pigmentation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.56] occurrences matches {0..1} matches {	-- Thickness
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.57, 	-- Thickened
+									at0.58, 	-- Skin thickness normal.
+									at0.59]	-- Thinned/atrophic
+								}
+							}
+						}
+					}
+					CLUSTER[at0055] occurrences matches {0..1} matches {	-- Shape or distribution
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0057] occurrences matches {0..1} matches {	-- Symmetrical
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0051.0.1] occurrences matches {0..1} matches {	-- Scar contour
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.77, 	-- Flush with surrounding skin
+											at0.0.78, 	-- Slightly proud / indented
+											at0.0.79, 	-- Hypertrophic
+											at0.0.80]	-- Keloid
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028.0.1] occurrences matches {0..1} matches {	-- Margins
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0033] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Definition
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0030, 	-- Well defined
+											at0031, 	-- Moderately defined
+											at0032]	-- Poorly defined
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0.0.70] occurrences matches {0..1} matches {	-- Vascularity
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.71] occurrences matches {0..1} matches {	-- Pliability
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.72] occurrences matches {0..1} matches {	-- Texture
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.73, 	-- Normal
+									at0.0.74, 	-- Just palpable
+									at0.0.75, 	-- Firm
+									at0.0.76]	-- Hard
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0.0.86] occurrences matches {0..*} matches {	-- Formal scar assessments 
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.vancouver_scale(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Overlying skin or surface
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Surrounds
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0052] occurrences matches {0..*} matches {	-- Exam detail
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Image
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							425, 
+							426, 
+							427, 
+							428, 
+							429]
+						}
+					}
+				}
+			}
+			ELEMENT[at0.52] occurrences matches {0..1} matches {	-- Method
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.53, 	-- Direct visualisation
+							at0.54, 	-- Wood's lamp
+							at0.55]	-- Dermatoscope
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.0.61"] = <
+					text = <"Type of scar">
+					description = <"The type of scar found on inspection.">
+				>
+				["at0.0.62"] = <
+					text = <"Formal scar assessments">
+					description = <"Formal scarr assessment scores.">
+				>
+				["at0.0.63"] = <
+					text = <"Vancouver scale">
+					description = <"*">
+				>
+				["at0.0.64"] = <
+					text = <"Vascularity">
+					description = <"*">
+				>
+				["at0.0.65"] = <
+					text = <"Height">
+					description = <"*">
+				>
+				["at0.0.66"] = <
+					text = <"Flexibility">
+					description = <"*">
+				>
+				["at0.0.67"] = <
+					text = <"Pigmentation">
+					description = <"*">
+				>
+				["at0.0.68"] = <
+					text = <"Score">
+					description = <"*">
+				>
+				["at0.0.69"] = <
+					text = <"Manchester scale">
+					description = <"*">
+				>
+				["at0.0.70"] = <
+					text = <"Vascularity">
+					description = <"*">
+				>
+				["at0.0.71"] = <
+					text = <"Pliability">
+					description = <"*">
+				>
+				["at0.0.72"] = <
+					text = <"Texture">
+					description = <"Texture of the scar.">
+				>
+				["at0.0.73"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.0.74"] = <
+					text = <"Just palpable">
+					description = <"*">
+				>
+				["at0.0.75"] = <
+					text = <"Firm">
+					description = <"*">
+				>
+				["at0.0.76"] = <
+					text = <"Hard">
+					description = <"*">
+				>
+				["at0.0.77"] = <
+					text = <"Flush with surrounding skin">
+					description = <"*">
+				>
+				["at0.0.78"] = <
+					text = <"Slightly proud / indented">
+					description = <"*">
+				>
+				["at0.0.79"] = <
+					text = <"Hypertrophic">
+					description = <"*">
+				>
+				["at0.0.80"] = <
+					text = <"Keloid">
+					description = <"*">
+				>
+				["at0.0.81"] = <
+					text = <"Colour match">
+					description = <"*">
+				>
+				["at0.0.82"] = <
+					text = <"Perfect">
+					description = <"*">
+				>
+				["at0.0.83"] = <
+					text = <"Slight mismatch">
+					description = <"*">
+				>
+				["at0.0.84"] = <
+					text = <"Obvious mismatch">
+					description = <"*">
+				>
+				["at0.0.85"] = <
+					text = <"Gross mismatch">
+					description = <"*">
+				>
+				["at0.0.86"] = <
+					text = <"Formal scar assessments ">
+					description = <"Details of formal scar assessment scores.">
+				>
+				["at0.0.87"] = <
+					text = <"Shine">
+					description = <"The degree of shine of the scar.">
+				>
+				["at0.52"] = <
+					text = <"Method">
+					description = <"Record of findings on inspection using a specific method.">
+				>
+				["at0.53"] = <
+					text = <"Direct visualisation">
+					description = <"Macroscopic; By eye.">
+				>
+				["at0.54"] = <
+					text = <"Wood's lamp">
+					description = <"The skin was examined by Wood's lamp.">
+				>
+				["at0.55"] = <
+					text = <"Dermatoscope">
+					description = <"The skin was examined using a dermatoscope.">
+				>
+				["at0.56"] = <
+					text = <"Thickness">
+					description = <"Thickness of skin.">
+				>
+				["at0.57"] = <
+					text = <"Thickened">
+					description = <"The skin is thickened.">
+				>
+				["at0.58"] = <
+					text = <"Skin thickness normal.">
+					description = <"The skin is of normal thickness.">
+				>
+				["at0.59"] = <
+					text = <"Thinned/atrophic">
+					description = <"The skin is thinned or atrophic.">
+				>
+				["at0.60"] = <
+					text = <"Pigmentation">
+					description = <"Pigmentation of skin.">
+				>
+				["at0000"] = <
+					text = <"Inspection">
+					description = <"The findings on physical examination by inspection.">
+				>
+				["at0000.1"] = <
+					text = <"Inspection of skin">
+					description = <"The findings on inspection of the skin">
+				>
+				["at0000.1.1"] = <
+					text = <"Inspection of scar">
+					description = <"The findings on inspection of a scar.">
+				>
+				["at0002"] = <
+					text = <"Normal statements">
+					description = <"A specific statement about the normality of inspection.">
+				>
+				["at0006"] = <
+					text = <"Findings">
+					description = <"Specific findings on inspection">
+				>
+				["at0024"] = <
+					text = <"Surrounds">
+					description = <"Description of immediate surrounds to object.">
+				>
+				["at0027"] = <
+					text = <"Overlying skin or surface">
+					description = <"A description of the surface of the object under inspection.">
+				>
+				["at0028"] = <
+					text = <"Edge">
+					description = <"Findings about the edge of the object under inspection.">
+				>
+				["at0028.0.1"] = <
+					text = <"Margins">
+					description = <"Findings about the edge of the object under inspection.">
+				>
+				["at0029"] = <
+					text = <"Definition">
+					description = <"The nature of the edge of the object of examination.">
+				>
+				["at0030"] = <
+					text = <"Well defined">
+					description = <"The edge is clearly defined.">
+				>
+				["at0031"] = <
+					text = <"Moderately defined">
+					description = <"The edge is defined but less clear in places.">
+				>
+				["at0032"] = <
+					text = <"Poorly defined">
+					description = <"The edge is not defined clearly in many places.">
+				>
+				["at0033"] = <
+					text = <"Description">
+					description = <"Description of the edge or border of the object of inspection.">
+				>
+				["at0034"] = <
+					text = <"Translucent">
+					description = <"Is the object of inspection translucent?">
+				>
+				["at0036"] = <
+					text = <"Colour">
+					description = <"The colour of the object under inspection.">
+				>
+				["at0048"] = <
+					text = <"Clinical description">
+					description = <"Clinical description of the findings on inspection.">
+				>
+				["at0050"] = <
+					text = <"Image">
+					description = <"A drawing of the findings on inspection">
+				>
+				["at0051"] = <
+					text = <"Contour">
+					description = <"The contour of the object of inspection.">
+				>
+				["at0051.0.1"] = <
+					text = <"Scar contour">
+					description = <"The contour of the object of inspection.">
+				>
+				["at0052"] = <
+					text = <"Exam detail">
+					description = <"Further detailed examination.">
+				>
+				["at0053"] = <
+					text = <"Location">
+					description = <"Location of the object being inspected.">
+				>
+				["at0054"] = <
+					text = <"Dimensions">
+					description = <"Dimensions of the object.">
+				>
+				["at0055"] = <
+					text = <"Shape or distribution">
+					description = <"The shape or distribution of the object under inspection.">
+				>
+				["at0056"] = <
+					text = <"Description">
+					description = <"Description of the shape or disstribution of the object under inspection.">
+				>
+				["at0057"] = <
+					text = <"Symmetrical">
+					description = <"Is the shape or distribution symmetrical?">
+				>
+			>
+		>
+	>

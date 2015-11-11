@@ -1,0 +1,206 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.5; generated)
+	openEHR-DEMOGRAPHIC-CLUSTER.person_other_birth_data_br.v1
+
+concept
+	[at0000]	-- Outros dados da certidão de nascimento
+language
+	original_language = <[ISO_639-1::pt-br]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+				["name"] = <"Sergio Miranda Freire">
+				["email"] = <"sergio@lampada.uerj.br">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
+		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+		["email"] = <"sergio@lampada.uerj.br">
+		["date"] = <"20/05/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Representation of a person's birth data">
+			use = <"Used in demographic service to collect other birth certificate data">
+			keywords = <"demographic service", "birth certificate data">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Coleta de dados da certidão de nascimento emitidas no Brasil">
+			use = <"Usado em serviços demográficos para coletar os itens estado, cidade, cartório, livro, folha e termo da certidão de nascimento emitida no Brasil">
+			keywords = <"serviço demográfico", "dados da certidão de nascimento">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+
+definition
+	CLUSTER[at0000] matches {	-- Outros dados da certidão de nascimento
+		items matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Estado/território/província
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[ac0001]}		-- Códigos de estados
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Cidade/localidade
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[ac0002]}		-- Códigos de cidades
+					}
+				}
+			}
+			ELEMENT[at0003] matches {	-- Cartório
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] matches {	-- Livro
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] matches {	-- Folha
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0006] matches {	-- Termo
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Other birth certificate data">
+					description = <"Other birth certificate data still used in Brazil">
+				>
+				["at0001"] = <
+					text = <"State/territory/province">
+					description = <"The State/territory/province where the person was born">
+				>
+				["at0002"] = <
+					text = <"City/town/locality">
+					description = <"The city/town/locality where the person was born">
+				>
+				["at0003"] = <
+					text = <"Registry">
+					description = <"Registry office that issued the birth certificate">
+				>
+				["at0004"] = <
+					text = <"Book number">
+					description = <"Book number where the birth was registered">
+				>
+				["at0005"] = <
+					text = <"Page number">
+					description = <"Page number in the book where the birth was registered">
+				>
+				["at0006"] = <
+					text = <"Section">
+					description = <"Section in the page where the birth was registered">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"Outros dados da certidão de nascimento">
+					description = <"Outros dados da certidão de nascimento brasileira">
+				>
+				["at0001"] = <
+					text = <"Estado/território/província">
+					description = <"O estado/território/província onde a pessoa nasceu">
+				>
+				["at0002"] = <
+					text = <"Cidade/localidade">
+					description = <"A cidade/localidade onde a pessoa nasceu">
+				>
+				["at0003"] = <
+					text = <"Cartório">
+					description = <"Nome do cartório que emitiu a certidão de nascimento">
+				>
+				["at0004"] = <
+					text = <"Livro">
+					description = <"Número do livro da certidão de nascimento">
+				>
+				["at0005"] = <
+					text = <"Folha">
+					description = <"Número da folha da certidão de nascimento">
+				>
+				["at0006"] = <
+					text = <"Termo">
+					description = <"Número do termo da certidão de nascimento">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0001"] = <
+					text = <"State codes">
+					description = <"Valid codes for state/territory/province">
+				>
+				["ac0002"] = <
+					text = <"City codes">
+					description = <"Valid codes for city/town/locality">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["ac0001"] = <
+					text = <"Códigos de estados">
+					description = <"códigos válidos para estados">
+				>
+				["ac0002"] = <
+					text = <"Códigos de cidades">
+					description = <"códigos válidos para cidade">
+				>
+			>
+		>
+	>

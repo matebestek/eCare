@@ -1,0 +1,216 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.abc_pain_scale.v1
+
+concept
+	[at0000]	-- Lestvica Paro-Štih
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.prinčič@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"19.10.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"A pain scale for infants.">
+			use = <"Used to assess level of pain in non speaking babies.">
+			keywords = <"ABC pain scale", "pain scale", "baby", "newborn">
+			misuse = <"Not to be used with older patients or those who can speak.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za oceno bolečine pri novorojenčkih">
+			use = <"ZA oceno bolečine pri otrocih, ki še ne govorijo">
+			keywords = <"ABC lestvica", "bolečina", "Paro-Štih lestvica", "bolečina pri novorojenčkih", "ocena bolečine">
+			misuse = <"Se ne uporablja za oceno bolečine pri starejših otrocih">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", "Ian McNicoll, Ocean Informatics, UK">
+	other_details = <
+		["references"] = <"Bellieni C, Bagnoli F, Sisto R, et al. Development and validation of the ABC pain scale for healthy full-term babies. Acta Paediatrica. 2005;94(10):1432-1436.">
+		["MD5-CAM-1.0.1"] = <"D0A02201C3159C0EE39A3A389418568A">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Lestvica Paro-Štih
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Višina 
+				value matches {
+					0|[local::at0006], 	-- < 400 Hz
+					2|[local::at0007]  	-- >= 400 Hz
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Ritmičnost 
+				value matches {
+					0|[local::at0009], 	-- Ne ritmični izbruhi
+					2|[local::at0010]  	-- Ritmični izbruhi
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Trajnost 
+				value matches {
+					0|[local::at0012], 	-- Kratkotrajen
+					1|[local::at0013], 	-- Trajno teženje
+					2|[local::at0014]  	-- Trajen jok
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..1} matches {	-- Rezultat ocene
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..6|}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"ABC pain scale">
+					description = <"Pain scale used for babies.">
+				>
+				["at0005"] = <
+					text = <"First cry acuteness">
+					description = <"Acuteness of the first cry.">
+				>
+				["at0006"] = <
+					text = <"< 400 Hz">
+					description = <"Low pitch">
+				>
+				["at0007"] = <
+					text = <">= 400 Hz">
+					description = <"High pitch">
+				>
+				["at0008"] = <
+					text = <"Burst rhythmicity">
+					description = <"Rhythmicity of the crying bout">
+				>
+				["at0009"] = <
+					text = <"Not rhythmic">
+					description = <"The crying bout is not rythmic.">
+				>
+				["at0010"] = <
+					text = <"Rhythmic bursts">
+					description = <"The crying bout is rythmic.">
+				>
+				["at0011"] = <
+					text = <"Cry constancy">
+					description = <"Cry constancy.">
+				>
+				["at0012"] = <
+					text = <"No cry">
+					description = <"No constancy in crying, brief moan rather than crying.">
+				>
+				["at0013"] = <
+					text = <"Not constant">
+					description = <"More than brief moan, but not constant.">
+				>
+				["at0014"] = <
+					text = <"Constant">
+					description = <"Crying is constant in time.">
+				>
+				["at0015"] = <
+					text = <"ABC pain score">
+					description = <"Sum of scores for 3 criteria">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lestvica Paro-Štih">
+					description = <"Lestvica Paro-Štih za dojenčke, ki ne govorijo">
+				>
+				["at0005"] = <
+					text = <"Višina ">
+					description = <"Višina začetnega joka">
+				>
+				["at0006"] = <
+					text = <"< 400 Hz">
+					description = <"Nizek">
+				>
+				["at0007"] = <
+					text = <">= 400 Hz">
+					description = <"Visok">
+				>
+				["at0008"] = <
+					text = <"Ritmičnost ">
+					description = <"Ritmičnost izbruhov joka">
+				>
+				["at0009"] = <
+					text = <"Ne ritmični izbruhi">
+					description = <"Ne ritmični izbruhi joka">
+				>
+				["at0010"] = <
+					text = <"Ritmični izbruhi">
+					description = <"Ritmični izbruhi joka">
+				>
+				["at0011"] = <
+					text = <"Trajnost ">
+					description = <"Trajnost joka">
+				>
+				["at0012"] = <
+					text = <"Kratkotrajen">
+					description = <"Kratkotrajen jok">
+				>
+				["at0013"] = <
+					text = <"Trajno teženje">
+					description = <"Novorojenček trajno teži">
+				>
+				["at0014"] = <
+					text = <"Trajen jok">
+					description = <"Novorojenček konstantno joka">
+				>
+				["at0015"] = <
+					text = <"Rezultat ocene">
+					description = <"Rezultat vseh treh kriterijev">
+				>
+			>
+		>
+	>

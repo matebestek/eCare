@@ -1,0 +1,672 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.device-tracheal_tube.v1
+specialize
+	openEHR-EHR-CLUSTER.device.v1
+
+concept
+	[at0000.1]	-- Tubus
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Slovenia">
+				["name"] = <"Biljana Prinčič; Uroš Rajkovič">
+				["email"] = <"biljana.princic@marand.si; uros.rajkovic@fov.uni-mb.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"29/06/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the details of a tracheal tube.">
+			use = <"Use to record the details about a tracheal tube.
+
+">
+			keywords = <"device", "catheter", "biomedical", "equipment", "object">
+			misuse = <"Not to be used to record products such as medications or vaccinations or similar, that are used for therapeutic or metabolic means. ">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za zapisovanje podrobnosti o trahialnem tubusu">
+			use = <"Uporablja se za vpisovanje podatkov o trahialnem tubusu">
+			keywords = <"naprava", "kateter", "oprema", "biomedicinski", "trahea", "tubus", "cevka">
+			misuse = <"Se ne uporablja za opis izdelkov kot so zdravila ali cepiva ali podobnih, ki se uporabljajo v terapevtske namene.
+">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, Scotland", "Sam Heard, Ocean Informatics, Australia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"F7FC0F9B31DF084F08E67D48937BDA43">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {	-- Tubus
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- ID
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Opis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Tip
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {	-- Velikost
+				value matches {
+					DV_COUNT matches {*}
+					C_DV_QUANTITY <
+					>
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.22, 	-- 2
+							at0.23, 	-- 2,5
+							at0.24, 	-- 3
+							at0.25, 	-- 3,5
+							at0.26, 	-- 4
+							at0.27, 	-- 4,5
+							at0.45, 	-- 4,5 z mešičkom
+							at0.28, 	-- 5
+							at0.46, 	-- 5 z mešičkom
+							at0.29, 	-- 5.5
+							at0.47, 	-- 5,5 z mešičkom
+							at0.30, 	-- 6
+							at0.48, 	-- 6 z mešičkom
+							at0.31, 	-- 6,5
+							at0.49, 	-- 6,5 z mešičkom
+							at0.32, 	-- 7
+							at0.50, 	-- 7 z mešičkom
+							at0.33, 	-- 7.5
+							at0.51, 	-- 7,5 z mešičkom
+							at0.34, 	-- 8
+							at0.52, 	-- 8 z mešičkom
+							at0.35, 	-- 8,5
+							at0.53, 	-- 8,5 z mešičkom
+							at0.36, 	-- 9
+							at0.54, 	-- 9 z mešičkom
+							at0.37, 	-- 9,5
+							at0.55, 	-- 9,5 z mešičkom
+							at0.38, 	-- 10
+							at0.56]	-- 10 z mešičkom
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {	-- Točne dimezije
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			CLUSTER[at0.40] occurrences matches {0..1} matches {	-- Zunanja dolžina 
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0.41] occurrences matches {0..1} matches {	-- Točka meritve
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.42] occurrences matches {0..1} matches {	-- Dolžina
+						value matches {
+							DV_TEXT matches {*}
+							C_DV_QUANTITY <
+								property = <[openehr::122]>
+								list = <
+									["1"] = <
+										units = <"cm">
+										magnitude = <|>=0.0|>
+										precision = <|1|>
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+			ELEMENT[at0.21] occurrences matches {0..1} matches {	-- Tubus
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..10|}
+					}
+				}
+			}
+			ELEMENT[at0.39] occurrences matches {0..1} matches {	-- Pritrditev
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.43, 	-- *With cuff(en)
+							at0.44]	-- *Without cuff(en)
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Proizvajalec
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Datum proizvodnje
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Serijska številka
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0013] occurrences matches {0..*} matches {	-- Varnostna navodila
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Tip varnostnih navodil
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Rok trajanja
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Opombe
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype ITEM[at0009] occurrences matches {0..*} matches {	-- Dodatni podatki o napravi
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.device_details(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			allow_archetype CLUSTER[at0020] occurrences matches {0..*} matches {	-- Komponente
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.21"] = <
+					text = <"Lumens">
+					description = <"Number of tube lumens.">
+				>
+				["at0.22"] = <
+					text = <"2">
+					description = <"2">
+				>
+				["at0.23"] = <
+					text = <"2.5">
+					description = <"2.5">
+				>
+				["at0.24"] = <
+					text = <"3">
+					description = <"3">
+				>
+				["at0.25"] = <
+					text = <"3.5">
+					description = <"3.5">
+				>
+				["at0.26"] = <
+					text = <"4">
+					description = <"4">
+				>
+				["at0.27"] = <
+					text = <"4.5">
+					description = <"4.5">
+				>
+				["at0.28"] = <
+					text = <"5">
+					description = <"5">
+				>
+				["at0.29"] = <
+					text = <"5.5">
+					description = <"5.5">
+				>
+				["at0.30"] = <
+					text = <"6">
+					description = <"6">
+				>
+				["at0.31"] = <
+					text = <"6.5">
+					description = <"6.5">
+				>
+				["at0.32"] = <
+					text = <"7">
+					description = <"7">
+				>
+				["at0.33"] = <
+					text = <"7.5">
+					description = <"7.5">
+				>
+				["at0.34"] = <
+					text = <"8">
+					description = <"8">
+				>
+				["at0.35"] = <
+					text = <"8.5">
+					description = <"8.5">
+				>
+				["at0.36"] = <
+					text = <"9">
+					description = <"9">
+				>
+				["at0.37"] = <
+					text = <"9.5">
+					description = <"9.5">
+				>
+				["at0.38"] = <
+					text = <"10">
+					description = <"10">
+				>
+				["at0.39"] = <
+					text = <"Cuff/fixation">
+					description = <"Text description of any cuuf or balloon used to fix the tube in place e.g. '2 cm cuff' or '3cm ballon inflated with 2cm sterile water.'">
+				>
+				["at0.40"] = <
+					text = <"External length">
+					description = <"The length of tube external to the body.  May be expressed aa a quantitative length or as visible marks e.g on an endotracheal tube.">
+				>
+				["at0.41"] = <
+					text = <"Reference point.">
+					description = <"Reference point from which the external length is measured.">
+				>
+				["at0.42"] = <
+					text = <"Dolžina">
+					description = <"The length of the tube external to the body.">
+				>
+				["at0.43"] = <
+					text = <"With cuff">
+					description = <"The tracheal tube is cuffed.">
+				>
+				["at0.44"] = <
+					text = <"Without cuff">
+					description = <"The tracheal tube is not cuffed.">
+				>
+				["at0.45"] = <
+					text = <"4.5 cuffed">
+					description = <"*">
+				>
+				["at0.46"] = <
+					text = <"5 cuffed">
+					description = <"*">
+				>
+				["at0.47"] = <
+					text = <"5.5 cuffed">
+					description = <"*">
+				>
+				["at0.48"] = <
+					text = <"6 cuffed">
+					description = <"*">
+				>
+				["at0.49"] = <
+					text = <"6.5 cuffed">
+					description = <"*">
+				>
+				["at0.50"] = <
+					text = <"7 cuffed">
+					description = <"*">
+				>
+				["at0.51"] = <
+					text = <"7.5 cuffed">
+					description = <"*">
+				>
+				["at0.52"] = <
+					text = <"8 cuffed">
+					description = <"*">
+				>
+				["at0.53"] = <
+					text = <"8.5 cuffed">
+					description = <"*">
+				>
+				["at0.54"] = <
+					text = <"9 cuffed">
+					description = <"*">
+				>
+				["at0.55"] = <
+					text = <"9.5 cuffed">
+					description = <"*">
+				>
+				["at0.56"] = <
+					text = <"10 cuffed">
+					description = <"*">
+				>
+				["at0000"] = <
+					text = <"Naprava">
+					description = <"Any physical object, product, instrument, apparatus, appliance, material or other item used directly or indirectly in the provision of healthcare, but is not used primarily through therapeutic or metabolic means.">
+				>
+				["at0000.1"] = <
+					text = <"Tracheal tube">
+					description = <"Tracheal tube details.">
+				>
+				["at0001"] = <
+					text = <"Device name">
+					description = <"Identification of the device.  This is very likely to be a coded field, including pre- or post-coordianted details.">
+				>
+				["at0002"] = <
+					text = <"Description">
+					description = <"Description of the device.">
+				>
+				["at0003"] = <
+					text = <"Type">
+					description = <"Type of device.">
+				>
+				["at0004"] = <
+					text = <"Manufacturer">
+					description = <"The name of the device manufacturer.">
+				>
+				["at0005"] = <
+					text = <"Date of manufacture">
+					description = <"Date the device was manufactured.">
+				>
+				["at0006"] = <
+					text = <"Batch number">
+					description = <"Manufacturer's batch number.">
+				>
+				["at0007"] = <
+					text = <"Date of expiry">
+					description = <"Date that the device/product is no longer fit for use.">
+				>
+				["at0008"] = <
+					text = <"Comment">
+					description = <"Comment about the device.">
+				>
+				["at0009"] = <
+					text = <"Additional details">
+					description = <"Additional details to be noted about the device.">
+				>
+				["at0013"] = <
+					text = <"Safety feature">
+					description = <"Details about safety feature(s) of the device.">
+				>
+				["at0014"] = <
+					text = <"Type of feature">
+					description = <"Type of safety feature of the device.">
+				>
+				["at0015"] = <
+					text = <"Description">
+					description = <"Description of the safety feature of the device.">
+				>
+				["at0016"] = <
+					text = <"Size">
+					description = <"Size of device - a choice of value types is offered - count, quantity or text.">
+				>
+				["at0017"] = <
+					text = <"Dimensions">
+					description = <"Specific dimensions of the device.">
+				>
+				["at0020"] = <
+					text = <"Components">
+					description = <"Information about the device sub-components.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.21"] = <
+					text = <"Tubus">
+					description = <"Številka tubusa">
+				>
+				["at0.22"] = <
+					text = <"2">
+					description = <"2">
+				>
+				["at0.23"] = <
+					text = <"2,5">
+					description = <"2.5">
+				>
+				["at0.24"] = <
+					text = <"3">
+					description = <"3">
+				>
+				["at0.25"] = <
+					text = <"3,5">
+					description = <"3.5">
+				>
+				["at0.26"] = <
+					text = <"4">
+					description = <"4">
+				>
+				["at0.27"] = <
+					text = <"4,5">
+					description = <"4.5">
+				>
+				["at0.28"] = <
+					text = <"5">
+					description = <"5">
+				>
+				["at0.29"] = <
+					text = <"5.5">
+					description = <"5.5">
+				>
+				["at0.30"] = <
+					text = <"6">
+					description = <"6">
+				>
+				["at0.31"] = <
+					text = <"6,5">
+					description = <"6.5">
+				>
+				["at0.32"] = <
+					text = <"7">
+					description = <"7">
+				>
+				["at0.33"] = <
+					text = <"7.5">
+					description = <"7.5">
+				>
+				["at0.34"] = <
+					text = <"8">
+					description = <"8">
+				>
+				["at0.35"] = <
+					text = <"8,5">
+					description = <"8.5">
+				>
+				["at0.36"] = <
+					text = <"9">
+					description = <"9">
+				>
+				["at0.37"] = <
+					text = <"9,5">
+					description = <"9.5">
+				>
+				["at0.38"] = <
+					text = <"10">
+					description = <"10">
+				>
+				["at0.39"] = <
+					text = <"Pritrditev">
+					description = <"Pritrditve cevke ">
+				>
+				["at0.40"] = <
+					text = <"Zunanja dolžina ">
+					description = <"Dolžina cevke, ki gleda ven iz telesa">
+				>
+				["at0.41"] = <
+					text = <"Točka meritve">
+					description = <"Točka na telesu od katere je izmerjena dolžina cevke, ki gleda ven iz telesa">
+				>
+				["at0.42"] = <
+					text = <"Dolžina">
+					description = <"Dolžina cevke, ki gleda ven iz telesa">
+				>
+				["at0.43"] = <
+					text = <"*With cuff(en)">
+					description = <"*The tracheal tube is cuffed.(en)">
+				>
+				["at0.44"] = <
+					text = <"*Without cuff(en)">
+					description = <"*The tracheal tube is not cuffed.(en)">
+				>
+				["at0.45"] = <
+					text = <"4,5 z mešičkom">
+					description = <"*">
+				>
+				["at0.46"] = <
+					text = <"5 z mešičkom">
+					description = <"*">
+				>
+				["at0.47"] = <
+					text = <"5,5 z mešičkom">
+					description = <"*">
+				>
+				["at0.48"] = <
+					text = <"6 z mešičkom">
+					description = <"*">
+				>
+				["at0.49"] = <
+					text = <"6,5 z mešičkom">
+					description = <"*">
+				>
+				["at0.50"] = <
+					text = <"7 z mešičkom">
+					description = <"*">
+				>
+				["at0.51"] = <
+					text = <"7,5 z mešičkom">
+					description = <"*">
+				>
+				["at0.52"] = <
+					text = <"8 z mešičkom">
+					description = <"*">
+				>
+				["at0.53"] = <
+					text = <"8,5 z mešičkom">
+					description = <"*">
+				>
+				["at0.54"] = <
+					text = <"9 z mešičkom">
+					description = <"*">
+				>
+				["at0.55"] = <
+					text = <"9,5 z mešičkom">
+					description = <"*">
+				>
+				["at0.56"] = <
+					text = <"10 z mešičkom">
+					description = <"*">
+				>
+				["at0000"] = <
+					text = <"Naprava">
+					description = <"Naprava, ki se uporablja pri zdravljenju">
+				>
+				["at0000.1"] = <
+					text = <"Tubus">
+					description = <"Podatki o trahialnem tubusu">
+				>
+				["at0001"] = <
+					text = <"ID">
+					description = <"Ident naprave">
+				>
+				["at0002"] = <
+					text = <"Opis">
+					description = <"Opis naprave">
+				>
+				["at0003"] = <
+					text = <"Tip">
+					description = <"Tip naprave">
+				>
+				["at0004"] = <
+					text = <"Proizvajalec">
+					description = <"Ime proizvajalca naprave">
+				>
+				["at0005"] = <
+					text = <"Datum proizvodnje">
+					description = <"Datum proizvodnje naprave">
+				>
+				["at0006"] = <
+					text = <"Serijska številka">
+					description = <"Serijska številka naprave">
+				>
+				["at0007"] = <
+					text = <"Rok trajanja">
+					description = <"Roka trajanja naprave/izdelka">
+				>
+				["at0008"] = <
+					text = <"Opombe">
+					description = <"Opombe glede delovanja naprave">
+				>
+				["at0009"] = <
+					text = <"Dodatni podatki o napravi">
+					description = <"Dodatni podatki o nparavi">
+				>
+				["at0013"] = <
+					text = <"Varnostna navodila">
+					description = <"Varnostna navodila">
+				>
+				["at0014"] = <
+					text = <"Tip varnostnih navodil">
+					description = <"Tip varnostnih navodil">
+				>
+				["at0015"] = <
+					text = <"Opis">
+					description = <"Opis varnostnih navodil za napravo">
+				>
+				["at0016"] = <
+					text = <"Velikost">
+					description = <"Velikost naprave, lahko je količina, število itd">
+				>
+				["at0017"] = <
+					text = <"Točne dimezije">
+					description = <"Natančne dimenzije naprave">
+				>
+				["at0020"] = <
+					text = <"Komponente">
+					description = <"Informacije o sestavnih delih naprave">
+				>
+			>
+		>
+	>

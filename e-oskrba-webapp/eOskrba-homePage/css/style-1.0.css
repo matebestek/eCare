@@ -1,0 +1,144 @@
+/***
+ * Copyright (c) 2013.
+ * University of Primorska, Andrej Marušič Institute. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met: 
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer. 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution. 
+ * 
+ * Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+ * Agency and Ministry of Health of Republic of Slovenia.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+body {
+	font-family:'lucida grande',tahoma,verdana,arial,sans-serif;
+	color: #333;
+	font-size: 14px;
+	line-height: 1.5;
+	margin:0px;
+	padding:0px;
+	background-color:#E7EBF2;
+}
+
+a {
+	text-decoration:none;
+	color:#215968;
+}
+
+#top-banner {
+	background-color:#215968;
+	border-bottom: 1px solid #133783;
+	width:100%;
+	height:38px;
+}
+
+#eo-logo {
+	position:relative;
+	top:3px;
+	left:50px;
+}
+
+#eo-container {
+	background-color:white;
+	border:1px solid #ccc;
+	border-top:none;
+	margin-left:50px;
+	margin-right:50px;
+	padding:15px;
+}
+
+#eo-p {
+	display:inline-block;
+	width:340px;
+	height:80px;
+	background-image:url('../img/pb.png');
+	background-position:top;
+	margin-left: 12px;
+}
+
+#eo-ph {
+	display:inline-block;
+	width:340px;
+	height:80px;
+	background-image:url('../img/ph.png');
+	background-position:top;
+	margin-left: 12px;
+}
+
+#eo-p:hover, #eo-ph:hover {
+	background-position:bottom;
+}
+
+.eo-hr {
+	border-top:1px solid #ccc;
+	padding-bottom:23px;
+}
+
+.eo-chapter {
+	padding-bottom:24px;
+}
+
+.eo-chapter td {
+	vertical-align:top;
+}
+
+.eo-chapter-l {
+	text-align:left;
+}
+
+.eo-chapter-r {
+	text-align:right;
+}
+
+.eo-chapter-image-l {
+	padding-right:12px;
+}
+
+.eo-chapter-image-r {
+	padding-left:12px;
+}
+
+#eo-help-center {
+	border:1px solid #ccc;
+	padding:12px;
+	padding-left:42px;
+	background-color:#E7EBF2;
+	background-image:url('../img/phone.png');
+	background-repeat: no-repeat;
+}
+
+#eo-footer {
+	margin-left:50px;
+	margin-right:200px;
+	padding:15px;
+	padding-top:5px;
+	font-size:11px;
+}
+
+.eo-contents-title {
+	color: #8C3836;
+	font-weight: bold;
+}
+
+.scrshot {
+	display:block;
+	max-width:100%;
+	margin-left:auto;
+	margin-right:auto;
+}

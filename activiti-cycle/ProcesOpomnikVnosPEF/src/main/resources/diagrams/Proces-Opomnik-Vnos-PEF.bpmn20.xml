@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions id="definitions"
+	targetNamespace="http://activiti.org/bpmn20" 
+	xmlns:activiti="http://activiti.org/bpmn"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL">
+			 
+	<error id="patientDidntRespondIn24Hrs" errorCode="patient_didnt_respond_in_24hrs" />
+   			 
+	<process id="ProcesOpomnikVnosPEF" name="ProcesOpomnikVnosPEF" isExecutable="false">
+	
+		<startEvent id="startEvent-main" />
+		
+		<sequenceFlow id="seqFlow-main-ttlTimerContainer" isImmediate="true"
+			sourceRef="startEvent-main"
+			targetRef="subProcess-ttlTimerContainer" />
+		
+		<subProcess id="subProcess-ttlTimerContainer" name="TTL Timer Container">
+	
+			<startEvent id="Cron_izraz_je_sprozil_trigger" name="Cron izraz je sprozil trigger" />
+			
+			<sequenceFlow id="SequenceFlow_2" isImmediate="true" name="SequenceFlow"
+				sourceRef="Cron_izraz_je_sprozil_trigger"
+				targetRef="serviceInitProc" />
+				
+			<serviceTask activiti:class="si.pint.eastma.inputPEF.delegate.InitProcessVarsDelegate"
+				completionQuantity="1" id="serviceInitProc" implementation="webService"
+				isForCompensation="false" name="Init process variables" startQuantity="1" />
+				
+			<sequenceFlow id="SequenceFlow_2_out" isImmediate="true" name="SequenceFlow"
+		      	sourceRef="serviceInitProc"
+		      	targetRef="Subprocess" />
+	                 
+			<subProcess completionQuantity="1" id="Subprocess" isForCompensation="false"
+				name="Subprocess" startQuantity="1" triggeredByEvent="false">
+				
+				<startEvent id="subProcessStart" name="" />
+				
+				<endEvent id="subProcessEnd" name="" />
+				
+				<serviceTask activiti:class="si.pint.eastma.inputPEF.delegate.SmsNotifierPEFDelegate"
+					completionQuantity="1" id="SMS-vnos_PEF_vrednosti__2"
+					isForCompensation="false" name="SMS-vnos PEF vrednosti" startQuantity="1" />
+					
+				<sequenceFlow id="SequenceFlow_31" isImmediate="true" name="SequenceFlow"
+					sourceRef="ParallelGateway_3"
+					targetRef="serviceTask-prepareEmail-1" />
+					
+				<serviceTask id="serviceTask-prepareEmail-1" name="Pripravi email" completionQuantity="1"
+					implementation="webService" isForCompensation="false"  startQuantity="1"
+					activiti:class="si.pint.eastma.inputPEF.delegate.PrepareEmail">
+					<extensionElements>
+						<activiti:field name="emailTemplate" stringValue="1" />
+					</extensionElements>
+				</serviceTask>
+				
+				<sequenceFlow id="seqFlow-a01" isImmediate="true" name="SequenceFlow"
+					sourceRef="serviceTask-prepareEmail-1"
+					targetRef="Email-vnos_PEF_vrednosti__2" />
+					
+				<sendTask activiti:type="mail" completionQuantity="1" id="Email-vnos_PEF_vrednosti__2"
+					implementation="webService" isForCompensation="false"
+					name="Email-vnos PEF vrednosti&#10;" startQuantity="1">
+				   	<extensionElements>
+						<activiti:field name="to"      expression="${email.to}"></activiti:field>
+						<activiti:field name="from"    expression="${email.from}"></activiti:field>
+						<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+						<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+						<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+						<activiti:field name="html">
+							<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+						</activiti:field>
+					</extensionElements>
+				</sendTask>
+				
+				<parallelGateway gatewayDirection="Diverging" id="ParallelGateway_3"
+					name="ParallelGateway" />
+					
+				<parallelGateway gatewayDirection="Converging" id="Opomnika_poslana_2"
+					name="Opomnika poslana" />
+					
+				<sequenceFlow id="SequenceFlow_23" isImmediate="true" name="SequenceFlow"
+					sourceRef="SMS-vnos_PEF_vrednosti__2"
+					targetRef="Opomnika_poslana_2" />
+					
+				<sequenceFlow id="SequenceFlow_4" isImmediate="true" name="SequenceFlow"
+					sourceRef="ParallelGateway_3"
+					targetRef="SMS-vnos_PEF_vrednosti__2" />
+					
+				<sequenceFlow id="flowSubProcessStart" isImmediate="true" name=""
+					sourceRef="subProcessStart"
+					targetRef="ParallelGateway_3" />
+					
+				<sequenceFlow id="flowSubProcessEnd" isImmediate="true" name=""
+					sourceRef="Opomnika_poslana_2"
+					targetRef="subProcessEnd" />
+					
+				<sequenceFlow id="SequenceFlow_22" isImmediate="true" name="SequenceFlow"
+					sourceRef="Email-vnos_PEF_vrednosti__2"
+					targetRef="Opomnika_poslana_2" />
+					
+			</subProcess>
+	 
+			<parallelGateway gatewayDirection="Diverging" id="ParallelGateway_4"
+				name="ParallelGateway" />
+	      
+			<boundaryEvent attachedToRef="Pacient_naj_vnese_PEF_vrednost_" cancelActivity="true"
+				id="pacient_ima_24_ur_casa_preden_bo_znova_dobil_opomnik"
+				name="24 ur casa ima pacient preden bo znova dobil opomnika" parallelMultiple="false">
+				<errorEventDefinition errorRef="patientDidntRespondIn24Hrs"
+					id="sid-0028ee28-8061-4848-b843-d031f83d306d"/>
+				<timerEventDefinition>
+	    	 		<timeDuration>PT24H</timeDuration> 
+				</timerEventDefinition>         
+			</boundaryEvent>
+	           
+			<userTask completionQuantity="1" id="Pacient_naj_vnese_PEF_vrednost_"
+				activiti:assignee="${patientObj.getUsername()}" implementation="webService"
+				isForCompensation="false" name="Vnesite vrednost PEF" startQuantity="1"
+				activiti:formKey="enterPEF.form">
+				<extensionElements>
+					<activiti:taskListener event="complete" class="si.pint.eastma.inputPEF.listeners.PatientEntersPEFValueListener" />
+					<activiti:taskListener event="create" class="si.pint.eastma.inputPEF.listeners.PatientEntersPEFValueCreateListener" />
+				</extensionElements>         
+			</userTask>
+	      
+			<serviceTask activiti:class="si.pint.eastma.inputPEF.delegate.CalcCategoryDelegate"
+				completionQuantity="1" id="servicetask3" implementation="webService"
+				isForCompensation="false" name="Service - izracun kategorije" startQuantity="1" />
+	      
+			<exclusiveGateway gatewayDirection="Diverging" id="Exclusive_Databased_Gateway"
+				name="Exclusive_Databased_Gateway" default="__pef_ok_" />
+	      
+			<!-- PEF not OK >>>>>>-->
+			<parallelGateway gatewayDirection="Diverging" id="ParallelGateway_5"
+				name="ParallelGateway" />
+	      
+			<parallelGateway gatewayDirection="Converging" id="ParallelGateway_2a"
+				name="ParallelGateway" />
+	      
+			<!-- CM (not OK) -->
+			
+			<sequenceFlow id="SequenceFlow_29" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_5"
+				targetRef="serviceTask-prepareEmail-2" />
+			
+			<serviceTask id="serviceTask-prepareEmail-2" name="Pripravi email" completionQuantity="1"
+				implementation="webService" isForCompensation="false"  startQuantity="1"
+				activiti:class="si.pint.eastma.inputPEF.delegate.PrepareEmail">
+				<extensionElements>
+					<activiti:field name="emailTemplate" stringValue="2" />
+				</extensionElements>
+			</serviceTask>
+			
+			<sequenceFlow id="seqFlow-a02" isImmediate="true" name="SequenceFlow"
+				sourceRef="serviceTask-prepareEmail-2"
+				targetRef="Obvestilo_CM_o_slabi_PEF_vrednosti_2" />
+			
+			<sendTask activiti:type="mail" completionQuantity="1"
+				id="Obvestilo_CM_o_slabi_PEF_vrednosti_2" implementation="webService"
+				isForCompensation="false" name="Obvestilo CM o slabi PEF vrednosti" startQuantity="1">
+				<extensionElements>
+					<activiti:field name="to"      expression="${email.to}"></activiti:field>
+					<activiti:field name="from"    expression="${email.from}"></activiti:field>
+					<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+					<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+					<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+					<activiti:field name="html">
+						<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+					</activiti:field>
+				</extensionElements>
+			</sendTask>
+			
+			<userTask completionQuantity="1" id="Obvestilo_CM_o_slabi_PEF_vrednosti"
+				activiti:assignee="${patientObj.findCM()}" implementation="webService"
+				isForCompensation="false"
+				name="Bolnik ${patientObj.getFirstNameLastName()} ima mejno vrednost PEF"
+				startQuantity="1" activiti:formKey="badPEF_cm.form" />
+			
+			<!-- pacient (not OK) -->
+			
+			<userTask completionQuantity="1" id="Obvestilo_pacientu_o_slabi_PEF_vrednosti"
+				activiti:assignee="${patientObj.getUsername()}" implementation="webService"
+				isForCompensation="false" name="Mejna vrednost PEF" startQuantity="1"
+				activiti:formKey="badPEF_patient.form" />
+				
+			<sequenceFlow id="SequenceFlow_badPEF_Patient_Mail_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_5"
+				targetRef="serviceTask-prepareEmail-3" />
+				
+			<serviceTask id="serviceTask-prepareEmail-3" name="Pripravi email" completionQuantity="1"
+				implementation="webService" isForCompensation="false"  startQuantity="1"
+				activiti:class="si.pint.eastma.inputPEF.delegate.PrepareEmail">
+				<extensionElements>
+					<activiti:field name="emailTemplate" stringValue="3" />
+				</extensionElements>
+			</serviceTask>
+			
+			<sequenceFlow id="seqFlow-a03" isImmediate="true" name="SequenceFlow"
+				sourceRef="serviceTask-prepareEmail-3"
+				targetRef="Email_pacientu_o_slabi_PEF_vrednosti" />
+				
+			<sendTask activiti:type="mail" completionQuantity="1"
+				id="Email_pacientu_o_slabi_PEF_vrednosti" implementation="webService"
+				isForCompensation="false" name="Email pacientu o slabi PEF vrednosti" startQuantity="1">
+				<extensionElements>
+					<activiti:field name="to"      expression="${email.to}"></activiti:field>
+					<activiti:field name="from"    expression="${email.from}"></activiti:field>
+					<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+					<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+					<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+					<activiti:field name="html">
+						<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+					</activiti:field>
+				</extensionElements>
+			</sendTask>	 
+	
+			<!-- PEF critical -->
+			<parallelGateway gatewayDirection="Diverging" id="ParallelGateway_Critical_DIV"
+				name="ParallelGateway Critical" />
+	      
+			<parallelGateway gatewayDirection="Converging" id="ParallelGateway_Critical_CON"
+				name="ParallelGateway" />
+	      
+			<!-- Pacient - PEF critical -->
+			<serviceTask activiti:class="si.pint.eastma.inputPEF.delegate.CriticalPEFValueSMSDelegate"
+				completionQuantity="1" id="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_SMS"
+				implementation="webService" isForCompensation="false"
+				name="Imate kriticno PEF vrednost, narocite se na obisk pri zdravniku!"
+				startQuantity="1" />
+				  
+			<userTask completionQuantity="1" id="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_Task"
+				activiti:assignee="${patientObj.getUsername()}" implementation="webService"
+				isForCompensation="false" name="Poslabšanje vrednosti PEF" startQuantity="1"
+				activiti:formKey="criticalPEF_patient.form" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_Patient_Mail_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_Critical_DIV"
+				targetRef="serviceTask-prepareEmail-4" />
+				
+			<serviceTask id="serviceTask-prepareEmail-4" name="Pripravi email" completionQuantity="1"
+				implementation="webService" isForCompensation="false"  startQuantity="1"
+				activiti:class="si.pint.eastma.inputPEF.delegate.PrepareEmail">
+				<extensionElements>
+					<activiti:field name="emailTemplate" stringValue="4" />
+				</extensionElements>
+			</serviceTask>
+			
+			<sequenceFlow id="seqFlow-a04" isImmediate="true" name="SequenceFlow"
+				sourceRef="serviceTask-prepareEmail-4"
+				targetRef="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_Mail" />
+				
+			<sendTask activiti:type="mail" completionQuantity="1"
+				id="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_Mail" implementation="webService"
+				isForCompensation="false" name="Obvestilo pacientu o kriticni PEF vrednosti"
+				startQuantity="1">
+				<extensionElements>
+					<activiti:field name="to"      expression="${email.to}"></activiti:field>
+					<activiti:field name="from"    expression="${email.from}"></activiti:field>
+					<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+					<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+					<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+					<activiti:field name="html">
+						<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+					</activiti:field>
+				</extensionElements>
+			</sendTask>
+	      
+			<!-- CM - PEF critical -->
+			<userTask completionQuantity="1" id="Obvestilo_CM_o_kriticni_PEF_vrednosti_Task"
+				activiti:assignee="${patientObj.findCM()}" implementation="webService"
+				isForCompensation="false"
+				name="Bolnik ${patientObj.getFirstNameLastName()} ima kritično vrednost PEF!"
+				startQuantity="1" activiti:formKey="criticalPEF_CM.form" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_CM_Mail_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_Critical_DIV"
+				targetRef="serviceTask-prepareEmail-5" />
+				
+			<serviceTask id="serviceTask-prepareEmail-5" name="Pripravi email" completionQuantity="1"
+				implementation="webService" isForCompensation="false"  startQuantity="1"
+				activiti:class="si.pint.eastma.inputPEF.delegate.PrepareEmail">
+				<extensionElements>
+					<activiti:field name="emailTemplate" stringValue="5" />
+				</extensionElements>
+			</serviceTask>
+			
+			<sequenceFlow id="seqFlow-a05" isImmediate="true" name="SequenceFlow"
+				sourceRef="serviceTask-prepareEmail-5"
+				targetRef="Obvestilo_CM_o_kriticni_PEF_vrednosti_Mail" />
+				
+			<sendTask activiti:type="mail" completionQuantity="1"
+				id="Obvestilo_CM_o_kriticni_PEF_vrednosti_Mail" implementation="webService"
+				isForCompensation="false" name="Obvestilo CM o kriticni PEF vrednosti pacienta"
+				startQuantity="1">
+				<extensionElements>
+					<activiti:field name="to"      expression="${email.to}"></activiti:field>
+					<activiti:field name="from"    expression="${email.from}"></activiti:field>
+					<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+					<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+					<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+					<activiti:field name="html">
+						<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+					</activiti:field>
+				</extensionElements>
+			</sendTask>
+	      
+			<!-- Doktor - PEF critical -->
+			<userTask completionQuantity="1" id="Obvestilo_DR_o_kriticni_PEF_vrednosti_Task"
+				activiti:assignee="${patientObj.findDoctor()}" implementation="webService"
+				isForCompensation="false"
+				name="Bolnik ${patientObj.getFirstNameLastName()} ima kritično vrednost PEF!"
+				startQuantity="1" activiti:formKey="criticalPEF_DR.form" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_DR_Mail_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_Critical_DIV"
+				targetRef="serviceTask-prepareEmail-6" />  
+				
+			<serviceTask id="serviceTask-prepareEmail-6" name="Pripravi email" completionQuantity="1"
+				implementation="webService" isForCompensation="false"  startQuantity="1"
+				activiti:class="si.pint.eastma.inputPEF.delegate.PrepareEmail">
+				<extensionElements>
+					<activiti:field name="emailTemplate" stringValue="6" />
+				</extensionElements>
+			</serviceTask>
+			
+			<sequenceFlow id="seqFlow-a06" isImmediate="true" name="SequenceFlow"
+				sourceRef="serviceTask-prepareEmail-6"
+				targetRef="Obvestilo_DR_o_kriticni_PEF_vrednosti_Mail" />
+				
+			<sendTask activiti:type="mail" completionQuantity="1"
+				id="Obvestilo_DR_o_kriticni_PEF_vrednosti_Mail" implementation="webService"
+				isForCompensation="false" name="Obvestilo zdravniku o kriticni PEF vrednosti pacienta"
+				startQuantity="1">
+				<extensionElements>
+					<activiti:field name="to"      expression="${email.to}"></activiti:field>
+					<activiti:field name="from"    expression="${email.from}"></activiti:field>
+					<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+					<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+					<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+					<activiti:field name="html">
+						<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+					</activiti:field>
+				</extensionElements>
+			</sendTask>
+	      
+			<sequenceFlow id="SequenceFlow_Cri_Patient_SMS_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_Critical_DIV"
+				targetRef="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_SMS" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_Patient_Task_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_Critical_DIV"
+				targetRef="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_Task" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_CM_Task_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_Critical_DIV"
+				targetRef="Obvestilo_CM_o_kriticni_PEF_vrednosti_Task" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_DR_Task_in" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_Critical_DIV"
+				targetRef="Obvestilo_DR_o_kriticni_PEF_vrednosti_Task" />
+			
+			<sequenceFlow id="SequenceFlow_Cri_Patient_SMS_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_SMS"
+				targetRef="ParallelGateway_Critical_CON" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_Patient_Mail_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_Mail"
+				targetRef="ParallelGateway_Critical_CON" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_Patient_Task_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_pacientu_o_kriticni_PEF_vrednosti_Task"
+				targetRef="ParallelGateway_Critical_CON" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_CM_Task_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_CM_o_kriticni_PEF_vrednosti_Task"
+				targetRef="ParallelGateway_Critical_CON" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_CM_Mail_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_CM_o_kriticni_PEF_vrednosti_Mail"
+				targetRef="ParallelGateway_Critical_CON" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_DR_Task_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_DR_o_kriticni_PEF_vrednosti_Task"
+				targetRef="ParallelGateway_Critical_CON" />
+				
+			<sequenceFlow id="SequenceFlow_Cri_DR_Mail_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_DR_o_kriticni_PEF_vrednosti_Mail"
+				targetRef="ParallelGateway_Critical_CON" />  	  
+	
+			<!-- PEF OK - pacient -->
+			<userTask completionQuantity="1" id="Obvestilo_pacientu_o_dobri_PEF_vrednosti"
+				activiti:assignee="${patientObj.getUsername()}" implementation="webService"
+				isForCompensation="false" name="Vrednost PEF je normalna" startQuantity="1" />
+			
+			<endEvent id="EndNoneEvent" name="EndNoneEvent" />
+		  
+			<!-- Podproces za ponovno opominjanje pacienta >>>>-->
+			<exclusiveGateway gatewayDirection="Diverging" id="Exclusive_Gateway_Waiting_Patient"
+				name="Exclusive_Gateway_waiting_4_patient" default="SequenceFlow_notify_again" />
+				
+			<sequenceFlow id="SequenceFlow_27" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_4"
+				targetRef="serviceTask-prepareEmail-7" />
+				
+			<serviceTask id="serviceTask-prepareEmail-7" name="Pripravi email" completionQuantity="1"
+				implementation="webService" isForCompensation="false"  startQuantity="1"
+				activiti:class="si.pint.eastma.inputPEF.delegate.PrepareEmail">
+				<extensionElements>
+					<activiti:field name="emailTemplate" stringValue="7" />
+				</extensionElements>
+			</serviceTask>
+			
+			<sequenceFlow id="seqFlow-a07" isImmediate="true" name="SequenceFlow"
+				sourceRef="serviceTask-prepareEmail-7"
+				targetRef="Obvesti_CM_o_nevnosu_vrednosti_PEF_2" />
+				
+			<sendTask activiti:type="mail" completionQuantity="1"
+				id="Obvesti_CM_o_nevnosu_vrednosti_PEF_2" implementation="webService"
+				isForCompensation="false" name="Obvesti CM o nevnosu vrednosti PEF" startQuantity="1">
+				<extensionElements>
+					<activiti:field name="to"      expression="${email.to}"></activiti:field>
+					<activiti:field name="from"    expression="${email.from}"></activiti:field>
+					<activiti:field name="cc"      expression="${email.cc}"></activiti:field>
+					<activiti:field name="bcc"     expression="${email.bcc}"></activiti:field>
+					<activiti:field name="subject" expression="${email.subject}"></activiti:field>
+					<activiti:field name="html">
+						<activiti:expression><![CDATA[${email.content}]]></activiti:expression>
+					</activiti:field>
+				</extensionElements>
+			</sendTask>    
+	              
+			<subProcess completionQuantity="1" id="subprocessPatientStopCoop"
+				isForCompensation="false" name="" startQuantity="1" triggeredByEvent="false">
+	
+				<startEvent id="sid-98DBA00C-FBF5-47A1-8B95-FA5F331A9DE2" name="" />
+				
+				<endEvent id="sid-CA8BB087-BF3D-4E71-A6AC-3F8D6FC98355" name="" />
+	      
+				<userTask completionQuantity="1" id="sid-8F04F6F3-B2C6-4B40-A884-ABCB781B76E7"
+					activiti:assignee="${patientObj.findCM()}" implementation="webService"
+					isForCompensation="false"
+					name="Bolnik ${patientObj.getFirstNameLastName()} že tri dni ni vnesel vrednosti PEF"
+					startQuantity="1" activiti:formKey="stopCoop.form" />
+	         
+				<serviceTask activiti:class="si.pint.eastma.inputPEF.delegate.StopPatientCoopDelegate"
+					completionQuantity="1"
+					id="Pacient_ne__eli_ve__sodelovati_v_raziskavi_zato_ga_v_sistemu_prestavi_v_neaktivno_stanje"
+					implementation="webService" isForCompensation="false"
+					name="Pacient ne zeli vec sodelovati v raziskavi zato ga v sistemu prestavi v neaktivno stanje"
+					startQuantity="1" />
+			  	 
+				<sequenceFlow id="sid-10857024-644F-40D1-8F38-CB407FE72A8C" name="SequnceFlow_2"
+					sourceRef="sid-98DBA00C-FBF5-47A1-8B95-FA5F331A9DE2"
+					targetRef="sid-8F04F6F3-B2C6-4B40-A884-ABCB781B76E7" />
+					
+				<sequenceFlow id="sid-B37A76F3-8C56-4F16-83FF-7DA984D44C7C" name="SequnceFlow_3"
+					sourceRef="sid-8F04F6F3-B2C6-4B40-A884-ABCB781B76E7"
+					targetRef="Pacient_ne__eli_ve__sodelovati_v_raziskavi_zato_ga_v_sistemu_prestavi_v_neaktivno_stanje" />
+					
+				<sequenceFlow id="sid-F80088D3-C97E-4455-9588-E550AC20F8D3" name="SequnceFlow_4"
+					sourceRef="Pacient_ne__eli_ve__sodelovati_v_raziskavi_zato_ga_v_sistemu_prestavi_v_neaktivno_stanje"
+					targetRef="sid-CA8BB087-BF3D-4E71-A6AC-3F8D6FC98355" />
+	        	
+			</subProcess>     
+	      
+			<exclusiveGateway gatewayDirection="Diverging" id="exclusiveGatewayContinueOrEnd"
+				name="" />
+	       
+			<parallelGateway gatewayDirection="Converging" id="ParallelGateway_StopCoop"
+				name="ParallelGateway_StopCoop" />
+	      
+			<!--<<<<<< Podproces za ponovno opominjanje pacienta -->
+				
+			<sequenceFlow id="SequenceFlow_25" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_5"
+				targetRef="Obvestilo_CM_o_slabi_PEF_vrednosti" />
+				
+			<sequenceFlow id="SequenceFlow_24" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_CM_o_slabi_PEF_vrednosti_2"
+				targetRef="ParallelGateway_2a" />
+				
+			<sequenceFlow id="__pef_not_ok_" isImmediate="true" name="${pef_not_ok}"
+				sourceRef="Exclusive_Databased_Gateway"
+				targetRef="ParallelGateway_5">
+				<conditionExpression xsi:type="tFormalExpression">${pefValueNotOK}</conditionExpression>
+			</sequenceFlow>
+			
+	   		<sequenceFlow id="__pef_critical_" isImmediate="true" name=""
+	   			sourceRef="Exclusive_Databased_Gateway"
+	   			targetRef="ParallelGateway_Critical_DIV">
+				<conditionExpression xsi:type="tFormalExpression">${pefCritical}</conditionExpression>
+			</sequenceFlow>
+	         
+			<sequenceFlow id="SequenceFlow_CON_end" isImmediate="true" name=""
+				sourceRef="ParallelGateway_Critical_CON"
+				targetRef="EndNoneEvent" />
+				
+			<sequenceFlow id="__pef_ok_" isImmediate="true" name="${pef_ok}"
+				sourceRef="Exclusive_Databased_Gateway"
+				targetRef="Obvestilo_pacientu_o_dobri_PEF_vrednosti" />
+				
+			<sequenceFlow id="__pef_not_valid_" name="${pef_not_valid}"
+				sourceRef="Exclusive_Databased_Gateway"
+				targetRef="Pacient_naj_vnese_PEF_vrednost_">
+				<conditionExpression xsi:type="tFormalExpression">${pefValueNotValid}</conditionExpression>
+			</sequenceFlow>
+	   
+			<sequenceFlow id="SequenceFlow_6" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_5"
+				targetRef="Obvestilo_pacientu_o_slabi_PEF_vrednosti" />
+				
+			<sequenceFlow id="SequenceFlow_badPEF_Patient_Mail_out" isImmediate="true" name="SequenceFlow"
+				sourceRef="Email_pacientu_o_slabi_PEF_vrednosti"
+				targetRef="ParallelGateway_2a" />
+				 
+			<sequenceFlow id="SequenceFlow_3" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_CM_o_slabi_PEF_vrednosti"
+				targetRef="ParallelGateway_2a" />
+				
+			<sequenceFlow id="SequenceFlow_19" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_pacientu_o_slabi_PEF_vrednosti"
+				targetRef="ParallelGateway_2a" />
+	      
+			<sequenceFlow id="SequenceFlow_17" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvestilo_pacientu_o_dobri_PEF_vrednosti"
+				targetRef="EndNoneEvent" />
+	
+			<sequenceFlow id="SequenceFlow_15" isImmediate="true" name="SequenceFlow"
+				sourceRef="Pacient_naj_vnese_PEF_vrednost_"
+				targetRef="servicetask3" />
+	      
+			<sequenceFlow id="SequenceFlow_15_2_gt" isImmediate="true" name="SequenceFlow"
+				sourceRef="servicetask3"
+				targetRef="Exclusive_Databased_Gateway" />
+	    
+			<sequenceFlow id="SequenceFlow_20" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_2a" targetRef="EndNoneEvent" />
+	      
+			<sequenceFlow id="SequenceFlow_13" isImmediate="true" name="SequenceFlow"
+				sourceRef="Exclusive_Gateway_Waiting_Patient" targetRef="ParallelGateway_4">
+			   <conditionExpression xsi:type="tFormalExpression">${patientNotifyCnt >= 3}</conditionExpression>
+			</sequenceFlow>
+	      
+			<sequenceFlow id="SequenceFlow_16" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_4" targetRef="subprocessPatientStopCoop" />
+				
+			<sequenceFlow id="SequenceFlow_11" isImmediate="true" name="SequenceFlow"
+				sourceRef="Subprocess"
+				targetRef="Pacient_naj_vnese_PEF_vrednost_" />
+				
+			<sequenceFlow id="SequenceFlow_12" isImmediate="true" name="SequenceFlow"
+				sourceRef="pacient_ima_24_ur_casa_preden_bo_znova_dobil_opomnik"
+				targetRef="Exclusive_Gateway_Waiting_Patient" />
+				
+			<sequenceFlow id="SequenceFlow_notify_again" isImmediate="true" name="SequenceFlow"
+				sourceRef="Exclusive_Gateway_Waiting_Patient"
+				targetRef="Subprocess" />
+				
+			<sequenceFlow id="SequenceFlow_StopCoopMail" isImmediate="true" name="SequenceFlow"
+				sourceRef="Obvesti_CM_o_nevnosu_vrednosti_PEF_2"
+				targetRef="ParallelGateway_StopCoop" />
+				
+			<sequenceFlow id="SequenceFlow_StopCoopUser" isImmediate="true" name="SequenceFlow"
+				sourceRef="subprocessPatientStopCoop"
+				targetRef="ParallelGateway_StopCoop" />
+				
+			<sequenceFlow id="SequenceFlow_exclusiveGateway_EnterPefUserTask" isImmediate="true" name="SequenceFlow"
+				sourceRef="exclusiveGatewayContinueOrEnd"
+				targetRef="Pacient_naj_vnese_PEF_vrednost_">
+				<conditionExpression xsi:type="tFormalExpression">${patientStopCoopSignal == 'false'}</conditionExpression>
+			</sequenceFlow>
+	      
+			<sequenceFlow id="SequenceFlow_exclusiveGateway_EndNoneEvent" isImmediate="true" name="SequenceFlow"
+				sourceRef="exclusiveGatewayContinueOrEnd"
+				targetRef="EndNoneEvent">
+				<conditionExpression xsi:type="tFormalExpression">${patientStopCoopSignal == 'true'}</conditionExpression>
+			</sequenceFlow>
+			 
+			<sequenceFlow id="SequenceFlow_StopCoop" isImmediate="true" name="SequenceFlow"
+				sourceRef="ParallelGateway_StopCoop"
+				targetRef="exclusiveGatewayContinueOrEnd" />
+	  
+		</subProcess>
+		
+		<sequenceFlow id="seqFlow-ttlTimerContainer-main"
+			sourceRef="subProcess-ttlTimerContainer"
+			targetRef="endEvent-main" />
+			
+		<endEvent id="endEvent-main" name="endEvent-main" />
+		
+		<boundaryEvent attachedToRef="subProcess-ttlTimerContainer"
+			id="boundryEvent-TTLExpired"
+			cancelActivity="true" name="boundryEvent-TTLExpired"
+			parallelMultiple="false">
+			<timerEventDefinition id="timerEventDefinition-TTLExpired">
+				<timeDuration id="timeDuration-TTLExpired">P7D</timeDuration>
+			</timerEventDefinition>
+		</boundaryEvent>
+		
+		<sequenceFlow id="seqFlow-TTLExpired-TTLExpiredOut"
+			sourceRef="boundryEvent-TTLExpired"
+			targetRef="endEvent-TTLExpiredOut">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eastma.inputPEF.listeners.TTLExpiredListener" />
+			</extensionElements>
+		</sequenceFlow>
+		
+		<endEvent id="endEvent-TTLExpiredOut" name="endEvent-TTLExpiredOut" />
+	  
+	</process>
+</definitions>

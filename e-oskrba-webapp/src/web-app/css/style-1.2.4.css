@@ -1,0 +1,1118 @@
+/***
+ * Copyright (c) 2013.
+ * University of Primorska, Andrej Marušič Institute. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met: 
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer. 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution. 
+ * 
+ * Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+ * Agency and Ministry of Health of Republic of Slovenia.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+/* 
+ *   eOskrba-layout
+ *   version 1.2.4
+ *   
+ *   Aleksander Be�ir
+ *   alex.besir(at)gmail.com
+ *
+ */
+
+/*  ---------------------------------------------------------
+ *  CSS STRUCTURE
+ *  ---------------------------------------------------------
+ *  
+ *  1) HTML reset
+ *  2) Main layout design
+ *  3) After Login module design
+ *  4) Show Person module design
+ *	5) chatWidget design
+ *  6) reportingWidget design
+ *  7) myCalendarWidget design
+ *  8) Settings module design
+ *  9) Sortable tables
+ *
+ */ 
+  
+/*  ---------------------------------------------------------
+ *  1) HTML RESET
+ *  ---------------------------------------------------------
+ *  
+ *  Resets all HTML objects' styles. Required for making CSS
+ *  cross-browser almost identical.
+ *
+ */ 
+ 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 13px;
+	font-family: arial, sans-serif;
+	vertical-align: top;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+span, u, b {
+	font-size: inherit;
+}
+
+/*  ---------------------------------------------------------
+ *  2) MAIN LAYOUT DESIGN
+ *  ---------------------------------------------------------
+ */ 
+ 
+body {
+	background-color: #daeef3;
+	background-image: url('../img/top-underbanner.png');
+	background-repeat: repeat-x;
+}
+
+p {
+	font-size: 13px;
+	line-height:17px;
+}
+
+a {
+	color: #c00000;
+}
+
+a:visited {
+	color: #c00000;
+}
+
+hr {
+	border:none;
+	border-top: 1px solid #a6a6a6;
+}
+
+button {
+	text-transform: lowercase;
+	font-variant: small-caps;
+	font-size: 11px;
+	font-weight: bold;
+	color: #215968;
+	border: 1px solid #a6a6a6;
+	padding:5px 12px 6px 12px;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:active {
+	border-style: inset;
+}
+
+button[disabled] {
+	opacity: 0.5;
+}
+
+button[disabled]:hover {
+	cursor: default;
+}
+
+button[disabled]:active {
+	border: 1px solid #a6a6a6;
+}
+
+input[type="submit"] {
+	text-transform: lowercase;
+	font-variant: small-caps;
+	font-size: 11px;
+	font-weight: bold;
+	color: #215968;
+	border: 1px solid #a6a6a6;
+	padding:5px 12px 6px 12px;
+}
+
+input[type="submit"]:hover {
+	cursor: pointer;
+}
+
+input[type="submit"]:active {
+	border-style: inset;
+}
+
+input {
+	border: 1px solid #a6a6a6;
+	padding:5px;
+	margin-bottom:5px;
+}
+
+input:focus {
+	 border-style: inset;
+}
+
+input[disabled] {
+	opacity: 0.5;
+}
+
+input[disabled]:hover {
+	cursor: default;
+}
+
+input[disabled]:active {
+	border: 1px solid #a6a6a6;
+}
+
+select {
+	border:1px solid #a6a6a6;
+	padding:5px;
+	margin-bottom:5px;
+}
+
+select:focus {
+	 border: 1px solid #000000;
+}
+
+select[disabled] {
+	opacity: 0.5;
+}
+
+select[disabled]:hover {
+	cursor: default;
+}
+
+select[disabled]:active {
+	border: 1px solid #a6a6a6;
+}
+
+textarea {
+	border: 1px solid #a6a6a6;
+	padding:5px;
+	margin-bottom:5px;
+	width:95%;
+	font-family: arial, sans-serif;
+	font-size: 13px;
+}
+
+textarea:focus {
+	 border-style: inset;
+}
+
+#layout-app {
+	width:100%;
+	height:100%;
+	min-height: 300px;
+	background-image: url('../img/top-banner.png');
+	background-repeat: no-repeat;
+}
+
+#layout-mainmenu {
+	z-index:100;
+	position: absolute;
+	top: 65px;
+	left:33px;
+}
+
+#layout-mainmenu a {
+	padding-top: 14px;
+	padding-right: 8px;
+	padding-left: 8px;
+	padding-bottom: 20px;
+	margin-left:1px;
+	margin-right:1px;
+	font-size: 14px;
+	text-transform: lowercase;
+	font-variant: small-caps;
+	font-weight: bold;
+	color: #215968;
+	text-decoration: none;
+}
+
+.layout-mainmenu-active {
+	border:1px solid #215968;
+	border-bottom:1px solid #ffffff;
+	background-color: #ffffff;
+}
+
+.layout-mainmenu-passive:hover {
+	background-color: #ffffff;
+	margin-left:0px !important;
+	margin-right:0px !important;
+	border:1px solid #a6a6a6;
+	border-bottom:1px solid #215968;
+}
+
+.layout-mainmenu-active img {
+	position:relative;
+	top:-10px;
+}
+
+.layout-mainmenu-passive img {
+	position:relative;
+	top:-10px;
+}
+
+#layout-infobox {
+	z-index:500;
+	position: absolute;
+	top: 9px;
+	right: 60px;
+	width: 175px;
+	height: 198px;
+	overflow: hidden;
+	background-color: #daeef3;
+	border:1px solid #215968;
+	box-shadow: 0 0 7px #0084ff;
+    -webkit-box-shadow: 0 0 7px #0084ff;
+    -moz-box-shadow: 0 0 7px #0084ff; 
+}
+
+#layout-infobox-avatar {
+	width: 175px;
+	height: 115px;
+}
+
+#layout-infobox h2 {
+	position: absolute;
+	top: 90px;
+	left: 0px;
+	padding: 6px;
+	background-image: url('../img/half-opaque-layer.png');
+}
+
+#layout-infobox-more {
+	position:absolute;
+	right:5px;
+	top:185px;
+}
+
+.layout-infobox-field {
+	padding:5px;
+	height:30px;
+	overflow: hidden;
+}
+
+.layout-infobox-field:hover {
+	background-color: #ffffff;
+	cursor: pointer;
+}
+
+.layout-infobox-arrow {
+	float:left;
+	padding-right:7px;
+}
+
+.layout-infobox-what {
+	font-size:10px;
+}
+
+.layout-infobox-value-good {
+	font-size:15px;
+	font-weight: bold;
+	color: #71893f;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+.layout-infobox-value-bad {
+	font-size:15px;
+	font-weight: bold;
+	color: #8c3836;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+.layout-infobox-value-prev {
+	color: #A6A6A6;
+}
+
+.layout-infobox-value-blue {
+	font-size:15px;
+	font-weight: bold;
+	color: #215968;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+.layout-infobox-value-neutral {
+	font-size:15px;
+	font-weight: bold;
+	color: #a19b0a;
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+#layout-mainframe {
+	position: absolute;
+	overflow: hidden;
+	top: 100px;
+	left: 25px;
+	background-color: #ffffff;
+	border:1px solid #215968;
+	box-shadow: 0 0 7px #0084ff;
+    -webkit-box-shadow: 0 0 7px #0084ff; 
+    -moz-box-shadow: 0 0 7px #0084ff; 
+}
+
+#layout-mainframe-wait {
+	z-index:400;
+	display: none;
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	background-image: url('../img/half-opaque-layer-black.png');
+}
+
+#layout-mainframe-wait p {
+	padding-top:250px;
+	text-align: center;
+}
+
+#layout-widgetframe {
+	float:left;
+	border-right: 1px solid #A6A6A6;
+}
+
+.layout-widget {
+	margin: 7px;
+}
+
+.layout-widget-header {
+	cursor: pointer;
+}
+
+.layout-widget h2 {
+	padding:7px;
+	margin-bottom: 7px;
+	color: #215968;
+	font-size:14px;
+}
+
+.layout-widget-active {
+	background-image: url('../img/widget_title_minus.png');
+	background-position: right top;
+}
+
+.layout-widget-passive {
+	background-image: url('../img/widget_title_plus.png');
+	background-position: right top;
+}
+
+.layout-widget-content {
+	display: none;
+	padding-left: 7px;
+	overflow: auto;
+}
+
+.layout-widget-content p {
+	margin-bottom:7px;
+}
+.layout-widget-content .date {
+	color: #a6a6a6;
+	font-style: italic;
+}
+
+#layout-panelframe {
+	float:left;
+}
+
+#layout-panel-header {
+	width: 100%;
+	height: 100px;
+}
+
+#layout-panel-header-info {
+	padding-top: 7px;
+	padding-left: 7px;
+	color: #a6a6a6;
+}
+
+#layout-panel-header-info a {
+	color: #c00000;
+}
+
+#layout-panel-header h1 {
+	padding-top: 3px;
+	padding-left: 7px;
+	margin-top:7px;
+	font-size:26px;
+	font-weight: normal;
+}
+
+#layout-panel-header h1 a {
+	font-size:26px;
+}
+
+#layout-panel-content {
+	margin: 7px;
+	padding-top:7px;
+	width: 100%;
+	border-top: 1px solid #a6a6a6;
+	overflow: auto;
+}
+
+#layout-panel-content p {
+	margin-top:7px;
+	padding-bottom:7px;
+	padding-right: 7px;
+}
+
+#layout-panel-content input[type="text"] {
+	width:95%;
+}
+
+#layout-panel-content select {
+	width:80%;
+}
+
+#layout-panel-content .date {
+	color: #a6a6a6;
+	font-style: italic;
+}
+
+#layout-panel-content-overlay-top {
+	position:absolute;
+	top:108px;
+	height:20px;
+	background-image: url('../img/faded-down-overlay.png');
+	background-repeat: repeat-x;
+}
+
+#layout-panel-options {
+	position:absolute;
+	top:75px;
+	right:220px;
+}
+
+.layout-bigbutton {
+	width:204px;
+}
+
+.layout-tf {
+	width:100%;
+}
+
+.layout-tff {
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.layout-tff-label {
+	color: #215968;
+}
+
+.datePicker select {
+	width:auto !important;
+}
+
+#layout-ajaxResponseHolder {
+	z-index: 800;
+	display:none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width:100%;
+	height:70px;
+	background-image: url('../img/half-opaque-layer-black.png');
+}
+
+#layout-ajaxResponseHolder-frame {
+	width:500px;
+	height:35px;
+	margin:auto;
+	margin-top:10px;
+	padding:7px;
+	overflow:auto;
+	background-color:white;
+	border:1px solid #215968;
+}
+
+#layout-ajaxResponseHolder-msg-error {
+	padding-left:45px;
+	color: #C00000;
+	background-image: url('../img/flash-msg-error.png');
+	background-repeat: no-repeat;
+}
+
+#layout-ajaxResponseHolder-msg-error span {
+	font-weight: bold;
+}
+
+#layout-ajaxResponseHolder-msg-warning {
+	padding-left:45px;
+	color: #000000;
+	background-image: url('../img/flash-msg-warning.png');
+	background-repeat: no-repeat;
+}
+
+#layout-ajaxResponseHolder-msg-warning span {
+	font-weight: bold;
+}
+
+#layout-ajaxResponseHolder-msg-success {
+	padding-left:45px;
+	color: #215968;
+	background-image: url('../img/flash-msg-success.png');
+	background-repeat: no-repeat;
+}
+
+#layout-ajaxResponseHolder-msg-success span {
+	font-weight: bold;
+}
+
+.layout-element {
+	width: 192px;
+	border:1px solid #A6A6A6;
+	padding:5px;
+	margin:5px 0px 5px 0px;
+	background-color:#F0F0F0;
+}
+
+.layout-element-clickable:hover {
+	cursor: pointer;
+}
+
+.layout-element-clickable:active {
+	border-style: inset;
+}
+
+.layout-element-inner-img {
+	width:32px;
+	float:left;
+}
+
+.layout-element-inner-content {
+	padding-left:35px;
+	min-height: 32px;
+}
+
+.layout-element-inner-name {
+	color: #c00000;
+	font-variant: small-caps;
+	margin-bottom: 5px;
+	font-weight: bolder;
+	text-transform: lowercase;
+}
+
+.layout-element-inner-desc {
+	font-style: italic;
+	font-size: 12px;
+    line-height: 15px;
+}
+
+.layout-tf tr td:first-child {
+	vertical-align: middle;
+}
+
+/*  ---------------------------------------------------------
+ *  3) AFTER LOGIN MODULE DESIGN
+ *  ---------------------------------------------------------
+ *  
+ *  after-login module's styling
+ *
+ */ 
+ 
+#layout-afterlogin {
+	z-index: 600;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+}
+
+#layout-afterlogin-under {
+	z-index: 601;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-image: url('../img/half-opaque-layer-black.png');
+}
+
+#layout-afterlogin-frame {
+	z-index: 610;
+	position:relative;
+	width:500px;
+	margin:auto;
+	margin-top:100px;
+	padding:7px;
+	overflow:auto;
+	background-color:white;
+	border:1px solid #215968;
+}
+
+#layout-afterlogin-frame h1 {
+	font-size:24px;
+}
+
+#layout-afterlogin-frame p {
+	margin-bottom:7px;
+}
+
+#layout-afterlogin-personalMessage {
+	border:1px solid #ffffff;
+	width:90%;
+	height:50px;
+	padding:5px;
+	overflow:auto;
+	font-size: 13px;
+	font-family: arial, sans-serif;
+	font-style: italic;
+}
+
+#layout-afterlogin-personalMessage:hover {
+	border:1px solid #A6A6A6;
+}
+
+#layout-afterlogin-personalMessage:focus {
+	border:1px solid #A6A6A6;
+}
+
+/*  ---------------------------------------------------------
+ *  3) SHOW PERSON MODULE DESIGN
+ *  ---------------------------------------------------------
+ *  
+ *  show-person module's styling
+ *
+ */ 
+ 
+#layout-showperson {
+	display:none;
+	z-index: 600;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+}
+
+#layout-showperson-under {
+	z-index: 601;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-image: url('../img/half-opaque-layer-black.png');
+}
+
+#layout-showperson-frame {
+	z-index: 610;
+	position:relative;
+	width:500px;
+	height:90%;
+	margin:auto;
+	margin-top:25px;
+	padding:7px;
+	overflow:auto;
+	background-color:white;
+	border:1px solid #215968;
+}
+
+#layout-showperson-frame h1 {
+	font-size:24px;
+}
+
+#layout-showperson-frame p {
+	margin-bottom:7px;
+}
+
+#layout-showperson-avatar {
+	float:right;
+	width:175px;
+	height:115px;
+}
+
+/*  ---------------------------------------------------------
+ *  4) CHAT WIDGET
+ *  ---------------------------------------------------------
+ *  
+ *  chatWidget components' styling
+ *
+ */ 
+ 
+ #liveChatWidget_startChat_chatContainer {
+ 	overflow: auto;
+ }
+ 
+ .liveChatWidget_startChat_output_name {
+	margin-right:10px;
+ 	font-weight: bold;
+ 	color: #215968;
+ }
+ 
+ .liveChatWidget_startChat_output_status {
+ 	font-weight: bold;
+	color: #215968;
+ }
+ 
+ #liveChatWidget_startChat_input_text {
+ 	width: 95% !important;
+ 	border:1px solid #a6a6a6;
+	padding:5px;
+	margin-bottom:5px;
+ }
+ 
+#liveChatNotifier_notice {
+/*	display: none;
+	z-index:550;
+	position:fixed;
+	padding:7px;
+	bottom:0px;
+	right:0px;
+	text-align:right;
+	background-color: #FBFF8D;
+	border-top:1px solid #215968;
+	border-left:1px solid #215968; */
+	z-index: 800;
+	display:none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width:100%;
+	height:70px;
+	background-image: url('../img/half-opaque-layer-black.png');
+}
+
+#liveChatNotifier_notice_frame {
+	width:500px;
+	height:35px;
+	margin:auto;
+	margin-top:10px;
+	padding:7px;
+	overflow:auto;
+	background-color:white;
+	border:1px solid #215968;
+}
+
+#liveChatNotifier_notice_frame p {
+	padding-left:45px;
+	color: #215968;
+	background-image: url('../img/liveChatNotifier.png');
+	background-repeat: no-repeat;
+}
+
+/*  ---------------------------------------------------------
+ *  4) REPORTING WIDGET
+ *  ---------------------------------------------------------
+ *  
+ *  reportingWidget components' styling
+ *
+ */ 
+
+.reportingWidget_dataTable {
+	width:95%;
+}
+
+.reportingWidget_dataTable td {
+	border:3px solid #DAEEF3;
+	padding:7px;
+	font-family: monospace;
+}
+
+.reportingWidget_dataTable th {
+	border:3px solid #DAEEF3;
+	padding:7px;
+	background-color: #DAEEF3;
+	color: #215968;
+	font-weight: bold;
+}
+
+.reportingWidget_dataTable_date {
+	width: 200px;
+}
+
+/*  ---------------------------------------------------------
+ *  1) myCalendarWidget DESIGN
+ *  ---------------------------------------------------------
+ *
+ *  myCalendarWidget components' styling
+ *
+ */
+ 
+#myCalendarWidget_show_table {
+	width:99%;
+}
+
+#myCalendarWidget_show_table td {
+	width:14.28%;
+}
+
+.myCalendarWidget_show_day {
+	cursor: pointer;
+	border: 1px solid #A6A6A6;
+}
+
+.myCalendarWidget_show_daynumber {
+	font-weight: bold;
+	color: #215968;
+	margin-left:5px;
+}
+
+#myCalendarWidget_show_today {
+	color: #A6A6A6;
+	font-variant: small-caps;
+}
+
+.myCalendarWidget_show_noticecount {
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.myCalendarWidget_show_day:hover .myCalendarWidget_show_daynumber {
+	color: #C00000;
+}
+
+#myCalendarWidget_show_header td {
+	height:25px;
+	color: #A6A6A6;
+	font-variant: small-caps;
+}
+
+#myCalendarWidget_details_title p {
+	color: #215968;
+	font-weight: bold;
+}
+
+/*  ---------------------------------------------------------
+ *  8) SETTINGS MODULE DESIGN
+ *  ---------------------------------------------------------
+ *  
+ *  settings module's styling
+ *
+ */ 
+ 
+#layout-settings {
+	display:none;
+	z-index: 600;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+}
+
+#layout-settings-under {
+	z-index: 601;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-image: url('../img/half-opaque-layer-black.png');
+}
+
+#layout-settings-frame {
+	z-index: 610;
+	position:relative;
+	width:500px;
+	height:90%;
+	margin:auto;
+	margin-top:25px;
+	padding:7px;
+	overflow:auto;
+	background-color:white;
+	border:1px solid #215968;
+}
+
+#layout-settings-frame h1 {
+	font-size:24px;
+}
+
+#layout-settings-frame p {
+	margin-bottom:7px;
+}
+
+#layout-settings-avatar {
+	width:175px;
+	height:115px;
+}
+
+/*  ---------------------------------------------------------
+ *  1) SORTABLE TABLES
+ *  ---------------------------------------------------------
+ */ 
+ 
+.layout-sortable-table {
+	width:100%;
+}
+
+.layout-sortable-table-header {
+	text-transform: lowercase;
+	font-family: arial, sans-serif;
+	font-variant: small-caps;
+	font-size: 14px;
+	line-height: 1;
+	font-weight: bolder;
+	color: #215968;
+	border: 1px solid #a6a6a6;
+	padding:5px 12px 6px 12px;
+	background-color: #f0f0f0;
+	cursor: pointer;
+}
+
+.layout-sortable-table td {
+	padding:5px 12px 6px 12px;
+	vertical-align: middle;
+}
+
+.layout-sortable-table tr:hover {
+	background-color: #DAEEF3;
+}
+
+.layout-sortable-table .headerSortDown:after {
+	content: " \2193";
+}
+
+.layout-sortable-table .headerSortUp:after {
+	content: " \2191";
+}
+
+/* mymeds */
+.myMedsTable {
+	width:100%;
+	border:1px solid #A6A6A6;
+}
+
+.myMedsTable td {
+	padding: 5px;
+	border:1px solid #A6A6A6;
+}
+
+.myMedsTable input, .myMedsTable select {
+	margin:0px;
+}
+
+.myMedsTable-header {
+	text-transform: lowercase;
+	font-family: arial, sans-serif;
+	font-variant: small-caps;
+	font-size: 14px;
+	line-height: 1;
+	font-weight: bolder;
+	color: #215968;
+	border: 1px solid #a6a6a6;
+	padding:5px 12px 6px 12px;
+	background-color: #f0f0f0;
+}
+
+/* spinner */
+.ac-spinner {
+	display: none;
+}
+
+/* sound */
+#beep {
+	display: block;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	top: -1000em;
+}
+
+/*  ---------------------------------------------------------
+ *  10) SESSION LOST NOTIFICATION
+ *  ---------------------------------------------------------
+ *  
+ *  sessionLost module's styling
+ *
+ */ 
+ 
+#layout-sessionLost {
+	z-index: 600;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	display:none;
+}
+
+#layout-sessionLost-under {
+	z-index: 601;
+	position: fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	background-image: url('../img/half-opaque-layer-black.png');
+}
+
+#layout-sessionLost-frame {
+	z-index: 610;
+	position:relative;
+	width:500px;
+	margin:auto;
+	margin-top:100px;
+	padding:7px;
+	overflow:auto;
+	background-color:white;
+	border:1px solid #215968;
+}
+
+#layout-sessionLost-frame h1 {
+	font-size:24px;
+}
+
+#layout-sessionLost-frame p {
+	margin-bottom:7px;
+}
+
+/*  ---------------------------------------------------------
+ *  11) PRINTBOX
+ *  ---------------------------------------------------------
+ *  
+ *  printbox module's styling
+ *
+ */ 
+ 
+#layout-printbox {
+ 	position:absolute;
+ 	top:110px;
+ 	right:255px;
+ 	z-index:350;
+}
+  
+#layout-printbox a {
+	opacity:0.5;
+	filter:alpha(opacity=50);
+}
+  
+#layout-printbox a:hover {
+  	opacity:1;
+  	filter:alpha(opacity=100);
+}

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="5.0.0" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-ea8b495d-4ec7-46dc-a10c-808720fe0adc" targetNamespace="http://www.signavio.com/bpmn20"
+	typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<!-- INPUT: CallActivity: 1.doctor 2.patient 3.caremanager VSI INPUT-i za 
+		CallActivity-je: -->
+	<process id="Proces-Opomnik-Vnos-Notifier-All" name="ProcesOpomnikNotifierAll"
+		isExecutable="false">
+<!-- 		<extensionElements> -->
+<!-- 			<activiti:executionListener -->
+<!-- 				class="si.pint.eoskrba.eastma.inputGeneric.listeners.ProcessExecutionListener" event="start"  /> -->
+<!-- 		</extensionElements> -->
+		<parallelGateway gatewayDirection="Diverging"
+			id="sid-463C65C4-CE12-4EB8-8C36-63447BD80258" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-CF8C080B-5052-4C7E-82CB-591A4098ABBE</incoming>
+			<outgoing>sid-BD2DA481-62C2-4126-B3BC-D40A855EE203</outgoing>
+			<outgoing>sid-EBE956C8-BC70-4F5C-A379-ED77A5722314</outgoing>
+			<outgoing>sid-E30FC494-A755-431B-A8DC-CE011704B06A</outgoing>
+		</parallelGateway>
+		<startEvent id="sid-09AE017A-77EE-4C61-B8F1-8B9E2D3DA29B"
+			name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>sid-CF8C080B-5052-4C7E-82CB-591A4098ABBE</outgoing>
+		</startEvent>
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Zdravnik-Ext"
+			completionQuantity="1" id="sid-C05AED89-2A1B-402D-A6A4-65FFF61B8197"
+			isForCompensation="false" name="NOTIFIER-Zdravnik" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />					
+				<activiti:in source="notifyDoctorForm" target="notifyDoctorForm" />				
+				<activiti:in source="doctor" target="doctor" />
+				<activiti:in source="doctorEmail" target="email" />
+				<activiti:in source="listenerDoctorObvestiloCreate"	target="listenerDoctorObvestiloCreate" />
+				<activiti:in source="listenerDoctorObvestiloComplete" target="listenerDoctorObvestiloComplete" />
+				<activiti:in source="doctorUserTaskName" target="userTaskName" />				
+			</extensionElements>
+			<incoming>sid-BD2DA481-62C2-4126-B3BC-D40A855EE203</incoming>
+			<outgoing>sid-905E04E9-4FCB-40CD-B0D6-33AA370C2112</outgoing>
+		</callActivity>
+		<parallelGateway gatewayDirection="Converging"
+			id="sid-BF5B93B0-CA4A-4ECC-A2EE-49648F01DA22" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-905E04E9-4FCB-40CD-B0D6-33AA370C2112</incoming>
+			<incoming>sid-5BA19DC1-D026-4907-AA0D-CE8C17A3904A</incoming>
+			<incoming>sid-DD2BF82C-6350-45C7-A403-E62AE50034F4</incoming>
+			<outgoing>sid-C8B7CC1C-F12B-40E6-AB57-A365858FCD40</outgoing>
+		</parallelGateway>
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Pacient-Ext"
+			completionQuantity="1" id="sid-9F6BF240-F040-4D57-AEF4-064CD566C0C4"
+			isForCompensation="false" name="NOTIFIER-Pacient" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />								
+				<activiti:in source="notifyPatientForm" target="notifyPatientForm" />
+				<activiti:in source="patientEmail" target="email" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="patientNotifySmsDelegate" target="patientNotifySmsDelegate" />
+				<activiti:in source="listenerPatientObvestiloComplete" target="listenerPatientObvestiloComplete" />
+				<activiti:in source="listenerPatientObvestiloCreate" target="listenerPatientObvestiloCreate" />
+				<activiti:in source="patientUserTaskName" target="userTaskName" />
+				<activiti:in source="categoryCritical" target="categoryCritical" />
+			</extensionElements>
+			<incoming>sid-EBE956C8-BC70-4F5C-A379-ED77A5722314</incoming>
+			<outgoing>sid-5BA19DC1-D026-4907-AA0D-CE8C17A3904A</outgoing>
+		</callActivity>
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Cm-Ext"
+			completionQuantity="1" id="sid-597F9101-0882-4562-BD4F-A6F2E29B3EA6"
+			isForCompensation="false" name="NOTIFIER-CM&#10;" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="caremanagerEmail" target="email" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete" target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="cmUserTaskName" target="userTaskName" />			
+			</extensionElements>
+			<incoming>sid-E30FC494-A755-431B-A8DC-CE011704B06A</incoming>
+			<outgoing>sid-DD2BF82C-6350-45C7-A403-E62AE50034F4</outgoing>
+		</callActivity>
+		<endEvent id="sid-7BC35468-CBDA-4D64-9A56-5E5CDC941FA4" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-C8B7CC1C-F12B-40E6-AB57-A365858FCD40</incoming>
+		</endEvent>
+		<sequenceFlow id="sid-CF8C080B-5052-4C7E-82CB-591A4098ABBE"
+			name="" sourceRef="sid-09AE017A-77EE-4C61-B8F1-8B9E2D3DA29B"
+			targetRef="sid-463C65C4-CE12-4EB8-8C36-63447BD80258" />
+		<sequenceFlow id="sid-C8B7CC1C-F12B-40E6-AB57-A365858FCD40"
+			name="" sourceRef="sid-BF5B93B0-CA4A-4ECC-A2EE-49648F01DA22"
+			targetRef="sid-7BC35468-CBDA-4D64-9A56-5E5CDC941FA4" />
+		<sequenceFlow id="sid-EBE956C8-BC70-4F5C-A379-ED77A5722314"
+			name="" sourceRef="sid-463C65C4-CE12-4EB8-8C36-63447BD80258"
+			targetRef="sid-9F6BF240-F040-4D57-AEF4-064CD566C0C4" />
+		<sequenceFlow id="sid-DD2BF82C-6350-45C7-A403-E62AE50034F4"
+			name="" sourceRef="sid-597F9101-0882-4562-BD4F-A6F2E29B3EA6"
+			targetRef="sid-BF5B93B0-CA4A-4ECC-A2EE-49648F01DA22" />
+		<sequenceFlow id="sid-905E04E9-4FCB-40CD-B0D6-33AA370C2112"
+			name="" sourceRef="sid-C05AED89-2A1B-402D-A6A4-65FFF61B8197"
+			targetRef="sid-BF5B93B0-CA4A-4ECC-A2EE-49648F01DA22" />
+		<sequenceFlow id="sid-BD2DA481-62C2-4126-B3BC-D40A855EE203"
+			name="" sourceRef="sid-463C65C4-CE12-4EB8-8C36-63447BD80258"
+			targetRef="sid-C05AED89-2A1B-402D-A6A4-65FFF61B8197" />
+		<sequenceFlow id="sid-5BA19DC1-D026-4907-AA0D-CE8C17A3904A"
+			name="" sourceRef="sid-9F6BF240-F040-4D57-AEF4-064CD566C0C4"
+			targetRef="sid-BF5B93B0-CA4A-4ECC-A2EE-49648F01DA22" />
+		<sequenceFlow id="sid-E30FC494-A755-431B-A8DC-CE011704B06A"
+			name="" sourceRef="sid-463C65C4-CE12-4EB8-8C36-63447BD80258"
+			targetRef="sid-597F9101-0882-4562-BD4F-A6F2E29B3EA6" />
+	</process>
+	<bpmndi:BPMNDiagram id="sid-60175db7-9031-4def-a773-29c821754a3a">
+		<bpmndi:BPMNPlane bpmnElement="Proces-Opomnik-Vnos-Notifier-All"
+			id="sid-f334952e-484c-4af4-aaba-387a6263c927">
+			<bpmndi:BPMNShape bpmnElement="sid-463C65C4-CE12-4EB8-8C36-63447BD80258"
+				id="sid-463C65C4-CE12-4EB8-8C36-63447BD80258_gui">
+				<omgdc:Bounds height="40.0" width="40.0" x="350.0" y="167.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-09AE017A-77EE-4C61-B8F1-8B9E2D3DA29B"
+				id="sid-09AE017A-77EE-4C61-B8F1-8B9E2D3DA29B_gui">
+				<omgdc:Bounds height="30.0" width="30.0" x="261.0" y="172.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-C05AED89-2A1B-402D-A6A4-65FFF61B8197"
+				id="sid-C05AED89-2A1B-402D-A6A4-65FFF61B8197_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="495.0" y="30.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-BF5B93B0-CA4A-4ECC-A2EE-49648F01DA22"
+				id="sid-BF5B93B0-CA4A-4ECC-A2EE-49648F01DA22_gui">
+				<omgdc:Bounds height="40.0" width="40.0" x="735.0" y="167.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-9F6BF240-F040-4D57-AEF4-064CD566C0C4"
+				id="sid-9F6BF240-F040-4D57-AEF4-064CD566C0C4_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="495.0" y="180.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-597F9101-0882-4562-BD4F-A6F2E29B3EA6"
+				id="sid-597F9101-0882-4562-BD4F-A6F2E29B3EA6_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="495.0" y="300.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-7BC35468-CBDA-4D64-9A56-5E5CDC941FA4"
+				id="sid-7BC35468-CBDA-4D64-9A56-5E5CDC941FA4_gui">
+				<omgdc:Bounds height="28.0" width="28.0" x="855.0" y="56.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="sid-905E04E9-4FCB-40CD-B0D6-33AA370C2112"
+				id="sid-905E04E9-4FCB-40CD-B0D6-33AA370C2112_gui">
+				<omgdi:waypoint x="595.0" y="90.0" />
+				<omgdi:waypoint x="755.5" y="90.0" />
+				<omgdi:waypoint x="755.0" y="167.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-DD2BF82C-6350-45C7-A403-E62AE50034F4"
+				id="sid-DD2BF82C-6350-45C7-A403-E62AE50034F4_gui">
+				<omgdi:waypoint x="595.0" y="330.0" />
+				<omgdi:waypoint x="755.0784373801098" y="330.0" />
+				<omgdi:waypoint x="755.0" y="207.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-CF8C080B-5052-4C7E-82CB-591A4098ABBE"
+				id="sid-CF8C080B-5052-4C7E-82CB-591A4098ABBE_gui">
+				<omgdi:waypoint x="291.0" y="187.0" />
+				<omgdi:waypoint x="350.0" y="187.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-5BA19DC1-D026-4907-AA0D-CE8C17A3904A"
+				id="sid-5BA19DC1-D026-4907-AA0D-CE8C17A3904A_gui">
+				<omgdi:waypoint x="595.0" y="218.0" />
+				<omgdi:waypoint x="665.0" y="218.0" />
+				<omgdi:waypoint x="665.0" y="185.0" />
+				<omgdi:waypoint x="735.0" y="185.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-BD2DA481-62C2-4126-B3BC-D40A855EE203"
+				id="sid-BD2DA481-62C2-4126-B3BC-D40A855EE203_gui">
+				<omgdi:waypoint x="370.0" y="167.0" />
+				<omgdi:waypoint x="370.5" y="75.0" />
+				<omgdi:waypoint x="495.0" y="75.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-EBE956C8-BC70-4F5C-A379-ED77A5722314"
+				id="sid-EBE956C8-BC70-4F5C-A379-ED77A5722314_gui">
+				<omgdi:waypoint x="370.0" y="207.0" />
+				<omgdi:waypoint x="370.5" y="220.5" />
+				<omgdi:waypoint x="495.0" y="220.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-E30FC494-A755-431B-A8DC-CE011704B06A"
+				id="sid-E30FC494-A755-431B-A8DC-CE011704B06A_gui">
+				<omgdi:waypoint x="370.0" y="207.0" />
+				<omgdi:waypoint x="370.5" y="285.0" />
+				<omgdi:waypoint x="495.0" y="340.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-C8B7CC1C-F12B-40E6-AB57-A365858FCD40"
+				id="sid-C8B7CC1C-F12B-40E6-AB57-A365858FCD40_gui">
+				<omgdi:waypoint x="775.0" y="187.0" />
+				<omgdi:waypoint x="830.0" y="187.5" />
+				<omgdi:waypoint x="830.0" y="70.0" />
+				<omgdi:waypoint x="855.0" y="70.0" />
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

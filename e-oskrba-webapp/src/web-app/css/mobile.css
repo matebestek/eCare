@@ -1,0 +1,110 @@
+/***
+ * Copyright (c) 2013.
+ * University of Primorska, Andrej Marušič Institute. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met: 
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer. 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution. 
+ * 
+ * Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+ * Agency and Ministry of Health of Republic of Slovenia.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+/* Styles for mobile devices */
+
+@media screen and (max-width: 480px) {
+	.nav {
+		padding: 0.5em;
+	}
+
+	.nav li {
+		margin: 0 0.5em 0 0;
+		padding: 0.25em;
+	}
+
+	/* Hide individual steps in pagination, just have next & previous */
+	.pagination .step, .pagination .currentStep {
+		display: none;
+	}
+
+	.pagination .prevLink {
+		float: left;
+	}
+
+	.pagination .nextLink {
+		float: right;
+	}
+
+	/* pagination needs to wrap around floated buttons */
+	.pagination {
+		overflow: hidden;
+	}
+
+	/* slightly smaller margin around content body */
+	fieldset,
+	.property-list {
+		padding: 0.3em 1em 1em;
+	}
+
+	input, textarea {
+		width: 100%;
+		   -moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		    -ms-box-sizing: border-box;
+		        box-sizing: border-box;
+	}
+
+	select, input[type=checkbox], input[type=radio], input[type=submit], input[type=button], input[type=reset] {
+		width: auto;
+	}
+
+	/* hide all but the first column of list tables */
+	.scaffold-list td:not(:first-child),
+	.scaffold-list th:not(:first-child) {
+		display: none;
+	}
+
+	.scaffold-list thead th {
+		text-align: center;
+	}
+
+	/* stack form elements */
+	.fieldcontain {
+		margin-top: 0.6em;
+	}
+
+	.fieldcontain label,
+	.fieldcontain .property-label,
+	.fieldcontain .property-value {
+		display: block;
+		float: none;
+		margin: 0 0 0.25em 0;
+		text-align: left;
+		width: auto;
+	}
+
+	.errors ul,
+	.message p {
+		margin: 0.5em;
+	}
+
+	.error ul {
+		margin-left: 0;
+	}
+}

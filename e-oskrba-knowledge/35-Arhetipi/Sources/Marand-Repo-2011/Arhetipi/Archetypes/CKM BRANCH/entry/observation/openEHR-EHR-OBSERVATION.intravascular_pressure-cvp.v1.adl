@@ -1,0 +1,453 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.intravascular_pressure-cvp.v1
+specialize
+	openEHR-EHR-OBSERVATION.intravascular_pressure.v1
+
+concept
+	[at0000.1]	-- Centralni venski tlak (CVP)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"28/06/2006">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record central venous pressure, normally via cannulation of the internal jugular vein.">
+			use = <"">
+			keywords = <"pressure", "intravascular", "cvp">
+			misuse = <"Not to be used for systemic blood pressure. Use 'observation.blood_pressure' for this.">
+			copyright = <"copyright (c) 2009 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za zapisovanje opažanj centralnega vensega tlaka
+">
+			use = <"Za zapisovanje opažanj centralnega vensega tlaka">
+			keywords = <"tlak", "CVP", "intravaskularen">
+			misuse = <"Se ne uporablja za beleženje opazovanj sistematičnega krvnega tlaka
+
+">
+			copyright = <"*copyright (c) 2009 openEHR Foundation(en)">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, United Kingdom", ...>
+	other_details = <
+		["references"] = <"http://www.wwl.nhs.uk/library/foi/clin_pols/cvpprocedures.pdf">
+		["MD5-CAM-1.0.1"] = <"8F68D611FC7394E9A7B4BEFDBC4C651F">
+	>
+
+definition
+	OBSERVATION[at0000.1] occurrences matches {0..1} matches {	-- Centralni venski tlak (CVP)
+		data matches {
+			HISTORY[at0001] matches {	-- *history(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {1; ordered} matches {
+									allow_archetype CLUSTER[at0036] occurrences matches {0..1} matches {	-- Lokacija
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+										exclude
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Srrednji
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::125]>
+												list = <
+													["1"] = <
+														units = <"mm[Hg]">
+														magnitude = <|>=0.0|>
+														precision = <|2|>
+													>
+													["2"] = <
+														units = <"cm[H20]">
+														magnitude = <|>=0.0|>
+														precision = <|2|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Tlak
+										value matches {
+											0|[local::at0016], 	-- Zelo zmanjšan
+											2|[local::at0017], 	-- Zmanjšan
+											4|[local::at0018], 	-- Normalen / Pričakovan
+											6|[local::at0019], 	-- Zvišan
+											8|[local::at0020]  	-- Zelo zvišan
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Faza srčnega utripa
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0008, 	-- Sistolična
+													at0009, 	-- Diastolična
+													at0023, 	-- Pred kontrakcijo
+													at0024, 	-- Pred polnitvijo prekatov
+													at0027]	-- Celoten utrip
+												}
+											}
+										}
+									}
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Multimedia
+										value matches {
+											DV_MULTIMEDIA matches {
+												media_type matches {[openEHR::]}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0033] occurrences matches {0..1} matches {	-- Oblika vala
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.waveform(-[a-zA-Z0-9_]+)*\.v1/}
+										exclude
+											archetype_id/value matches {/.*/}
+									}
+									ELEMENT[at0035] occurrences matches {0..1} matches {	-- Opombe
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0038] matches {	-- *Tree(en)
+								items cardinality matches {0..*; ordered} matches {
+									ELEMENT[at0039] occurrences matches {0..1} matches {	-- Pozicija
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0040] occurrences matches {0..1} matches {	-- Moteči dejavniki
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+					INTERVAL_EVENT[at0004] occurrences matches {0..*} matches {	-- Povprečni
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::146]}
+							}
+						}
+						data matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/data[at0003]	-- /data[*history(en)]/events[*Any event(en)]/data[*Tree(en)]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/state[at0038]	-- /data[*history(en)]/events[*Any event(en)]/state[*Tree(en)]
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0021] matches {	-- *Tree(en)
+				items cardinality matches {0..*; ordered} matches {
+					allow_archetype CLUSTER[at0030] occurrences matches {0..*} matches {	-- Naprava
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Moteči dejavniki
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Intravascular pressure">
+					description = <"The pressure in a specific location, blood vessel or heart cavity, at a specific phase of the heart or an average over the heart cycle.">
+				>
+				["at0000.1"] = <
+					text = <"Central venous pressure">
+					description = <"The central venous pressure (CVP) measures the filling pressure of the right ventricle normally performed by cannulation of the internal jugular vein.">
+				>
+				["at0001"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Generic event">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Average over heart cycle">
+					description = <"The average over one heart cycle.">
+				>
+				["at0005"] = <
+					text = <"Pressure">
+					description = <"The mean pressure measured.">
+				>
+				["at0007"] = <
+					text = <"Phase of heart cycle">
+					description = <"The phase of the heart cycle at the time of the measurement">
+				>
+				["at0008"] = <
+					text = <"Systolic">
+					description = <"During contraction of the heart.">
+				>
+				["at0009"] = <
+					text = <"Diastolic">
+					description = <"During relaxation of the heart.">
+				>
+				["at0015"] = <
+					text = <"Relative pressure">
+					description = <"The pressure in relative terms.">
+				>
+				["at0016"] = <
+					text = <"Markedly reduced">
+					description = <"The pressure is much lower than normal or expected.">
+				>
+				["at0017"] = <
+					text = <"Lowered">
+					description = <"The pressure is reduced.">
+				>
+				["at0018"] = <
+					text = <"Normal/expected">
+					description = <"The pressure is normal or as expected.">
+				>
+				["at0019"] = <
+					text = <"Raised">
+					description = <"The pressure is raised.">
+				>
+				["at0020"] = <
+					text = <"Markedly increased">
+					description = <"The pressure is much higher than normal or expected.">
+				>
+				["at0021"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0023"] = <
+					text = <"Pre-systolic">
+					description = <"Phase of the heart immediately prior to contraction of the heart.">
+				>
+				["at0024"] = <
+					text = <"Pre-diastolic">
+					description = <"The phase of the heart immediately prior to filling of the ventricle.">
+				>
+				["at0027"] = <
+					text = <"Whole cycle">
+					description = <"The pressure measueerd is over the whole heart cycle.">
+				>
+				["at0030"] = <
+					text = <"Device">
+					description = <"The device used to record the measurement.">
+				>
+				["at0031"] = <
+					text = <"Confounding factors">
+					description = <"Other factors that may interfere with interpretation of the measurement.">
+				>
+				["at0033"] = <
+					text = <"Waveform">
+					description = <"A waveform representation of the pressure">
+				>
+				["at0034"] = <
+					text = <"Multimedia">
+					description = <"A multimedia representation of the pressure reading, other than waveforms.">
+				>
+				["at0035"] = <
+					text = <"Comment">
+					description = <"A text comment on the reading.">
+				>
+				["at0036"] = <
+					text = <"Location">
+					description = <"The location of the pressure measurement.">
+				>
+				["at0038"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0039"] = <
+					text = <"Position">
+					description = <"Position of patient during measurement.">
+				>
+				["at0040"] = <
+					text = <"Confounding factors">
+					description = <"Other factors that may interfere with interpretation of the measurement.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Intravaskularen tlak">
+					description = <"Intravaskularen tlak">
+				>
+				["at0000.1"] = <
+					text = <"Centralni venski tlak (CVP)">
+					description = <"Centralni venski tlak (CVP)">
+				>
+				["at0001"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Generic event(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Povprečni">
+					description = <"Povprečni tlak">
+				>
+				["at0005"] = <
+					text = <"Srrednji">
+					description = <"Srrednji">
+				>
+				["at0007"] = <
+					text = <"Faza srčnega utripa">
+					description = <"Faza srčnega utripa">
+				>
+				["at0008"] = <
+					text = <"Sistolična">
+					description = <"Med kontrakcijo srca">
+				>
+				["at0009"] = <
+					text = <"Diastolična">
+					description = <"Med sprostitvijo srca">
+				>
+				["at0015"] = <
+					text = <"Tlak">
+					description = <"*The pressure in relative terms.(en)">
+				>
+				["at0016"] = <
+					text = <"Zelo zmanjšan">
+					description = <"Zelo zmanjšan">
+				>
+				["at0017"] = <
+					text = <"Zmanjšan">
+					description = <"Zmanjšan">
+				>
+				["at0018"] = <
+					text = <"Normalen / Pričakovan">
+					description = <"Normalen / Pričakovan">
+				>
+				["at0019"] = <
+					text = <"Zvišan">
+					description = <"Zvišan">
+				>
+				["at0020"] = <
+					text = <"Zelo zvišan">
+					description = <"Zelo zvišan">
+				>
+				["at0021"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0023"] = <
+					text = <"Pred kontrakcijo">
+					description = <"Tlak pred kontrakcijo">
+				>
+				["at0024"] = <
+					text = <"Pred polnitvijo prekatov">
+					description = <"Tlak polnitvijo prekatov">
+				>
+				["at0027"] = <
+					text = <"Celoten utrip">
+					description = <"Pritisk v celotnem srčnem utripu">
+				>
+				["at0030"] = <
+					text = <"Naprava">
+					description = <"Naprava s katero je izvedena meritev">
+				>
+				["at0031"] = <
+					text = <"Moteči dejavniki">
+					description = <"Moteči dejavniki, ki so vplivali na meritev">
+				>
+				["at0033"] = <
+					text = <"Oblika vala">
+					description = <"Reprezentativni val za meritev">
+				>
+				["at0034"] = <
+					text = <"Multimedia">
+					description = <"Multimedijski prikaz ">
+				>
+				["at0035"] = <
+					text = <"Opombe">
+					description = <"Opombe">
+				>
+				["at0036"] = <
+					text = <"Lokacija">
+					description = <"Lokacija meritve">
+				>
+				["at0038"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0039"] = <
+					text = <"Pozicija">
+					description = <"Pozicija pacienta med meritvijo">
+				>
+				["at0040"] = <
+					text = <"Moteči dejavniki">
+					description = <"Moteči dejavniki, ki so vplivali na meritev">
+				>
+			>
+		>
+	>

@@ -1,0 +1,262 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.kajenje_eo_pp.v1
+
+concept
+	[at0000]	-- Kajenje eo pp
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis kadilskega statusa posameznika.">
+			use = <"Arhetip se uporablja za zapis kadilskega statusa in kratek pregled zgodovine uživanja tobaka. Uporablja se kot del širšega (osnovega) vprašalnika za preventivo in presejanje.">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"625A17E6C53722DF1255C1EBF9DDF20E">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Kajenje eo pp
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Kadilski status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- Redni
+									at0004, 	-- Občasni
+									at0015, 	-- Pasivni
+									at0006, 	-- Abstinent
+									at0005]	-- Nekadilec
+								}
+							}
+						}
+					}
+					CLUSTER[at0008] occurrences matches {0..1} matches {	-- Povzetek uživanja tobaka
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Dnevno število cigaret
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|0..100|}
+									}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Datum začetka uživanja
+								value matches {
+									DV_DATE matches {*}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Starost ob začetku uživanja
+								value matches {
+									DV_DURATION matches {
+										value matches {PYM}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0016] occurrences matches {0..1} matches {	-- Poskusi prenehanja
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0017] occurrences matches {0..1} matches {	-- Poskus prenehanja
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0020, 	-- Poskusil, uspešno
+											at0019, 	-- Poskusil, neuspešno
+											at0018, 	-- Nikoli poskusil prenehati
+											at0021]	-- Želi pomoč
+										}
+									}
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Datum prenehanju
+								value matches {
+									DV_DATE matches {*}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- Starost ob prenehanju
+								value matches {
+									DV_DURATION matches {
+										value matches {PYM}
+									}
+								}
+							}
+							allow_archetype CLUSTER[at0014] occurrences matches {0..*} matches {	-- Poskusi prenehanja kajenja
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.cessation_attempts(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Stopnja ogroženosti
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0023, 	-- Ni ogrožen
+									at0024, 	-- Srednje visoka ogroženost
+									at0025]	-- Visoka ogroženost
+								}
+							}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Kajenje eo pp">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Kadilski status">
+					description = <"Opis kadilskega statusa.">
+				>
+				["at0003"] = <
+					text = <"Redni">
+					description = <"Oseba redno kadi.">
+				>
+				["at0004"] = <
+					text = <"Občasni">
+					description = <"Občasno kajenje (manj kot 1 cigareto na dan)">
+				>
+				["at0005"] = <
+					text = <"Nekadilec">
+					description = <"Oseba ni nikoli kadila">
+				>
+				["at0006"] = <
+					text = <"Abstinent">
+					description = <"Oseba je v preteklosti kadila, a je uspešno prenehala.">
+				>
+				["at0007"] = <
+					text = <"Dnevno število cigaret">
+					description = <"Število cigaret, ki jih pokadi posameznik. Velja tudi za posameznike, ki so prenehali s kajenjem.">
+				>
+				["at0008"] = <
+					text = <"Povzetek uživanja tobaka">
+					description = <"Povzetek podrobnosti o uživanju tobaka.">
+				>
+				["at0009"] = <
+					text = <"Datum začetka uživanja">
+					description = <"Datum začetka uživanja.">
+				>
+				["at0010"] = <
+					text = <"Datum prenehanju">
+					description = <"Datum prenehanju.">
+				>
+				["at0011"] = <
+					text = <"Starost ob začetku uživanja">
+					description = <"Starost ob začetku uživanja.">
+				>
+				["at0012"] = <
+					text = <"Starost ob prenehanju">
+					description = <"Starost posameznika ob prenehanju uživanja tobaka.">
+				>
+				["at0013"] = <
+					text = <"Komentar">
+					description = <"Komentar o uživanju tobaka.">
+				>
+				["at0014"] = <
+					text = <"Poskusi prenehanja kajenja">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Pasivni">
+					description = <"Oseba je pasivni kadilec.">
+				>
+				["at0016"] = <
+					text = <"Poskusi prenehanja">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Poskus prenehanja">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Nikoli poskusil prenehati">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Poskusil, neuspešno">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Poskusil, uspešno">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Želi pomoč">
+					description = <"Oseba bi rada prenehala s kajenjem in si pri tem želi pomoči.">
+				>
+				["at0022"] = <
+					text = <"Stopnja ogroženosti">
+					description = <"Ocena stopnje ogroženosti.">
+				>
+				["at0023"] = <
+					text = <"Ni ogrožen">
+					description = <"Posameznik predvidoma ni ogrožen">
+				>
+				["at0024"] = <
+					text = <"Srednje visoka ogroženost">
+					description = <"Posameznik je zmerno ogrožen, potrebni so ukrepi.">
+				>
+				["at0025"] = <
+					text = <"Visoka ogroženost">
+					description = <"Posameznik je zelo ogrožen, nujni so ukrepi.">
+				>
+			>
+		>
+	>

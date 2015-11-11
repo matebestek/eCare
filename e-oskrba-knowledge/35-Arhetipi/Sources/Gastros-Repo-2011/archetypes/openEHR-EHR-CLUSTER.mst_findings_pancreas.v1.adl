@@ -1,0 +1,459 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_findings_pancreas.v1
+
+concept
+	[at0000]	-- MST Findings for Pancreas
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"9CA2D00F1694219F22525B6A1B8991FE">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Findings for Pancreas
+		items cardinality matches {1..*; ordered} matches {
+			CLUSTER[at0050] occurrences matches {0..1} matches {	-- NORMAL
+				items cardinality matches {1; ordered} matches {
+					CLUSTER[at0100] occurrences matches {0..1} matches {	-- Normal
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0105] matches {	-- Present?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6529, 	-- null
+											at6530, 	-- present
+											at6531, 	-- unknown
+											at6532]	-- absent
+										}
+									}
+								}
+							}
+							ELEMENT[at0500] occurrences matches {0..*} matches {	-- Site(s)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0501, 	-- Whole
+											at0502, 	-- Head
+											at0503, 	-- Body
+											at0504, 	-- Tail
+											at0505, 	-- Main duct
+											at0506, 	-- Accessory duct
+											at0507]	-- Branches
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at1000] occurrences matches {0..1} matches {	-- ABNORMALITIES
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at1100] occurrences matches {0..1} matches {	-- Pancreas Divisum
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at1110] occurrences matches {0..1} matches {	-- Extent
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1111, 	-- Complete
+											at6501]	-- Incomplete
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at6502] occurrences matches {0..1} matches {	-- Irregularity
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6503] occurrences matches {0..1} matches {	-- Extent
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6504, 	-- Localised
+											at6505, 	-- Segmental
+											at6506]	-- Diffuse
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at6507] occurrences matches {0..*} matches {	-- Dilated
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at1000]/items[at6502]/items[at6503]	-- /items[ABNORMALITIES]/items[Irregularity]/items[Extent]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6508] occurrences matches {0..*} matches {	-- Rarefaction (attenuation) of branches
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at1000]/items[at6502]/items[at6503]	-- /items[ABNORMALITIES]/items[Irregularity]/items[Extent]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6509] occurrences matches {0..*} matches {	-- Stenosis
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6510] occurrences matches {0..1} matches {	-- Length
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6511] occurrences matches {0..*} matches {	-- Obstruction
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6512] occurrences matches {0..1} matches {	-- Appearance
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6513, 	-- Stone
+											at6514]	-- Tumor/Mass
+										}
+									}
+								}
+							}
+							ELEMENT[at6515] occurrences matches {0..1} matches {	-- Completeness
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6516, 	-- Partial
+											at6517]	-- Complete
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6518] occurrences matches {0..*} matches {	-- Stone
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6519] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6520, 	-- Single
+											at6521]	-- Multiple
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6522] occurrences matches {0..*} matches {	-- Cavity
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at1000]/items[at6518]/items[at6519]	-- /items[ABNORMALITIES]/items[Stone]/items[Number]
+							ELEMENT[at6523] occurrences matches {0..1} matches {	-- Diameter
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6524] occurrences matches {0..*} matches {	-- Chain of lakes
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6525] occurrences matches {0..*} matches {	-- Extravasation
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6526] occurrences matches {0..*} matches {	-- Fistula
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6527] occurrences matches {0..*} matches {	-- Evidence of previous surgery
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6528] occurrences matches {0..*} matches {	-- Stent
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Findings for Pancreas">
+					description = <".">
+				>
+				["at0050"] = <
+					text = <"NORMAL">
+					description = <"HEADING: NORMAL">
+				>
+				["at0100"] = <
+					text = <"Normal">
+					description = <"TERM: Normal">
+				>
+				["at0105"] = <
+					text = <"Present?">
+					description = <"Attribute: General">
+				>
+				["at0500"] = <
+					text = <"Site(s)">
+					description = <"Anatomical Sites for Pancreas">
+				>
+				["at0501"] = <
+					text = <"Whole">
+					description = <"Pancreas: Site">
+				>
+				["at0502"] = <
+					text = <"Head">
+					description = <"Pancreas: Site">
+				>
+				["at0503"] = <
+					text = <"Body">
+					description = <"Pancreas: Site">
+				>
+				["at0504"] = <
+					text = <"Tail">
+					description = <"Pancreas: Site">
+				>
+				["at0505"] = <
+					text = <"Main duct">
+					description = <"Pancreas: Site">
+				>
+				["at0506"] = <
+					text = <"Accessory duct">
+					description = <"Pancreas: Site">
+				>
+				["at0507"] = <
+					text = <"Branches">
+					description = <"Pancreas: Site">
+				>
+				["at1000"] = <
+					text = <"ABNORMALITIES">
+					description = <"HEADING">
+				>
+				["at1100"] = <
+					text = <"Pancreas Divisum">
+					description = <"TERM">
+				>
+				["at1110"] = <
+					text = <"Extent">
+					description = <"Attribute: Pancreas Divisum">
+				>
+				["at1111"] = <
+					text = <"Complete">
+					description = <"Attribute value">
+				>
+				["at6501"] = <
+					text = <"Incomplete">
+					description = <"Attribute value">
+				>
+				["at6502"] = <
+					text = <"Irregularity">
+					description = <"TERM">
+				>
+				["at6503"] = <
+					text = <"Extent">
+					description = <"General attribute">
+				>
+				["at6504"] = <
+					text = <"Localised">
+					description = <"Attribute value">
+				>
+				["at6505"] = <
+					text = <"Segmental">
+					description = <"Attribute value">
+				>
+				["at6506"] = <
+					text = <"Diffuse">
+					description = <"Attribute value">
+				>
+				["at6507"] = <
+					text = <"Dilated">
+					description = <"TERM">
+				>
+				["at6508"] = <
+					text = <"Rarefaction (attenuation) of branches">
+					description = <"TERM">
+				>
+				["at6509"] = <
+					text = <"Stenosis">
+					description = <"TERM">
+				>
+				["at6510"] = <
+					text = <"Length">
+					description = <"Attribute: Stenosis">
+				>
+				["at6511"] = <
+					text = <"Obstruction">
+					description = <"TERM">
+				>
+				["at6512"] = <
+					text = <"Appearance">
+					description = <"Attribute: Obstruction">
+				>
+				["at6513"] = <
+					text = <"Stone">
+					description = <"Attribute value">
+				>
+				["at6514"] = <
+					text = <"Tumor/Mass">
+					description = <"Attribute value">
+				>
+				["at6515"] = <
+					text = <"Completeness">
+					description = <"Attribute: Obstruction">
+				>
+				["at6516"] = <
+					text = <"Partial">
+					description = <"Attribute value">
+				>
+				["at6517"] = <
+					text = <"Complete">
+					description = <"Attribute value">
+				>
+				["at6518"] = <
+					text = <"Stone">
+					description = <"TERM">
+				>
+				["at6519"] = <
+					text = <"Number">
+					description = <"Attribute: Stone">
+				>
+				["at6520"] = <
+					text = <"Single">
+					description = <"Attribute value">
+				>
+				["at6521"] = <
+					text = <"Multiple">
+					description = <"Attribute value">
+				>
+				["at6522"] = <
+					text = <"Cavity">
+					description = <"TERM">
+				>
+				["at6523"] = <
+					text = <"Diameter">
+					description = <"Attribute: Cavity">
+				>
+				["at6524"] = <
+					text = <"Chain of lakes">
+					description = <"TERM">
+				>
+				["at6525"] = <
+					text = <"Extravasation">
+					description = <"TERM">
+				>
+				["at6526"] = <
+					text = <"Fistula">
+					description = <"TERM">
+				>
+				["at6527"] = <
+					text = <"Evidence of previous surgery">
+					description = <"TERM">
+				>
+				["at6528"] = <
+					text = <"Stent">
+					description = <"TERM">
+				>
+				["at6529"] = <
+					text = <"null">
+					description = <"Presence=null">
+				>
+				["at6530"] = <
+					text = <"present">
+					description = <"Presence=present">
+				>
+				["at6531"] = <
+					text = <"unknown">
+					description = <"Presence=unknown">
+				>
+				["at6532"] = <
+					text = <"absent">
+					description = <"Presence=absent">
+				>
+			>
+		>
+	>

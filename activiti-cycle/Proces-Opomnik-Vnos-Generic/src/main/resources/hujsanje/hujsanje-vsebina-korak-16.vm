@@ -1,0 +1,81 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<p>Spodaj so vsebine za korak 16, ki so razdeljene po zavihkih. Ko jih boste prebrali, kliknite spodaj na gumb 'Nadaljuj'. Na podlagi teh vsebin boste kasneje dobili vprašanja za napredovanje v naslednji korak. Vsebine si lahko kasneje ogledate tudi v zavihku 'Izobraževanje'.</p>
+	</br>
+	
+<div id="activiti_form_holder">
+	
+<!--Prehrana-->
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Spremembe prehranjevalnih navad in vzdrževanje telesne mase</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>SPREMEMBE PREHRANJEVALNIH NAVAD IN VZDRŽEVANJE TELESNE MASE</b></center>
+		</font>
+		</br>
+		<p>
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>Uredimo urnik hranjenja
+		</td></tr><tr><td align="center" valign="top">•</td><td>Redni obroki, ki sledijo v enakomernih časovnih intervalih
+		</td></tr><tr><td align="center" valign="top">•</td><td>Trije glavni obroki in dve vmesni malici
+		</td></tr><tr><td align="center" valign="top">•</td><td>Večerja vsaj 3 ure pred spanjem
+		</td></tr><tr><td align="center" valign="top">•</td><td>Izbira primernejših živil v posameznih obrokih oz. prigrizkih
+		</td></tr><tr><td align="center" valign="top">•</td><td>Primerna količina živil
+		</td></tr><tr><td align="center" valign="top">•</td><td>Ustrezni postopki priprave živil
+		</td></tr><tr><td align="center" valign="top">•</td><td>Načrt telesne aktivnosti
+		</td></tr></table>
+		</p>
+		<font color="#FF8040">
+			<h3><center><b>Priporočila</b></center></h3>
+		</font>
+		<p>
+			Vedeti morate, da se po 4-6 mesecih hujšanja hitrost izgubljanja telesne mase zmanjša, ker se telo prilagodi na novo telesno težo z manjšo porabo energije v mirovanju. Zato je priporočljivo, da v naslednjih 6 mesecih predvsem vzdržujete doseženo telesno maso in se šele nato ponovno lotite hujšanja. Taka obdobja hujšanja in vzdrževanja dosežene telesne teže lahko večkrat ponovite in se tako lažje in uspešneje približate želeni telesni masi. Težko boste sicer dosegli normalno (idealno) telesno maso, če ste bili večino svojega življenja zelo debeli. Vendar ne pozabite, da že izguba 10 – 15 % telesne mase in vzdrževanje dosežene teže zelo koristi vašemu zdravju in izboljša kvaliteto življenja.
+		</p>
+	</div>
+
+</div>	
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_16/16%20Okus%20po%20zdravem_napredek,%20vzdrzevanje_korak%2016.pdf">Okus po zdravem - napredek, vzdrževanje</a></p>
+				</td>
+			</tr>		
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

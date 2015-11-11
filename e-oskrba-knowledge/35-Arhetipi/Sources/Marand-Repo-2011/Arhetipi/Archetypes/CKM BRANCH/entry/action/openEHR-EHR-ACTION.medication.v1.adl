@@ -1,0 +1,710 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ACTION.medication.v1
+
+concept
+	[at0000]	-- Medication action
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"NEHTA">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"9/11/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"This ACTION enables the recording of actions taken with regard to medication or other therapeutic good. This will usually be in response to a medication order but may be administered immediately without an order at times requiring recording of the administration alone (e.g. a vaccination). There is a date time at which this ACTION took place and use of this archetype indicates that some action has actually occurred.">
+			use = <"To record planning, prescribing, dispensing, administration, cessation, suspension, completion of a medication order.">
+			keywords = <"medication", "prescibe", "dispense", "administration", "cessation">
+			misuse = <"Use the INSTRUCTION.medication archetype to record orders.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"CommitteeDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"NEHTA Therapeutic Good in Use Datagroup http://nehta.gov.au
+openEHR Medication Action archetype http://openehr.org/knowledge">
+		["MD5-CAM-1.0.1"] = <"A3EF470E5A79AD27820EB4EA2CCFE011">
+	>
+
+definition
+	ACTION[at0000] matches {	-- Medication action
+		ism_transition matches {
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::524]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0001]}		-- Plan
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::527]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0013]}		-- Plan suspended
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::528]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0012]}		-- Cancelled order
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::529]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0016]}		-- Start time set
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[openehr::
+							245, 
+							524]
+						}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0002]}		-- Issue item prescription
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[openehr::
+							245, 
+							524]
+						}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0003]}		-- Dispense medication item
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0004]}		-- Commence medication item administration
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0005]}		-- Review medication item
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0006]}		-- Administer medication item
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0010]}		-- Re-issue item prescription
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0018]}		-- Medication item withheld
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0019]}		-- Medication item refused
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[openehr::
+							245, 
+							524]
+						}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0035]}		-- Reverse item dispense
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::530]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0008]}		-- Delayed supply
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::530]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0009]}		-- Suspended administration
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::530]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0011]}		-- Suspended re-order
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::531]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0015]}		-- Administration ceased
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::531]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0014]}		-- Reverse  prescription
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0007]}		-- Completed
+					}
+				}
+			}
+		}
+		description matches {
+			ITEM_TREE[at0017] matches {	-- Tree
+				items cardinality matches {2..*; unordered} matches {
+					ELEMENT[at0020] matches {	-- Medication
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[ac0001]}		-- Medicines Terminology
+							}
+						}
+					}
+					ELEMENT[at0033] occurrences matches {0..*} matches {	-- Instructions
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0023] occurrences matches {0..*} matches {	-- Ingredient(s) and form
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.chemical_description(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0021] occurrences matches {0..*} matches {	-- Reason
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0022] occurrences matches {0..*} matches {	-- Amount
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.amount\.v1/}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Sequence #
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..1} matches {	-- BatchID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0027] occurrences matches {0..*} matches {	-- Administration
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.medication_admin(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Brand substituted
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0030] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Dispensed to
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Number of times dispensed
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0032] occurrences matches {0..1} matches {	-- Remaining repeats
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					ELEMENT[at0038] occurrences matches {0..1} matches {	-- Claim category
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Medication action">
+					description = <"An action arising from a order for a medication or other therapeutic good created by a clinician. The date and time of the action is part of the action model and is not included in the definition.">
+				>
+				["at0001"] = <
+					text = <"Plan">
+					description = <"The medication is planned but no execution has taken place.">
+				>
+				["at0002"] = <
+					text = <"Issue item prescription">
+					description = <"The order has been transfered to the dispensary.">
+				>
+				["at0003"] = <
+					text = <"Dispense medication item">
+					description = <"The medication has been dispensed.">
+				>
+				["at0004"] = <
+					text = <"Commence medication item administration">
+					description = <"The medication has been taken by the patient for the first time.">
+				>
+				["at0005"] = <
+					text = <"Review medication item">
+					description = <"The medication has been reviewed.">
+				>
+				["at0006"] = <
+					text = <"Administer medication item">
+					description = <"A single administration of the medication has taken place.">
+				>
+				["at0007"] = <
+					text = <"Completed">
+					description = <"The medication has been completed as prescribed.">
+				>
+				["at0008"] = <
+					text = <"Delayed supply">
+					description = <"The medication has not been dispensed as supply is not yet available.">
+				>
+				["at0009"] = <
+					text = <"Suspended administration">
+					description = <"The administration of the  medication has been suspended.">
+				>
+				["at0010"] = <
+					text = <"Re-issue item prescription">
+					description = <"The medication has been re-prescribed for an existing order.">
+				>
+				["at0011"] = <
+					text = <"Suspended re-order">
+					description = <"Reordering of this medication is not available.">
+				>
+				["at0012"] = <
+					text = <"Cancelled order">
+					description = <"The planned administration has been cancelled prior to any administration.">
+				>
+				["at0013"] = <
+					text = <"Plan suspended">
+					description = <"The plan to order medication has been suspended.">
+				>
+				["at0014"] = <
+					text = <"Reverse  prescription">
+					description = <"The prescription has been cancelled but administration or dispensing may have occurred.">
+				>
+				["at0015"] = <
+					text = <"Administration ceased">
+					description = <"The administration of this medication has been ceased before anticipated completion.">
+				>
+				["at0016"] = <
+					text = <"Start time set">
+					description = <"The time to start this medication has been set.">
+				>
+				["at0017"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0018"] = <
+					text = <"Medication item withheld">
+					description = <"The administration of a medication has been withheld and not given.">
+				>
+				["at0019"] = <
+					text = <"Medication item refused">
+					description = <"An administration of the medication was refused by the patient.">
+				>
+				["at0020"] = <
+					text = <"Medication">
+					description = <"The medication or other therapeutic good which was the focus of the action.">
+				>
+				["at0021"] = <
+					text = <"Reason">
+					description = <"The reason(s) the action was carried out.">
+				>
+				["at0022"] = <
+					text = <"Amount">
+					description = <"The amount of medication.">
+				>
+				["at0023"] = <
+					text = <"Ingredient(s) and form">
+					description = <"Information about the ingredients of the medication.">
+				>
+				["at0024"] = <
+					text = <"Comment">
+					description = <"A comment on the action taken.">
+				>
+				["at0025"] = <
+					text = <"Sequence #">
+					description = <"The sequence number of this action.">
+				>
+				["at0026"] = <
+					text = <"BatchID">
+					description = <"The identifier of the batch number of the substance administered.">
+				>
+				["at0027"] = <
+					text = <"Administration">
+					description = <"Details about the administration.">
+				>
+				["at0030"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0031"] = <
+					comment = <"? should use a generic participation.">
+					text = <"Dispensed to">
+					description = <"The name of the person to whom this was dispensed if not the subject.">
+				>
+				["at0032"] = <
+					text = <"Remaining repeats">
+					description = <"The number of times the medication may still be dispensed without re-issue of a prescription or order. This is the information required by the patient and prescriber.">
+				>
+				["at0033"] = <
+					text = <"Instructions">
+					description = <"Any instructions given to patient at time of action.">
+				>
+				["at0035"] = <
+					text = <"Reverse item dispense">
+					description = <"A dispensed medication is returned or not collected without use.">
+				>
+				["at0036"] = <
+					text = <"Brand substituted">
+					description = <"A different brand of the same medication substituted for that in the order.">
+				>
+				["at0037"] = <
+					text = <"Number of times dispensed">
+					description = <"The number of times this order has been dispensed. The sum of this number and the remaining repeats provides the number of repeats on the original order.">
+				>
+				["at0038"] = <
+					text = <"Claim category">
+					description = <"The claim for reimbursement or subsidy.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Medication action(en)">
+					description = <"*An action arising from a order for a medication or other therapeutic good created by a clinician. The date and time of the action is part of the action model and is not included in the definition.(en)">
+				>
+				["at0001"] = <
+					text = <"*Plan(en)">
+					description = <"*The medication is planned but no execution has taken place.(en)">
+				>
+				["at0002"] = <
+					text = <"*Issue item prescription(en)">
+					description = <"*The order has been transfered to the dispensary.(en)">
+				>
+				["at0003"] = <
+					text = <"*Dispense medication item(en)">
+					description = <"*The medication has been dispensed.(en)">
+				>
+				["at0004"] = <
+					text = <"*Commence medication item administration(en)">
+					description = <"*The medication has been taken by the patient for the first time.(en)">
+				>
+				["at0005"] = <
+					text = <"*Review medication item(en)">
+					description = <"*The medication has been reviewed.(en)">
+				>
+				["at0006"] = <
+					text = <"*Administer medication item(en)">
+					description = <"*A single administration of the medication has taken place.(en)">
+				>
+				["at0007"] = <
+					text = <"*Completed(en)">
+					description = <"*The medication has been completed as prescribed.(en)">
+				>
+				["at0008"] = <
+					text = <"*Delayed supply(en)">
+					description = <"*The medication has not been dispensed as supply is not yet available.(en)">
+				>
+				["at0009"] = <
+					text = <"*Suspended administration(en)">
+					description = <"*The administration of the  medication has been suspended.(en)">
+				>
+				["at0010"] = <
+					text = <"*Re-issue item prescription(en)">
+					description = <"*The medication has been re-prescribed for an existing order.(en)">
+				>
+				["at0011"] = <
+					text = <"*Suspended re-order(en)">
+					description = <"*Reordering of this medication is not available.(en)">
+				>
+				["at0012"] = <
+					text = <"*Cancelled order(en)">
+					description = <"*The planned administration has been cancelled prior to any administration.(en)">
+				>
+				["at0013"] = <
+					text = <"*Plan suspended(en)">
+					description = <"*The plan to order medication has been suspended.(en)">
+				>
+				["at0014"] = <
+					text = <"*Reverse  prescription(en)">
+					description = <"*The prescription has been cancelled but administration or dispensing may have occurred.(en)">
+				>
+				["at0015"] = <
+					text = <"*Administration ceased(en)">
+					description = <"*The administration of this medication has been ceased before anticipated completion.(en)">
+				>
+				["at0016"] = <
+					text = <"*Start time set(en)">
+					description = <"*The time to start this medication has been set.(en)">
+				>
+				["at0017"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0018"] = <
+					text = <"*Medication item withheld(en)">
+					description = <"*The administration of a medication has been withheld and not given.(en)">
+				>
+				["at0019"] = <
+					text = <"*Medication item refused(en)">
+					description = <"*An administration of the medication was refused by the patient.(en)">
+				>
+				["at0020"] = <
+					text = <"*Medication(en)">
+					description = <"*The medication or other therapeutic good which was the focus of the action.(en)">
+				>
+				["at0021"] = <
+					text = <"*Reason(en)">
+					description = <"*The reason(s) the action was carried out.(en)">
+				>
+				["at0022"] = <
+					text = <"*Amount(en)">
+					description = <"*The amount of medication.(en)">
+				>
+				["at0023"] = <
+					text = <"*Ingredient(s) and form(en)">
+					description = <"*Information about the ingredients of the medication.(en)">
+				>
+				["at0024"] = <
+					text = <"*Comment(en)">
+					description = <"*A comment on the action taken.(en)">
+				>
+				["at0025"] = <
+					text = <"*Sequence #(en)">
+					description = <"*The sequence number of this action.(en)">
+				>
+				["at0026"] = <
+					text = <"*BatchID(en)">
+					description = <"*The identifier of the batch number of the substance administered.(en)">
+				>
+				["at0027"] = <
+					text = <"*Administration(en)">
+					description = <"*Details about the administration.(en)">
+				>
+				["at0030"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0031"] = <
+					description = <"*The name of the person to whom this was dispensed if not the subject.(en)">
+					text = <"*Dispensed to(en)">
+					comment = <"*? should use a generic participation.(en)">
+				>
+				["at0032"] = <
+					text = <"*Remaining repeats(en)">
+					description = <"*The number of times the medication may still be dispensed without re-issue of a prescription or order. This is the information required by the patient and prescriber.(en)">
+				>
+				["at0033"] = <
+					text = <"*Instructions(en)">
+					description = <"*Any instructions given to patient at time of action.(en)">
+				>
+				["at0035"] = <
+					text = <"*Reverse item dispense(en)">
+					description = <"*A dispensed medication is returned or not collected without use.(en)">
+				>
+				["at0036"] = <
+					text = <"*Brand substituted(en)">
+					description = <"*A different brand of the same medication substituted for that in the order.(en)">
+				>
+				["at0037"] = <
+					text = <"*Number of times dispensed(en)">
+					description = <"*The number of times this order has been dispensed. The sum of this number and the remaining repeats provides the number of repeats on the original order.(en)">
+				>
+				["at0038"] = <
+					text = <"*Claim category(en)">
+					description = <"*The claim for reimbursement or subsidy.(en)">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0001"] = <
+					text = <"Medicines Terminology">
+					description = <"A Medicinal Product Unit of Use (MPUU), a Medicinal Product Pack (MPP), a Trade Product Unit of Use (TPUU), a Trade Product Pack (TPP) or a Containered Trade Product Pack (CTPP).">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["ac0001"] = <
+					text = <"*Medicines Terminology(en)">
+					description = <"*A Medicinal Product Unit of Use (MPUU), a Medicinal Product Pack (MPP), a Trade Product Unit of Use (TPUU), a Trade Product Pack (TPP) or a Containered Trade Product Pack (CTPP).(en)">
+				>
+			>
+		>
+	>

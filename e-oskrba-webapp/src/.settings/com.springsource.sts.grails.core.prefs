@@ -1,0 +1,16 @@
+com.springsource.sts.grails.core.com.springsource.sts.grails.core.install.name=Grails 2.0.4
+com.springsource.sts.grails.core.source.attachment-archetype-api-1.2-test.jar=/archetype-api
+com.springsource.sts.grails.core.source.attachment-archetype-api-1.2.jar=/archetype-api
+com.springsource.sts.grails.core.source.attachment-grails-bootstrap-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-core-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-crud-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-docs-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-gorm-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-resources-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-scripts-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/scripts
+com.springsource.sts.grails.core.source.attachment-grails-spring-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-test-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-tomcat-plugin-1.0.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.source.attachment-grails-web-1.3.7.jar=C\:/Program Files (x86)/springsource/grails-1.3.7/src/java
+com.springsource.sts.grails.core.use.default.install=false
+eclipse.preferences.version=1

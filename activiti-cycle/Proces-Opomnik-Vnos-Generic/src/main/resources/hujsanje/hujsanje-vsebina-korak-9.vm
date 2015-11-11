@@ -1,0 +1,271 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+	<p>Spodaj so vsebine za korak 9, ki so razdeljene po zavihkih. Ko jih boste prebrali, kliknite spodaj na gumb 'Nadaljuj'. Na podlagi teh vsebin boste kasneje dobili vprašanja za napredovanje v naslednji korak. Vsebine si lahko kasneje ogledate tudi v zavihku 'Izobraževanje'.</p>
+	</br>
+	
+<div id="activiti_form_holder">
+	
+<!--Prehrana-->
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Ostalo - Vpliv stresa na človeka</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040" size="5">
+			<center><b>SPOZNAVANJE VPLIVA STRESA NA ČLOVEKA IN NJEGOVO VEDENJE</b></center>
+		</font>
+		</br>
+		<p>
+		Stres je nekaj, s čimer se srečujemo vsi. Je povsem naravna in normalna reakcija, ko se zgodi nekaj, kar poruši naše ravnovesje oz. ritem, v katerem živimo. To, kar poruši naše ravnovesje, obravnavamo kot stresor in se lahko pojavi v različnih oblikah: manjši (npr. gneča na cesti) ali večji (npr. smrt v družini), zunanji (npr. kratek časovni rok za določeno delovno nalogo) ali notranji (npr. skrbi, črne misli), negativen (npr. prometna nesreča) ali pa celo pozitiven (npr. rojstvo otroka). Kako močno bomo doživeli stres pa ni odvisno samo od samega stresorja, ampak v veliki meri tudi od tega, kako ta stresor vidimo (ali predstavlja za nas nekaj negativnega) in koliko se čutimo sposobni, da se z njim oz. s stresno situacijo spoprimemo. Za nekatere bo tako npr. zahtevna delovna naloga predstavljala pomemben vir stresa, drugi pa jo bodo videli le kot velik izziv; ali podobno – za nekatere bo prehod čez most brez ograje zanimiva adrenalinska izkušnja, za druge pa bo to pomenilo veliko nevarnost in bodo zato ob tem močno doživljali stres.
+		</p>
+		<p>
+		Poskusite razmisliti, kaj vi doživljate kot stres, katere situacije so za vas stresne?
+		</p>
+		<p>
+		Stres so poznali že naši daljni predniki in je pomenil dobrodošlo reakcijo, ko so se srečali z nevarnostjo, saj se je takrat povišala napetost mišic, pretok krvi v telesu, pozornost ipd., kar je vse prispevalo k njihovemu boljšemu odzivu. Tudi nam določena mera stresa pomaga, da se bolje spoprimemo s težavo ali nalogo, saj imamo takrat večjo koncentracijo, moč, vzdržljivost. Če pa stres traja predolgo ali je premočen, lahko postane vir težav, saj vpliva na naše duševno in telesno zdravje. Najpogostejši neprijetni simptomi stresa se odražajo na vseh štirih ravneh posameznika – na telesu, čustvih, vedenju in mislih. Značilen je pospešen utrip srca, glavoboli ali prebavne motnje; napetost, potrtost, razdražljivost; pomanjkanje volje, težave s spanjem in pozornostjo ter tudi negativne misli (npr. ''Tega ne zmorem.''). Omenjeni simptomi pa se lahko stopnjujejo tudi v motnje ali bolezni. Na duševnem področju sta s hudim doživljanjem stresa lahko povezani anksioznostna ali depresivna motnja ter številne odvisnosti. Na telesnem področju pa dolgotrajen stres lahko vodi tudi v zmanjševanje imunske odpornosti ter kardiovaskularne, prebavne, dihalne motnje/bolezni …
+		</p>
+		<p>
+		Več si o stresu, njegovih simptomih in vplivu lahko preberete v dodatnem gradivu <a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/ko_te_strese_stres.pdf">Ko te strese stres </a>.
+		</p>
+		</br>
+	</div>
+<!--Drugi zavihek-->	
+	<h3><a href="#">Vsebine - Ostalo - Spoznavanje pomena ustrezne motivacije za uspešno hujšanje</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040" size="5">
+			<center><b>POVEZANOST STRESA IN PREKOMERNE TELESNE MASE</b></center>
+		</font>
+		</br>
+		<p>
+		Kot smo že omenili v temi: Spoznavanje vpliva stresa na človeka in njegovo vedenje (glej prejšnji zavihek), se stres, še posebej močan ali dolgotrajen stres, izraža skozi različne simptome, ki so lahko za posameznika zelo neprijetni (npr. napetost, bolečine v želodcu, negativne misli). V želji, da bi te simptome odpravil ali omilil, posameznik preizkuša različne odzive. Najučinkovitejši način za odpravljanje simptomov je neposredno spoprijemanje z virom stresa, čemur bo posvečena naslednja tema: Spoznavanje tehnik obvladovanja stresa (glej naslednji zavihek). 
+		</p>
+		<p>
+		Žal pa pogosto posamezniki izbirajo drugačne, manj ustrezne načine, ki le (začasno) odpravijo simptome stresa, ne pa tudi njegovega izvora. To se lahko zgodi, ker so ti načini lažji/bolj dostopni ali pa celo zato, ker se posamezniki sploh ne zavedajo, da doživljajo stres, oz. ne vedo, iz kje izhaja. Eden takih neustreznih načinov za soočenje s stresom in njegovi simptomi je lahko tudi prehranjevanje. Pogosto se zgodi, da poskuša posameznik napetost, nemir, anksioznost, ki jo povzroča stres, umiriti z uživanjem hrane. Največkrat sladke, kalorične hrane z veliko vsebnostjo enostavnih ogljikovih hidratov. To ni nenavadno že z biološkega vidika, saj ogljikovi hidrati spodbujajo tvorbo serotonina v možganih, ki je pomemben regulator razpoloženja in vpliva na boljše počutje. Enostavni ogljikovi hidrati, ki so skriti npr. v mnogih slaščicah, lahko tako zelo hitro (a tudi za zelo kratek čas) ''sprostijo'' posameznika oz. povzročijo, da se boljše počuti. Zato lahko prihaja do prenajedanja, prevelike telesne mase, večanja obsega pasu … 
+		</p>
+		<p>
+		Pogosto se posamezniki niti ne zavedajo, da se prenajedajo zaradi stresa, ali celo ne opazijo, da posegajo po hrani, kadar so npr. v časovni stiski zaradi delovnih nalog ali razburjeni. Včasih pa posamezniki dobro vedo, da jih bo neka hrana začasno umirila, a je napetost zanje prevelika oz. jo tako težko prenašajo, da zavestno posežejo npr. po čokoladi, čeprav se zavedajo škodljivih posledic. Glavna težava s stresom povezanega prehranjevanja, ki je povezan s prekomerno telesno maso, je torej, da:
+		</p>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>posameznik jé tudi takrat, ko ni lačen
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>običajno izbira sladko, visoko kalorično hrano;
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>pojé veliko več, kot je potrebno.
+		</td>
+		</tr>
+	</table>
+		</p>
+		<p>
+		Stres pa vpliva na prehranjevanje in prekomerno telesno maso tudi na druge načine. Nekateri v času, ko so pod stresom odreagirajo ravno nasprotno – ne morejo jesti, a se lahko potem zgodi, da se začnejo prenajedati, ko popusti adrenalin stresne reakcije. Podobno nekateri zaradi stresa izpuščajo obroke (in telesno aktivnost) in se potem prenajejo naenkrat, pogosto zvečer pred spanjem, kar vodi v nabiranje maščobe v določenih delih telesa. 
+		</p>
+		<p>
+		Pokazalo se je tudi, da se presnova telesa med stresom spremeni – telo tvori več maščob, ustvarja zalogo. To znova kaže na to, da stres predstavlja instinktiven odziv, ki je prisoten že od nekdaj. Zaloge, ki jih je uskladiščilo telo, so namreč pomagale posamezniku, da je imel dovolj moči in vzdržljivosti, da se je spoprijel ali pobegnil pred nevarnostjo. Ker pa se v sedanjih časih ne srečujemo več pogosto z nevarnostmi, na katere bi morali fizično odreagirati, se telesne zaloge, ki se lahko tvorijo ob stresu (in če nismo dovolj telesno aktivni), kažejo samo kot večanje obsega pasu, bokov ali na splošno kot večanje telesne teže.
+		</p>
+		<p>
+		Stres je torej na številne načine povezan s prekomerno telesno težo, zato je toliko bolj pomembno, da se znamo z njim učinkovito spoprijeti. Nekaj načinov za spoprijemanje oz. obvladovanje stresa boste lahko spoznali v naslednji temi: Spoznavanje tehnik obvladovanja stresa (glej naslednji zavihek).
+		</p>
+		
+	</div>
+	
+<!--Tretji zavihek-->
+	<h3><a href="#">Vsebine - Ostalo - Spoznavanje tehnik obvladovanja stresa</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"	size="5">
+		<center><b>SPOZNAVANJE TEHNIK OBVLADOVANJA STRESA</b></center>
+		</font>
+		</br>
+		<p>
+		Obstajajo številne razdelitve tehnik obvladovanja stresa in pogosto lahko tudi v medijih preberete različne prispevke o tem, kako stres premagati v 3, 5, 10 … korakih ali kako pri tem pomagajo različni izdelki, kar lahko povzroči vsaj zmedo, če že ni zavajajoče. Bistveno je, da ohranite realen pogled in da znate med temi tehnikami poiskati tiste, ki so ustrezne ter izvedljive za vas.
+		</p>
+		<p>
+		Na tem mestu bi vam radi predstavili nekaj tehnik v okviru treh korakov, ki smo jih delno priredili iz gradiva <a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/ko_te_strese_stres.pdf">Ko te strese stres</a> in druge literature.</br>
+		Kot smo že omenili, je za začetek našega boja z negativnimi posledicami stresa najpomembnejše, da se zaveste svojega doživljanja stresa in tega, od kod izvira. Vaša naloga v <b>prvem koraku</b> je torej, da prepoznate stres (kadar ga doživljate) in da odkrijete stresorje (še posebej, če se ti večkrat pojavljajo). To pomeni, da morate biti pozorni na simptome stresa na vseh štirih ravneh posameznika – na telesu, čustvih, vedenju in mislih (kar smo navedli v 1. temi, še bolj nazorno pa je prikazano v gradivu <a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/ko_te_strese_stres.pdf">Ko te strese stres</a> ). Prav tako je pomembno, da se ob zaznavanju stresa ustavite in razmislite, kaj ga je povzročilo (so bile to naše misli, zunanji dejavniki …), saj boste na podlagi te informacije lažje izbrali ustrezen način ukrepanja. Pri prepoznavi stresa in stresorjev vam lahko pomagajo tudi različni vprašalniki – npr. tisti, ki ga boste izpolnjevali za domačo nalogo, ali tisti, ki so v dodatnem gradivu (<a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/ko_te_strese_stres.pdf">Ko te strese stres</a>).
+		</p>
+		<p>
+		Ko pri sebi zaznate stres in veste (vsaj okvirno), od kod izhaja, se morate usmeriti tudi na vprašanje, kakšni so vaši običajni odzivi na stresorje ali stresne situacije, kar predstavlja <b>drugi korak</b>. Predvsem morate raziskati, ali so ti odzivi ustrezni, funkcionalni in vam pomagajo v stresni situaciji ali predstavljajo le kratkotrajno rešitev. Še posebej je to pomembno, ker so mnogi odzivi avtomatizirani (nefunkcionalni še toliko bolj) in se jih posamezniki pogosto niti ne zavedajo. Primer ustreznega načina spoprijemanja s stresom, ki ga doživljamo, ko moramo opraviti zelo zahtevno delovno nalogo v kratkem času, bi bilo načrtovanje časa in iskanje pomoči pri izpeljavi naloge. Nefunkcionalen način spoprijemanja v isti situaciji pa bi npr. predstavljalo umirjanje napetosti s hrano (o čemer smo več napisali že v prejšnji temi) ali kajenjem ter vztrajanje ob delu do poznih nočnih ur (morda celo z velikimi količinami kave). Šele, ko se boste zavedli, kakšni so vaši običajni (avtomatični) odzivi na stresno situacijo, jih boste lahko začeli spreminjati, če niso ustrezni, ali začeli uporabljati večkrat, če se bodo izkazali kot funkcionalni. Tudi pri raziskovanju vaših odzivov nam lahko pomaga domača naloga ali drugi vprašalniki (<a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/ko_te_strese_stres.pdf">Ko te strese stres</a>).
+		</p>
+		<p>
+		<b>Tretji korak</b> pa predstavlja izbira načina obvladovanja stresa, ki je za določeno situacijo najbolj primeren. Opisali bomo tri osnovne načine, ki se razlikujejo glede na to, koliko vpliva ima posameznik na stresno situacijo in svoj odziv v njej. Kadar ta možnost obstaja, je najbolje <B><U>spremeniti stresno situacijo</U></B> oz. preprečiti, da sploh nastane. Nekaj primerov:
+		</p>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td><B>izogibati se situacijam, ki bi lahko bile za nas stresne,</B> kadar je to možno in primerno – izogibanje obiska zobozdravnika npr. ne spada v to kategorijo, odhod v službo prej ali po drugi poti, da se izognete gneči v prometu, pa;
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>prevetriti seznam obveznosti, postaviti prioritete</B> &#45; veliko obveznosti v kratkem času je lahko pomemben vir stresa, zato je dobro pregledati seznam obveznosti in razmisliti, katere so res nujne, ostale pa prestaviti (sesanje ali pranje avtomobila npr. lahko počaka tudi do drugega dne ali dlje in je precej manj pomembno od vašega dobrega počutja ali kvalitetnega časa, ki bi ga lahko preživeli z bližnjimi);
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>naučiti se reči NE</B> &#45; ni vam potrebno sprejeti vseh delovnih nalog, če jih imate že preveč, ali biti na razpolago sorodnikom za usluge, ki jih v tistem trenutku ne zmorete – odklonite na prijazen, a odločen način.
+		</td>
+		</tr>
+	</table>
+		</p>
+		<p>
+		Na žalost se ne da vedno vplivati na stresno situacijo ali se ji izogniti. Takrat se je treba z njo <B><U>spoprijeti na čim bolj ustrezen način</U></B> in spremeniti vaš odziv, če ni funkcionalen. Nekaj načinov, kako z vašimi reakcijami čim bolj zmanjšati negativne posledice stresa v situaciji, ki je ne morete preprečiti:
+		</p>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td><B>načrtovati čas</B> &#45; ustrezno načrtovanje časa vam lahko pomaga pri hitrejšemu in učinkovitejšemu izvrševanju delovnih nalog, vključuje pa tudi čas za sprostitev, ki je nujno potrebna za dobro opravljanje dela (to pomeni, da je v načrtu dela nujno potrebno upoštevati tudi odmor);
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>sistematično reševati probleme</B> &#45; ko se znajdete v situaciji, ki za vas povzroča stres, ker ne vidite rešitve, je pomembno, da se ne odzovete prehitro ali s paniko, ampak da si vzamete čas za premislek; v tem času (tudi ob pomoči drugih) si postavite cilj, raziščite različne možnosti (morda razdelite nalogo/problem na več manjših ukrepov), preverite, koliko so primerne in izvedljive ter izberite najustreznejšo;
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>iskati pomoč</B> &#45; pomembno je, da ne mislite, da morate vse opraviti sami, ampak da znate poiskati pomoč, kadar jo potrebujete (in to tako pri opravljanju delovnih nalog, deljenju obveznosti doma kot v primerih, ko ste tesnobni ali žalostni in potrebujete pogovor);
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>spreminjati negativne misli</B> &#45; kadar so izvor stresa vaše negativne misli ali črni scenariji, je primerna strategija zamenjevati te misli s pozitivnimi ali nevtralnimi (kar je bil del domače naloge 7. Koraka procesa hujšanja) in postavljati realna (in ne perfekcionistična) pričakovanja do sebe in drugih;
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>poskrbeti za telesno sprostitev</B> &#45; veliko stresnih simptomov se odraža na telesu in lahko vodi tudi v bolezen, zato je pomembno, da v stresnih situacijah ne pozabite poskrbeti za telo; zelo pomembno obliko sprostitve predstavlja gibanje, ki vam ugaja (to je lahko hoja, ples, tenis, nogomet …), ali drugi hobiji (vrt, ustvarjanje, ukvarjanje z živalmi …); priporočljivo pa je tudi, da se naučite kakšne sprostitvene tehnike, ki jo boste lahko uporabili kjerkoli (<a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/domaca_naloga_korak_9.pdf">izvajanje sprostitvene tehnike bo tudi del domače naloge</a>).
+		</td>
+		</tr>
+	</table>
+		</p>
+		<p>
+		Kadar pa se znajdete v takšni stresni situaciji, na katero ne morete vplivati ali omiliti posledic s konkretnimi dejanji (npr. zavrnitev na pomembnem razgovoru za zaposlitev, smrt svojca), vam je lahko v pomoč, da poskušate <b><u>spremeniti pogled na situacijo</b></u>. Nekaj primerov:
+		</p>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td><B>sprejeti situacijo</B> &#45; zavedati se, da situacije ne morete spremeniti, zato jo lahko samo sprejmete in pri tem ohranjate misel na to, da se bo bolečina s časom zmanjševala;
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>pozitivna perspektiva</B> &#45; v situacijah, kjer je to mogoče, poiskati tudi pozitivni vidik (npr. ''Nisem bil sprejeta v to službo, morda pa bom našla bolj primerno.'' ali ''Zaradi poškodbe se nekaj časa ne bom mogel ukvarjati s športom, bom pa lahko več časa preživel z družino.'');
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td><B>deliti občutke z drugimi</B> &#45; pomembno je, da v stiski ne ostanete sami, ampak da se obrnete po pogovor k bližnjim ali k strokovni pomoči (osebni zdravnik, psiholog …).
+		</td>
+		</tr>
+	</table>
+		</p>
+		<p>Našteli smo le nekaj tehnik/strategij za obvladovanje stresa, obstaja jih še nešteto, zato je dobro, da se o tem izobražujete, sprašujete druge in poiščete nekaj, kar vam bo ustrezalo. Poudarili pa bi radi, da na boljšo pripravljenost za spoprijemanje s stresnimi situacijami vpliva tudi zdrav življenjski slog, zato je to še dodaten razlog, da se več gibate, bolj zdravo jeste, dovolj spite in se izogibate škodljivim razvadam.
+		</p>
+	</div>
+
+	<h3><a href="#">Vsebine - Gibanje - Seznanitev z vmesno oceno napredka in opredelitev morebitne spremembe ciljev</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF"	size="5">
+		<center><b>SEZNANITEV Z VMESNO OCENO NAPREDKA IN OPREDELITEV MOREBITNE SPREMEMBE CILJEV</b></center>
+		</font>
+		<p>
+			Za varnost  in učinkovitost telesne dejavnosti/vadbe je izrednega pomena, da je program telesne vadbe pripravljen individualno za vsakega posameznika glede na njegove potrebe in želje. Skladno s tem se včasih tekom vadbe lahko spremenijo tudi zastavljeni cilji – v primeru, da so bili te že doseženi in se tako postavijo novi/višji cilji ali pa če zastavljenih ciljev iz kakršnegakoli opravičljivega razloga ne bi bilo možno doseči. Pomembno je samo to, da vam je izbrana vadba v veselje in da v njej uživate.
+		</p>
+		</div>
+	<h3><a href="#">Vsebine - Gibanje - Spoznavanje novega načina/vrste TV ali utrjevanje/treniranje oz. nadgradnja izbrane vrste TV</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF"	size="5">
+		<center><b>SPOZNAVANJE NOVEGA NAČINA/VRSTE TV ALI UTRJEVANJE/TRENIRANJE OZ. NADGRADNJA IZBRANE VRSTE TV</b></center>
+		</font>
+		<p>
+			Za izboljšanje ali ohranjanje telesne pripravljenosti lahko izvajamo izbrano vrsto telesne vadbe ali pa se lotimo spoznavanja nove vrste telesne vadbe, saj je izrednega pomena, da nam je izbrana vadba v veselje in v njej uživamo. 
+		</p>
+		<p>
+			Za ohranjanje zdravja hrbtenice in lepo telesno držo je izrednega pomena, da krepimo globoke mišice, ki dajejo našemu trupu stabilnost ter našo hrbtenico zavarujejo pred pojavom neželenih poškodb. Pomembno je, da znamo napeti globoko trebušno mišico in mišice medeničnega dna ter se na aktivacijo teh mišic spomnimo pri izvajanju različnih vaj oziroma v procesu vadbe. Aktivacija globokih mišic trupa naj bo osnova pri izvajanju katerekoli vadbe. Več o vadbi za ohranjanje zdravja hrbtenice si lahko preberete v knjižici »Vaje za zdrav hrbet«. Svetujemo vam, da nasvete upoštevate in opisane vaje redno izvajate.
+		</p>
+	</div>
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_9/Ko%20te%20strese%20stres.pdf">Ko te strese stres</a></p>
+				</td>
+			</tr>			
+		</table>
+
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();   
+</script>

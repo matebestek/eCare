@@ -1,0 +1,180 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.5; generated)
+	openEHR-DEMOGRAPHIC-CLUSTER.person_additional_data_iso.v1
+
+concept
+	[at0000]	-- ISO: Dados demográficos adicionais de uma pessoa
+language
+	original_language = <[ISO_639-1::pt-br]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+				["name"] = <"Sergio Miranda Freire">
+				["email"] = <"sergio@lampada.uerj.br">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
+		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+		["email"] = <"sergio@lampada.uerj.br">
+		["date"] = <"22/05/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Representation of a person's additional demographic data,based on ISO standards.">
+			use = <"Used in demographic service to collect a person's additional demographic data">
+			keywords = <"demographic service", "person's demographic data">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Representação dos dados demográficos de uma pessoa">
+			use = <"Usado em serviço demográficos para coletar dados demográficos adicionais de uma pessoa">
+			keywords = <"serviço demográfico", "dados demográficos de uma pessoa">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"Authordraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"ISO/TS 22220:2008(E) - Identification of Subject of Care - Technical Specification - International Organization for Standardization">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {0..1} matches {	-- ISO: Dados demográficos adicionais de uma pessoa
+		items matches {
+			ELEMENT[at0001] occurrences matches {0..*} matches {	-- sexo
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0010, 	-- Masculino
+							at0011, 	-- Feminino
+							at0012, 	-- Intersexo ou indeterminado
+							at0013]	-- Não declarado/inadequadamente descrito
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- Sobrenome da Mãe
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..*} matches {	-- Comentários de identificação
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Person additional demographic data">
+					description = <"Person additional demographic data according to ISO 22220: sex and mother's family name">
+				>
+				["at0001"] = <
+					text = <"Sex">
+					description = <"The sex of the subject.">
+				>
+				["at0002"] = <
+					text = <"Mother's family name">
+					description = <"Mother's original family name">
+				>
+				["at0003"] = <
+					text = <"Identification comment">
+					description = <"Comments recorded for a person registration to distinguish between two or more persons with the same or similar demographic information">
+				>
+				["at0010"] = <
+					text = <"Male">
+					description = <"Male">
+				>
+				["at0011"] = <
+					text = <"Female">
+					description = <"Female">
+				>
+				["at0012"] = <
+					text = <"Intersex or indeterminate">
+					description = <"is normally used for babies for whom sex has not been determined for whatever reason, should not generally be used on data collection forms completed by the respondent and should only be used if the person or respondent volunteers that the person is intersex or where it otherwise becomes clear during the collection process that the individual is neither male nor female">
+				>
+				["at0013"] = <
+					text = <"Not declared/inadequately described">
+					description = <"is not to be used on primary collection forms. It is primarily for use in administrative collections when transferring data from data sets where the item has not been collected.">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"ISO: Dados demográficos adicionais de uma pessoa">
+					description = <"Dados demográficos adicionais de uma pessoa segundo a ISO 22220: sexo e sobrenome da mãe">
+				>
+				["at0001"] = <
+					text = <"sexo">
+					description = <"sexo da pessoa">
+				>
+				["at0002"] = <
+					text = <"Sobrenome da Mãe">
+					description = <"Sobrenome da mãe">
+				>
+				["at0003"] = <
+					text = <"Comentários de identificação">
+					description = <"Comentários registrados para uma pessoa para distinguir entre duas ou mais pessoas com a mesma informação demográfica ou similar.">
+				>
+				["at0010"] = <
+					text = <"Masculino">
+					description = <"Sexo masculino">
+				>
+				["at0011"] = <
+					text = <"Feminino">
+					description = <"Sexo feminino">
+				>
+				["at0012"] = <
+					text = <"Intersexo ou indeterminado">
+					description = <"Usado normalmente para bebês para os quais o sexo não foi determinado por qualquer razão. Não deve ser usado em formulários de coleta de dados completados pelo respondente e deve ser usado somente se a pessoa ou respondente voluntariamente afirma que a pessoa é intersexo ou onde fica claro durante o processo de coleta que o indivíduo não é nem do sexo masculino nem feminino">
+				>
+				["at0013"] = <
+					text = <"Não declarado/inadequadamente descrito">
+					description = <"Não é para ser usado em formulários de coleta primária. É primariamente usado em coleções administrativas, ao transferir conjuntos de dados onde o item não foi coletado">
+				>
+			>
+		>
+	>

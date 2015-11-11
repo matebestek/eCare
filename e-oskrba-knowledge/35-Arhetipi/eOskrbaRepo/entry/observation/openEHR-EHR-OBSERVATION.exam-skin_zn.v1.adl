@@ -1,0 +1,295 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.exam-skin_zn.v1
+specialize
+	openEHR-EHR-OBSERVATION.exam.v1
+
+concept
+	[at0000.1]	-- Skin examination
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["organisation"] = <"Ocean Informatics">
+		["name"] = <"Heather Leslie">
+		["date"] = <"10/11/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording findings determined at physical examination of skin - ZN documentation.">
+			use = <"Designed as a container for nesting detailed examination-related clusters including the inspection, palpation, auscultation and percussion CLUSTERS and their specialisations.">
+			keywords = <"examination", "physical", "skin">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za zapisovanje ugotovitev fizičnega pregleda kože - ZN dokumentacija">
+			use = <"Zgrajen kot konteiner za zbiranje opazovanj iz povezanh klastrov vključujoč pregled, otip, osluškovanje in njihove specializacije.">
+			keywords = <"fizični pregled", "rana", "koža">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, UK", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"83ABB3FFB06F0C6FA9852760DD82C361">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- Skin examination
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004.1] occurrences matches {0..1} matches {	-- Comments
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0.7] occurrences matches {0..1} matches {	-- Status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.8, 	-- Present
+													at0.9]	-- Absent
+												}
+											}
+										}
+									}
+									ELEMENT[at0.6] occurrences matches {0..1} matches {	-- Onset
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0.10] occurrences matches {0..1} matches {	-- Type of lesion
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.11, 	-- Wound
+													at0.12, 	-- Skin disorder
+													at0.13]	-- Scar (permanent marks)
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0005] occurrences matches {0..1} matches {	-- Examination detail
+										include
+											archetype_id/value matches {/.*/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.10"] = <
+					text = <"Type of lesion">
+					description = <"The broad category of skin lesion">
+				>
+				["at0.11"] = <
+					text = <"Wound">
+					description = <"The lesion is a wound.">
+				>
+				["at0.12"] = <
+					text = <"Skin disorder">
+					description = <"The lesion is a skin disorder.">
+				>
+				["at0.13"] = <
+					text = <"Scar (permanent marks)">
+					description = <"The lesion is a scar.">
+				>
+				["at0.14"] = <
+					text = <"Umbilical wound">
+					description = <"Umbilical wound ">
+				>
+				["at0.15"] = <
+					text = <"Other">
+					description = <"Other">
+				>
+				["at0.16"] = <
+					text = <"*Drugo(en)">
+					description = <"*Drugo(en)">
+				>
+				["at0.6"] = <
+					text = <"Onset">
+					description = <"Estimated date and time of onset of any observed skin lesions.">
+				>
+				["at0.7"] = <
+					text = <"Status">
+					description = <"The status of any documented lesion.">
+				>
+				["at0.8"] = <
+					text = <"Present">
+					description = <"The skin lesion or condition is present.">
+				>
+				["at0.9"] = <
+					text = <"Absent">
+					description = <"The skin lesion is now absent or healed.">
+				>
+				["at0000"] = <
+					text = <"Examination findings">
+					description = <"For recording findings determined at physical examination.">
+				>
+				["at0000.1"] = <
+					text = <"Skin examination">
+					description = <"For recording findings of skin physical examination according to ZN documentation.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Clinical description">
+					description = <"The description of the examination findings.">
+				>
+				["at0004.1"] = <
+					text = <"Comments">
+					description = <"The description of the examination findings.">
+				>
+				["at0005"] = <
+					text = <"Examination detail">
+					description = <"Details of the phyical examination.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.10"] = <
+					text = <"Tip spremembe">
+					description = <"Tip spremembe na koži">
+				>
+				["at0.11"] = <
+					text = <"Rana">
+					description = <"Rana">
+				>
+				["at0.12"] = <
+					text = <"Spremembe na koži">
+					description = <"Spremembe na koži">
+				>
+				["at0.13"] = <
+					text = <"Stalna znamenja">
+					description = <"Stalna znamenja">
+				>
+				["at0.14"] = <
+					text = <"Popkovna rana">
+					description = <"Popkovna rana">
+				>
+				["at0.15"] = <
+					text = <"Drugo">
+					description = <"Drugo">
+				>
+				["at0.16"] = <
+					text = <"Drugo">
+					description = <"Drugo">
+				>
+				["at0.6"] = <
+					text = <"Začetek">
+					description = <"Okvirni začetek spremembe">
+				>
+				["at0.7"] = <
+					text = <"Status">
+					description = <"Status">
+				>
+				["at0.8"] = <
+					text = <"Da">
+					description = <"Da">
+				>
+				["at0.9"] = <
+					text = <"Ne">
+					description = <"Ne">
+				>
+				["at0000"] = <
+					text = <"Ugotovitve pregleda">
+					description = <"Ugotovitve pregleda">
+				>
+				["at0000.1"] = <
+					text = <"Pregled kože">
+					description = <"Pregled kože">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Klinični opis">
+					description = <"Klinični opis sprememb">
+				>
+				["at0004.1"] = <
+					text = <"Opombe">
+					description = <"Opombe">
+				>
+				["at0005"] = <
+					text = <"Podrobnosti pregleda">
+					description = <"Podrobnosti pregleda">
+				>
+			>
+		>
+	>

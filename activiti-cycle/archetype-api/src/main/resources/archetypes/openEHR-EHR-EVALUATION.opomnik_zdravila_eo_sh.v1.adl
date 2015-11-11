@@ -1,0 +1,199 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.opomnik_zdravila_eo_sh.v1
+
+concept
+	[at0000]	-- Opomnik zdravila eo sh
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis jemanja zdravil pri eOskrba - shizofrenija.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"BF0615979D3565571E830D340F80A785">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Opomnik zdravila eo sh
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Pogostost jemanja zdravil
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0008, 	-- vedno – 100%
+									at0004, 	-- pogosto – 75%
+									at0005, 	-- občasno – 50%
+									at0006, 	-- redko – 25%
+									at0007]	-- nikoli – 0%
+								}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Perioda poročanja
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- 1 dan
+									at0011, 	-- 2 dneva
+									at0012, 	-- 3 dni
+									at0013, 	-- 4 dni
+									at0014, 	-- 5 dni
+									at0015, 	-- 7 dni
+									at0016, 	-- 10 dni
+									at0017, 	-- 14 dni
+									at0018, 	-- 3 tedne
+									at0019, 	-- 1 mesec
+									at0020, 	-- 2 meseca
+									at0021]	-- 3 mesece
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Opomnik zdravila eo sh">
+					description = <"Arhetip za zapis opomnika zdravila pri eOskrba - shizofrenija.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Pogostost jemanja zdravil">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Komentar">
+					description = <"Komentar k jemanju zdravil.">
+				>
+				["at0004"] = <
+					text = <"pogosto – 75%">
+					description = <"pogosto – 75%">
+				>
+				["at0005"] = <
+					text = <"občasno – 50%">
+					description = <"občasno – 50%">
+				>
+				["at0006"] = <
+					text = <"redko – 25%">
+					description = <"redko – 25%">
+				>
+				["at0007"] = <
+					text = <"nikoli – 0%">
+					description = <"nikoli – 0%">
+				>
+				["at0008"] = <
+					text = <"vedno – 100%">
+					description = <"vedno – 100%">
+				>
+				["at0009"] = <
+					text = <"Perioda poročanja">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"1 dan">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"2 dneva">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"3 dni">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"4 dni">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"5 dni">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"7 dni">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"10 dni">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"14 dni">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"3 tedne">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"1 mesec">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"2 meseca">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"3 mesece">
+					description = <"*">
+				>
+			>
+		>
+	>

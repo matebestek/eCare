@@ -1,0 +1,123 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<p>Spodaj so vsebine za korak 11, ki so razdeljene po zavihkih. Ko jih boste prebrali, kliknite spodaj na gumb 'Nadaljuj'. Na podlagi teh vsebin boste kasneje dobili vprašanja za napredovanje v naslednji korak. Vsebine si lahko kasneje ogledate tudi v zavihku 'Izobraževanje'.</p>
+	</br>
+
+<div id="activiti_form_holder">
+	
+<!--Prehrana-->
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040" size="5">
+			<center><b>KAKO PRIPRAVIMO HRANO NA ZDRAV NAČIN</b></center>
+		</font></br>
+		<p>
+		Priprava hrane je prav tako pomembno poglavje zdrave prehrane kot pravilna izbira ustreznih živil. Pravilna priprava zveča prebavljivost hrane, zmehčajo se mišična vlakna in med kuhanjem se razvijejo nove arome, ki dajejo živilu poseben okus. Vendar lahko priprava hrane zmanjša prehransko kakovost, saj se med toplotnim delovanjem uničijo nekateri vitamini in izlužijo mineralne snovi.
+		</p>
+		<p>
+		Pri nekaterih načinih priprave, kot sta na primer praženje in cvrenje, pa se maščoba, s katero se hrana pripravlja, lahko zaradi visokih temperatur spremeni v zdravju škodljive oblike (trans-nenasičene maščobe), zaradi vpijanja te maščobe v živilo pa se tudi zveča delež skritih maščob v prehrani.
+		</p>
+		<p>
+		Zdravi načini priprave hrane so predvsem:</br>
+		&#45;kuhanje v majhni količini vode, v vodni kopeli, v sopari in v aluminijasti foliji </br>
+		&#45;kuhanje pod zvišanim pritiskom</br>
+		&#45;dušenje v lastnem soku ter z malo maščob in vode</br>
+		&#45;pečenje v ponvi, pečici, v foliji za pečenje in v aluminijasti foliji</br>
+		&#45;pečenje v pečici na vroči zrak</br>
+		</p>
+		<p>
+		Pri teh načinih priprave velja, da dodajamo le toliko vode ali maščobe, kot je nujno potrebno, pazimo pa tudi, da ne uporabljamo previsokih temperatur. Priporočljiva je uporaba posebno oblikovanih posod, v katerih se hrana duši in peče brez dodanih maščob.
+		</p>
+		<p>
+		Poleg pravilne izbire načina priprave hrane, maščobe v hrani zmanjšamo tudi tako, da uporabljamo živila, ki vsebujejo manj skrite maščobe. Z ohlajanjem kuhanega živila skrite maščobe strdimo in jih tako lažje odstranimo (na primer juhe). Smetano, kislo smetano ali majonezo lahko velikokrat nadomestimo z jogurtom (smetana vsebuje 20 do 30 % maščob, jogurt pa le 3,2 ali 1,6%). Namesto z maslom zgostimo omake z zelenjavnimi pireji, škrobnih jedi (kuhanega krompirja, polente, žgancev), ki so priloga mesnim jedem v omaki, dodatno ne belimo. Običajno lahko maščobe v receptih za sladice zmanjšamo za 10 do 15%, ne da bi pri tem spremenili okus ali videz sladic.
+		</p>
+		<p>
+		Priporočila za zdravo prehrano svetujejo tudi manj soli. Hrano reje začinite z naravnimi začimbami in dišavnicami. Priprava hrane na omenjene načine z malo vode in v folijah zmanjšuje potrebo po soljenju (iz hrane se ne izlužijo minerali, ki jih moramo nadomestiti s soljo). 
+		</p>
+		<p>
+		<B>PRIPOROČILA ZA MANJŠE UŽIVANJE SOLI V PREHRANI</B>
+		</p>	
+		<p>
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>
+		Izbirajte živila, ki nimajo dodane soli (natrija).
+		</td></tr><tr><td align="center" valign="top">•</td><td>Izogibajte se živilom, ki vsebujejo veliko soli (industrijsko predelana, polpripravljena, pripravljena ter konzervirana živila/obroki).
+		</td></tr><tr><td align="center" valign="top">•</td><td>Izogibajte se dosoljevanju jedi iz navade (pri mizi in pri kuhanju), ne da bi jo prej poizkusili. Mnogim je dosoljevanje že navada.
+		</td></tr><tr><td align="center" valign="top">•</td><td>Izberite manj slan kruh in krušne izdelke.
+		</td></tr><tr><td align="center" valign="top">•</td><td>Redko in v manjših količinah uživajte prekajeno meso in mesne izdelke.
+		</td></tr><tr><td align="center" valign="top">•</td><td>Pri pripravi obrokov uporabljajte različna zelišča/začimbe (sveža, suha ali zamrznjena) namesto kuhinjske soli, vnaprej pripravljenih začimbnih mešanic in omak.
+		</td></tr></table></p>
+				
+	</div>	
+	<h3><a href="#">Vsebine - Gibanje - Spoznavanje novega načina/vrste TV ali utrjevanje/treniranje oz. nadgradnja izbrane vrste TV</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF"	size="5">
+		<center><b>SPOZNAVANJE NOVEGA NAČINA/VRSTE TV ALI UTRJEVANJE/TRENIRANJE OZ. NADGRADNJA IZBRANE VRSTE TV</b></center>
+		</font>
+		<p>
+			Plavanje in vadba v vodi sta izredno učinkoviti obliki telesne vadbe tudi v procesu hujšanja, saj prispevata k izboljšanju zdravja telesa in duha. V vodi je v gibanje vključeno celotno telo, največja prednost vode pa je razbremenitev gibalnega aparata (kosti in sklepov), saj sila vzgona odvzame določen del telesne teže, zato je vadba v vodi primerna tudi za posameznike z obolenji gibal ter ljudi s prekomerno telesno maso, ki bi pri vadbi na kopnem prekomerno obremenjevali svoje kostne in sklepne strukture. Z vadbo v vodi izboljšamo zdravje srca, ožilja in gibal. Med vadbo v vodi se nam frekvenca srčnega utripa ne zviša toliko kot pri isti intenzivnosti vadbe na kopnem ter se tako tudi hitreje povrne v prvotno stanje, kar povzroča tudi manjšo obremenitev za srce kot vadba na kopnem. Prednost vadbe v vodi pa je torej tudi ta, da ob aktivnostih, s katerimi pospešujemo energijsko porabo, ne povzročamo takega stresa oziroma pritiska na gibalni aparat kot pri vadbi na kopnem.
+		</p>
+	</div>
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_11/11%20Okus%20po%20zdravem_menjalnica_korak%2011.pdf">Okus po zdravem - menjalnica</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_11/Nasveti%20za%20potrosnike%20pri%20nakupu.pdf">Nasveti za potrošnike pri nakupu</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_11/Prevec%20soli%20skodi.pdf">Preveč soli škodi</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/20508400">8. oddaja: Priprava hrane </a></p>
+				</td>
+			</tr>		
+		</table>
+
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<archetype xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.openehr.org/v1">
+  <original_language>
+    <terminology_id>
+      <value>ISO_639-1</value>
+    </terminology_id>
+    <code_string>sl</code_string>
+  </original_language>
+  <description>
+    <original_author id="name"></original_author>
+    <lifecycle_state>0</lifecycle_state>
+    <other_details id="MD5-CAM-1.0.1">3F72F7A410A4B216566BCB043C432864</other_details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>sl</code_string>
+      </language>
+      <purpose>Cluster za zapis gibalne dejavnosti, ki se uporabi v različnih arhetipih.</purpose>
+      <use />
+      <misuse />
+    </details>
+  </description>
+  <archetype_id>
+    <value>openEHR-EHR-CLUSTER.vprasalnik_gibanje_dnevi_eo.v1</value>
+  </archetype_id>
+  <adl_version>1.4</adl_version>
+  <concept>at0000</concept>
+  <definition>
+    <rm_type_name>CLUSTER</rm_type_name>
+    <occurrences>
+      <lower_included>true</lower_included>
+      <upper_included>true</upper_included>
+      <lower_unbounded>false</lower_unbounded>
+      <upper_unbounded>false</upper_unbounded>
+      <lower>1</lower>
+      <upper>1</upper>
+    </occurrences>
+    <node_id>at0000</node_id>
+    <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+      <rm_attribute_name>items</rm_attribute_name>
+      <existence>
+        <lower_included>true</lower_included>
+        <upper_included>true</upper_included>
+        <lower_unbounded>false</lower_unbounded>
+        <upper_unbounded>false</upper_unbounded>
+        <lower>1</lower>
+        <upper>1</upper>
+      </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0001</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_DATE</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0002</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_CODED_TEXT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>defining_code</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_CODE_PHRASE">
+                <rm_type_name>CODE_PHRASE</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <terminology_id>
+                  <value>local</value>
+                </terminology_id>
+                <code_list>at0023</code_list>
+                <code_list>at0024</code_list>
+                <code_list>at0025</code_list>
+                <code_list>at0026</code_list>
+                <code_list>at0027</code_list>
+                <code_list>at0028</code_list>
+                <code_list>at0029</code_list>
+                <code_list>at0030</code_list>
+                <code_list>at0031</code_list>
+                <code_list>at0032</code_list>
+                <code_list>at0033</code_list>
+                <code_list>at0034</code_list>
+              </children>
+            </attributes>
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0003</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_DV_ORDINAL">
+            <rm_type_name>DV_ORDINAL</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+            <list>
+              <value>1</value>
+              <symbol>
+                <value />
+                <defining_code>
+                  <terminology_id>
+                    <value>local</value>
+                  </terminology_id>
+                  <code_string>at0018</code_string>
+                </defining_code>
+              </symbol>
+            </list>
+            <list>
+              <value>2</value>
+              <symbol>
+                <value />
+                <defining_code>
+                  <terminology_id>
+                    <value>local</value>
+                  </terminology_id>
+                  <code_string>at0019</code_string>
+                </defining_code>
+              </symbol>
+            </list>
+            <list>
+              <value>3</value>
+              <symbol>
+                <value />
+                <defining_code>
+                  <terminology_id>
+                    <value>local</value>
+                  </terminology_id>
+                  <code_string>at0020</code_string>
+                </defining_code>
+              </symbol>
+            </list>
+            <list>
+              <value>4</value>
+              <symbol>
+                <value />
+                <defining_code>
+                  <terminology_id>
+                    <value>local</value>
+                  </terminology_id>
+                  <code_string>at0021</code_string>
+                </defining_code>
+              </symbol>
+            </list>
+            <list>
+              <value>5</value>
+              <symbol>
+                <value />
+                <defining_code>
+                  <terminology_id>
+                    <value>local</value>
+                  </terminology_id>
+                  <code_string>at0022</code_string>
+                </defining_code>
+              </symbol>
+            </list>
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0004</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_TIME</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+          </children>
+        </attributes>
+      </children>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>ELEMENT</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <upper_included>true</upper_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>false</upper_unbounded>
+          <lower>0</lower>
+          <upper>1</upper>
+        </occurrences>
+        <node_id>at0005</node_id>
+        <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+          <rm_attribute_name>value</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>DV_CODED_TEXT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id />
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>defining_code</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_CODE_PHRASE">
+                <rm_type_name>CODE_PHRASE</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <terminology_id>
+                  <value>local</value>
+                </terminology_id>
+              </children>
+            </attributes>
+          </children>
+        </attributes>
+      </children>
+      <cardinality>
+        <is_ordered>false</is_ordered>
+        <is_unique>false</is_unique>
+        <interval>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>1</lower>
+        </interval>
+      </cardinality>
+    </attributes>
+  </definition>
+  <ontology>
+    <term_definitions language="sl">
+      <items code="at0000">
+        <items id="text">Vprasalnik gibanje dnevi eo</items>
+        <items id="description">unknown</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0001">
+        <items id="text">Datum vadbe</items>
+        <items id="description">*</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0002">
+        <items id="text">Športna panoga</items>
+        <items id="description">*</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0003">
+        <items id="text">Intenzivnost vadbe</items>
+        <items id="description">Opis intenzivnosti vadbe - pet območij (določeno s % FSmax in splošnim opisom).</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0004">
+        <items id="text">Trajanje vadbe</items>
+        <items id="description">*</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0005">
+        <items id="text">Komentar</items>
+        <items id="description">*</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0018">
+        <items id="text">Zelo nizka intenzivnost</items>
+        <items id="description">Regeneracija (do 60 % FSmax). Med aktivnostjo je mogoč sproščen pogovor.</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0019">
+        <items id="text">Nizka intenzivnost</items>
+        <items id="description">Aerobno I (60 do 70 % FSmax). Med aktivnostjo je mogoč pogovor s krajšimi prekinitvami.</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0020">
+        <items id="text">Zmerna intenzivnost</items>
+        <items id="description">Aerobno II (70 do 80 % FSmax). Med vadbo je pogovor otežen, pogovarja se lahko le v zelo kratkih stavkih.</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0021">
+        <items id="text">Visoka intenzivnost</items>
+        <items id="description">Aerobno in anaerobno (80 do 90 % FSmax). Med vadbo je pogovor otežen, pogovarja se lahko le v zelo kratkih stavkih.</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0022">
+        <items id="text">Zelo visoka intenzivnost</items>
+        <items id="description">Pretežno anaerobno (90 do 100 % FSmax). Med vadbo pogovor praktično ni mogoč.</items>
+        <items id="comment"></items>
+      </items>
+      <items code="at0023">
+        <items id="text">Aerobika (različne oblike)</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0024">
+        <items id="text">Fitnes (delo z utežmi)</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0025">
+        <items id="text">Hoja</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0026">
+        <items id="text">Igre z loparjem (tenis, badminton, squash)</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0027">
+        <items id="text">Igre z žogo (nogomet, košarka, odbojka)</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0028">
+        <items id="text">Kolesarjenje (cestno, gorsko)</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0029">
+        <items id="text">Plavanje</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0030">
+        <items id="text">Pohodništvo</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0031">
+        <items id="text">Rolanje</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0032">
+        <items id="text">Sobno kolo (doma, skupinsko)</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0033">
+        <items id="text">Tek</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0034">
+        <items id="text">Drugo</items>
+        <items id="description">Drugo, ni na seznamu</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+  </ontology>
+</archetype>

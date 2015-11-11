@@ -1,0 +1,254 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.prehrana_eo_pp.v1
+
+concept
+	[at0000]	-- Prehrana eo pp
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"C8502FFC4D26C0E813AD22B944F1E6C5">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Prehrana eo pp
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Število dnevnih obrokov
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0003, 	-- 2 ali manj
+									at0004, 	-- 3 do 5
+									at0005]	-- 6 ali več
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Uživanje zelenjave
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0007, 	-- Nikoli
+									at0008, 	-- 1-6x na teden
+									at0009, 	-- 1x na dan
+									at0010]	-- Več kot 1x na dan
+								}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Soljenje jedi pri mizi
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0012, 	-- Da
+									at0013]	-- Ne
+								}
+							}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..*} matches {	-- Vrste maščob
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0017, 	-- Rastlinska olja
+									at0018, 	-- Smetana (kisla ali sladka)
+									at0019, 	-- Maslo
+									at0020, 	-- Svinjska mast
+									at0021, 	-- Trde margarine
+									at0022]	-- Mehke margarine
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Število doseženih točk
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..6|}
+							}
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {	-- Ogroženost
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0024, 	-- Ni ogrožen
+									at0025, 	-- Srednje visoka ogroženost
+									at0026]	-- Visoka ogroženost
+								}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Prehrana eo pp">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Število dnevnih obrokov">
+					description = <"Število dnevnih obrokov na običajen, delavni dan.">
+				>
+				["at0003"] = <
+					text = <"2 ali manj">
+					description = <"2 obroka dnevno ali manj (0 točk)">
+				>
+				["at0004"] = <
+					text = <"3 do 5">
+					description = <"3 do 5 obrokov dnevno (1 točka)">
+				>
+				["at0005"] = <
+					text = <"6 ali več">
+					description = <"6 ali več obrokov dnevno (0 točk)">
+				>
+				["at0006"] = <
+					text = <"Uživanje zelenjave">
+					description = <"Kako pogosto posameznik uživa zelenjavo.">
+				>
+				["at0007"] = <
+					text = <"Nikoli">
+					description = <"Nikoli (0 točk)">
+				>
+				["at0008"] = <
+					text = <"1-6x na teden">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"1x na dan">
+					description = <"1x na dan (1 točka)">
+				>
+				["at0010"] = <
+					text = <"Več kot 1x na dan">
+					description = <"Več kot enkrat na dan (2 točki)">
+				>
+				["at0011"] = <
+					text = <"Soljenje jedi pri mizi">
+					description = <"Ali ima posameznik navado soliti jedi pri mizi.">
+				>
+				["at0012"] = <
+					text = <"Da">
+					description = <"Da (0 točk)">
+				>
+				["at0013"] = <
+					text = <"Ne">
+					description = <"Ne (1 točka)">
+				>
+				["at0014"] = <
+					text = <"Število doseženih točk">
+					description = <"Število doseženih točk.">
+				>
+				["at0015"] = <
+					text = <"Komentar">
+					description = <"Komentar doseženih točk oz. rezultatov.">
+				>
+				["at0016"] = <
+					text = <"Vrste maščob">
+					description = <"Vrsta maščobe, ki jo posameznik v povprečju največ uporablja pri pripravi hrane ali kot namaz - lahko več odgovorov.">
+				>
+				["at0017"] = <
+					text = <"Rastlinska olja">
+					description = <"Rastlinska olja (1 točka)">
+				>
+				["at0018"] = <
+					text = <"Smetana (kisla ali sladka)">
+					description = <"Smetana (kisla ali sladka) (0 točk)">
+				>
+				["at0019"] = <
+					text = <"Maslo">
+					description = <"Maslo (0 točk)">
+				>
+				["at0020"] = <
+					text = <"Svinjska mast">
+					description = <"Svinjska mast (0 točk)">
+				>
+				["at0021"] = <
+					text = <"Trde margarine">
+					description = <"Trde margarine (0 točk)">
+				>
+				["at0022"] = <
+					text = <"Mehke margarine">
+					description = <"Mehke margarine (1 točka)">
+				>
+				["at0023"] = <
+					text = <"Ogroženost">
+					description = <"Ocena ogroženosti.">
+				>
+				["at0024"] = <
+					text = <"Ni ogrožen">
+					description = <"Posameznik predvidoma ni ogrožen">
+				>
+				["at0025"] = <
+					text = <"Srednje visoka ogroženost">
+					description = <"Posameznik je zmerno ogrožen, potrebni so ukrepi.">
+				>
+				["at0026"] = <
+					text = <"Visoka ogroženost">
+					description = <"Posameznik je zelo ogrožen, nujni so ukrepi.">
+				>
+			>
+		>
+	>

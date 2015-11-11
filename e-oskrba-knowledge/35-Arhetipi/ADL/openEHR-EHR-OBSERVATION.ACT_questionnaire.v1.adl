@@ -1,0 +1,365 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.act_questionnaire.v1
+
+concept
+	[at0000]	-- ACT vprašalnik
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"19.10.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"A checklist is used to assess ODD and ADDH symptoms">
+			use = <"For assessing symptoms of:
+ODD - oppositional defiant disorder / oppositional behaviour
+ADDH - attention deficit disorder with hyperactivity">
+			keywords = <"ODD", "ADDH", "symptoms", "Brecelj", "Kobe", "attention deficit disorder with hyperactivity", "oppositional defiant disorder", "oppositional behavious">
+			misuse = <"To assess level of ODD or ADDH">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Lestvica se uporablja za oceno urejenosti astme">
+			use = <"Za oceno prisotnosti simptomov astme">
+			keywords = <"simptomi", "ACT", "vprašalnik", "astma", "urejenost">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"36F85190B5B5A18AC57AB5412129AA3E">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- ACT vprašalnik
+		data matches {
+			HISTORY[at0001] matches {	-- **Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- **Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0106] occurrences matches {0..1} matches {	-- Urejenost astme
+										items cardinality matches {1..5; ordered} matches {
+											ELEMENT[at0045] occurrences matches {0..5} matches {	-- Koliko časa vam je v zadnjih 4. tednih astma onemogočala, da bi v službi, šoli, univerzi ali doma izvajali svoje običajne aktivnosti?
+												value matches {
+													1|[local::at0109], 	-- Več časa
+													2|[local::at0110], 	-- Večino časa
+													3|[local::at0111], 	-- Nekaj časa
+													4|[local::at0112], 	-- Malo časa
+													5|[local::at0113]  	-- Nič časa
+												}
+											}
+											ELEMENT[at0048] occurrences matches {0..5} matches {	-- Kolikokrat ste v zadnjih 4. Tednih imeli kratko sapo?
+												value matches {
+													1|[local::at0049], 	-- Več kot enkrat na dan
+													2|[local::at0050], 	-- Enkrat na dan
+													3|[local::at0114], 	-- 3 do 6 krat na teden
+													4|[local::at0115], 	-- Enkrat do dvakrat na teden
+													5|[local::at0116]  	-- Nikoli
+												}
+											}
+											ELEMENT[at0051] occurrences matches {0..1} matches {	-- Kolikokrat v zadnjih 4. tednih so vas ponoči ali zgodaj zjutraj zbudili simptomi astme (piskanje, kašelj, dušenje, stiskanje ali bolečine v prsih)?
+												value matches {
+													0|[local::at0052], 	-- Ne
+													1|[local::at0053]  	-- Da
+												}
+											}
+											ELEMENT[at0054] occurrences matches {0..1} matches {	-- Kolikokrat ste v zadnjih 4. tednih uporabili olajševalec v pršilu ali inhalaciji (kot so Ventolin®, Berotec® in Berodual®)?
+												value matches {
+													0|[local::at0055], 	-- Ne
+													1|[local::at0056]  	-- Da
+												}
+											}
+											ELEMENT[at0057] occurrences matches {0..1} matches {	-- Kako bi ocenili vaš nadzor nad astmo v zadnjih 4. tednih?
+												value matches {
+													0|[local::at0058], 	-- Ne
+													1|[local::at0059]  	-- Da
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Brecelj-Kobe scales">
+					description = <"Checklists for ODD and ADDH symptoms">
+				>
+				["at0001"] = <
+					text = <"*Event Series">
+					description = <"*@ internal @">
+				>
+				["at0002"] = <
+					text = <"*Any event">
+					description = <"**">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0045"] = <
+					text = <"Physical altercations">
+					description = <"Altercates physically with others">
+				>
+				["at0048"] = <
+					text = <"Quarrelsome">
+					description = <"Quarrelsome">
+				>
+				["at0049"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Yes">
+					description = <"Patient is quarrelsome">
+				>
+				["at0051"] = <
+					text = <"Variability of mood">
+					description = <"Variability of patient's mood">
+				>
+				["at0052"] = <
+					text = <"Statica">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Variable">
+					description = <"Patient is of variable mood, changes mood frequently">
+				>
+				["at0054"] = <
+					text = <"Leaderness">
+					description = <"Patient wants to be a leader">
+				>
+				["at0055"] = <
+					text = <"No">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Yes">
+					description = <"Patient wants to be a leader">
+				>
+				["at0057"] = <
+					text = <"Wandering about">
+					description = <"Wanders about, plays truant/skips school, tortures, drugs">
+				>
+				["at0058"] = <
+					text = <"Not present">
+					description = <"*">
+				>
+				["at0059"] = <
+					text = <"Present">
+					description = <"At least one element of the following is present: Patient wanders about, plays truant/skips school, tortures, takes drugs">
+				>
+				["at0106"] = <
+					text = <"ODD scale">
+					description = <"Oppositional Defiant Disorder / Oppositional behaviour scale.">
+				>
+				["at0109"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+				["at0110"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+				["at0111"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+				["at0112"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+				["at0113"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+				["at0114"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+				["at0115"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+				["at0116"] = <
+					text = <"*new ordinal(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"ACT vprašalnik">
+					description = <"Lestvica za oceno urejenosti astme">
+				>
+				["at0001"] = <
+					text = <"**Event Series(en)">
+					description = <"**@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"**Any event(en)">
+					description = <"***(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0045"] = <
+					at0005 = <"2">
+					at0006 = <"3">
+					at0007 = <"4">
+					at0008 = <"5">
+					description = <"Izvajanje običajnih aktivnosti">
+					text = <"Koliko časa vam je v zadnjih 4. tednih astma onemogočala, da bi v službi, šoli, univerzi ali doma izvajali svoje običajne aktivnosti?">
+					at0004 = <"1">
+				>
+				["at0048"] = <
+					at0012 = <"3 do 6 krat na teden">
+					at0013 = <"Enkrat do dvakrat na teden">
+					at0014 = <"Nikoli">
+					description = <"Kratka sapa">
+					text = <"Kolikokrat ste v zadnjih 4. Tednih imeli kratko sapo?">
+					at0010 = <"Več kot enkrat na dan">
+					at0011 = <"Enkrat na dan">
+				>
+				["at0049"] = <
+					text = <"Več kot enkrat na dan">
+					description = <"Več kot enkrat na dan">
+				>
+				["at0050"] = <
+					text = <"Enkrat na dan">
+					description = <"Enkrat na dan">
+				>
+				["at0051"] = <
+					text = <"Kolikokrat v zadnjih 4. tednih so vas ponoči ali zgodaj zjutraj zbudili simptomi astme (piskanje, kašelj, dušenje, stiskanje ali bolečine v prsih)?">
+					description = <"Spremenljivega razpoloženja">
+				>
+				["at0052"] = <
+					text = <"Ne">
+					description = <"Ni spremenljivega razpoloženja">
+				>
+				["at0053"] = <
+					text = <"Da">
+					description = <"Spremenljivega razpoloženja">
+				>
+				["at0054"] = <
+					text = <"Kolikokrat ste v zadnjih 4. tednih uporabili olajševalec v pršilu ali inhalaciji (kot so Ventolin®, Berotec® in Berodual®)?">
+					description = <"Želi biti vodja">
+				>
+				["at0055"] = <
+					text = <"Ne">
+					description = <"Ne želi biti vodja">
+				>
+				["at0056"] = <
+					text = <"Da">
+					description = <"Želi biti vodja">
+				>
+				["at0057"] = <
+					text = <"Kako bi ocenili vaš nadzor nad astmo v zadnjih 4. tednih?">
+					description = <"Bega, šprica, muči, droge">
+				>
+				["at0058"] = <
+					text = <"Ne">
+					description = <"Ne bega, šprica, muči, droge">
+				>
+				["at0059"] = <
+					text = <"Da">
+					description = <"Bega, šprica, muči, droge">
+				>
+				["at0106"] = <
+					text = <"Urejenost astme">
+					description = <"Vrednosti ACT vprašalnika o urejenosti astme">
+				>
+				["at0109"] = <
+					text = <"Več časa">
+					description = <"Več časa">
+				>
+				["at0110"] = <
+					text = <"Večino časa">
+					description = <"Večino časa">
+				>
+				["at0111"] = <
+					text = <"Nekaj časa">
+					description = <"Nekaj časa">
+				>
+				["at0112"] = <
+					text = <"Malo časa">
+					description = <"Malo časa">
+				>
+				["at0113"] = <
+					text = <"Nič časa">
+					description = <"Nič časa">
+				>
+				["at0114"] = <
+					text = <"3 do 6 krat na teden">
+					description = <"3 do 6 krat na teden">
+				>
+				["at0115"] = <
+					text = <"Enkrat do dvakrat na teden">
+					description = <"Enkrat do dvakrat na teden">
+				>
+				["at0116"] = <
+					text = <"Nikoli">
+					description = <"Nikoli">
+				>
+			>
+		>
+	>

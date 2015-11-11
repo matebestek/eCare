@@ -1,0 +1,143 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+	
+<div id="activiti_form_holder">
+	
+<!--Prehrana-->
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Zdravljenje debelosti</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>ZDRAVLJENJE DEBELOSTI</b></center>
+		</font>
+		</br>
+		<p>
+		Zdravljenje debelosti je kompleksno in je učinkovito le kadar traja dalj časa in počasi. Pomembno je, da se tega zavedamo, da ne izgubimo volje in veselja, ker rezultati ne nastanejo čez noč, ampak je potrebna strpnost in vztrajnost. Zdrav življenjski slog nam mora postati nekaj vsakdanjega, ne nekaj kar nam predstavlja stres in odrekanje. Modne diete, ki obljubljajo hitro zmanjšanje telesne mase, delujejo le na kratki rok. 
+		</p>
+		<p>
+		Pri zdravljenju debelosti je pomembno, da zmanjšamo delež maščobe v telesu, ohranimo pa mišično in kostno maso. To je mogoče z uravnoteženo prehrano in redno telesno aktivnostjo. Ko dosežemo priporočeno telesno maso, jo je potrebno vzdrževati.
+		</p>
+		<p>
+		Pri zdravljenju debelosti cilj ne sme biti samo zmanjšanje telesne mase, temveč tudi na vzdrževanje telesne mase, ki je opredeljeno kot doseganje najboljše možne telesne mase v okviru vsesplošnega zdravja. Doseganje idealne telesne mase ali procent telesne maščobe ni vedno realno ali želeno niti primerno. Odvisno od tipa in resnosti debelosti, starosti in življenjskega sloga posameznika, se uspešnost zmanjšanja telesne mase spreminja od tega, da je zmanjšanje relativno preprosto do skoraj nemogočega. 
+		</p>
+		<p>
+		Vzdrževanje telesne mase oziroma zmerna izguba telesne mase je koristna. Debeli ljudje, ki izgubijo 5 do 10 % začetne telesne mase, s tem izboljšajo svoje zdravje in zmanjšajo tveganja, ki so povezana debelostjo. Izboljša se uravnavanje glukoze v krvi, zniža se krvni pritisk in zniža se holesterol.
+		</p>
+		<p>
+		Kljub spoznanju, da je zmerna izguba telesne mase koristna za zdravje, imajo debeli ljudje velikokrat drugačne cilje in predstave o svoji telesni masi in se precej razlikujejo od tistih, ki jih predlaga strokovnjak. Običajno so pričakovanja nerealistična in nedosegljiva, zato je potrebno sprejeti bolj zmerno zmanjšanje telesne mase in razumeti kakšne realne cilje lahko dosežemo s trenutnimi metodami zdravljenja.
+		</p>
+		<p>
+		Zmanjšanje telesne mase vpliva na izgubo tako mišične mase kot maščobe. Drastično zmanjšanje energijskega vnosa sicer vpliva na hitro izgubo telesne mase, vendar se med drugim telo odzove na stradanje tako, da se prilagodi na ponovno možno obdobje pomanjkanja, tako da si naredi zaloge, ko dobi hrano. Na ta način ne pridemo nikamor, saj vso na hitro izgubljeno telesno maso pridobimo nazaj pa še kak kilogram zraven. Spremembe metabolizma, ki se pojavijo med stradanjem, povzročijo vrsto neželenih učinkov. 
+		</p>
+		<p>
+		Enakomerno zmanjšanje telesne mase v daljšem časovnem obdobju daj prednost zmanjšanju maščobnih zalog in omeji izgubo mišične mase. Zmanjševanje telesne mase mora biti postopno, v skladu s smernicami optimalnega zmanjševanja telesne mase, ki narekujejo izgubo telesne mase med 500 – 700 g na teden oz. ne več kot 2 do 2.5 kg na mesec, na podlagi predhodnega izračuna dnevne porabe energije. Zmanjševanje telesne mase bi naj trajalo 6 mesecev, v tem obdobju je priporočeno zmanjšati telesno maso za približno 10 %. Obdobju hujšanja sledi 6 mesečno obdobje vzdrževanja telesne mase. Po končanju te faze lahko ponovno začnemo s 6 mesečnim obdobjem hujšanja.
+		</p>
+		<p>
+		Končni cilj dosežene telesne mase mora biti prilagojen vsakemu posamezniku, izbran realno in usmerjen v zmanjšanje telesne maščobe.
+		</p>
+		<p>
+		Temelj zdravljenja debelosti je sprememba vedenja. Usmerjena je v prestrukturiranje okolja posameznika, da zmanjša tista vedenja ali navade, ki prispevajo k debelosti. Zraven prehrane in telesne aktivnosti so ključne komponente spremembe vedenja spremljanje samega sebe, postavitev ciljev, spodbujanje, reševanje problemov in preprečevanje ponovitve bolezni (relapsu).
+		</p>
+		<p>
+		Spremljanje samega sebe, s vsakodnevnim pisanjem prehranskega dnevnika in svojih misli ter občutkov, pomaga prepoznati fizično in čustveno stanje kdaj se prehranjujemo. Telesna dejavnost se običajno zapisuje v minutah vadbe ali kalorijah, ki ji porabimo pri vadbi. Tako se dobi povratna informacija o napredku in postavi odgovornost za spremembo in dosežek na posameznika. Prav tako da sled o relapsu in posledični krivdi ter kako ju lahko preprečimo.   
+		</p>
+		<p>
+		Dodatne možnosti zdravljenja z zdravili in kirurškimi posegi so primerne samo v določenih primerih in niso nadomestilo za nujno potrebne spremembe v načinu prehranjevanja in telesni aktivnosti. Druge dodatne metode zdravljena so:
+		</p>
+		1.KIRURŠKE
+		
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>Zmanjšanje želodca
+		</td></tr><tr><td align="center" valign="top">•</td><td>Črevesni obvod – operacija s katero skrajšamo črevesje in tako zmanjšamo možnost, da bi se zaužita hrana vsrkala v kri
+		</td></tr><tr><td align="center" valign="top">•</td><td>Operativna odstranitev odvečne kože po končanem hujšanju
+		</td></tr><tr><td align="center" valign="top">•</td><td>Liposukcija – z njeno pomočjo lahko odstranimo le maščobo iz podkožja</br></br>
+		</td></tr></table>
+		2.ZDRAVLJENJE Z ZDRAVILI:
+		
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>Zdravila za zmanjševanje apetita
+		</td></tr><tr><td align="center" valign="top">•</td><td>Zdravila, ki povečujejo občutek sitosti
+		</td></tr><tr><td align="center" valign="top">•</td><td>Zdravila, ki preprečujejo absorpcijo maščob iz črevesja
+		</td></tr><tr><td align="center" valign="top">•</td><td>Zdravila za povečanje porabe energije</br></br>
+		</td></tr></table>
+		Kot pri vseh drugih zdravilih je potreben nadzor zdravnika zaradi varnosti.
+		
+	</div>
+
+<!--Prehrana-->
+<!--Drugi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Prehranska dopolnila</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>PREHRANSKA DOPOLNILA</b></center>
+		</font>
+		</br>
+		<p>
+		<B>Ali so priporočljiva za vse ljudi? Ali se z njimi lahko odkupimo za nezdrav življenjski slog, odpravimo neko zdravstveno težavo?</B></br>
+		Prehranska dopolnila so živila, ne zdravijo bolezni in niso bližnjica do zdravja. Z (bolj ali manj) uravnoteženo prehrano lahko zadostno pokrijemo potrebe po hranilih in dodajanje v obliki prehranskih dopolnil ni potrebno.  Lahko pa pri posameznikih zaradi določenih stanj, obdobij in življenjskih pogojev nastopi potreba po uživanju prehranskih dopolnil
+		</p>
+		<p>
+		<B>Ali se katerim skupinam ljudi posebej priporočajo prehranska dopolnila? </B></br>
+		Prehranska dopolnila se v splošnem ne da priporočati posamezni populacijski skupini, pač pa se pri posameznikih na podlagi kliničnih ali subkliničnih znakov ali prehranske anamneze ugotovi pomanjkanje določenega hranila in ga je potrebno dodajati tudi v obliki prehranskih dopolnil. Kot je pokazala javno mnenjska raziskava, ki jo je Ministrstvo za zdravje opravilo v lanskem letu, večina tistih, ki uživa prehranska dopolnila o svojih težavah ni obvestila zdravnika. Oziroma jih 2/3 uživa brez predhodnega nasveta zdravnika, torej v preventivne namene. Kar je zaradi visokih vnosov koncentriranih hranil lahko tudi škodljivo. Če je torej ugotovljen primanjkljaj hranil, se pogosto priporoča kombinacije npr. vitamin D, magnezij in kalcij pri osteoporozi, železo in vitamin B12 pri anemijah / vegetarijancih, vitamine in minerale pri športnikih, tistih z dolgotrajnim odstopanjem od uravnotežene prehrane, pri alergikih (izogibanje nekaterim kategorijam živil), dolgoverižne n-3 maščobne kisline pri kroničnih srčno-žilnih boleznih. Vendar raziskave potrjujejo večji zaščitni učinek vitaminov in drugih snovi zaužitih z živili, kot s prehranskimi dopolnili oziroma obogatenimi živili.
+		</p>
+		<p>
+		<B>Ali veste kakšna je razlika med prehranskimi dopolnili in zdravili?</B></br>
+		Prehranska dopolnila so resnično skrajno področje tako živil kot zdravil, zato jih ljudje pogosto zamenjujejo z zdravili brez recepta. So v podobnih embalažah, v podobnih farmacevtskih oblikah in tudi prodajajo se na podobnih mestih npr. v lekarnah. Vendar je na podlagi zakonodaje na prehranskem dopolnilu jasno označeno, da gre za prehransko dopolnilo in kar je najbolj bistveno, prehranska dopolnila niso namenjena zdravljenju, pač pa dopolnjevanju prehrane.
+		</p>
+		<p>
+		<B>Pravega nadzora kakovosti prehranskih dopolnil ni, prav tako niso nujne študije o učinkovitosti. Kako torej izbrati primerno in kvalitetno prehransko dopolnilo? </B></br>
+		Prehranska dopolnila so sicer predmet uradnega nadzora, ki ga izvaja Zdravstveni inšpektorat RS. Nadzor poteka podobno kot pri živilih in zato ne zajema ugotavljanja vsebnosti posameznih sestavin – tako se ne ugotavlja vsebnosti npr. vitamina C.  Za varen in kakovosten izdelek je odgovoren tisti, ki prehransko dopolnilo daje na trg v RS. Številni proizvajalci in ponudniki prehranskih dopolnil, tukaj bi izpostavili predvsem lekarne, se zavedajo teh težav in v teku je več aktivnosti, ki bodo pripeljale do večje urejenosti na tem področju. Vsekakor pa na podlagi izkušenj, ki jih imamo, odsvetujemo nakup preko spleta.
+		</p>
+	</div>
+
+</div>	
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_15/Funkcionalna%20zivila.pdf">Funkcionalna živila</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_15/Kaj%20so%20barve%20barvila%20za%20zivila.pdf">Kaj so barve barvila za živila</a></p>
+				</td>
+			</tr>	
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

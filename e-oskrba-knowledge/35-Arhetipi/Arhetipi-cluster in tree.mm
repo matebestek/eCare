@@ -1,0 +1,130 @@
+<map version="0.9.0" software_name="SciPlore_MindMapping" software_version="0.15" private="1" mapID="5ea44bb8-1101-4e33-b825-04b1b0819a87">
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!-- To view this file, download free mind mapping software SciPlore MindMapping from http://www.sciplore.org/software/sciplore_mindmapping/ -->
+<node CREATED="1306927023930" ID="ID_1263050217" MODIFIED="1306927042625" TEXT="Uporaba arhetipov">
+<node CREATED="1306927044910" ID="ID_763932394" MODIFIED="1306927049512" POSITION="right" TEXT="Cluster">
+<node CREATED="1306927211252" ID="ID_1687147621" MODIFIED="1306927216744" TEXT="administrativni">
+<node COLOR="#ff0000" CREATED="1306932038588" ID="ID_1372586209" MODIFIED="1306933375299" TEXT="osebni podatki">
+<node CREATED="1306931410607" ID="ID_545815670" MODIFIED="1306931454123" TEXT="openEHR-EHR-CLUSTER.individual_personal.v1">
+<richcontent TYPE="NOTE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      Osebni podatki
+    </p>
+  </body>
+</html></richcontent>
+<node CREATED="1306931584737" ID="ID_1175128734" MODIFIED="1306931588146" TEXT="ime">
+<node CREATED="1306931588146" ID="ID_1095637705" MODIFIED="1306931591532" TEXT="openEHR-EHR-CLUSTER.person_name.v1"/>
+</node>
+<node CREATED="1306931397978" ID="ID_1155853299" MODIFIED="1306931495958" TEXT="naslov">
+<node CREATED="1306931497885" ID="ID_1925540969" MODIFIED="1306931497885" TEXT="openEHR-EHR-CLUSTER.address.v1"/>
+</node>
+<node CREATED="1306927097247" ID="ID_1469705767" MODIFIED="1306927110367" TEXT="zapis mobilne &#x161;tevilke">
+<node CREATED="1306927084432" ID="ID_1945580730" MODIFIED="1306927097247" TEXT="telecom_details"/>
+</node>
+</node>
+</node>
+<node CREATED="1306927569716" ID="ID_1268888591" MODIFIED="1306927586160" TEXT="za opis vloge (role), potrebno &#x161;e notranji cluster">
+<node CREATED="1306927567167" ID="ID_948329594" MODIFIED="1306927567167" TEXT="professional_role"/>
+</node>
+<node CREATED="1306927928976" ID="ID_1760849935" MODIFIED="1306927931972" TEXT="openEHR-EHR-CLUSTER.party-role-healthcare_consumer.v1"/>
+<node CREATED="1306930722442" ID="ID_1126724715" MODIFIED="1306930728152" TEXT="podatki o organizaciji">
+<node CREATED="1306930715119" ID="ID_1597943054" MODIFIED="1306930715119" TEXT="openEHR-EHR-CLUSTER.organisation.v1"/>
+<node CREATED="1306931741674" ID="ID_1057848943" MODIFIED="1306931741674" TEXT="openEHR-EHR-CLUSTER.individual_professional.v1"/>
+</node>
+<node CREATED="1306927261968" ID="ID_650199817" MODIFIED="1306931820407" TEXT="opis okolja">
+<node CREATED="1306931821975" ID="ID_1903559667" MODIFIED="1306931821975" TEXT="openEHR-EHR-CLUSTER.environmental_conditions.v1"/>
+</node>
+</node>
+<node CREATED="1306927217890" ID="ID_368758020" MODIFIED="1306927238733" TEXT="klini&#x10d;ni">
+<node CREATED="1306927665734" ID="ID_622910297" MODIFIED="1306927684993" TEXT="splo&#x161;en opis problema (kako je resen...)">
+<node CREATED="1306927662888" ID="ID_1493997186" MODIFIED="1306927662888" TEXT="openEHR-EHR-CLUSTER.problem_status.v1"/>
+</node>
+<node CREATED="1306927123385" ID="ID_217917187" MODIFIED="1306927136146" TEXT="splo&#x161;en opis simptoma (s strani bolnika)">
+<node CREATED="1306927079409" ID="ID_1223329847" MODIFIED="1306927203773" TEXT="symptom"/>
+</node>
+<node CREATED="1306927778841" ID="ID_1081139620" MODIFIED="1306927802430" TEXT="za zapis te&#x17e;e/dol&#x17e;ine/obsega, vendar NE za TT ali ITM">
+<node CREATED="1306927776807" ID="ID_1233072256" MODIFIED="1306927776807" TEXT="openEHR-EHR-CLUSTER.physical_properties.v1"/>
+<node CREATED="1306931974224" ID="ID_462343450" MODIFIED="1306931974224" TEXT="openEHR-EHR-CLUSTER.dimensions.v1">
+<node CREATED="1306931965558" ID="ID_1411189285" MODIFIED="1306931965558" TEXT="Use as a re-useable cluster in Entry archetypes and other cluster archetypes that record measurment of body parts."/>
+</node>
+<node CREATED="1306931961883" ID="ID_516618936" MODIFIED="1306931961883" TEXT=""/>
+</node>
+<node COLOR="#ff0000" CREATED="1306931067608" ID="ID_18964217" MODIFIED="1306933361970" TEXT="zdravila">
+<node CREATED="1306930946107" ID="ID_1994431559" MODIFIED="1306930973174" TEXT="openEHR-EHR-CLUSTER.medication_prescription.v1">
+<node CREATED="1306930953261" ID="ID_1042935826" MODIFIED="1306930956381" TEXT="For use with INSTRUCTION.medication and ACTION.medication to describe the medication"/>
+</node>
+<node CREATED="1306931151154" ID="ID_353547503" MODIFIED="1306931153308" TEXT="openEHR-EHR-CLUSTER.medication_admin.v1">
+<node CREATED="1306931174025" ID="ID_1092209529" MODIFIED="1306931174025" TEXT="To be used in INSTRUCTION.medication and ACTION.medication to describe the administration"/>
+</node>
+<node CREATED="1306927051516" ID="ID_1547669275" MODIFIED="1306927083894" TEXT="timing">
+<node CREATED="1306927061570" ID="ID_1649900292" MODIFIED="1306927074424" TEXT="opis &#x10d;asovnih intervalov ipd. (za zdravila)"/>
+</node>
+<node CREATED="1306932437021" ID="ID_414227226" MODIFIED="1306932440329" TEXT="openEHR-EHR-CLUSTER.amount.v1"/>
+</node>
+<node COLOR="#ff0000" CREATED="1306931250370" ID="ID_1043147519" MODIFIED="1306933363955" TEXT="laboratorij">
+<node CREATED="1306931269271" ID="ID_882256493" MODIFIED="1306931269271" TEXT="openEHR-EHR-CLUSTER.lab_result_annotation.v1">
+<node CREATED="1306931260979" ID="ID_885145961" MODIFIED="1306931260979" TEXT="To be used within a lab_test archetype."/>
+</node>
+<node CREATED="1306927260759" ID="ID_1599265512" MODIFIED="1306927355982" TEXT="specimen">
+<node CREATED="1306927355982" ID="ID_1329916977" MODIFIED="1306927412594" TEXT="opis laboratorijskega testa (vklju&#x10d;i se v arhetip za opis rezultatov laboratorija)"/>
+</node>
+<node CREATED="1306931257897" ID="ID_1827523380" MODIFIED="1306931257897" TEXT=""/>
+</node>
+<node CREATED="1306932105489" ID="ID_961469171" MODIFIED="1306932311652" TEXT="oprema">
+<node CREATED="1306932108556" ID="ID_1215631487" MODIFIED="1306932108556" TEXT="openEHR-EHR-CLUSTER.device.v1"/>
+</node>
+<node CREATED="1306932200813" ID="ID_544299666" MODIFIED="1306932310435" TEXT="sprememba">
+<node CREATED="1306932205096" ID="ID_1266307412" MODIFIED="1306932205096" TEXT="openEHR-EHR-CLUSTER.change.v1"/>
+</node>
+<node CREATED="1306932286005" ID="ID_704632010" MODIFIED="1306932306957" TEXT="poskus prenehanja">
+<node CREATED="1306932293704" ID="ID_982051567" MODIFIED="1306932293704" TEXT="openEHR-EHR-CLUSTER.cessation_attempts.v1"/>
+</node>
+</node>
+</node>
+<node CREATED="1306932514436" ID="ID_1546338703" MODIFIED="1306932519897" POSITION="left" TEXT="Tree">
+<node CREATED="1306932522571" ID="ID_941874115" MODIFIED="1306932526410" TEXT="zdravila">
+<node CREATED="1306932528290" ID="ID_228737690" MODIFIED="1306932528290" TEXT="openEHR-EHR-ITEM_TREE.medication-formulation.v1"/>
+<node CREATED="1306932562930" ID="ID_480743222" MODIFIED="1306932562930" TEXT="openEHR-EHR-ITEM_TREE.medication.v1">
+<node CREATED="1306932573764" ID="ID_196368499" MODIFIED="1306932573764" TEXT="For use with INSTRUCTION.medication and ACTION.medication to describe the medication"/>
+</node>
+</node>
+<node CREATED="1306932622443" ID="ID_192424301" MODIFIED="1306932636749" TEXT="naro&#x10d;ilo na pregled">
+<node CREATED="1306932630252" ID="ID_1096539833" MODIFIED="1306932630252" TEXT="openEHR-EHR-ITEM_TREE.follow_up.v1"/>
+</node>
+<node CREATED="1306932707564" ID="ID_1912933878" MODIFIED="1306933269618" TEXT="A">
+<node CREATED="1306932714562" ID="ID_1922384275" MODIFIED="1306932714562" TEXT="openEHR-EHR-ITEM_TREE.laboratory_request.v1"/>
+</node>
+</node>
+</node>
+</map>

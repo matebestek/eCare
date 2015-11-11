@@ -1,0 +1,449 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<p>Spodaj so vsebine za korak 10, ki so razdeljene po zavihkih. Ko jih boste prebrali, kliknite spodaj na gumb 'Nadaljuj'. Na podlagi teh vsebin boste kasneje dobili vprašanja za napredovanje v naslednji korak. Vsebine si lahko kasneje ogledate tudi v zavihku 'Izobraževanje'.</p>
+	</br>
+	
+<div id="activiti_form_holder">
+
+<!--Prvi zavihek-->
+		<h3><a href="#">Vsebine - Prehrana - Beljakovine v prehrani </a></h3>	
+		<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040" size="5">
+			<center><b>BELJAKOVINE V PREHRANI</b></center>
+		</font>
+		</br>
+		<p>
+		Beljakovine so pomembne, ker telo brez njih ne more rasti, niti se razvijati ali obnavljati. Potrebe po beljakovinah se s starostjo sicer spreminjajo, vendar jih človek nujno potrebuje vse življenje. Človek mora s hrano zaužiti devet nujno potrebnih (esencialnih) aminokislin, ki jih je treba vnašati s hrano. Bogat vir beljakovin so živila živalskega izvora meso, ribe, jajca, mlečni izdelki, mleko. Tudi med živili rastlinskega izvora so nekatere vrste, ki vsebujejo več beljakovin, predvsem zrna stročnic (npr. fižol, grah, soja). 
+		</p>
+		<B>Količine beljakovin v 100g živila</B></br>
+		(Vir: Prirejeno po Rolfes in sod., 2005 )
+		</br><table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 style='border-collapse:collapse;border:none'>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border-top:solid windowtext 1.0pt;
+		  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+		  background:#D9D9D9;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><b><span style='font-family:"Tahoma","sans-serif"'>Živilo</span></b></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border-top:solid windowtext 1.0pt;
+		  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
+		  background:#D9D9D9;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><b><span style='font-family:"Tahoma","sans-serif"'>Količina
+		  beljakovin</span></b></p>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><b><span style='font-family:"Tahoma","sans-serif"'>(g)</span></b></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Puranje prsi brez
+		  kože</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>29,9</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Piščančje prsi brez
+		  kože</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>30,9</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Govedina </span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>29,0</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Losos</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>20,2</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Svinjina </span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>21,4</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Mandeljni </span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>21,1</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Tofu </span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>8,1</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Jajca (2 srednje
+		  velika)</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>16,0</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Sveži sir</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>13,3</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Leča</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>7,6</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Jogurt</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>4,2</span></p>
+		  </td>
+		 </tr>
+		 <tr>
+		  <td width=187 valign=top style='width:140.4pt;border:none;border-bottom:solid windowtext 1.0pt;
+		  padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+		  normal'><span style='font-family:"Tahoma","sans-serif"'>Polposneto mleko</span></p>
+		  </td>
+		  <td width=168 valign=top style='width:126.0pt;border:none;border-bottom:solid windowtext 1.0pt;
+		  padding:0cm 5.4pt 0cm 5.4pt'>
+		  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+		  text-align:center;line-height:normal'><span style='font-family:"Tahoma","sans-serif"'>3,4</span></p>
+		  </td>
+		 </tr>
+		</table>	
+		<p>
+		Priporočen vnos beljakovin je 0,8 g na kg telesne mase na dan. Vnos beljakovin naj bi predstavljal od 10 do 15% dnevnega energijskega vnosa glede na starostno skupino, toda ne več kot 20% dnevnega energijskega vnosa. 
+		</p>
+		<p>
+		Nekatere študije navajajo, da so potrebe po beljakovinah pri starejših osebah nekoliko višje kot pri mlajših odraslih. Ker pa trenutno še ni potrjenih znanstvenih dokazov, veljajo tudi za starejše osebe enaka priporočila kot za ostale odrasle in sicer 0,8 g na kilogram telesne mase dnevno.
+		</p>
+		<p>
+		Beljakovine živalskega izvora najdemo v mesu (izbiramo puste kose mesa, perutnini pa odstranimo kožo), mesnih izdelkih, ribah, morskih sadežih, jajcih, mleku, sirih in skuti. Bogat vir beljakovin rastlinskega izvora so polnovredna žita in žitni izdelki, stročnice, oreščki in soja. Hranilne vrednosti beljakovinskih živil živalskega in rastlinskega izvora se med seboj dopolnjujejo in le skupaj v kombinaciji prinašajo visoko biološko vrednost in izkoristljivost.
+		</p>
+		<p>
+		Povečan vnos beljakovin lahko obremeni presnovo, poveča porabo energije, zaradi specifičnega delovanja hranil in pospeši dehidracijo. Prevelike količine zaužitih beljakovin vplivajo na povečanje količine končnih metabolitov presnove beljakovin, kar obremeni delovanje ledvic, prav tako pa se poveča izločanje kalcija z urinom. Z naraščajočim uživanjem beljakovin prihaja do zmerne metabolične acidoze, kar lahko oslabi vzdrževanje skeletne mišične mase. Obstajajo pa tudi možne povezave med vnosom beljakovin in inzulinsko rezistenco. Prekomerno uživanje beljakovin živalskega izvora je povezano tudi z večjim vnosom nasičenih maščob. Potrebno je opozoriti, da so živila živalskega izvora pogosto bogata z maščobami, predvsem nasičenimi maščobnimi kislinami in holesterolom.
+		</p>
+		<p>
+		Številne študije so pokazale, da dodaten vnos beljakovin, ki presega 2,5 g beljakovin na kg telesne mase na dan, ne povzroči povečanja mišične mase ali moči. Pomembno je, da se v prehrano vključijo kakovostne beljakovine, ki jih lahko organizem učinkovito izrabi. Razgradnja telesnih beljakovin med naporom se veča, če so zaloge ogljikovih hidratov nizke.
+		</p>
+		
+	</div>
+	
+<!--Drugi zavihek-->	
+	<h3><a href="#">Vsebine - Prehrana - Meso in zamenjave </a></h3>	
+		<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040" size="5">
+			<center><b>MESO IN ZAMENJAVE</b></center>
+		</font>
+		</br>
+		<font color="#FF8040">
+			<h3><center><b>Meso je bogat vir</b></center></h3>
+		</font>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>beljakovin visoke biološke vrednosti, 
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>vitaminov (B1, B2, B12), 
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>železa, cinka in drugih mineralov,
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>nasičene maščobe (predvsem mesni izdelki, zato jih uživajte čim manj!)
+		</td>
+		</tr>
+	</table>
+		</p>
+		<p>
+		Železo potrebujemo za rast telesnih celic in mišičnega tkiva, potrebujejo pa ga tudi drugi organi in imunski sistem.</br>
+		Mastni kosi mesa vsebujejo tudi do 25% maščob, mesni izdelki pa še več. Mesni izdelki poleg tega vsebujejo še velike količine soli in drugih aditivov.
+		</p>
+		<font color="#FF8040">
+			<h3><center><b>Vpliv priprave in termične obdelave na sestavo</b></center></h3>
+		</font>
+		<p>
+		Zelo velik vir mutagenih snovi je pražena ali ocvrta beljakovinsko bogata hrana. Pri pečenju mesa, pri visokih temperaturah, nastajajo snovi, ki povzročajo raka (kancerogene snovi). Raziskave so pokazale, da konzervirano in pečeno rdeče meso lahko predstavlja večje tveganje za nastanek raka na želodcu, debelem črevesju, danki in prostati, v primerjavi s kuhanim mesom. 
+		</p>
+		<font color="#FF8040">
+			<h3><center><b>Priporočila</b></center></h3>
+		</font>
+		<p>
+		V dnevni prehrani odraslega v povprečju zadostuje do 140 g mesa (rdeče meso, ribe, perutnina) in mesnih izdelkov.</br>
+		Zaradi pestrosti prehrane se od <B>2-3x/teden priporoča uživanje rdečega mesa</B> (govedino, svinjino, ovčetino, konjsko meso, divjačino in drugo) in <B>1-3x/teden perutninsko meso.</B>
+		<B>1-2x/teden se priporoča brezmesni dan,</B> ki vključuje mlečne izdelke, jajca, stročnice ali izdelke iz stročnic.</br>
+		Najmanj <B>1x/teden se priporoča uživanje morskih rib.</B>
+		Morske ribe vsebujejo:
+		</p>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>več esencialnih maščobnih kislin (omega 3), 
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>vitamina A in D ter joda kot sladkovodne ribe.  
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>v velikih morskih ribah (tuna, mečarica, morski pes) in mastnih morskih ribah (losos, slanik) se zaradi onesnaženosti okolja lahko nahajajo toksične snovi (živo srebro, dioksini), ki predstavljajo <B>tveganje za zdravje, predvsem zarodka in dojenčka.</B> Zato priporočila navajajo njihovo omejevanje v tem obdobju, predvsem tune, ki jo lahko nosečnice in doječe matere zaužijejo <B>do 160 g na teden.</B> 
+		</td></tr></table>
+		</p>
+		<p>
+		Zaradi velike vsebnosti holesterola in nasičenih maščob <B>ne</B> priporočamo uživanja večjih količin <B>drobovine.</B> Priporočamo zmerno in občasno uporabo mesnih izdelkov, predvsem take, kjer se vidi struktura mesa in ne tistih, kjer je struktura homogena zaradi mletja. 
+		</p>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>Za dnevni energijski vnos 1200 kcal: 2 enoti na dan.
+		</td>
+			</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>Za dnevni energijski vnos 1500 kcal: 2,5 enote na dan.  
+		</td></tr><tr><td align="center" valign="top">•</td><td>
+		Za dnevni energijski vnos 1800 kcal: 3 enote na dan.
+		</td>
+		</tr>
+	</table>
+		</p>
+		<p>
+		<B><U>1 enota predstavlja:</U></B></br>
+		&#45; pol manjšega zrezka, </br>
+		&#45; pol srednje velike ribe,</br>
+		&#45; pol hrenovke.
+		</p>
+		<p>
+		<B>Stročnice</B> so kakovostna zamenjava za meso, vsebujejo zelo malo maščob.</br>
+		<B>Jajca</B>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>Jajca uvrščamo med živila z visoko vsebnostjo beljakovin. 
+		</td></tr><tr><td align="center" valign="top">•</td><td>Jajca so bogata z vitamini, še posebej z vitaminom D, jajčni rumenjak pa hkrati vsebuje velike količine holesterola, kar lahko povzroči <B>zvišanje vsebnosti maščob v krvi.</B>   
+		</td></tr><tr><td align="center" valign="top">•</td><td>Na teden lahko zaužijemo največ <B>dve do tri jajca,</B> v to količino pa so vključena tudi jajca, ki so že del živila/hrane. 
+		</td>
+		</tr>
+	</table>
+		</p>
+	</div>
+	
+<!--Tretji zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Mleko in mlečni izdelki </a></h3>	
+		<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040" size="5">
+			<center><b>MLEKO IN MLEČNI IZDELKI</b></center>
+		</font>
+		</br>
+		<font color="#FF8040">
+			<h3><center><b>Zakaj so mlečni izdelki pomembni</b></center></h3>
+		</font>
+		<p>
+		Mleko zaradi visoke hranilne in biološke vrednosti uvrščamo med pomembna živila v uravnoteženi prehrani. Mleko in mlečni izdelki so bogat vir življenjsko pomembnih <B>beljakovin,</B> vitaminov in mineralnih snovi. Mleko, jogurt in sir so najbogatejši vir <B>kalcija.</B>
+		</p>
+		<p>
+		Pomembna hranila v mleku:
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>Beljakovine 
+		</td></tr><tr><td align="center" valign="top">•</td><td>kalcij
+		</td></tr><tr><td align="center" valign="top">•</td><td>vitamini A, D, E in K
+		</td></tr><tr><td align="center" valign="top">•</td><td>konjugirana linolenska kislina
+		</td></tr><tr><td align="center" valign="top">•</td><td>maslena kislina
+		</td></tr><tr><td align="center" valign="top">•</td><td>fosfor, kalij, magnezij, cink 
+		</td></tr></table></p>
+		<p>
+		Zadostno uživanje mleka in mlečnih izdelkov v obdobju otroštva zmanjšajo tveganje za nastanek bolezni v kasnejšem obdobju. Mleko pomaga preprečevati
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>osteoporozo 
+		</td></tr><tr><td align="center" valign="top">•</td><td>visok krvni tlak 
+		</td></tr><tr><td align="center" valign="top">•</td><td>astmo 
+		</td></tr><tr><td align="center" valign="top">•</td><td>debelost
+		</td></tr><tr><td align="center" valign="top">•</td><td>delež maščob v telesu
+		</td></tr></table></p>
+		<font color="#FF8040">
+			<h3><center><b>Priporočila</b></center></h3>
+		</font>
+		<p>
+		Priporočen dnevni vnos mleka in mlečnih izdelkov je 4 – 6 dl, kar v prehranski piramidi pomeni 2-3 enote na dan.
+		</p>
+		<p>
+		<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>Za dnevni energijski vnos 1200 kcal: 1 enoto na dan.
+		</td></tr><tr><td align="center" valign="top">•</td><td>Za dnevni energijski vnos 1500 kcal: 2 enoti na dan.
+		</td></tr><tr><td align="center" valign="top">•</td><td>Za dnevni energijski vnos 1800 kcal: 2,5 enote na dan.
+		</td></tr></table></p>
+		<p>
+		<B><U>1 enota predstavlja:</U></B>
+		&#45;2 dl mleka ali jogurta (100 ml mleka vsebuje podobno količino kalcija kot 15 g trdega ali 30 g mehkega sira),
+		&#45;košček sira v velikosti škatlice vžigalic, 
+		&#45;3 žlice puste skute.
+		</p>
+		<p>
+		<B>Izbirajte izdelke z manj maščobami (delno posneto ali posneto mleko in jogurt, pusto skuto in namaze, nemastne sire).</B> Izogibajte se mastnim sirom in sladoledom, ker vsebujejo veliko maščob.
+		</p>
+	</div>	
+	<h3><a href="#">Vsebine - Gibanje - Spoznavanje novega načina/vrste TV ali utrjevanje/treniranje oz. nadgradnja izbrane vrste TV</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF"	size="5">
+		<center><b>SPOZNAVANJE NOVEGA NAČINA/VRSTE TV ALI UTRJEVANJE/TRENIRANJE OZ. NADGRADNJA IZBRANE VRSTE TV</b></center>
+		</font>
+		<p>
+			Nordijska hoja je oblika gibanja, ki ohranja naraven (fiziološki) vzorec hoje skozi aktivno uporabo ustreznih ergonomsko oblikovanih palic. Pri nordijski hoji je v gibanje vključeno skoraj celotno telo (do 90% mišic). S pravilno tehniko nordijske hoje razbremenimo sklepe, krepimo srce, ožilje in dihala ter učinkoviteje povečamo gibljivost vseh sklepov vključno s hrbtenico. Nordijska hoja vodi k bolj pokončni hoji in popravlja naš vzorec hoje, hkrati pa je zelo učinkovita tudi pri procesu hujšanja, saj se za 20-40% poveča poraba kalorij. Vadba je intenzivnejša kot pri hoji brez palic, vendar pa povečanega napora ne občutimo.
+		</p>
+		<p>
+			Več o nordijski hoji in kje se naučiti pravilne tehnike le te pa lahko izveste na demonstracijah nordijske hoje, ki so kot dopolnilna aktivnost »Preizkusov hoje na 2 km«. Nordijsko hojo lahko, ko se naučimo in obvladamo pravilno tehniko le te, izvajamo tudi po »Mavričnem programu hoje.
+		</p>
+	</div>
+	
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_10/Mleko%20in%20mlekomati.pdf">Mleko in mlekomati</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_10/Varno%20uzivanje%20rib.pdf">Varno uživanje rib</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/21915429">9. oddaja: Manj mesnih izdelkov, več rib</a></p>
+				</td>
+			</tr>
+		</table>
+
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

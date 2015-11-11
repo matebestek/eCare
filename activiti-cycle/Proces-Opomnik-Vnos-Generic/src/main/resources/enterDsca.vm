@@ -1,0 +1,384 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder">
+
+	<h3><a href="#">Dieta</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste upoštevali priporočeno dieto?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0014]?value" class="activiti-size-short">
+						<option value="at0015">0 dni (nič)</option>
+						<option value="at0016">1 dan</option>
+						<option value="at0017">2 dni</option>
+						<option value="at0018">3 dni</option>
+						<option value="at0019">4 dni</option>
+						<option value="at0020">5 dni</option>
+						<option value="at0021">6 dni</option>
+						<option value="at0022">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste omejili vnos kalorij, kot je priporočeno v zdravi prehrani za sladkorne bolnike?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0023]?value" class="activiti-size-short">
+						<option value="at0015">0 dni (nič)</option>
+						<option value="at0016">1 dan</option>
+						<option value="at0017">2 dni</option>
+						<option value="at0018">3 dni</option>
+						<option value="at0019">4 dni</option>
+						<option value="at0020">5 dni</option>
+						<option value="at0021">6 dni</option>
+						<option value="at0022">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste jedli sadje in zelenjavo (vsaj 5 enot)?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0032]?value" class="activiti-size-short">
+						<option value="at0015">0 dni (nič)</option>
+						<option value="at0016">1 dan</option>
+						<option value="at0017">2 dni</option>
+						<option value="at0018">3 dni</option>
+						<option value="at0019">4 dni</option>
+						<option value="at0020">5 dni</option>
+						<option value="at0021">6 dni</option>
+						<option value="at0022">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste uživali hrano bogato z maščobami, kot je rdeče meso ipd.?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0041]?value" class="activiti-size-short">
+						<option value="at0015">0 dni (nič)</option>
+						<option value="at0016">1 dan</option>
+						<option value="at0017">2 dni</option>
+						<option value="at0018">3 dni</option>
+						<option value="at0019">4 dni</option>
+						<option value="at0020">5 dni</option>
+						<option value="at0021">6 dni</option>
+						<option value="at0022">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>
+	
+
+	<h3><a href="#">Gibanje</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste opravljali aktivnost zmerne intenzivnosti vsaj 30 minut?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0050]?value" class="activiti-size-short">
+						<option value="at0061">0 dni (nič)</option>
+						<option value="at0062">1 dan</option>
+						<option value="at0063">2 dni</option>
+						<option value="at0064">3 dni</option>
+						<option value="at0065">4 dni</option>
+						<option value="at0066">5 dni</option>
+						<option value="at0067">6 dni</option>
+						<option value="at0068">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste opravljali aktivnost visoke intenzivnosti vsaj 30 minut?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[at0051]?value" class="activiti-size-short">
+						<option value="at0069">0 dni (nič)</option>
+						<option value="at0070">1 dan</option>
+						<option value="at0085">2 dni</option>
+						<option value="at0093">3 dni</option>
+						<option value="at0101">4 dni</option>
+						<option value="at0109">5 dni</option>
+						<option value="at0117">6 dni</option>
+						<option value="at0125">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Krvni sladkor, teža, pritisk</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste kontrolirali nivo vašega krvnega slakorja?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0052]?value" class="activiti-size-short">
+						<option value="at0071">0 dni (nič)</option>
+						<option value="at0072">1 dan</option>
+						<option value="at0086">2 dni</option>
+						<option value="at0094">3 dni</option>
+						<option value="at0102">4 dni</option>
+						<option value="at0110">5 dni</option>
+						<option value="at0118">6 dni</option>
+						<option value="at0126">7 dni (vsak dan)</option>				
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Kolikokrat na teden je priporočilo merjenja krvnega sladkorja s strani vašega zdravnika?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0053]?value" class="activiti-size-short">
+						<option value="at0073">0 dni (nič)</option>
+						<option value="at0079">1 dan</option>
+						<option value="at0087">2 dni</option>
+						<option value="at0095">3 dni</option>
+						<option value="at0103">4 dni</option>
+						<option value="at0111">5 dni</option>
+						<option value="at0119">6 dni</option>
+						<option value="at0127">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste kontrolirali  telesno težo?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0054]?value" class="activiti-size-short">
+						<option value="at0074">0 dni (nič)</option>
+						<option value="at0080">1 dan</option>
+						<option value="at0088">2 dni</option>
+						<option value="at0096">3 dni</option>
+						<option value="at0104">4 dni</option>
+						<option value="at0112">5 dni</option>
+						<option value="at0120">6 dni</option>
+						<option value="at0128">7 dni (vsak dan)</option>				
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste kontrolirali krvni pritisk?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[at0055]?value" class="activiti-size-short">
+						<option value="at0075">0 dni (nič)</option>
+						<option value="at0081">1 dan</option>
+						<option value="at0089">2 dni</option>
+						<option value="at0097">3 dni</option>
+						<option value="at0105">4 dni</option>
+						<option value="at0113">5 dni</option>
+						<option value="at0121">6 dni</option>
+						<option value="at0129">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>			
+			
+		</table>
+	
+	</div>		
+	
+	
+	<h3><a href="#">Samopregled stopal</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste natančno pregledali svoja stopala?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[at0056]?value" class="activiti-size-short">
+						<option value="at0076">0 dni (nič)</option>
+						<option value="at0082">1 dan</option>
+						<option value="at0090">2 dni</option>
+						<option value="at0098">3 dni</option>
+						<option value="at0106">4 dni</option>
+						<option value="at0114">5 dni</option>
+						<option value="at0122">6 dni</option>
+						<option value="at0130">7 dni (vsak dan)</option>					
+					</select>
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>	
+	
+	<h3><a href="#">Zdravila</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste vzeli predpisano število tablet za kontrolo sladkorne bolezni?</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[at0057]?value" class="activiti-size-short">
+						<option value="at0077">0 dni (nič)</option>
+						<option value="at0083">1 dan</option>
+						<option value="at0091">2 dni</option>
+						<option value="at0099">3 dni</option>
+						<option value="at0107">4 dni</option>
+						<option value="at0115">5 dni</option>
+						<option value="at0123">6 dni</option>
+						<option value="at0131">7 dni (vsak dan)</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p>Kolikokrat v zadnjih 7 dneh ste prejeli predpisane inzulinske injekcije? (samo za bolnike z inzulinom!)</p>
+				</td>
+				<td>
+					<select name="?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[at0058]?value" class="activiti-size-short">
+						<option value="at0078">0 dni (nič)</option>
+						<option value="at0084">1 dan</option>
+						<option value="at0092">2 dni</option>
+						<option value="at0100">3 dni</option>
+						<option value="at0108">4 dni</option>
+						<option value="at0116">5 dni</option>
+						<option value="at0124">6 dni</option>
+						<option value="at0132">7 dni (vsak dan)</option>				
+					</select>
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>		
+	
+	
+	<h3><a href="#">Kajenje</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Ali ste v zadnjih 7 dneh kadili, četudi minimalno?</p>
+				</td>
+				<td><input
+					name="?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[at0059]?value"
+					value="true" type="radio" class="">
+					DA <input
+					name="?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[at0059]?value"
+					value="false" type="radio" class="">
+					NE</td>
+			</tr>			
+			
+			<tr>
+				<td>
+					<p>Če da, kolikšno je bilo v zadnjih 7 dnevih povprečje pokajenih cigaret (na dan)?</p>
+				</td>
+				<td>
+					<input name="?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[at0060]?value" value="" type="text" class="activiti-validation-int activiti-size-short">
+				</td>
+			</tr>
+			
+		</table>
+	
+	</div>		
+	
+	
+	
+	
+	<h3><a href="#">Komentar</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td>
+					<input name="?data[at0001]?events[at0002]?data[at0003]?items[at0133]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>							
+			
+		</table>
+	
+	</div>	
+
+	
+	
+</div>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>	

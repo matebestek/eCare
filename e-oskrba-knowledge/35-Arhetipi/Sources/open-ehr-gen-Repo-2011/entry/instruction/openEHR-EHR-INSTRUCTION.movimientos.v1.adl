@@ -1,0 +1,158 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-INSTRUCTION.movimientos.v1
+
+concept
+	[at0000]	-- movimientos del paciente
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"movimientos del paciente">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"4D6586CD1BF0C8F14B071AA3AC99BF11">
+	>
+
+definition
+	INSTRUCTION[at0000] matches {	-- movimientos del paciente
+		activities cardinality matches {0..*; unordered} matches {
+			ACTIVITY[at0001] occurrences matches {0..1} matches {	-- Current Activity
+				description matches {
+					ITEM_TREE[at0002] matches {	-- Arbol
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0004] occurrences matches {1..1} matches {	-- Destino
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0005, 	-- Alta
+											at0006, 	-- Traslado
+											at0007, 	-- Internación
+											at0008, 	-- Block quirúrgico
+											at0009, 	-- Observación
+											at0010]	        -- Morgue
+										}
+									}
+								}
+							}
+							ELEMENT[at0012] matches {	-- Fecha y Hora de movimiento
+								value matches {
+									DV_DATE_TIME matches {
+										value matches {yyyy-mm-ddTHH:MM:SS}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		narrative matches {   -- Motivo
+            DV_TEXT matches {*}
+        }
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"movimientos del paciente">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Current Activity">
+					description = <"Current Activity">
+				>
+				["at0002"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Destino">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Alta">
+					description = <"Alta">
+				>
+				["at0006"] = <
+					text = <"Traslado">
+					description = <"Traslado">
+				>
+				["at0007"] = <
+					text = <"Internación">
+					description = <"Internación">
+				>
+				["at0008"] = <
+					text = <"Block quirúrgico">
+					description = <"Block quirúrgico">
+				>
+				["at0009"] = <
+					text = <"Observación">
+					description = <"Observación">
+				>
+				["at0010"] = <
+					text = <"Morgue">
+					description = <"Morgue">
+				>
+				["at0012"] = <
+					text = <"Fecha y Hora de movimiento">
+					description = <"Fecha y Hora de movimiento">
+				>
+			>
+		>
+	>
+	term_bindings = <
+        ["trauma"] = <
+            items = <
+                ["/narrative"] = <[movimiento_paciente::instruction_narrative]>
+                -- ["/data[at0002]/events[at0005]/data[at0001]/item[at0004]"] = <[LNC205::8321-2]>
+                -- ["/data[at0002]/events[at0006]/data[at0001]/item[at0004]"] = <[LNC205::8311-3]>
+                -- ["/data[at0002]/events[at0007]/data[at0001]/item[at0004]"] = <[LNC205::8316-2]>
+                -- ["/data[at0002]/events[at0008]/data[at0001]/item[at0004]"] = <[LNC205::8332-0]>
+                -- ["/data[at0002]/events[at0009]/data[at0001]/item[at0004]"] = <[LNC205::8312-1]>
+                -- ["/data[at0002]/events[at0017]/data[at0001]/item[at0004]"] = <[LNC205::8325-3]>
+                -- ["/data[at0002]/events[at0019]/data[at0001]/item[at0004]"] = <[LNC205::8320-4]>
+            >
+        >
+    >

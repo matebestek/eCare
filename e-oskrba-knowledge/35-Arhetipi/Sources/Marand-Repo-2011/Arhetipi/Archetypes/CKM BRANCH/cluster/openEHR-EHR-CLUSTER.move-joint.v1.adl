@@ -1,0 +1,601 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.move-joint.v1
+specialize
+	openEHR-EHR-CLUSTER.move.v1
+
+concept
+	[at0000.1]	-- Gibljivost sklepa
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"unknown">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For describing the findings on movement of a joint.">
+			use = <"">
+			keywords = <"movement", "joint">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za oceno gibljivosti sklepov">
+			use = <"">
+			keywords = <"gibljivost", "sklepi">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"3569E97C017206A06ACA42EA5A66131F">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {	-- Gibljivost sklepa
+		items cardinality matches {1..*; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- *Normal statements(en)
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {1..*} matches {	-- *Normal statement(en)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- *Clinical description(en)
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0036] occurrences matches {0..1} matches {	-- Ugotovitve
+				items cardinality matches {1..*; unordered} matches {
+					CLUSTER[at0037] occurrences matches {0..1} matches {	-- Gibljivost nasploh
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0036]/items[at0004]/items[at0007]	-- /items[Ugotovitve]/items[*Specific movement(en)]/items[Opombe]
+							use_node ELEMENT /items[at0036]/items[at0004]/items[at0006]	-- /items[Ugotovitve]/items[*Specific movement(en)]/items[Gibljivost]
+							use_node ELEMENT /items[at0036]/items[at0004]/items[at0019]	-- /items[Ugotovitve]/items[*Specific movement(en)]/items[Bolečina]
+						}
+					}
+					CLUSTER[at0004] occurrences matches {0..*} matches {	-- *Specific movement(en)
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Tip gibov
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0012, 	-- Aktivni
+											at0013]	-- Pasivni
+										}
+									}
+								}
+							}
+							ELEMENT[at0005] matches {	-- Gibljivost
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.1, 	-- *Flexion(en)
+											at0.2, 	-- *Extension(en)
+											at0.3, 	-- *Abduction(en)
+											at0.4, 	-- *Adduction(en)
+											at0.5, 	-- *Internal rotation(en)
+											at0.6, 	-- *External rotation(en)
+											at0.7, 	-- *Supination(en)
+											at0.8, 	-- *Pronation(en)
+											at0.9, 	-- *Eversion(en)
+											at0.10, 	-- *Inversion(en)
+											at0.11, 	-- *Rotation(en)
+											at0.12, 	-- *Opening(en)
+											at0.13]	-- *Closing(en)
+										}
+									}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Opombe
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0035] occurrences matches {0..1} matches {	-- *Arc of movement(en)
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::497]>
+										list = <
+											["1"] = <
+												units = <"°">
+												magnitude = <|0.0..360.0|>
+												precision = <|0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Gibljivost
+								value matches {
+									0|[local::at0008], 	-- Ni prisotna
+									2|[local::at0017], 	-- Močno omejena
+									5|[local::at0010], 	-- Zelo omejena
+									8|[local::at0016], 	-- Malo omejena
+									10|[local::at0009]; 	-- Neomejena
+									0  	-- assumed value
+								}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {	-- Bolečina
+								value matches {
+									0|[local::at0020], 	-- Ni
+									1|[local::at0021], 	-- Majhna
+									5|[local::at0022], 	-- Zmerna
+									8|[local::at0024], 	-- Zelo močna
+									10|[local::at0023]; 	-- Močna
+									0  	-- assumed value
+								}
+							}
+						}
+					}
+					CLUSTER[at0.14] occurrences matches {0..1} matches {	-- *Abnormal movement(en)
+						items cardinality matches {1..*; unordered} matches {
+							CLUSTER[at0.16] occurrences matches {0..*} matches {	-- *Ligament testing(en)
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0.15] occurrences matches {0..1} matches {	-- *Name(en)
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0.21] occurrences matches {0..1} matches {	-- *Movement or stress(en)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[local::]}
+											}
+										}
+									}
+									ELEMENT[at0.17] occurrences matches {0..1} matches {	-- *Finding(en)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.18, 	-- *Normal(en)
+													at0.19, 	-- *Lax(en)
+													at0.20]	-- *Subluxing(en)
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.1"] = <
+					text = <"Flexion">
+					description = <"Movement through contraction of the flexor muscles.">
+				>
+				["at0.10"] = <
+					text = <"Inversion">
+					description = <"Rotation towards the midline.">
+				>
+				["at0.11"] = <
+					text = <"Rotation">
+					description = <"Movement throughout a circle.">
+				>
+				["at0.12"] = <
+					text = <"Opening">
+					description = <"Opening of the joint.">
+				>
+				["at0.13"] = <
+					text = <"Closing">
+					description = <"Closing of the joint.">
+				>
+				["at0.14"] = <
+					text = <"Abnormal movement">
+					description = <"*">
+				>
+				["at0.15"] = <
+					text = <"Name">
+					description = <"Clinical description of any abnormal movement findings.">
+				>
+				["at0.16"] = <
+					text = <"Ligament testing">
+					description = <"*">
+				>
+				["at0.17"] = <
+					text = <"Finding">
+					description = <"*">
+				>
+				["at0.18"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.19"] = <
+					text = <"Lax">
+					description = <"*">
+				>
+				["at0.2"] = <
+					text = <"Extension">
+					description = <"Movement through the extensor muscles.">
+				>
+				["at0.20"] = <
+					text = <"Subluxing">
+					description = <"*">
+				>
+				["at0.21"] = <
+					text = <"Movement or stress">
+					description = <"*">
+				>
+				["at0.3"] = <
+					text = <"Abduction">
+					description = <"Movement of the distal part away from the midline.">
+				>
+				["at0.4"] = <
+					text = <"Adduction">
+					description = <"Movement of the distal part towards the midline.">
+				>
+				["at0.5"] = <
+					text = <"Internal rotation">
+					description = <"Rotating the anterior aspect distal to the joint towards the midline.">
+				>
+				["at0.6"] = <
+					text = <"External rotation">
+					description = <"Rotation of the anterior aspect distal to the joint away from the midline.">
+				>
+				["at0.7"] = <
+					text = <"Supination">
+					description = <"Rotation of the distal part into the anatomical position.">
+				>
+				["at0.8"] = <
+					text = <"Pronation">
+					description = <"Rotation of the distal part away from the anatomical position.">
+				>
+				["at0.9"] = <
+					text = <"Eversion">
+					description = <"Rotation away from the midline.">
+				>
+				["at0000"] = <
+					text = <"Movement">
+					description = <"Movement as part of physical examination.">
+				>
+				["at0000.1"] = <
+					text = <"Movement of a joint">
+					description = <"Movement of a joint as part of physical examination.">
+				>
+				["at0001"] = <
+					text = <"Normal statements">
+					description = <"A group of statements that express normality of movement.">
+				>
+				["at0002"] = <
+					text = <"Normal statement">
+					description = <"A statement about normality of movement.">
+				>
+				["at0003"] = <
+					text = <"Clinical description">
+					description = <"Clinical description about the findings on movement.">
+				>
+				["at0004"] = <
+					text = <"Specific movement">
+					description = <"A specific movement being tested.">
+				>
+				["at0005"] = <
+					text = <"Movement">
+					description = <"A specific movement.">
+				>
+				["at0006"] = <
+					text = <"Relative range of movement">
+					description = <"The relative range of movement.">
+				>
+				["at0007"] = <
+					text = <"Description">
+					description = <"A textural description of the movement.">
+				>
+				["at0008"] = <
+					text = <"No movement">
+					description = <"There is no movement.">
+				>
+				["at0009"] = <
+					text = <"Full range of movement">
+					description = <"Movement is not restricted.">
+				>
+				["at0010"] = <
+					text = <"Moderate restriction">
+					description = <"Movement is moderately restricted.">
+				>
+				["at0011"] = <
+					text = <"Type of movement">
+					description = <"The type of movement.">
+				>
+				["at0012"] = <
+					text = <"Active movement">
+					description = <"The movement is undertaken by the person.">
+				>
+				["at0013"] = <
+					text = <"Passive movement">
+					description = <"The clinician is moving the body part.">
+				>
+				["at0016"] = <
+					text = <"Minor restriction">
+					description = <"Movement is slightly restricted.">
+				>
+				["at0017"] = <
+					text = <"Severe restriction">
+					description = <"Movement is severely restricted.">
+				>
+				["at0019"] = <
+					text = <"Associated pain">
+					description = <"Associated pain or discomfort.">
+				>
+				["at0020"] = <
+					text = <"None">
+					description = <"No pain or discomfort on movement.">
+				>
+				["at0021"] = <
+					text = <"Mild">
+					description = <"Mild pain on movement.">
+				>
+				["at0022"] = <
+					text = <"Moderate">
+					description = <"Moderate pain on movement.">
+				>
+				["at0023"] = <
+					text = <"Extreme">
+					description = <"Severe pain which restricts all movement.">
+				>
+				["at0024"] = <
+					text = <"Severe">
+					description = <"Severe pain which limits movement.">
+				>
+				["at0035"] = <
+					text = <"Arc of movement">
+					description = <"The number of degrees that movement is available.">
+				>
+				["at0036"] = <
+					text = <"Findings">
+					description = <"Clinical findings.">
+				>
+				["at0037"] = <
+					text = <"General movement">
+					description = <"Statements about movement in general.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.1"] = <
+					text = <"*Flexion(en)">
+					description = <"*Movement through contraction of the flexor muscles.(en)">
+				>
+				["at0.10"] = <
+					text = <"*Inversion(en)">
+					description = <"*Rotation towards the midline.(en)">
+				>
+				["at0.11"] = <
+					text = <"*Rotation(en)">
+					description = <"*Movement throughout a circle.(en)">
+				>
+				["at0.12"] = <
+					text = <"*Opening(en)">
+					description = <"*Opening of the joint.(en)">
+				>
+				["at0.13"] = <
+					text = <"*Closing(en)">
+					description = <"*Closing of the joint.(en)">
+				>
+				["at0.14"] = <
+					text = <"*Abnormal movement(en)">
+					description = <"**(en)">
+				>
+				["at0.15"] = <
+					text = <"*Name(en)">
+					description = <"*Clinical description of any abnormal movement findings.(en)">
+				>
+				["at0.16"] = <
+					text = <"*Ligament testing(en)">
+					description = <"**(en)">
+				>
+				["at0.17"] = <
+					text = <"*Finding(en)">
+					description = <"**(en)">
+				>
+				["at0.18"] = <
+					text = <"*Normal(en)">
+					description = <"**(en)">
+				>
+				["at0.19"] = <
+					text = <"*Lax(en)">
+					description = <"**(en)">
+				>
+				["at0.2"] = <
+					text = <"*Extension(en)">
+					description = <"*Movement through the extensor muscles.(en)">
+				>
+				["at0.20"] = <
+					text = <"*Subluxing(en)">
+					description = <"**(en)">
+				>
+				["at0.21"] = <
+					text = <"*Movement or stress(en)">
+					description = <"**(en)">
+				>
+				["at0.3"] = <
+					text = <"*Abduction(en)">
+					description = <"*Movement of the distal part away from the midline.(en)">
+				>
+				["at0.4"] = <
+					text = <"*Adduction(en)">
+					description = <"*Movement of the distal part towards the midline.(en)">
+				>
+				["at0.5"] = <
+					text = <"*Internal rotation(en)">
+					description = <"*Rotating the anterior aspect distal to the joint towards the midline.(en)">
+				>
+				["at0.6"] = <
+					text = <"*External rotation(en)">
+					description = <"*Rotation of the anterior aspect distal to the joint away from the midline.(en)">
+				>
+				["at0.7"] = <
+					text = <"*Supination(en)">
+					description = <"*Rotation of the distal part into the anatomical position.(en)">
+				>
+				["at0.8"] = <
+					text = <"*Pronation(en)">
+					description = <"*Rotation of the distal part away from the anatomical position.(en)">
+				>
+				["at0.9"] = <
+					text = <"*Eversion(en)">
+					description = <"*Rotation away from the midline.(en)">
+				>
+				["at0000"] = <
+					text = <"*Movement(en)">
+					description = <"*Movement as part of physical examination.(en)">
+				>
+				["at0000.1"] = <
+					text = <"Gibljivost sklepa">
+					description = <"Gibljivost sklepa kot del opazovanja pacienta">
+				>
+				["at0001"] = <
+					text = <"*Normal statements(en)">
+					description = <"*A group of statements that express normality of movement.(en)">
+				>
+				["at0002"] = <
+					text = <"*Normal statement(en)">
+					description = <"*A statement about normality of movement.(en)">
+				>
+				["at0003"] = <
+					text = <"*Clinical description(en)">
+					description = <"*Clinical description about the findings on movement.(en)">
+				>
+				["at0004"] = <
+					text = <"*Specific movement(en)">
+					description = <"*A specific movement being tested.(en)">
+				>
+				["at0005"] = <
+					text = <"Gibljivost">
+					description = <"Gibljivost sklepa">
+				>
+				["at0006"] = <
+					text = <"Gibljivost">
+					description = <"Ocena gibljivosti sklepa">
+				>
+				["at0007"] = <
+					text = <"Opombe">
+					description = <"Dodatne opombe glede gibljivosti sklepa">
+				>
+				["at0008"] = <
+					text = <"Ni prisotna">
+					description = <"Sklep ni gibljiv">
+				>
+				["at0009"] = <
+					text = <"Neomejena">
+					description = <"Gibljivost je neomejena">
+				>
+				["at0010"] = <
+					text = <"Zelo omejena">
+					description = <"Gibljivost je omejena">
+				>
+				["at0011"] = <
+					text = <"Tip gibov">
+					description = <"Tip gibljivosti">
+				>
+				["at0012"] = <
+					text = <"Aktivni">
+					description = <"Ko pacient sam premika opazovani del telesa">
+				>
+				["at0013"] = <
+					text = <"Pasivni">
+					description = <"Pasivni gibi, ko medicinsko osebje premika opazovani del telesa">
+				>
+				["at0016"] = <
+					text = <"Malo omejena">
+					description = <"Gibljivost je malo omejena">
+				>
+				["at0017"] = <
+					text = <"Močno omejena">
+					description = <"Gibljivost je močno omejena">
+				>
+				["at0019"] = <
+					text = <"Bolečina">
+					description = <"Bolečina pri gibanju sklepa">
+				>
+				["at0020"] = <
+					text = <"Ni">
+					description = <"Bolečina ni prisotna pri gibanju sklepa">
+				>
+				["at0021"] = <
+					text = <"Majhna">
+					description = <"Prisotna je majhna bolečina">
+				>
+				["at0022"] = <
+					text = <"Zmerna">
+					description = <"Prisotna je zmerna bolečina">
+				>
+				["at0023"] = <
+					text = <"Močna">
+					description = <"Prisotna je močna bolečina, ki zmanjšuje gibljivost sklepa">
+				>
+				["at0024"] = <
+					text = <"Zelo močna">
+					description = <"Prisotna je zelo močna bolečina, ki onemogoča gibljivost">
+				>
+				["at0035"] = <
+					text = <"*Arc of movement(en)">
+					description = <"*The number of degrees that movement is available.(en)">
+				>
+				["at0036"] = <
+					text = <"Ugotovitve">
+					description = <"*Clinical findings.(en)">
+				>
+				["at0037"] = <
+					text = <"Gibljivost nasploh">
+					description = <"Gibljivost nasploh">
+				>
+			>
+		>
+	>

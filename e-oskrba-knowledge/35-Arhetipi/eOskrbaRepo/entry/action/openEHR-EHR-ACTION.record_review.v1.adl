@@ -1,0 +1,254 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ACTION.record_review.v1
+
+concept
+	[at0000]	-- Record review
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record that a healthcare provider has reviewed a specified part of a health record.">
+			use = <"Use to record that a healthcare provider has reviewed a specified part of a health record, including that it was reviewed and left unaltered or that it was reviewed and updated.">
+			keywords = <"record", "review", "medication", "vaccination", "adverse reaction", "allergy">
+			misuse = <"">
+			copyright = <"© 2011 NEHTA">
+		>
+	>
+	lifecycle_state = <"CommitteeDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"550016F58A8DC0312B55E23836AE3D64">
+	>
+
+definition
+	ACTION[at0000] matches {	-- Record review
+		ism_transition matches {
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::526]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0003]}		-- Record review planned
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::527]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0010]}		-- Review postponed
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::528]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0012]}		-- Review Cancelled
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::529]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0004]}		-- Review scheduled
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0006]}		-- Record reviewed, not altered
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0008]}		-- Record reviewed and updated
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::530]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0011]}		-- Review suspended
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::531]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0013]}		-- Review aborted
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0016]}		-- Record review process completed
+					}
+				}
+			}
+		}
+		description matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Reviewed item
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Reason
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Record review">
+					description = <"Clinician review of a specified part of the health record.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Reviewed item">
+					description = <"Identification of item that is being reviewed within the record. Coding with a terminology is preferred, if available. For example, medication list or adverse reaction status.">
+				>
+				["at0003"] = <
+					text = <"Record review planned">
+					description = <"Review of a specified part of the health record is planned.">
+				>
+				["at0004"] = <
+					text = <"Review scheduled">
+					description = <"Review of a specified part of the health record is scheduled.">
+				>
+				["at0006"] = <
+					text = <"Record reviewed, not altered">
+					description = <"The clinician has reviewed the specified part of the health record and left it unaltered.">
+				>
+				["at0008"] = <
+					text = <"Record reviewed and updated">
+					description = <"The clinician has reviewed the specified part of the health record and updated it.">
+				>
+				["at0010"] = <
+					text = <"Review postponed">
+					description = <"Review of a specified part of the health record has been postponed.">
+				>
+				["at0011"] = <
+					text = <"Review suspended">
+					description = <"Review of a specified part of the health record has been suspended.">
+				>
+				["at0012"] = <
+					text = <"Review Cancelled">
+					description = <"Review of a specified part of the health record has been cancelled.">
+				>
+				["at0013"] = <
+					text = <"Review aborted">
+					description = <"Review of a specified part of the health record has been aborted.">
+				>
+				["at0014"] = <
+					text = <"Reason">
+					description = <"Reason for activity.">
+				>
+				["at0015"] = <
+					text = <"Description">
+					description = <"Description of activity.">
+				>
+				["at0016"] = <
+					text = <"Record review process completed">
+					description = <"The review process of a specified part of a health record has completed.">
+				>
+			>
+		>
+	>

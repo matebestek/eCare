@@ -1,0 +1,127 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.diagnosticos.v1
+
+concept
+	[at0000]	-- Diagnosticos de trauma
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["date"] = <"12/12/2009">
+		["name"] = <"Pablo Pazos Gutierrez">
+		["email"] = <"pablo.swp@gmail.com">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"Diagnosticos de trauma codificados con CIE10">
+			use = <"Diagnosticos de trauma codificados con CIE10">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"210C2141D925CF80F240B4758BA7394B">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Diagnosticos de trauma
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches { -- Cualquier evento
+						data matches {
+							ITEM_LIST[at0003] matches {	-- Lista
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {1..*} matches { -- Diagnostico codificado
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[cie10::ac0002]}		-- Diagnostico de trauma
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {   -- Descripcion
+                                        value matches {
+                                            DV_TEXT matches {*}
+                                        }
+                                    }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Diagnosticos de trauma">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Cualquier evento">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Lista">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Diagnostico codificado">
+					description = <"*">
+				>
+				["at0005"] = <
+                    text = <"Descripción">
+                    description = <"Descripción del diagnóstico">
+                >
+			>
+		>
+	>
+	constraint_definitions = <
+		["es"] = <
+			items = <
+				["ac0002"] = <
+					text = <"Diagnostico de trauma">
+					description = <"Diagnostico de trauma expresado por codigos CIE10">
+				>
+			>
+		>
+	>

@@ -1,0 +1,96 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ELEMENT.ewsq_question.v1
+
+concept
+	[at0000]	-- Ewsq question
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Vsa vprašanja imajo enako zalogo vrednosti.">
+			use = <"Shizofrenija">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E3AC2E4E26CB58942ABBD791A91ECBC1">
+	>
+
+definition
+	ELEMENT[at0000] matches {	-- Ewsq question
+		value matches {
+			0|[local::at0001], 	-- Ni poslabšanje oz. izboljšanje
+			1|[local::at0002], 	-- Majhno poslabšanje
+			2|[local::at0003], 	-- Zmerno poslabšanje
+			3|[local::at0004], 	-- Veliko poslabšanje
+			4|[local::at0005]  	-- Izrazito poslabšanje
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ewsq question">
+					description = <"Vprašanje">
+				>
+				["at0001"] = <
+					text = <"Ni poslabšanje oz. izboljšanje">
+					description = <"Ni poslabšanje oz. izboljšanje">
+				>
+				["at0002"] = <
+					text = <"Majhno poslabšanje">
+					description = <"Majhno poslabšanje">
+				>
+				["at0003"] = <
+					text = <"Zmerno poslabšanje">
+					description = <"Zmerno poslabšanje">
+				>
+				["at0004"] = <
+					text = <"Veliko poslabšanje">
+					description = <"Veliko poslabšanje">
+				>
+				["at0005"] = <
+					text = <"Izrazito poslabšanje">
+					description = <"Izrazito poslabšanje">
+				>
+			>
+		>
+	>

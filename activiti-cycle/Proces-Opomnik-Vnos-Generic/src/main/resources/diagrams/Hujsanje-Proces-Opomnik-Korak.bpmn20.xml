@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+			 xmlns:activiti="http://activiti.org/bpmn" 
+			 xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+		     xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" 
+		     xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+		     xmlns:signavio="http://www.signavio.com" 
+		     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		     exporter="Signavio Process Editor, http://www.signavio.com"
+			 exporterVersion="5.0.0" 
+			 expressionLanguage="http://www.w3.org/1999/XPath"
+		     id="sid-71880261-d9ee-412b-8090-31d79534bcd3" 
+		     name="ProcesOpomnikVnosGeneric"
+		     targetNamespace="http://www.signavio.com/bpmn20" 
+		     typeLanguage="http://www.w3.org/2001/XMLSchema"
+		     xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+
+	<process id="Hujsanje-Proces-Opomnik-Korak" isExecutable="false" name="Hujsanje-Proces-Opomnik-Korak">
+		<extensionElements>
+			<activiti:executionListener
+				class="si.pint.eoskrba.ehujsanje.inputKoraki.listeners.ProcessExecutionListener"
+				event="start" />
+		</extensionElements>
+		<startEvent id="StartEvent" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>StartEvent-ServiceTaskInitProcess</outgoing>
+		</startEvent>
+		<serviceTask completionQuantity="1"
+			activiti:delegateExpression="${initProcessDelegate}" id="ServiceTask-InitProcess"
+			implementation="webService" isForCompensation="false" name="InitProcess"
+			startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+			</extensionElements>
+			<incoming>StartEvent-ServiceTaskInitProcess</incoming>
+			<outgoing>ServiceTaskInitProcess-CallActivityReminderPacient
+			</outgoing>
+		</serviceTask>
+		<callActivity calledElement="Proces-Opomnik-Vnos-Reminder-Pacient"
+			completionQuantity="1" id="CallActivity-ReminderPacient"
+			isForCompensation="false" name="REMINDER-Pacient" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#FFFFCC" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="[]" />
+				<activiti:in source="patientReminderSmsDelegate" target="patientReminderSmsDelegate" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="patientReminderEmail" target="email" />
+				<activiti:in source="processExecutionListener" target="processExecutionListener" />
+			</extensionElements>
+			<incoming>StartEvent-ServiceTaskInitProcess</incoming>
+			<incoming>getewayDecideRepeat-CaReminderPacient</incoming>
+			<outgoing>CallActivityReminderPacient-CallActivityVnosVrednostiPacienta
+			</outgoing>
+		</callActivity>
+		
+		<callActivity calledElement="Proces-Opomnik-Vnos-Meritev-7"
+			completionQuantity="1" id="CallActivity-VnosVrednostiPacienta7"
+			isForCompensation="false" name="Vnos vrednosti pacienta"
+			startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" ></signavio:signavioMetaData>
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="vnosVrednostiForm" target="vnosVrednostiForm" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="userTaskNameMsrmnts" target="userTaskNameMsrmnts" />
+				<activiti:in source="patientNotifySmsDelegate" target="patientNotifySmsDelegate" />
+				<activiti:in source="listenerPatientObvestiloComplete" target="listenerPatientObvestiloComplete" />
+				<activiti:in source="listenerPatientObvestiloCreate" target="listenerPatientObvestiloCreate" />	
+				<activiti:in source="subTaskVisitArray" target="subTaskVisitArray" />
+				<activiti:in source="categoryOk" target="categoryOk" />
+				<activiti:in source="answersCorrect" target="answersCorrect" />								
+				<activiti:out source="resultGeneric" target="resultGeneric" />
+				<activiti:out source="categoryNotOk" target="categoryNotOk" />							
+			</extensionElements>
+			<incoming>CallActivityReminderPacient-CallActivityVnosVrednostiPacienta
+			</incoming>
+			<outgoing>CallActivityVnosVrednostiPacienta-gatewayVnosMeritev_Obvescanje
+			</outgoing>
+		</callActivity>
+		
+		<boundaryEvent attachedToRef="CallActivity-VnosVrednostiPacienta7"
+			cancelActivity="true" id="BoundaryTimerEvent-ReminderPacient" name="TimerEventReminderPacient"
+			parallelMultiple="false">
+			<timerEventDefinition id="sid-c1b04605-5c51-458a-87ef-6ee3acac9414">
+				<timeDuration id="sid-4c382115-2f7c-449d-8c7d-78971694d320"
+					xsi:type="tFormalExpression">${reminderPacientIntervalDuration}</timeDuration>
+			</timerEventDefinition>
+		</boundaryEvent>
+
+		<exclusiveGateway default="gatewayDecideRepeat-CaNotifierCm"
+			gatewayDirection="Diverging" id="gatewayDecideRepeat" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>boundary-gatewayDecideRepeat</incoming>
+			<outgoing>gatewayDecideRepeat-CaNotifierCm</outgoing>
+			<outgoing>getewayDecideRepeat-CaReminderPacient</outgoing>
+		</exclusiveGateway>   
+		
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Cm-Ext"
+			completionQuantity="1" id="CallActivity-NotifierCm-BadValues"
+			isForCompensation="false" name="NOTIFIER-CM" startQuantity="1">
+			<extensionElements>				
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="caremanagerEmail" target="email" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete" target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="cmUserTaskName" target="userTaskName" />
+			</extensionElements>
+			<incoming>gatewayVnosMeritev_Obvescanje-Ca_NotifierCm_BadValues</incoming>
+			<outgoing>Ca_NotifierCm_BadValues-EndEvent</outgoing>			
+		</callActivity>
+		
+		<exclusiveGateway gatewayDirection="Diverging" id="gatewayVnosMeritev_Obvescanje" name="gatewayVnosMeritev_Obvescanje">
+			<incoming>CallActivityVnosVrednostiPacienta-gatewayVnosMeritev_Obvescanje</incoming>
+			<outgoing>gatewayVnosMeritev_Obvescanje-Ca_NotifierCm_BadValues</outgoing>
+			<outgoing>gatewayVnosMeritev_Obvescanje-EndEvent</outgoing>
+		</exclusiveGateway>		
+		
+		
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Cm-Ext"
+			completionQuantity="1" id="CallActivity-NotifierCm"
+			isForCompensation="false" name="NOTIFIER-CM" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />					
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="notifyCmEmail" target="email" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete" target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="patientStopCoopTaskName" target="userTaskName" />
+				<activiti:in source="processExecutionListener" target="processExecutionListener" />
+				<activiti:out source="patientCooperates" target="patientCooperates" />
+			</extensionElements>
+			<incoming>gatewayDecideRepeat-CaNotifierCm</incoming>
+			<outgoing>CaNotifierCm-gatewayCaCm_End</outgoing>			
+		</callActivity>
+				
+		<exclusiveGateway gatewayDirection="Diverging" id="gatewayCaCm_End" name="">
+			<incoming>CaNotifierCm-gatewayCaCm_End</incoming>
+			<outgoing>gatewayCaCm_End-CaReminderPacient</outgoing>
+			<outgoing>gatewayCaCm_End-EndEvent</outgoing>
+		</exclusiveGateway>
+	
+
+		<endEvent id="EndEvent" name="EndEvent">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#FF0000" />
+			</extensionElements>
+			<incoming>Ca_NotifierCm_BadValues-EndEvent</incoming>
+			<incoming>gatewayVnosMeritev_Obvescanje-EndEvent</incoming>
+			<incoming>CaNotifierCm-gatewayCaCm_End</incoming>
+		</endEvent>
+
+		<sequenceFlow id="StartEvent-ServiceTaskInitProcess"
+			isImmediate="true" name="" sourceRef="StartEvent" targetRef="ServiceTask-InitProcess">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		
+		<sequenceFlow id="ServiceTaskInitProcess-CallActivityReminderPacient"
+			name="" sourceRef="ServiceTask-InitProcess" targetRef="CallActivity-ReminderPacient" />
+			
+		<sequenceFlow
+			id="CallActivityReminderPacient-CallActivityVnosVrednostiPacienta"
+			isImmediate="true" name="" sourceRef="CallActivity-ReminderPacient"
+			targetRef="CallActivity-VnosVrednostiPacienta7">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		
+		<sequenceFlow id="boundary-gatewayDecideRepeat"
+			name="" sourceRef="BoundaryTimerEvent-ReminderPacient" targetRef="gatewayDecideRepeat">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.ehujsanje.inputKoraki.listeners.PatientReminderTimerExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		
+		<sequenceFlow
+			id="CallActivityVnosVrednostiPacienta-gatewayVnosMeritev_Obvescanje"
+			isImmediate="true" name="" sourceRef="CallActivity-VnosVrednostiPacienta7"
+			targetRef="gatewayVnosMeritev_Obvescanje">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.listeners.VnosMeritevCaCompleteSequenceListener" />
+			</extensionElements>			
+		</sequenceFlow>
+		
+		
+		<sequenceFlow id="gatewayVnosMeritev_Obvescanje-Ca_NotifierCm_BadValues" name="" sourceRef="gatewayVnosMeritev_Obvescanje" targetRef="CallActivity-NotifierCm-BadValues">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.ehujsanje.inputKoraki.listeners.EnterValuesCompleteSequenceListener" />
+			</extensionElements>	
+			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${categoryNotOk != null && categoryNotOk == 'true'}]]></conditionExpression>			
+		</sequenceFlow>
+		<sequenceFlow id="Ca_NotifierCm_BadValues-EndEvent"	name="" sourceRef="CallActivity-NotifierCm-BadValues" targetRef="EndEvent" />
+		<sequenceFlow id="gatewayVnosMeritev_Obvescanje-EndEvent" name="" sourceRef="gatewayVnosMeritev_Obvescanje" targetRef="EndEvent">
+			<conditionExpression xsi:type="tFormalExpression"><![CDATA[${categoryNotOk == null || categoryNotOk == 'false'}]]></conditionExpression>
+
+		</sequenceFlow>
+			
+		
+		<sequenceFlow id="CaNotifierCm-gatewayCaCm_End"
+			name="" sourceRef="CallActivity-NotifierCm" targetRef="gatewayCaCm_End">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gatewayCaCm_End-CaReminderPacient"
+			name="" sourceRef="gatewayCaCm_End" targetRef="CallActivity-ReminderPacient">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression xsi:type="tFormalExpression">${patientCooperates == 'true'}</conditionExpression>
+		</sequenceFlow>
+		
+		<sequenceFlow id="gatewayCaCm_End-EndEvent"
+			name="" sourceRef="gatewayCaCm_End" targetRef="EndEvent">
+			<extensionElements>
+				<activiti:executionListener	class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression xsi:type="tFormalExpression">${patientCooperates == 'false'}</conditionExpression>
+		</sequenceFlow>
+
+		<sequenceFlow id="gatewayDecideRepeat-CaNotifierCm"
+			isImmediate="true" name="" sourceRef="gatewayDecideRepeat"
+			targetRef="CallActivity-NotifierCm">
+			<extensionElements>
+				<activiti:executionListener
+					delegateExpression="${notifyCmExecutionListener}" />
+			</extensionElements>
+		</sequenceFlow>
+
+		<sequenceFlow id="getewayDecideRepeat-CaReminderPacient"
+			isImmediate="true" name="Manj kot 3 ponovitve" sourceRef="gatewayDecideRepeat"
+			targetRef="CallActivity-ReminderPacient">
+			<extensionElements>
+				<activiti:executionListener
+					class="si.pint.eoskrba.eastma.inputGeneric.listeners.SequenceFlowExecutionListener" />
+			</extensionElements>
+			<conditionExpression id="sid-48783566-44eb-441e-bc06-eefb0a7ba764"
+				xsi:type="tFormalExpression">
+				<![CDATA[${numberOfSentReminders < maxNumberOfSentReminders}]]>
+			</conditionExpression>
+		</sequenceFlow>
+		<association associationDirection="None"
+			id="sid-44F56AC5-25B8-4A5B-8244-101DCE53329B" sourceRef="sid-544DB89B-947F-49F7-A500-194F626AB7AA"
+			targetRef="StartEvent" />
+		<association associationDirection="None"
+			id="sid-6746587D-D0FD-4A7F-9EF4-E1D9B075E265" sourceRef="CallActivity-NotifierCm"
+			targetRef="sid-B57CAE3B-F4CE-497A-B128-BA2274AD522D" />
+		<textAnnotation id="sid-544DB89B-947F-49F7-A500-194F626AB7AA"
+			textFormat="text/plain">
+			<text>Vnos &lt;Generic&gt; vrednosti</text>
+		</textAnnotation>
+		<textAnnotation id="sid-B57CAE3B-F4CE-497A-B128-BA2274AD522D"
+			textFormat="text/plain">
+			<text>O nevnosu vrednosti meritve</text>
+		</textAnnotation>
+	</process>
+</definitions>

@@ -1,0 +1,199 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-SECTION.opomnik_eo_hu_koraki.v1
+
+concept
+	[at0000]	-- Opomnik eo hu koraki
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Koraki hujšanja">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"D502324454BF5A7364ABEFD572BA35BE">
+	>
+
+definition
+	SECTION[at0000] matches {	-- Opomnik eo hu koraki
+		items cardinality matches {0..*; unordered} matches {
+			allow_archetype ENTRY[at0001] occurrences matches {0..*} matches {	-- Korak 01
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0002] occurrences matches {0..*} matches {	-- Korak 02
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0003] occurrences matches {0..*} matches {	-- Korak 03
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0004] occurrences matches {0..*} matches {	-- Korak 04
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0005] occurrences matches {0..*} matches {	-- Korak 05
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0006] occurrences matches {0..*} matches {	-- Korak 06
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0007] occurrences matches {0..*} matches {	-- Korak 07
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0008] occurrences matches {0..*} matches {	-- Korak 08
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0009] occurrences matches {0..*} matches {	-- Korak 09
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0010] occurrences matches {0..*} matches {	-- Korak 10
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0011] occurrences matches {0..*} matches {	-- Korak 11
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0012] occurrences matches {0..*} matches {	-- Korak 12
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0013] occurrences matches {0..*} matches {	-- Korak 13
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0014] occurrences matches {0..*} matches {	-- Korak 14
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0015] occurrences matches {0..*} matches {	-- Korak 15
+				include
+					archetype_id/value matches {/.*/}
+			}
+			allow_archetype ENTRY[at0016] occurrences matches {0..*} matches {	-- Korak 16
+				include
+					archetype_id/value matches {/.*/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Opomnik eo hu koraki">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Korak 01">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Korak 02">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Korak 03">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Korak 04">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Korak 05">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Korak 06">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Korak 07">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Korak 08">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Korak 09">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Korak 10">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Korak 11">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Korak 12">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Korak 13">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Korak 14">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Korak 15">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Korak 16">
+					description = <"*">
+				>
+			>
+		>
+	>

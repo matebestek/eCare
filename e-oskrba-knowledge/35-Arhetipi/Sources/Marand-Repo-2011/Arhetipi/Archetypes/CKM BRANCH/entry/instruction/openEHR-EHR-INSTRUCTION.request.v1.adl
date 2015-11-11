@@ -1,0 +1,441 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-INSTRUCTION.request.v1
+
+concept
+	[at0000]	-- Zahteva intervencije
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"08/12/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Generic request for a range of different healthcare services e.g referral, lab request, equipment request.">
+			use = <"">
+			keywords = <"request", "refer", "order", "service", "provide">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Generični zahtevek za različne naloge v procesu zdravljenja
+">
+			use = <"Generični zahtevek za različne naloge v procesu zdravljenja">
+			keywords = <"naročilo", "zahteva", "zagotavljanje", "storitev">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation(en)">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"23E0A6D21D52B3264BFCF411C659A9F4">
+	>
+
+definition
+	INSTRUCTION[at0000] matches {	-- Zahteva intervencije
+		activities cardinality matches {0..*; unordered} matches {
+			ACTIVITY[at0001] occurrences matches {1..*} matches {	-- Naročilo
+				description matches {
+					ITEM_TREE[at0009] matches {	-- *Tree(en)
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0121] matches {	-- Negovalna intervencija
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0135] occurrences matches {0..1} matches {	-- Opis naročila
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0132] occurrences matches {0..*} matches {	-- Podrobnosti
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0062] occurrences matches {0..1} matches {	-- Razlog naročila
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0064] occurrences matches {0..1} matches {	-- Razlog naročila
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0065] occurrences matches {0..1} matches {	-- Cilj 
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0068] occurrences matches {0..1} matches {	-- Nujnost
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0136, 	-- Izredno
+											at0137, 	-- Nujno
+											at0138]	-- Rutinsko
+										}
+									}
+								}
+							}
+							ELEMENT[at0040] occurrences matches {0..1} matches {	-- Datum in čas izvedbe
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0144] occurrences matches {0..1} matches {	-- Najkasnej do
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0076] occurrences matches {0..1} matches {	-- Dodatne informacije
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True}
+									}
+								}
+							}
+							ELEMENT[at0078] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0116] occurrences matches {0..*} matches {	-- Dodatne potrebe pacienta
+								include
+									archetype_id/value matches {/.*/}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0008] matches {	-- *Tree(en) 
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- ID naročnik
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- ID prejemnika
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0145] occurrences matches {0..1} matches {	-- ID naročnika
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0141] occurrences matches {0..*} matches {	-- Naročnik
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0146] occurrences matches {0..1} matches {	-- ID prejemnika
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0142] occurrences matches {0..*} matches {	-- Prejemnik
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0127] occurrences matches {0..1} matches {	-- Status naročila
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0128] occurrences matches {0..*} matches {	-- Dodatni prejemniki informacij
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.distribution\.v1/}
+					}
+					allow_archetype CLUSTER[at0112] occurrences matches {0..*} matches {	-- Lokalizacija
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Healthcare service request">
+					description = <"Generic request for a range of different healthcare services e.g referral, lab request, equipment request.">
+				>
+				["at0001"] = <
+					text = <"Request">
+					description = <"Current Activity">
+				>
+				["at0008"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0009"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0010"] = <
+					text = <"Requestor request identifier">
+					description = <"The local ID assigned to the order by the healthcare provider or organisation requesting the service. This is also referred to as Placer Order Identifier.">
+				>
+				["at0011"] = <
+					text = <"Receiver request identifier">
+					description = <"The ID assigned to the order by the healthcare provider or organisation receiving the request for service. This is also referred to as Filler Order Identifier.">
+				>
+				["at0040"] = <
+					text = <"Date-time service required">
+					description = <"The date and time that the service should be performed or completed.">
+				>
+				["at0062"] = <
+					text = <"Reason for request">
+					description = <"A short description of the reason for the request.  This is often coded with an external terminology.">
+				>
+				["at0064"] = <
+					text = <"Reason description">
+					description = <"A narrative description explaining the reason for request.">
+				>
+				["at0065"] = <
+					text = <"Intent">
+					description = <"Stated intent of the request by the referrer.">
+				>
+				["at0068"] = <
+					text = <"Urgency">
+					description = <"Urgency of the request.">
+				>
+				["at0076"] = <
+					text = <"Supplementary information to follow">
+					description = <"True indicates that additional information has been identified and will be forwarded when available eg incomplete pathology test results.">
+				>
+				["at0078"] = <
+					text = <"Supplementary information expected">
+					description = <"Details of the nature of supplementary information that is to follow e.g name of laboratory results.">
+				>
+				["at0112"] = <
+					text = <"Localisation">
+					description = <"Local detailed information such as billing requirements.">
+				>
+				["at0116"] = <
+					text = <"Patient requirements">
+					description = <"Language, transport or other personal requirements to support the patient's attendance or participation in provision of the service.">
+				>
+				["at0121"] = <
+					text = <"Service requested">
+					description = <"Identification of the service requested. This is often coded with an external terminology.">
+				>
+				["at0127"] = <
+					text = <"Request status">
+					description = <"The status of the request for service as indicated by the requester. 
+Status is used to denote whether this is the initial request, or a follow-up request to change or provide supplementary information.">
+				>
+				["at0128"] = <
+					text = <"Distribution list for response ">
+					description = <"A list of person's or organisation who should receive copies of any communication.">
+				>
+				["at0132"] = <
+					text = <"Specific details  ">
+					description = <"Structured detail defining the service requested eg CLUSTER archetype specifying the specific catheter that is to be inserted.">
+				>
+				["at0135"] = <
+					text = <"Description of service">
+					description = <"A detailed narrative description of the service requested.">
+				>
+				["at0136"] = <
+					text = <"Emergency">
+					description = <"The request is an emergency">
+				>
+				["at0137"] = <
+					text = <"Urgent">
+					description = <"The request is urgent.">
+				>
+				["at0138"] = <
+					text = <"Routine">
+					description = <"The request is routine.">
+				>
+				["at0141"] = <
+					text = <"Requestor ">
+					description = <"Details about the healthcare provider or organisation requesting the service.">
+				>
+				["at0142"] = <
+					text = <"Receiver ">
+					description = <"Details about the healthcare provider or organisation receiving the request for service.">
+				>
+				["at0144"] = <
+					text = <"Latest date-time service required">
+					description = <"The latest date that is acceptable for the service to be completed.">
+				>
+				["at0145"] = <
+					text = <"Requestor identifier">
+					description = <"The person or organisation making the request.">
+				>
+				["at0146"] = <
+					text = <"Receiver identifier">
+					description = <"The person or organisation receiving the request.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Zahteva intervencije">
+					description = <"Generični zahtevek za različne naloge v procesu zdravljenja">
+				>
+				["at0001"] = <
+					text = <"Naročilo">
+					description = <"Trenutno naročilo">
+				>
+				["at0008"] = <
+					text = <"*Tree(en) ">
+					description = <"*@ internal @(en)">
+				>
+				["at0009"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en).">
+				>
+				["at0010"] = <
+					text = <"ID naročnik">
+					description = <"ID naročnik">
+				>
+				["at0011"] = <
+					text = <"ID prejemnika">
+					description = <"ID prejemnika">
+				>
+				["at0040"] = <
+					text = <"Datum in čas izvedbe">
+					description = <"Datum in čas do kdaj, naj bi se naročilo izvedlo">
+				>
+				["at0062"] = <
+					text = <"Razlog naročila">
+					description = <"Opis razloga naročila">
+				>
+				["at0064"] = <
+					text = <"Razlog naročila">
+					description = <"Opis razloga naročila">
+				>
+				["at0065"] = <
+					text = <"Cilj ">
+					description = <"Cilj naročila">
+				>
+				["at0068"] = <
+					text = <"Nujnost">
+					description = <"Nujnost naročila">
+				>
+				["at0076"] = <
+					text = <"Dodatne informacije">
+					description = <"Dodatne informacije">
+				>
+				["at0078"] = <
+					text = <"Opis">
+					description = <"*Details of the nature of supplementary information that is to follow e.g name of laboratory results.(en)">
+				>
+				["at0112"] = <
+					text = <"Lokalizacija">
+					description = <"Lokalne podraobnosti za potrebe npr. obračuna..">
+				>
+				["at0116"] = <
+					text = <"Dodatne potrebe pacienta">
+					description = <"Dodatne potrebe pacienta (jezik, prevoz....)">
+				>
+				["at0121"] = <
+					text = <"Negovalna intervencija">
+					description = <"Opis naročene intervencije">
+				>
+				["at0127"] = <
+					text = <"Status naročila">
+					description = <"Status naročila">
+				>
+				["at0128"] = <
+					text = <"Dodatni prejemniki informacij">
+					description = <"Seznam ljudi, ki so vključeni v to komunikacijo in morajo biti obveščeni">
+				>
+				["at0132"] = <
+					text = <"Podrobnosti">
+					description = <"Podrobnosti naročila">
+				>
+				["at0135"] = <
+					text = <"Opis naročila">
+					description = <"Opis naročila">
+				>
+				["at0136"] = <
+					text = <"Izredno">
+					description = <"Izredno">
+				>
+				["at0137"] = <
+					text = <"Nujno">
+					description = <"Nujno">
+				>
+				["at0138"] = <
+					text = <"Rutinsko">
+					description = <"Rutinsko">
+				>
+				["at0141"] = <
+					text = <"Naročnik">
+					description = <"Naročnik naročila">
+				>
+				["at0142"] = <
+					text = <"Prejemnik">
+					description = <"Prejemnik naročila">
+				>
+				["at0144"] = <
+					text = <"Najkasnej do">
+					description = <"Zadnji možni datum za izvedbo">
+				>
+				["at0145"] = <
+					text = <"ID naročnika">
+					description = <"ID naročnika">
+				>
+				["at0146"] = <
+					text = <"ID prejemnika">
+					description = <"ID prejemnika">
+				>
+			>
+		>
+	>

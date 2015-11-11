@@ -1,0 +1,470 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.fluid_output-vomiting.v1
+specialize
+	openEHR-EHR-OBSERVATION.fluid_output.v1
+
+concept
+	[at0000.1]	-- *Vomiting(en)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"11/11/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record findings of, and measurements of actual or estimated vomiting.">
+			use = <"Use to record findings and measurements of vomiting as part of routine nursing care.
+May be used for descriptive assessments of an output or to record detailed amounts and totals over a period.
+
+Used in combination with CLUSTER.bodily_output.v1 to describe the bodily substance involved.">
+			keywords = <"production", "output", "fluid", "fluid balance", "input output", "io", "vomit", "emesis">
+			misuse = <"Do not use to record fluid input.">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", "Heather Leslie, Ocean Informatics, Australia", "Biljana Prinčič, Marand d.o.o. Slovenia", "Uroš Rajkovič, Univerza v Mariboru, Fakulteta za organizacijske vede Kranj">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"16205794F4F28D6578BC3C668A8A8891">
+	>
+
+definition
+	OBSERVATION[at0000.1] matches {	-- *Vomiting(en)
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *List(en)
+								items cardinality matches {1..*; unordered} matches {
+									allow_archetype CLUSTER[at0016.1] occurrences matches {0..1} matches {	-- *Vomit detail(en)
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.bodily_substance-vomit(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0.32] occurrences matches {0..1} matches {	-- *Character(en)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.40, 	-- *Normal(en)
+													at0.41, 	-- *Projectile(en)
+													at0.42, 	-- *Effortless(en)
+													at0.43, 	-- *Retching(en)
+													at0.44]	-- *Infant spilling(en)
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0.33] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0.34] occurrences matches {0..1} matches {	-- *Relation to feeding(en)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.35, 	-- *During feeding(en)
+													at0.36, 	-- *Immediately after feeding.(en)
+													at0.37, 	-- *Up to 1 hour after feeding(en)
+													at0.38, 	-- *Up to 2 hours after feeding(en)
+													at0.39]	-- *More than 2  hours after feeding(en)
+												}
+											}
+										}
+									}
+									ELEMENT[at0.45] occurrences matches {0..1} matches {	-- *Datetime last fed(en)
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0.46] occurrences matches {0..1} matches {	-- *Time since last fed(en)
+										value matches {
+											DV_DURATION matches {
+												value matches {PDTHMS/|>=PT0S|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					INTERVAL_EVENT[at0006] occurrences matches {0..*} matches {	-- *Total(en)
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::148]}
+							}
+						}
+						data matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/data[at0003]	-- /data[*Event Series(en)]/events[Any event]/data[*List(en)]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/state[at0.33]	-- /data[*Event Series(en)]/events[Any event]/state[*Tree(en)]
+						}
+					}
+					INTERVAL_EVENT[at0007] occurrences matches {0..*} matches {	-- *Actual(en)
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::640]}
+							}
+						}
+						data matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/data[at0003]	-- /data[*Event Series(en)]/events[Any event]/data[*List(en)]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/state[at0.33]	-- /data[*Event Series(en)]/events[Any event]/state[*Tree(en)]
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0008] matches {	-- *List(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- *Measurement precision(en)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0018, 	-- *Estimated(en)
+									at0019, 	-- *Measured(en)
+									at0020]	-- *Stated(en)
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0028] occurrences matches {0..1} matches {	-- *Measurement device (en)
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+						exclude
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.32"] = <
+					text = <"Character">
+					description = <"Character of the vomiting.">
+				>
+				["at0.33"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0.34"] = <
+					text = <"Relation to feeding">
+					description = <"The time relationship of the vomiting to feeding. Genrally applicable to neonates and infants.">
+				>
+				["at0.35"] = <
+					text = <"During feeding">
+					description = <"Vomiting occues during feeding.">
+				>
+				["at0.36"] = <
+					text = <"Immediately after feeding.">
+					description = <"Vomiting occurs immediately after feeding.">
+				>
+				["at0.37"] = <
+					text = <"Up to 1 hour after feeding">
+					description = <"Vomiting occurs up to 1 hour after feeding.">
+				>
+				["at0.38"] = <
+					text = <"Up to 2 hours after feeding">
+					description = <"Vomiting occurs up to 2 hours after feeding.">
+				>
+				["at0.39"] = <
+					text = <"More than 2  hours after feeding">
+					description = <"Vomiting occurs more than 2  hours after feeding.">
+				>
+				["at0.40"] = <
+					text = <"Normal">
+					description = <"The vomiting is of a normal or usual character.">
+				>
+				["at0.41"] = <
+					text = <"Projectile">
+					description = <"The vomiting is projectile in nature.">
+				>
+				["at0.42"] = <
+					text = <"Effortless">
+					description = <"The vomiting appears effortless.">
+				>
+				["at0.43"] = <
+					text = <"Retching">
+					description = <"The subject is retching.">
+				>
+				["at0.44"] = <
+					text = <"Infant spilling">
+					description = <"Infant regurgitation/ vomiting.">
+				>
+				["at0.45"] = <
+					text = <"Datetime last fed">
+					description = <"The date and or time that the subject last fed.">
+				>
+				["at0.46"] = <
+					text = <"Time since last fed">
+					description = <"The time elapsed since the subject last fed.">
+				>
+				["at0.47"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0.48"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0.49"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0000"] = <
+					text = <"Fluid output">
+					description = <"Recording of findings and measurement (or estimation) of bodily output such as fluid output and defaecation.">
+				>
+				["at0000.1"] = <
+					text = <"Vomiting">
+					description = <"Findings related to vomiting.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"The estimation of fluid output without specifying the period of time.">
+				>
+				["at0003"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Total">
+					description = <"For recording total fluid output over a period (may transcend a number of interval or point in time records).">
+				>
+				["at0007"] = <
+					text = <"Actual">
+					description = <"For recording the fluid output over a period of time when this will later be totalled.">
+				>
+				["at0008"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0016"] = <
+					text = <"Fluid detail">
+					description = <"Details of the fluid or substance observed being observed.">
+				>
+				["at0016.1"] = <
+					text = <"Vomit detail">
+					description = <"Details of the vomit observed.">
+				>
+				["at0018"] = <
+					text = <"Estimated">
+					description = <"The fluid volume has been estimated.">
+				>
+				["at0019"] = <
+					text = <"Measured">
+					description = <"The fluid volume has been directly measured.">
+				>
+				["at0020"] = <
+					text = <"Stated">
+					description = <"The fluid output has been stated.">
+				>
+				["at0028"] = <
+					text = <"Measurement device ">
+					description = <"Details of device used to measure the fluid output.">
+				>
+				["at0031"] = <
+					text = <"Measurement precision">
+					description = <"Records the level of precision of the fluid output observation.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.32"] = <
+					text = <"*Character(en)">
+					description = <"*Character of the vomiting.(en)">
+				>
+				["at0.33"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0.34"] = <
+					text = <"*Relation to feeding(en)">
+					description = <"*The time relationship of the vomiting to feeding. Genrally applicable to neonates and infants.(en)">
+				>
+				["at0.35"] = <
+					text = <"*During feeding(en)">
+					description = <"*Vomiting occues during feeding.(en)">
+				>
+				["at0.36"] = <
+					text = <"*Immediately after feeding.(en)">
+					description = <"*Vomiting occurs immediately after feeding.(en)">
+				>
+				["at0.37"] = <
+					text = <"*Up to 1 hour after feeding(en)">
+					description = <"*Vomiting occurs up to 1 hour after feeding.(en)">
+				>
+				["at0.38"] = <
+					text = <"*Up to 2 hours after feeding(en)">
+					description = <"*Vomiting occurs up to 2 hours after feeding.(en)">
+				>
+				["at0.39"] = <
+					text = <"*More than 2  hours after feeding(en)">
+					description = <"*Vomiting occurs more than 2  hours after feeding.(en)">
+				>
+				["at0.40"] = <
+					text = <"*Normal(en)">
+					description = <"*The vomiting is of a normal or usual character.(en)">
+				>
+				["at0.41"] = <
+					text = <"*Projectile(en)">
+					description = <"*The vomiting is projectile in nature.(en)">
+				>
+				["at0.42"] = <
+					text = <"*Effortless(en)">
+					description = <"*The vomiting appears effortless.(en)">
+				>
+				["at0.43"] = <
+					text = <"*Retching(en)">
+					description = <"*The subject is retching.(en)">
+				>
+				["at0.44"] = <
+					text = <"*Infant spilling(en)">
+					description = <"*Infant regurgitation/ vomiting.(en)">
+				>
+				["at0.45"] = <
+					text = <"*Datetime last fed(en)">
+					description = <"*The date and or time that the subject last fed.(en)">
+				>
+				["at0.46"] = <
+					text = <"*Time since last fed(en)">
+					description = <"*The time elapsed since the subject last fed.(en)">
+				>
+				["at0.47"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0.48"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0.49"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0000"] = <
+					text = <"*Fluid output(en)">
+					description = <"*Recording of findings and measurement (or estimation) of bodily output such as fluid output and defaecation.(en)">
+				>
+				["at0000.1"] = <
+					text = <"*Vomiting(en)">
+					description = <"*Findings related to vomiting.(en)">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*The estimation of fluid output without specifying the period of time.(en)">
+				>
+				["at0003"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0006"] = <
+					text = <"*Total(en)">
+					description = <"*For recording total fluid output over a period (may transcend a number of interval or point in time records).(en)">
+				>
+				["at0007"] = <
+					text = <"*Actual(en)">
+					description = <"*For recording the fluid output over a period of time when this will later be totalled.(en)">
+				>
+				["at0008"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0016"] = <
+					text = <"*Fluid detail(en)">
+					description = <"*Details of the fluid or substance observed being observed.(en)">
+				>
+				["at0016.1"] = <
+					text = <"*Vomit detail(en)">
+					description = <"*Details of the vomit observed.(en)">
+				>
+				["at0018"] = <
+					text = <"*Estimated(en)">
+					description = <"*The fluid volume has been estimated.(en)">
+				>
+				["at0019"] = <
+					text = <"*Measured(en)">
+					description = <"*The fluid volume has been directly measured.(en)">
+				>
+				["at0020"] = <
+					text = <"*Stated(en)">
+					description = <"*The fluid output has been stated.(en)">
+				>
+				["at0028"] = <
+					text = <"*Measurement device (en)">
+					description = <"*Details of device used to measure the fluid output.(en)">
+				>
+				["at0031"] = <
+					text = <"*Measurement precision(en)">
+					description = <"*Records the level of precision of the fluid output observation.(en)">
+				>
+			>
+		>
+	>

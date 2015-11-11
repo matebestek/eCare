@@ -1,0 +1,1729 @@
+<content xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" archetype_node_id="openEHR-EHR-SECTION.vkljucitev_eo.v1" xsi:type="SECTION">
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+    <name>
+        <value>Vkljucitev v studijo eo di</value>
+    </name>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-ADMIN_ENTRY.osnovni_podatki_eo.v1" xsi:type="v1:ADMIN_ENTRY">
+        <name>
+            <value>Osnovni podatki o pacientu</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-ADMIN_ENTRY.osnovni_podatki_eo.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>Tree</value>
+            </name>
+            <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Ime</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>Janko</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Priimek</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>Novak</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0004" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>BIS Identifikator</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>bid.janko.novak</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0005" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Spol</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>MALE</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0013</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0006" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Datum rojstva</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>01.07.1980</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0007" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Email</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>EMAIL@DOMAIN.COM</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0008" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>GSM</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>PHONE-NUMBER</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0009" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Zdravstvena ustanova</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>ZD Novo Mesto</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0010" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Poklic</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>tesar</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0011" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Izpolnjuje ostale vključitvene kriterije</value>
+                </name>
+                <value xsi:type="v1:DV_BOOLEAN">
+                    <value>true</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0012" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Vključen v študijo</value>
+                </name>
+                <value xsi:type="v1:DV_BOOLEAN">
+                    <value>false</value>
+                </value>
+            </items>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-EVALUATION.druzinska_anamneza_eo_di.v1" xsi:type="v1:EVALUATION">
+        <name>
+            <value>Druzinska anamneza eo di</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-EVALUATION.druzinska_anamneza_eo_di.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>Tree</value>
+            </name>
+            <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Povzetek</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>to je povzetek</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Diabetes v družini</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>ni prisoten</value>
+                </value>
+            </items>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-OBSERVATION.height.v1" xsi:type="v1:OBSERVATION">
+        <name>
+            <value>Height/Length</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-OBSERVATION.height.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <protocol archetype_node_id="at0007" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>List</value>
+            </name>
+        </protocol>
+        <data archetype_node_id="at0001">
+            <name>
+                <value>history</value>
+            </name>
+            <origin>
+                <value>2012-02-07T10:43:57,349</value>
+            </origin>
+            <events archetype_node_id="at0002" xsi:type="v1:POINT_EVENT">
+                <name>
+                    <value>Any event</value>
+                </name>
+                <time>
+                    <value>2012-02-07T10:43:57,348</value>
+                </time>
+                <data archetype_node_id="at0003" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>Simple</value>
+                    </name>
+                    <items archetype_node_id="at0004" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Height/Length</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>185.0</magnitude>
+                            <units>cm</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                </data>
+                <state archetype_node_id="at0013" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>Tree</value>
+                    </name>
+                </state>
+            </events>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-OBSERVATION.body_weight.v1" xsi:type="v1:OBSERVATION">
+        <name>
+            <value>Body weight</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-OBSERVATION.body_weight.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <protocol archetype_node_id="at0015" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>protocol structure</value>
+            </name>
+        </protocol>
+        <data archetype_node_id="at0002">
+            <name>
+                <value>history</value>
+            </name>
+            <origin>
+                <value>2012-02-07T10:43:57,354</value>
+            </origin>
+            <events archetype_node_id="at0003" xsi:type="v1:POINT_EVENT">
+                <name>
+                    <value>Any event</value>
+                </name>
+                <time>
+                    <value>2012-02-07T10:43:57,354</value>
+                </time>
+                <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>Simple</value>
+                    </name>
+                    <items archetype_node_id="at0004" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Weight</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>88.5</magnitude>
+                            <units>kg</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                </data>
+                <state archetype_node_id="at0008" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>state structure</value>
+                    </name>
+                </state>
+            </events>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" xsi:type="v1:OBSERVATION">
+        <name>
+            <value>Body mass index</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-OBSERVATION.body_mass_index.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <protocol archetype_node_id="at0005" xsi:type="v1:ITEM_LIST">
+            <name>
+                <value>List</value>
+            </name>
+            <items archetype_node_id="at0006">
+                <name>
+                    <value>Method</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>Automatic entry</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0007</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0010">
+                <name>
+                    <value>Formula</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>text value</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0011">
+                <name>
+                    <value>Comment</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>text value</value>
+                </value>
+            </items>
+        </protocol>
+        <data archetype_node_id="at0001">
+            <name>
+                <value>history</value>
+            </name>
+            <origin>
+                <value>2012-02-07T10:43:57,357</value>
+            </origin>
+            <events archetype_node_id="at0002" xsi:type="v1:POINT_EVENT">
+                <name>
+                    <value>Any event</value>
+                </name>
+                <time>
+                    <value>2012-02-07T10:43:57,357</value>
+                </time>
+                <data archetype_node_id="at0003" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>Single</value>
+                    </name>
+                    <items archetype_node_id="at0004" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Body Mass Index</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>9.0</magnitude>
+                            <units>kg/m2</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                </data>
+            </events>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-OBSERVATION.krvni_tlak_eo.v1" xsi:type="v1:OBSERVATION">
+        <name>
+            <value>Krvni tlak eo</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-OBSERVATION.krvni_tlak_eo.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001">
+            <name>
+                <value>Event Series</value>
+            </name>
+            <origin>
+                <value>2012-02-07T10:43:57,366</value>
+            </origin>
+            <events archetype_node_id="at0002" xsi:type="v1:POINT_EVENT">
+                <name>
+                    <value>Any event</value>
+                </name>
+                <time>
+                    <value>2012-02-07T10:43:57,365</value>
+                </time>
+                <data archetype_node_id="at0003" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>Tree</value>
+                    </name>
+                    <items archetype_node_id="at0004" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Sistolični</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>120.0</magnitude>
+                            <units>mm[Hg]</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0005" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Diastolični</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>80.0</magnitude>
+                            <units>mm[Hg]</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0006" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Opombe</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>opomba za krvni tlak</value>
+                        </value>
+                    </items>
+                </data>
+            </events>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-OBSERVATION.laboratorij_eo_di.v1" xsi:type="v1:OBSERVATION">
+        <name>
+            <value>Laboratorij eo di</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-OBSERVATION.laboratorij_eo_di.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001">
+            <name>
+                <value>Event Series</value>
+            </name>
+            <origin>
+                <value>2012-02-07T10:43:57,374</value>
+            </origin>
+            <events archetype_node_id="at0002" xsi:type="v1:POINT_EVENT">
+                <name>
+                    <value>Any event</value>
+                </name>
+                <time>
+                    <value>2012-02-07T10:43:57,374</value>
+                </time>
+                <data archetype_node_id="at0003" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>Tree</value>
+                    </name>
+                    <items archetype_node_id="at0015" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>15.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0004" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>16.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0007" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>17.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0008" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>18.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0009" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>19.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0010" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>20.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0011" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>21.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0012" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>22.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0013" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>23.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0014" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>text value</value>
+                        </name>
+                        <value xsi:type="v1:DV_QUANTITY">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>24.0</magnitude>
+                            <units>U/ml</units>
+                            <precision>0</precision>
+                        </value>
+                    </items>
+                </data>
+            </events>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-EVALUATION.alkohol_eo_pp.v1" xsi:type="v1:EVALUATION">
+        <name>
+            <value>Alkohol eo pp</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-EVALUATION.alkohol_eo_pp.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>Tree</value>
+            </name>
+            <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Pogostost pitja (v zadnjih 12 mesecih)</value>
+                </name>
+                <value xsi:type="v1:DV_ORDINAL">
+                    <value>3</value>
+                    <symbol>
+                        <value>2 do 3 krat na tede</value>
+                        <defining_code>
+                            <terminology_id>
+                                <value>local</value>
+                            </terminology_id>
+                            <code_string>at0006</code_string>
+                        </defining_code>
+                    </symbol>
+                </value>
+            </items>
+            <items archetype_node_id="at0008" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Količina pijače ob običajnem pitju </value>
+                </name>
+                <value xsi:type="v1:DV_ORDINAL">
+                    <value>3</value>
+                    <symbol>
+                        <value>5 ali 6 meric</value>
+                        <defining_code>
+                            <terminology_id>
+                                <value>local</value>
+                            </terminology_id>
+                            <code_string>at0012</code_string>
+                        </defining_code>
+                    </symbol>
+                </value>
+            </items>
+            <items archetype_node_id="at0014" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Pogostost pitja večjih količin (M 6 ali več, Ž 4 ali več meric)</value>
+                </name>
+                <value xsi:type="v1:DV_ORDINAL">
+                    <value>1</value>
+                    <symbol>
+                        <value>Manj kot enkrat na mesec</value>
+                        <defining_code>
+                            <terminology_id>
+                                <value>local</value>
+                            </terminology_id>
+                            <code_string>at0016</code_string>
+                        </defining_code>
+                    </symbol>
+                </value>
+            </items>
+            <items archetype_node_id="at0020" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Število doseženih točk</value>
+                </name>
+                <value xsi:type="v1:DV_COUNT">
+                    <accuracy>0.0</accuracy>
+                    <magnitude>9</magnitude>
+                </value>
+            </items>
+            <items archetype_node_id="at0022" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Ocena ogroženosti</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>Manj tvegano pitje</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0024</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0021" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Komentar</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>komentar za alko</value>
+                </value>
+            </items>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-EVALUATION.kajenje_eo_pp.v1" xsi:type="v1:EVALUATION">
+        <name>
+            <value>Kajenje eo pp</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-EVALUATION.kajenje_eo_pp.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>Tree</value>
+            </name>
+            <items archetype_node_id="at0008" xsi:type="v1:CLUSTER">
+                <name>
+                    <value>Povzetek uživanja tobaka</value>
+                </name>
+                <items archetype_node_id="at0007" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Dnevno število cigaret</value>
+                    </name>
+                    <value xsi:type="v1:DV_COUNT">
+                        <accuracy>0.0</accuracy>
+                        <magnitude>6</magnitude>
+                    </value>
+                </items>
+                <items archetype_node_id="at0009" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Datum začetka uživanja</value>
+                    </name>
+                    <value xsi:type="v1:DV_DATE">
+                        <value>1990-01-01</value>
+                    </value>
+                </items>
+                <items archetype_node_id="at0011" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Starost ob začetku uživanja</value>
+                    </name>
+                    <value xsi:type="v1:DV_DURATION">
+                        <accuracy>0.0</accuracy>
+                        <value>P14Y</value>
+                    </value>
+                </items>
+            </items>
+            <items archetype_node_id="at0016" xsi:type="v1:CLUSTER">
+                <name>
+                    <value>Poskusi prenehanja</value>
+                </name>
+                <items archetype_node_id="at0017" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Poskus prenehanja</value>
+                    </name>
+                    <value xsi:type="v1:DV_CODED_TEXT">
+                        <value>Poskusil, neuspešno</value>
+                        <defining_code>
+                            <terminology_id>
+                                <value>local</value>
+                            </terminology_id>
+                            <code_string>at0019</code_string>
+                        </defining_code>
+                    </value>
+                </items>
+                <items archetype_node_id="at0010" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Datum prenehanju</value>
+                    </name>
+                    <value xsi:type="v1:DV_DATE">
+                        <value>2000-01-01</value>
+                    </value>
+                </items>
+                <items archetype_node_id="at0012" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Starost ob prenehanju</value>
+                    </name>
+                    <value xsi:type="v1:DV_DURATION">
+                        <accuracy>0.0</accuracy>
+                        <value>P22Y</value>
+                    </value>
+                </items>
+            </items>
+            <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Kadilski status</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>Pasivni</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0015</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0022" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Stopnja ogroženosti</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>Ni ogrožen</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0023</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0013" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Komentar</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>kadilski komentar</value>
+                </value>
+            </items>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-EVALUATION.telesna_dejavnost_eo_pp.v1" xsi:type="v1:EVALUATION">
+        <name>
+            <value>Telesna dejavnost eo pp</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-EVALUATION.telesna_dejavnost_eo_pp.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>Tree</value>
+            </name>
+            <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Visoko intenzivna vadba</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>2</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0005</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0012" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Zmerno intenzivna vadba</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>2</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0015</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0022" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Število doseženih točk</value>
+                </name>
+                <value xsi:type="v1:DV_COUNT">
+                    <accuracy>0.0</accuracy>
+                    <magnitude>8</magnitude>
+                </value>
+            </items>
+            <items archetype_node_id="at0024" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Ogroženost</value>
+                </name>
+                <value xsi:type="v1:DV_CODED_TEXT">
+                    <value>Srednje visoka ogroženost</value>
+                    <defining_code>
+                        <terminology_id>
+                            <value>local</value>
+                        </terminology_id>
+                        <code_string>at0026</code_string>
+                    </defining_code>
+                </value>
+            </items>
+            <items archetype_node_id="at0023" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Komentar</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>komentar za telesno dejavnost</value>
+                </value>
+            </items>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-EVALUATION.anamneza_ostalo_eo_di.v1" xsi:type="v1:EVALUATION">
+        <name>
+            <value>Anamneza ostalo eo di</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-EVALUATION.anamneza_ostalo_eo_di.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>Tree</value>
+            </name>
+            <items archetype_node_id="at0006" xsi:type="v1:CLUSTER">
+                <name>
+                    <value>Uporaba merilnih inštrumentov</value>
+                </name>
+                <items archetype_node_id="at0011" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Kako pogosto si oseba sama meri telesno težo?</value>
+                    </name>
+                    <value xsi:type="v1:DV_CODED_TEXT">
+                        <value>2 - 3 x na mesec</value>
+                        <defining_code>
+                            <terminology_id>
+                                <value>local</value>
+                            </terminology_id>
+                            <code_string>at0025</code_string>
+                        </defining_code>
+                    </value>
+                </items>
+                <items archetype_node_id="at0007" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Kako pogosto si oseba sama meri krvni sladkor?</value>
+                    </name>
+                    <value xsi:type="v1:DV_CODED_TEXT">
+                        <value>0 - 1 x na mesec</value>
+                        <defining_code>
+                            <terminology_id>
+                                <value>local</value>
+                            </terminology_id>
+                            <code_string>at0018</code_string>
+                        </defining_code>
+                    </value>
+                </items>
+                <items archetype_node_id="at0015" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Kako pogosto si oseba sama meri krvni tlak?</value>
+                    </name>
+                    <value xsi:type="v1:DV_CODED_TEXT">
+                        <value>4 - 6 x na teden</value>
+                        <defining_code>
+                            <terminology_id>
+                                <value>local</value>
+                            </terminology_id>
+                            <code_string>at0033</code_string>
+                        </defining_code>
+                    </value>
+                </items>
+            </items>
+            <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Očesno ozadje</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>ok</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Pregled nog</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>noge ok</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0005" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Zgodovina bolezni</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>diabetes 4 life</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0035" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Uporaba inzulina</value>
+                </name>
+                <value xsi:type="v1:DV_BOOLEAN">
+                    <value>true</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0036" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Uporaba merilca krvnega sladkorja</value>
+                </name>
+                <value xsi:type="v1:DV_BOOLEAN">
+                    <value>false</value>
+                </value>
+            </items>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-OBSERVATION.wonca_vprasalnik_eo_di.v1" xsi:type="v1:OBSERVATION">
+        <name>
+            <value>Wonca vprasalnik eo di</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-OBSERVATION.wonca_vprasalnik_eo_di.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001">
+            <name>
+                <value>Event Series</value>
+            </name>
+            <origin>
+                <value>2012-02-07T10:43:57,408</value>
+            </origin>
+            <events archetype_node_id="at0002" xsi:type="v1:POINT_EVENT">
+                <name>
+                    <value>Any event</value>
+                </name>
+                <time>
+                    <value>2012-02-07T10:43:57,407</value>
+                </time>
+                <data archetype_node_id="at0003" xsi:type="v1:ITEM_TREE">
+                    <name>
+                        <value>Tree</value>
+                    </name>
+                    <items archetype_node_id="at0004" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Vprašanja</value>
+                        </name>
+                        <items archetype_node_id="at0006" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Telesno počutje</value>
+                            </name>
+                            <value xsi:type="v1:DV_ORDINAL">
+                                <value>2</value>
+                                <symbol>
+                                    <value>Težka, npr. počasen tek</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0018</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0005" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Čustva</value>
+                            </name>
+                            <value xsi:type="v1:DV_ORDINAL">
+                                <value>3</value>
+                                <symbol>
+                                    <value>Srednje veliko</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0024</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0008" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Vsakodnevna opravila</value>
+                            </name>
+                            <value xsi:type="v1:DV_ORDINAL">
+                                <value>4</value>
+                                <symbol>
+                                    <value>Veliko</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0030</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0007" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Družabno življenje</value>
+                            </name>
+                            <value xsi:type="v1:DV_ORDINAL">
+                                <value>3</value>
+                                <symbol>
+                                    <value>Srednje veliko</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0034</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0010" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Sprememba zdravja</value>
+                            </name>
+                            <value xsi:type="v1:DV_ORDINAL">
+                                <value>4</value>
+                                <symbol>
+                                    <value>Nekoliko slabše</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0040</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0011" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Splošno stanje</value>
+                            </name>
+                            <value xsi:type="v1:DV_ORDINAL">
+                                <value>2</value>
+                                <symbol>
+                                    <value>Zelo dobro</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0043</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0009" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Bolečina</value>
+                            </name>
+                            <value xsi:type="v1:DV_ORDINAL">
+                                <value>3</value>
+                                <symbol>
+                                    <value>Blage bolečine</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0014</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                    </items>
+                    <items archetype_node_id="at0047" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Število točk</value>
+                        </name>
+                        <value xsi:type="v1:DV_COUNT">
+                            <accuracy>0.0</accuracy>
+                            <magnitude>17</magnitude>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0048" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Komentar</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>komentar za wonco</value>
+                        </value>
+                    </items>
+                </data>
+            </events>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-EVALUATION.diagnoza_eo.v1" xsi:type="v1:EVALUATION">
+        <name>
+            <value>Diagnoza eo</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-EVALUATION.diagnoza_eo.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <data archetype_node_id="at0001" xsi:type="v1:ITEM_TREE">
+            <name>
+                <value>Tree</value>
+            </name>
+            <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Diagnoza (prosti tekst)</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>diagnoza umor</value>
+                </value>
+            </items>
+            <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                <name>
+                    <value>Diagnoza (MKB10)</value>
+                </name>
+                <value xsi:type="v1:DV_TEXT">
+                    <value>diagnoza MKB10</value>
+                </value>
+            </items>
+        </data>
+    </items>
+    <items xmlns:v1="http://schemas.openehr.org/v1" archetype_node_id="openEHR-EHR-INSTRUCTION.terapija_eo.v1" xsi:type="v1:INSTRUCTION">
+        <name>
+            <value>Terapija eo</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-INSTRUCTION.terapija_eo.v1</value>
+            </archetype_id>
+            <rm_version>1.0.1</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>en</code_string>
+        </language>
+        <encoding>
+            <terminology_id>
+                <value>IANA_character-sets</value>
+            </terminology_id>
+            <code_string>UTF-8</code_string>
+        </encoding>
+        <subject xsi:type="v1:PARTY_SELF">
+            <external_ref>
+                <id xsi:type="v1:HIER_OBJECT_ID">
+                    <value>1.2.4.5.6.12.1</value>
+                </id>
+                <type>PARTY</type>
+            </external_ref>
+        </subject>
+        <narrative>
+            <value>instruction narrative</value>
+        </narrative>
+        <activities archetype_node_id="at0002">
+            <name>
+                <value>Current Activity</value>
+            </name>
+            <description archetype_node_id="at0003" xsi:type="v1:ITEM_TREE">
+                <name>
+                    <value>Tree</value>
+                </name>
+                <items archetype_node_id="openEHR-EHR-CLUSTER.zdravila_eo.v1" xsi:type="v1:CLUSTER">
+                    <name>
+                        <value>Zdravila eo</value>
+                    </name>
+                    <items archetype_node_id="at0006" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Naročilo</value>
+                        </name>
+                        <items archetype_node_id="at0018" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Število pakiranj</value>
+                            </name>
+                            <value xsi:type="v1:DV_COUNT">
+                                <accuracy>0.0</accuracy>
+                                <magnitude>40</magnitude>
+                            </value>
+                        </items>
+                    </items>
+                    <items archetype_node_id="at0005" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Režim jemanja</value>
+                        </name>
+                        <items archetype_node_id="at0008" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Količina (št/mg/ml/vdih)</value>
+                            </name>
+                            <value xsi:type="v1:DV_COUNT">
+                                <accuracy>0.0</accuracy>
+                                <magnitude>12</magnitude>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0009" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Pogostost jemanja</value>
+                            </name>
+                            <value xsi:type="v1:DV_CODED_TEXT">
+                                <value>3x/dan (na 8 ur)</value>
+                                <defining_code>
+                                    <terminology_id>
+                                        <value>local</value>
+                                    </terminology_id>
+                                    <code_string>at0012</code_string>
+                                </defining_code>
+                            </value>
+                        </items>
+                    </items>
+                    <items archetype_node_id="at0007" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Uporaba</value>
+                        </name>
+                        <items archetype_node_id="at0019" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Dnevno (Da/Ne)</value>
+                            </name>
+                            <value xsi:type="v1:DV_BOOLEAN">
+                                <value>false</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0020" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Rednost (14 dni)</value>
+                            </name>
+                            <value xsi:type="v1:DV_CODED_TEXT">
+                                <value>2</value>
+                                <defining_code>
+                                    <terminology_id>
+                                        <value>local</value>
+                                    </terminology_id>
+                                    <code_string>at0023</code_string>
+                                </defining_code>
+                            </value>
+                        </items>
+                    </items>
+                    <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Ime zdravila</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>zdravilo XY</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Generično ime</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>gen. ime XY</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0028" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>ATC koda</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>ATC koda 1234XXX</value>
+                        </value>
+                    </items>
+                </items>
+                <items archetype_node_id="at0004" xsi:type="v1:ELEMENT">
+                    <name>
+                        <value>Opis terapije</value>
+                    </name>
+                    <value xsi:type="v1:DV_TEXT">
+                        <value>to je opis terapije</value>
+                    </value>
+                </items>
+                <items archetype_node_id="openEHR-EHR-CLUSTER.zdravila_eo.v1" xsi:type="v1:CLUSTER">
+                    <name>
+                        <value>Zdravila eo</value>
+                    </name>
+                    <items archetype_node_id="at0002" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Ime zdravila</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>zdravilo XY2</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Generično ime</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>gen. ime XY2</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0028" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>ATC koda</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>ATC koda 1234XXX2</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0006" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Naročilo</value>
+                        </name>
+                        <items archetype_node_id="at0018" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Število pakiranj</value>
+                            </name>
+                            <value xsi:type="v1:DV_COUNT">
+                                <accuracy>0.0</accuracy>
+                                <magnitude>42</magnitude>
+                            </value>
+                        </items>
+                    </items>
+                    <items archetype_node_id="at0005" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Režim jemanja</value>
+                        </name>
+                        <items archetype_node_id="at0008" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Količina (št/mg/ml/vdih)</value>
+                            </name>
+                            <value xsi:type="v1:DV_COUNT">
+                                <accuracy>0.0</accuracy>
+                                <magnitude>22</magnitude>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0009" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Pogostost jemanja</value>
+                            </name>
+                            <value xsi:type="v1:DV_CODED_TEXT">
+                                <value>4x/dan (na 6 ur)</value>
+                                <defining_code>
+                                    <terminology_id>
+                                        <value>local</value>
+                                    </terminology_id>
+                                    <code_string>at0013</code_string>
+                                </defining_code>
+                            </value>
+                        </items>
+                    </items>
+                    <items archetype_node_id="at0007" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Uporaba</value>
+                        </name>
+                        <items archetype_node_id="at0019" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Dnevno (Da/Ne)</value>
+                            </name>
+                            <value xsi:type="v1:DV_BOOLEAN">
+                                <value>true</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0020" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Rednost (14 dni)</value>
+                            </name>
+                            <value xsi:type="v1:DV_CODED_TEXT">
+                                <value>3</value>
+                                <defining_code>
+                                    <terminology_id>
+                                        <value>local</value>
+                                    </terminology_id>
+                                    <code_string>at0024</code_string>
+                                </defining_code>
+                            </value>
+                        </items>
+                    </items>
+                </items>
+                <items archetype_node_id="openEHR-EHR-CLUSTER.zdravila_eo.v1" xsi:type="v1:CLUSTER">
+                    <name>
+                        <value>Zdravila eo</value>
+                    </name>
+                    <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Generično ime</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>gen. ime XY3</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0028" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>ATC koda</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>ATC koda 1234XXX_3</value>
+                        </value>
+                    </items>
+                </items>
+                <items archetype_node_id="openEHR-EHR-CLUSTER.zdravila_eo.v1" xsi:type="v1:CLUSTER">
+                    <name>
+                        <value>Zdravila eo</value>
+                    </name>
+                    <items archetype_node_id="at0003" xsi:type="v1:ELEMENT">
+                        <name>
+                            <value>Generično ime</value>
+                        </name>
+                        <value xsi:type="v1:DV_TEXT">
+                            <value>gen. ime XY4</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0005" xsi:type="v1:CLUSTER">
+                        <name>
+                            <value>Režim jemanja</value>
+                        </name>
+                        <items archetype_node_id="at0009" xsi:type="v1:ELEMENT">
+                            <name>
+                                <value>Pogostost jemanja</value>
+                            </name>
+                            <value xsi:type="v1:DV_CODED_TEXT">
+                                <value>Po potrebi</value>
+                                <defining_code>
+                                    <terminology_id>
+                                        <value>local</value>
+                                    </terminology_id>
+                                    <code_string>at0014</code_string>
+                                </defining_code>
+                            </value>
+                        </items>
+                    </items>
+                </items>
+            </description>
+            <timing>
+                <value>activity timing</value>
+                <formalism>txt</formalism>
+            </timing>
+            <action_archetype_id>/.*/</action_archetype_id>
+        </activities>
+    </items>
+</content>

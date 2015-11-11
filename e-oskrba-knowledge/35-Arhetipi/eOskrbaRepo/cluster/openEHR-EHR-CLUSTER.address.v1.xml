@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<archetype xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.openehr.org/v1">
+  <original_language>
+    <terminology_id>
+      <value>ISO_639-1</value>
+    </terminology_id>
+    <code_string>en</code_string>
+  </original_language>
+  <description>
+    <original_author id="name">Ian McNicoll</original_author>
+    <original_author id="date">11/11/2007</original_author>
+    <original_author id="organisation">Ocean Informatics</original_author>
+    <lifecycle_state>Initial</lifecycle_state>
+    <other_details id="references">From NHS Scotland SCI-XML messaging standards http://www.isdscotland.org/isd/files/general-v2-7.xsd NHS Scotland Interoperability Working Group http://www.isdscotland.org/isd/5194.htm originally based on: Postal address of person.  ENV 13606 - 4:2000 7.11.13</other_details>
+    <other_details id="MD5-CAM-1.0.1">14F9386D97B735D79A41B4BF0AFB91AF</other_details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>en</code_string>
+      </language>
+      <purpose>To record details of one or more personal addresses for an individual.</purpose>
+      <keywords>address</keywords>
+      <use />
+      <misuse />
+      <copyright>© 2011 openEHR Foundation</copyright>
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>de</code_string>
+      </language>
+      <purpose>Zur Dokumentation einer oder mehrerer Adressen einer Person oder Einrichtung.</purpose>
+      <keywords>Adresse</keywords>
+      <use />
+      <misuse />
+      <copyright>© 2011 openEHR Foundation</copyright>
+    </details>
+    <details>
+      <language>
+        <terminology_id>
+          <value>ISO_639-1</value>
+        </terminology_id>
+        <code_string>sl</code_string>
+      </language>
+      <purpose>Zabeležiti osebni naslov ali več naslovov posameznika.</purpose>
+      <keywords>naslov</keywords>
+      <use />
+      <misuse />
+      <copyright>*© 2011 openEHR Foundation(en)</copyright>
+    </details>
+  </description>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>de</code_string>
+    </language>
+    <author id="name">Hans Demski</author>
+    <author id="email">demski@helmholtz-muenchen.de</author>
+    <author id="organisation">Helmholtz Zentrum München</author>
+  </translations>
+  <translations>
+    <language>
+      <terminology_id>
+        <value>ISO_639-1</value>
+      </terminology_id>
+      <code_string>sl</code_string>
+    </language>
+    <author id="name">?</author>
+  </translations>
+  <archetype_id>
+    <value>openEHR-EHR-CLUSTER.address.v1</value>
+  </archetype_id>
+  <adl_version>1.4</adl_version>
+  <concept>at0000</concept>
+  <definition>
+    <rm_type_name>CLUSTER</rm_type_name>
+    <occurrences>
+      <lower_included>true</lower_included>
+      <upper_included>true</upper_included>
+      <lower_unbounded>false</lower_unbounded>
+      <upper_unbounded>false</upper_unbounded>
+      <lower>1</lower>
+      <upper>1</upper>
+    </occurrences>
+    <node_id>at0000</node_id>
+    <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+      <rm_attribute_name>items</rm_attribute_name>
+      <existence>
+        <lower_included>true</lower_included>
+        <upper_included>true</upper_included>
+        <lower_unbounded>false</lower_unbounded>
+        <upper_unbounded>false</upper_unbounded>
+        <lower>1</lower>
+        <upper>1</upper>
+      </existence>
+      <children xsi:type="C_COMPLEX_OBJECT">
+        <rm_type_name>CLUSTER</rm_type_name>
+        <occurrences>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>0</lower>
+        </occurrences>
+        <node_id>at0001</node_id>
+        <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+          <rm_attribute_name>items</rm_attribute_name>
+          <existence>
+            <lower_included>true</lower_included>
+            <upper_included>true</upper_included>
+            <lower_unbounded>false</lower_unbounded>
+            <upper_unbounded>false</upper_unbounded>
+            <lower>1</lower>
+            <upper>1</upper>
+          </existence>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>1</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0006</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_CODED_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>defining_code</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_CODE_PHRASE">
+                    <rm_type_name>CODE_PHRASE</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                    <terminology_id>
+                      <value>local</value>
+                    </terminology_id>
+                    <code_list>at0011</code_list>
+                    <code_list>at0012</code_list>
+                    <code_list>at0013</code_list>
+                    <code_list>at0014</code_list>
+                  </children>
+                </attributes>
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0002</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>CLUSTER</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0003</node_id>
+            <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+              <rm_attribute_name>items</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0005</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_TEXT</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>4</upper>
+                </occurrences>
+                <node_id>at0009</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_TEXT</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <cardinality>
+                <is_ordered>false</is_ordered>
+                <is_unique>false</is_unique>
+                <interval>
+                  <lower_included>true</lower_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>true</upper_unbounded>
+                  <lower>1</lower>
+                </interval>
+              </cardinality>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>ELEMENT</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0004</node_id>
+            <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+              <rm_attribute_name>value</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>DV_TEXT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>1</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id />
+              </children>
+            </attributes>
+          </children>
+          <children xsi:type="C_COMPLEX_OBJECT">
+            <rm_type_name>CLUSTER</rm_type_name>
+            <occurrences>
+              <lower_included>true</lower_included>
+              <upper_included>true</upper_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>false</upper_unbounded>
+              <lower>0</lower>
+              <upper>1</upper>
+            </occurrences>
+            <node_id>at0015</node_id>
+            <attributes xsi:type="C_MULTIPLE_ATTRIBUTE">
+              <rm_attribute_name>items</rm_attribute_name>
+              <existence>
+                <lower_included>true</lower_included>
+                <upper_included>true</upper_included>
+                <lower_unbounded>false</lower_unbounded>
+                <upper_unbounded>false</upper_unbounded>
+                <lower>1</lower>
+                <upper>1</upper>
+              </existence>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0007</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_DATE_TIME</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <children xsi:type="C_COMPLEX_OBJECT">
+                <rm_type_name>ELEMENT</rm_type_name>
+                <occurrences>
+                  <lower_included>true</lower_included>
+                  <upper_included>true</upper_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>false</upper_unbounded>
+                  <lower>0</lower>
+                  <upper>1</upper>
+                </occurrences>
+                <node_id>at0008</node_id>
+                <attributes xsi:type="C_SINGLE_ATTRIBUTE">
+                  <rm_attribute_name>value</rm_attribute_name>
+                  <existence>
+                    <lower_included>true</lower_included>
+                    <upper_included>true</upper_included>
+                    <lower_unbounded>false</lower_unbounded>
+                    <upper_unbounded>false</upper_unbounded>
+                    <lower>1</lower>
+                    <upper>1</upper>
+                  </existence>
+                  <children xsi:type="C_COMPLEX_OBJECT">
+                    <rm_type_name>DV_DATE_TIME</rm_type_name>
+                    <occurrences>
+                      <lower_included>true</lower_included>
+                      <upper_included>true</upper_included>
+                      <lower_unbounded>false</lower_unbounded>
+                      <upper_unbounded>false</upper_unbounded>
+                      <lower>1</lower>
+                      <upper>1</upper>
+                    </occurrences>
+                    <node_id />
+                  </children>
+                </attributes>
+              </children>
+              <cardinality>
+                <is_ordered>false</is_ordered>
+                <is_unique>false</is_unique>
+                <interval>
+                  <lower_included>true</lower_included>
+                  <lower_unbounded>false</lower_unbounded>
+                  <upper_unbounded>true</upper_unbounded>
+                  <lower>1</lower>
+                </interval>
+              </cardinality>
+            </attributes>
+          </children>
+          <cardinality>
+            <is_ordered>false</is_ordered>
+            <is_unique>false</is_unique>
+            <interval>
+              <lower_included>true</lower_included>
+              <lower_unbounded>false</lower_unbounded>
+              <upper_unbounded>true</upper_unbounded>
+              <lower>1</lower>
+            </interval>
+          </cardinality>
+        </attributes>
+      </children>
+      <cardinality>
+        <is_ordered>false</is_ordered>
+        <is_unique>false</is_unique>
+        <interval>
+          <lower_included>true</lower_included>
+          <lower_unbounded>false</lower_unbounded>
+          <upper_unbounded>true</upper_unbounded>
+          <lower>1</lower>
+        </interval>
+      </cardinality>
+    </attributes>
+  </definition>
+  <ontology>
+    <term_definitions language="en">
+      <items code="at0000">
+        <items id="text">Address</items>
+        <items id="description">To record details of one or more personal addresses.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">Address</items>
+        <items id="description">One or more adresses for an individual.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">Unstructured address</items>
+        <items id="description">A postal address expressed in an unstructured format. ENV 13606 - 4:2000 7.11.15.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0003">
+        <items id="text">Structured address</items>
+        <items id="description">The structure of a postal address representing the residence of a patient or the physical location of an organisation.  ENV 13606-4:2000 7.11.1.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">Post code</items>
+        <items id="description">Post code.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0005">
+        <items id="text">Property number</items>
+        <items id="description">The number of the property.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0006">
+        <items id="text">Address Type</items>
+        <items id="description">The type of address.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0007">
+        <items id="text">Valid from</items>
+        <items id="description">The start of the period for which this address is valid.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0008">
+        <items id="text">Valid to</items>
+        <items id="description">Date from which the Address is no longer valid.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0009">
+        <items id="text">Address line</items>
+        <items id="description">A series of address lines.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0011">
+        <items id="text">Residential</items>
+        <items id="description">Address of place of residence.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0012">
+        <items id="text">Correspondence</items>
+        <items id="description">Address for correspondence.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0013">
+        <items id="text">Business</items>
+        <items id="description">Address of place of business.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0014">
+        <items id="text">Temporary</items>
+        <items id="description">Temporary address.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">AddressValid Period</items>
+        <items id="description">The period during which the associated address is applicable to the person / organisation.  ENV 13606 - 4:2000 7.11.11.  This describes the actual period.</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="de">
+      <items code="at0000">
+        <items id="text">Adresse</items>
+        <items id="description">Zur Dokumentation einer oder mehrerer Postadressen einer Person oder Einrichtung</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">Adresse</items>
+        <items id="description">Eine oder mehrere Adressen einer Person oder Einrichtung</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">Unstrukturierte Adresse</items>
+        <items id="description">Eine Postadresse in unstrukturiertem Format. ENV 13606 - 4:2000 7.11.15</items>
+        <items id="comment" />
+      </items>
+      <items code="at0003">
+        <items id="text">Strukturierte Adresse</items>
+        <items id="description">Struktur zur Aufnahme der Postadresse einer Person oder Einrichtung.  ENV 13606-4:2000 7.11.1</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">Postleitzahl</items>
+        <items id="description">Postleitzahl</items>
+        <items id="comment" />
+      </items>
+      <items code="at0005">
+        <items id="text">Hausnummer</items>
+        <items id="description">Hausnummer</items>
+        <items id="comment" />
+      </items>
+      <items code="at0006">
+        <items id="text">Art</items>
+        <items id="description">Art der Adresse</items>
+        <items id="comment" />
+      </items>
+      <items code="at0007">
+        <items id="text">Gültig seit</items>
+        <items id="description">Das Datum seit dem die Adresse gültig ist</items>
+        <items id="comment" />
+      </items>
+      <items code="at0008">
+        <items id="text">Gültig bis</items>
+        <items id="description">Das Datum an dem die Adresse ungültig wurde</items>
+        <items id="comment" />
+      </items>
+      <items code="at0009">
+        <items id="text">Adresse</items>
+        <items id="description">Eine Reihe von Adresszeilen</items>
+        <items id="comment" />
+      </items>
+      <items code="at0011">
+        <items id="text">Privat</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0012">
+        <items id="text">Schriftverkehr</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0013">
+        <items id="text">Geschäftlich</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0014">
+        <items id="text">Vorläufig</items>
+        <items id="description">*</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">Gültigkeitszeitraum</items>
+        <items id="description">Der Zeitraum in dem die Adresse gültig ist.  ENV 13606 - 4:2000 7.11.11.</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+    <term_definitions language="sl">
+      <items code="at0000">
+        <items id="text">Naslov</items>
+        <items id="description">Zabeležiti osebni naslov ali več naslovov posameznika</items>
+        <items id="comment" />
+      </items>
+      <items code="at0001">
+        <items id="text">Naslov</items>
+        <items id="description">Osebni naslov ali več naslovov posameznika.
+</items>
+        <items id="comment" />
+      </items>
+      <items code="at0002">
+        <items id="text">Nestrukturiran naslov</items>
+        <items id="description">Nestrukturiran naslov.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0003">
+        <items id="text">Strukturiran naslov</items>
+        <items id="description">Strukturiran naslov bivališča posameznika ali organizacije.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0004">
+        <items id="text">Poštna številka</items>
+        <items id="description">Poštna številka</items>
+        <items id="comment" />
+      </items>
+      <items code="at0005">
+        <items id="text">Številka</items>
+        <items id="description">Številka.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0006">
+        <items id="text">Tip naslova</items>
+        <items id="description">Tip naslova.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0007">
+        <items id="text">Veljaven od</items>
+        <items id="description">Datum začetka veljavnosti naslova.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0008">
+        <items id="text">Veljaven do</items>
+        <items id="description">Datum od katerega naslov ni več veljaven.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0009">
+        <items id="text">Naslov</items>
+        <items id="description">Naslov po vrsticah</items>
+        <items id="comment" />
+      </items>
+      <items code="at0011">
+        <items id="text">Stalno bivališče</items>
+        <items id="description">Naslov stalnega bivališča.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0012">
+        <items id="text">Naslov za dostavo</items>
+        <items id="description">Naslov za dostavo</items>
+        <items id="comment" />
+      </items>
+      <items code="at0013">
+        <items id="text">Naslov podjetja</items>
+        <items id="description">Naslov podjetja.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0014">
+        <items id="text">Začasno bivališče</items>
+        <items id="description">Naslov začasnega bivališča.</items>
+        <items id="comment" />
+      </items>
+      <items code="at0015">
+        <items id="text">Veljavnost naslova</items>
+        <items id="description">*The period during which the associated address is applicable to the person / organisation.  ENV 13606 - 4:2000 7.11.11.  This describes the actual period.(en)</items>
+        <items id="comment" />
+      </items>
+    </term_definitions>
+  </ontology>
+</archetype>

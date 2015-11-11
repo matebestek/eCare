@@ -1,0 +1,539 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.peak_expiratory_flow.v1
+
+concept
+	[at0000]	-- *Peak Expiratory Flow (PEF)(en)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			author = <
+				["organisation"] = <"Medisch Centrum Alkmaar, Nederland">
+				["name"] = <"Marja Buur">
+				["email"] = <"m.buur-krom@mca.nl">
+			>
+			accreditation = <"Nurse informatics">
+		>
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["organisation"] = <"Ocean Informatics, University of Heidelberg">
+				["name"] = <"Sebastian Garde, Jasmin Buck">
+			>
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			author = <
+				["organisation"] = <"P2D">
+				["name"] = <"Marco Borges">
+				["email"] = <"marco.borges@p2d.com.br">
+			>
+			accreditation = <"P2D Health Advisor Council">
+		>
+		["ru"] = <
+			language = <[ISO_639-1::ru]>
+			author = <
+				["name"] = <"Igor Lizunov">
+				["email"] = <"i.lizunov@infinnity.ru">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"eOskrba">
+		["date"] = <"10.5.2011">
+	>
+	details = <
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Para registrar o peso corporal de um indivíduo - tanto real como aproximado.">
+			use = <"Usado para gravar a medição real de peso corporal, inclusive quando o indivíduo tem faltando uma parte do corpo devido a uma causa congênita ou após a remoção cirúrgica. A indicação da imperfeição física do corpo pode ser registrada no elemento 'fatores de erro', se necessário.
+Este é o arquétipo para ser utilizado para uma medição típica de peso, por exemplo, auto-medido pelo indivíduo em casa, uma medida médico em uma clínica / hospital, ou um instrutor de fitness em um ginásio. 
+
+Também pode ser usado para a gravar uma aproximação da medição do peso corporal em um cenário clínico no qual não é possível medir com precisão o peso do corpo - por exemplo, pesar uma criança inquieta, ou estimar o peso de um feto (quando 'sujeito' é um feto e a gravação ocorre no registro da saúde da mãe). Isso não é modelado explicitamente no arquétipo como o modelo de referência da openEHR permite que o atributo de aproximação para qualquer tipo de dados quantitativos. Na execução, por exemplo, uma interface de usuário do aplicativo pode permitir que os clínicos para selecionar uma caixa de seleção devidamente setados junto ao campo de dados de peso, indicando que o peso verificado é uma aproximação, ao invés de reais. 
+
+Usada para gravar a mudança de peso, ou seja, qualquer perda ou ganho de peso. Pode ser modelado por restringir a 'qualquer evento' a um intervalo associado com funções matemáticas de aumentar ou diminuir, conforme o caso.">
+			keywords = <"*weight(en)", "*gain(en)", "*loss(en)", "*increase(en)", "*decrease(en)", "*mass(en)", "*estimate(en)", "*actual(en)">
+			misuse = <"Não deve ser utilizado para gravar o primeiro peso de um bebê logo após o nascimento, que é designado como o seu 'peso' - use a especialização de seu nascimento arquétipo OBSERVATION.body_weight-birth.
+Não deve ser usado para registrar o peso do corpo ajustado por exemplo, um cálculo do peso de corpo inteiro de uma pessoa com amputação de membros, com base em medições de outro corpo e um algoritmo -OBSERVATION.body_weight-adjusted.
+Não deve ser usado para registrar o peso de um objeto ou parte do corpo.">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*To record the peak expiratory flow (PEF) of an individual.(en)">
+			use = <"*To be used for recording the actual  peak expiratory flow (PEF) of an individual.
+To be used for recording peak expiratory flow change.(en)">
+			keywords = <"*peak(en)", "*expiratory(en)", "*flow(en)", "*spirometry(en)", "*pulmonary(en)", "*asthma(en)", "*COPD(en)">
+			misuse = <"*(en)">
+		>
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Dokumentation des Gewichtes eines Individuums, sowohl exakt als auch ungefähr.">
+			use = <"Zur Dokumentation des tatsächlichen Körpergewichts, auch wenn das Individuum einen Körperteil (angeboren oder später amputiert) vermisst. Sofern benötigt, kann dies im Datenelement 'Störfaktoren' dokumentiert werden. Dies ist der Archetyp, der gewöhnlicherweise für eine typische Gewichtsmessung benutzt werden sollte, z.B. bei Selbstmessung durch das Individuum zu Hause, durch einen Kliniker im Krankenhaus, oder einen Fitness-Trainer in einem Fitness-Center.
+
+Der Archetyp kann auch benutzt werden, um eine Schätzung des Körpergewichts zu dokumentieren, wenn es nicht möglich ist, das Gewicht genau zu bestimmen - z.B. bei der Messung des Gewichts eines nicht kooperativen Kindes, oder bei einem ungeborenen Fötus (hier ist das 'Subjekt der Daten' der Fötus und die Dokumentation erfolgt in der Akte der Mutter). Dass es sich um eine Schätzung handelt wird in diesem Archetyp nicht explizit modelliert, da das openEHR Referenzmodell dies direkt für 'Quantity'-Datentypen unterstützt. In einer konkreten klinischen Anwendung könnte die Benutzerschnittstelle es dem Kliniker z.B. über eine Checkbox ermöglichen, zu dokumentieren, dass es sich um eine Schätzung handelt.">
+			keywords = <"Gewicht", "Zunahme", "Verlust", "Masse", "Schätzung">
+			misuse = <"Nicht zur Dokumentation des ersten Gewichts eines Neugeboren (Geburtsgewicht) - benutzen Sie hierzu den spezialisierten Archetyp OBSERVATION.body_weight-birth.
+Nicht zur Dokumentation des angepassten Körpergewichts, z.B. eine Berechnung des vollständigen Körpergewichts bei einer Person mit amputierter Extremität auf Basis der anderen Körperteile und eines Algorithmus - benutzen Sie OBSERVATION.body_weight-adjusted.
+Nicht zur Dokumentation eines Objekts oder eines Teils des Körpers.">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the peak expiratory flow (PEF) of an individual.">
+			use = <"To be used for recording the actual  peak expiratory flow (PEF) of an individual.
+To be used for recording peak expiratory flow change.">
+			keywords = <"peak", "expiratory", "flow", "spirometry", "pulmonary", "asthma", "COPD">
+			misuse = <"">
+			copyright = <"© 2011 eOskrba">
+		>
+		["ru"] = <
+			language = <[ISO_639-1::ru]>
+			purpose = <"Для записи массы тела человека: фактической или приблизительной.">
+			use = <"Использовать для записи фактического измерения массы тела, включая случаи отсутсвия части(-ей) тела, врожденное или после хирургического удаления. Отметка о физической неполноте тела может быть зарегистрирована в элементе данных \"стохастическая погрешность\", если требуется. Это - обычный архетип, используемый для типичного измерения веса, например самоизмеренного человеком дома, измерение клинициста в клинике/больнице, или фитнес-инструктором в гимнастическом зале. 
+
+Может также использоваться для записи примерного измерения массы тела в клиническом сценарии, где не возможно взвешивание - например, сопротивляющийся ребёнок, или для оценики веса внутриутробного плода (где 'предметом данных' является плод, и регистрация происходит в пределах записи о состоянии здоровья матери). Это не оформлено явно в архетипе, поскольку модель openEHR позволяет атрибут «приблизительно» для любого типа данных «количество». При работе, например, прикладной пользовательский интерфейс позволяет клиницистам выбирать соответствующую отметку, смежную с полем данных «вес», чтобы указать, что зарегистрированный вес - приблизительный, а не фактический. 
+
+Использовать для записи изменения веса, то есть, потери веса или увеличения веса.
+Это может в настоящее время моделироваться, привязывая 'каждый случай' к интервалу со связанной математической функцией увеличения или уменьшения, соответственно.">
+			keywords = <"вес", "масса тела", "прибавка", "потеря", "увеличение", "уменьшение", "оценка", "актуально">
+			misuse = <"Не использовать для записи первого веса младенца после рождение, которое обозначено как 'вес при рождении' - использовать специализацию этого архетипа OBSERVATION.body_weight-birth. 
+Не использовать для записи массы тела человека с протезами / приспособлениями для вычисление полной массы тела человека с ампутацией, основанной на других измерениях и алгоритме  - использовать архетип OBSERVATION.body_weight-adjusted.
+Не использовать, чтобы сделать запись веса части тела или объекта.">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"Om het lichaamsgewicht van een persoon te registreren - zowel exact als geschat gewicht.">
+			use = <"Registreren van een actuele meting van het lichaamsgewicht, ook als deze persoon een lichaamsdeel mist, door een geboorteafwijking of na een chirurgische ingreep. Een verklaring over de fysieke inclompleetheid van het lichaam, kan zo nodig opgeslagen worden in het data element 'beïnvloedende factoren'. Dit is het gebruikelijke archetype voor gewichtmetingen, bij voorbeeld thuis gemeten door de persoon zelf, een klinische meting in een kliniek/ziekenhuis, of door een fitness instructeur in een sportschool.
+
+Kan ook gebruikt worden om een geschat lichaamsgewicht te registreren in een klinische setting als het niet mogelijk is om het exacte lichaamsgewicht te meten - bijvoorbeeld, het wegen van een tegenwerkend kind, of een schatting van het gewicht van een ongeboren kind (waar het onderwerp van de gegevens de foetus is en de opslag in het patiënten dossier van de moeder plaatsvindt). Dit is niet expliciet gemodelleerd in het archetype, omdat het openEHR Referentie model een schatting in ieder kwantitatief data type toestaat. Bij de uitvoering, bijvoorbeeld, zou een applicatie gebruikersinterface, clinici een adequaat geëtiketteerd selectievakje kunnen aanbieden, naast de gegevens over het gewicht, waarin door selecteren aangegeven kan worden dat het opgenomen gewicht een schatting is, in plaats van het werkelijke gewicht.
+
+Dient te worden gebruikt om gewichtsverandering op te slaan, zowel gewichtsverlies als gewichtstoename.  Dit kan gemodelleerd worden door 'any event' - elke gebeurtenis - in voorkomende gevallen, te beperken tot een interval met met bijbehorende rekenkundige functie van stijging of daling.">
+			keywords = <"gewicht", "stijging", "verlies", "toename", "daling", "massa", "schatting", "werkelijk", "afname">
+			misuse = <"Dient niet te worden gebruikt voor het registreren van het eerste gewicht van een kind, na geboorte, welke wordt aangewezen als geboortegewicht. Gebruik hiervoor de specialisatie van dit archetype, OBSERVATION.body_weight-birth (OBSERVATION.lichaamsgewicht-geboorte.
+Dient niet te worden gebruikt voor het registreren van het aangepaste lichaamsgewicht, bijvoorbeeld een berekening van het volledige lichaamsgewicht van een persoon met een amputatie van ledematen, gebaseerd op metingen van lichaamsdelen en een algoritme - gebruik hiervoor OBSERVATION.body_weight-adjusted. (OBSERVATION.lichaamsgewicht-aangepast).
+Dient niet te worden gebruikt voor het vastleggen van het gewicht van een object of lichaamsdeel.">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"D4DA8F981AB521CE5DB496FA6EB08DEF">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- *Peak Expiratory Flow (PEF)(en)
+		data matches {
+			HISTORY[at0002] matches {	-- *history(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0028] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_SINGLE[at0001] matches {	-- *Single(en)
+								item matches {
+									ELEMENT[at0004] matches {	-- Vrednost PEF
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::126]>
+												list = <
+													["1"] = <
+														units = <"l/min">
+														magnitude = <|0.0..800.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_LIST[at0029] matches {	-- *List(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0030] occurrences matches {0..1} matches {	-- Lokacija
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0031, 	-- Doma
+													at0032; 	-- Zdravstvena ustanova
+													at0031]	-- assumed value
+												}
+											}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {	-- Položaj telesa
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0034, 	-- Stoje
+													at0035; 	-- Sede
+													at0034]	-- assumed value
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Peak Expiratory Flow (PEF)(en)">
+					description = <"*Measurement of peak expiratory flow (PEF) of an individual.(en)">
+				>
+				["at0001"] = <
+					text = <"*Single(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"*Peek Expiratory Flow (PEF)(en)">
+					description = <"*Peek Expiratory Flow (PEF) of the individual.(en)">
+				>
+				["at0028"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0030"] = <
+					text = <"*Location(en)">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"*Home(en)">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"*Provider(en)">
+					description = <"*Healthcare provider(en)">
+				>
+				["at0033"] = <
+					text = <"*Body position(en)">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"*Standing(en)">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"*Sitting(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Peak Expiratory Flow (PEF)(en)">
+					description = <"*Measurement of peak expiratory flow (PEF) of an individual.(en)">
+				>
+				["at0001"] = <
+					text = <"*Single(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Vrednost PEF">
+					description = <"Največji pretok izdihanega zraka">
+				>
+				["at0028"] = <
+					text = <"*Any event(en)">
+					description = <"">
+				>
+				["at0029"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0030"] = <
+					text = <"Lokacija">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Doma">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Zdravstvena ustanova">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Položaj telesa">
+					description = <"">
+				>
+				["at0034"] = <
+					text = <"Stoje">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Sede">
+					description = <"*">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Peak Expiratory Flow (PEF)(en)">
+					description = <"*Measurement of peak expiratory flow (PEF) of an individual.(en)">
+				>
+				["at0001"] = <
+					text = <"*Single(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"*Peek Expiratory Flow (PEF)(en)">
+					description = <"*Peek Expiratory Flow (PEF) of the individual.(en)">
+				>
+				["at0028"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0030"] = <
+					text = <"*Location(en)">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"*Home(en)">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"*Provider(en)">
+					description = <"*Healthcare provider(en)">
+				>
+				["at0033"] = <
+					text = <"*Body position(en)">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"*Standing(en)">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"*Sitting(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Peak Expiratory Flow (PEF)">
+					description = <"Measurement of peak expiratory flow (PEF) of an individual.">
+				>
+				["at0001"] = <
+					text = <"Single">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Peek Expiratory Flow (PEF)">
+					description = <"Peek Expiratory Flow (PEF) of the individual.">
+				>
+				["at0028"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0030"] = <
+					text = <"Location">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Home">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Provider">
+					description = <"Healthcare provider">
+				>
+				["at0033"] = <
+					text = <"Body position">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Standing">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Sitting">
+					description = <"*">
+				>
+			>
+		>
+		["ru"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Peak Expiratory Flow (PEF)(en)">
+					description = <"*Measurement of peak expiratory flow (PEF) of an individual.(en)">
+				>
+				["at0001"] = <
+					text = <"*Single(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"*Peek Expiratory Flow (PEF)(en)">
+					description = <"*Peek Expiratory Flow (PEF) of the individual.(en)">
+				>
+				["at0028"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0030"] = <
+					text = <"*Location(en)">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"*Home(en)">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"*Provider(en)">
+					description = <"*Healthcare provider(en)">
+				>
+				["at0033"] = <
+					text = <"*Body position(en)">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"*Standing(en)">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"*Sitting(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Peak Expiratory Flow (PEF)(en)">
+					description = <"*Measurement of peak expiratory flow (PEF) of an individual.(en)">
+				>
+				["at0001"] = <
+					text = <"*Single(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"*Peek Expiratory Flow (PEF)(en)">
+					description = <"*Peek Expiratory Flow (PEF) of the individual.(en)">
+				>
+				["at0028"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0029"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0030"] = <
+					text = <"*Location(en)">
+					description = <"**(en)">
+				>
+				["at0031"] = <
+					text = <"*Home(en)">
+					description = <"**(en)">
+				>
+				["at0032"] = <
+					text = <"*Provider(en)">
+					description = <"*Healthcare provider(en)">
+				>
+				["at0033"] = <
+					text = <"*Body position(en)">
+					description = <"**(en)">
+				>
+				["at0034"] = <
+					text = <"*Standing(en)">
+					description = <"**(en)">
+				>
+				["at0035"] = <
+					text = <"*Sitting(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

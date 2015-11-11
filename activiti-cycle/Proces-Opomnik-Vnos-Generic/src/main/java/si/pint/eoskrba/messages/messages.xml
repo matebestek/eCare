@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!--  
+Format poimenovanja spremenljivk:
+
+domena(astma, diabetes, shizofrenija)-vloga(pacient, ...)-kanal(task, sms, mail)-oznaka opomnika 
+-->
+<properties>
+
+	<!-- Astma -->
+	<entry key="astma-patient-sms-actReminder">Prosimo, da v aplikaciji eOskrba izpolnete nov ACT vprasalnik za ugotavljanje urejenosti vase astme.</entry>
+	<entry key="astma-patient-sms-actCritical">Kaze se poslabsanje astme. Mora vas pregledati zdravnik. Prosimo, da se obrnete na izbranega zdravnika ali dezurno ambulanto.</entry>
+	<entry key="astma-patient-sms-reminder-checkup">Prosimo, da se narocite na redni 6-mesecni pregled pri vasem zdravniku!</entry> 
+	
+	<!-- Diabetes -->
+	<entry key="diabetes-patient-mail-reminder">Prosimo, da cimveckrat uporabljate aplikacijo eOskrba za nadzorovanje urejenosti diabetesa.</entry>
+	<entry key="diabetes-patient-mail-reminder-greet">Hvala za sodelovaje in lep dan vam zeli ekipa eOskrbe!</entry>
+	<entry key="diabetes-patient-sms-critical">Kaze se poslabsanje urejenosti diabetesa. Mora vas pregledati zdravnik. Prosimo, da se obrnete na izbranega zdravnika ali dezurno ambulanto.</entry>
+	<entry key="diabetes-patient-task-name-normal">Vaše vrednosti (krvni sladkor, krvni tlak in telesna teža) na obrazcu za vnos meritev so normalne</entry>
+	<entry key="diabetes-patient-sms-reminder">Prosimo, da v aplikaciji eOskrba izpolnete vase naloge.</entry>
+	<entry key="diabetes-patient-mail-values-not-ok-content">Ena ali vec vnesenih vrednosti (krvni sladkor, krvni tlak ali telesna teza) je mejnih, zaradi cesar vas bo v kratkem poklicala medicinska sestra.</entry>
+	<entry key="diabetes-patient-mail-values-not-ok-subject">Mejne vrednosti vašega vnosa</entry>
+	<entry key="diabetes-patient-task-values-not-ok">Mejna vrednost ene ali več vnešenih vrednosti (krvni sladkor, krvni tlak ali telesna teža)</entry>
+	<entry key="diabetes-patient-mail-values-critical-content">Kaže se poslabšanje urejenosti diabetesa. Mora vas pregledati zdravnik. Prosimo, da se obrnete na izbranega zdravnika ali dežurno ambulanto.</entry>
+	<entry key="diabetes-patient-mail-values-critical-subject">Poslabšanje vaše urejenosti diabetesa</entry>
+	<entry key="diabetes-patient-task-values-critical">Poslabšanje vaše urejenosti diabetesa</entry> 
+	<entry key="diabetes-patient-sms-reminder-checkup">Prosimo, da se narocite na redni 3-mesecni pregled pri vasem zdravniku!</entry>
+	<entry key="diabetes-patient-mail-reminder-checkup">Prosimo, da se narocite na redni pregled pri vasem zdravniku. Kmalu bo namrec minilo 3 mesece od vasega zadnjega obiska.</entry>
+	<entry key="diabetes-patient-task-reminder-dsca">Izpolnite DSCA vprašalnik</entry>
+	<entry key="diabetes-patient-sms-reminder-dsca">Prosimo, da v aplikaciji eOskrba izpolnete DSCA vprasalnik.</entry>
+	<entry key="diabetes-patient-task-name-normal-dsca">Hvala za vnos vprašalnika</entry>
+	
+	<!-- Sport -->
+	<entry key="sport-patient-sms-critical">Slabo vadite. Prosimo, da kontaktirate vašega skrbnika.</entry>
+	<entry key="sport-patient-sms-reminder">Prosimo, da v aplikaciji eOskrba izpolnete vase naloge.</entry>
+	<entry key="sport-patient-mail-values-not-ok-content">Vnešena vrednost telesne teže je velika, zaradi česar vas bo v kratkem poklical skrbnik.</entry>
+	<entry key="sport-patient-mail-values-not-ok-subject">Mejne vrednosti vašega vnosa</entry>
+	<entry key="sport-patient-task-values-not-ok">Mejna vrednost vnešene vrednosti telesne teže</entry>
+	<entry key="sport-patient-task-name-normal">Vaše vrednosti (telesna teža) na obrazcu za vnos meritev so normalne</entry>
+	<entry key="sport-patient-mail-values-critical-content">Kaze se poslabsanje športne vadbe. Mora vas pregledati skrbnik.</entry>
+	<entry key="sport-patient-mail-values-critical-subject">Poslabšanje vaše športne vadbe</entry>
+	<entry key="sport-patient-task-values-critical">Poslabšanje vaše športne vadbe</entry>
+	
+	<!-- Shizofrenija -->
+	<entry key="shizofrenija-patient-task-name-normal">Vaše vrednosti (indeks telesne mase) na obrazcu za vnos meritev so normalne</entry>
+	<entry key="shizofrenija-patient-mail-values-not-ok-content">Vrednost indeksa telesne mase je mejna, zaradi cesar vas bo v kratkem poklicala medicinska sestra.</entry>
+	<entry key="shizofrenija-patient-mail-values-not-ok-subject">Mejne vrednosti vašega vnosa</entry>
+	<entry key="shizofrenija-patient-task-values-not-ok">Mejna vrednost indeksa telesne mase</entry>
+	<entry key="shizofrenija-patient-mail-values-critical-content">Kaze se poslabsanje zdravstvenega stanja. Mora vas pregledati zdravnik. Prosimo, da se obrnete na izbranega zdravnika ali dezurno ambulanto.</entry>
+	<entry key="shizofrenija-patient-mail-values-critical-subject">Poslabšanje vašega zdravstvenega stanja</entry>
+	<entry key="shizofrenija-patient-task-values-critical">Poslabšanje vašega zdravstvenega stanja</entry>
+	<entry key="shizofrenija-eqws-patient-task-name-normal">Vaše vrednosti vprašalnika so normalne</entry>
+	<entry key="shizofrenija-eqws-patient-mail-values-not-ok-content">Vrednosti odgovorov vprašalnika so mejne, zaradi cesar vas bo v kratkem poklicala medicinska sestra.</entry>
+	<entry key="shizofrenija-eqws-patient-mail-values-not-ok-subject">Mejne vrednosti vašega vprašalnika</entry>
+	<entry key="shizofrenija-eqws-patient-task-values-not-not-ok">Mejne vrednosti vašega vprašalnika</entry>
+	<entry key="shizofrenija-eqws-patient-mail-values-critical-content">Kaze se poslabsanje vašega počutja. Mora vas pregledati zdravnik. Prosimo, da se obrnete na izbranega zdravnika ali dezurno ambulanto.</entry>
+	<entry key="shizofrenija-eqws-patient-mail-values-critical-subject">Poslabšanje vašega počutja</entry>
+	<entry key="shizofrenija-eqws-patient-task-values-critical">Poslabšanje vašega počutja</entry>	
+	
+	<!-- Hujšanje -->
+	<entry key="hujsanje-koraki-patient-task-name-normal">Uspešno ste zaključili prvo izobraževalno vsebino.</entry>
+	<entry key="hujsanje-koraki-patient-task-name-complete">Uspešno ste zaključili izobraževalno vsebino številka</entry>
+	<entry key="hujsanje-koraki-patient-task-name-invalid">Na eno ali več vprašanj niste odgovorili pravilno</entry>
+
+	<entry key="hujsanje-patient-task-weight-normal">Vaša telesna teža je normalna</entry>
+	<entry key="hujsanje-patient-task-weight-not-ok">Vaša telesna teža je spremenjena</entry>
+	<entry key="hujsanje-patient-task-weight-opkp-nok">Vaš vnos živil je neustrezen</entry>
+	<entry key="hujsanje-patient-task-weight-not-ok-opkp-results">Vaša telesna teža je spremenjena oz. vaš vnos živil je neustrezen</entry>
+	<entry key="hujsanje-patient-task-weight-not-ok-opkp-nok-results">Vaša telesna teža je spremenjena in vaš vnos živil je neustrezen</entry>	
+	<entry key="hujsanje-patient-mail-values-not-ok-content">Vaša telesna teža je spremenjena glede na prejšnjo meritev, zaradi česar vas bo v kratkem poklicala medicinska sestra. Lep pozdrav!</entry>
+	<entry key="hujsanje-patient-mail-values-not-ok-content-opkp-results">Vaša telesna teža je spremenjena glede na prejšnjo meritev ali pa je bil vaš vnos živil neustrezen. Zato vas bo v kratkem kontaktirala medicinska sestra. Lep pozdrav!</entry>
+	<entry key="hujsanje-patient-mail-values-not-ok-content-opkp-nok-results">Vaša telesna teža je spremenjena glede na prejšnjo meritev in vaš vnos živil je bil neustrezen. Zato vas bo v kratkem kontaktirala medicinska sestra. Lep pozdrav!</entry>
+	<entry key="hujsanje-patient-mail-weight-ok-content-opkp-nok-results">Vaš vnos živil v zadnjem vprašalniku o pogostosti uživanja živil ni v skladu s priporočili. Zato vas bo v kratkem kontaktirala medicinska sestra. Lep pozdrav!</entry>
+	<entry key="hujsanje-patient-mail-values-not-ok-subject">Sprememba telesne teze</entry>
+	<entry key="hujsanje-patient-mail-values-not-ok-subject-opkp-results">Sprememba telesne teze/neustrezen vnos živil</entry>
+	<entry key="hujsanje-patient-mail-weight-ok-subject-opkp-results">Vaš tedenski vnos živil ni v skladu s priporočili</entry>
+	
+	<entry key="hujsanje-koraki-patient-first-subtask-info">Predstavitev koraka</entry>
+	<entry key="hujsanje-koraki-patient-second-subtask-info">Vprašalnik o pogostosti uživanja živil za korak</entry>
+	<entry key="hujsanje-koraki-patient-third-subtask-info">Vnos meritev za korak</entry>
+	<entry key="hujsanje-koraki-patient-fourth-subtask-info">Vsebine za korak</entry>
+	<entry key="hujsanje-koraki-patient-fifth-subtask-info">Delovni listi za korak</entry>
+	<entry key="hujsanje-koraki-patient-sixth-subtask-info">Vprašalnik za korak</entry>
+	<entry key="hujsanje-koraki-patient-seventh-subtask-info">Tedenski nasvet za korak</entry>	
+	
+	<entry key="hujsanje-koraki-patient-wrong-answer-subtask-info">Na eno ali več vprašanj ste odgovorili napačno</entry>
+	<entry key="hujsanje-koraki-patient-doesnt-respond">pretekli teden ni izpolnil vprašalnika na delavnici</entry>	
+	
+	<!-- Hujšanje - zgodovina delovnih listov -->
+	<entry key="hujsanje-his-working-sheets">Delovni list za korak</entry>
+	
+	
+</properties>
+

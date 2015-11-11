@@ -1,0 +1,271 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.lean_body_mass.v1
+
+concept
+	[at0000]	-- Lean body mass
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Slovenia">
+				["name"] = <"Uroš Rajkovič, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"18/10/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the calculated lean body mass of the subject.">
+			use = <"Lean Body Weight (men) = (1.10 x Weight(kg)) - 128 ( Weight2/(100 x Height(m))2)
+Lean Body Weight (women) = (1.07 x Weight(kg)) - 148 ( Weight2/(100 x Height(m))2).">
+			keywords = <"lean", "LBM">
+			misuse = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje izračunane puste telesne mase subjeta = skupna telesna masa – masa maščobnega tkiva">
+			use = <"Lean Body Weight (men) = (1.10 x Weight(kg)) - 128 ( Weight2/(100 x Height(m))2)
+Lean Body Weight (women) = (1.07 x Weight(kg)) - 148 ( Weight2/(100 x Height(m))2).">
+			keywords = <"Pusta telesna masa", "LBM", "Lean body mass">
+			misuse = <"*(en)">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Biljana Prinčič, Marand d.o.o., Slovenia", "Uroš Rajkovič, Faculty of Organizational Sciences, University of Maribor, Slovenia">
+	other_details = <
+		["references"] = <"Roubenoff R, Kehayias JJ. The Meaning and Measurement of Lean Body Mass. Nutrition Reviews. 2009;49(6):163-175. Available at: http://doi.wiley.com/10.1111/j.1753-4887.1991.tb03013.x.">
+		["MD5-CAM-1.0.1"] = <"D0E06E470ACC08D57974F597F0CC196A">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Lean body mass
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Lean body mass
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::124]>
+												list = <
+													["1"] = <
+														units = <"kg">
+														magnitude = <|>=0.0|>
+														precision = <|2|>
+													>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0005] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Method
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- Automatic entry
+									at0011]	-- Direct entry
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- Formula name
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Formula
+						value matches {
+							DV_TEXT matches {*}
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0012, 	-- Male
+									at0013]	-- Female
+								}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lean body mass">
+					description = <"Calculated lean body mass.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Lean body mass">
+					description = <"Calculated lean body mass">
+				>
+				["at0005"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Formula name">
+					description = <"Name of the formula used to calculate lean body mass.">
+				>
+				["at0007"] = <
+					text = <"Formula">
+					description = <"The exact formula used  to calculate lean body mass.">
+				>
+				["at0008"] = <
+					text = <"Comment">
+					description = <"Comment about theLean Body Mass measurement eg noting that the measurements used were adjusted weight/height.">
+				>
+				["at0009"] = <
+					text = <"Method">
+					description = <"Method used to record Lean Body Mass.">
+				>
+				["at0010"] = <
+					text = <"Automatic entry">
+					description = <"Lean Body Mass calculated and entered automatically without user intervention.">
+				>
+				["at0011"] = <
+					text = <"Direct entry">
+					description = <"Lean Body Mass calculated and entered directly by user.">
+				>
+				["at0012"] = <
+					text = <"Male">
+					description = <"Lean body mass formula for male subjects was used.">
+				>
+				["at0013"] = <
+					text = <"Female">
+					description = <"Lean body mass formula for female subjects was used.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Pusta telesna masa">
+					description = <"Izračunana pusta telesna masa">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Pusta telesna masa">
+					description = <"Izračunana pusta telesna masa">
+				>
+				["at0005"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0006"] = <
+					text = <"Ime formule">
+					description = <"Ime uporabljene formule za izračun">
+				>
+				["at0007"] = <
+					text = <"Matematična formula">
+					description = <"Natančen vnos formule za izračun">
+				>
+				["at0008"] = <
+					text = <"Opombe">
+					description = <"Opombe vezane na izračun površine kože">
+				>
+				["at0009"] = <
+					text = <"Metoda">
+					description = <"Metoda vnosa podatkov">
+				>
+				["at0010"] = <
+					text = <"Avtomatski vnos">
+					description = <"Pusta telesna masa je bila izračunana in zabeležena avtomatsko, brez posredovanja uporabnika (človeka)">
+				>
+				["at0011"] = <
+					text = <"Uporabniški vnos">
+					description = <"Izračun in vnos podatkov je sprožil uporabnik.">
+				>
+				["at0012"] = <
+					text = <"*Male(en)">
+					description = <"*Lean body mass formula for male subjects was used.(en)">
+				>
+				["at0013"] = <
+					text = <"*Female(en)">
+					description = <"*Lean body mass formula for female subjects was used.(en)">
+				>
+			>
+		>
+	>

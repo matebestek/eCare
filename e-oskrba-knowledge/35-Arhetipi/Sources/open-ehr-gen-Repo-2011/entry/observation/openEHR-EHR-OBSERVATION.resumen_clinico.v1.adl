@@ -1,0 +1,306 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.resumen_clinico.v1
+
+concept
+	[at0000]	-- Resumen clínico
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"Resumen clínico">
+			use = <"Resumen clínico">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"40D74177AD92DCBDE13246B552CA8C8D">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Resumen clínico
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Cualquier evento
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Arbol
+								items cardinality matches {0..*; unordered} matches {
+								    ELEMENT[at0035] occurrences matches {1..*} matches { -- Motivo de consulta
+                                        value matches {
+                                            DV_CODED_TEXT matches {
+                                                defining_code matches {[motivos_consulta::ac0001]}     -- Motivo de consulta
+                                            }
+                                        }
+                                    }
+									CLUSTER[at0034] occurrences matches {0..1} matches {	-- AMPLE
+										items cardinality matches {0..*; unordered} matches {
+											CLUSTER[at0004] occurrences matches {0..1} matches {	-- Alergias
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0005] occurrences matches {0..1} matches {	-- Opciones
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0007, 	-- Penicilina
+																	at0008, 	-- Dipirona
+																	at0009]	-- Yodo (medios de contraste)
+																}
+															}
+														}
+													}
+													ELEMENT[at0006] occurrences matches {0..1} matches {	-- Otros
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0010] occurrences matches {0..1} matches {	-- Medicamentos usados actualmente
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0011] occurrences matches {0..1} matches {	-- Opciones
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0012, 	-- Warfarina
+																	at0013, 	-- Betabloqueantes
+																	at0014]	-- Aspirina
+																}
+															}
+														}
+													}
+													ELEMENT[at0015] occurrences matches {0..1} matches {	-- Otros
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											CLUSTER[at0016] occurrences matches {0..1} matches {	-- Enfermedades y operaciones pasadas
+												items cardinality matches {0..*; unordered} matches {
+													ELEMENT[at0017] occurrences matches {0..1} matches {	-- Opciones
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0019, 	-- Antecedentes de trauma
+																	at0020, 	-- Cardiopatía isquémica
+																	at0021, 	-- HTA
+																	at0022, 	-- Asma
+																	at0023, 	-- EPOC
+																	at0024, 	-- Diabetes
+																	at0025]	-- Obesidad
+																}
+															}
+														}
+													}
+													ELEMENT[at0018] occurrences matches {0..1} matches {	-- Otros
+														value matches {
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+											ELEMENT[at0031] occurrences matches {0..1} matches {	-- Última comida
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0032] occurrences matches {0..1} matches {	-- Eventos y ambiente relacionados con la lesión
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {	-- Resumen clínico
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Resumen clínico">
+					description = <"Resumen clínico">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Cualquier evento">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Alergias">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Opciones">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Otros">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Penicilina">
+					description = <"Penicilina">
+				>
+				["at0008"] = <
+					text = <"Dipirona">
+					description = <"Dipirona">
+				>
+				["at0009"] = <
+					text = <"Yodo (medios de contraste)">
+					description = <"Yodo (medios de contraste)">
+				>
+				["at0010"] = <
+					text = <"Medicamentos usados actualmente">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Opciones">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Warfarina">
+					description = <"Warfarina">
+				>
+				["at0013"] = <
+					text = <"Betabloqueantes">
+					description = <"Betabloqueantes">
+				>
+				["at0014"] = <
+					text = <"Aspirina">
+					description = <"Aspirina">
+				>
+				["at0015"] = <
+					text = <"Otros">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Enfermedades y operaciones pasadas">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Opciones">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Otros">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Antecedentes de trauma">
+					description = <"Antecedentes de trauma">
+				>
+				["at0020"] = <
+					text = <"Cardiopatía isquémica">
+					description = <"Cardiopatía isquémica">
+				>
+				["at0021"] = <
+					text = <"HTA">
+					description = <"HTA">
+				>
+				["at0022"] = <
+					text = <"Asma">
+					description = <"Asma">
+				>
+				["at0023"] = <
+					text = <"EPOC">
+					description = <"EPOC">
+				>
+				["at0024"] = <
+					text = <"Diabetes">
+					description = <"Diabetes">
+				>
+				["at0025"] = <
+					text = <"Obesidad">
+					description = <"Obesidad">
+				>
+				["at0031"] = <
+					text = <"Última comida">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Eventos y ambiente relacionados con la lesión">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Resumen clínico">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"AMPLE">
+					description = <"*">
+				>
+				["at0035"] = <
+				    text = <"Motivo de consulta">
+				    description = <"Motivo de consulta">
+				>
+			>
+		>
+	>
+    constraint_definitions = <
+        ["es"] = <
+            items = <
+                ["ac0001"] = <
+                    text = <"Motivo de consulta">
+                    description = <"Motivo de consulta">
+                >
+            >
+        >
+    >

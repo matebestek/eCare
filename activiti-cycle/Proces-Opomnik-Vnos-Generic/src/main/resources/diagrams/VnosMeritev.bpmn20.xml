@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="5.0.0" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-bf152091-223f-429b-b533-f26859386afa" targetNamespace="http://www.signavio.com/bpmn20"
+	typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<!-- INPUT: UserTask: 1.patient 2.listenerPacientVnosComplete 3.listenerPacientVnosCreate -->
+	<process id="Proces-Opomnik-Vnos-Meritev" name="ProcesOpomnikVnosMeritev"
+		isExecutable="false">
+		<extensionElements>
+			<activiti:executionListener
+				delegateExpression="${processExecutionListener}" event="start"  />
+		</extensionElements>
+
+
+		<userTask activiti:assignee="${patient.username}"
+			activiti:formKey="vnos-vrednosti.form" completionQuantity="1"
+			id="sid-58FD824D-45E0-4DA5-85D6-E866FA30CFA3" implementation="webService"
+			isForCompensation="false" name="${userTaskName}"
+			startQuantity="1">
+			<documentation id="ProcesVnosMeritev">ProcesVnosMeritev_ACT</documentation>
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#CCFFFF" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="[]" />
+				<activiti:taskListener event="complete"
+					delegateExpression="${listenerPacientVnosComplete}" /><!-- class="si.pint.eoskrba.eastma.inputGeneric.listeners.APatientEntersGenericValueCompleteListener" -->
+				<activiti:taskListener event="create"
+					delegateExpression="${listenerPacientVnosCreate}" /><!-- class="si.pint.eoskrba.eastma.inputGeneric.listeners.APatientEntersGenericValueCreateListener" -->
+			</extensionElements>
+			<incoming>sid-EEB27C31-40B2-4823-AF22-86B0C1DBDC61</incoming>
+			<outgoing>sid-4C59375B-DF69-4958-B0D4-854AD5489EA9</outgoing>
+		</userTask>
+		<startEvent id="sid-11408FAF-BA48-42FB-B45E-602EB965C1E0"
+			name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>sid-EEB27C31-40B2-4823-AF22-86B0C1DBDC61</outgoing>
+		</startEvent>
+		<endEvent id="sid-99018C87-31B1-4CAE-9CB5-C42911023E0F" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-4C59375B-DF69-4958-B0D4-854AD5489EA9</incoming>
+		</endEvent>
+		<sequenceFlow id="sid-EEB27C31-40B2-4823-AF22-86B0C1DBDC61"
+			name="" sourceRef="sid-11408FAF-BA48-42FB-B45E-602EB965C1E0"
+			targetRef="sid-58FD824D-45E0-4DA5-85D6-E866FA30CFA3" />
+		<sequenceFlow id="sid-4C59375B-DF69-4958-B0D4-854AD5489EA9"
+			name="" sourceRef="sid-58FD824D-45E0-4DA5-85D6-E866FA30CFA3"
+			targetRef="sid-99018C87-31B1-4CAE-9CB5-C42911023E0F" />
+		<association associationDirection="None"
+			id="sid-EF4EDC5D-760B-4A4A-8DF0-F4084C17BE99" sourceRef="sid-47DD8C70-EEDE-487E-B5ED-16DBD79F2F0B"
+			targetRef="sid-58FD824D-45E0-4DA5-85D6-E866FA30CFA3" />
+		<textAnnotation id="sid-47DD8C70-EEDE-487E-B5ED-16DBD79F2F0B"
+			textFormat="text/plain">
+			<text>24 ur časa ima pacient preden bo znova dobil opomnika</text>
+		</textAnnotation>
+	</process>
+</definitions>

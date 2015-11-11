@@ -1,0 +1,298 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.contexto_del_evento_traumatico.v1
+
+concept
+	[at0000]	-- contexto del evento traumatico
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"contexto del evento traumatico">
+			use = <"contexto del evento traumatico">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"81EC74933FDD91D3346D0F1FE0B93DAC">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- contexto del evento traumatico
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Arbol
+				items cardinality matches {0..*; unordered} matches {
+					CLUSTER[at0018] occurrences matches {0..1} matches {	-- Tipo de ubicacion
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0019] occurrences matches {0..1} matches {	-- Opciones
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0021, 	-- Via publica
+											at0022, 	-- Domicilio
+											at0023, 	-- Trabajo (Laboral)
+											at0024]	-- Institución, ¿cuál?
+										}
+									}
+								}
+							}
+							ELEMENT[at0020] occurrences matches {0..1} matches {	-- Otros datos
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0025] occurrences matches {0..1} matches {	-- Procedencia
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0026] occurrences matches {0..1} matches {	-- Escena
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							CLUSTER[at0027] occurrences matches {0..1} matches {	-- Otro centro asistencial
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Hospital del interior
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[departamentos_uy::ac0002]}		-- departamentos_uy
+											}
+										}
+									}
+									ELEMENT[at0029] occurrences matches {0..1} matches {	-- Centro coordinado del cerro
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {	-- Otro centro
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Numero de traslados secundarios
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					CLUSTER[at0032] occurrences matches {0..1} matches {	-- Trasladado por
+						items cardinality matches {0..*; unordered} matches {
+							CLUSTER[at0033] occurrences matches {0..1} matches {	-- Ambulancia
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0034] occurrences matches {0..1} matches {	-- Empresa
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[emergencias_moviles::ac0003]}		-- emergencias_moviles
+											}
+										}
+									}
+									CLUSTER[at0035] occurrences matches {0..1} matches {	-- Medico actuante
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0036] occurrences matches {0..1} matches {	-- Nombre
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0037] occurrences matches {0..1} matches {	-- Cedula de identidad
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+							ELEMENT[at0038] occurrences matches {0..1} matches {	-- Policia
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0039] occurrences matches {0..1} matches {	-- Particular
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0040] occurrences matches {0..1} matches {	-- Otro
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"contexto del evento traumatico">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Ubicacion">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Tipo de ubicacion">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Opciones">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Otros datos">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Via publica">
+					description = <"Via publica">
+				>
+				["at0022"] = <
+					text = <"Domicilio">
+					description = <"Domicilio">
+				>
+				["at0023"] = <
+					text = <"Trabajo (Laboral)">
+					description = <"Trabajo (Laboral)">
+				>
+				["at0024"] = <
+					text = <"Institución, ¿cuál?">
+					description = <"Institución, ¿cuál?">
+				>
+				["at0025"] = <
+					text = <"Procedencia">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Escena">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Otro centro asistencial">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Hospital del interior">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Centro coordinado del cerro">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Otro centro">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Numero de traslados secundarios">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Trasladado por">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Ambulancia">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Empresa">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Medico actuante">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Nombre">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Cedula de identidad">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Policia">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Particular">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Otro">
+					description = <"*">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["es"] = <
+			items = <
+				["ac0002"] = <
+					text = <"departamentos_uy">
+					description = <"*">
+				>
+				["ac0003"] = <
+					text = <"emergencias_moviles">
+					description = <"*">
+				>
+			>
+		>
+	>

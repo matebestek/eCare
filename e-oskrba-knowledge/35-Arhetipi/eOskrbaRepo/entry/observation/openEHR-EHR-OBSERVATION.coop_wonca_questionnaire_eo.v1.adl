@@ -1,0 +1,355 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.coop_wonca_questionnaire_eo.v1
+
+concept
+	[at0000]	-- COOP_WONCA vprašalnik
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Ugotavljanje počutja.">
+			use = <"Vprašalnik za ugotavljanje počutja.">
+			keywords = <"diabetes", "sladkorna bolezen", "COOP", "WONCA", "vprašalnik">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"7EA34929F0B7F9EC9E9C4B9096697597">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- COOP_WONCA vprašalnik
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; ordered} matches {
+									CLUSTER[at0065] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0034] occurrences matches {0..1} matches {	-- Katera fizična aktivnost, ki ste jo lahko opravljali vsaj dve minuti, je bila v zadnjih dveh tednih najtežja?
+												value matches {
+													1|[local::at0039], 	-- Zelo težka
+													2|[local::at0040], 	-- Težka
+													3|[local::at0041], 	-- Srednje težka
+													4|[local::at0042], 	-- Lahka
+													5|[local::at0043]  	-- Zelo lahka
+												}
+											}
+											ELEMENT[at0035] occurrences matches {0..1} matches {	-- Kako močno so vas v zadnjih dveh tednih pestile čustvene težave, kot so občutek tesnobe, depresije, razdražljivost, potrtost ali žalost?
+												value matches {
+													1|[local::at0044], 	-- Nič
+													2|[local::at0045], 	-- Malo
+													3|[local::at0046], 	-- Srednje veliko
+													4|[local::at0047], 	-- Veliko
+													5|[local::at0048]  	-- Zelo veliko
+												}
+											}
+											ELEMENT[at0036] occurrences matches {0..1} matches {	-- Koliko težav ste imeli v zadnjih dveh tednih pri svojih običajnih dejavnosti doma in drugje zaradi svojega telesnega in duševnega zdravja?
+												value matches {
+													1|[local::at0049], 	-- Nič
+													2|[local::at0050], 	-- Malo
+													3|[local::at0051], 	-- Srednje veliko
+													4|[local::at0052], 	-- Veliko
+													5|[local::at0053]  	-- Zelo veliko
+												}
+											}
+											ELEMENT[at0037] occurrences matches {0..1} matches {	-- Koliko je v zadnjih dveh tednih vaše telesno in duševno zdravje omejevalo vaše družabne aktivnosti z družino, prijatelji, sosedi ali drugimi skupinami?
+												value matches {
+													1|[local::at0054], 	-- Nič 
+													2|[local::at0055], 	-- Malo
+													3|[local::at0056], 	-- Srednje veliko
+													4|[local::at0057], 	-- Veliko
+													5|[local::at0058]  	-- Zelo veliko
+												}
+											}
+											ELEMENT[at0038] occurrences matches {0..1} matches {	-- Kako bi ocenili svojo trenutno telesno in duševno zdravstveno stanje glede na tisto pred dvemi tedni?
+												value matches {
+													1|[local::at0059], 	-- Precej boljše
+													2|[local::at0060], 	-- Nekoliko boljše
+													3|[local::at0061], 	-- Približno enako
+													4|[local::at0062], 	-- Nekoliko slabše
+													5|[local::at0063]  	-- Precej slabše
+												}
+											}
+											ELEMENT[at0069] occurrences matches {0..1} matches {	-- Kako bi na splošno ocenili svoje telesno in duševno zdravstveno stanje zadnja dva tedna?
+												value matches {
+													1|[local::at0071], 	-- Odlično
+													2|[local::at0072], 	-- Zelo dobro
+													3|[local::at0073], 	-- Dobro
+													4|[local::at0074], 	-- Slabo
+													5|[local::at0075]  	-- Zelo slabo
+												}
+											}
+											ELEMENT[at0070] occurrences matches {0..1} matches {	-- Koliko telesnih bolečin ste imeli v zadnjih štirih tednih oziroma kako izrazite so bile?
+												value matches {
+													1|[local::at0076], 	-- Nič bolečin
+													2|[local::at0077], 	-- Zelo blage bolečine
+													3|[local::at0078], 	-- Blage bolečine
+													4|[local::at0079], 	-- Zmerne bolečine
+													5|[local::at0080]  	-- Hude bolečine
+												}
+											}
+										}
+									}
+									ELEMENT[at0066] occurrences matches {0..*} matches {	-- Število točk
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..25|}
+											}
+										}
+									}
+									ELEMENT[at0064] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"COOP_WONCA vprašalnik">
+					description = <"Vprašalnik za spremljanje počutja.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0034"] = <
+					text = <"Katera fizična aktivnost, ki ste jo lahko opravljali vsaj dve minuti, je bila v zadnjih dveh tednih najtežja?">
+					description = <"Telesno počutje.">
+				>
+				["at0035"] = <
+					text = <"Kako močno so vas v zadnjih dveh tednih pestile čustvene težave, kot so občutek tesnobe, depresije, razdražljivost, potrtost ali žalost?">
+					description = <"Čustva.">
+				>
+				["at0036"] = <
+					text = <"Koliko težav ste imeli v zadnjih dveh tednih pri svojih običajnih dejavnosti doma in drugje zaradi svojega telesnega in duševnega zdravja?">
+					description = <"Vsakodnevna opravila.">
+				>
+				["at0037"] = <
+					text = <"Koliko je v zadnjih dveh tednih vaše telesno in duševno zdravje omejevalo vaše družabne aktivnosti z družino, prijatelji, sosedi ali drugimi skupinami?">
+					description = <"Družabno življenje.">
+				>
+				["at0038"] = <
+					text = <"Kako bi ocenili svojo trenutno telesno in duševno zdravstveno stanje glede na tisto pred dvemi tedni?">
+					description = <"Sprememba zdravja.">
+				>
+				["at0039"] = <
+					text = <"Zelo težka">
+					description = <"Npr. hiter tek">
+				>
+				["at0040"] = <
+					text = <"Težka">
+					description = <"Npr. počasen tek">
+				>
+				["at0041"] = <
+					text = <"Srednje težka">
+					description = <"Npr. hitra hoja">
+				>
+				["at0042"] = <
+					text = <"Lahka">
+					description = <"Npr. zmerna hoja">
+				>
+				["at0043"] = <
+					text = <"Zelo lahka">
+					description = <"Npr. počasna hoja ali nisem mogel hoditi">
+				>
+				["at0044"] = <
+					text = <"Nič">
+					description = <"Nič">
+				>
+				["at0045"] = <
+					text = <"Malo">
+					description = <"Malo">
+				>
+				["at0046"] = <
+					text = <"Srednje veliko">
+					description = <"Srednje veliko">
+				>
+				["at0047"] = <
+					text = <"Veliko">
+					description = <"Veliko">
+				>
+				["at0048"] = <
+					text = <"Zelo veliko">
+					description = <"Zelo veliko">
+				>
+				["at0049"] = <
+					text = <"Nič">
+					description = <"Nič.">
+				>
+				["at0050"] = <
+					text = <"Malo">
+					description = <"Malo.">
+				>
+				["at0051"] = <
+					text = <"Srednje veliko">
+					description = <"Srednje veliko.">
+				>
+				["at0052"] = <
+					text = <"Veliko">
+					description = <"Veliko.">
+				>
+				["at0053"] = <
+					text = <"Zelo veliko">
+					description = <"Zelo veliko.">
+				>
+				["at0054"] = <
+					text = <"Nič ">
+					description = <"Nič.">
+				>
+				["at0055"] = <
+					text = <"Malo">
+					description = <"Malo.">
+				>
+				["at0056"] = <
+					text = <"Srednje veliko">
+					description = <"Srednje veliko.">
+				>
+				["at0057"] = <
+					text = <"Veliko">
+					description = <"Veliko.">
+				>
+				["at0058"] = <
+					text = <"Zelo veliko">
+					description = <"Zelo veliko.">
+				>
+				["at0059"] = <
+					text = <"Precej boljše">
+					description = <"++">
+				>
+				["at0060"] = <
+					text = <"Nekoliko boljše">
+					description = <"+">
+				>
+				["at0061"] = <
+					text = <"Približno enako">
+					description = <"=">
+				>
+				["at0062"] = <
+					text = <"Nekoliko slabše">
+					description = <"-">
+				>
+				["at0063"] = <
+					text = <"Precej slabše">
+					description = <"--">
+				>
+				["at0064"] = <
+					text = <"Komentar">
+					description = <"Komentar rezultatov testa">
+				>
+				["at0065"] = <
+					text = <"Vprašanja">
+					description = <"Sedem vprašanj COOP-WONCA vprašalnika">
+				>
+				["at0066"] = <
+					text = <"Število točk">
+					description = <"Doseženo število točk pri ACT vprašalniku.">
+				>
+				["at0069"] = <
+					text = <"Kako bi na splošno ocenili svoje telesno in duševno zdravstveno stanje zadnja dva tedna?">
+					description = <"Splošno stanje.">
+				>
+				["at0070"] = <
+					text = <"Koliko telesnih bolečin ste imeli v zadnjih štirih tednih oziroma kako izrazite so bile?">
+					description = <"Bolečina.">
+				>
+				["at0071"] = <
+					text = <"Odlično">
+					description = <"Odlično.">
+				>
+				["at0072"] = <
+					text = <"Zelo dobro">
+					description = <"Zelo dobro.">
+				>
+				["at0073"] = <
+					text = <"Dobro">
+					description = <"Dobro.">
+				>
+				["at0074"] = <
+					text = <"Slabo">
+					description = <"Slabo.">
+				>
+				["at0075"] = <
+					text = <"Zelo slabo">
+					description = <"Zelo slabo.">
+				>
+				["at0076"] = <
+					text = <"Nič bolečin">
+					description = <"Nič bolečin.">
+				>
+				["at0077"] = <
+					text = <"Zelo blage bolečine">
+					description = <"Zelo blage bolečine.">
+				>
+				["at0078"] = <
+					text = <"Blage bolečine">
+					description = <"Blage bolečine.">
+				>
+				["at0079"] = <
+					text = <"Zmerne bolečine">
+					description = <"Zmerne bolečine.">
+				>
+				["at0080"] = <
+					text = <"Hude bolečine">
+					description = <"Hude bolečine.">
+				>
+			>
+		>
+	>

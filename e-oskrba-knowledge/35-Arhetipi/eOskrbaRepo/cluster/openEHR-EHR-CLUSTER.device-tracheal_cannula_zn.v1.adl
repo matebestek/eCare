@@ -1,0 +1,413 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.device-tracheal_cannula_zn.v1
+specialize
+	openEHR-EHR-CLUSTER.device.v1
+
+concept
+	[at0000.1]	-- Tracheal cannula
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o.">
+				["name"] = <"Biljana Prinčič, Uroš Rajkovič">
+				["email"] = <"biljana.princic@marand.si; uros.rajkovic@fov.uni-mb.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"29/06/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the details of a physical object, product or device used in the broadest description of the provision of healthcare but without direct therapeutic or metabolic means.">
+			use = <"Use to record the details about any generic device that may be used either directly in a therapeutic or diagnostic manner or indirectly to support provision of healthcare. Use of the term device varies depending on context.  Within the Standards world, the term device tends to refer to mechanical or electronic devices that  support healthcare and require rigorous docuumentation regarding specifications, maintenance etc.  Within the terminology context the use of device is very broad, including any physical object that can be used in direct or indirect provision of clinical care.  Examples include ventilator circuits, peak flow meters, spirometers, eyeglasses and contact lenses, intravascular catheters, breast implants, prostheses, drain tubes and corn rings.
+This archetype is designed to provide the basis for a structured representation of any device, from a simple example of a brand of urinary dipstick with a current 'use by' date through to an implanted bionic ear that may require complex documentation re software, hardware, maintenance, calibration etc.
+For common use cases, it may be appropriate to specialise this archetype specifically eg intravascular catheter or urinary catheter.">
+			keywords = <"device", "machine", "implant", "appliance", "catheter", "prosthesis", "aid", "biomedical", "instrument", "equipment", "meter", "monitor", "physical", "object">
+			misuse = <"Not to be used to record products such as medications or vaccinations or similar, that are used for therapeutic or metabolic means. ">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje podrobnosti o fizičnem objektu, izdelku ali napravi, ki se uporablja za zagotavljanje medicinske oskrbe, vendar brez vpliva na terapijo.">
+			use = <"Uporablja se za zapisovanje podatkov o napravi, ki se lahko uporablja neposredno v terapevtske ali diagnostične namene; ali neposredno v zagotavljanju zdravstvene oskrbe. Uporaba termina naprava je odvisna od vsebine oz. namena uporabe.
+
+">
+			keywords = <"naprava", "implant", "kateter", "proteza", "biomedicinski">
+			misuse = <"Se ne uporablja za evidentiranje podatkov o izdelkih kot so zdravila in cepiva ali podobnih, ki se uporabljajo v terapevtske ali metabolične namene.
+">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, Scotland", "Sam Heard, Ocean Informatics, Australia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"870742A2870BED4976D6D7568CCB0211">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {	-- Tracheal cannula
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Device name
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Type
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0016] occurrences matches {0..1} matches {	-- Size
+				value matches {
+					DV_COUNT matches {*}
+					C_DV_QUANTITY <
+					>
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.21, 	-- ID 2,5 OD 4,0 Jack 000  12 FR
+							at0.22, 	-- ID 3,0 OD 4,7 Jack 00  14 FR
+							at0.23, 	-- ID 3,5 OD 5,4 Jack 0  16 FR
+							at0.24, 	-- ID 4,0 OD 6,0 Jack 1  18 FR
+							at0.25, 	-- ID 4,5 OD 6,6 Jack 2  20 FR
+							at0.26, 	-- ID 5,0 OD 7,3 Jack 3  22 FR
+							at0.27, 	-- ID 5,5 OD 7,8 Jack 4  24 FR
+							at0.28, 	-- ID 6,0 OD 8,5 Jack 5  26 FR
+							at0.29, 	-- ID 6,0 OD 8,7 with lobe  26 FR
+							at0.30, 	-- ID 7,0 OD 10,0 with lobe  30 FR
+							at0.31]	-- ***** DUMMY **** DO NOT USE
+						}
+					}
+				}
+			}
+			allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {	-- Dimensions
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Manufacturer
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Date of manufacture
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1} matches {	-- Batch number
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0007] occurrences matches {0..1} matches {	-- Date of expiry
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			CLUSTER[at0013] occurrences matches {0..*} matches {	-- Safety feature
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Type of feature
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- Description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..1} matches {	-- Comment
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			allow_archetype ITEM[at0009] occurrences matches {0..*} matches {	-- Additional Details
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.device_details(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+			allow_archetype CLUSTER[at0020] occurrences matches {0..*} matches {	-- Components
+				include
+					archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.21"] = <
+					text = <"ID 2,5 OD 4,0 Jack 000  12 FR">
+					description = <"*">
+				>
+				["at0.22"] = <
+					text = <"ID 3,0 OD 4,7 Jack 00  14 FR">
+					description = <"*">
+				>
+				["at0.23"] = <
+					text = <"ID 3,5 OD 5,4 Jack 0  16 FR">
+					description = <"*">
+				>
+				["at0.24"] = <
+					text = <"ID 4,0 OD 6,0 Jack 1  18 FR">
+					description = <"*">
+				>
+				["at0.25"] = <
+					text = <"ID 4,5 OD 6,6 Jack 2  20 FR">
+					description = <"*">
+				>
+				["at0.26"] = <
+					text = <"ID 5,0 OD 7,3 Jack 3  22 FR">
+					description = <"*">
+				>
+				["at0.27"] = <
+					text = <"ID 5,5 OD 7,8 Jack 4  24 FR">
+					description = <"*">
+				>
+				["at0.28"] = <
+					text = <"ID 6,0 OD 8,5 Jack 5  26 FR">
+					description = <"*">
+				>
+				["at0.29"] = <
+					text = <"ID 6,0 OD 8,7 with lobe  26 FR">
+					description = <"*">
+				>
+				["at0.30"] = <
+					text = <"ID 7,0 OD 10,0 with lobe  30 FR">
+					description = <"*">
+				>
+				["at0.31"] = <
+					text = <"***** DUMMY **** DO NOT USE">
+					description = <"This value should always be constrained out.">
+				>
+				["at0000"] = <
+					text = <"Device">
+					description = <"Any physical object, product, instrument, apparatus, appliance, material or other item used directly or indirectly in the provision of healthcare, but is not used primarily through therapeutic or metabolic means.">
+				>
+				["at0000.1"] = <
+					text = <"Tracheal cannula">
+					description = <"Any physical object, product, instrument, apparatus, appliance, material or other item used directly or indirectly in the provision of healthcare, but is not used primarily through therapeutic or metabolic means.!">
+				>
+				["at0001"] = <
+					text = <"Device name">
+					description = <"Identification of the device.  This is very likely to be a coded field, including pre- or post-coordianted details.">
+				>
+				["at0002"] = <
+					text = <"Description">
+					description = <"Description of the device.">
+				>
+				["at0003"] = <
+					text = <"Type">
+					description = <"Type of device.">
+				>
+				["at0004"] = <
+					text = <"Manufacturer">
+					description = <"The name of the device manufacturer.">
+				>
+				["at0005"] = <
+					text = <"Date of manufacture">
+					description = <"Date the device was manufactured.">
+				>
+				["at0006"] = <
+					text = <"Batch number">
+					description = <"Manufacturer's batch number.">
+				>
+				["at0007"] = <
+					text = <"Date of expiry">
+					description = <"Date that the device/product is no longer fit for use.">
+				>
+				["at0008"] = <
+					text = <"Comment">
+					description = <"Comment about the device.">
+				>
+				["at0009"] = <
+					text = <"Additional Details">
+					description = <"Additional details to be noted about the device.">
+				>
+				["at0013"] = <
+					text = <"Safety feature">
+					description = <"Details about safety feature(s) of the device.">
+				>
+				["at0014"] = <
+					text = <"Type of feature">
+					description = <"Type of safety feature of the device.">
+				>
+				["at0015"] = <
+					text = <"Description">
+					description = <"Description of the safety feature of the device.">
+				>
+				["at0016"] = <
+					text = <"Size">
+					description = <"Size of device - a choice of value types is offered - count, quantity or text.">
+				>
+				["at0017"] = <
+					text = <"Dimensions">
+					description = <"Specific dimensions of the device.">
+				>
+				["at0020"] = <
+					text = <"Components">
+					description = <"Information about the device sub-components.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.21"] = <
+					text = <"ID 2,5 OD 4,0 Jack 000  12 FR">
+					description = <"*(en)">
+				>
+				["at0.22"] = <
+					text = <"ID 3,0 OD 4,7 Jack 00  14 FR">
+					description = <"*(en)">
+				>
+				["at0.23"] = <
+					text = <"ID 3,5 OD 5,4 Jack 0  16 FR">
+					description = <"*(en)">
+				>
+				["at0.24"] = <
+					text = <"ID 4,0 OD 6,0 Jack 1  18 FR">
+					description = <"*(en)">
+				>
+				["at0.25"] = <
+					text = <"ID 4,5 OD 6,6 Jack 2  20 FR">
+					description = <"*(en)">
+				>
+				["at0.26"] = <
+					text = <"ID 5,0 OD 7,3 Jack 3  22 FR">
+					description = <"*(en)">
+				>
+				["at0.27"] = <
+					text = <"ID 5,5 OD 7,8 Jack 4  24 FR">
+					description = <"*(en)">
+				>
+				["at0.28"] = <
+					text = <"ID 6,0 OD 8,5 Jack 5  26 FR">
+					description = <"*(en)">
+				>
+				["at0.29"] = <
+					text = <"ID 6,0 OD 8,7 z mešičkom 26 FR">
+					description = <"*">
+				>
+				["at0.30"] = <
+					text = <"ID 7,0 OD 10,0 z mešičkom 30 FR">
+					description = <"*">
+				>
+				["at0.31"] = <
+					text = <"****** DUMMY **** DO NOT USE(en)">
+					description = <"*This value should always be constrained out.(en)">
+				>
+				["at0000"] = <
+					text = <"Naprava">
+					description = <"Uporablja se za zapisovanje podatkov o napravi, ki se lahko uporablja neposredno v terapevtske ali diagnostične namene; ali neposredno v zagotavljanju zdravstvene oskrbe.">
+				>
+				["at0000.1"] = <
+					text = <"Trahealna kanila">
+					description = <"*Any physical object, product, instrument, apparatus, appliance, material or other item used directly or indirectly in the provision of healthcare, but is not used primarily through therapeutic or metabolic means.!(en)">
+				>
+				["at0001"] = <
+					text = <"ID">
+					description = <"ID naprave ">
+				>
+				["at0002"] = <
+					text = <"Opis">
+					description = <"Opis naprave">
+				>
+				["at0003"] = <
+					text = <"Tip">
+					description = <"Tip naprave">
+				>
+				["at0004"] = <
+					text = <"Proizvajalec">
+					description = <"Proizvajalec naprave">
+				>
+				["at0005"] = <
+					text = <"Datum proizvodnje">
+					description = <"Datum proizvodnje">
+				>
+				["at0006"] = <
+					text = <"Serijska številka">
+					description = <"Serijska številka naprave">
+				>
+				["at0007"] = <
+					text = <"Rok trajanja">
+					description = <"Rok trajanja naprave / izdelka">
+				>
+				["at0008"] = <
+					text = <"Opomba">
+					description = <"Opombe glede naprave">
+				>
+				["at0009"] = <
+					text = <"Dodatne podrobnosti">
+					description = <"Dodatna pojasnila">
+				>
+				["at0013"] = <
+					text = <"Varnostna navodila">
+					description = <"Varnostna navodila ">
+				>
+				["at0014"] = <
+					text = <"Tip navodil">
+					description = <"Tip varnostnih navodil">
+				>
+				["at0015"] = <
+					text = <"Opis">
+					description = <"Opis varnostnih navodil">
+				>
+				["at0016"] = <
+					text = <"Velikost">
+					description = <"Velikost naprave">
+				>
+				["at0017"] = <
+					text = <"Dimenzija">
+					description = <"Podrobne dimenzije naprave">
+				>
+				["at0020"] = <
+					text = <"Sestavni deli">
+					description = <"*Information about the device sub-components.(en)">
+				>
+			>
+		>
+	>

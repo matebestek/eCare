@@ -1,0 +1,792 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.global_zn.v1
+
+concept
+	[at0000]	-- General assessment
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"ian.mcnicoll@oceaninformatics .com">
+		["date"] = <"27/09/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the general or overall apearance of the subject.">
+			use = <"">
+			keywords = <"global", "general", "overview">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Splošna ocena stanja pacienta">
+			use = <"Splošna ocena stanja pacienta">
+			keywords = <"splošna ocena", "izgled", "ocena", "splošno">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"CA866CC824A4FF8CCF9B84497A00757A">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- General assessment
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0017] occurrences matches {0..*} matches {	-- Skin colour
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0006] occurrences matches {0..*} matches {	-- Colour
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0021, 	-- Normal / Pink
+															at0022, 	-- Red (like blushing, but not restricted to face)
+															at0023, 	-- Pale
+															at0024, 	-- Ashen / gray
+															at0025, 	-- Cyanotic
+															at0026, 	-- Yellow (refers to jaundice)
+															at0027, 	-- Yellow-green (refers to jaundice)
+															at0028, 	-- Marble skin / Cutis marmorata
+															at0054]	-- Other
+														}
+													}
+												}
+											}
+											ELEMENT[at0004] occurrences matches {0..*} matches {	-- Pallor location
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0029, 	-- Only face
+															at0030, 	-- Fingers & toes
+															at0031, 	-- Extremities
+															at0032, 	-- Whole body
+															at0052, 	-- *Prsti roke(en)
+															at0053]	-- *Prsti noge(en)
+														}
+													}
+												}
+											}
+											ELEMENT[at0005] occurrences matches {0..*} matches {	-- Cyanosis location
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0047, 	-- *Ves(en)
+															at0048, 	-- *Vidne sluznice(en)
+															at0049, 	-- *Usta(en)
+															at0050, 	-- *Konice prstov(en)
+															at0051, 	-- *Prsti in vidne sluznice(en)
+															at0055]	-- *Peroralni del
+														}
+													}
+												}
+											}
+											ELEMENT[at0020] occurrences matches {0..1} matches {	-- Other colour
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											CLUSTER[at0007] occurrences matches {0..*} matches {	-- Trancutaneous bilirubin
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0009] occurrences matches {0..1} matches {	-- Value
+														value matches {
+															C_DV_QUANTITY <
+																property = <[openehr::119]>
+																list = <
+																	["1"] = <
+																		units = <"µmol/l">
+																		magnitude = <|>=0.0|>
+																	>
+																>
+															>
+														}
+													}
+													ELEMENT[at0008] occurrences matches {0..1} matches {	-- Location
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0056, 	-- Forehead
+																	at0057]	-- Sternum
+																}
+															}
+															DV_TEXT matches {*}
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0010] occurrences matches {0..*} matches {	-- Skin temperature
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0012] occurrences matches {0..*} matches {	-- Temperature
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0039, 	-- Warm
+															at0040]	-- Cold
+														}
+													}
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..*} matches {	-- Location of warmth
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0033, 	-- Fingers & toes
+															at0034, 	-- Left arm
+															at0035, 	-- Right arm
+															at0036, 	-- Left leg
+															at0037, 	-- Right leg
+															at0038, 	-- Whole body
+															at0058, 	-- Peripheral parts of the body
+															at0059]	-- Central part of the body
+														}
+													}
+												}
+											}
+											ELEMENT[at0060] occurrences matches {0..*} matches {	-- Location of cold
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0061, 	-- Fingers and toes
+															at0062, 	-- Left arm
+															at0063, 	-- Right arm
+															at0064, 	-- Left leg
+															at0065, 	-- Right leg
+															at0066, 	-- Whole body
+															at0067, 	-- Peripheral parts of the body
+															at0068]	-- Central part of the body
+														}
+													}
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0015] occurrences matches {0..1} matches {	-- Hydration
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.hydration(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {	-- Sweating degree
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0041, 	-- Normal
+													at0042, 	-- Sweating increased
+													at0043, 	-- Heavy sweating
+													at0044, 	-- Only head is sweaty
+													at0045, 	-- Dry
+													at0046]	-- Greasy
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at0018] occurrences matches {0..*} matches {	-- Sweating detail
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.bodily_substance(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"General assessment">
+					description = <"General or global assessment according to ZN documentation.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Pallor location">
+					description = <"Location of pallor.">
+				>
+				["at0005"] = <
+					text = <"Cyanosis location">
+					description = <"Location of cyanosis.">
+				>
+				["at0006"] = <
+					text = <"Colour">
+					description = <"Visible skin color from fixed list.">
+				>
+				["at0007"] = <
+					text = <"Trancutaneous bilirubin">
+					description = <"Findings of transcutaneous bilirubin measurements.">
+				>
+				["at0008"] = <
+					text = <"Location">
+					description = <"Location of transcutaneous bilirubin measurement.">
+				>
+				["at0009"] = <
+					text = <"Value">
+					description = <"Transcutaneous bilrubin measurement.">
+				>
+				["at0010"] = <
+					text = <"Skin temperature">
+					description = <"Areas of abnormal skin temperature.">
+				>
+				["at0011"] = <
+					text = <"Location of warmth">
+					description = <"Location(s) of abnormal skin temperature.">
+				>
+				["at0012"] = <
+					text = <"Temperature">
+					description = <"Abnormal skin temperature.">
+				>
+				["at0015"] = <
+					text = <"Hydration">
+					description = <"Details of skin hydration.">
+				>
+				["at0017"] = <
+					text = <"Skin colour">
+					description = <"Findings of skin colouration.">
+				>
+				["at0018"] = <
+					text = <"Sweating detail">
+					description = <"Details of sweat.">
+				>
+				["at0019"] = <
+					text = <"Sweating degree">
+					description = <"Amount/degree of sweating.">
+				>
+				["at0020"] = <
+					text = <"Other colour">
+					description = <"Other colours not listed ">
+				>
+				["at0021"] = <
+					text = <"Normal / Pink">
+					description = <"The skin appears normal.">
+				>
+				["at0022"] = <
+					text = <"Red (like blushing, but not restricted to face)">
+					description = <"The skin appears red, the colour of a blush.">
+				>
+				["at0023"] = <
+					text = <"Pale">
+					description = <"The skin appears pale.">
+				>
+				["at0024"] = <
+					text = <"Ashen / gray">
+					description = <"The skin apppears ashen or gray.">
+				>
+				["at0025"] = <
+					text = <"Cyanotic">
+					description = <"The skin appears cyanotic.">
+				>
+				["at0026"] = <
+					text = <"Yellow (refers to jaundice)">
+					description = <"The skin appears yellow/ jaundiced.">
+				>
+				["at0027"] = <
+					text = <"Yellow-green (refers to jaundice)">
+					description = <"The skin apperas yellow-green/jaundiced">
+				>
+				["at0028"] = <
+					text = <"Marble skin / Cutis marmorata">
+					description = <"The skin appears marbled.">
+				>
+				["at0029"] = <
+					text = <"Only face">
+					description = <"Pallor is restricted to the face.">
+				>
+				["at0030"] = <
+					text = <"Fingers & toes">
+					description = <"Pallor is restricted to the fingers and toes.">
+				>
+				["at0031"] = <
+					text = <"Extremities">
+					description = <"Pallor is restricted to the extremities.">
+				>
+				["at0032"] = <
+					text = <"Whole body">
+					description = <"The whole body is pale.">
+				>
+				["at0033"] = <
+					text = <"Fingers & toes">
+					description = <"The temperature change applies to fingers and toes.">
+				>
+				["at0034"] = <
+					text = <"Left arm">
+					description = <"The temperature change applies to the left arm.">
+				>
+				["at0035"] = <
+					text = <"Right arm">
+					description = <"The temperature change applies to the right arm.">
+				>
+				["at0036"] = <
+					text = <"Left leg">
+					description = <"The temperature change applies to the left leg.">
+				>
+				["at0037"] = <
+					text = <"Right leg">
+					description = <"The temperature change applies to the right leg.">
+				>
+				["at0038"] = <
+					text = <"Whole body">
+					description = <"The temperature change applies to the whole body">
+				>
+				["at0039"] = <
+					text = <"Warm">
+					description = <"The skin is warm.">
+				>
+				["at0040"] = <
+					text = <"Cold">
+					description = <"The skin is cold.">
+				>
+				["at0041"] = <
+					text = <"Normal">
+					description = <"The degree of swearing is normal.">
+				>
+				["at0042"] = <
+					text = <"Sweating increased">
+					description = <"Sweating is increased.">
+				>
+				["at0043"] = <
+					text = <"Heavy sweating">
+					description = <"Sweating is heavy.">
+				>
+				["at0044"] = <
+					text = <"Only head is sweaty">
+					description = <"Only the subject's head is sweaty.">
+				>
+				["at0045"] = <
+					text = <"Dry">
+					description = <"The skin is dry.">
+				>
+				["at0046"] = <
+					text = <"Greasy">
+					description = <"The skin is greasy.">
+				>
+				["at0047"] = <
+					text = <"*Ves(en)">
+					description = <"**(en)">
+				>
+				["at0048"] = <
+					text = <"*Vidne sluznice(en)">
+					description = <"**(en)">
+				>
+				["at0049"] = <
+					text = <"*Usta(en)">
+					description = <"**(en)">
+				>
+				["at0050"] = <
+					text = <"*Konice prstov(en)">
+					description = <"**(en)">
+				>
+				["at0051"] = <
+					text = <"*Prsti in vidne sluznice(en)">
+					description = <"**(en)">
+				>
+				["at0052"] = <
+					text = <"*Prsti roke(en)">
+					description = <"**(en)">
+				>
+				["at0053"] = <
+					text = <"*Prsti noge(en)">
+					description = <"**(en)">
+				>
+				["at0054"] = <
+					text = <"Other">
+					description = <"Other colour">
+				>
+				["at0055"] = <
+					text = <"*Peroralni del">
+					description = <"Peroralni del">
+				>
+				["at0056"] = <
+					text = <"Forehead">
+					description = <"The transcutaneous bilirubi  is measured at forehead of infant">
+				>
+				["at0057"] = <
+					text = <"Sternum">
+					description = <"The transcutaneous bilirubi  is measured at sternum of infant">
+				>
+				["at0058"] = <
+					text = <"Peripheral parts of the body">
+					description = <"The temperature change applies to peripherial parts of the body">
+				>
+				["at0059"] = <
+					text = <"Central part of the body">
+					description = <"The temperature change applies to central parth of the body">
+				>
+				["at0060"] = <
+					text = <"Location of cold">
+					description = <"Location(s) of abnormal skin temperature.">
+				>
+				["at0061"] = <
+					text = <"Fingers and toes">
+					description = <"The temperature change applies to fingers and toes.">
+				>
+				["at0062"] = <
+					text = <"Left arm">
+					description = <"The temperature change applies to left arm">
+				>
+				["at0063"] = <
+					text = <"Right arm">
+					description = <"The temperature change applies to right arm">
+				>
+				["at0064"] = <
+					text = <"Left leg">
+					description = <"The temperature change applies to left leg">
+				>
+				["at0065"] = <
+					text = <"Right leg">
+					description = <"The temperature change applies to right leg">
+				>
+				["at0066"] = <
+					text = <"Whole body">
+					description = <"The temperature change applies to whole body">
+				>
+				["at0067"] = <
+					text = <"Peripheral parts of the body">
+					description = <"The temperature change applies to peripheral parts of the body">
+				>
+				["at0068"] = <
+					text = <"Central part of the body">
+					description = <"The temperature change applies to central parth of the body">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Splošna ocena kože">
+					description = <"Splošna ocena kože">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en) ">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Lokacija bledice">
+					description = <"Lokacija bledice">
+				>
+				["at0005"] = <
+					text = <"Lokacija cianoze">
+					description = <"Lokacija cianoze">
+				>
+				["at0006"] = <
+					text = <"Barva">
+					description = <"Barva kože">
+				>
+				["at0007"] = <
+					text = <"Transkutani bilirubin">
+					description = <"Ugotovitve glede meritev transkutanega bilirubina">
+				>
+				["at0008"] = <
+					text = <"Lokacija">
+					description = <"Lokacija meritve transkutanega bilirubina">
+				>
+				["at0009"] = <
+					text = <"Vrednost">
+					description = <"Izmerjena vrednost">
+				>
+				["at0010"] = <
+					text = <"Temperatura">
+					description = <"Območja nenavadne telesne temperature">
+				>
+				["at0011"] = <
+					text = <"Lokacija tople kože">
+					description = <"Lokacije z nenavadno toplo kožo">
+				>
+				["at0012"] = <
+					text = <"Temperatura">
+					description = <"Temperatura">
+				>
+				["at0015"] = <
+					text = <"Hidracija">
+					description = <"Podatki o hidraciji kože">
+				>
+				["at0017"] = <
+					text = <"Barva kože">
+					description = <"Ugotovitve glede barve kože">
+				>
+				["at0018"] = <
+					text = <"Podatki o potenju">
+					description = <"Podatki o potenju">
+				>
+				["at0019"] = <
+					text = <"Stopnja potenja">
+					description = <"Količina pota">
+				>
+				["at0020"] = <
+					text = <"Druga ">
+					description = <"*Other colours not listed (en)">
+				>
+				["at0021"] = <
+					text = <"Normalna / Rožnata">
+					description = <"Normalna / Rožnata">
+				>
+				["at0022"] = <
+					text = <"Rdeča">
+					description = <"Rdeča">
+				>
+				["at0023"] = <
+					text = <"Bleda">
+					description = <"Bleda">
+				>
+				["at0024"] = <
+					text = <"Siva">
+					description = <"Siva">
+				>
+				["at0025"] = <
+					text = <"Cianozna">
+					description = <"Cianozna">
+				>
+				["at0026"] = <
+					text = <"Zlateničen">
+					description = <"Zlateničen">
+				>
+				["at0027"] = <
+					text = <"Rumeno-zelena">
+					description = <"Rumeno-zelena">
+				>
+				["at0028"] = <
+					text = <"Marmorirana">
+					description = <"Marmorirana">
+				>
+				["at0029"] = <
+					text = <"Samo obraz">
+					description = <"Samo obraz">
+				>
+				["at0030"] = <
+					text = <"Prsti roke in noge">
+					description = <"Prsti (roke in noge)">
+				>
+				["at0031"] = <
+					text = <"Roke in noge">
+					description = <"Roke in noge">
+				>
+				["at0032"] = <
+					text = <"Celotno telo">
+					description = <"Celotno telo">
+				>
+				["at0033"] = <
+					text = <"Prsti na rokah in nogah">
+					description = <"Nenavadna toplota prstov na rokah in nogah">
+				>
+				["at0034"] = <
+					text = <"Leva roka">
+					description = <"Nenavadna toplota kože na levi roki">
+				>
+				["at0035"] = <
+					text = <"Desna roka">
+					description = <"Desna roka">
+				>
+				["at0036"] = <
+					text = <"Leva noga">
+					description = <"Leva noga">
+				>
+				["at0037"] = <
+					text = <"Desna noga">
+					description = <"Desna noga">
+				>
+				["at0038"] = <
+					text = <"Celotno telo">
+					description = <"Celotno telo">
+				>
+				["at0039"] = <
+					text = <"Topla">
+					description = <"Topla">
+				>
+				["at0040"] = <
+					text = <"Hladna">
+					description = <"Hladna">
+				>
+				["at0041"] = <
+					text = <"Normalno">
+					description = <"Normaln potenje">
+				>
+				["at0042"] = <
+					text = <"Povečano ">
+					description = <"Povečano ">
+				>
+				["at0043"] = <
+					text = <"Zelo povečano ">
+					description = <"*Sweating is heavy.(en)">
+				>
+				["at0044"] = <
+					text = <"Samo glava">
+					description = <"Samo glava">
+				>
+				["at0045"] = <
+					text = <"Suha koža">
+					description = <"Suha">
+				>
+				["at0046"] = <
+					text = <"Mastna koža">
+					description = <"Mastna">
+				>
+				["at0047"] = <
+					text = <"Ves">
+					description = <"ves">
+				>
+				["at0048"] = <
+					text = <"Vidne sluznice">
+					description = <"Vidne sluznice">
+				>
+				["at0049"] = <
+					text = <"Usta">
+					description = <"Usta">
+				>
+				["at0050"] = <
+					text = <"Konice prstov">
+					description = <"Konice prstov">
+				>
+				["at0051"] = <
+					text = <"Prsti in vidne sluznice">
+					description = <"Prsti in vidne sluznice">
+				>
+				["at0052"] = <
+					text = <"Prsti roke">
+					description = <"Prsti roke">
+				>
+				["at0053"] = <
+					text = <"Prsti noge">
+					description = <"Prsti noge">
+				>
+				["at0054"] = <
+					text = <"Druga">
+					description = <"Druga barva, ki ni navedena">
+				>
+				["at0055"] = <
+					description = <"Peroralni del">
+					text = <"Peroralni del">
+					comment = <"*(en)">
+				>
+				["at0056"] = <
+					text = <"Čelo">
+					description = <"Bilirubin je izmerjen na čelu novorojenčka">
+				>
+				["at0057"] = <
+					text = <"Prsnica">
+					description = <"Bilirubin je izmerjen na prsnici novorojenčka">
+				>
+				["at0058"] = <
+					text = <"Periferija">
+					description = <"Nenavadna toplota kože na periferiji telesa">
+				>
+				["at0059"] = <
+					text = <"Centralno">
+					description = <"Nenavadna toplota kože na centralnem delu telesa (brez periferije)">
+				>
+				["at0060"] = <
+					text = <"Lokacija hladne kože">
+					description = <"Lokacije z nenavadno hladno kožo">
+				>
+				["at0061"] = <
+					text = <"Prsti na rokah in nogah">
+					description = <"Nenavadno hladna koža prstov na rokah in nogah">
+				>
+				["at0062"] = <
+					text = <"Leva roka">
+					description = <"Nenavadno hladna koža na levi roki">
+				>
+				["at0063"] = <
+					text = <"Desna roka">
+					description = <"Nenavadno hladna koža na desnii roki">
+				>
+				["at0064"] = <
+					text = <"Leva noga">
+					description = <"Nenavadno hladna koža na levi nogi">
+				>
+				["at0065"] = <
+					text = <"Desna noga">
+					description = <"Nenavadno hladna koža na desni nogi">
+				>
+				["at0066"] = <
+					text = <"Celotno telo">
+					description = <"Nenavadno hladna koža po celem telesu">
+				>
+				["at0067"] = <
+					text = <"Periferija">
+					description = <"Nenavadno hladna koža na periferiji telesa">
+				>
+				["at0068"] = <
+					text = <"Centralno">
+					description = <"Nenavadno hladna koža nacentralnem delu telesa">
+				>
+			>
+		>
+	>

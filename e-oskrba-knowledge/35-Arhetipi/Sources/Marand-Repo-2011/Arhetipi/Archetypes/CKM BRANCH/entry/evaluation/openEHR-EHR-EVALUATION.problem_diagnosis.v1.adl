@@ -1,0 +1,445 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.problem_diagnosis.v1
+
+concept
+	[at0000]	-- Problem/Diagnosis
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"23/04/2006">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details about a problem or diagnosis by a clinician.">
+			use = <"Use to record detailed information about problems or diagnoses recognised by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a Problem List or a Summary statement, such as a Discharge Summary.
+
+Use to record all problems or diagnoses, including those with context-specific qualifiers such as past/present, primary/secondary, active/inactive etc. These qualifiers can be archetyped separately and included in the ‘Status’ slot, because their use varies in different settings.">
+			keywords = <"issue", "condition", "problem", "concern", "diagnosis", "criteria", "illness">
+			misuse = <"Not to be used for recording the 'Reason for Encounter' or 'Presenting Complaint' - which is information captured early in the encounter, usually prior to full assessment and will be represented using a separate EVALUATION archetype.
+Not to be used for recording Differential Diagnoses - use the EVALUATION.differential diagnosis archetype.">
+			copyright = <"copyright (c) 2010 NEHTA">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za dokumentiranje negovalnih problem in diagnoz v procesu zdravstvene nege">
+			use = <"Za dokumentiranje negovalnih problem in diagnoz v procesu zdravstvene nege. Lahko se uporabi na različnih področjih: za zapisovanje diagnoz v enem encaunter-u, za razširitev sznama negovalnih problemov in zaključkov opazovanj pacienta, kot npr. pri odpustnem negovalnem dokumentu.
+
+">
+			keywords = <"problem", "nega", "negovalna diagnoza", "skrb", "">
+			misuse = <"Se ne uporablja za zapisovanje  'Reason for Encounter' or 'Presenting Complaint', ki omogočajo zbiranje informacij bolj zgodaj v encauntr-u, za katere se ponavadi uporablja EVALUATION archetype.
+Se ne uporablja za dokumentiranje različnosti diagnoz; za to se uporablja EVALUATION.differential diagnosis archetype.">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Koray Atalag, University of Auckland, New Zealand", "John Bennett, NEHTA, Australia", "Steve Bentley, NHS CfH, United Kingdom", "Ian Bull, ACT Health, Australia", "Sergio Carmona, Chile", "Rong Chen, Cambio Healthcare Systems, Sweden", "Stephen Chu, NEHTA, Australia (Editor)", "Ed Conley, Cardiff University, United Kingdom", "Matthew Cordell, NEHTA, Australia", "Paul Donaldson, Nursing Informatics Australia, Australia", "David Evans, Queensland Health, Australia", "Peter Garcia-Webb, Australia", "Anneke Goossen, Results4Care, Netherlands", "Heather Grain, Llewelyn Grain Consulting, Australia", "Evelyn Hovenga, EJSH Consulting, Australia", "Eugene Igras, IRIS Systems Inc, Canada", "Mary Kelaher, NEHTA, Australia", "Eizen Kimura, Ehime University, Japan", "Shinji Kobayashi, Ehime University, Japan", "Robert L'egan, NEHTA, Australia", "Heather Leslie, Ocean Informatics, Australia (Editor)", "Hugh Leslie, Ocean Informatics, Australia (Editor)", "Rohan Martin, Ambulance Victoria, Australia", "David McKillop, NEHTA, Australia", "Ian McNicoll, Ocean Informatics UK, United Kingdom", "Chris Mitchell, RACGP, Australia", "Stewart Morrison, NEHTA, Australia", "Jörg Niggeman, Compugroup, Germany", "Andrej Orel, Marand d.o.o., Slovenia", "Camilla Preeston, Royal Australian College of General Practitioners, Australia", "Cathy Richardson, NEHTA, Australia", "Kylie Young, The Royal Australian College of General Practitioners, Australia">
+	other_details = <
+		["references"] = <"NEHTA Clinical data groups - Problem/Diagnosis V2.0 http://www.nehta.gov.au/data-group-library/data-specifications/dgl-problem-diagnosis.
+Australian Standard AS 4700.6-2006 Implementation of Health Level Seven version 2.4 - Part 6: Referral, discharge and health record messaging.
+CEN/TC 251/WGII  prEN 13940-2:2009.3- Health informatics – System of concepts to support Continuity of care – Part 2: Health care process and workflow.
+BS_EN_13940-1_2007 - British Standard.  Health informatics - System of concepts to support continuity of care - Part 1: Basic concepts.
+Swedish National Process model.
+IHE Technical Framework Supplement – Patient Plan of Care (PPOC).
+Royal Australian College of General Practitioners - Fact Sheet: Medical History
+Mosby's Pocket Dictionary of Medicine, Nursing and Health Professional, 6th Edition, Mosby Elsevier, 2010">
+		["MD5-CAM-1.0.1"] = <"DF8E8C1D95F3F0048A8B5CBA2DBA93B6">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Problem/Diagnosis
+		data matches {
+			ITEM_TREE[at0001] matches {	-- structure
+				items cardinality matches {1; ordered} matches {
+					ELEMENT[at0002] matches {	-- Problem/Diagnosis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Clinical description
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Date of onset
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Age of onset
+						value matches {
+							DV_DURATION matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0044] occurrences matches {0..*} matches {	-- Anatomical location
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					CLUSTER[at0018] occurrences matches {0..1} matches {	-- Occurrence Summary
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0025] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|>=1|}
+									}
+								}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {	-- Frequency
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::382]>
+										list = <
+											["1"] = <
+												units = <"/d">
+											>
+											["2"] = <
+												units = <"/yr">
+											>
+											["3"] = <
+												units = <"/h">
+											>
+											["4"] = <
+												units = <"/wk">
+											>
+											["5"] = <
+												units = <"/mo">
+											>
+											["6"] = <
+												units = <"/min">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0020] occurrences matches {0..1} matches {	-- Last occurrence
+								value matches {
+									DV_DATE matches {*}
+								}
+							}
+							ELEMENT[at0072] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0073] occurrences matches {0..*} matches {	-- Link to previous occurrence
+								value matches {
+									DV_URI matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..*} matches {	-- Causative Agent
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0026] occurrences matches {0..*} matches {	-- Related itams
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0028] matches {	-- Related itams
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Relathionship type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {	-- Date of resolution/remission
+						value matches {
+							DV_DATE matches {*}
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Age at ressolution/remission
+						value matches {
+							DV_DURATION matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0054] occurrences matches {0..*} matches {	-- Supporting Criteria
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0055] occurrences matches {0..*} matches {	-- Clinical stage/Grade
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0069] occurrences matches {0..1} matches {	-- Comment
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0074] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0075] occurrences matches {0..1} matches {	-- Link to supporting mediacl documentation
+						value matches {
+							DV_URI matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0076] occurrences matches {0..*} matches {	-- Status
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Problem/Diagnosis">
+					description = <"Any health care condition which may impact on to mental, physical health of patient">
+				>
+				["at0001"] = <
+					text = <"structure">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Problem/Diagnosis">
+					description = <"Identification of the problem or diagnoses. Should be used a coded text.">
+				>
+				["at0009"] = <
+					text = <"Clinical description">
+					description = <"Narrative description or comments about clinical aspects of the problem/diagnoses">
+				>
+				["at0010"] = <
+					text = <"Date of onset">
+					description = <"Estimated date the problem/diagnoses began">
+				>
+				["at0015"] = <
+					text = <"Causative Agent">
+					description = <"The phenomenon, substance, or organisem that is considered to be cause">
+				>
+				["at0018"] = <
+					text = <"Occurrence Summary">
+					description = <"Summary information about occurrence or exacerbations.">
+				>
+				["at0019"] = <
+					text = <"Frequency">
+					description = <"The frequency of occurrences or excerbation of the problem/diagnoses">
+				>
+				["at0020"] = <
+					text = <"Last occurrence">
+					description = <"The date of last occurrance or exacerbation">
+				>
+				["at0025"] = <
+					text = <"Number">
+					description = <"Cumulative number of occurrances or exacerbation">
+				>
+				["at0026"] = <
+					text = <"Related itams">
+					description = <"Further problems, diagnoses, procedures aotr events that related to th eproblem/diagnose">
+				>
+				["at0028"] = <
+					text = <"Related itams">
+					description = <"Further problems, diagnoses, procedures aotr events that related to th eproblem/diagnose">
+				>
+				["at0030"] = <
+					text = <"Date of resolution/remission">
+					description = <"The date that problem/diagnose resolved or went to remission">
+				>
+				["at0031"] = <
+					text = <"Age at ressolution/remission">
+					description = <"The age of person at the time of ressolution">
+				>
+				["at0037"] = <
+					text = <"Age of onset">
+					description = <"The age of the person when clinician assess the problem/diagnose">
+				>
+				["at0044"] = <
+					text = <"Anatomical location">
+					description = <"Slot to contain detailed and structured anatomical location details">
+				>
+				["at0054"] = <
+					text = <"Supporting Criteria">
+					description = <"The supporting criteria on which problem/diagnose based">
+				>
+				["at0055"] = <
+					text = <"Clinical stage/Grade">
+					description = <"Clinical stage or grade of problem">
+				>
+				["at0056"] = <
+					text = <"Relathionship type">
+					description = <"The type of relationship that this problem/diagnose has to the related itam">
+				>
+				["at0069"] = <
+					text = <"Comment">
+					description = <"Any comment about problem/diagnose">
+				>
+				["at0072"] = <
+					text = <"Description">
+					description = <"Description">
+				>
+				["at0073"] = <
+					text = <"Link to previous occurrence">
+					description = <"Link to previous occurrence">
+				>
+				["at0074"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0075"] = <
+					text = <"Link to supporting mediacl documentation">
+					description = <"Link to supporting mediacl documentation">
+				>
+				["at0076"] = <
+					text = <"Status">
+					description = <"Slot to contain range of descriptors for context- or use-case specific labels or workflow-related aspects of the diagnostic process which may not be safe to exchange between systems or use in a shared environment. Examples include: active/inactive; primary/secondary; preliminary/provisional/working/final.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Problem / Diagnoza">
+					description = <"Vsa stanja pacienta, ki vplivajo na njegovo zdravje">
+				>
+				["at0001"] = <
+					text = <"*structure(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"Problem / Diagnoza">
+					description = <"Identificirani problem oz. diagnoza. Uporaba standardnih šifrantov je priporočljiva.">
+				>
+				["at0009"] = <
+					text = <"Opis">
+					description = <"Opis kliničnih aspektov problema oz. diagnoze">
+				>
+				["at0010"] = <
+					text = <"Datum začetka">
+					description = <"Okvirni datum nastanka problema">
+				>
+				["at0015"] = <
+					text = <"Vzrok">
+					description = <"Vzrok za nastanek problema">
+				>
+				["at0018"] = <
+					text = <"Opis posalbšanja">
+					description = <"Podatki o ponovitvah oz, poslabšanjih">
+				>
+				["at0019"] = <
+					text = <"Pogostos">
+					description = <"Pogostost poslabšanj">
+				>
+				["at0020"] = <
+					text = <"Datum zadnjega">
+					description = <"Kdaj bilo zadnje posalbšanje?">
+				>
+				["at0025"] = <
+					text = <"Številka">
+					description = <"Število ponovitev">
+				>
+				["at0026"] = <
+					text = <"V povezavi z">
+					description = <"Problem se pojavla v povezavi z določenim stanjem pacienta npr. ob stiku z določenimi materili, hrano...">
+				>
+				["at0028"] = <
+					text = <"V povezavi z">
+					description = <"Problem se pojavla v povezavi z določenim stanjem pacienta npr. ob stiku z določenimi materili, hrano...">
+				>
+				["at0030"] = <
+					text = <"Ni več aktualna od">
+					description = <"Datum od katerega ta diagnoza ni več aktualna oz. problem ni več aktualen">
+				>
+				["at0031"] = <
+					text = <"Staros pacienta ob razrešitvi problema">
+					description = <"Staros pacienta ob razrešitvi problema">
+				>
+				["at0037"] = <
+					text = <"Starost pacienta ob astanku problema">
+					description = <"Starost pacienta ob astanku problema">
+				>
+				["at0044"] = <
+					text = <"Lokacija">
+					description = <"Anatomska lokacija">
+				>
+				["at0054"] = <
+					text = <"Dodatni podatki">
+					description = <"Dodatni podatki k diagnozi">
+				>
+				["at0055"] = <
+					text = <"Stopnja">
+					description = <"Stopnja problema">
+				>
+				["at0056"] = <
+					text = <"Opis">
+					description = <"Opis odnosa z povezanimi stanji pacienta">
+				>
+				["at0069"] = <
+					text = <"Opombe">
+					description = <"Dodatne opombe">
+				>
+				["at0072"] = <
+					text = <"Opis">
+					description = <"Opis problema">
+				>
+				["at0073"] = <
+					text = <"Prejšnje ponovitve">
+					description = <"Povezava s prejšnjimi ponovitvami">
+				>
+				["at0074"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0075"] = <
+					text = <"Medicinska dokumentacija">
+					description = <"Povezava z dodatno medicinsko dokumentacijo">
+				>
+				["at0076"] = <
+					text = <"Status">
+					description = <"Status">
+				>
+			>
+		>
+	>

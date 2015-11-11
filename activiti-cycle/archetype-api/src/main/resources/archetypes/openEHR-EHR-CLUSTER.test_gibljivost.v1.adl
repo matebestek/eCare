@@ -1,0 +1,256 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.test_gibljivost.v1
+
+concept
+	[at0000]	-- Test gibljivost
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis rezultatov testov gibljivosti.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"36C6427AD6C7BF683B5438535B40C2EB">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Test gibljivost
+		items cardinality matches {0..*; unordered} matches {
+			CLUSTER[at0052] occurrences matches {0..1} matches {	-- Testi gibljivosti
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Počep s palico nad glavo
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Korak čez oviro
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Izpadni korak s palico za hrbtom
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Upogib kolka leže
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Mobilnost ramen
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Skleci
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Klek z dotikom in komolca kolen
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0051] occurrences matches {0..1} matches {	-- Indeks funkcionalnosti gibanja
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..21|}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0053] occurrences matches {0..1} matches {	-- Bolečinski testi
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Bolečinski test za rame
+						value matches {
+							0|[local::at0003], 	-- Boli
+							1|[local::at0004], 	-- Ne more izvesti giba - disfunkcija
+							2|[local::at0005], 	-- Kompenzacija disfunkcije
+							3|[local::at0006]  	-- Gib(anje) izvede brez disfunkcije
+						}
+					}
+					ELEMENT[at0054] occurrences matches {0..1} matches {	-- Bolečinski test za zgornji del hrbta
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0056, 	-- Da
+									at0057]	-- Ne
+								}
+							}
+						}
+					}
+					ELEMENT[at0055] occurrences matches {0..1} matches {	-- Bolečinski test za spodnji del hrbta
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0058, 	-- Da
+									at0059]	-- Ne
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Test gibljivost">
+					description = <"unknown">
+				>
+				["at0002"] = <
+					text = <"Počep s palico nad glavo">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Boli">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Ne more izvesti giba - disfunkcija">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Kompenzacija disfunkcije">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Gib(anje) izvede brez disfunkcije">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Korak čez oviro">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Izpadni korak s palico za hrbtom">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Upogib kolka leže">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Mobilnost ramen">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Skleci">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Klek z dotikom in komolca kolen">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Bolečinski test za rame">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Indeks funkcionalnosti gibanja">
+					description = <"Indeks funkcionalnosti gibanja: 0-21 (seštevek doseženih točk)">
+				>
+				["at0052"] = <
+					text = <"Testi gibljivosti">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Bolečinski testi">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Bolečinski test za zgornji del hrbta">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Bolečinski test za spodnji del hrbta">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Da">
+					description = <"Da, pri testu se pojavljajo bolečine.">
+				>
+				["at0057"] = <
+					text = <"Ne">
+					description = <"Ne, pri testu se bolečine ne pojavljajo.">
+				>
+				["at0058"] = <
+					text = <"Da">
+					description = <"Da, pri testu se pojavljajo bolečine.">
+				>
+				["at0059"] = <
+					text = <"Ne">
+					description = <"Ne, pri testu se bolečine ne pojavljajo.">
+				>
+			>
+		>
+	>

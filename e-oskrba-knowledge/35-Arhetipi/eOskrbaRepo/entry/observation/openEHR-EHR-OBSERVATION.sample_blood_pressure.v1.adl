@@ -1,0 +1,1154 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.sample_blood_pressure.v1
+
+concept
+	[at0000]	-- Blood pressure (Training sample)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["organisation"] = <"Central Queensland University, University of Heidelberg">
+				["name"] = <"Sebastian Garde, Jasmin Buck">
+			>
+		>
+		["ja"] = <
+			language = <[ISO_639-1::ja]>
+			author = <
+				["name"] = <"Shinji Kobayashi">
+			>
+		>
+		["zh-cn"] = <
+			language = <[ISO_639-1::zh-cn]>
+			author = <
+				["organisation"] = <"Ocean Informatics">
+				["name"] = <"Chunlan Ma">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"22/03/2006">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the systemic arterial blood pressure of a person. ">
+			use = <"For Training purposes only
+
+All systemic arterial blood pressure measurements are recorded using this archetype. There is a rich state model, which can be used to support exercise/stress testing and research using tilt tables.">
+			keywords = <"observations", "blood pressure", "measurement", "bp", "vital signs", "mean arterial pressure", "pulse pressure", "systolic", "diastolic">
+			misuse = <"NOT FOR LIVE USE
+
+Not to be used for intravenous pressure.
+
+Not to be used for recording of arterial pressure in specific locations (even if part of the systemic circulation), for example, pulmonary arterial pressure by Swan-Ganz-catheterisation.
+
+Use OBSERVATION.intravascular.pressure and related specialisations in these situations.">
+		>
+		["ja"] = <
+			language = <[ISO_639-1::ja]>
+			purpose = <"*To record the systemic blood pressure of a person. The measurement records the systolic and the diastolic pressure by some means suitable for the result to be seen as a surrogate for the general and systemic blood pressure.(en)">
+			use = <"*All blood pressure measurements are recorded using this archetype. There is a rich state model for use with exercise ECGs and Tilt Table measurements.(en)">
+			keywords = <"*observations(en)", "*blood pressure(en)", "*measurement(en)">
+			misuse = <"*Not to be used for intravascular pressure.(en)">
+			copyright = <"copyright (c) 2008 openEHR Foundation">
+		>
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Dient der Dokumentation des systemischen Blutdrucks einer Person. Die Messung zeichnet den systolischen und diastolischen Blutdruck auf geeignete Art und Weise auf, sodass das Resultat der Messung als charakteristisch für den tatsächlichen systemischen Blutdruck angesehen werden kann.">
+			use = <"Alle Blutdruckmessungen werden unter Zuhilfenahme dieses Archetypen dokumentiert. Der Archetyp beinhaltet ein umfassendes Status-Modell z.B. bei Durchführung von Belastungs-EKGs und Kipptischuntersuchungen.">
+			misuse = <"Nicht zu Benutzen zur Dokumentation des intravaskulären Drucks.">
+			copyright = <"copyright (c) 2008 openEHR Foundation">
+		>
+		["zh-cn"] = <
+			language = <[ISO_639-1::zh-cn]>
+			purpose = <"*To record the systemic blood pressure of a person. The measurement records the systolic and the diastolic pressure by some means suitable for the result to be seen as a surrogate for the general and systemic blood pressure.(en)">
+			use = <"*All blood pressure measurements are recorded using this archetype. There is a rich state model for use with exercise ECGs and Tilt Table measurements.(en)">
+			keywords = <"*observations(en)", "*blood pressure(en)", "*measurement(en)">
+			misuse = <"*Not to be used for intravascular pressure.(en)">
+			copyright = <"copyright (c) 2008 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics", "Sundaresan Jagannathan, NHS Scotland", "Melvin Reynolds">
+	other_details = <
+		["references"] = <"Cuff sizes:  Circulation (1993;88:2460-2467), by Dorothee Perloff,MD; Carlene Grim, MSN, SpDN; John Flack, MD; Edward D. Frohlich, MD; Martha Hill, PhD, RN; Mary McDonald, MSPH, RN; and Bruce Z. Morgenstern, MD, Writing Group">
+		["MD5-CAM-1.0.1"] = <"DF7B1532856EC51A95483307F6654441">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Blood pressure (Training sample)
+		data matches {
+			HISTORY[at0001] matches {	-- history
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0006] occurrences matches {0..*} matches {	-- any event
+						data matches {
+							ITEM_LIST[at0003] matches {	-- blood pressure
+								items cardinality matches {0..*; ordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Systolic
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::125]>
+												list = <
+													["1"] = <
+														units = <"mm[Hg]">
+														magnitude = <|0.0..<1000.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Diastolic
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::125]>
+												list = <
+													["1"] = <
+														units = <"mm[Hg]">
+														magnitude = <|0.0..<1000.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at1006] occurrences matches {0..1} matches {	-- Mean Arterial Pressure
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::125]>
+												list = <
+													["1"] = <
+														units = <"mm[Hg]">
+														magnitude = <|0.0..750.0|>
+														precision = <|1|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at1007] occurrences matches {0..1} matches {	-- Pulse Pressure
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::125]>
+												list = <
+													["1"] = <
+														units = <"mm[Hg]">
+														magnitude = <|0.0..750.0|>
+														precision = <|0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0007] matches {	-- state structure
+								items cardinality matches {0..*; ordered} matches {
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Position
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at1000, 	-- Standing
+													at1001, 	-- Sitting
+													at1002, 	-- Reclining
+													at1003, 	-- Lying
+													at1013, 	-- Trendelenburg
+													at1014; 	-- Left Lateral
+													at1001]	-- assumed value
+												}
+											}
+										}
+									}
+									allow_archetype CLUSTER[at1030] occurrences matches {0..*} matches {	-- Level of Exertion 
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.sample_level_of_exertion\.v1/}
+									}
+									ELEMENT[at1005] occurrences matches {0..1} matches {	-- Tilt
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::497]>
+												list = <
+													["1"] = <
+														units = <"°">
+														magnitude = <|-90.0..90.0|>
+														precision = <|0|>
+													>
+												>
+												assumed_value = <
+													magnitude = <0.0>
+													units = <"°">
+													precision = <0>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+					}
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Baseline reading
+						offset matches {
+							DV_DURATION matches {
+								value matches {|PT0S|}
+							}
+						}
+						data matches {
+							use_node ITEM_LIST /data[at0001]/events[at0006]/data[at0003]	-- /data[history]/events[any event]/data[blood pressure]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0006]/state[at0007]	-- /data[history]/events[any event]/state[state structure]
+						}
+					}
+					POINT_EVENT[at0029] occurrences matches {0..1} matches {	-- 5 minute reading
+						offset matches {
+							DV_DURATION matches {
+								value matches {|PT5M|}
+							}
+						}
+						data matches {
+							use_node ITEM_LIST /data[at0001]/events[at0006]/data[at0003]	-- /data[history]/events[any event]/data[blood pressure]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0006]/state[at0007]	-- /data[history]/events[any event]/state[state structure]
+						}
+					}
+					POINT_EVENT[at0030] occurrences matches {0..1} matches {	-- 10 minute reading
+						offset matches {
+							DV_DURATION matches {
+								value matches {|PT10M|}
+							}
+						}
+						data matches {
+							use_node ITEM_LIST /data[at0001]/events[at0006]/data[at0003]	-- /data[history]/events[any event]/data[blood pressure]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0006]/state[at0007]	-- /data[history]/events[any event]/state[state structure]
+						}
+					}
+					INTERVAL_EVENT[at0031] occurrences matches {0..*} matches {	-- Postural change
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::147]}
+							}
+						}
+						data matches {
+							use_node ITEM_LIST /data[at0001]/events[at0006]/data[at0003]	-- /data[history]/events[any event]/data[blood pressure]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0006]/state[at0007]	-- /data[history]/events[any event]/state[state structure]
+						}
+					}
+					INTERVAL_EVENT[at1004] occurrences matches {0..*} matches {	-- Paradox
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::149]}
+							}
+						}
+						data matches {
+							use_node ITEM_LIST /data[at0001]/events[at0006]/data[at0003]	-- /data[history]/events[any event]/data[blood pressure]
+						}
+						state matches {
+							use_node ITEM_TREE /data[at0001]/events[at0006]/state[at0007]	-- /data[history]/events[any event]/state[state structure]
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0011] matches {	-- list structure
+				items cardinality matches {0..*; ordered} matches {
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- Cuff size
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015, 	-- Adult
+									at0016, 	-- Large Adult
+									at0017, 	-- Paediatric/Child
+									at1008, 	-- Adult Thigh
+									at1009, 	-- Neonatal
+									at1018, 	-- Infant
+									at1019]	-- Small Adult
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Location of measurement
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0025, 	-- Right arm
+									at0026, 	-- Left arm
+									at0027, 	-- Right thigh
+									at0028, 	-- Left thigh
+									at0032, 	-- Intra-arterial
+									at1020, 	-- Right wrist
+									at1021, 	-- Left wrist
+									at1026, 	-- Finger
+									at1031, 	-- Right ankle
+									at1032]	-- Left ankle
+								}
+							}
+						}
+					}
+					ELEMENT[at1010] occurrences matches {0..1} matches {	-- Korotkoff sounds
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at1011, 	-- Fourth sound
+									at1012]	-- Fifth sound
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at1025] occurrences matches {0..*} matches {	-- Device
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Blood pressure (Training sample)">
+					description = <"The measurement of arterial blood pressure which is deemed to be a surrogate for arterial pressure in the systemic circulation.">
+				>
+				["at0001"] = <
+					text = <"history">
+					description = <"history Structural node">
+				>
+				["at0002"] = <
+					text = <"Baseline reading">
+					description = <"Baseline event in event history">
+				>
+				["at0003"] = <
+					text = <"blood pressure">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Systolic">
+					description = <"Peak systemic arterial blood pressure over one cycle - measured in systolic or contraction phase of the heart cycle">
+				>
+				["at0005"] = <
+					text = <"Diastolic">
+					description = <"Minimum systemic arterial blood pressure over one cycle - measured in the diastolic or relaxation phase">
+				>
+				["at0006"] = <
+					text = <"any event">
+					description = <"Other event in event history">
+				>
+				["at0007"] = <
+					text = <"state structure">
+					description = <"@ internal @">
+				>
+				["at0008"] = <
+					text = <"Position">
+					description = <"The position of the person at the time of measuring blood pressure">
+				>
+				["at0011"] = <
+					text = <"list structure">
+					description = <"list structure">
+				>
+				["at0013"] = <
+					text = <"Cuff size">
+					description = <"The size of the cuff used for blood pressure measurement">
+				>
+				["at0014"] = <
+					text = <"Location of measurement">
+					description = <"The site of the measurement of the blood pressure">
+				>
+				["at0015"] = <
+					text = <"Adult">
+					description = <"A cuff that is standard for an adult - bladder approx 13cm x 30cm">
+				>
+				["at0016"] = <
+					text = <"Large Adult">
+					description = <"A cuff for adults with larger arms - bladder approx 16cm x 38cm">
+				>
+				["at0017"] = <
+					text = <"Paediatric/Child">
+					description = <"A cuff that is appropriate for a child or thin arm - bladder approx 8cm x 21 cm">
+				>
+				["at0025"] = <
+					text = <"Right arm">
+					description = <"The right arm of the person">
+				>
+				["at0026"] = <
+					text = <"Left arm">
+					description = <"The left arm of the person">
+				>
+				["at0027"] = <
+					text = <"Right thigh">
+					description = <"The right thigh of the person">
+				>
+				["at0028"] = <
+					text = <"Left thigh">
+					description = <"The left thigh of the person">
+				>
+				["at0029"] = <
+					text = <"5 minute reading">
+					description = <"Blood pressure reading after 5 minutes rest">
+				>
+				["at0030"] = <
+					text = <"10 minute reading">
+					description = <"Blood pressure reading after 10 minutes rest">
+				>
+				["at0031"] = <
+					text = <"Postural change">
+					description = <"The difference between standing and sitting/lying blood pressure">
+				>
+				["at0032"] = <
+					text = <"Intra-arterial">
+					description = <"Blood pressure monitored via an intra-arterial line">
+				>
+				["at0033"] = <
+					text = <"Comment">
+					description = <"Comment on blood pressure reading">
+				>
+				["at1000"] = <
+					text = <"Standing">
+					description = <"Standing at the time of blood pressure measurement">
+				>
+				["at1001"] = <
+					text = <"Sitting">
+					description = <"Sitting (for example on bed or chair) at the time of blood pressure measurement">
+				>
+				["at1002"] = <
+					text = <"Reclining">
+					description = <"Reclining at the time of blood pressure measurement">
+				>
+				["at1003"] = <
+					text = <"Lying">
+					description = <"Lying flat at the time of blood pressure measurement">
+				>
+				["at1004"] = <
+					text = <"Paradox">
+					description = <"Variation in blood pressure with respiration">
+				>
+				["at1005"] = <
+					text = <"Tilt">
+					description = <"The tilt of the surface on which the person is lying">
+				>
+				["at1006"] = <
+					text = <"Mean Arterial Pressure">
+					description = <"The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle.   In non-invasive blood pressure measurements the MAP is calculated using (2 x Systolic Blood Pressure + Diastolic Blood Pressure) divided by 3.">
+				>
+				["at1007"] = <
+					text = <"Pulse Pressure">
+					description = <"The difference between the systolic and diastolic pressure over one contraction cycle.">
+				>
+				["at1008"] = <
+					text = <"Adult Thigh">
+					description = <"A cuff used for an adult thigh - bladder approx 20cm x 42 cm">
+				>
+				["at1009"] = <
+					text = <"Neonatal">
+					description = <"A cuff used for a new born - bladder approx 3cm x 6cm">
+				>
+				["at1010"] = <
+					text = <"Korotkoff sounds">
+					description = <"Record which Korotkoff sound is used for determining diastolic pressure">
+				>
+				["at1011"] = <
+					text = <"Fourth sound">
+					description = <"The fourth Korotkoff sound is identified as an abrupt muffling of sounds">
+				>
+				["at1012"] = <
+					text = <"Fifth sound">
+					description = <"The fifth Korotkoff sound is identified by absence of sounds as the cuff pressure drops below the diastolic blood pressure">
+				>
+				["at1013"] = <
+					text = <"Trendelenburg">
+					description = <"Lying flat on the back (supine position) with the feet higher than the head at the time of blood pressure measurement">
+				>
+				["at1014"] = <
+					text = <"Left Lateral">
+					description = <"Lying on the left side at the time of blood pressure measurement">
+				>
+				["at1018"] = <
+					text = <"Infant">
+					description = <"A cuff used for infants - bladder approx 5cm x 15cm">
+				>
+				["at1019"] = <
+					text = <"Small Adult">
+					description = <"A cuff used for a small adult - bladder approx 10cm x 24 cm">
+				>
+				["at1020"] = <
+					text = <"Right wrist">
+					description = <"The right wrist of the person">
+				>
+				["at1021"] = <
+					text = <"Left wrist">
+					description = <"The left wrist of the person">
+				>
+				["at1025"] = <
+					text = <"Device">
+					description = <"Details about sphygmomanometer or other device used to measure the blood pressure">
+				>
+				["at1026"] = <
+					text = <"Finger">
+					description = <"A finger of the person">
+				>
+				["at1030"] = <
+					text = <"Level of Exertion ">
+					description = <"Details about physical activity undertaken as the blood pressure is recorded">
+				>
+				["at1031"] = <
+					text = <"Right ankle">
+					description = <"The right ankle of the person">
+				>
+				["at1032"] = <
+					text = <"Left ankle">
+					description = <"The left ankle of the person">
+				>
+			>
+		>
+		["ja"] = <
+			items = <
+				["at0000"] = <
+					text = <"血圧">
+					description = <"測定され、あらゆる手段（侵襲的または非侵襲的な）の全身動脈血圧の変化を表すものでは、実際の全身の血液の圧力">
+				>
+				["at0001"] = <
+					text = <"*history(en)">
+					description = <"*history Structural node(en)">
+				>
+				["at0002"] = <
+					text = <"基準測定">
+					description = <" イベント履歴の中での基準">
+				>
+				["at0003"] = <
+					text = <"血圧">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"収縮期">
+					description = <"1つ以上の脈の間で最高値を示す全身の動脈圧 - 心機図の収縮期で測定される">
+				>
+				["at0005"] = <
+					text = <"拡張期">
+					description = <"1つ以上の脈の間で最低値を示す全身の動脈圧 - 心機図の拡張期で測定される">
+				>
+				["at0006"] = <
+					text = <"任意イベント">
+					description = <" イベントの履歴における他のイベント">
+				>
+				["at0007"] = <
+					text = <"*state structure(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0008"] = <
+					text = <"体位">
+					description = <"血圧を測定するときの患者の体位">
+				>
+				["at0011"] = <
+					text = <"*list structure(en)">
+					description = <"*list structure(en)">
+				>
+				["at0013"] = <
+					text = <"カフサイズ">
+					description = <"血圧計が使用するカフのサイズ">
+				>
+				["at0014"] = <
+					text = <"測定部位">
+					description = <"血圧を測定する部位">
+				>
+				["at0015"] = <
+					text = <"*Adult(en)">
+					description = <"*A cuff that is standard for an adult - bladder approx 13cm x 30cm(en)">
+				>
+				["at0016"] = <
+					text = <"*Large Adult(en)">
+					description = <"*A cuff for adults with larger arms - bladder approx 16cm x 38cm(en)">
+				>
+				["at0017"] = <
+					text = <"*Paediatric/Child(en)">
+					description = <"*A cuff that is appropriate for a child or thin arm - bladder approx 8cm x 21 cm(en)">
+				>
+				["at0025"] = <
+					text = <"右腕">
+					description = <"*The right arm of the person(en)">
+				>
+				["at0026"] = <
+					text = <"左腕">
+					description = <"*The left arm of the person(en)">
+				>
+				["at0027"] = <
+					text = <"*Right leg(en)">
+					description = <"*The right leg of the person(en)">
+				>
+				["at0028"] = <
+					text = <"左脚">
+					description = <"*The left leg of the person(en)">
+				>
+				["at0029"] = <
+					text = <"5分後測定">
+					description = <"5分安静後に測定された血圧">
+				>
+				["at0030"] = <
+					text = <"10分後測定">
+					description = <"10分安静後に測定された血圧">
+				>
+				["at0031"] = <
+					text = <"姿勢変化">
+					description = <"座位と立位での血圧変化">
+				>
+				["at0032"] = <
+					text = <"イントラ動脈">
+					description = <"*Blood pressure monitored via an intra-arterial line(en)">
+				>
+				["at0033"] = <
+					text = <"コメント">
+					description = <"血圧測定のコメント">
+				>
+				["at1000"] = <
+					text = <"立位">
+					description = <"*Standing at the time of blood pressure measurement(en)">
+				>
+				["at1001"] = <
+					text = <"座位">
+					description = <"*Sitting on bed or chair at the time of blood pressure measurement(en)">
+				>
+				["at1002"] = <
+					text = <"斜位">
+					description = <"*Person reclining at 45 degrees at the time of blood pressure measurement(en)">
+				>
+				["at1003"] = <
+					text = <"臥位">
+					description = <"*Patient lying flat at the time of blood pressure measurement(en)">
+				>
+				["at1004"] = <
+					text = <"奇脈">
+					description = <"呼吸による血圧変動">
+				>
+				["at1005"] = <
+					text = <"傾斜">
+					description = <"被験者が置かれている台表面の傾斜">
+				>
+				["at1006"] = <
+					text = <"平均動脈圧">
+					description = <"*The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle - calculated by (2XSBP + DBP) divided by 3.(en)">
+				>
+				["at1007"] = <
+					text = <"脈圧">
+					description = <"1回の収縮サイクルでの血圧の変動">
+				>
+				["at1008"] = <
+					text = <"*Adult Thigh(en)">
+					description = <"*A cuff used for an adult thigh - bladder approx 20cm x 42 cm(en)">
+				>
+				["at1009"] = <
+					text = <"*Neonatal(en)">
+					description = <"*A cuff used for a new born - bladder approx 3cm x 6cm(en)">
+				>
+				["at1010"] = <
+					text = <"コロトコフ音">
+					description = <"拡張期を決定するときに使用されたコロトコフ音の記録">
+				>
+				["at1011"] = <
+					text = <"*Fourth sound(en)">
+					description = <"*The fifth Korotkoff sound is silence as the cuff pressure drops below the diastolic blood pressure(en)">
+				>
+				["at1012"] = <
+					text = <"*Fifth sound(en)">
+					description = <"*The fifth Korotkoff sound is silence as the cuff pressure drops below the diastolic blood pressure(en)">
+				>
+				["at1013"] = <
+					text = <"*Trendelenburg(en)">
+					description = <"*Person is lying flat on the back (supine position) with the feet higher than the head at the time of blood pressure measurement(en)">
+				>
+				["at1014"] = <
+					text = <"*Left Lateral(en)">
+					description = <"*Person is lying on their left side at the time of blood pressure measurement(en)">
+				>
+				["at1018"] = <
+					text = <"*Infant(en)">
+					description = <"*A cuff used for infants - bladder approx 5cm x 15cm(en)">
+				>
+				["at1019"] = <
+					text = <"*Small Adult(en)">
+					description = <"*A cuff used for a small adult - bladder approx 10cm x 24 cm(en)">
+				>
+				["at1020"] = <
+					text = <"*Right wrist(en)">
+					description = <"*The right wrist of the person(en)">
+				>
+				["at1021"] = <
+					text = <"*Left wrist(en)">
+					description = <"*The left wrist of the person(en)">
+				>
+				["at1025"] = <
+					text = <"*Device(en)">
+					description = <"*Details about sphygmomanometer or other device used to measure the blood pressure(en)">
+				>
+				["at1026"] = <
+					text = <"Finger">
+					description = <"*A finger of the person(en)">
+				>
+				["at1030"] = <
+					text = <"*Cluster(en)">
+					description = <"**(en)">
+				>
+				["at1031"] = <
+					text = <"*Left ankle(en)">
+					description = <"**(en)">
+				>
+				["at1032"] = <
+					text = <"*Right ankle(en)">
+					description = <"*The right ankle of the person(en)">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Blutdruckmessung">
+					description = <"Die Messung des systemischen arteriellen Blutdrucks, die als geeignet angesehen wird, den tatsächlichen systemischen Blutdruck zu repräsentieren.">
+				>
+				["at0001"] = <
+					text = <"Historie">
+					description = <"Historie">
+				>
+				["at0002"] = <
+					text = <"Basismessung">
+					description = <"Basismessung">
+				>
+				["at0003"] = <
+					text = <"Blutdruck">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Systolisch">
+					description = <"Der höchste arterielle Blutdruck eines Zyklus - gemessen in der systolischen oder Kontraktionsphase des Herzens.">
+				>
+				["at0005"] = <
+					text = <"Diastolisch">
+					description = <"Der minimale systemische arterielle Blutdruck eines Zyklus - gemessen in der diastolischen oder Entspannungsphase des Herzens.">
+				>
+				["at0006"] = <
+					text = <"Unbestimmtes Ereignis">
+					description = <"anderes unbestimmtes Ereignis">
+				>
+				["at0007"] = <
+					text = <"*state structure(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0008"] = <
+					text = <"Position">
+					description = <"Die Position des Patienten zum Zeitpunkt der Blutdruckmessung">
+				>
+				["at0011"] = <
+					text = <"Listenstruktur">
+					description = <"Listenstruktur">
+				>
+				["at0013"] = <
+					text = <"Manschettengröße">
+					description = <"Die Größe der Manschette des benutzten Sphygmomanometers">
+				>
+				["at0014"] = <
+					text = <"Ort der Messung">
+					description = <"Ort der Blutdruckmessung">
+				>
+				["at0015"] = <
+					text = <"*Adult(en)">
+					description = <"*A cuff that is standard for an adult - bladder approx 13cm x 30cm(en)">
+				>
+				["at0016"] = <
+					text = <"*Large Adult(en)">
+					description = <"*A cuff for adults with larger arms - bladder approx 16cm x 38cm(en)">
+				>
+				["at0017"] = <
+					text = <"*Paediatric/Child(en)">
+					description = <"*A cuff that is appropriate for a child or thin arm - bladder approx 8cm x 21 cm(en)">
+				>
+				["at0025"] = <
+					text = <"Rechter Arm">
+					description = <"Der rechte Arm der Person">
+				>
+				["at0026"] = <
+					text = <"Linker Arm">
+					description = <"Der linke Arm der Person">
+				>
+				["at0027"] = <
+					text = <"*Right leg(en)">
+					description = <"*The right leg of the person(en)">
+				>
+				["at0028"] = <
+					text = <"Linkes Bein">
+					description = <"Linkes Bein des Patienten">
+				>
+				["at0029"] = <
+					text = <"5-Minuten-Messung">
+					description = <"Blutdruckmessung nach 5 Minuten Ruhepause">
+				>
+				["at0030"] = <
+					text = <"10-Minuten-Messung">
+					description = <"Blutdruckmessung nach 10 Minuten Ruhepause">
+				>
+				["at0031"] = <
+					text = <"Posturale Änderung">
+					description = <"Die Differenz zwischen stehendem und sitzendem/liegendem Blutdruck">
+				>
+				["at0032"] = <
+					text = <"Intra-arteriell">
+					description = <"Blutdruckmessung durch intra-arterielle (invasive) Messung">
+				>
+				["at0033"] = <
+					text = <"Kommentar">
+					description = <"Kommentar zur Blutdruckmessung">
+				>
+				["at1000"] = <
+					text = <"Stehend">
+					description = <"Stehend zum Zeitpunkt der Blutdruckmessung">
+				>
+				["at1001"] = <
+					text = <"Sitzend">
+					description = <"Sitzend zum Zeitpunkt der Blutdruckmessung">
+				>
+				["at1002"] = <
+					text = <"Zurückgelehnt">
+					description = <"Patient 45 Grad zurückgelehnt zum Zeitpunkt der Blutdruckmessung">
+				>
+				["at1003"] = <
+					text = <"Liegend">
+					description = <"Patient flach liegend zum Zeitpunkt der Blutdruckmessung">
+				>
+				["at1004"] = <
+					text = <"Paradox">
+					description = <"Variation des Blutdrucks bei Atmung">
+				>
+				["at1005"] = <
+					text = <"Neigung">
+					description = <"Die Neigung der Oberfläche auf der der Patient liegt (Kipptischuntersuchungen)">
+				>
+				["at1006"] = <
+					text = <"Mittlerer Arterieller Druck">
+					description = <"Der mittlere arterielle Druck, abgekürzt MAD oder MAP (von englisch: mean arterial pressure), liegt zwischen dem systolischen und dem diastolischen Blutdruckwert. Er kann genau berechnet werden, indem die Fläche unter der arteriellen Druckkurve gemittelt wird. Kann auch nach folgender Formel berechnet werden: (2XSBD + DBD) dividiert durch 3.">
+				>
+				["at1007"] = <
+					text = <"Pulsdruck">
+					description = <"Der Abstand zwischen dem systolischen und dem diastolischen Blutdruckwert. Beschreibt die Druckwelle, die mit jedem Herzschlag durch das Blutgefäßsystem läuft.">
+				>
+				["at1008"] = <
+					text = <"*Adult Thigh(en)">
+					description = <"*A cuff used for an adult thigh - bladder approx 20cm x 42 cm(en)">
+				>
+				["at1009"] = <
+					text = <"*Neonatal(en)">
+					description = <"*A cuff used for a new born - bladder approx 3cm x 6cm(en)">
+				>
+				["at1010"] = <
+					text = <"Korotkoff Geräusche">
+					description = <"Korotkoff Geräusch, das zur Betimmung des diastolischen Blutdrucks benuzt wurde">
+				>
+				["at1011"] = <
+					text = <"*Fourth sound(en)">
+					description = <"*The fifth Korotkoff sound is silence as the cuff pressure drops below the diastolic blood pressure(en)">
+				>
+				["at1012"] = <
+					text = <"*Fifth sound(en)">
+					description = <"*The fifth Korotkoff sound is silence as the cuff pressure drops below the diastolic blood pressure(en)">
+				>
+				["at1013"] = <
+					text = <"*Trendelenburg(en)">
+					description = <"*Person is lying flat on the back (supine position) with the feet higher than the head at the time of blood pressure measurement(en)">
+				>
+				["at1014"] = <
+					text = <"*Left Lateral(en)">
+					description = <"*Person is lying on their left side at the time of blood pressure measurement(en)">
+				>
+				["at1018"] = <
+					text = <"*Infant(en)">
+					description = <"*A cuff used for infants - bladder approx 5cm x 15cm(en)">
+				>
+				["at1019"] = <
+					text = <"*Small Adult(en)">
+					description = <"*A cuff used for a small adult - bladder approx 10cm x 24 cm(en)">
+				>
+				["at1020"] = <
+					text = <"*Right wrist(en)">
+					description = <"*The right wrist of the person(en)">
+				>
+				["at1021"] = <
+					text = <"*Left wrist(en)">
+					description = <"*The left wrist of the person(en)">
+				>
+				["at1025"] = <
+					text = <"*Device(en)">
+					description = <"*Details about sphygmomanometer or other device used to measure the blood pressure(en)">
+				>
+				["at1026"] = <
+					text = <"*Finger(en)">
+					description = <"**(en)">
+				>
+				["at1030"] = <
+					text = <"*Cluster(en)">
+					description = <"**(en)">
+				>
+				["at1031"] = <
+					text = <"*Left ankle(en)">
+					description = <"**(en)">
+				>
+				["at1032"] = <
+					text = <"*Right ankle(en)">
+					description = <"*The right ankle of the person(en)">
+				>
+			>
+		>
+		["zh-cn"] = <
+			items = <
+				["at0000"] = <
+					text = <"血压">
+					description = <"以任何方式测量的系统性动脉血压的压力， 被认为是代表实际的系统性血压">
+				>
+				["at0001"] = <
+					text = <"*history(en)">
+					description = <"*history Structural node(en)">
+				>
+				["at0002"] = <
+					text = <"血压基线值">
+					description = <"*baseline event in event history(en)">
+				>
+				["at0003"] = <
+					text = <"血压">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"收缩压">
+					description = <"一个血液循环周期中，系统性动脉血压高峰值。 收缩期血压">
+				>
+				["at0005"] = <
+					text = <"舒张压">
+					description = <"一个血液循环周期中，系统性动脉血压最低值。 舒张期血压">
+				>
+				["at0006"] = <
+					text = <"*any event(en)">
+					description = <"*other event in event history(en)">
+				>
+				["at0007"] = <
+					text = <"*state structure(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0008"] = <
+					text = <"体位">
+					description = <"测量血压时患者体位">
+				>
+				["at0011"] = <
+					text = <"*list structure(en)">
+					description = <"*list structure(en)">
+				>
+				["at0013"] = <
+					text = <"袖带尺度">
+					description = <"血压计袖带尺度">
+				>
+				["at0014"] = <
+					text = <"测量部位">
+					description = <"测量血压的部位">
+				>
+				["at0015"] = <
+					text = <"*Adult(en)">
+					description = <"*A cuff that is standard for an adult - bladder approx 13cm x 30cm(en)">
+				>
+				["at0016"] = <
+					text = <"*Large Adult(en)">
+					description = <"*A cuff for adults with larger arms - bladder approx 16cm x 38cm(en)">
+				>
+				["at0017"] = <
+					text = <"*Paediatric/Child(en)">
+					description = <"*A cuff that is appropriate for a child or thin arm - bladder approx 8cm x 21 cm(en)">
+				>
+				["at0025"] = <
+					text = <"右臂">
+					description = <"被测试者右臂">
+				>
+				["at0026"] = <
+					text = <"左臂">
+					description = <"被测试者左臂">
+				>
+				["at0027"] = <
+					text = <"*Right leg(en)">
+					description = <"*The right leg of the person(en)">
+				>
+				["at0028"] = <
+					text = <"左腿">
+					description = <"被测试者左下肢">
+				>
+				["at0029"] = <
+					text = <"五分钟测量值">
+					description = <"休息5分钟后读取的血压值">
+				>
+				["at0030"] = <
+					text = <"十分钟测量值">
+					description = <"休息10分钟后读取的血压值">
+				>
+				["at0031"] = <
+					text = <"姿势变化">
+					description = <"由体位变动引起的血压值变化">
+				>
+				["at0032"] = <
+					text = <"内动脉监测">
+					description = <"通过内动脉进行血压监测">
+				>
+				["at0033"] = <
+					text = <"注释">
+					description = <"有关血压值的注释">
+				>
+				["at1000"] = <
+					text = <"立位">
+					description = <"测量血压时身体处于站立体位">
+				>
+				["at1001"] = <
+					text = <"坐位">
+					description = <"测量血压时身体处于坐位">
+				>
+				["at1002"] = <
+					text = <"侧卧位">
+					description = <"测量血压时身体处于45度角侧卧位">
+				>
+				["at1003"] = <
+					text = <"卧位">
+					description = <"测量血压时身体处于平卧位">
+				>
+				["at1004"] = <
+					text = <"奇脉">
+					description = <"奇脉时引起血压变化">
+				>
+				["at1005"] = <
+					text = <"倾斜度">
+					description = <"被测试者卧位时身体与水平线的倾斜度">
+				>
+				["at1006"] = <
+					text = <"平均动脉压">
+					description = <"*The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle - calculated by (2XSBP + DBP) divided by 3.(en)">
+				>
+				["at1007"] = <
+					text = <"脉压">
+					description = <"*The variation in pressure over one contraction cycle(en)">
+				>
+				["at1008"] = <
+					text = <"*Adult Thigh(en)">
+					description = <"*A cuff used for an adult thigh - bladder approx 20cm x 42 cm(en)">
+				>
+				["at1009"] = <
+					text = <"*Neonatal(en)">
+					description = <"*A cuff used for a new born - bladder approx 3cm x 6cm(en)">
+				>
+				["at1010"] = <
+					text = <"克夫音效">
+					description = <"*Record which Korotkoff sound is used for determining Diastolic pressure(en)">
+				>
+				["at1011"] = <
+					text = <"*Fourth sound(en)">
+					description = <"*The fifth Korotkoff sound is silence as the cuff pressure drops below the diastolic blood pressure(en)">
+				>
+				["at1012"] = <
+					text = <"*Fifth sound(en)">
+					description = <"*The fifth Korotkoff sound is silence as the cuff pressure drops below the diastolic blood pressure(en)">
+				>
+				["at1013"] = <
+					text = <"*Trendelenburg(en)">
+					description = <"*Person is lying flat on the back (supine position) with the feet higher than the head at the time of blood pressure measurement(en)">
+				>
+				["at1014"] = <
+					text = <"*Left Lateral(en)">
+					description = <"*Person is lying on their left side at the time of blood pressure measurement(en)">
+				>
+				["at1018"] = <
+					text = <"*Infant(en)">
+					description = <"*A cuff used for infants - bladder approx 5cm x 15cm(en)">
+				>
+				["at1019"] = <
+					text = <"*Small Adult(en)">
+					description = <"*A cuff used for a small adult - bladder approx 10cm x 24 cm(en)">
+				>
+				["at1020"] = <
+					text = <"*Right wrist(en)">
+					description = <"*The right wrist of the person(en)">
+				>
+				["at1021"] = <
+					text = <"*Left wrist(en)">
+					description = <"*The left wrist of the person(en)">
+				>
+				["at1025"] = <
+					text = <"*Device(en)">
+					description = <"*Details about sphygmomanometer or other device used to measure the blood pressure(en)">
+				>
+				["at1026"] = <
+					text = <"*Finger(en)">
+					description = <"*A finger of the person(en)">
+				>
+				["at1030"] = <
+					text = <"*Cluster(en)">
+					description = <"**(en)">
+				>
+				["at1031"] = <
+					text = <"*Left ankle(en)">
+					description = <"**(en)">
+				>
+				["at1032"] = <
+					text = <"*Right ankle(en)">
+					description = <"*The right ankle of the person(en)">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+				["at0000"] = <[SNOMED-CT(2003)::163020007]>
+				["at0004"] = <[SNOMED-CT(2003)::163030003]>
+				["at0005"] = <[SNOMED-CT(2003)::163031004]>
+				["at0013"] = <[SNOMED-CT(2003)::246153002]>
+			>
+		>
+	>

@@ -1,0 +1,858 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-ACTION.procedure-ventilation-zn.v1
+specialize
+	openEHR-EHR-ACTION.procedure-ventilation.v1
+
+concept
+	[at0000.1.1]	-- Umetno ventiliran
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Slovenia">
+				["name"] = <"Biljana Prinčič, Uroš Rajkovič">
+				["email"] = <"biljana.princic@marand.si; Uros.rajkovic@fov.uni-mb.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"03/12/2009">
+	>
+	details = <
+		["en"] = <
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of mechanical ventilation provided for a patient.">
+			use = <"Use in combination with CLUSTER.ventilator_settings.v1 to record detailed settings.">
+			keywords = <"procedure", "ventilator">
+			misuse = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za zapisovanje podatkov o izvedenih postopkih">
+			use = <"Za zapisovanje podatkov o izvedenih postopkih na posamezniku/pacientu. Informacije o aktivnostih izvedenih v postopku, npr. anestezija ali dana zdravila, naj bi bila zapisan v ločenem arhetipu ACTION.
+
+">
+			keywords = <"procedura", "postopek">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", ...>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"6FEED59F5E8C7DC7ECB5907564FF4566">
+	>
+
+definition
+	ACTION[at0000.1.1] matches {	-- Umetno ventiliran
+		other_participations cardinality matches {0..*; unordered} matches {
+			PARTICIPATION occurrences matches {0..1} matches {
+				function matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0058]}		-- Izvajalec
+					}
+				}
+			}
+			PARTICIPATION occurrences matches {0..*} matches {
+				function matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0059]}		-- Sodelujoči
+					}
+				}
+			}
+		}
+		ism_transition matches {
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::524]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0034]}		-- *Request initiated(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::524]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0035]}		-- *Request sent(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::527]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0038]}		-- *Request postponed(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::528]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0039]}		-- *Request cancelled(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::529]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0036]}		-- *Procedure scheduled(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::245]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0047]}		-- *In progress(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::530]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0040]}		-- *Procedure suspended(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::531]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0041]}		-- *Procedure aborted(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0043]}		-- *Completed(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0044]}		-- *Report authored(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0045]}		-- *Report attested(en)
+					}
+				}
+			}
+			ISM_TRANSITION matches {
+				current_state matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[openehr::532]}
+					}
+				}
+				careflow_step matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0046]}		-- *Report sent(en)
+					}
+				}
+			}
+		}
+		description matches {
+			ITEM_TREE[at0001] matches {	-- *Tree(en)
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002.1] matches {	-- Intervencija
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::at0.63]}		-- Umetno ventiliran
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..*} matches {	-- Razlog
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.70] occurrences matches {0..1} matches {	-- Spontano dihajoč
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0051] occurrences matches {0..*} matches {	-- Metoda
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0049] occurrences matches {0..1} matches {	-- Opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0003.1] occurrences matches {0..1} matches {	-- Nastavitve ventilatorja
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.ventilator_settings(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					CLUSTER[at0.0.64] occurrences matches {0..1} matches {	-- Filter menjan
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.0.69] occurrences matches {0..1} matches {	-- Filter A
+								value matches {
+									DV_DATE_TIME matches {
+										value matches {yyyy-mm-ddTHH:MM:SS}
+									}
+								}
+							}
+							ELEMENT[at0.0.71] occurrences matches {0..1} matches {	-- Filter B
+								value matches {
+									DV_DATE_TIME matches {
+										value matches {yyyy-??-??T??:??:??}
+									}
+								}
+							}
+							ELEMENT[at0.0.72] occurrences matches {0..1} matches {	-- Filter C
+								value matches {
+									DV_DATE_TIME matches {
+										value matches {yyyy-??-??T??:??:??}
+									}
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0050] occurrences matches {0..1} matches {	-- Anatomska stran 
+						include
+							archetype_id/value matches {/.*/}
+						exclude
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					CLUSTER[at0030] occurrences matches {0..1} matches {	-- Dodatna naloga
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0052] occurrences matches {0..1} matches {	-- Naloga
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0031] occurrences matches {0..*} matches {	-- Opis naloge
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0032] occurrences matches {0..*} matches {	-- Dodatna naloga
+								value matches {
+									DV_EHR_URI matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0060] occurrences matches {0..1} matches {	-- Odstopanja
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0048] occurrences matches {0..1} matches {	-- *Outcome(en)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Uspešnost intervencije
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True}
+							}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Neuspešni poskusi
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..*} matches {	-- Nenačrtovan dogodek
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..*} matches {	-- Zapleti
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Opombe
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..*} matches {	-- Multimedia
+						value matches {
+							DV_MULTIMEDIA matches {
+								media_type matches {[openEHR::]}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0053] matches {	-- *Tree(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0054] occurrences matches {0..1} matches {	-- ID naročnika
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0055] occurrences matches {0..1} matches {	-- Naročnik
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0056] occurrences matches {0..1} matches {	-- Prejemnik naročila
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0057] occurrences matches {0..1} matches {	-- Prejemnik
+						include
+							archetype_id/value matches {/.*/}
+					}
+					allow_archetype CLUSTER[at0061] occurrences matches {0..*} matches {	-- Dodatna navodila
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.0.64"] = <
+					text = <"Filter changes">
+					description = <"Details of filter exchange.">
+				>
+				["at0.0.65"] = <
+					text = <"Filter name">
+					description = <"Name of the filter. Locally dependent on ventilation device.">
+				>
+				["at0.0.66"] = <
+					text = <"Filter A">
+					description = <"Filter A.">
+				>
+				["at0.0.67"] = <
+					text = <"Filter B">
+					description = <"Filter B.">
+				>
+				["at0.0.68"] = <
+					text = <"Filter C">
+					description = <"Filter C.">
+				>
+				["at0.0.69"] = <
+					text = <"Filter A">
+					description = <"The datetime that Filter A was last changed.">
+				>
+				["at0.0.70"] = <
+					text = <" Breathing spontaneously">
+					description = <"True if the patient is breathing spontaneously (for a short time) in spite of artificial ventilation.">
+				>
+				["at0.0.71"] = <
+					text = <"Filter B">
+					description = <"The datetime that Filter B was last changed.">
+				>
+				["at0.0.72"] = <
+					text = <"Filter C">
+					description = <"The datetime that Filter C was last changed.">
+				>
+				["at0.62"] = <
+					text = <"Filter changes">
+					description = <"Details of ventilator filter changes.">
+				>
+				["at0.63"] = <
+					text = <"Mechanical ventilation">
+					description = <"The intervention is mechanical ventilation.">
+				>
+				["at0000"] = <
+					text = <"Clinical intervention">
+					description = <"A clinical activity that has been carried out for therapeutic or diagnostic purposes.">
+				>
+				["at0000.1"] = <
+					text = <"Mechanical ventilation">
+					description = <"Details of mechanical assisted ventilation.">
+				>
+				["at0000.1.1"] = <
+					text = <"Mechanical ventilation">
+					description = <"Details of mechanical assisted ventilation accoriding to ZN documentation.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Intervention">
+					description = <"The name of the procedure.">
+				>
+				["at0002.1"] = <
+					text = <"Intervention">
+					description = <"The name of the procedure.">
+				>
+				["at0003"] = <
+					text = <"Intervention details">
+					description = <"Detailed structure describing the procedure carried out, including preparation and details about the method and equipment/devices used.">
+				>
+				["at0003.1"] = <
+					text = <"Ventilator settings">
+					description = <"Detailed structure describing the procedure carried out, including preparation and details about the method and equipment/devices used.">
+				>
+				["at0004"] = <
+					text = <"Intervention unsuccessful">
+					description = <"Was the intervention regarded as unsuccessful, from a clinical perspective? True if unsuccessful.">
+				>
+				["at0005"] = <
+					text = <"Comments">
+					description = <"Comments about the procedure.">
+				>
+				["at0006"] = <
+					text = <"Complication">
+					description = <"Details about any complication arising from the procedure.">
+				>
+				["at0013"] = <
+					text = <"Multimedia">
+					description = <"Multimedia representation of the procedure, including images.">
+				>
+				["at0014"] = <
+					text = <"Reason/s for intervention">
+					description = <"The reason or indication for the procedure.">
+				>
+				["at0015"] = <
+					text = <"Unplanned event">
+					description = <"An unplanned event prior to or related to the procedure, which may affect its execution e.g patient self-removed cannula.">
+				>
+				["at0018"] = <
+					text = <"Failed attempts">
+					description = <"The number of failed attempts to perform the procedure.">
+				>
+				["at0030"] = <
+					text = <"Additional task">
+					description = <"Record information about unplanned or unexpected activities that needed to be done during the procedure. Record the name of the task and a description within this archetype, but detail should be recorded in specific linked INSTRUCTION or ACTION archetypes.">
+				>
+				["at0031"] = <
+					text = <"Task description">
+					description = <"Description of additional task performed during the procedure.">
+				>
+				["at0032"] = <
+					text = <"Record of additional task">
+					description = <"Link to a detailed record of the additional task.">
+				>
+				["at0034"] = <
+					text = <"Request initiated">
+					description = <"Request for procedure is initiated.">
+				>
+				["at0035"] = <
+					text = <"Request sent">
+					description = <"Request for procedure sent.">
+				>
+				["at0036"] = <
+					text = <"Intervention scheduled">
+					description = <"Intervention has been scheduled.">
+				>
+				["at0038"] = <
+					text = <"Request postponed">
+					description = <"Request for procedure is postponed.">
+				>
+				["at0039"] = <
+					text = <"Request cancelled">
+					description = <"Procedure request has been cancelled.">
+				>
+				["at0040"] = <
+					text = <"Intervention suspended">
+					description = <"Intervention has been suspended.">
+				>
+				["at0041"] = <
+					text = <"Intervention aborted">
+					description = <"Intervention has been aborted.">
+				>
+				["at0043"] = <
+					text = <"Completed">
+					description = <"Procedure has been completed.">
+				>
+				["at0044"] = <
+					text = <"Report authored">
+					description = <"Procedure report has been written.">
+				>
+				["at0045"] = <
+					text = <"Report attested">
+					description = <"Procedure report has been attested.">
+				>
+				["at0046"] = <
+					text = <"Report sent">
+					description = <"Procedure report has been distributed.">
+				>
+				["at0047"] = <
+					text = <"In progress">
+					description = <"Procedure is being carried out.">
+				>
+				["at0048"] = <
+					text = <"Outcome">
+					description = <"Outcome of intervention performed.">
+				>
+				["at0049"] = <
+					text = <"Description">
+					description = <"Narrative description about the procedure carried out.">
+				>
+				["at0050"] = <
+					text = <"Anatomical site details">
+					description = <"Details about the anatomical site of procedure.">
+				>
+				["at0051"] = <
+					text = <"Method/Technique">
+					description = <"Identification of specific methods or techniques used for procedure or intervention.">
+				>
+				["at0052"] = <
+					text = <"Task">
+					description = <"Name of additional task performed during the procedure.">
+				>
+				["at0053"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0054"] = <
+					text = <"Requestor request identifier">
+					description = <"The local ID assigned to the order by the healthcare provider or organisation requesting the service. ">
+				>
+				["at0055"] = <
+					text = <"Requestor">
+					description = <"Details about the healthcare provider or organisation requesting the service.">
+				>
+				["at0056"] = <
+					text = <"Receiver request identifier">
+					description = <"The ID assigned to the order by the healthcare provider or organisation receiving the request for service. This is also referred to as Filler Order Identifier.">
+				>
+				["at0057"] = <
+					text = <"Receiver">
+					description = <"Details about the healthcare provider or organisation receiving the request for service.">
+				>
+				["at0058"] = <
+					text = <"Performer">
+					description = <"The person performing the procedure (where not the information provider).">
+				>
+				["at0059"] = <
+					text = <"Assistant">
+					description = <"A person assisting the key intervention performer.">
+				>
+				["at0060"] = <
+					text = <"Variance from request">
+					description = <"Descriptions of variance in the procedure performed from that requested.">
+				>
+				["at0061"] = <
+					text = <"Localisation">
+					description = <"Details of information required to support process and other local requirements.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.0.64"] = <
+					text = <"Filter menjan">
+					description = <"Podatki o zamenjavi filtra">
+				>
+				["at0.0.65"] = <
+					text = <"Naziv filtra">
+					description = <"Naziv filtra (je odvisen od uporabljene naprave)">
+				>
+				["at0.0.66"] = <
+					text = <"Filter A">
+					description = <"Filter A">
+				>
+				["at0.0.67"] = <
+					text = <"Filter B">
+					description = <"Filter B">
+				>
+				["at0.0.68"] = <
+					text = <"Filter C">
+					description = <"Filter C">
+				>
+				["at0.0.69"] = <
+					text = <"Filter A">
+					description = <"Datum zadnje menjave filtra A">
+				>
+				["at0.0.70"] = <
+					text = <"Spontano dihajoč">
+					description = <"*True if the patient is breathing spontaneously (for a short time) in spite of artificial ventilation.(en)">
+				>
+				["at0.0.71"] = <
+					text = <"Filter B">
+					description = <"Datum zadnje menjave filtra">
+				>
+				["at0.0.72"] = <
+					text = <"Filter C">
+					description = <"Datum zadnje menjave filtra">
+				>
+				["at0.62"] = <
+					text = <"Filter menjan">
+					description = <"*Details of ventilator filter changes.(en)">
+				>
+				["at0.63"] = <
+					text = <"Umetno ventiliran">
+					description = <"*The intervention is mechanical ventilation.(en)">
+				>
+				["at0000"] = <
+					text = <"Procedura">
+					description = <"Izvedena klinična aktivnost">
+				>
+				["at0000.1"] = <
+					text = <"Umetno ventiliran">
+					description = <"*Details of mechanical assisted ventilation.(en)">
+				>
+				["at0000.1.1"] = <
+					text = <"Umetno ventiliran">
+					description = <"*Details of mechanical assisted ventilation accoriding to ZN documentation.(en)">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"Procedura">
+					description = <"Ime, naziv procedure">
+				>
+				["at0002.1"] = <
+					text = <"Intervencija">
+					description = <"*The name of the procedure.(en)">
+				>
+				["at0003"] = <
+					text = <"Podrobnosti intervencije">
+					description = <"*Detailed structure describing the procedure carried out, including preparation and details about the method and equipment/devices used.(en)">
+				>
+				["at0003.1"] = <
+					text = <"Nastavitve ventilatorja">
+					description = <"*Detailed structure describing the procedure carried out, including preparation and details about the method and equipment/devices used.(en)">
+				>
+				["at0004"] = <
+					text = <"Uspešnost intervencije">
+					description = <"*Was the intervention regarded as unsuccessful, from a clinical perspective? True if unsuccessful.(en)">
+				>
+				["at0005"] = <
+					text = <"Opombe">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Zapleti">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Multimedia">
+					description = <"Multimedijske predstavitve, npr. slika">
+				>
+				["at0014"] = <
+					text = <"Razlog">
+					description = <"Razlogi za izvedbo aktivnosti">
+				>
+				["at0015"] = <
+					text = <"Nenačrtovan dogodek">
+					description = <"Nenačrtovan dogodek, npr. neželen dogodek, ki vpliva na aktivnost">
+				>
+				["at0018"] = <
+					text = <"Neuspešni poskusi">
+					description = <"Število neuspešnih poskusov izvedbe">
+				>
+				["at0030"] = <
+					text = <"Dodatna naloga">
+					description = <"*Record information about unplanned or unexpected activities that needed to be done during the procedure. Record the name of the task and a description within this archetype, but detail should be recorded in specific linked INSTRUCTION or ACTION archetypes.(en)">
+				>
+				["at0031"] = <
+					text = <"Opis naloge">
+					description = <"*Description of additional task performed during the procedure.(en)">
+				>
+				["at0032"] = <
+					text = <"Dodatna naloga">
+					description = <"Povazava na zapis o dodatni nalogi">
+				>
+				["at0034"] = <
+					text = <"*Request initiated(en)">
+					description = <"*Request for procedure is initiated.(en)">
+				>
+				["at0035"] = <
+					text = <"*Request sent(en)">
+					description = <"*Request for procedure sent.(en)">
+				>
+				["at0036"] = <
+					text = <"*Procedure scheduled(en)">
+					description = <"*Procedure has been scheduled.(en)">
+				>
+				["at0038"] = <
+					text = <"*Request postponed(en)">
+					description = <"*Request for procedure is postponed.(en)">
+				>
+				["at0039"] = <
+					text = <"*Request cancelled(en)">
+					description = <"*Procedure request has been cancelled.(en)">
+				>
+				["at0040"] = <
+					text = <"*Procedure suspended(en)">
+					description = <"*Procedure has been suspended.(en)">
+				>
+				["at0041"] = <
+					text = <"*Procedure aborted(en)">
+					description = <"*Procedure has been aborted.(en)">
+				>
+				["at0043"] = <
+					text = <"*Completed(en)">
+					description = <"*Procedure has been completed.(en)">
+				>
+				["at0044"] = <
+					text = <"*Report authored(en)">
+					description = <"*Procedure report has been written.(en)">
+				>
+				["at0045"] = <
+					text = <"*Report attested(en)">
+					description = <"*Procedure report has been attested.(en)">
+				>
+				["at0046"] = <
+					text = <"*Report sent(en)">
+					description = <"*Procedure report has been distributed.(en)">
+				>
+				["at0047"] = <
+					text = <"*In progress(en)">
+					description = <"*Procedure is being carried out.(en)">
+				>
+				["at0048"] = <
+					text = <"*Outcome(en)">
+					description = <"*Outcome of intervention performed.(en)">
+				>
+				["at0049"] = <
+					text = <"Opis">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Anatomska stran ">
+					description = <"*Details about the anatomical site of procedure.(en)">
+				>
+				["at0051"] = <
+					text = <"Metoda">
+					description = <"*Identification of specific methods or techniques used for procedure.(en)">
+				>
+				["at0052"] = <
+					text = <"Naloga">
+					description = <"*Name of additional task performed during the procedure.(en)">
+				>
+				["at0053"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0054"] = <
+					text = <"ID naročnika">
+					description = <"*The local ID assigned to the order by the healthcare provider or organisation requesting the service. (en)">
+				>
+				["at0055"] = <
+					text = <"Naročnik">
+					description = <"*Details about the healthcare provider or organisation requesting the service.(en)">
+				>
+				["at0056"] = <
+					text = <"Prejemnik naročila">
+					description = <"*The ID assigned to the order by the healthcare provider or organisation receiving the request for service. This is also referred to as Filler Order Identifier.(en)">
+				>
+				["at0057"] = <
+					text = <"Prejemnik">
+					description = <"*Details about the healthcare provider or organisation receiving the request for service.(en)">
+				>
+				["at0058"] = <
+					text = <"Izvajalec">
+					description = <"*The person performing the procedure (where not the information provider).(en)">
+				>
+				["at0059"] = <
+					text = <"Sodelujoči">
+					description = <"*A person assisting the key intervention performer.(en)">
+				>
+				["at0060"] = <
+					text = <"Odstopanja">
+					description = <"*Descriptions of variance in the procedure performed from that requested.(en)">
+				>
+				["at0061"] = <
+					text = <"Dodatna navodila">
+					description = <"*Details of information required to support process and other local requirements.(en)">
+				>
+			>
+		>
+	>

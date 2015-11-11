@@ -1,0 +1,531 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.inspection-joint.v1
+specialize
+	openEHR-EHR-CLUSTER.inspection.v1
+
+concept
+	[at0000.1]	-- Pregled sklepa
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"13/06/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"An archetype for recording the findings on inspection of joint.">
+			use = <"For use with the exam clusters for recording findings on inspection">
+			keywords = <"inspect", "visual", "examination", "exam", "joint">
+			misuse = <"Should only be used in the exam observation">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Arhetip za beleženje opazovanj sklepov.">
+			use = <"Uporablja se s \"clusters\" za beleženje ugotovitev opazovanj">
+			keywords = <"sklepi", "opazovanje", "pregled ">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, UK", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"10BBF62C6CD28E0DC35A9D698842A919">
+	>
+
+definition
+	CLUSTER[at0000.1] matches {	-- Pregled sklepa
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- *Normal statements(en)
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0048] occurrences matches {0..1} matches {	-- *Clinical description(en)
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {	-- Ugotovitve
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0053] occurrences matches {0..1} matches {	-- Lokacija
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0054] occurrences matches {0..1} matches {	-- Dimenzije
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Barva
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- *Translucent(en)
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					CLUSTER[at0055] occurrences matches {0..1} matches {	-- Obilka
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.58] occurrences matches {0..1} matches {	-- *Deformity(en)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0057] occurrences matches {0..1} matches {	-- Simetričnost
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0051] occurrences matches {0..1} matches {	-- *Contour(en)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.59] occurrences matches {0..1} matches {	-- *Muscle wasting(en)
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.60] occurrences matches {0..1} matches {	-- *Muscle group name(en)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.61] occurrences matches {0..1} matches {	-- *Description(en)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028] occurrences matches {0..1} matches {	-- *Edge(en)
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0033] occurrences matches {0..1} matches {	-- *Description(en)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- *Definition(en)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0030, 	-- *Well defined(en)
+											at0031, 	-- *Moderately defined(en)
+											at0032]	-- *Poorly defined(en)
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.62] occurrences matches {0..1} matches {	-- Izgled kože na sklepu
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.63] occurrences matches {0..1} matches {	-- Rdečina
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.64, 	-- Da
+											at0.65]	-- Ne
+										}
+									}
+								}
+							}
+							ELEMENT[at0.66] occurrences matches {0..1} matches {	-- Oteklina
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.67, 	-- Da
+											at0.68]	-- Ne
+										}
+									}
+								}
+							}
+							ELEMENT[at0027.1] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Okolica sklepa
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0052] occurrences matches {0..*} matches {	-- Pdrobnosti
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Slika
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							425, 
+							426, 
+							427, 
+							428, 
+							429, 
+							401, 
+							402, 
+							404, 
+							405, 
+							406, 
+							407, 
+							414]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.58"] = <
+					text = <"Deformity">
+					description = <"Description of joint deformity.">
+				>
+				["at0.59"] = <
+					text = <"Muscle wasting">
+					description = <"Findings of associated muscle wasting.">
+				>
+				["at0.60"] = <
+					text = <"Muscle group name">
+					description = <"The name of the involved muscle group.">
+				>
+				["at0.61"] = <
+					text = <"Description">
+					description = <"Description of observed muscle wasting.">
+				>
+				["at0.62"] = <
+					text = <"Overlying skin">
+					description = <"*">
+				>
+				["at0.63"] = <
+					text = <"Erythema">
+					description = <"Evidence of erythema">
+				>
+				["at0.64"] = <
+					text = <"Present">
+					description = <"Erythema is present.">
+				>
+				["at0.65"] = <
+					text = <"Absent">
+					description = <"Erythema is absent.">
+				>
+				["at0.66"] = <
+					text = <"Bruising">
+					description = <"Evidence of bruising">
+				>
+				["at0.67"] = <
+					text = <"Present">
+					description = <"Bruising is present.">
+				>
+				["at0.68"] = <
+					text = <"Absent">
+					description = <"Bruising is absent.">
+				>
+				["at0000"] = <
+					text = <"Inspection">
+					description = <"The findings on physical examination by inspection.">
+				>
+				["at0000.1"] = <
+					text = <"Inspection of a joint">
+					description = <"The findings on physical examination by inspection of a joint.">
+				>
+				["at0002"] = <
+					text = <"Normal statements">
+					description = <"A specific statement about the normality of inspection.">
+				>
+				["at0006"] = <
+					text = <"Findings">
+					description = <"Specific findings on inspection">
+				>
+				["at0024"] = <
+					text = <"Surrounds">
+					description = <"Description of immediate surrounds to object.">
+				>
+				["at0027"] = <
+					text = <"Overlying skin or surface">
+					description = <"A description of the surface of the object under inspection.">
+				>
+				["at0027.1"] = <
+					text = <"Description">
+					description = <"A description of the surface of the object under inspection.">
+				>
+				["at0028"] = <
+					text = <"Edge">
+					description = <"Findings about the edge of the object under inspection.">
+				>
+				["at0029"] = <
+					text = <"Definition">
+					description = <"The nature of the edge of the object of examination.">
+				>
+				["at0030"] = <
+					text = <"Well defined">
+					description = <"The edge is clearly defined.">
+				>
+				["at0031"] = <
+					text = <"Moderately defined">
+					description = <"The edge is defined but less clear in places.">
+				>
+				["at0032"] = <
+					text = <"Poorly defined">
+					description = <"The edge is not defined clearly in many places.">
+				>
+				["at0033"] = <
+					text = <"Description">
+					description = <"Description of the edge or border of the object of inspection.">
+				>
+				["at0034"] = <
+					text = <"Translucent">
+					description = <"Is the object of inspection translucent?">
+				>
+				["at0036"] = <
+					text = <"Colour">
+					description = <"The colour of the object under inspection.">
+				>
+				["at0048"] = <
+					text = <"Clinical description">
+					description = <"Clinical description of the findings on inspection.">
+				>
+				["at0050"] = <
+					text = <"Image">
+					description = <"A drawing of the findings on inspection">
+				>
+				["at0051"] = <
+					text = <"Contour">
+					description = <"The contour of the object of inspection.">
+				>
+				["at0052"] = <
+					text = <"Exam detail">
+					description = <"Further detailed examination.">
+				>
+				["at0053"] = <
+					text = <"Location">
+					description = <"Location of the object being inspected.">
+				>
+				["at0054"] = <
+					text = <"Dimensions">
+					description = <"Physical properties of the object.">
+				>
+				["at0055"] = <
+					text = <"Shape or distribution">
+					description = <"The shape or distribution of the object under inspection.">
+				>
+				["at0056"] = <
+					text = <"Description">
+					description = <"Description of the shape or disstribution of the object under inspection.">
+				>
+				["at0057"] = <
+					text = <"Symmetrical">
+					description = <"Is the shape or distribution symmetrical?">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.58"] = <
+					text = <"*Deformity(en)">
+					description = <"*Description of joint deformity.(en)">
+				>
+				["at0.59"] = <
+					text = <"*Muscle wasting(en)">
+					description = <"*Findings of associated muscle wasting.(en)">
+				>
+				["at0.60"] = <
+					text = <"*Muscle group name(en)">
+					description = <"*The name of the involved muscle group.(en)">
+				>
+				["at0.61"] = <
+					text = <"*Description(en)">
+					description = <"*Description of observed muscle wasting.(en)">
+				>
+				["at0.62"] = <
+					text = <"Izgled kože na sklepu">
+					description = <"**(en)">
+				>
+				["at0.63"] = <
+					text = <"Rdečina">
+					description = <"Prosotnost rdečine">
+				>
+				["at0.64"] = <
+					text = <"Da">
+					description = <"Rdečina je prisotna">
+				>
+				["at0.65"] = <
+					text = <"Ne">
+					description = <"Rdečine ni">
+				>
+				["at0.66"] = <
+					text = <"Oteklina">
+					description = <"Prisotnost otekline">
+				>
+				["at0.67"] = <
+					text = <"Da">
+					description = <"*Bruising is present.(en)">
+				>
+				["at0.68"] = <
+					text = <"Ne">
+					description = <"*Bruising is absent.(en)">
+				>
+				["at0000"] = <
+					text = <"Pregled">
+					description = <"Ugotovitve pregleda">
+				>
+				["at0000.1"] = <
+					text = <"Pregled sklepa">
+					description = <"Ugotovitve pregleda sklepa">
+				>
+				["at0002"] = <
+					text = <"*Normal statements(en)">
+					description = <"*A specific statement about the normality of inspection.(en)">
+				>
+				["at0006"] = <
+					text = <"Ugotovitve">
+					description = <"*Specific findings on inspection(en)">
+				>
+				["at0024"] = <
+					text = <"Okolica sklepa">
+					description = <"Okolica sklepa">
+				>
+				["at0027"] = <
+					text = <"Površina kože">
+					description = <"*A description of the surface of the object under inspection.(en)">
+				>
+				["at0027.1"] = <
+					text = <"Opis">
+					description = <"*A description of the surface of the object under inspection.(en)">
+				>
+				["at0028"] = <
+					text = <"*Edge(en)">
+					description = <"*Findings about the edge of the object under inspection.(en)">
+				>
+				["at0029"] = <
+					text = <"*Definition(en)">
+					description = <"*The nature of the edge of the object of examination.(en)">
+				>
+				["at0030"] = <
+					text = <"*Well defined(en)">
+					description = <"*The edge is clearly defined.(en)">
+				>
+				["at0031"] = <
+					text = <"*Moderately defined(en)">
+					description = <"*The edge is defined but less clear in places.(en)">
+				>
+				["at0032"] = <
+					text = <"*Poorly defined(en)">
+					description = <"*The edge is not defined clearly in many places.(en)">
+				>
+				["at0033"] = <
+					text = <"*Description(en)">
+					description = <"*Description of the edge or border of the object of inspection.(en)">
+				>
+				["at0034"] = <
+					text = <"*Translucent(en)">
+					description = <"*Is the object of inspection translucent?(en)">
+				>
+				["at0036"] = <
+					text = <"Barva">
+					description = <"*The colour of the object under inspection.(en)">
+				>
+				["at0048"] = <
+					text = <"*Clinical description(en)">
+					description = <"*Clinical description of the findings on inspection.(en)">
+				>
+				["at0050"] = <
+					text = <"Slika">
+					description = <"*A drawing of the findings on inspection(en)">
+				>
+				["at0051"] = <
+					text = <"*Contour(en)">
+					description = <"*The contour of the object of inspection.(en)">
+				>
+				["at0052"] = <
+					text = <"Pdrobnosti">
+					description = <"Podrobnosti ocene sklepa">
+				>
+				["at0053"] = <
+					text = <"Lokacija">
+					description = <"*Location of the object being inspected.(en)">
+				>
+				["at0054"] = <
+					text = <"Dimenzije">
+					description = <"*Physical properties of the object.(en)">
+				>
+				["at0055"] = <
+					text = <"Obilka">
+					description = <"*The shape or distribution of the object under inspection.(en)">
+				>
+				["at0056"] = <
+					text = <"Opis">
+					description = <"*Description of the shape or disstribution of the object under inspection.(en)">
+				>
+				["at0057"] = <
+					text = <"Simetričnost">
+					description = <"*Is the shape or distribution symmetrical?(en)">
+				>
+			>
+		>
+	>

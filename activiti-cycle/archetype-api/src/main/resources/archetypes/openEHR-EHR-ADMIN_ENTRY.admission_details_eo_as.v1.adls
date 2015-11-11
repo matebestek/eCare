@@ -1,0 +1,344 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.admission_details_eo_as.v1
+
+concept
+	[at0000]	-- *Sprejem pacienta v kličnično študijo(sl)
+language
+	original_language = <[ISO_639-1::sl]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["email"] = <"EMAIL@DOMAIN.COM">
+		["name"] = <"Mate Beštek">
+		["date"] = <"12.8.2011">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To document basic data from nursing history">
+			use = <"To document some elements of nursing history">
+			keywords = <"nursing history", "nursing anamnesis", "basic data">
+			misuse = <"To document medical history">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Osnovni podatki o pacientu za vključitev v klinično študijo">
+			use = <"">
+			keywords = <"nursing history", ...>
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E08F37B3DC9CB93B2C0CB052290D7D65">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- *Sprejem pacienta v kličnično študijo(sl)
+		data matches {
+			ITEM_TREE[at0003] matches {	-- Tree
+				items cardinality matches {9..*; unordered} matches {
+					ELEMENT[at0004] matches {	-- *Ime(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0075] matches {	-- *Priimek(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] matches {	-- *BIS Identifikator(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0076] matches {	-- *Spol(sl)
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0077, 	-- *MALE(sl)
+									at0078]	-- *FEMALE(sl)
+								}
+							}
+						}
+					}
+					ELEMENT[at0080] matches {	-- *Datum rojstva(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0081] matches {	-- *Email(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0082] matches {	-- *GSM(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0083] matches {	-- *Zdravstvena ustanova(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0084] occurrences matches {0..1} matches {	-- *Poklic(sl)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0086] occurrences matches {0..1} matches {	-- *Bivalno okolje(sl)
+						items cardinality matches {2..*; unordered} matches {
+							ELEMENT[at0087] matches {	-- *Vlažno stanovanje(sl)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0088, 	-- *DA(sl)
+											at0089]	-- *NE(sl)
+										}
+									}
+								}
+							}
+							ELEMENT[at0090] matches {	-- *Vsakodnevno delo v hlevu(sl)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0091, 	-- *DA(sl)
+											at0092]	-- *NE(sl)
+										}
+									}
+								}
+							}
+							ELEMENT[at0093] occurrences matches {0..1} matches {	-- *Druge posebnosti(sl)
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"MZN-SIF-BARVE", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Sprejem pacienta v kličnično študijo(sl)">
+					description = <"*Podatki o pacientu(sl)">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"*Ime(sl)">
+					description = <"*Opis(sl)">
+				>
+				["at0011"] = <
+					text = <"*BIS Identifikator(sl)">
+					description = <"***(sl)(sl)">
+				>
+				["at0075"] = <
+					text = <"*Priimek(sl)">
+					description = <"**(sl)">
+				>
+				["at0076"] = <
+					text = <"*Spol(sl)">
+					description = <"**(sl)">
+				>
+				["at0077"] = <
+					text = <"*MALE(sl)">
+					description = <"*Moški(sl)">
+				>
+				["at0078"] = <
+					text = <"*FEMALE(sl)">
+					description = <"*Ženska(sl)">
+				>
+				["at0080"] = <
+					text = <"*Datum rojstva(sl)">
+					description = <"**(sl)">
+				>
+				["at0081"] = <
+					text = <"*Email(sl)">
+					description = <"**(sl)">
+				>
+				["at0082"] = <
+					text = <"*GSM(sl)">
+					description = <"**(sl)">
+				>
+				["at0083"] = <
+					text = <"*Zdravstvena ustanova(sl)">
+					description = <"**(sl)">
+				>
+				["at0084"] = <
+					text = <"*Poklic(sl)">
+					description = <"**(sl)">
+				>
+				["at0086"] = <
+					text = <"*Bivalno okolje(sl)">
+					description = <"**(sl)">
+				>
+				["at0087"] = <
+					text = <"*Vlažno stanovanje(sl)">
+					description = <"**(sl)">
+				>
+				["at0088"] = <
+					text = <"*DA(sl)">
+					description = <"**(sl)">
+				>
+				["at0089"] = <
+					text = <"*NE(sl)">
+					description = <"**(sl)">
+				>
+				["at0090"] = <
+					text = <"*Vsakodnevno delo v hlevu(sl)">
+					description = <"**(sl)">
+				>
+				["at0091"] = <
+					text = <"*DA(sl)">
+					description = <"**(sl)">
+				>
+				["at0092"] = <
+					text = <"*NE(sl)">
+					description = <"**(sl)">
+				>
+				["at0093"] = <
+					text = <"*Druge posebnosti(sl)">
+					description = <"**(sl)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Sprejem pacienta v kličnično študijo">
+					description = <"Podatki o pacientu">
+				>
+				["at0003"] = <
+					text = <"*Tree(sl)">
+					description = <"*@ internal @(sl)">
+				>
+				["at0004"] = <
+					text = <"Ime">
+					description = <"Opis">
+				>
+				["at0011"] = <
+					text = <"BIS Identifikator">
+					description = <"**(sl)">
+				>
+				["at0075"] = <
+					text = <"Priimek">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Spol">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"MALE">
+					description = <"Moški">
+				>
+				["at0078"] = <
+					text = <"FEMALE">
+					description = <"Ženska">
+				>
+				["at0080"] = <
+					text = <"Datum rojstva">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"Email">
+					description = <"*">
+				>
+				["at0082"] = <
+					text = <"GSM">
+					description = <"*">
+				>
+				["at0083"] = <
+					text = <"Zdravstvena ustanova">
+					description = <"*">
+				>
+				["at0084"] = <
+					text = <"Poklic">
+					description = <"*">
+				>
+				["at0086"] = <
+					text = <"Bivalno okolje">
+					description = <"*">
+				>
+				["at0087"] = <
+					text = <"Vlažno stanovanje">
+					description = <"*">
+				>
+				["at0088"] = <
+					text = <"DA">
+					description = <"*">
+				>
+				["at0089"] = <
+					text = <"NE">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Vsakodnevno delo v hlevu">
+					description = <"*">
+				>
+				["at0091"] = <
+					text = <"DA">
+					description = <"*">
+				>
+				["at0092"] = <
+					text = <"NE">
+					description = <"*">
+				>
+				["at0093"] = <
+					text = <"Druge posebnosti">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,379 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+	
+<div id="activiti_form_holder">
+	
+<!--Prehrana-->
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Alternativni načini prehranjevanja(1)</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>ALTERNATIVNI NAČINI PREHRANJEVANJA</b></center>
+		</font>
+		</br>
+		<p>
+		Ljudje se različno prehranjujemo. Številni med nami izbirajo tudi načine, ki ne spadajo med konvencionalno prehrano in odstopajo od klasičnih načel za zdravo prehranjevanje. V kolikor se prehrana bistveno ne razlikuje od hranilno in energijsko uravnotežene prehrane, je sprejemljiva za posameznika. Skrajne oblike prehranjevanja, ki izključujejo živila, ki vsebujejo pomembne in esencilane snovi, lahko vodijo do številnih deficitarnih bolezni. Dejstvo je, da človek potrebuje mešano in uravnoteženo hrano, ki vsebuje vsa potrebna hranila v optimalnih količinah in medsebojnih razmerjih.
+		</p>
+		<p>
+		Alternativni načini prehranjevanja so vsi prehranjevalni načini, ki se bolj ali manj razlikujejo od običajnih, znanstveno priznanih priporočil za zdravo in uravnoteženo prehrano, ki navajajo minimalne količine za posamezne hranljive snovi, ki jih mora človek zaužiti s hrano, da se ne bi pokazale posledice pomanjkanja oziroma maksimalne količine, da ne bi prišlo do kroničnih bolezni. Najpogosteje med alternativne načine prištevamo vegetarijanstvo. Obstajajo pa še številni drugi načini prehranjevanja.
+		</p>
+		<h3><B>Vegeterijanska hrana</B></h3>
+		<p>
+		Najbolj pogost način alternativnega prehranjevanja je vegetarijanstvo. Beseda vegetarijanec izhaja iz latinske besede ˝vegetus˝, kar pomeni zdrav, močan in čil. Vegetarijanstvo je kot način življenja in prehranjevanja prisotno že kar nekaj časa in ima mnogo privržencev, ki poudarjajo ugoden vpliv na zdravje in ostale prednosti vegetarijanstva kot načina prehranjevanja in načina življenja. 
+		</p>
+		<p>
+		Pod pojmom vegetarijanstvo je poznanih kar nekaj različnih sistemov prehranjevanja: 
+		<table width="100%" border="0"><tr><td valign="top" align="center" style="width:50px;">•</td><td>
+		<B>Laktovegetarijanci uživajo</B> poleg žit, sadja in zelenjave tudi mleko in mlečne izdelke. Izključujejo meso, perutnino, ribe in morske sadeže ter jajca.
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>Lakto-ovo vegetarijanci</B> vključujejo poleg žit, sadja in zelenjave tudi mleko in mlečne izdelke ter jajca. Izključuje meso, perutnino, ribe in morske sadeže.
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>Strogi vegetarijanci</B> vključujejo le živila rastlinskega izvora (žita, sadje in zelenjavo). Zaradi enoličnosti je ta način prehranjevanja lahko škodljiv.
+		</td></tr><tr><td align="center" valign="top">•</td><td><B>Strogi frutarijanci</B> uživajo samo sadje in oreščke (orehe, lešnike, mandeljne…), <B>zmerni</B> pa v manjših količinah tudi zelenjavo in žita. 
+		</td></tr></table>
+		</p>
+		<p>
+		Strokovnjaki so mnenja, da je lahko lakto-ovo vegetarijanski način prehranjevanja sprejemljiv, in da lahko skrbno načrtovana lakto-ovo vegetarijanska prehrana posamezniku omogoča zdrav način prehranjevanja. Raziskave kažejo manjše tveganje vegetarijancev za nastanek civilizacijskih bolezni, kot so na primer sladkorna bolezen tipa 2, debelost, srčno žilne bolezni, rak. Vzrok manjše incidence civilizacijskih bolezni ni samo v prehrani vegetarijancev, ampak tudi v načinu življenja, ki je v povprečju bolj zdrav in zmeren kot pri nevegetarijancih. Vegetarijanci so v povprečju bolj telesno dejavni, zaužijejo manj alkohola, manj kadijo, kar pa bistveno pripomore k boljšemu zdravju.
+		</p>
+		<p>
+		Motiv posameznika, ki se odloči za vegetarijanski način prehranjevanja, je pogosto izboljšanje zdravja, versko prepričanje, moralno in etično stališče ter odnos do okolja. Neustrezno načrtovana vegetarijanska prehrana lahko vodi do prenizkega vnosa esencialnih in tudi drugih hranil živalskega izvora ter previsok vnos prehranske vlaknine in pogosto tudi maščob. Neustrezno planirana in neuravnotežena vegetarijanska prehrana lahko vodi do pomanjkanja železa, cinka, kalcija, vitamina B12, in vitamina D. Prehrana, ki vsebuje zadostne količine prehranske vlaknine je varovalna prehrana pred zaprtjem, divertikulozo, rakom (zlasti na debelem črevesju), žolčnimi kamni, debelostjo, sladkorno boleznijo, povišanim krvnim tlakom in boleznimi srca in ožilja. Prekomerno uživanje prehranske vlaknine ima za posledico oteženo absorpcijo esencialnih snovi iz črevesa.  
+		</p>
+		<h4><B><U>Koristni učinki vegetarijanskega načina življenja na zdravje</U></B></h4>
+		<p>
+		Mnogi vegetarijanci so sprejeli življenjski slog, ki se bistveno razlikuje od ostalih: lažje vzdržujejo zdravo telesno težo, ne kadijo, ne uživajo prepovedanih drog, ne uživajo pretiranih količin alkohola in so telesno dejavni. Raziskave pa kažejo, da imajo skupni dejavniki tveganja večji vpliv na zdravje, kot sam vegetarijanski način prehrane. 
+		</p>
+		<p>
+		Vegetarijanci ponavadi zaužijejo manj skupnih, predvsem pa manj nasičenih maščob, ki so dejavnik tveganja za številne civilizacijske bolezni. Prekomerno uživanje maščob je velik dejavnik tveganja pri nastanku bolezni srca in ožilja, sladkorne bolezni, debelosti, povišanega krvnega pritiska in nekaterih vrst raka. Epidemiološke raziskave kažejo povezavo med uživanjem prehranskih maščob in različnimi vrstami raka, predvsem dojke, debelega črevesa, slinavke in prostate. 
+		</p>
+		<h4><B><U>Vegeterijanstvo in telesna teža</U></B></h4>
+		<p>
+		Raziskave kažejo, da vegetarijanci lažje vzdržujejo zdravo telesno težo kot nevegetarijanci. Nižja telesna teža je v povezavo s prehrano z nižjo energijsko gostoto, ki vključuje večje količine prehranske vlaknine in manjše količine skupnih maščob. 
+		</p>
+		<p>
+		Prehrana z veliko zelenjave in/ali sadja ima zaradi nižje energijske gostote tudi vpliv na regulacijo normalne telesne teže in preprečevanje debelosti, ki je velik dejavnik tveganja za nastanek nekaterih bolezni (srčno žilnih bolezni, povišanega krvnega tlaka, povišanega holesterola, sladkorne bolezni, nekaterih vrst raka). Druge raziskave pa kažejo, da nepravilno planirana vegetarijanska prehrana lahko vsebujejo tudi previsok vnos skupnih maščob.
+		</p>
+		<h4><B><U>Vegetarijanstvo in krvni tlak</U></B></h4>
+		<p>
+		Optimalna telesna teža je pomembna za normalno vrednost krvnega tlaka, tako kot tudi prehrana z manjšo vsebnostjo skupnih in nasičenih maščob ter prehrana bogata z sadjem, zelenjavo in posledično s prehransko vlaknino. Zdrav življenjski slog, ki vključuje manjše količine zaužitega alkohola in zadostno telesno dejavnosti brez kajenja, bistveno pripomorejo k normalni vrednosti krvnega tlaka.
+		</p
+		<h4><B><U>Vegetarijanstvo in bolezni srca in ožilja</U></B></h4>
+		<p>
+		Pri redkih vegetarijancih se pojavijo bolezni srca in ožilja. Prehranski dejavniki, kot so nižji vnosi skupnih, nasičenih maščob in holesterola, bistveni znižajo tveganje za boleznimi srca in ožilja. Oreščki in semena so bogata z mononenasičenimi maščobnimi kislinami, ki so koristna v preventivi pred boleznimi srca in ožilja. Rastlinska olja, bogata z nenasičenimi maščobnimi kislinami v priporočenih količinah in v uravnoteženi prehrani niso dejavnik tveganja za nastanek bolezni srca in ožilja.
+		</p>
+		<h4><B><U>Vegetarijanstvo in rak</U></B></h4>
+		<p>
+		Adventisti sedmega dneva, ki se prehranjujejo z lako-ovo vegetarijansko prehrano, imajo signifikantno nižjo umrljivost za rakom kot ostala populacija. Manjša pojavnost raka je lahko posledica vegetarijanskega načina prehranjevanja kot tudi ostalih dejavnikov tveganja življenjskega sloga (zadostna telesna dejavnost kot neodvisni dejavnik tveganja, alkohol, kajenje). Prehrana bogata s sadjem in zelenjavo, ki vsebuje veliko prehranske vlaknine, lahko bistveno zmanjša tveganje za nastanek raka različnih lokacij.
+		</p>
+		<p>
+		Številne raziskave potrjujejo, da je vegetarijanski način prehranjevanja povezan z zmanjšanim tveganjem raka debelega črevesa. Osebe, ki uživajo več mesa, več nasičenih maščob in manj zelenjave in sadja pogosteje zbolijo za omenjeno vrsto raka. Rezultati raziskav kažejo, da imajo osebe, ki uživajo močno zapečeno meso povečano tveganje za nastanek raka na črevesu. Pri toplotni obdelavi mesa nastanejo heterciklični amini in policliklični aromatski ogljikovodiki, katerih koncentracije so odvisne od temperature toplotne obdelave. Raziskave kažejo, da gre za sinergistično delovanje maščob, prostega železa v mesu in heterocikličnih aminov na pojavnost raka na debelem črevesu. 
+		</p>		
+	</div>
+
+<!--Drugi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Alternativni načini prehranjevanja(2)</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>ALTERNATIVNI NAČINI PREHRANJEVANJA</b></center>
+		</font>
+		</br>
+		<h4><B><U>Hranilna razmerja v vegetarijanski prehrani </U></B></h4>
+		<p>
+		Lakto-ovo vegetarijanci, ki uživajo živila živalskega izvora (mleko, mlečni izdelki, jajca) zaužijejo dovolj <B>beljakovin</B> visoke biološke vrednosti, tako da ne pride do deficita beljakovin. Prehrana, ki vsebuje samo živila rastlinskega izvora, pogosto ne vsebuje ustreznih količin beljakovin, tudi biološka vrednost beljakovin je nižja.  
+		</p>
+		<p>
+		Posebno nizek vnos pri vegetarijanski prehrani je <B>vitamin B12</B>, ki se nahaja v beljakovinah živali. Glavni vir vitamina B12 so meso, ribe, jajca in mleko. Pri lažjih oblikah vegetarijanstva, kjer so vključena jajca ali mleko, redko pride do pomanjkanja vitamina B12. Ob strogo veganski prehrani, ki ne vključuje dodatkov farmacevtskih preparatov z vitaminom B12, pa se skoraj vedno pojavijo težave zaradi pomanjkanja tega vitamina. Do pomanjkanja vitamina B12 lahko pride tudi zato, ker prehranske vlaknine v rastlinski hrani preprečujejo absorpcijo vitamina in se ta izloči z blatom. Bolj izraženo pomanjkanje vitamina B12 zaradi motnje nastajanja celic v kostnem mozgu pripelje do slabokrvnosti s karakterističnimi, nadnormalno velikimi rdečimi krvnimi telesci (megaloblastična anemija).
+		</p>
+		<p>
+		Velik problem pri vegetarijanskemu načinu prehranjevanja predstavlja nezadosten vnos <B>železa</B>. Mešana hrana vsebuje dnevno 5 do 15 mg nehemskega železa in 1–5 mg hemskega železa na dan. Za razliko od hemskega železa v živilih živalskega izvora, katerega razpoložljivost presega 20%, pa absorpcijo nehemskega železa v vegetabilnih osnovnih živilih (kot so žita, polnozrnati riž, koruza, grah, fižol in leča) ovirajo ligandi, ki zavirajo absorpcijo (npr. tanini, lignini, oksalne kisline, fitati in fosfati), spodbujajo pa jo le meso, ribe in perutnina v hrani ali askorbinska kislina. Absorpcijo nehemskega železa zmanjšujejo tudi pšenični otrobi, kalcijeve soli, mlečni izdelki, sojini izdelki, črni čaj in kava ter salicilati (npr. acetilsalicilna kislina), antacidi, ionski izmenjevalci in klofibrati. Osebe, ki se prehranjujejo s prehrano revno z železom (npr. vegetarijanci in veganci), morajo obenem uživati veliko ligandov, ki pospešujejo absorpcijo, npr. askorbinsko kislino ali citronsko kislino (npr. s sadjem). Skupaj se iz živil rastlinskega izvora absorbira le 5%. Pomanjkanje železa lahko negativno vpliva na fizično zmogljivost, vpliva na termoregulacijo ter na imunski sistem. Kronično zmanjšan vnos vodi do anemije zaradi pomanjkanja železa. 
+		</p>
+		<p>
+		Vegetarijanci zaradi večjega zauživanja suhe snovi uživajo za tretjino več <B>cinka</B> kot tisti, ki uživajo mešano prehrano, zato pa je biorazpoložljivost manjša. Visoka vsebnost kalcija v prehrani lahko prav tako zmanjša absorpcijo cinka. Pri hudem pomanjkanju cinka nastopijo zmanjšanja zmožnosti okušanja, pomanjkanje teka, dermatitis, izpadanje las, driska in nevropsihične motnje. Poleg tega se pojavljajo zaostajanja v rasti, motnje pri moškem spolnem razvoju in pri reprodukcijskih funkcijah, upočasnjeno celjenje ran in povečana občutljivost za infekte kot izraz oslabljenosti imunskega sistema. 
+		</p>
+		<p>
+		Vnos <B>vitamina D</B> pri lakto-ovo vegetarijancih je podoben kot pri nevegetarijancih. Pri prehrani, ki ne vsebuje mleka in mlečnih izdelkov, se lahko pojavi pomanjkanje vitamina D. Pomembno je, da se vitamin D nadomesti iz živil, ki so obogatena z vitaminom D, kot na primer sojino mleko. Pomanjkanje vitamina D povzroča motnje homeostaze kalcija in presnove fosfatov. Pri dojenčkih in majhnih otrocih pomanjkanje vitamina D vodi do bolezenske slike rahitisa, za katerega so zaradi motnje pri mineralizaciji kosti značilne deformacije skeleta in izrastline na hrustancih. Drugi simptomi bolezni so zmanjšana moč mišic, zmanjšan mišični tonus in povečana občutljivost za infekte.
+		</p>
+		<h4><B><U>Vegetarijanska prehrana v obdobju otroštva</U></B></h4>
+		<p>
+		Pravilno sestavljena prehrana v prvih letih življenja je osnova pravilnega in zdravega otrokovega razvoja. V tem življenjskem obdobju lahko vsako pomanjkanje hranilnih snovi vpliva na kratko in/ali dolgoročne posledice. Prehranske potrebe otrok so večje od ostale populacije, saj intenzivno rastejo in se gibljejo, zato obstaja tveganje, da pride do pomanjkanja energije in hranilnih snovi pri otrocih, ki se prehranjujejo vegetarijansko.
+		</p>
+		<p>
+		V zdravo in pravilno načrtovano prehrano otrok in mladine je potrebno vključiti zadostne količine mleka in mlečnih izdelkov. Mlečne beljakovine vsebujejo življenjsko pomembne esencialne aminokisline, ki so v mleku in mlečnih izdelkih zastopane v najugodnejšem razmerju. Mleko vsebuje tudi konjugirano linolno kislino, sfingomielin, masleno kislino in v maščobi topne vitamine A in D, E in K ter betakaroten, ki imajo po raziskavah zaščitni učinek pri nastanku nekaterih rakavih obolenj. Mleko je izjemno pomemben vir kalcija in vitamina B12, predvsem pri otrocih in tudi pri odraslih ter starostnikih. Mineralne snovi v mleku in mlečnih izdelkih so v zdravi prehrani nujno potrebne. Mleko je predvsem bogat vir fosforja, kalija, klora, magnezija in cinka. 
+		</p>
+		<p>
+		Meso je bogat vir beljakovin, vitaminov B skupine (predvsem B1 in B12), vitamina E, železa, cinka, selena. Meso je pomemben vir v vodi topnih vitaminov tiamina, riboflavina, niacina, folne kisline, piridoksina in vitamina B12, ki skupaj z njihovimi derivati sodijo med pomembne organske koencime. Neustrezno planirana in neuravnotežena vegetarijanska prehrana lahko vodi do pomanjkanja železa, cinka, kalcija, vitamina B12, in vitamina D. 
+		</p>
+		<p>
+		Mnoge raziskave so pokazale, da je bilo število bolezni, ki so se pojavile kot posledica nepravilne vegetarijanske prehrane, pred leti večje. Zaradi osveščanja ljudi, pravilnejšega načrtovanja, večje pestrosti in izbire vegetarijanskih živil, se je ta nevarnost zmanjšala, a še vedno obstaja možnost pomanjkanja določenih hranil, ki so v vegetarijanski prehrani manj zastopane, kar se še posebej odraža pri otrocih zaradi njihovih povečanih potreb po hranilnih snoveh v času intenzivne rasti in razvoja.
+		</p>
+		<p>
+		V primeru, da se otrok prehranjuje lakto-ovo vegetarijansko, morajo biti obroki pravilno sestavljeni, z ustrezno vsebnostjo beljakovin, vitaminov in mineralov ter vključujoč jajca, mleko in mlečne izdelke. Vegetarijanska prehrana vsebuje nižjo vsebnost skupnih beljakovin, ki so nižje biološke vrednosti, zato so potrebe po beljakovinah pri vegetarijancih nekoliko višje. Številne raziskave navajajo, da se pri vegetarijanskih otrocih pogosto pojavlja proteinsko-energijska podhranjenost, pomanjkanje železa, vitaminov B12, B2 in D ter cinka. Zelo tvegano za zdravje otrok in odraščajoče mladine je zagotoviti vse potrebne hranljive snovi le z vegetarijansko prehrano. Pravilno sestavljena lakto-ovo vegetarijanska prehrana je lahko primerna za odrasle osebe, ne pa za otroke in odraščajočo mladino.
+		</p>
+		<p>
+		Veganska prehrana je lahko zelo škodljiva otrokovemu razvoju in zdravju in lahko pripelje do hudih zdravstvenih težav, zato jo na podlagi številnih raziskav odsvetujemo za prehranjevanje otrok in odraščajoče mladine. 
+		</p>
+		<h4><B><U>Vegetarijanska prehrana v obdobju mladostništva</U></B></h4>
+		<p>
+		Obdobje mladostništva je običajno obdobje eksperimentiranja. Mladostniki se še posebno v obdobju srednje in pozne adolescence odločajo za vegetarijanske oblike prehranjevanja zaradi dobrobiti živali, ter zaradi ekoloških, okoljskih in zdravstvenih vzrokov. Pogostno se mladostniki odločajo za vegetarijanstvo zaradi ohranjanja telesne teže in obvladovanja vnosa maščob. Vegetarijanski način prehranjevanja v obdobju mladostništva predstavlja dejavnik tveganja za nastanek motenj hranjenja (anoreksija nervoza in bulimija). 
+		</p>
+		<p>
+		Skrbno načrtovani vegetarijanski obroki so lahko skladni s priporočili za zdravo prehranjevanje mladostnikov, niso pa optimalni. Vegetarijanska prehrana mora vključevati zadosten vnos beljakovin, kalcija, železa, cinka ter vitaminov D in B12. Zagotovljena mora biti biorazpoložljivost kalcija, železa in cinka. Pomembno vlogo pri zagotavljanju energijskih in hranilnih potreb mladostnika, ki se prehranjuje vegetarijansko, imajo starši. Starši in mladostniki morajo biti informirani o neustrezni in pomanjkljivi  vegetarijanski prehrani, ki lahko ogrozi mladostnikovo zdravje, tudi v kasnejšem obdobju. Posledice neustrezne vegetarijanske prehrane v tem obdobju lahko vodi do zakasnelega razvoja in rasti, pomanjkanje železa in vitamina B12.   
+		</p>
+		<h3><B>Mikrobiotika</B></h3>
+		<p>
+		Makrobiotika je na zahodu najbolj znan sistem prehranjevanja, ki temelji na zelo starih filozofskih principih vzhodnih kultur. Makro pomeni po grško velik oziroma imeniten, biotika pa tisto, ki se nanaša na življenje, torej izraz govori o "polnem nadziranju življenja". Makrobiotiko definiramo kot način prehranjevanja v ožjem pomenu in kot način življenja v širšem pomenu. Osnova tega načina prehranjevanja je življenjskem nauku jin-a in jang-a, dveh nasprotujočih si elementov, ki se odražata tudi v hrani. Stremi k ravnotežju, tako, da hrano tipa jin (rastlinska) naredi bolj jang (kuhana, soljena,...), in hrano jang (pretežno živalskega izvora) bolj jin (lažja, hladnejša, mehkejša konsistenca). Hrana je zdravju koristnejša, ko sta jin in jang v ravnotežju. Če je enega preveč ali drugega premalo, pride do neravnovesja in s tem do nastanka bolezni. Jang hrana daje toploto moč, toploto, disciplino in vitalnost. Skrajno jang hrana je rdeče meso, jajca, preslana živila. Jin hrana pa ohlaja, očiščuje, sprošča, pospešuje potrpežljivost. Skrajno jin živila so med, sladkor, alkohol. 
+		</p>
+		<p>
+		Prvo pravilo makrobiotike je uživati majhne količine hrane v mirnem in sporočenem okolju in hrano temeljito prežvečiti. Priporočljivo je uživati čim več žit in žitnih izdelkov, stročnic, zelenjave in sadja ter čim manj mesa, mesnih izdelkov, mastnih izdelkov in sladkarij.  Osnovno pravilo makrobiotike je uživati biološko pridelana živila iz lokalne (domače) oskrbe.
+		</p>
+		<p>
+		Stroga privrženost makrobiotične diete lahko pripelje do zdravstvenih težav. Če posameznik ne uživa mleka in drugih živil živalskega izvora, se lahko pojavi pomanjkanje beljakovin, vitamina B12, vitamina D, kalcija in železa. Tveganje se signifikantno poveča pri osebah, ki imajo povečane prehranske potrebe, kot so otroci, mladostniki, nosečnice in doječe matere.
+		</p>
+	</div>
+
+<!--Tretji zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Modne shujševalne diete</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>MODNE SHUJŠEVALNE DIETE</b></center>
+		</font>
+		</br>
+		<p>
+		Shujševalnih diet je zelo veliko vrst in pogosto izključujejo določena živila iz dnevne prehrane. Zmotno je prepričanje, da samo znižanje telesne teže pripelje do uspeha. Bistveno težje je vzdrževanje telesne teže. Nesporno je, da je vzdrževanje telesne teže proces spreminjanja življenjskega sloga, kjer ima poleg uravnotežene prehrane pomembno vlogo tudi redna telesna dejavnost. Doseganje idealne telesne teže ni realno za vsakogar. Vsakršno zmanjšanje telesne teže bistveno prispeva k zmanjševanju prisotnosti bioloških dejavnikov tveganja. Pregledno znanstvena literatura navaja, da zmanjšanje telesne teže za 10% izboljša regulacijo glukoze, zmanjša krvni tlak in koncentracijo holesterola. 
+		</p>
+		<p>
+		V različnih medijih se pojavljajo številne modne diete, ki obljubljajo čudežne učinke v najkrajšem možnem času. Mnoge od njih vodijo v pomanjkanje hranil, kar je potencialni dejavnik tveganja za zdravje. Diete, ki obljubljajo hitro zmanjšanje teže z majhnim naporom, spodbujajo nerealistična pričakovanja.
+		</p>
+		<p>
+		Smernice zdravega prehranjevanja, ki so osnovana na številnih znanstvenih dognanjih, ne priporočajo enovrstne prehrane, kot jih priporočajo številne modne diete. Kajti pri takem načinu prehranjevanja lahko pride do pomanjkanja določenih hranil in istočasno do prekomernega vnosa drugih hranil. Takšna prehrana je lahko predvsem pri dolgotrajni uporabi škodljiva za zdravje. Za zmanjšanje telesne teže se priporoča zdravo hujšanje, ki vključuje mešano prehrano z veliko zelenjave in sadja in z manj maščobami ter seveda zadostno telesno dejavnost. Nekatere diete pripisujejo hranilnemu razmerju posebne učinke. Glavni cilji vseh različnih shujševalnih diet je motiviranje posameznika, da se odloči za hujšanje. Motiviran in odločen posameznik bo tudi zmeren pri prehranjevanju in običajno tudi bolj telesno dejaven, kar posledično vpliva na zmanjšanje telesne teže. Spodaj so opisane metode najbolj modnih shujševalnih diet.
+		</p>
+		<p>
+		Tabela16: Znanstveni pregled popularnih diet (Vir: Krauses´s Food, Nutrition and drug therapy, 2004)
+		</p>
+		<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border-collapse:collapse;border:none'>
+ <tr>
+  <td width=137 valign=top style='width:102.5pt;
+  background:#E0E0E0;padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Tahoma","sans-serif"'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Tahoma","sans-serif"'>Možni učinki diete</span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Tahoma","sans-serif"'>&nbsp;</span></b></p>
+  </td>
+  <td width=464 valign=top style='width:347.8pt;
+  background:#E0E0E0;padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Tahoma","sans-serif"'>&nbsp;</span></b></p>
+  <p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+  text-align:center;line-height:normal'><b><span style='font-size:12.0pt;
+  font-family:"Tahoma","sans-serif"'>Vrste redukcijskih diet in ugotovitve</span></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=137 valign=top style='width:102.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Izguba
+  telesne teže</span></p>
+  </td>
+  <td width=464 valign=top style='width:347.8pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Kratkotrajni
+  učinki na zmanjšanje telesne teže.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=137 valign=top style='width:102.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Delež
+  maščob v telesu</span></p>
+  </td>
+  <td width=464 valign=top style='width:347.8pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Vse
+  redukcijske diete vplivajo na zmanjšanje telesne maščobe. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Kratkotrajne
+  visoko maščobne in nizko ogljikohidratne ketonične diete povzročijo večjo
+  izgubo vode kot maščobe v telesu.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=137 valign=top style='width:102.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Hranilna
+  gostota</span></p>
+  </td>
+  <td width=464 valign=top style='width:347.8pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Visoko
+  maščobne in nizko ogljikohidratne diete so revne z vitamini E, A, tiaminom, B<sub>6</sub>,
+  in folati, ter minerali kalcijem, magnezijem, železom in kalijem. Vsebujejo
+  malo vlaknine. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Nizko
+  maščobne diete vsebujejo malo vitaminov E in B<sub>12</sub> ter cinka. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=137 valign=top style='width:102.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Metabolni
+  parametri</span></p>
+  </td>
+  <td width=464 valign=top style='width:347.8pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Nizko
+  ogljikohidratne diete povzročijo ketozo in lahko signifikantno povečajo
+  koncentracijo sečne kisline.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Izguba
+  telesne teže zniža koncentracijo maščob v krvi. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Izguba
+  telesne teže zniža koncentracijo inzulina v krvi in koncentracijo leptina v
+  plazmi.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Izguba
+  telesne teže zniža krvni tlak.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Manjši
+  energijski vnos izboljša regulacijo glukoze v krvi.</span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=137 valign=top style='width:102.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Občutek
+  lakote</span></p>
+  </td>
+  <td width=464 valign=top style='width:347.8pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Nobena
+  dieta ni optimalna za zmanjševaje občutka lakote.</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=137 valign=top style='width:102.5pt;
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+  normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Vzdrževanje
+  telesne teže</span></p>
+  </td>
+  <td width=464 valign=top style='width:347.8pt;border:
+  padding:0cm 3.5pt 0cm 3.5pt'>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Premalo
+  je kontroliranih kliničnih raziskav o učinkih visoko maščobnih, nizko
+  ogljikohidratnih, nizko maščobnih in zelo nizko maščobnih dietah na
+  vzdrževanje telesne teže. </span></p>
+  <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify;line-height:normal'><span style='font-size:12.0pt;font-family:"Tahoma","sans-serif"'>Ni
+  dokazov o dolgotrajnem vzdrževanju telesne teže.  </span></p>
+  </td>
+ </tr>
+</table>
+	<h3><B>Nizko ogljikohidratne in visoko maščobne diete</B></h3>
+	<p>
+	Nizko ogljikohidratne, visoko maščobne diete omejijo vnos ogljikovih hidratov na 20 % dnevnih energijskih potreb (‹100 g). Delež maščob v dieti predstavlja 55 do 65 % dnevnih energijskih potreb, ostalo pa beljakovine. Živila živalskega izvora, ki so bogat vir beljakovin, običajno vsebujejo veliko maščob, nasičenih maščobnih kislin in holesterola. Takšen način prehrane povzroči pospešeno tvorbo ketonov in s tem minimalno zmanjšajo občutek lakote. Začetna hitra izguba telesne teže je posledica izločanja vode in ne zaradi omejitve ogljikovih hidratov. Primer omenjene diete je Atkinsonova dieta z malo ogljikovih hidratov, zato pa se v prehrani poveča delež maščob in beljakovin. Te vrste diet lahko povzročijo nastanek ketoze, pospešijo ˝izgorevanje˝ maščob in pojavi se lahko centralni anoreksični učinek. 
+	</p>
+	<p>
+	Prehrana z visoko vsebnostjo beljakovin in maščob ter z malo ogljikovih hidratov, kakršna so načela Atkinsonove diete, ni v skladu s priporočili zdrave prehrane. Raziskave o učinkovitosti in varnosti omenjene diete še potekajo, znanstvene študije pa navajajo možne škodljive vplive na zdravje, kot so povišana koncentracija holesterola v krvi, srčno žilne bolezni, sladkorna bolezen, možganska kap in celo nekatere vrste raka. Ženskam, ki hujšajo po načelih Atkinsonove visoko preoteinske diete, se lahko zmanjša zmožnost zanositve. 
+	</p>
+	<p>
+	Temelj ogljikohidratno kontrolirane diete po Zone je maksimalno ˝izgorevanje˝ maščob v telesu in izguba telesne teže. Avtor te diete deli osebe na tiste, ki izločajo zadostni inzulina in na osebe, ki izločajo preveč tega hormona. Dieta temelji na vplivu prehrane na tvorbo eikozanoidov - tkivnih hormonov. Esencialne maščobne kisline (omega 3 in omega 6) so prekurzorji eikozanoidov, ki so biološko visoko reaktivne snovi in se sproščajo v zelo majhnih količinah ter hitro reagirajo v neposrednem okolju. Z zapletenim mehanizmom delovanja učinkujejo na agregacijo trombocitov, tonus krvnih žil in vnetne procese.
+	</p>
+	<p>
+	Raziskave ne potrjujejo, da bi dieta, ki je osnovana na rezistenci inzulina in spremembi stopnje eikozanoidov, imela zdravju ugodne učinke. Dejstvo je, da enostavni ogljikovi hidrati in živila z visokim glikemičnim indeksom lahko pospešijo prekomerno izločanje inzulina, kar lahko preprečimo z večjim uživanjem živil z manjšim glikemičnim indeksom. Hranilno razmerje med beljakovinami, maščobami in ogljikovimi hidrati morajo biti v skladu z znanstveno priznanimi priporočili, ki varujejo zdravje. Omenjena dieta vsebuje previsok vnos skupnih in nasičenih maščob, kar je odvisno od izbora beljakovinskih živil. Znižanje telesne teže z omenjeno dieto je posledica omejenega energijskega vnosa in ne zaradi omejenega izločanja inzulina. Raziskave kažejo, da je povprečen vnos energije pri Zone diete 1700 kcal na dan.
+	</p>
+	<h3><B>Zelo nizko maščobne in nizko maščobne diete</B></h3>
+	<p>Zelo nizko maščobne diete vsebuje delež dnevnih maščob v prehrani le 10%. Medtem, ko nizko maščobne diete vsebujejo od 10 do 19% dnevne energije iz maščob. Primer omenjene diete je zelo restriktivna Ornish`s dieta, pri kateri je opazno hitro izgubljanje telesne teže. Ker je energijska gostota maščob bistveno višja od energijske gostote maščob in beljakovin (9 kcal/g v primerjavi 4kcal/g), je shujševalni učinek diete izključno zaradi manjšega vnosa maščob.  
+	</p>
+	<h3><B>Montignacova metoda</B></h3>
+	<p>
+	Teorija Montignacove metode je osnovana glede na vrednost glikemičnega indeksa živil. Glikemični indeks opisuje, kako hitro se ogljikovi hidrati po zaužitju absorbirajo v kri v primerjavi s čisto glukozo. Zaužitje živil z visokim glikemičnim indeksom povišajo vrednost glukoze v krvi (hiperglikemije) in povzročijo izločanje hormona inzulina, ki hranila, ki so trenutno v krvi na razpolago v telesu nakopiči, tudi v obliki maščob. Po določenem času pa ta živila povzročijo, da vrednost glukoze v krvi spet pade (hipoglikemija), kar se lahko odraža v utrujenosti. V dinamični regulaciji koncentracije glukoze v krvi so primernejša tista škrobna živila, ki po zaužitju povzročijo manjši dvig krvnega sladkorja. Živila, ki imajo glikemični indeks manjši od 50, spadajo me živila z manjšim glikemičnim indeksom, visok glikemični indeks imajo živila, katerim vrednosti glikemičnega indeksa presegajo 50. Stročnice in testenine spadajo v skupino z majhnim glikemičnim indeksom, krompir, žita in kruh se s svojim glikemičnim indeksom približujejo glikemičnemu indeksu belega kruha ali ga presegajo.
+	</p>
+	<p>
+	Za omenjeno metodo, ki ne omejuje energijskega vnosa, se odloča veliko oseb, ki so tudi uspešno zmanjšali telesno težo in pridobljeno težo tudi vzdrževali. Dejstvo pa je, da je potrebno trajno spremeniti tako prehranjevalne navade kot tudi življenjski slog. Filozofija Montignacove diete je v kakovosti živil in nasprotuje hipokaloričnim dietam, ker se telo manjšim vnosom prilagodi z zmanjšano porabo in večjim skladiščenjem maščob. Pomembno pri omenjeni dieti je pravilno kombiniranje živil zaradi specifične dinamične aktivnosti hranil in vpliva na njihov izkoristek. Montignacova dieta prepoveduje uživanje živil z visokim glikemičnim indeksom ter kombiniranje beljakovin in ogljikovih hidratov. Živila so razvrščena v dieti kot ogljikohidratna (dobra in slaba), maščobna (meso, mesni izdelki, mleko in mlečni izdelki, olja) in živila bogata s prehransko vlaknino. 
+	</p>
+	<p>
+	Zmanjšanje telesne teže z Montignacovo metodo je posledica zmernosti in zmanjšanega energijskega vnosa, ki ga doprinesejo živila z visokim glikemičnim indeksom (čips, pecivo, torte). 
+	</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Spoznavanje novega načina/vrste TV ali utrjevanje/treniranje oz. nadgradnja izbrane vrste TV</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF"	size="5">
+		<center><b>SPOZNAVANJE NOVEGA NAČINA/VRSTE TV ALI UTRJEVANJE/TRENIRANJE OZ. NADGRADNJA IZBRANE VRSTE TV</b></center>
+		</font>
+		<p>
+			Ples je oblika gibanja, s katero lahko bistveno prispevamo k ohranjanju in izboljšanju našega zdravja ter vzdrževanju telesne mase. S plesom vplivamo na izboljšanje zdravja srca in ožilja ter dihal, krepimo mišice in treniramo naše ravnotežje ter koordinacijo, hkrati pa ples prinaša tudi veliko pozitivnih psiholoških učinkov. Plešemo lahko sami, v paru ali v skupini. Lahko se udeležimo organizirane plesne vadbe ali se v plesnih korakih zavrtimo ob različnih priložnostih (npr. v domačem okolju, ko zaslišimo kakšno dobro glasbo ali pa si privoščimo večerno zabavo s plesom itd.).
+		</p>
+	</div>
+</div>	
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_13/Strokovno%20mnenje_vegetarijanstvo.pdf">Strokovno mnenje - vegetarijanstvo</a></p>
+				</td>
+			</tr>
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

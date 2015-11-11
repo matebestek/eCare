@@ -1,0 +1,1604 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.inspection-skin-wound.v1
+specialize
+	openEHR-EHR-CLUSTER.inspection-skin.v1
+
+concept
+	[at0000.1.1]	-- Inspection of wound
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"10/04/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording the findings on inspection of a wound.">
+			use = <"For use with the exam clusters for recording findings on inspection.">
+			keywords = <"inspect", "visual", "skin", "wound">
+			misuse = <"Should only be used in the exam observation.">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, UK", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"C6963E7451F2D591F877435BC67E6C69">
+	>
+
+definition
+	CLUSTER[at0000.1.1] occurrences matches {0..1} matches {	-- Inspection of wound
+		items cardinality matches {1..*; ordered} matches {
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- Normal statements
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0048] occurrences matches {0..1} matches {	-- Clinical description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {	-- Findings
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0053] occurrences matches {0..1} matches {	-- Location
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0054] occurrences matches {0..1} matches {	-- Dimensions
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Colour
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- Translucent
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					CLUSTER[at0055] occurrences matches {0..1} matches {	-- Shape or distribution
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0057] occurrences matches {0..1} matches {	-- Symmetrical
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0051] occurrences matches {0..1} matches {	-- Contour
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028.0.1] occurrences matches {0..1} matches {	-- Wound edges
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Definition
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0030, 	-- Well defined
+											at0031, 	-- Moderately defined
+											at0032]	-- Poorly defined
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.126] occurrences matches {0..*} matches {	-- Slope
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.127, 	-- Punched out
+											at0.0.128, 	-- Undermined
+											at0.0.129, 	-- Everted
+											at0.0.219]	-- Rolled
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.213] occurrences matches {0..1} matches {	-- Epithelialisation
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.214, 	-- No epithelialisation
+											at0.0.215, 	-- Minimal epithelialisation
+											at0.0.216, 	-- Moderate epithelialisation
+											at0.0.217]	-- Complete epithelialisation
+										}
+									}
+								}
+							}
+							ELEMENT[at0033] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Overlying skin or surface
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Surrounds
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.52] occurrences matches {0..1} matches {	-- Method
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.53, 	-- Direct visualisation
+									at0.54, 	-- Wood's lamp
+									at0.55]	-- Dermatoscope
+								}
+							}
+						}
+					}
+					ELEMENT[at0.56] occurrences matches {0..1} matches {	-- Thickness
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.57, 	-- Thickened
+									at0.58, 	-- Normal
+									at0.59]	-- Thinned/Atrophic
+								}
+							}
+						}
+					}
+					ELEMENT[at0.60] occurrences matches {0..1} matches {	-- Pigmentation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.70] occurrences matches {0..1} matches {	-- Wound type
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.71, 	-- Abrasion (graze)
+									at0.0.72, 	-- Laceration
+									at0.0.73, 	-- Incision
+									at0.0.74, 	-- Puncture wound
+									at0.0.75, 	-- Penetration wound
+									at0.0.76, 	-- Gunshot wound
+									at0.0.133, 	-- Surgical wound
+									at0.0.134, 	-- Pressure sore
+									at0.0.135, 	-- Venous ulcer
+									at0.0.136, 	-- Arterial ulcer
+									at0.0.137, 	-- Diabetic ulcer
+									at0.0.138, 	-- Thermal wound
+									at0.0.235, 	-- Malignant ulcer
+									at0.0.236]	-- Traumatic
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.237] occurrences matches {0..1} matches {	-- Causation
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.182] occurrences matches {0..1} matches {	-- Character
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.183, 	-- Flat
+									at0.0.184, 	-- Cavity
+									at0.0.185]	-- Sinus
+								}
+							}
+						}
+					}
+					ELEMENT[at0.0.186] occurrences matches {0..1} matches {	-- Healing intention
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.187, 	-- Primary
+									at0.0.188]	-- Secondary
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.79] occurrences matches {0..1} matches {	-- Extent of wound
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.80] occurrences matches {0..1} matches {	-- Starting point
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.0.81] occurrences matches {0..1} matches {	-- End point
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.0.82] occurrences matches {0..1} matches {	-- Course
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.190] occurrences matches {0..1} matches {	-- Dressings
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.189] occurrences matches {0..1} matches {	-- Dressing state
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.191, 	-- Intact
+											at0.0.192, 	-- Disturbed
+											at0.0.193]	-- Strike-through
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.194] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.83] occurrences matches {0..1} matches {	-- Other tissues
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.140] occurrences matches {0..*} matches {	-- Tissue exposed
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.148, 	-- No other tissue exposed
+											at0.0.142, 	-- Bone
+											at0.0.143, 	-- Ligament
+											at0.0.144, 	-- Tendon
+											at0.0.145, 	-- Muscle
+											at0.0.146, 	-- Subcutaneous fat
+											at0.0.147]	-- Joint
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.141] occurrences matches {0..*} matches {	-- Tissue involved
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.149, 	-- Skin only
+											at0.0.142, 	-- Bone
+											at0.0.143, 	-- Ligament
+											at0.0.144, 	-- Tendon
+											at0.0.145, 	-- Muscle
+											at0.0.146, 	-- Subcutaneous fat
+											at0.0.147]	-- Joint
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.84] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0.0.62] occurrences matches {0..1} matches {	-- Age
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.63, 	-- Acute
+									at0.0.64]	-- Chronic
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.92] occurrences matches {0..1} matches {	-- Wound bed
+						items cardinality matches {1..*; ordered} matches {
+							CLUSTER[at0.0.165] occurrences matches {0..*} matches {	-- Wound bed tissue
+								items cardinality matches {1..*; ordered} matches {
+									ELEMENT[at0.0.155] occurrences matches {0..1} matches {	-- Tissue type
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0.0.156, 	-- Granulation
+													at0.0.157, 	-- Necrotic
+													at0.0.158, 	-- Slough/fibrin
+													at0.0.159, 	-- Epithelialising
+													at0.0.160, 	-- Infected
+													at0.0.161, 	-- Eschar
+													at0.0.162, 	-- Sclerotic
+													at0.0.163, 	-- Overgranulation
+													at0.0.166]	-- Healed
+												}
+											}
+										}
+									}
+									ELEMENT[at0.0.164] occurrences matches {0..1} matches {	-- Tissue proportion
+										value matches {
+											DV_PROPORTION matches {
+												numerator matches {|>=0.0|}
+												type matches {2}
+											}
+										}
+									}
+								}
+							}
+							ELEMENT[at0027.0.1] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.228] occurrences matches {0..1} matches {	-- Infection
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.220] occurrences matches {0..1} matches {	-- Signs of infection
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.221, 	-- No signs of infection
+											at0.0.222, 	-- Redness
+											at0.0.223, 	-- Hot
+											at0.0.224, 	-- Swelling
+											at0.0.225, 	-- Tenderness
+											at0.0.226, 	-- Increasing exudate
+											at0.0.227]	-- Pus
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.229] occurrences matches {0..1} matches {	-- Style of infection
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.230, 	-- No infection
+											at0.0.231, 	-- Localised infection
+											at0.0.232, 	-- Erysipelas
+											at0.0.233, 	-- Phlegmona / cellulitis
+											at0.0.234]	-- Lymphangitis
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.247] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.200] occurrences matches {0..1} matches {	-- Wound pain
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.195] occurrences matches {0..1} matches {	-- Degree of wound pain
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.196, 	-- Wound pain absent
+											at0.0.238, 	-- Wound pain present
+											at0.0.197, 	-- Pain only when dressing removed
+											at0.0.198, 	-- Intermittent wound pain
+											at0.0.199]	-- Continuous wound pain
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.201] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.107] occurrences matches {0..1} matches {	-- Surrounding skin
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.240] occurrences matches {0..1} matches {	-- Extent of erythema
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.241, 	-- No erythema
+											at0.0.243, 	-- Less than 2cm from the wound
+											at0.0.242]	-- More than 2cm from the wound
+										}
+									}
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+												magnitude = <|0.0..500.0|>
+												precision = <|0|>
+											>
+											["2"] = <
+												units = <"cm">
+												magnitude = <|0.0..50.0|>
+												precision = <|1|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0.0.167] occurrences matches {0..*} matches {	-- Features of surrounding skin
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.168, 	-- Normal/healthy
+											at0.0.169, 	-- Blistered
+											at0.0.170, 	-- Calloused
+											at0.0.171, 	-- Macerated
+											at0.0.172, 	-- Eczematous
+											at0.0.173, 	-- Fragile/atrophic
+											at0.0.174, 	-- Dry
+											at0.0.175, 	-- Erythema
+											at0.0.176, 	-- Cellulitis
+											at0.0.177, 	-- Oedematous
+											at0.0.178, 	-- Indurated
+											at0.0.179]	-- Denuded
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.181] occurrences matches {0..1} matches {	-- Colour
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0024.0.1] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.248] occurrences matches {0..1} matches {	-- Sinus/ undermining
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.0.121] occurrences matches {0..1} matches {	-- Fistula or sinus
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.250, 	-- No sinus or fistula
+											at0.0.251]	-- Sinus or fistula present
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.180] occurrences matches {0..1} matches {	-- Sinus track
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+												magnitude = <|>=0.0|>
+												precision = <|0|>
+											>
+											["2"] = <
+												units = <"cm">
+												magnitude = <|>=0.0|>
+												precision = <|2|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0.0.249] occurrences matches {0..1} matches {	-- Wound undermining
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.0.212] occurrences matches {0..1} matches {	-- Undermining length
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+												magnitude = <|>=0.0|>
+												precision = <|0|>
+											>
+											["2"] = <
+												units = <"cm">
+												magnitude = <|>=0.0|>
+												precision = <|1|>
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.246] occurrences matches {0..1} matches {	-- Odour
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0.0.122] occurrences matches {0..1} matches {	-- Odour
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.123, 	-- No odour
+											at0.0.245, 	-- Odour present
+											at0.0.124, 	-- Malodourous only when dressing removed
+											at0.0.151, 	-- Slightly malodorous
+											at0.0.152, 	-- Strongly malodourus
+											at0.0.150]	-- Always malodourus
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.202] occurrences matches {0..1} matches {	-- Sutures
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.254] occurrences matches {0..1} matches {	-- Number of sutures
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|>=0|}
+									}
+								}
+							}
+							ELEMENT[at0.0.203] occurrences matches {0..1} matches {	-- Suture status
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.252, 	-- Sutures absent
+											at0.0.253, 	-- Sutures present
+											at0.0.205, 	-- Present - Satisfactory
+											at0.0.206, 	-- Present - Under tension
+											at0.0.208, 	-- Absent - Removed prematurely
+											at0.0.209, 	-- Absent - Removed when intended
+											at0.0.207]	-- Dehisence
+										}
+									}
+								}
+							}
+							ELEMENT[at0.0.204] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0.0.153] occurrences matches {0..1} matches {	-- Exudate
+						items cardinality matches {1..*; ordered} matches {
+							allow_archetype CLUSTER[at0.0.132] occurrences matches {0..1} matches {	-- Exudate details
+								include
+									archetype_id/value matches {/openEHR-EHR-CLUSTER\.fluid(-[a-zA-Z0-9_]+)*\.v1/}
+							}
+							ELEMENT[at0.0.154] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0.0.69] occurrences matches {0..1} matches {	-- Contamination
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[local::]}
+							}
+						}
+					}
+					CLUSTER[at0.0.66] occurrences matches {0..1} matches {	-- Foreign body
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0.0.67] occurrences matches {0..1} matches {	-- Present
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0.0.68] occurrences matches {0..1} matches {	-- Details
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0052] occurrences matches {0..*} matches {	-- Exam detail
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Image
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							425, 
+							426, 
+							427, 
+							428, 
+							429]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.0.100"] = <
+					text = <"-">
+					description = <"Absent">
+				>
+				["at0.0.101"] = <
+					text = <"+">
+					description = <"Minimal">
+				>
+				["at0.0.102"] = <
+					text = <"++">
+					description = <"Moderate">
+				>
+				["at0.0.103"] = <
+					text = <"+++">
+					description = <"Excessive">
+				>
+				["at0.0.104"] = <
+					text = <"Granulation tissue">
+					description = <"*">
+				>
+				["at0.0.105"] = <
+					text = <"Overgranulation">
+					description = <"*">
+				>
+				["at0.0.106"] = <
+					text = <"Epithelialisation">
+					description = <"*">
+				>
+				["at0.0.107"] = <
+					text = <"Surrounding skin">
+					description = <"*">
+				>
+				["at0.0.108"] = <
+					text = <"Normal/Healthy">
+					description = <"*">
+				>
+				["at0.0.109"] = <
+					text = <"Induration">
+					description = <"*">
+				>
+				["at0.0.110"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0.0.111"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0.0.112"] = <
+					text = <"Callus present">
+					description = <"*">
+				>
+				["at0.0.113"] = <
+					text = <"Maceration present">
+					description = <"*">
+				>
+				["at0.0.114"] = <
+					text = <"Eczema present">
+					description = <"*">
+				>
+				["at0.0.115"] = <
+					text = <"Blisters">
+					description = <"*">
+				>
+				["at0.0.116"] = <
+					text = <"Dry skin present">
+					description = <"*">
+				>
+				["at0.0.117"] = <
+					text = <"Fragile skin present">
+					description = <"*">
+				>
+				["at0.0.118"] = <
+					text = <"Erythema present">
+					description = <"*">
+				>
+				["at0.0.119"] = <
+					text = <"Cellulitis present">
+					description = <"*">
+				>
+				["at0.0.120"] = <
+					text = <"Oedema present">
+					description = <"*">
+				>
+				["at0.0.121"] = <
+					text = <"Fistula or sinus">
+					description = <"Evidence of a sinus or fistula.">
+				>
+				["at0.0.122"] = <
+					text = <"Odour">
+					description = <"Details of wound odour.">
+				>
+				["at0.0.123"] = <
+					text = <"No odour">
+					description = <"*">
+				>
+				["at0.0.124"] = <
+					text = <"Malodourous only when dressing removed">
+					description = <"*">
+				>
+				["at0.0.125"] = <
+					text = <"Discharge">
+					description = <"*">
+				>
+				["at0.0.126"] = <
+					text = <"Slope">
+					description = <"The slope of the wound edge.">
+				>
+				["at0.0.127"] = <
+					text = <"Punched out">
+					description = <"Vertical edge">
+				>
+				["at0.0.128"] = <
+					text = <"Undermined">
+					description = <"Slope inwards">
+				>
+				["at0.0.129"] = <
+					text = <"Everted">
+					description = <"Slope outwards">
+				>
+				["at0.0.130"] = <
+					text = <"Signs of infection ">
+					description = <"*">
+				>
+				["at0.0.131"] = <
+					text = <"Size">
+					description = <"*">
+				>
+				["at0.0.132"] = <
+					text = <"Exudate details">
+					description = <"Details of discharge from the wound.">
+				>
+				["at0.0.133"] = <
+					text = <"Surgical wound">
+					description = <"*">
+				>
+				["at0.0.134"] = <
+					text = <"Pressure sore">
+					description = <"*">
+				>
+				["at0.0.135"] = <
+					text = <"Venous ulcer">
+					description = <"*">
+				>
+				["at0.0.136"] = <
+					text = <"Arterial ulcer">
+					description = <"*">
+				>
+				["at0.0.137"] = <
+					text = <"Diabetic ulcer">
+					description = <"*">
+				>
+				["at0.0.138"] = <
+					text = <"Thermal wound">
+					description = <"*">
+				>
+				["at0.0.139"] = <
+					text = <"Location">
+					description = <"*">
+				>
+				["at0.0.140"] = <
+					text = <"Tissue exposed">
+					description = <"Tissues exposed within the wound.">
+				>
+				["at0.0.141"] = <
+					text = <"Tissue involved">
+					description = <"Tissues involved within the wound.">
+				>
+				["at0.0.142"] = <
+					text = <"Bone">
+					description = <"*">
+				>
+				["at0.0.143"] = <
+					text = <"Ligament">
+					description = <"*">
+				>
+				["at0.0.144"] = <
+					text = <"Tendon">
+					description = <"*">
+				>
+				["at0.0.145"] = <
+					text = <"Muscle">
+					description = <"*">
+				>
+				["at0.0.146"] = <
+					text = <"Subcutaneous fat">
+					description = <"*">
+				>
+				["at0.0.147"] = <
+					text = <"Joint">
+					description = <"*">
+				>
+				["at0.0.148"] = <
+					text = <"No other tissue exposed">
+					description = <"*">
+				>
+				["at0.0.149"] = <
+					text = <"Skin only">
+					description = <"Only the skin is involved.">
+				>
+				["at0.0.150"] = <
+					text = <"Always malodourus">
+					description = <"*">
+				>
+				["at0.0.151"] = <
+					text = <"Slightly malodorous">
+					description = <"*">
+				>
+				["at0.0.152"] = <
+					text = <"Strongly malodourus">
+					description = <"*">
+				>
+				["at0.0.153"] = <
+					text = <"Exudate">
+					description = <"*">
+				>
+				["at0.0.154"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0.0.155"] = <
+					text = <"Tissue type">
+					description = <"Tissue state identified in the wound bed.">
+				>
+				["at0.0.156"] = <
+					text = <"Granulation">
+					description = <"*">
+				>
+				["at0.0.157"] = <
+					text = <"Necrotic">
+					description = <"*">
+				>
+				["at0.0.158"] = <
+					text = <"Slough/fibrin">
+					description = <"*">
+				>
+				["at0.0.159"] = <
+					text = <"Epithelialising">
+					description = <"*">
+				>
+				["at0.0.160"] = <
+					text = <"Infected">
+					description = <"*">
+				>
+				["at0.0.161"] = <
+					text = <"Eschar">
+					description = <"*">
+				>
+				["at0.0.162"] = <
+					text = <"Sclerotic">
+					description = <"*">
+				>
+				["at0.0.163"] = <
+					text = <"Overgranulation">
+					description = <"*">
+				>
+				["at0.0.164"] = <
+					text = <"Tissue proportion">
+					description = <"Estimated proportion of wound bed tissue type.">
+				>
+				["at0.0.165"] = <
+					text = <"Wound bed tissue">
+					description = <"Findings related to wound bed tissue types">
+				>
+				["at0.0.166"] = <
+					text = <"Healed">
+					description = <"*">
+				>
+				["at0.0.167"] = <
+					text = <"Features of surrounding skin">
+					description = <"Features of surrounding skin.">
+				>
+				["at0.0.168"] = <
+					text = <"Normal/healthy">
+					description = <"*">
+				>
+				["at0.0.169"] = <
+					text = <"Blistered">
+					description = <"*">
+				>
+				["at0.0.170"] = <
+					text = <"Calloused">
+					description = <"*">
+				>
+				["at0.0.171"] = <
+					text = <"Macerated">
+					description = <"*">
+				>
+				["at0.0.172"] = <
+					text = <"Eczematous">
+					description = <"*">
+				>
+				["at0.0.173"] = <
+					text = <"Fragile/atrophic">
+					description = <"*">
+				>
+				["at0.0.174"] = <
+					text = <"Dry">
+					description = <"*">
+				>
+				["at0.0.175"] = <
+					text = <"Erythema">
+					description = <"*">
+				>
+				["at0.0.176"] = <
+					text = <"Cellulitis">
+					description = <"*">
+				>
+				["at0.0.177"] = <
+					text = <"Oedematous">
+					description = <"*">
+				>
+				["at0.0.178"] = <
+					text = <"Indurated">
+					description = <"*">
+				>
+				["at0.0.179"] = <
+					text = <"Denuded">
+					description = <"*">
+				>
+				["at0.0.180"] = <
+					text = <"Sinus track">
+					description = <"Length of sinus track.">
+				>
+				["at0.0.181"] = <
+					text = <"Colour">
+					description = <"Colour of surrounding skin.">
+				>
+				["at0.0.182"] = <
+					text = <"Character">
+					description = <"The character of the wound.">
+				>
+				["at0.0.183"] = <
+					text = <"Flat">
+					description = <"*">
+				>
+				["at0.0.184"] = <
+					text = <"Cavity">
+					description = <"*">
+				>
+				["at0.0.185"] = <
+					text = <"Sinus">
+					description = <"*">
+				>
+				["at0.0.186"] = <
+					text = <"Healing intention">
+					description = <"Primary or secondary healing intention?">
+				>
+				["at0.0.187"] = <
+					text = <"Primary">
+					description = <"*">
+				>
+				["at0.0.188"] = <
+					text = <"Secondary">
+					description = <"*">
+				>
+				["at0.0.189"] = <
+					text = <"Dressing state">
+					description = <"The state of any wound dressings.">
+				>
+				["at0.0.190"] = <
+					text = <"Dressings">
+					description = <"Details of dressings.">
+				>
+				["at0.0.191"] = <
+					text = <"Intact">
+					description = <"*">
+				>
+				["at0.0.192"] = <
+					text = <"Disturbed">
+					description = <"*">
+				>
+				["at0.0.193"] = <
+					text = <"Strike-through">
+					description = <"*">
+				>
+				["at0.0.194"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0.0.195"] = <
+					text = <"Degree of wound pain">
+					description = <"Evidence of wound pain.">
+				>
+				["at0.0.196"] = <
+					text = <"Wound pain absent">
+					description = <"There is no wound pain.">
+				>
+				["at0.0.197"] = <
+					text = <"Pain only when dressing removed">
+					description = <"*">
+				>
+				["at0.0.198"] = <
+					text = <"Intermittent wound pain">
+					description = <"*">
+				>
+				["at0.0.199"] = <
+					text = <"Continuous wound pain">
+					description = <"*">
+				>
+				["at0.0.200"] = <
+					text = <"Wound pain">
+					description = <"*">
+				>
+				["at0.0.201"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0.0.202"] = <
+					text = <"Sutures">
+					description = <"*">
+				>
+				["at0.0.203"] = <
+					text = <"Suture status">
+					description = <"Status of sutures.">
+				>
+				["at0.0.204"] = <
+					text = <"Description">
+					description = <"Desctiption of suture status.">
+				>
+				["at0.0.205"] = <
+					text = <"Present - Satisfactory">
+					description = <"Sutures are present and satisfactory.">
+				>
+				["at0.0.206"] = <
+					text = <"Present - Under tension">
+					description = <"Sutures are present but under tension.">
+				>
+				["at0.0.207"] = <
+					text = <"Dehisence">
+					description = <"The wound was sutured but has broken down.">
+				>
+				["at0.0.208"] = <
+					text = <"Absent - Removed prematurely">
+					description = <"The sutures are absent having been removed prematurely.">
+				>
+				["at0.0.209"] = <
+					text = <"Absent - Removed when intended">
+					description = <"The sutures are absent having been removed when intended.">
+				>
+				["at0.0.210"] = <
+					text = <"Undermining">
+					description = <"*">
+				>
+				["at0.0.211"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0.0.212"] = <
+					text = <"Undermining length">
+					description = <"The length of any undermning of the wound edge.">
+				>
+				["at0.0.213"] = <
+					text = <"Epithelialisation">
+					description = <"The degree to which the wound edge is epithelialised.">
+				>
+				["at0.0.214"] = <
+					text = <"No epithelialisation">
+					description = <"*">
+				>
+				["at0.0.215"] = <
+					text = <"Minimal epithelialisation">
+					description = <"*">
+				>
+				["at0.0.216"] = <
+					text = <"Moderate epithelialisation">
+					description = <"*">
+				>
+				["at0.0.217"] = <
+					text = <"Complete epithelialisation">
+					description = <"*">
+				>
+				["at0.0.218"] = <
+					text = <"Good healing conditions">
+					description = <"Evidence of good wound healing conditions.">
+				>
+				["at0.0.219"] = <
+					text = <"Rolled">
+					description = <"*">
+				>
+				["at0.0.220"] = <
+					text = <"Signs of infection">
+					description = <"*">
+				>
+				["at0.0.221"] = <
+					text = <"No signs of infection">
+					description = <"*">
+				>
+				["at0.0.222"] = <
+					text = <"Redness">
+					description = <"*">
+				>
+				["at0.0.223"] = <
+					text = <"Hot">
+					description = <"*">
+				>
+				["at0.0.224"] = <
+					text = <"Swelling">
+					description = <"*">
+				>
+				["at0.0.225"] = <
+					text = <"Tenderness">
+					description = <"*">
+				>
+				["at0.0.226"] = <
+					text = <"Increasing exudate">
+					description = <"*">
+				>
+				["at0.0.227"] = <
+					text = <"Pus">
+					description = <"*">
+				>
+				["at0.0.228"] = <
+					text = <"Infection">
+					description = <"*">
+				>
+				["at0.0.229"] = <
+					text = <"Style of infection">
+					description = <"Style of infective process.">
+				>
+				["at0.0.230"] = <
+					text = <"No infection">
+					description = <"*">
+				>
+				["at0.0.231"] = <
+					text = <"Localised infection">
+					description = <"*">
+				>
+				["at0.0.232"] = <
+					text = <"Erysipelas">
+					description = <"*">
+				>
+				["at0.0.233"] = <
+					text = <"Phlegmona / cellulitis">
+					description = <"*">
+				>
+				["at0.0.234"] = <
+					text = <"Lymphangitis">
+					description = <"*">
+				>
+				["at0.0.235"] = <
+					text = <"Malignant ulcer">
+					description = <"Ulcerating wound due to malignancy.">
+				>
+				["at0.0.236"] = <
+					text = <"Traumatic">
+					description = <"Wound due to trauma/">
+				>
+				["at0.0.237"] = <
+					text = <"Causation">
+					description = <"Description of wound causation.">
+				>
+				["at0.0.238"] = <
+					text = <"Wound pain present">
+					description = <"Wound pain is present.">
+				>
+				["at0.0.239"] = <
+					text = <"Sutures present">
+					description = <"Are sutures present?">
+				>
+				["at0.0.240"] = <
+					text = <"Extent of erythema">
+					description = <"The extent of erythema surrounding the wound.">
+				>
+				["at0.0.241"] = <
+					text = <"No erythema">
+					description = <"There is no erythema surrounding the wound.">
+				>
+				["at0.0.242"] = <
+					text = <"More than 2cm from the wound">
+					description = <"Erythema extends to more than 2cm from the wound.">
+				>
+				["at0.0.243"] = <
+					text = <"Less than 2cm from the wound">
+					description = <"Erythema extends to less than 2cm from the wound.">
+				>
+				["at0.0.244"] = <
+					text = <"Description">
+					description = <"Text description of wound edges.">
+				>
+				["at0.0.245"] = <
+					text = <"Odour present">
+					description = <"The wound is malodourous.">
+				>
+				["at0.0.246"] = <
+					text = <"Odour">
+					description = <"*">
+				>
+				["at0.0.247"] = <
+					text = <"Description">
+					description = <"Description of infection.">
+				>
+				["at0.0.248"] = <
+					text = <"Sinus/ undermining">
+					description = <"*">
+				>
+				["at0.0.249"] = <
+					text = <"Wound undermining">
+					description = <"Evidence of wound undermining">
+				>
+				["at0.0.250"] = <
+					text = <"No sinus or fistula">
+					description = <"There is no wound fistula or sinus.">
+				>
+				["at0.0.251"] = <
+					text = <"Sinus or fistula present">
+					description = <"A sinus or fistula is present.">
+				>
+				["at0.0.252"] = <
+					text = <"Sutures absent">
+					description = <"There are no sutures present.">
+				>
+				["at0.0.253"] = <
+					text = <"Sutures present">
+					description = <"Sutures are present in the wound.">
+				>
+				["at0.0.254"] = <
+					text = <"Number of sutures">
+					description = <"Total number of sutures.">
+				>
+				["at0.0.61"] = <
+					text = <"Size">
+					description = <"*">
+				>
+				["at0.0.62"] = <
+					text = <"Age">
+					description = <"The age of the wound.">
+				>
+				["at0.0.63"] = <
+					text = <"Acute">
+					description = <"*">
+				>
+				["at0.0.64"] = <
+					text = <"Chronic">
+					description = <"*">
+				>
+				["at0.0.65"] = <
+					text = <"Signs of infection">
+					description = <"Presence of signs of infection">
+				>
+				["at0.0.66"] = <
+					text = <"Foreign body">
+					description = <"*">
+				>
+				["at0.0.67"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0.0.68"] = <
+					text = <"Details">
+					description = <"Description of foreign body present in wound.">
+				>
+				["at0.0.69"] = <
+					text = <"Contamination">
+					description = <"Description about contamination of the wound">
+				>
+				["at0.0.70"] = <
+					text = <"Wound type">
+					description = <"Type of wound">
+				>
+				["at0.0.71"] = <
+					text = <"Abrasion (graze)">
+					description = <"*">
+				>
+				["at0.0.72"] = <
+					text = <"Laceration">
+					description = <"*">
+				>
+				["at0.0.73"] = <
+					text = <"Incision">
+					description = <"*">
+				>
+				["at0.0.74"] = <
+					text = <"Puncture wound">
+					description = <"*">
+				>
+				["at0.0.75"] = <
+					text = <"Penetration wound">
+					description = <"*">
+				>
+				["at0.0.76"] = <
+					text = <"Gunshot wound">
+					description = <"*">
+				>
+				["at0.0.77"] = <
+					text = <"Contusion">
+					description = <"(closed wound)">
+				>
+				["at0.0.78"] = <
+					text = <"Haematoma">
+					description = <"(closed wound)">
+				>
+				["at0.0.79"] = <
+					text = <"Extent of wound">
+					description = <"Extent of the wound.">
+				>
+				["at0.0.80"] = <
+					text = <"Starting point">
+					description = <"Start point of the wound.">
+				>
+				["at0.0.81"] = <
+					text = <"End point">
+					description = <"End point of the wound.">
+				>
+				["at0.0.82"] = <
+					text = <"Course">
+					description = <"Course of the wound.">
+				>
+				["at0.0.83"] = <
+					text = <"Other tissues">
+					description = <"Findings of other tissues involved or exposed.">
+				>
+				["at0.0.84"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0.0.85"] = <
+					text = <"Tissue involvement">
+					description = <"*">
+				>
+				["at0.0.86"] = <
+					text = <"Ligament">
+					description = <"*">
+				>
+				["at0.0.87"] = <
+					text = <"Muscle">
+					description = <"*">
+				>
+				["at0.0.88"] = <
+					text = <"Bone">
+					description = <"*">
+				>
+				["at0.0.89"] = <
+					text = <"Joint">
+					description = <"*">
+				>
+				["at0.0.90"] = <
+					text = <"Subcutaneous fat">
+					description = <"*">
+				>
+				["at0.0.91"] = <
+					text = <"Skin only">
+					description = <"*">
+				>
+				["at0.0.92"] = <
+					text = <"Wound bed">
+					description = <"Wound bed findings">
+				>
+				["at0.0.93"] = <
+					text = <"Eschar present">
+					description = <"*">
+				>
+				["at0.0.94"] = <
+					text = <"Necrotic tissue">
+					description = <"*">
+				>
+				["at0.0.95"] = <
+					text = <"Slough">
+					description = <"*">
+				>
+				["at0.0.96"] = <
+					text = <"-">
+					description = <"Absent">
+				>
+				["at0.0.97"] = <
+					text = <"+">
+					description = <"Minimal">
+				>
+				["at0.0.98"] = <
+					text = <"++">
+					description = <"Moderate">
+				>
+				["at0.0.99"] = <
+					text = <"+++">
+					description = <"Excessive">
+				>
+				["at0.52"] = <
+					text = <"Method">
+					description = <"Record of findings on inspection using a specific method">
+				>
+				["at0.53"] = <
+					text = <"Direct visualisation">
+					description = <"Macroscopic; By eye">
+				>
+				["at0.54"] = <
+					text = <"Wood's lamp">
+					description = <"*">
+				>
+				["at0.55"] = <
+					text = <"Dermatoscope">
+					description = <"*">
+				>
+				["at0.56"] = <
+					text = <"Thickness">
+					description = <"Thickness of skin">
+				>
+				["at0.57"] = <
+					text = <"Thickened">
+					description = <"*">
+				>
+				["at0.58"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.59"] = <
+					text = <"Thinned/Atrophic">
+					description = <"*">
+				>
+				["at0.60"] = <
+					text = <"Pigmentation">
+					description = <"Pigmentation of skin">
+				>
+				["at0000"] = <
+					text = <"Inspection">
+					description = <"The findings on physical examination by inspection.">
+				>
+				["at0000.1"] = <
+					text = <"Inspection of skin">
+					description = <"The findings on inspection of the skin">
+				>
+				["at0000.1.1"] = <
+					text = <"Inspection of wound">
+					description = <"The findings on inspection of a wound.">
+				>
+				["at0002"] = <
+					text = <"Normal statements">
+					description = <"A specific statement about the normality of inspection.">
+				>
+				["at0006"] = <
+					text = <"Findings">
+					description = <"Specific findings on inspection">
+				>
+				["at0024"] = <
+					text = <"Surrounds">
+					description = <"Description of immediate surrounds to object.">
+				>
+				["at0024.0.1"] = <
+					text = <"Description">
+					description = <"Description of immediate surrounds to object">
+				>
+				["at0027"] = <
+					text = <"Overlying skin or surface">
+					description = <"A description of the surface of the object under inspection.">
+				>
+				["at0027.0.1"] = <
+					text = <"Description">
+					description = <"A description of the wound bed.">
+				>
+				["at0028"] = <
+					text = <"Edge">
+					description = <"Findings about the edge of the object under inspection.">
+				>
+				["at0028.0.1"] = <
+					text = <"Wound edges">
+					description = <"Findings about the edge of the object under inspection">
+				>
+				["at0029"] = <
+					text = <"Definition">
+					description = <"The nature of the edge of the object of examination.">
+				>
+				["at0030"] = <
+					text = <"Well defined">
+					description = <"The edge is clearly defined.">
+				>
+				["at0031"] = <
+					text = <"Moderately defined">
+					description = <"The edge is defined but less clear in places.">
+				>
+				["at0032"] = <
+					text = <"Poorly defined">
+					description = <"The edge is not defined clearly in many places.">
+				>
+				["at0033"] = <
+					text = <"Description">
+					description = <"Description of the edge or border of the object of inspection.">
+				>
+				["at0034"] = <
+					text = <"Translucent">
+					description = <"Is the object of inspection translucent?">
+				>
+				["at0036"] = <
+					text = <"Colour">
+					description = <"The colour of the object under inspection.">
+				>
+				["at0048"] = <
+					text = <"Clinical description">
+					description = <"Clinical description of the findings on inspection.">
+				>
+				["at0050"] = <
+					text = <"Image">
+					description = <"A drawing of the findings on inspection">
+				>
+				["at0051"] = <
+					text = <"Contour">
+					description = <"The contour of the object of inspection.">
+				>
+				["at0052"] = <
+					text = <"Exam detail">
+					description = <"Further detailed examination.">
+				>
+				["at0053"] = <
+					text = <"Location">
+					description = <"Location of the object being inspected.">
+				>
+				["at0054"] = <
+					text = <"Dimensions">
+					description = <"Dimensions of the object.">
+				>
+				["at0055"] = <
+					text = <"Shape or distribution">
+					description = <"The shape or distribution of the object under inspection.">
+				>
+				["at0056"] = <
+					text = <"Description">
+					description = <"Description of the shape or disstribution of the object under inspection.">
+				>
+				["at0057"] = <
+					text = <"Symmetrical">
+					description = <"Is the shape or distribution symmetrical?">
+				>
+			>
+		>
+	>

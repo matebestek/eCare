@@ -1,0 +1,130 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.5; generated)
+	openEHR-DEMOGRAPHIC-ADDRESS.address-provider.v1
+specialize
+	openEHR-DEMOGRAPHIC-ADDRESS.address.v1
+
+concept
+	[at0000.1]	-- Endereço Postal de um Prestador de Assistência à Saúde
+language
+	original_language = <[ISO_639-1::pt-br]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+				["name"] = <"Sergio Miranda Freire">
+				["email"] = <"sergio@lampada.uerj.br">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
+		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+		["email"] = <"sergio@lampada.uerj.br">
+		["date"] = <"22/05/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Representation of data about a healthcare provider postal address, based on ISO standards.">
+			use = <"Used in demographic services to register data about a healthcare provider postal address.">
+			keywords = <"demographic service", "healthcare provider address">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Representação dos detalhes do endereço postal de um prestador de assistência à saúde">
+			use = <"Usado em serviços demográficos para registrar os detalhes de um endereço postal de um prestador de assistência à saúde">
+			keywords = <"serviço demográfico", "endereço de um prestador de assistência à saúde">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"ISO/DTS 27527:2007(E) - Provider Identification - Draft Technnical Specification - International Organization for Standardization">
+	>
+
+definition
+	ADDRESS[at0000.1] matches {	-- Endereço Postal de um Prestador de Assistência à Saúde
+		/details/items matches {
+			after [at0004]
+			ELEMENT[at0.2] occurrences matches {0..1} matches {	-- Indicador de privacidade
+				value matches {
+					DV_BOOLEAN matches {*}
+				}
+			}
+			ELEMENT[at0.3] occurrences matches {0..*} matches {	-- Identificador do prestador
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.2"] = <
+					text = <"Communication privacy">
+					description = <"Indicates that this communication mechanism is not to be openly displayed, except to specific providers.">
+				>
+				["at0.3"] = <
+					text = <"Healthcare provider identifier">
+					description = <"Identifier of a healthcare provider who may access this communication mechanism.">
+				>
+				["at0000.1"] = <
+					text = <"Healthcare provider postal address">
+					description = <"Healthcare provider postal address, based on ISO standards.">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0.2"] = <
+					text = <"Indicador de privacidade">
+					description = <"Indica quando um mecanismo de comunicação não é para ser exibido abertamente, exceto para organizações específicas.">
+				>
+				["at0.3"] = <
+					text = <"Identificador do prestador">
+					description = <"Identificador de um prestador que pode acessar este meio de comunicação">
+				>
+				["at0000.1"] = <
+					text = <"Endereço Postal de um Prestador de Assistência à Saúde">
+					description = <"Endereço Postal de um Prestador de Assistência à Saúde">
+				>
+			>
+		>
+	>

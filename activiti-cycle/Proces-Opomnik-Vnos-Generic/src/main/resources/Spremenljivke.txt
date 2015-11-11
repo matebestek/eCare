@@ -1,0 +1,17 @@
+Spremenljivke:
+periodaOpomnika-->npr. 24ur pri PEF
+numberOfSentReminders < maxNumberOfSentReminders
+
+pacient
+pacient.meritev=meritev
+categoryOk=true;
+notification;-->pri NOTIFER je ime vhodnega sporoèila
+
+
+Podprocesi:
+1. NOTIFIER: Obvestilo o dobri/slabi vrednosti nekega vhodnega podatka/meritve
+	Pacient
+	Zdravnik
+	CM
+2. OPOMNIK: Obvestilo o tem, da je treba nekaj narediti v kratkem.
+	Pacient

@@ -1,0 +1,206 @@
+/***
+ * Copyright (c) 2013.
+ * University of Primorska, Andrej Marušič Institute. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met: 
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer. 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution. 
+ * 
+ * Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+ * Agency and Ministry of Health of Republic of Slovenia.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+@font-face {
+	font-family: "Arial Unicode MS";
+	src: url("../fonts/arial.ttf");
+	-fs-pdf-font-embed: embed;
+	-fs-pdf-font-encoding: cp1250;
+	font-weight:normal;
+}
+@font-face {
+	font-family: "Arial Unicode MS";
+	src: url("../fonts/arialbd.ttf");
+	-fs-pdf-font-embed: embed;
+	-fs-pdf-font-encoding: cp1250;
+	font-weight:bold;
+}
+@font-face {
+	font-family: "Arial Unicode MS";
+	src: url("../fonts/ariali.ttf");
+	-fs-pdf-font-embed: embed;
+	-fs-pdf-font-encoding: cp1250;
+	font-style: italic;
+}
+@font-face {
+	font-family: "Arial Unicode MS";
+	src: url("../fonts/arialbi.ttf");
+	-fs-pdf-font-embed: embed;
+	-fs-pdf-font-encoding: cp1250;
+	font-weight:bold;
+	font-style: italic;
+}
+body {
+	font-family: "Arial Unicode MS", Arial, sans-serif;
+}
+
+body {
+	background-image: url("../img/logo/1/1_64.png");
+	background-position: right top;
+	background-repeat: no-repeat;
+}
+
+#activiti_form_holder h3 {
+	border-bottom:1px solid black;
+	border-top:1px solid black;
+}
+
+.layout-tff-label {
+	width:60%;
+	vertical-align:top;
+}
+
+.oInputText {
+	border:1px solid gray;
+	padding:3px;
+	padding-left:6px;
+	min-height: 25px;
+	min-width: 300px;
+}
+
+.oOption {
+	color: black;
+	padding:3px;
+	border:1px solid white;
+}
+
+.oOptionSelected {
+	color: black;
+	padding:3px;
+	border:1px solid gray;
+}
+
+#activiti_form_holder .oSelect li:first-child {
+	display:none;
+}
+
+.reportingWidget_dataTable {
+	border:1px solid gray;
+	width:100%;
+	padding: 25px;
+}
+
+.reportingWidget_dataTable td {
+	padding: 5px;
+}
+
+.reportingWidget_dataTable th {
+	text-align:left;
+}
+
+.oCanvas {
+	display:none;
+}
+
+.reportingWidget_dataTable .oCanvas:first-child {
+	display:block;
+}
+
+.cke_skin_kama {
+	display:none;
+}
+
+.oTextarea {
+	border:1px solid gray;
+	padding:3px;
+	padding-left:6px;
+	min-height: 125px;
+	min-width: 300px;
+}
+
+input[type="submit"] {
+	display:none;
+}
+
+button {
+	display:none;
+}
+
+.layout-tf {
+	width:100%;
+}
+.layout-tf td {
+	min-width: 100px;
+}
+
+span.date {
+	color:gray;
+}
+
+.oInputRadio {
+	color: black;
+	padding:3px;
+	border:1px solid white;
+	margin-left:50px;
+}
+
+.oInputRadioChecked {
+	color: black;
+	padding:3px;
+	border:1px solid gray;
+	margin-left:50px;
+}
+
+#calendar-add-notice-form-holder {
+	display:none;
+}
+
+#myCalendarWidget_show_table {
+	width: 100%;
+}
+
+#myCalendarWidget_show_table td {
+	width: 14.28%;
+}
+
+.myCalendarWidget_show_day {
+	border: 1px solid black;
+}
+
+.myCalendarWidget_show_noticecount {
+	vertical-align: top;
+}
+
+#myCalendarWidget_show_header td {
+	text-transform: uppercase;
+	border:none;
+	text-align: center;
+}
+
+.layout-sortable-table {
+	width:100%;
+}
+
+.myCalendarWidget_show_noticecount {
+	text-align: center;
+	font-style: italic;
+}
+
+.myCalendarWidget_show_noticecount img {
+	display:none;
+}

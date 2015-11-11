@@ -1,0 +1,303 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-INSTRUCTION.request_parenteral_nutrition_ispek.v1
+
+concept
+	[at0000]	-- Request parenteral nutrition - ISPEK
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"26/01/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record a request for parenteral nutrition.">
+			use = <"For use only within Mrand Sistem ISPEK application.">
+			keywords = <"parenteral", "nutrition", "food", "diet", "feeding">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Klaudija Đorem, Marand, Slovenia", "Anže Drolic, Marand, Slovenia">
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"95CAB636656873D9E90B739F765ABA4D">
+	>
+
+definition
+	INSTRUCTION[at0000] matches {	-- Request parenteral nutrition - ISPEK
+		activities cardinality matches {0..*; unordered} matches {
+			ACTIVITY[at0001] occurrences matches {0..1} matches {	-- Current Activity
+				description matches {
+					ITEM_TREE[at0002] matches {	-- Tree
+						items cardinality matches {5..*; unordered} matches {
+							ELEMENT[at0003] matches {	-- Venous access
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0010, 	-- Central
+											at0011]	-- Peripheral
+										}
+									}
+								}
+							}
+							ELEMENT[at0004] matches {	-- Primary diagnosis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Relevant therapeutic procedures
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Relevant cautions
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0007] matches {	-- Total volume
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::129]>
+										list = <
+											["1"] = <
+												units = <"ml">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0008] occurrences matches {1..*} matches {	-- Per-bag volume
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::129]>
+										list = <
+											["1"] = <
+												units = <"ml">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- Glucose
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::124]>
+										list = <
+											["1"] = <
+												units = <"gm">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0014] matches {	-- Calorific value
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::121]>
+										list = <
+											["1"] = <
+												units = <"kcal">
+												magnitude = <|>=0.0|>
+											>
+										>
+									>
+								}
+							}
+							CLUSTER[at0027] occurrences matches {0..1} matches {	-- Amino acids
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0016] occurrences matches {0..*} matches {	-- Amino acid
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							ELEMENT[at0017] occurrences matches {0..1} matches {	-- Lipids
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							CLUSTER[at0018] occurrences matches {0..1} matches {	-- General additives
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0019] occurrences matches {1..*} matches {	-- General additive
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							CLUSTER[at0023] occurrences matches {0..1} matches {	-- Vitamins
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0025] occurrences matches {1..*} matches {	-- Vitamin
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							CLUSTER[at0022] occurrences matches {0..1} matches {	-- Microelements
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0026] occurrences matches {1..*} matches {	-- Microelement
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+							CLUSTER[at0021] occurrences matches {0..1} matches {	-- Special additives
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0024] occurrences matches {1..*} matches {	-- Special additive
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Request parenteral nutrition - ISPEK">
+					description = <"To record a request for parenteral nutrition.">
+				>
+				["at0001"] = <
+					text = <"Current Activity">
+					description = <"Current Activity">
+				>
+				["at0002"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Venous access">
+					description = <"The route of venous access.">
+				>
+				["at0004"] = <
+					text = <"Primary diagnosis">
+					description = <"The subject's primary diagnosis.">
+				>
+				["at0005"] = <
+					text = <"Relevant therapeutic procedures">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Relevant cautions">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Total volume">
+					description = <"The total volume of fluid.">
+				>
+				["at0008"] = <
+					text = <"Per-bag volume">
+					description = <"The volume of fluid in a single bag.">
+				>
+				["at0010"] = <
+					text = <"Central">
+					description = <"Central venous access.">
+				>
+				["at0011"] = <
+					text = <"Peripheral">
+					description = <"Peripheral venous access">
+				>
+				["at0014"] = <
+					text = <"Calorific value">
+					description = <"The calorific value.">
+				>
+				["at0015"] = <
+					text = <"Glucose">
+					description = <"The quantity of glucose.">
+				>
+				["at0016"] = <
+					text = <"Amino acid">
+					description = <"Amino acid preparation.">
+				>
+				["at0017"] = <
+					text = <"Lipids">
+					description = <"Coded term for lipid preparation.">
+				>
+				["at0018"] = <
+					text = <"General additives">
+					description = <"Multiple general additives.">
+				>
+				["at0019"] = <
+					text = <"General additive">
+					description = <"Single general additive.">
+				>
+				["at0021"] = <
+					text = <"Special additives">
+					description = <"Special additives.">
+				>
+				["at0022"] = <
+					text = <"Microelements">
+					description = <"Multiple microelements.">
+				>
+				["at0023"] = <
+					text = <"Vitamins">
+					description = <"Multiple vitamins.">
+				>
+				["at0024"] = <
+					text = <"Special additive">
+					description = <"Single special additive.">
+				>
+				["at0025"] = <
+					text = <"Vitamin">
+					description = <"Single vitamin.">
+				>
+				["at0026"] = <
+					text = <"Microelement">
+					description = <"Single microelement">
+				>
+				["at0027"] = <
+					text = <"Amino acids">
+					description = <"Multiple amino acid preparations.">
+				>
+			>
+		>
+	>

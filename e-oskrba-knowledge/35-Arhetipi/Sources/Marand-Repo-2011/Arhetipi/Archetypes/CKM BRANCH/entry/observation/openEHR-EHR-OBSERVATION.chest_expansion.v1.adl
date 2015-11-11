@@ -1,0 +1,336 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.chest_expansion.v1
+
+concept
+	[at0000]	-- Merjenje obsega prsnega koša
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["organisation"] = <"University of Heidelberg, Central Queensland University">
+				["name"] = <"Jasmin Buck, Sebastian Garde">
+			>
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Slovenia">
+				["name"] = <"Uroš Rajkovič, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.biz">
+		["date"] = <"26/03/2006">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Dokumentation des Brustumfangs - in spezialisierter Form zuzüglich der Atmungspase">
+			use = <"*">
+			keywords = <"Einatmen", "Ausatmen", "Brustumfang", "Ausmaß">
+			misuse = <"*">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje obsega prsnega koša z možnostjo vnos podrobnosti vezane na razpon kot posledica vhida in izhida">
+			use = <"">
+			keywords = <"obseg prsnega koša", "vdih", "izdih", "razpon">
+			misuse = <"">
+			copyright = <"">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording the measured dimensions of the chest - specialised to add the state of respiration during breathing.">
+			use = <"">
+			keywords = <"inspiration", "expiration", "chest expansion", "expansion">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"DBC7332DDDD949AFE2CF9598F19D7FB9">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Merjenje obsega prsnega koša
+		data matches {
+			HISTORY[at0001] matches {	-- *history(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..*} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {1; unordered} matches {
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Obseg
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"cm">
+														magnitude = <|0.0..200.0|>
+														precision = <|1|>
+													>
+												>
+											>
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_LIST[at0005] matches {	-- *list(en)
+								items cardinality matches {0..*; ordered} matches {
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Respiratorna faza
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0007, 	-- Vdih
+													at0008, 	-- Izdih
+													at0009; 	-- Naključno
+													at0009]	-- assumed value
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					INTERVAL_EVENT[at0010] occurrences matches {0..*} matches {	-- Razpon
+						math_function matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {[openehr::522]}
+							}
+						}
+						data matches {
+							use_node ITEM_TREE /data[at0001]/events[at0002]/data[at0003]	-- /data[*history(en)]/events[*Any event(en)]/data[*Tree(en)]
+						}
+						state matches {
+							use_node ITEM_LIST /data[at0001]/events[at0002]/state[at0005]	-- /data[*history(en)]/events[*Any event(en)]/state[*list(en)]
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0012] matches {	-- *Tree(en)
+				items cardinality matches {0..*; unordered} matches {
+					allow_archetype CLUSTER[at0013] occurrences matches {0..1} matches {	-- Naprava
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"Messung des Brustumfangs">
+					description = <"Messung von Umfang und Ausdehnung des Brustkorbes">
+				>
+				["at0001"] = <
+					text = <"Verlauf">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"beliebiges Ereignis">
+					description = <"zeitliches Ereignis">
+				>
+				["at0003"] = <
+					text = <"Baum">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Liste">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Atmungsphase">
+					description = <"Die Phase der Atmung, während der die Messung vorgenommen wurde">
+				>
+				["at0007"] = <
+					text = <"Einatmen">
+					description = <"Die Einatmungsphase der Atmung">
+				>
+				["at0008"] = <
+					text = <"Ausatmen">
+					description = <"Die Ausatmungsphase der Atmung">
+				>
+				["at0009"] = <
+					text = <"Zufällig">
+					description = <"Keine Beachtung der Atmungsphase">
+				>
+				["at0010"] = <
+					text = <"Ausdehnung des Brustkorbes">
+					description = <"Die Ausdehnung des Brustumfangs von vollkommenem Ausatmen bis vollkommenem Einatmen">
+				>
+				["at0011"] = <
+					text = <"Umfang">
+					description = <"der Umfang des Brustkorbes">
+				>
+				["at0012"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0013"] = <
+					text = <"*Device(en)">
+					description = <"*Details of the device used.(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Merjenje obsega prsnega koša">
+					description = <"Merjenje obsega prsnega koša">
+				>
+				["at0001"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Timing event(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0005"] = <
+					text = <"*list(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0006"] = <
+					text = <"Respiratorna faza">
+					description = <"Faza dihanja med katero je bila izmerjena vrednost ">
+				>
+				["at0007"] = <
+					text = <"Vdih">
+					description = <"Med vdihom">
+				>
+				["at0008"] = <
+					text = <"Izdih">
+					description = <"Med izdihom">
+				>
+				["at0009"] = <
+					text = <"Naključno">
+					description = <"Respiratorna faza ni bila upoštevana">
+				>
+				["at0010"] = <
+					text = <"Razpon">
+					description = <"Razpon kot razlika med izmerjenima obsegoma pri vdihu in izdihu">
+				>
+				["at0011"] = <
+					text = <"Obseg">
+					description = <"Obseg prsnega koša">
+				>
+				["at0012"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0013"] = <
+					text = <"Naprava">
+					description = <"Podatki o napravi">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Measurement of chest and expansion">
+					description = <"Measurement of the chest circumference and expansion">
+				>
+				["at0001"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Timing event">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"list">
+					description = <"@ internal @">
+				>
+				["at0006"] = <
+					text = <"Respiratory phase">
+					description = <"The phase of respiration during which the measurement is taken">
+				>
+				["at0007"] = <
+					text = <"Inspiration">
+					description = <"The inspiratory phase of respiration">
+				>
+				["at0008"] = <
+					text = <"Expiration">
+					description = <"The expiratory phase of respiration">
+				>
+				["at0009"] = <
+					text = <"Random">
+					description = <"No account is taken of respiratory phase">
+				>
+				["at0010"] = <
+					text = <"Chest expansion">
+					description = <"The difference in chest circumference from full expiration to full inspiration">
+				>
+				["at0011"] = <
+					text = <"Circumference">
+					description = <"The circumference of the chest">
+				>
+				["at0012"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0013"] = <
+					text = <"Device">
+					description = <"Details of the device used.">
+				>
+			>
+		>
+	>

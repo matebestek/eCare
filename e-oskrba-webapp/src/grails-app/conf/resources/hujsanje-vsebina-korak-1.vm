@@ -1,0 +1,797 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+	
+<div id="activiti_form_holder">
+<!--Prehrana-->
+	<h3><a href="#">Vsebine - Predstavitev programa</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040">
+			<center><span style="font-size: 14pt;"><b>PREDSTAVITEV PROGRAMA</b></span></center>
+		</font>
+		<p>
+			Program e-hujšanje je sestavljen iz dveh komponent, in sicer iz programa, ki temelji na prehrani in psihološki podpori ter programa telesne vadbe. Oba sklopa skupaj predstavljata nedeljivo celoto. Vsak sklop je podprt z vsebinami, ki so jih pripravili strokovnjaki različnih področij (medicine, prehrane, psihologije, telesne dejavnosti…) ki skupaj načrtujejo, organizirajo, izvajajo in evalvirajo program hujšanja.
+		</p>
+		<p>
+			Program je sestavljen iz 16 korakov individualnega dela in 16 učnih ur telesne vadbe, kjer so opredeljena navodila, ki so potrebna za doseganje uspešnosti delavnice. Med potekom hujšanja boste imeli možnost vzpostavitve kontakta (elektronska pošta, sms) s koordinatorjem delavnice Zdravo hujšanje. Program je prirejen za enostavno uporabo in vas vodi po korakih.
+		</p>
+		<p>
+			Proces spreminjanja življenjskega sloga je zahteven, zato naj bi se program individualnega dela in program telesne vadbe izvaja¬la tako, da bi omogočala tedenski napredek po korakih. Zaželeno je, da sledite programu in redno tedensko opravljate naloge, ki jih bo program od vas zahteval. Dokler ne boste zaključili vseh nalog ene enote, ne boste mogli pristopiti v naslednjo enoto programa. Če naloge ne boste opravili, vas bomo opomnili s sms sporočilom in po elektronski pošti. Ko boste neopravljene naloge končali, boste lahko pristopili k nadaljevanju programa. Tak način dela je potreben zato, ker je proces spreminjanja življenjskega sloga zahteven, mora biti strukturiran za čim višjo stopnjo uspešnosti ter vašega in našega zadovoljstva.
+		</p>
+		<p>
+			V kolikor v roku enega tedna  ne boste  vnesli vrednosti zahtevanih meritev (prehranski dnevnik, tedenski načrt prehrane dnevnik tedenske telesne dejavnosti, telesna teža in obseg pasu), boste  dobili kratko sporočilo na mobilni telefon in elektronski naslov kot opomnik, da še niste opravili zahtevanih nalog. Prehranski dnevnik, tedenski načrt prehrane in dnevnik (tedenske) telesne dejavnosti boste izpolnjevali na tedenski osnovi ter tako prejemal tudi opomnike. V kolikor v roku dveh dni po prejemu opomnika ne boste opravili nalog ali sporočili razloga za nesodelovanje, vas bo poklical koordinator oskrbe in skušal ugotoviti razlog za neodzivnost. Izvedbo antropometričnih meritev (meritev obsega pasu in telesne mase) boste vnašali vsak teden (po želji tudi pogosteje), uspešnost hujšanja (prikaz ITM) bo prikazana avtomatsko po vnosu podatkov. Na ta način boste lahko spremljali postopek lastnega hujšanja in spremembe življenjskega sloga. V primeru neustreznega postopka ali slabih rezultatov boste lahko kontaktirali vašega koordinatorja hujšanja in z njegovo pomočjo poiskali možne rešitve, ali se boste drugače aktivno angažirali.
+		</p>
+		<p>
+			Preko spletne strani boste lahko dostopali do številnih strukturiranih informacij, povezanih s hujšanjem, spremembo življenjskega sloga in zdravo prehrano. Ves čas vključenosti v raziskavo boste imeli možnost posredovanja sporočila (e-mail, sms), kar pomeni, da se boste lahko z morebitnimi vprašanji obrnili neposredno na koordinatorja oskrbe, ki vam bo skušal odgovoriti ali svetovati.
+		</p>
+		<p>
+			Vseskozi  vam bo na voljo izobraževanje na področju zdravega načina življenja - gibanje in zdrava prehrana. Gibalne vsebine so prilagojene potrebam/priporočilom za osebe s prekomerno telesno maso ali debelostjo.
+		</p>
+	</div>
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Spoznavanje procesa spreminjanja</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040">
+			<center><span style="font-size: 14pt;"><b>SPOZNAVANJE PROCESA SPREMINJANJA</b></span></center>
+		</font>
+		<p>
+			Kot smo že omenili, vas želimo z našim programom podpreti ne samo pri vašem procesu spreminjanja - zmanjševanja telesne mase, ampak pri vašem spreminjanju življenjskega sloga. Pokazalo se je namreč, da je lahko hujšanje zares uspešno in ima trajen učinek samo, če ne poteka le kot kratkotrajna dieta, ampak če je del spremembe življenjskega sloga. Spreminjanje življenjskega sloga je torej širši proces, ki se ne nanaša samo na to, kaj, kdaj in koliko jemo, ampak je usmerjen tudi na to, koliko in na kakšen način se gibamo, kako premagujemo stres, ali imamo kakšne škodljive razvade (kajenje, alkohol). Cilj programa je zato ne samo izguba vaših kilogramov, ampak zdravo življenje v vseh pogledih - z zdravo in uravnoteženo prehrano, z dovolj primerne telesne dejavnosti, z učinkovitim obvladovanjem stresa in s čim manj škodljivimi razvadami.
+		</p>
+		<p>
+			Pokazalo se je, da spreminjanje življenjskega sloga ali določenega tveganega vedenja (npr. nezdravega prehranjevanja) poteka po določenih stopnjah. V nadaljevanju bomo na kratko opisali stopnje procesa spreminjanja, pri čemer bomo sledili modelu, ki sta ga razvila Prochaska in DiClemente (1986). Namen prikaza teh stopenj je omogočiti boljše razumevanje samega procesa spreminjanja, pokazati, da je to splošen proces, skozi katerega gredo tudi drugi, in opozoriti na to, kako lahko posameznik vpliva na to, na kateri stopnji spreminjanja se nahaja.
+		</p>
+		<font color="#FF8040">
+			<center><b>Stopnje spreminjanja</b></center>
+		</font>
+		<p>
+			Proces je sestavljen iz 5 stopenj, ki so prikazane na spodnji sliki - v krogu spreminjanja. Posamezniki se v krogu spreminjanja pomikajo naprej in nazaj ter se na vsaki stopnji zadržujejo različno dolgo. Običajno gredo tisti ljudje, ki se uspešno spremenijo, skozi vse stopnje, čeprav je možno, da kdo kakšno fazo tudi preskoči ali izpusti.
+		</p>
+		<center>
+			<img title="spreminjanje" style="border-width: 0px; border-style: solid; width: 486px; height: 245px;" src="/eOskrba-webapp/uploads/Image/1_korak/Proces_spreminjanja.jpg" alt="">
+		</center>
+		</br>
+		<center>Slika: Proces spreminjanja.</center>
+		<p>
+			<b>Predstopnja: Ni interesa za spremembo</b>
+			Tu se nahajajo posamezniki, ki še niso razmišljali o tem, da bi spremenili svoj življenjski slog ali kakšno neustrezno razvado. Pogosto se niti ne zavedajo, da živijo nezdravo. Kot je dejal GK Chesterton: "Ni problem, da ne vidijo rešitve, ampak da ne vidijo problema."
+			</br>
+			Za vse, ki ste pristopili k temu programu, je ta predstopnja del preteklosti, saj vaša odločitev pomeni, da se zavedate svoje težave in si želite spremembe.
+		</p>		
+		<p>
+			<b>1. stopnja: Razmišljanje o spremembi</b>
+			</br>
+			Ko se posameznik zave potencialnih pozitivnih posledic spremembe ali potencialne nevarnosti, če živi še naprej po ustaljenih navadah, gre običajno najprej skozi stopnjo razmišljanja o spremembi. Tehta koristi in napore, ki jih bo sprememba prinesla, in išče informacije ter pomoč pri svoji odločitvi. Ta stopnja lahko traja le nekaj minut, običajno pa traja kar nekaj let.
+			</br>
+			Poskušajte se spomniti, koliko časa ste vi razmišljali o spremembi in kdo/kaj vam je pomagalo, da ste se zanjo odločili.
+		</p>		
+		<p>
+			<b>2. stopnja: Priprava na spremembo</b>
+			</br>
+			Ko posameznik pretehta napore, ki so potrebni za dosego spremembe, in ko zares verjame, da je sprememba možna in vredna truda, se prične pripravljati na spremembo. Za dejansko spremembo namreč ni dovolj samo odločitev, ampak je potrebno tudi vedeti, kako se do te spremembe pride, kaj je potrebno storiti, in morda za to poiskati tudi pomoč. Ta stopnja tako vključuje pridobivanje dodatnih informacij, znanja, spretnosti in podpore ter strokovne pomoči.
+			</br>
+			Razmislite, kje in kako ste vi pridobivali informacije in podporo, ki so vam pomagale pri pripravah na spremembo.
+		</p>		
+		<p>
+			<b>3. stopnja: Izvajanje spremembe</b>
+			</br>
+			Na tej stopnji se posameznik dejansko loti izvajanja spremembe, za katero se je odločil. Predvsem na začetku je potrebno sprejeti veliko odločitev, saj bo potrebno opustiti nekatere vzorce/načine življenja, na katere smo navajeni in nam običajno vzbujajo določeno ugodje, in razviti nove. Nekateri ljudje morajo - začasno, če ne za stalno - spremeniti tudi druge vidike svojega življenjskega sloga, da se lahko ločijo od stare razvade (npr. ljudje, ki se želijo prehranjevati bolj zdravo, se morajo vsaj na začetku izogibati okrepčevalnic s hitro prehrano, da niso preveč izpostavljeni skušnjavam). Na tej stopnji so pogoji za uspeh: jasen cilj, realen načrt, podpora in nagrade.
+			</br>
+			Vsi, ki ste se odločili za sodelovanje v tem programu, se že nahajate na tej stopnji. Naš namen je, da smo vam pri izvajanju spremembe v podporo.
+		</p>		
+		<p>
+			<b>4. stopnja: Vztrajanje pri spremembi</b>
+			</br>
+			Posameznik, ki v procesu spreminjanja opusti staro razvado, vzorce, se mora na nov način življenja navaditi, zato je potrebno temu nameniti dovolj časa. Ko se nove navade dobro utrdijo, gre posameznik iz procesa spreminjanja v dolgotrajni, varnejši in bolj zdravi življenjski slog. Včasih je težko vztrajati pri novi obliki vedenja in želja po vrnitvi k starim vzorcem lahko traja kar nekaj časa. Takrat potrebuje posameznik dovolj motivacije in podpore, da se prepreči "ponovitev" oz. povrnitev v prejšnjo obliko vedenja.
+			</br>
+			Znanje in izkušnje, ki jih boste pridobili skozi sodelovanje v programu, vam bodo pomagale, da boste lažje vztrajali v spremembi, ki jo boste dosegli.
+		</p>		
+		<p>
+			<b>5. stopnja: Ponovitev</b>
+			</br>
+			Včasih, ko posameznik ne more vztrajati pri spremembi, se vrne k starim razvadam. Vzroki za to so različni - določene spremembe v življenju, pomanjkanje motivacije, znanja, podpore … Ponovitev je del procesa spreminjanja, vendar ni obvezna - ne pojavi se pri vseh. Mnogo posameznikov, ki se znajdejo na tej stopnji, kasneje zopet pomisli na spremembo in se vrne v proces spreminjanja (ni nujno, da šele na prvo stopnjo).
+			</br>
+			Morda ste tudi vi kdaj poskušali s spremembo (npr. s hujšanjem), pa se vam je zgodilo, da ste se pregrešili ali da se nekaj časa niste držali zastavljenega, in ste potem vse opustili. Pomembno je, da se zavedate, da je začasna povrnitev k starim razvadam nekaj normalnega (saj smo toliko časa živeli v skladu s temi vzorci) in da še ne pomeni, da se nismo sposobni spremeniti. Tudi, če se nam je zgodila ponovitev, se lahko vrnemo (oz. se moramo) nazaj k spreminjanju. Iz ponovitve se lahko tudi naučimo, na kaj moramo biti pozorni, da bomo lahko pri spremembi bolj vztrajni in kakšne strategije moramo razviti, da ne bi ponovno prišlo do tega.
+		</p>
+	</div>
+<!--Drugi zavihek-->	
+	<h3><a href="#top">Vsebine - Prehrana - Spoznavanje pomena ustrezne motivacije za uspešno hujšanje</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040">
+			<span style="font-size: 14pt;"><center><b>SPOZNAVANJE POMENA USTREZNE MOTIVACIJE ZA USPEŠNO HUJŠANJE</b></center></span>
+		</font>
+		<p>
+			Morda tudi iz lastnih izkušenj že veste, da samo poznavanje pravilnega in zdravega načina prehranjevanja ter gibanja še ne zagotavlja uspešnega hujšanja. Kot smo omenili že pri prejšnji temi, gre posameznik pri spreminjanju življenjskega sloga - hujšanju skozi več različnih stopenj, na katere imajo pomemben vpliv psihološki dejavniki. In eden najpomembnejših psiholoških dejavnikov pri tem, da se posameznik sploh spusti v proces hujšanja ter da v njem tudi vztraja, je zagotovo motivacija.
+		</p>
+		<p>
+			Brez motivacije cilja ne bomo mogli doseči, saj nas ne bo nič spodbujalo k temu, da bi ga - motivacija namreč predstavlja duševne procese, ki vedenje usmerjajo k cilju. Lahko bi rekli, da sta za motivacijski proces pomembna 2 elementa: na eni strani potreba oz. motiv, ki sproži neko vedenje, na drugi strani pa cilj, h kateremu je naše vedenje usmerjeno. Tudi pri procesu hujšanja moramo biti pozorni na ta dva elementa motivacije. Pomembno je, da se vprašamo, zakaj smo se lotili hujšanja (prvo vprašanje v okviru delovnega lista Pot k spremembi - link). So nas k temu spodbudili notranji motivi (zdravje, videz, izboljšanje samopodobe …)? Ali so na nas bolj vplivali zunanji motivi - pritiski ali pričakovanja drugih ljudi? Pri tem se je namreč dobro zavedati, da bomo lažje vztrajali pri hujšanju, če bomo k njemu pristopili na podlagi lastnih želja oz. notranjih motivov.
+		</p>
+		<p>
+			Po drugi strani je za našo motivacijo pomembno tudi, kakšne cilje smo si ob tem zastavili (2. vprašanje v okviru delovnega lista Pot k spremembi - link). Kadar so naši cilji previsoki ali nerealni, bo njihovo doseganje neizogibno neuspešno, naša motivacija pa bo usihala ali celo povsem ugasnila. Zato je pomembno, da si tudi pri hujšanju postavimo realne in dosegljive cilje - da sprejmemo priporočila, ki smo jih dobili na začetku tega programa o tem, kakšna naj bi bila naša telesna teža ob zaključku. Za podporo naši motivaciji pa je še bolj priporočljivo, da si v okviru večjega, končnega cilja zadamo več manjših konkretnih ciljev, pri katerih bomo lahko hitreje videli rezultate. Primer takega manjšega cilja bi bil npr. v naslednjem tednu sladico po kosilu nadomestiti s kosom sadja ali v naslednjem tednu se vsak dan gibati vsaj pol ure (oz. v skladu s priporočili in domačimi nalogami, ki jih boste dobili). Taki cilji so časovno omejeni, lažje dosegljivi in brez težav lahko preverimo, ali smo jih dosegli, ter se za to tudi nagradimo.
+		</p>
+		<p>
+			Nagrada ob izpolnjenem cilju je naslednja stvar, ki jo je potrebno izpostaviti pri vzdrževanju motivacije. Hujšanje zahteva precej prilagajanja in odrekanja, zato je pomembno, da se znamo ob izpolnjenih ciljih in dosežkih tudi nagraditi (vsak teden) in s tem spodbuditi njegovo nadaljevanje. Pri tem predlagamo, da naj nagrada ne bo v obliki hrane, ampak morda v obliki preživljanja prostega časa, kot si želite (npr. pol ure sprostitve brez vsakršnih obveznosti, obisk kina ali masaže, srečanje s prijatelji, kakšen manjši nakup).
+		</p>
+		<p>
+			Da bomo lažje vzdrževali primerno motivacijo, se je dobro zavedati še nekaterih njenih značilnosti:
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:10px; max-width=10px;">
+			•
+			</td>
+			<td>
+				Na motivacijo vplivajo tudi naša pričakovanja glede samega procesa hujšanja, zato jih je smiselno prevetriti. Če bomo npr. pričakovali, da je hujšanje enostaven proces, v katerem nam ni potrebno spremeniti naših navad, bomo hitro razočarani in bomo lahko hitro tudi obupali.
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Moč motivacije ni vedno enaka, ampak niha (zaradi zunanjih okoliščin ali pa notranjih dejavnikov). Na to moramo biti pripravljeni in v trenutkih manjše motivacije uporabiti določene strategije, ki nam pri tem pomagajo (nekaj predlogov bomo navedli v nadaljevanju).
+			</td>
+		</tr>
+	</table>
+	</p>
+		<p>
+		Pogosto je istočasno prisotnih več motivov, ki si lahko tudi nasprotujejo. To je normalen del našega življenja, ki ga moramo pričakovati tudi v procesu hujšanja (npr. hkratna prisotnost želje po hujšanju in vztrajanju v programu ter želje po slaščici po kosilu). V takih primerih je pomembno, da okrepimo prvi motiv, pri čemer nam lahko pomaga jasno zavedanje, kaj vse bomo pridobili s hujšanjem, pa tudi pripravljene strategije (npr. omejitev na 2 grižljaja slaščice, zamenjava slaščice s sadjem ali takoj po kosilu ukvarjanje z določeno aktivnostjo) in podpora drugih.
+			</br></br>
+			Podpora drugih je tudi zadnji pomemben vir motivacije, ki bi ga želeli omeniti, in k razmisleku o tem vas spodbuja tudi 3. vprašanje na delovne listu - link. Bližnji (družina, prijatelji, sodelavci …) lahko predstavljajo pomembno spodbudo pri hujšanju in krepijo našo motivacijo na več načinov:
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				nanje se lahko obrnemo v trenutkih šibke motivacije, da nas še nekdo ''od zunaj'' podpre in osveži argumente, zakaj smo se odločili za hujšanje;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				lahko so nam v konkretno pomoč in podporo, da se bomo lažje držali programa (npr. namesto nas naredijo določena opravila, da si bomo lahko vzeli čas za telesno dejavnost; nam pripravijo zdrav obrok ali kupijo ustrezna živila)
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				lahko so nam za v zgled, kadar živijo zdravo, in nam pomagajo tudi s koristnimi predlogi, kaj storiti, kadar se znajdemo v skušnjavi, da bi se vrnili k starim vzorcem;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				lahko postanejo naš partner in se skupaj z nami lotijo hujšanja - skupno načrtovanje in izvajanje programa je lažje in bolj zabavno;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				lahko so naši spremljevalci samo pri gibanju in nas spodbujajo h aktivnosti, kadar se sami ne bi odločili zanjo;
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				lahko enega od bližnjih prosimo za podpis Pogodbe s seboj (domača naloga do 5. koraka) in se s tem tudi pred drugimi zavežemo, da se bomo poskušali držati programa in spremeniti življenjski slog.
+			</td>
+		</tr>
+	</table>
+	</p>
+		<p>
+			Na koncu pa naštejmo (in ponovimo) še nekaj načinov, kako povečati oz. vzdrževati svojo motivacijo za hujšanje:
+		</p>
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Podpišite Pogodbo s seboj, poiščite sopodpisnika in si jo tudi kasneje večkrat preberite.
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Za trenutke šibke motivacije ali nasprotujočih si motivov imejte pripravljen načrt ali strategijo (npr. pokličete bližnjega; preberete razloge, zakaj si želite shujšati oz. kaj boste s tem pridobili; se spomnite na Pogodbo s seboj).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Upoštevajte pravilo 80/20. To pomeni, da se večinoma (v 80 %) držite programa in upoštevajte priporočila, občasno (v 20 %) pa si privoščite kršitev oz. ''prepovedano'' hrano brez občutkov krivde (npr. slaščico ali večer pred TV namesto sprehoda enkrat na teden).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Na koncu tedna se nagradite, če se vam je uspelo v večini držati programa oz. ste dosegli zastavljene cilje (naj nagrada ne bo hrana - ampak npr. kakšen manjši nakup, sprostitev, obisk).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Pritrdite si na hladilnik svojo staro fotografijo - najlepšo oz. najbolj vitko (kot spodbudo, kakšni bi spet želeli postati); ali najgršo oz. najmanj vitko (kot opomin, kakšni ne želite več biti).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Na vidno mesto si lahko obesite tudi lepo obleko, ki vam je bila nekoč prav, ali pa celo novo obleko nižje konfekcijske številke, ki jo želite doseči (seveda je pomembno, da ostanete realni).
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Vsak dan si vzemite 3 minute in si poskušajte predstavljati/vizualizirati, kako bo, ko boste izgubili težo. Kako se boste počutili? Kako boste izgledali? Oz. si poskušajte odgovoriti na vprašanji - kaj boste pridobili s tem, ko boste shujšali/kako se bo vaše življenje zaradi tega spremenilo?
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Ne obupajte, če kakšen dan niste uspešni pri upoštevanju programa ali če v 1 tednu niste shujšali toliko, kot ste želeli - to je normalen del procesa, ki ne pomeni, da niste sposobni shujšati.
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p>
+			Za dodatne informacije in spodbude vam predlagamo, da si pogledate še naslednje tuje spletne strani:
+			</p>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF"><a target="_blank" href="http://www.beckdietsolution.com/beck-diet-solution-blog/">Več o tehnikah za vztrajanje pri hujšanju</a></font></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF"><a target="_blank" href="http://www.webmd.com/diet/features/diet-motivation-tips">Več o namigih za večjo motivacijo</a></font></br>
+		</p>
+	</div>
+<!--Tretji zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Debelost - dejavnik tveganja za zdravje</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040">
+			<span style="font-size: 14pt;"><center><b>DEBELOST - DEJAVNIK TVEGANJA ZA ZDRAVJE</b></center></span>
+		</font>
+		<p>
+			Debelost je kronična presnovna bolezen, za katero je značilno čezmerno kopičenje maščevja v telesu in predstavlja tveganje za zdravje, zmanjšuje kakovost življenja, povečuje obolevnost in skrajšuje življenjsko dobo. 
+			</br>
+			Debelost je glavni dejavniki tveganja za številne kronične nenalezljive bolezni kot so sladkorna bolezen tipa 2, bolezni srca in ožilja, bolezni dihal, bolezni prebavil in rak.
+		</p>
+		<p>
+			Kronične nenalezljive bolezni predstavljajo glavni vzrok obolevnosti in umrljivosti tako v Sloveniji kot v svetu. Preko 70 % smrti prebivalcev Slovenije je posledica kroničnih bolezni, med temi pa so vzrok za kar okoli 40 % celotne umrljivosti prebivalstva bolezni srca in ožilja. Zaradi neustreznega načina življenja veliko ljudi zboli in umre prezgodaj. Pri nastanku posamezne bolezni imajo pomembno vlogo različni dejavniki tveganja, ki jih delimo na biološke (povišan krvni tlak, zvišana raven krvnega sladkorja in maščob v krvi ter prekomerna telesna masa) in vedenjske (kajenje, telesna nedejavnost, prehranjevalne navade, uživanje alkohola in stresno vedenje) dejavnike tveganja.
+		</p>
+		<p>
+			Glavni vzrok debelosti in prekomerne prehranjenosti je neravnovesje med energijskim vnosom in porabo. Povečuje se vnos energijsko goste hrane, ki je bogata z maščobami, soljo, sladkorji in osiromašena z vitamini, minerali in drugimi mikrohranili. Zmanjšala se je tudi telesna dejavnost zaradi sedeče narave dela in spremenjenih oblik transporta.
+		</p>
+	</div>
+<!--Cetrti zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - 12 korakov do zdravega prehranjevanja</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040">
+			<span style="font-size: 14pt;"><center><b>12 KORAKOV DO ZDRAVEGA PREHRANJEVANJA</b></center></span>
+		</font>
+		<p>
+			1. V jedi uživajte. Izbirajte pestro hrano, ki naj vsebuje več živil rastlinskega kot živil živalskega izvora.</br></br>
+			2. Izbirajte živila iz polnovrednih žit in žitnih izdelkov.</br></br>
+			3. Večkrat dnevno jejte pestro zelenjavo in sadje. Izbirajte lokalno pridelano, svežo zelenjavo in sadje.</br></br>
+			4. Bodite telesno dejavni toliko, da bo vaša telesna masa normalna.</br></br>
+			5. Nadzorujte količine zaužite maščobe in nadomestite večino nasičenih maščob (živalskih maščob) z nenasičenimi rastlinskimi olji.</br></br>
+			6. Nadomestite mastno meso in mastne mesne izdelke s stročnicami, ribami, perutnino ali pustim mesom.</br></br>
+			7. Dnevno uživajte priporočene količine manj mastnega mleka in manj mastnih mlečnih izdelkov.</br></br>
+			8. Jejte manj slano hrano.</br></br>
+			9. Omejite uživanje sladkorja in sladkih živil.</br></br>
+			10. Zaužijte dovolj tekočine.</br></br>
+			11. Omejite uživanje alkohola.</br></br>
+			12. Hrano pripravljajte zdravo in higiensko.</br></br>
+		</p>
+	</div>
+<!--Peti zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Priporočila za zdravo prehranjevanje</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040">
+			<span style="font-size: 14pt;"><center><b>PRIPOROČILA ZA ZDRAVO PREHRANJEVANJE</b></center></span>
+		</font>
+		</br>
+		<font color="#FF8040">
+			<center><b>Priporočeno število dnevnih obrokov</b></center>
+		</font>
+		<p>
+			Priporočila navajajo, da naj bi pojedli <b>od tri do pet obrokov, enakomerno razporejenih preko dneva</b>. Manj kot trije obroki dnevno vodijo v neredno prehranjevanje, ki ima lahko za posledico prekomerno prehranjenost in debelost. Tveganje za nastanek debelosti je lahko tudi več kot šest zaužitih obrokov na dan, kajti s tem se poveča možnost prekomernega energijskega vnosa.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Redno uživanje zajtrka</b></center>
+		</font>
+			</br>
+			Zajtrk je <b>najpomembnejši obrok v dnevni prehrani</b>, saj zjutraj telo oskrbi s potrebno energijo in hranilnimi snovmi; pomemben pa je tudi zaradi vpliva na dnevni ritem prehranjevanja. Dokazano je, da se tisti, ki zjutraj zajtrkujejo, bolj redno in zdravo prehranjujejo preko dneva, kar pomeni, da pojedo več manjših obrokov. V zdravi prehrani se priporoča od tri do pet obrokov na dan. Tako telo dobi energijo in hranila enakomerno čez dan, zato se ne kopičijo maščobne zaloge, imamo boljšo presnovo in prebavo, preprečimo občutek utrujenosti in zaspanosti po hranjenju, izboljšajo se psihične sposobnosti in počutje. 
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Sadje in zelenjava</b></center>
+		</font>
+			</br>
+			Sadje in zelenjava imata velik pomen v zdravi prehrani, saj sta biološko visokovredni skupini živil, in sicer z nizko energijsko gostoto. <b>Sadje in zelenjava vsebujeta veliko vitaminov, mineralov, antioksidantov, prehranske vlaknine in veliko drugih zaščitnih snovi</b>. Zaradi vsebnosti posameznih zaščitnih snovi, ki so v tipični barvi sadja in zelenjave, priporočamo uživanje različnih barv sadja in zelenjave (zelene, bele, oranžno-rumene, rdeče in modro-vijolične). V dnevno prehrano moramo vključiti od <b>150 do 250 gramov sadja</b> in od <b>250 do 400 gramov zelenjave</b>, tj. odvisno od dnevnih energijskih potreb. Priporočljivo je, da večji del teh živil zaužijemo kot svežo, presno hrano, drugi del pa v kuhani obliki.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Mleko in mlečni izdelki</b></center>
+		</font>
+			</br>
+			Mleko in mlečni izdelki so bogati <b>vir kalcija</b>, ki vpliva na gostoto kostne mase ter posledično na preprečevanje nastanka osteoporoze in osteomalacije. Smernice zdravega prehranjevanja zato svetujejo <b>2 do 3 enote mleka, jogurta ali sira na dan</b>, za otroke in mladino do 24 leta 3 enote ter 4 enote za nosečnice in doječe matere mlajše od 18 let. Ena enota mleka in zamenjav pa predstavlja 2 dcl mleka ali jogurta, 3 žlice puste skute ali svežega sira, 25 g sira (kos v velikosti škatlice vžigalic). Primer: oseba zaužije 1 lonček jogurta (180g) in porcijo sirovih štrukljev na dan, navedena količina predstavlja približno 2 enoti mleka in zamenjav.
+			</br>
+			<b>Vrsta mleka in mlečnih izdelkov</b>
+			</br>
+			Polnomastno mleko in polnomastni mlečni izdelki vsebujejo veliko zdravju škodljivih nasičenih maščobnih kislin. Smernice zdravega prehranjevanja temeljijo na <b>uživanju manj mastnega mleka in manj mastnih mlečnih izdelkov</b>. Nasičene maščobne kisline, ki jih je v mlečni maščobi 2/3 sodelujejo pri tvorbi holesterola in trigliceridov v krvi človeka. Posledično so tako nasičene maščobne kisline iz polnomastnega mleka in mlečnih izdelkov "krivec" za zvišan holesterol in zvišane maščobe v krvi, ki so vzrok za pojav ateroskleroze, bolezni srca in ožilja ter nekatere vrste raka, predvsem raka dojke, debelega črevesa, slinavke in prostate. Hrana z večjim deležem maščob je energijsko gosta in povzroča prekomerno telesno težo in debelost, ki dodatno povzroča številna obolenja.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Žita in žitni izdelki</b></center>
+		</font>
+			</br>
+			Žita vsebujejo veliko pomembnih hranilnih snovi, kot so vitamini, minerali, nenasičene maščobne kisline in prehranska vlaknina. Slednja se nahaja predvsem v lupini in kalčkih žitnih zrn. Živila iz skupine žit in žitnih izdelkov so bogat vir folata, niacina, riboflavina, tiamina, železa, magnezija in selena. <b>Zaradi prisotnih zaščitnih snovi se priporoča vključitev v dnevno prehrano približno polovico polnovrednih žit in žitnih izdelkov</b> (polnozrnati kruh in izdelki iz polnozrnate moke, izdelki iz ajde, kaše in kosmiči iz ovsa, rži, pire, ječmena, naravni (neoluščeni) riž, testenine iz polnozrnate moke). Raziskave kažejo, da ima prehrana, ki vsebuje veliko škrobnih živil, škodljive posledice za zdravje. Pri osebah, ki zaužijejo veliko krompirja, oluščenega riža in izdelkov iz bele moke, je pojavnost sladkorne bolezni ter bolezni srca in ožilja večja, v primerjavi z osebami, ki zaužijejo pretežno polnovredna žita. 
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Meso in mesni izdelki</b></center>
+		</font>
+			</br>
+			Meso in perutnina sta dober vir beljakovin, vitaminov iz skupine B, železa in cinka. <b>Pogosteje jejmo pusto meso in perutnino brez kože</b>, saj vsebujejo manj maščob. Meso pripravljajmo s čim manj maščobe, odstranimo vso vidno maščobo in namesto, da ga cvremo, raje dušimo, kuhajmo ali pečimo. Če meso pečemo na žaru, moramo paziti, da ga ne zapečemo preveč. Dober vir beljakovin ter nekaterih vitaminov in mineralov so tudi jajca, vendar bodimo zmerni pri uporabi rumenjakov, ker vsebujejo zelo veliko holesterola. <b>Mesni izdelki so pogosto bogati z maščobami, soljo in aditivi</b>. Zato priporočamo zmerno ter občasno uporabo mesnih izdelkov. Kadar jih vključujemo v jedilnik, izberimo take, kjer se vidi struktura mesa (npr. šunka, pršut, piščančje prsi ipd.) in ne tistih, kjer je struktura homogena zaradi mletja. Le teh naj <b>ne bi uživali več kot dvakrat mesečno</b>.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Ribe</b></center>
+		</font>
+			</br>
+			Morske ribe vsebujejo veliko za telo nujno potrebnih maščobnih kislin (omega-3), vitamina A in D, zlasti pa jod, ki ga je znatno manj v sladkovodnih ribah. Manjše morske ribe, ki jih zaužijemo s kostjo (npr. sardine) vsebujejo veliko kalcija, so pa tudi dober vir beljakovin. V primerjavi z mesom klavnih živali <b>priporočamo uživanje mastnih morskih rib</b>.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Sol</b></center>
+		</font>
+			</br>
+			Prekomeren vnos soli je pomemben dejavnik za povišan krvni tlak, ta pa za možgansko kap. Predelana in pol pripravljena ter pripravljena živila (kruh, mesni izdelki, pite, pice, "konzerve") so glavni vir zaužite soli in glede na rezultate zahodno evropskih študij predstavljajo kar 80 % zaužite soli. Dodatni vir soli je neustrezna priprava hrane in dosoljevanje pri mizi. Okusno hrano lahko pripravimo tudi brez dosoljevanja z uporabo zelišč.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Uporaba maščobe pri kuhi</b></center>
+		</font>
+			</br>
+			S pripravo hrane vplivamo na njene senzorične lastnosti, prebavljivost in izkoristljivost posameznih hranil. Priporočljivi so zlasti postopki, pri katerih se maščobe ne dodajajo ali se dodajajo v zmernih količinah in še to le na koncu termičnega postopka. Priporočamo <b>uporabo kvalitetnih rastlinskih olj</b> (oljčno in repično olje). Odsvetujemo večkratno uporabo maščob za toplotne postopke. Hrano predvsem kuhamo, dušimo, kuhamo v pari ter čim manj pečemo, pražimo ali cvremo.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Namazi</b></center>
+		</font>
+			</br>
+			Namazi so lahko bogati z maščobami in soljo, zato pri mazanju na kruh namažimo le tanek sloj namaza. Bolje kot kupljeni namazi so doma pripravljeni namazi, ki jih pripravimo iz puste skute, tune v soku, zelenjave ali raznih zelišč.
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Živila bogata s sladkorjem, soljo in zdravju škodljivimi maščobami</b></center>
+		</font>
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+			 	Ocvrte jedi (pomfrit, pohano meso, ocvrtki,…),
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				aromatizirane gazirane in negazirane brezalkoholne pijače (kole, ledeni čaj, sadni napitki, vode z okusom, ipd.),
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				sendviči, hot dog, pizza, burek
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				gotove jedi iz pločevink, juhe iz koncentratov ipd.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				pecivo, sladice, slaščice
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				bonboni, čokolada
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				nektarji in 100 % sadni sokovi
+				</td>
+		</tr>
+	</table>
+	</p>
+	<p>
+			Navedene skupine živil, ki so bogate s sladkorjem, soljo in zdravju škodljivimi maščobami (neustrezno sestavljeni sendviči, hot dog, pizza, ocvrte in gotove jedi, koncentrati, sladke jedi in pijače), sodijo med živila z veliko energije, aditivov in malo zaščitnih in drugih za telo nujno potrebnih snovi. Zato bistveno pripomorejo k dodatnemu vnosu le energije, kar pa predstavlja dejavnik tveganja za debelost in druge kronične nenalezljive bolezni. Teh živil <b>uživajte čim manj</b>.</br>
+			S pitjem sladkih pijač zaužijemo veliko kalorij in v večini primerov le malo ali pa sploh nič hranilnih snovi. Namesto sladkih pijač raje izberite vodo in nesladkane napitke, vendar ne tistih z umetnimi sladili. Ne pozabite, da voda z okusom ni voda, temveč je osvežilna brezalkoholna pijača. 100 % sadni sokovi so sicer vir vitaminov, mineralov in antioksidantov, vendar jih zaradi njihove energijske vrednosti ne pijte za žejo, temveč jih vključite v obrok.</br>
+		</p>
+		<p>
+		<font color="#FF8040">
+			<center><b>Tekočina</b></center>
+		</font>
+			</br>
+			Na dan je priporočeno popiti približno 2 litra tekočine, najbolje navadne vode. Potrebe po tekočini se povečajo pri fizični aktivnosti, vročini, pri aktivnem delu, ipd.
+		</p>
+	</div>
+	<h3><a href="#">Vsebine - Prehrana - Prve meritve</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040">
+			<span style="font-size: 14pt;"><center><b>PRVE MERITVE</b></center></span>
+		</font>
+		<p>
+		<b>TEHTANJE:</b></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	tehtnica naj bo postavljena na trdi podlagi</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	tehtamo se pred zajtrkom, po opravljeni mali in veliki potrebi</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	oblečeni smo v lahka oblačila ali spodnje perilo
+		</p>
+		<p>
+		<b>MERJENJE OBSEGA PASU:</b></br>
+			Merjenje <u>obsega pasu</u> je pomembno za odkrivanje bolnikov, ki jih ogrožajo kronične nenalezljive bolezni (srčno-žilne bolezni, sladkorna bolezen tipa II, rak dojke, rak črevesa). Maščobno tkivo, ki se kopiči v trebušni votlini, je povezano z nastankom presnovnih motenj in je vzrok za povišanje trigliceridov, nizko raven koristnega holesterola HDL in visoko vrednost sladkorja. 
+		</p>
+		<p>
+			<b>Obseg pasu merimo v srednji točki med spodnjim robom rebrnega loka in grebenom črevične kosti, kar predstavlja višino popka.</b>
+		</p>
+		<p>
+			Obseg pasu: </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 80 cm <b>ogroža</b> zdravje žensk, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 88 cm <b>zelo ogroža</b> zdravje žensk, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 94 cm <b>ogroža</b> zdravje moških, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 102 cm <b>zelo ogroža</b> zdravje moških </br>
+			z vidika zgoraj naštetih kroničnih bolezni.
+		</p>
+		<center><img title="spreminjanje" style="border-width: 0px; border-style: solid; width: 256px; height: 325px;" src="/eOskrba-webapp/uploads/Image/1_korak/Slika.jpg" alt=""></center>
+		<p>
+		<font color="#FF8040">
+			<center><b>Razmerje med obsegom pasu in bokov</b></center>
+		</font>
+		</p>
+		<p>
+			<b>Obseg bokov merimo na najširšem delu bokov.</b></br>
+			Z <u>razmerjem med obsegom pasu in bokov</u> ocenjujemo razporejenost maščevja.
+		</p>
+		<p>
+			<b>Ženske: </b></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,7 <b>ogroža</b> zdravje žensk, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,86 <b>zelo ogroža</b> zdravje žensk, </br>
+			<b>Moški </b></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,8 <b>ogroža</b> zdravje moških, </br>
+			&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;	nad 0,95 <b>zelo ogroža</b> zdravje moških</br>
+			z vidika kroničnih nenalezljivih bolezni.
+		</p>
+		<p>
+			<b>Razmerje med obsegom pasu in bokov je eden izmed več kriterijev za uvrščanje posameznika v določeno rizično skupino glede na stanje prehranjenosti.</b>
+		</p>		
+		<p>
+			Indeks telesne mase (ITM) je razmerje med telesno maso in kvadratom višine, ki ga izračunamo v kg/m2. Čeprav ITM ne odraža dejanskega deleža telesne maščobe, se pogosto uporablja za prepoznavanje premajhne ali prevelike telesne mase.
+			Stanje hranjenosti delimo v naslednje kategorije:</br></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;- do 18,49  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  	podhranjenost</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;- 18,5—24,9  &nbsp;	normalna prehranjenost</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;- 25,0—29,9  &nbsp; 	čezmerna prehranjenost (debelost I.stopnje)</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;- 30,0—39,9  &nbsp; 	debelost (debelost II. stopnje)</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;- 40 in več  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 	izredna debelost (debelost III. stopnje)
+		</p>
+		<p>
+			Opozorilo: Ocena prehranskega stanja posameznika glede na ITM je lahko neprimerna zlasti pri športnikih ali starejših osebah. 
+		</p>
+
+		<p>
+			<font color="#FF8040">
+				<center><b>Telesne maščobe</b></center>
+			</font>
+		</p>
+			
+		<p>
+			Maščobo v telesu razdelimo na tisto, ki je za telo nujno potrebna (esencialna maščoba),
+			in tisto, ki predstavlja v telesu maščobne zaloge. Esencialna maščoba, ki je potrebna za
+			normalno fiziološko delovanje telesa, je shranjena v manjših količinah v kostnem mozgu,
+			srcu, pljučih, jetrih, vranici, ledvicah, mišicah in z maščobo bogatih tkivih živčnega sistema.
+			Pri moških je esencialne približno 3 % telesne maščobe. Pri ženskah je odstotek esencialne
+			maščobe višji, približno 12 % telesne maščobe, saj vključuje telesno maščobo v prsih,
+			medeničnem delu in stegnih.
+		</p>
+		
+		<p>
+			Primarna energijska rezerva telesa je maščoba, ki je shranjena v obliki trigliceridov v
+			skladiščih narejenih iz maščobnega tkiva. Te rezervne maščobe se nabirajo pod kožo in
+			okrog notranjih organov, da jih ščitijo pred poškodbami. Večino rezervnih maščob telo ne
+			potrebuje. Celotne maščobne zaloge v maščobnem tkivu so zmožne velikih sprememb s čimer
+			omogočajo spreminjajoče se zahteve telesa za rast, reprodukcijo in staranje kot tudi nihanja
+			v okoljskih in fizioloških razmerah (dostopnost hrane, potrebe telesa za fizično aktivnost).
+			Vrednost skupnih telesnih maščob (esencialna maščoba in rezervna maščoba) je izražena kot
+			odstotek skupne telesne mase in je povezana z optimalnim zdravjem. Pri moških ta vrednost
+			znaša med 8 % in 24 %, pri ženskah pa med 21 % in 35 %.
+		</p>
+			
+		<p> </p>			
+
+	</div>
+<!--Gibanje-->
+<h3><a href="#">Vsebine - Gibanje - Predstavitev programa telesne vadbe</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF">
+			<span style="font-size: 14pt;"><center><b>PREDSTAVITEV PROGRAMA TELESNE VADBE</b></center></span>
+		</font>
+		<p>
+			Skozi 16 korakov boste spoznali, kakšno vlogo ima redna telesna dejavnost v procesu hujšanja in katere vrste telesne vadbe so za vas primerne. Seznanili se boste s koristmi redne telesne dejavnosti za vaše zdravje, z različnimi vrstami telesne vadbe z in brez pripomočkov, s pomenom ogrevanja in ohlajanja. Izbrali boste telesno vadbo, ki vam najbolj ustreza in jo boste redno izvajali.
+		</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Seznanitev s pomenom aktivnega življenjskega sloga ter napotki za varno in učinkovito vadbo (v grobem)</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF">
+			<span style="font-size: 14pt;"><center><b>SEZNANITEV S POMENOM AKTIVNEGA ŽIVLJENJSKEGA SLOGA TER NAPOTKI ZA VARNO IN UČINKOVITO VADBO (V GROBEM)</b></center></span>
+		</font>
+		<p>
+			Z aktivnim življenjskim slogom lahko bistveno prispevamo k ohranjanju oziroma izboljšanju našega zdravja ter preventivno delujemo pred pojavom različnih zdravstvenih zapletov, za kar je izrednega pomena varna in učinkovita ter pravilno dozirana telesna dejavnost. Aktiven življenjski slog je način življenja, ki povezuje telesno dejavnost z rednimi vsakodnevnimi opravili. Telesna dejavnost za krepitev zdravja vključuje tudi transportno telesno dejavnost - hojo ali kolesarjenje na delovno mesto, v šolo ali po opravkih ter hišna in vrtna opravila. Če imamo možnost, da pot v službo, šolo, fakulteto ipd., ali vsaj del poti opravimo peš ali s kolesom, lahko že velik del dnevne telesne dejavnosti opravimo "mimogrede". Če so vsakodnevne poti predolge, da bi jih v celoti opravili peš ali s kolesom, razmislimo, ali lahko vsaj del poti opravimo aktivno, tako da parkiramo avtomobil dlje vstran ali izstopimo z avtobusa postajo ali dve prej.
+		</p>
+		<p>
+			Za nadaljnje razumevanje pa je najprej potrebno razjasniti razliko med pojmi telesna dejavnost, telesna vadba in telesna dejavnost za krepitev zdravja:
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Telesna dejavnost je kakršna koli sila, ki jo izvajajo skeletne mišice in ki se konča s porabo energije nad ravnjo mirovanja. 
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Ni nujno, da je vedno zdravju neškodljiva.
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Telesna dejavnost za krepitev zdravja (angl. Health Enhancing Physical Activity ali skrajšano HEPA) je opredeljena kot vsaka oblika telesne dejavnosti, ki koristi zdravju in funkcionalni sposobnosti brez povzročanja nepotrebne škode ali tveganja.
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Telesna vadba pa je namerna in strukturirana telesna dejavnost, ki je namenjena izboljšanju telesne pripravljenosti in zdravja.
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p>
+			Telesna dejavnost/vadba je učinkovita in varna, če je pravilno dozirana, raznovrstna (vsebovati mora različne tipe vaj), uravnotežena (50% aerobnih vaj, 25% vaj za krepitev mišic, 25% vaj za gibljivost), zabavna ter jo posameznik rad izvaja in pri tem upošteva vse predpisane previdnostne ukrepe in kontraindikacije za telesno dejavnost. Pri telesni vadbi vedno upoštevamo naslednje previdnostne ukrepe:
+			<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:50px;">
+			•
+			</td>
+			<td>
+				Napredujmo postopno.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Vadimo le ko se dobro počutimo.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Ne vadimo (intenzivneje) 1 do 2 uri po večjih obrokih.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Nosimo ustrezno obleko in obutev.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Vadbo prilagodimo vremenskim razmeram.</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Upoštevamo osebne omejitve.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Izberemo ustrezno vadbo.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Vedno se pred vadbo ogrejemo, po njej ohladimo.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Sproti ocenjujemo intenzivnost telesne vadbe.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Bodimo pozorni na opozorilne znake pretirane vadbe.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Upočasnimo telesno dejavnost navkreber.
+				</td>
+		</tr>
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Redno nadomeščamo tekočine med in po telesni vadbi.
+						</td>
+		</tr>
+	</table>
+	</p>
+			<p align="justify">
+			Nasvete o aktivnem življenjskem slogu in napotke za varno in učinkovito vadbo najdete tudi v brezplačni knjižici 
+			<font color="#0000FF"><a target="_blank" href="http://www.cindi-slovenija.net/images/stories/cindi/trgovina/knjizica%20Z%20gibanjem%20do%20zdravja%202012.pdf">Z gibanjem do zdravja</a></font>,
+			vendar pa je potrebno pri procesu hujšanja upoštevati še specifična priporočila in napotke, ki jih boste spoznali tekom programa učnih ur telesne vadbe. V omenjeni knjižici pa najdete tudi nacionalno preglednico brezlačnih testiranj telesne zmogljivosti (s pomočjo preizkusa hoje na 2 km) ter informacije o brezplačnih demonstracijah nordijske hoje na omenjenih testiranjih.
+		</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Seznanitev s pomenom vodenja dnevnika telesne dejavnosti(TD)</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF">
+			<span style="font-size: 14pt;"><center><b>SEZNANITEV S POMENOM VODENJA DNEVNIKA TELESNE DEJAVNOSTI TD)</b></center></span>
+		</font>
+		<p>
+			Dnevnik telesne dejavnosti je zelo pomemben in koristen, zlasti za tiste, ki prej niso bili telesno dejavni. V dnevnik beležimo datum, vrsto telesne vadbe, trajanje in počutje (telesno počutje, bolečine, občutki itd). Z dnevnikom telesne dejavnosti lažje redno izvajamo načrtovano vadbo, saj termine določimo že v naprej glede na naš čas. Prav tako predstavlja motivacijo, če imamo dejavnosti načrtovane. Vodenje dnevnika pomaga pri spremljanju porabe energije in vrednotenju uspeha in napredka. Z vpisovanjem počutja in občutkov med in po vadbi lahko lažje ugotovimo, katera vrsta telesne vadbe nam bolj ustreza in jo bomo z veseljem izvajali tudi v prihodnje. Natančno vodenje dnevnika pomaga tudi pri upoštevanju načela uravnotežene vadbe, saj lahko že vnaprej predvidimo enote vzdržljivostne vadbe ter vaj za mišično moč in vaj za gibljivost.
+		</p>
+	</div>
+<h3><a href="#">Vsebine - Gibanje - Spoznavanje pomena "vaj mimogrede"</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#0000FF">
+			<span style="font-size: 14pt;"><center><b>SPOZNAVANJE POMENA "VAJ MIMOGREDE"</b></center></span>
+		</font>
+		<p>
+			"Vaje mimogrede" so enostavne nekaj minutne vaje, ki jih lahko izvajamo v različnih položajih s pripomočki ali brez njih. Z "vajami mimogrede" označujemo različne vrste vaj: vaje za gibljivost (raztezanje), vaje za krepitev mišic, vaje za ravnotežje, vaje za koordinacijo, dihalne vaje, vaje za sprostitev, aerobne vaje (vzdržljivostne vaje) ipd.
+			</br>
+			Izvajamo jih lahko ob različnih priložnostih: sedenje v službi, avtomobilu, avtobusu itd., stanje v vrsti, odmori med delom, gledanje televizije ali med predavanji. Pomagajo pri preprečevanju bolečin v sklepih in mišicah, ohranjanju prožnosti mišic in gibljivosti sklepov ter prispevajo k izboljšanju koncentracije, učinkovitosti našega dela ter boljšemu splošnemu počutju.
+		</p>
+		
+	</div>
+	
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_1/1%20Okus%20po%20zdravem_uvod_korak%201.pdf">Okus po zdravem</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_1/obseg_pasu_zlozenka.pdf">Obseg pasu</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_1/Zacnimo%20dan%20z%20zajtrkom.pdf">Začnimo dan z zajtrkom</a></p>
+				</td>
+			</tr>		
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/12551422">1. oddaja: Uživajmo v zdravi prehrani</a></p>
+				</td>
+			</tr>					
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

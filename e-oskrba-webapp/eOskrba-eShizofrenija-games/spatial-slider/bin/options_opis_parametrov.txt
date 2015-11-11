@@ -1,0 +1,103 @@
+*********************************************************************************
+* Copyright (c) 2013.								*
+* University of Primorska, Andrej Maru≈°iƒç Institute. All rights reserved.	*
+* 										*
+* Redistribution and use in source and binary forms, with or without		*
+* modification, are permitted provided that the following conditions are met: 	*
+* 										*
+* 1. Redistributions of source code must retain the above copyright notice, this*
+*    list of conditions and the following disclaimer. 				*
+* 2. Redistributions in binary form must reproduce the above copyright notice,	*
+*    this list of conditions and the following disclaimer in the documentation	*
+*    and/or other materials provided with the distribution. 			*
+* 										*
+* Project eOskrba (http://eOskrba.si) was financed by Slovenian Research	*
+* Agency and Ministry of Health of Republic of Slovenia.			*
+* 										*
+* THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS		*
+* "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT		*
+* LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR		*
+* A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT		*
+* OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,		*
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT		*
+* LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,		*
+* DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY		*
+* THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT		*
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE		*
+* OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.		*
+********************************************************************************
+* eOskrba-eShizofrenija-igre                                                   *
+* Spatial Slider                                                               *
+*                                                                              *
+* Aleksander Beöir, 2011                                                       *
+* alex.besir@gmail.com                                                         *
+********************************************************************************
+* OPIS PARAMETROV V OPTIONS.XML                                                *
+********************************************************************************
+
+S spreminjanjem vrednosti v vozliöËih v datoteki options.xml, se lahko nastavijo
+razliËni parametri igre.
+
+Parametri in njihova razlaga:
+-----------------------------
+
+  secondsToGo
+  -----------
+  
+	 ätevilo sekund trajanja igre.
+	 
+  startLevel
+  ----------
+  
+	 ZaËetna teûavnostna stopnja.
+	 
+  levelUp
+  -------
+  
+	 ätevilo pravilnih odgovorov, ki so potrebni za napredovanje v viöjo teûavnostno
+	 stopnjo.
+	 
+  minLevel
+  --------
+  
+	 Najmanjöa dovoljena teûavnostna stopnja.
+	 
+  maxLevel
+  --------
+  
+	 Najviöja dovoljena teûavnostna stopnja.
+	 
+  targetShowTime
+  --------------
+  
+	 »as (v milisekundah) prikaza ploöËic v tarËni razporeditvi preden se premeöajo.
+	 
+  roundGapTime
+  ------------
+  
+	 »as (v milisekundah) med dvema igrama.
+  
+  grids in grids/grid
+  -------------------
+  
+	 V elementu <grids> so naöteti elementi <grid>, ki predstavljajo vse moûne zaËetne
+	 mreûe (torej mreûe ploöËic, preden se premeöajo). Iz teh zaËetnih mreû potem
+	 program avtomatsko zgenerira premetanko (premeËe ploöËice).
+	 
+	 Mreûe so definirane na tak naËin:
+		<grid>
+			*16##
+			#27##
+			#38##
+			#49##
+			#50*#
+		</grid>
+		
+	 Vsaka mreûa mora biti definirana na podoben naËin, kot je zgornji primer:
+	 * Mreûa mora biti velikosti 5 x 5
+	 * Mora biti sestavljena iz ötevil od 0 do 9, * ali #
+	 * ätevilo predstavlja v mreûi oötevilËeno ploöËico. Izjemoma ötevilo '0' predstavlja
+	   ploöËico s ötevilom 10.
+	 * Znak '*' predstavlja prazno mesto v mreûi, kamor se lahko ploöËico pomakne.
+	 * Znak '#' predstavlja neuporabljeno mesto v mreûi, ki se ne izriöe na zaslonu
+	   (na teh mestih ne more nikoli biti ploöËica)

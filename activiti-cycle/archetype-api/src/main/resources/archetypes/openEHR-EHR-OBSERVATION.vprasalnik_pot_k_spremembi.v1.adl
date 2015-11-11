@@ -1,0 +1,148 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.vprasalnik_pot_k_spremembi.v1
+
+concept
+	[at0000]	-- Vprasalnik HU pot k spremembi
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Vprašalnik o načrtovanju spremembe telesne teže, uporabljen v 1. koraku pri projektu eHujšanje (eOskrba)">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"828CCAC4C9572B927257FEAC9BE64254">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Vprasalnik HU pot k spremembi
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {0..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0005] occurrences matches {0..1} matches {	-- Zakaj želite zmanjšati svojo telesno težo?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Kakšne cilje ste si postavili? Kakšno težo/videz želite doseči?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Kaj (kdo) menite, da vam bo v času hujšanja v oporo in kaj vas lahko ovira?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Kako dolgo že doživljate težave s telesno težo? Kakšna je bila vaša teža v otroštvu?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Kakšne so vaše dosedanje izkušnje s hujšanjem (na kakšen način ste hujšali, kolikokrat, s kakšnim uspehom)?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vprasalnik HU pot k spremembi">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vprašanja">
+					description = <"Vprašanja">
+				>
+				["at0005"] = <
+					text = <"Zakaj želite zmanjšati svojo telesno težo?">
+					description = <"Zakaj želite zmanjšati svojo telesno težo?">
+				>
+				["at0006"] = <
+					text = <"Kakšne cilje ste si postavili? Kakšno težo/videz želite doseči?">
+					description = <"Kakšne cilje ste si postavili? Kakšno težo/videz želite doseči?">
+				>
+				["at0007"] = <
+					text = <"Kaj (kdo) menite, da vam bo v času hujšanja v oporo in kaj vas lahko ovira?">
+					description = <"Kaj (kdo) menite, da vam bo v času hujšanja v oporo in kaj vas lahko ovira?">
+				>
+				["at0008"] = <
+					text = <"Kako dolgo že doživljate težave s telesno težo? Kakšna je bila vaša teža v otroštvu?">
+					description = <"Kako dolgo že doživljate težave s telesno težo? Kakšna je bila vaša teža v otroštvu?">
+				>
+				["at0009"] = <
+					text = <"Kakšne so vaše dosedanje izkušnje s hujšanjem (na kakšen način ste hujšali, kolikokrat, s kakšnim uspehom)?">
+					description = <"Kakšne so vaše dosedanje izkušnje s hujšanjem (na kakšen način ste hujšali, kolikokrat, s kakšnim uspehom)?">
+				>
+			>
+		>
+	>

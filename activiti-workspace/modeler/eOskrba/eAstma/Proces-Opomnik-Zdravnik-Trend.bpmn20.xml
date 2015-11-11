@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="Signavio Process Editor, http://www.signavio.com" exporterVersion="" expressionLanguage="http://www.w3.org/1999/XPath" id="sid-e9d54a52-6010-4fb1-b378-2ce603edcd70" targetNamespace="http://www.signavio.com/bpmn20" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="sid-ea63c8d0-ba34-408d-83b9-fb57291cdc6e" isExecutable="false">
+      <startEvent id="sid-295AA814-256A-4DD1-9A0C-2D273A30F0B5" isInterrupting="true" name="Na 6 mesecev">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <outgoing>sid-2D2CBE59-6AB9-4E10-B6F4-0F8B8E18D12E</outgoing>
+         <timerEventDefinition id="sid-274d84a3-92f9-46f7-bba2-c1ce1b26ad41"/>
+      </startEvent>
+      <userTask completionQuantity="1" id="sid-7655C502-7787-4E0E-BEEB-73AFF6313EDC" implementation="webService" isForCompensation="false" name="Preveri trende meritev za pacienta" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>sid-2D2CBE59-6AB9-4E10-B6F4-0F8B8E18D12E</incoming>
+         <outgoing>sid-0E20FEB2-1094-458F-8068-0E0DB3FE1A87</outgoing>
+      </userTask>
+      <endEvent id="sid-8EB6F209-EB7D-4C46-AA25-30444656B6D3" name="">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>sid-0DE67582-660B-4AFC-8FA4-6BF857D95FF7</incoming>
+         <incoming>sid-0E20FEB2-1094-458F-8068-0E0DB3FE1A87</incoming>
+      </endEvent>
+      <userTask completionQuantity="1" id="sid-5A6BCF4A-9A77-4E81-BFB1-D7664BB03BDA" implementation="webService" isForCompensation="false" name="Naroči pacinta na kontrolni pregled" startQuantity="1">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+         </extensionElements>
+         <incoming>sid-5046197C-0F79-4D7B-AAC5-59479FFA7BC3</incoming>
+         <outgoing>sid-0DE67582-660B-4AFC-8FA4-6BF857D95FF7</outgoing>
+      </userTask>
+      <boundaryEvent attachedToRef="sid-7655C502-7787-4E0E-BEEB-73AFF6313EDC" cancelActivity="true" id="sid-4F651BCC-22F9-4149-B078-08DC1964D930" name="" parallelMultiple="false">
+         <outgoing>sid-5046197C-0F79-4D7B-AAC5-59479FFA7BC3</outgoing>
+         <escalationEventDefinition escalationRef="sid-3174703e-5427-4e84-a86e-9da90a1dfc62" id="sid-f76662f4-e3ed-4038-b259-7312a767cf24"/>
+      </boundaryEvent>
+      <sequenceFlow id="sid-2D2CBE59-6AB9-4E10-B6F4-0F8B8E18D12E" name="" sourceRef="sid-295AA814-256A-4DD1-9A0C-2D273A30F0B5" targetRef="sid-7655C502-7787-4E0E-BEEB-73AFF6313EDC"/>
+      <sequenceFlow id="sid-5046197C-0F79-4D7B-AAC5-59479FFA7BC3" name="Kontrolni pregled potrebno izvesti" sourceRef="sid-4F651BCC-22F9-4149-B078-08DC1964D930" targetRef="sid-5A6BCF4A-9A77-4E81-BFB1-D7664BB03BDA"/>
+      <sequenceFlow id="sid-0DE67582-660B-4AFC-8FA4-6BF857D95FF7" name="" sourceRef="sid-5A6BCF4A-9A77-4E81-BFB1-D7664BB03BDA" targetRef="sid-8EB6F209-EB7D-4C46-AA25-30444656B6D3"/>
+      <sequenceFlow id="sid-0E20FEB2-1094-458F-8068-0E0DB3FE1A87" name="" sourceRef="sid-7655C502-7787-4E0E-BEEB-73AFF6313EDC" targetRef="sid-8EB6F209-EB7D-4C46-AA25-30444656B6D3"/>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-69148e86-3fd0-46ee-8900-e9fc437540d4">
+      <bpmndi:BPMNPlane bpmnElement="sid-ea63c8d0-ba34-408d-83b9-fb57291cdc6e" id="sid-39e26eae-ff64-49ca-b4a9-d0423ff56858">
+         <bpmndi:BPMNShape bpmnElement="sid-295AA814-256A-4DD1-9A0C-2D273A30F0B5" id="sid-295AA814-256A-4DD1-9A0C-2D273A30F0B5_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="69.69999694824219" y="127.69999694824219"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-7655C502-7787-4E0E-BEEB-73AFF6313EDC" id="sid-7655C502-7787-4E0E-BEEB-73AFF6313EDC_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="210.0" y="102.69999694824219"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-8EB6F209-EB7D-4C46-AA25-30444656B6D3" id="sid-8EB6F209-EB7D-4C46-AA25-30444656B6D3_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="690.0" y="128.6999969482422"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-5A6BCF4A-9A77-4E81-BFB1-D7664BB03BDA" id="sid-5A6BCF4A-9A77-4E81-BFB1-D7664BB03BDA_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="405.0" y="240.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-4F651BCC-22F9-4149-B078-08DC1964D930" id="sid-4F651BCC-22F9-4149-B078-08DC1964D930_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="295.18999435910825" y="165.9282367143119"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-2D2CBE59-6AB9-4E10-B6F4-0F8B8E18D12E" id="sid-2D2CBE59-6AB9-4E10-B6F4-0F8B8E18D12E_gui">
+            <omgdi:waypoint x="99.0" y="142.0"/>
+            <omgdi:waypoint x="210.0" y="142.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-0E20FEB2-1094-458F-8068-0E0DB3FE1A87" id="sid-0E20FEB2-1094-458F-8068-0E0DB3FE1A87_gui">
+            <omgdi:waypoint x="310.0" y="142.0"/>
+            <omgdi:waypoint x="690.0" y="142.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-5046197C-0F79-4D7B-AAC5-59479FFA7BC3" id="sid-5046197C-0F79-4D7B-AAC5-59479FFA7BC3_gui">
+            <omgdi:waypoint x="325.0" y="180.0"/>
+            <omgdi:waypoint x="380.0949971795541" y="180.9282367143119"/>
+            <omgdi:waypoint x="380.0949971795541" y="280.0"/>
+            <omgdi:waypoint x="405.0" y="280.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-0DE67582-660B-4AFC-8FA4-6BF857D95FF7" id="sid-0DE67582-660B-4AFC-8FA4-6BF857D95FF7_gui">
+            <omgdi:waypoint x="505.0" y="280.0"/>
+            <omgdi:waypoint x="597.5" y="280.0"/>
+            <omgdi:waypoint x="597.5" y="142.6999969482422"/>
+            <omgdi:waypoint x="690.0" y="142.0"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

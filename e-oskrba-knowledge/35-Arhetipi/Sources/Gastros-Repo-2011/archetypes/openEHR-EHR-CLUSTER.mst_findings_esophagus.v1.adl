@@ -1,0 +1,1310 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_findings_esophagus.v1
+
+concept
+	[at0000]	-- MST Findings for Esophagus
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"E90FF68F94BDCF1D68FFED1F3380EE4B">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Findings for Esophagus
+		items cardinality matches {1..*; ordered} matches {
+			CLUSTER[at0050] occurrences matches {0..1} matches {	-- NORMAL
+				items cardinality matches {1; ordered} matches {
+					CLUSTER[at0100] occurrences matches {0..1} matches {	-- Normal
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0105] matches {	-- Present?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0106, 	-- Yes
+											at0107]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at6601] occurrences matches {0..1} matches {	-- Distance of Z line
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0500] occurrences matches {0..*} matches {	-- Site(s)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0501, 	-- Crico-Pharyngeus
+											at0502, 	-- Upper third
+											at0503, 	-- Middle third
+											at0504, 	-- Lower third
+											at0505, 	-- Cardia
+											at0506, 	-- Whole esophagus
+											at0507]	-- Anastomosis
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at1000] occurrences matches {0..1} matches {	-- LUMEN
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at1100] occurrences matches {0..*} matches {	-- Dilated
+						items cardinality matches {0..1; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at1200] occurrences matches {0..*} matches {	-- Stenosis
+						items cardinality matches {0..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at1210] occurrences matches {0..1} matches {	-- Appearance
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1211, 	-- Extrinsic
+											at1212, 	-- Benign intrinsic
+											at1213]	-- Malignant intrinsic
+										}
+									}
+								}
+							}
+							ELEMENT[at1220] occurrences matches {0..1} matches {	-- Length
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at1230] occurrences matches {0..1} matches {	-- Traversed
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1231, 	-- Yes
+											at1232, 	-- After dilatation
+											at1233]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at1240] occurrences matches {0..1} matches {	-- Distance from incisors
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					CLUSTER[at1300] occurrences matches {0..*} matches {	-- Extrinsic Impression
+						items cardinality matches {0..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at1310] occurrences matches {0..1} matches {	-- Size
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1311, 	-- Small
+											at1312]	-- Large
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at1400] occurrences matches {0..*} matches {	-- Web
+						items cardinality matches {0..1; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at1500] occurrences matches {0..*} matches {	-- Ring (includes Schatzki Ring)
+						items cardinality matches {0..1; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at1600] occurrences matches {0..*} matches {	-- Hiatus Hernia
+						items cardinality matches {0..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at1610] occurrences matches {0..1} matches {	-- Size/Volume
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1311, 	-- Small
+											at1612, 	-- Medium
+											at1312]	-- Large
+										}
+									}
+								}
+							}
+							ELEMENT[at1620] occurrences matches {0..1} matches {	-- Site of Z-line (from incisors)
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at1630] occurrences matches {0..1} matches {	-- Site of Hiatal Narrowing (from incisors)
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					CLUSTER[at1700] occurrences matches {0..*} matches {	-- Lower Esophageal Sphincter
+						items cardinality matches {0..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at1710] occurrences matches {0..1} matches {	-- Tone
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1711, 	-- Gaping
+											at1712]	-- Hypertonic
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at1800] occurrences matches {0..*} matches {	-- Evidence of Previous Surgery: Anastomosis
+						items cardinality matches {0..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at1810] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1811, 	-- Esophago-jejunal anastomosis
+											at1812, 	-- Esophago-gastric anastomosis
+											at1813]	-- Esophago-colonic anastomosis
+										}
+									}
+								}
+							}
+							ELEMENT[at1820] occurrences matches {0..1} matches {	-- Distance from incisors
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at1830] occurrences matches {0..1} matches {	-- Suture material visible
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1831, 	-- Yes
+											at1832]	-- No
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+			CLUSTER[at2000] occurrences matches {0..1} matches {	-- CONTENTS
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at2100] occurrences matches {0..*} matches {	-- Foreign Body
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at2110] occurrences matches {0..*} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at2200] occurrences matches {0..*} matches {	-- Blood
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at2210] occurrences matches {0..1} matches {	-- Kind of blood
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at2211, 	-- Red
+											at2212, 	-- Clot
+											at2213]	-- Hematin(Altered blood)
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at2300] occurrences matches {0..*} matches {	-- Food
+						items cardinality matches {1; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at2400] occurrences matches {0..*} matches {	-- Bile
+						items cardinality matches {1; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at2500] occurrences matches {0..*} matches {	-- Stent
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at2510] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at2600] occurrences matches {0..*} matches {	-- Band
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at2610] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|0..100|}
+									}
+								}
+							}
+							ELEMENT[at2620] occurrences matches {0..1} matches {	-- Position
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at2621, 	-- Free
+											at2622]	-- Attached
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+			CLUSTER[at3000] occurrences matches {0..1} matches {	-- MUCOSA
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at3100] occurrences matches {0..*} matches {	-- Erythematous (Hyperemic)
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at3110] occurrences matches {0..1} matches {	-- Extent
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at3111, 	-- Localised
+											at3112, 	-- Patchy
+											at3113]	-- Diffuse
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at3200] occurrences matches {0..*} matches {	-- Esophagitis
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at3210] occurrences matches {0..1} matches {	-- Grade
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at3211, 	-- Grade I
+											at3212, 	-- Grade II
+											at3213, 	-- Grade III
+											at3214]	-- Grade IV
+										}
+									}
+								}
+							}
+							ELEMENT[at3220] occurrences matches {0..1} matches {	-- Upper Border (from incisors)
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at3230] occurrences matches {0..1} matches {	-- Bleeding
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1231, 	-- Yes
+											at1233]	-- No
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at3300] occurrences matches {0..*} matches {	-- Barret's Esophagus
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at3310] occurrences matches {0..1} matches {	-- Z-line (from incisors)
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at3320] occurrences matches {0..1} matches {	-- Upper end of Gastric Folds (from incisors)
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+						}
+					}
+					CLUSTER[at3400] occurrences matches {0..*} matches {	-- Candidiasis
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at3000]/items[at3100]/items[at3110]	-- /items[MUCOSA]/items[Erythematous (Hyperemic)]/items[Extent]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at3500] occurrences matches {0..*} matches {	-- Mucosal Sclerosis
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at3510] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at3511, 	-- Spontaneous
+											at3512]	-- Post-therapy
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at3000]/items[at3100]/items[at3110]	-- /items[MUCOSA]/items[Erythematous (Hyperemic)]/items[Extent]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+			CLUSTER[at4000] occurrences matches {0..1} matches {	-- FLAT LESIONS
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at4100] occurrences matches {0..*} matches {	-- Ectopic gastric mucosa
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at4110] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at4111, 	-- Single
+											at4112]	-- Multiple
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at4200] occurrences matches {0..*} matches {	-- Plaque
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT /items[at4000]/items[at4100]/items[at4110]	-- /items[FLAT LESIONS]/items[Ectopic gastric mucosa]/items[Number]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+			CLUSTER[at5000] occurrences matches {0..1} matches {	-- PROTRUDING LESIONS
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at5100] occurrences matches {0..*} matches {	-- Nodule
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at5110] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at5111, 	-- Single
+											at5112, 	-- Few
+											at5113]	-- Many
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at3000]/items[at3100]/items[at3110]	-- /items[MUCOSA]/items[Erythematous (Hyperemic)]/items[Extent]
+						}
+					}
+					CLUSTER[at5200] occurrences matches {0..*} matches {	-- Tumor/Mass
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at1000]/items[at1600]/items[at1610]	-- /items[LUMEN]/items[Hiatus Hernia]/items[Size/Volume]
+							ELEMENT[at5220] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at5221, 	-- Submucosal
+											at5222, 	-- Fungating
+											at5223]	-- Ulcerated
+										}
+									}
+								}
+							}
+							ELEMENT[at5230] occurrences matches {0..1} matches {	-- Circumferential
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1231, 	-- Yes
+											at1233]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at5240] occurrences matches {0..1} matches {	-- Obstructing
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at5241, 	-- Partial
+											at5242]	-- Complete
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at3000]/items[at3200]/items[at3230]	-- /items[MUCOSA]/items[Esophagitis]/items[Bleeding]
+							ELEMENT[at5260] occurrences matches {0..1} matches {	-- Stigmata of bleeding
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1231, 	-- Yes
+											at1233]	-- No
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at5300] occurrences matches {0..*} matches {	-- Varices
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at5310] occurrences matches {0..1} matches {	-- Grade
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at5311, 	-- Grade I
+											at5312, 	-- Grade II
+											at5313]	-- Grade III
+										}
+									}
+								}
+							}
+							ELEMENT[at5320] occurrences matches {0..1} matches {	-- Size (Estimated width)
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+												magnitude = <|0.0..1000.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at5330] occurrences matches {0..*} matches {	-- Upper limit from incisors
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at5340] occurrences matches {0..1} matches {	-- Bleeding
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at5341, 	-- Yes: Spurting
+											at5342, 	-- Yes: Oozing
+											at5343]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at5350] occurrences matches {0..1} matches {	-- Stigmata of recent bleeding
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1231, 	-- Yes
+											at1233]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at5360] occurrences matches {0..1} matches {	-- Red signs
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1231, 	-- Yes
+											at1233]	-- No
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+			CLUSTER[at6000] occurrences matches {0..1} matches {	-- EXCAVATED LESIONS
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at6100] occurrences matches {0..*} matches {	-- Mallory-Weiss tear
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at5000]/items[at5300]/items[at5340]	-- /items[PROTRUDING LESIONS]/items[Varices]/items[Bleeding]
+							use_node ELEMENT occurrences matches {0..1} /items[at5000]/items[at5200]/items[at5260]	-- /items[PROTRUDING LESIONS]/items[Tumor/Mass]/items[Stigmata of bleeding]
+						}
+					}
+					CLUSTER[at6200] occurrences matches {0..*} matches {	-- Erosion
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at5000]/items[at5100]/items[at5110]	-- /items[PROTRUDING LESIONS]/items[Nodule]/items[Number]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6300] occurrences matches {0..*} matches {	-- Ulcer
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6310] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at6320] occurrences matches {0..1} matches {	-- Size
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+												magnitude = <|0.0..1000.0|>
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at6350] occurrences matches {0..1} matches {	-- Distance from incisors
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+												magnitude = <|0.0..100.0|>
+											>
+										>
+									>
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at5000]/items[at5300]/items[at5340]	-- /items[PROTRUDING LESIONS]/items[Varices]/items[Bleeding]
+							use_node ELEMENT occurrences matches {0..1} /items[at5000]/items[at5200]/items[at5260]	-- /items[PROTRUDING LESIONS]/items[Tumor/Mass]/items[Stigmata of bleeding]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6400] occurrences matches {0..*} matches {	-- Scar
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6500] occurrences matches {0..*} matches {	-- Diverticulum
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6600] occurrences matches {0..*} matches {	-- Fistula
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {1..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Findings for Esophagus">
+					description = <".">
+				>
+				["at0050"] = <
+					text = <"NORMAL">
+					description = <"HEADING: NORMAL">
+				>
+				["at0100"] = <
+					text = <"Normal">
+					description = <"TERM: Normal">
+				>
+				["at0105"] = <
+					text = <"Present?">
+					description = <"Attribute: General">
+				>
+				["at0500"] = <
+					text = <"Site(s)">
+					description = <"Anatomical Sites for Esophagus">
+				>
+				["at0501"] = <
+					text = <"Crico-Pharyngeus">
+					description = <"Esophagus: Site">
+				>
+				["at0502"] = <
+					text = <"Upper third">
+					description = <"Esophagus: Site">
+				>
+				["at0503"] = <
+					text = <"Middle third">
+					description = <"Esophagus: Site">
+				>
+				["at0504"] = <
+					text = <"Lower third">
+					description = <"Esophagus: Site">
+				>
+				["at0505"] = <
+					text = <"Cardia">
+					description = <"Esophagus: Site">
+				>
+				["at0506"] = <
+					text = <"Whole esophagus">
+					description = <"Esophagus: Site">
+				>
+				["at0507"] = <
+					text = <"Anastomosis">
+					description = <"Esophagus: Site">
+				>
+				["at1000"] = <
+					text = <"LUMEN">
+					description = <"HEADING: LUMEN">
+				>
+				["at1100"] = <
+					text = <"Dilated">
+					description = <"TERM: Dilated">
+				>
+				["at0106"] = <
+					text = <"Yes">
+					description = <"Attribute value: Traversed=Yes">
+				>
+				["at0107"] = <
+					text = <"No">
+					description = <"Attribute value: Traversed=No">
+				>
+				["at1200"] = <
+					text = <"Stenosis">
+					description = <"TERM: Stenosis">
+				>
+				["at1210"] = <
+					text = <"Appearance">
+					description = <"Attribute: Appearance">
+				>
+				["at1211"] = <
+					text = <"Extrinsic">
+					description = <"Attribute value: Stenosis>Appearance">
+				>
+				["at1212"] = <
+					text = <"Benign intrinsic">
+					description = <"Attribute value: Stenosis>Appearance">
+				>
+				["at1213"] = <
+					text = <"Malignant intrinsic">
+					description = <"Attribute value: Stenosis>Appearance">
+				>
+				["at1220"] = <
+					text = <"Length">
+					description = <"Attribute: Length(cm)">
+				>
+				["at1230"] = <
+					text = <"Traversed">
+					description = <"Attribute: Traversed">
+				>
+				["at1231"] = <
+					text = <"Yes">
+					description = <"Attribute value: Traversed">
+				>
+				["at1232"] = <
+					text = <"After dilatation">
+					description = <"Attribute value: Traversed">
+				>
+				["at1233"] = <
+					text = <"No">
+					description = <"Attribute value: Traversed">
+				>
+				["at1240"] = <
+					text = <"Distance from incisors">
+					description = <"Attribute: Location (cm from incisors)">
+				>
+				["at1300"] = <
+					text = <"Extrinsic Impression">
+					description = <"TERM: Extrinsic Impression">
+				>
+				["at1310"] = <
+					text = <"Size">
+					description = <"Attribute: Size">
+				>
+				["at1311"] = <
+					text = <"Small">
+					description = <"Attribute value: Extrinsic Impression>Size:Small">
+				>
+				["at1312"] = <
+					text = <"Large">
+					description = <"Attribute value: Extrinsic Impression>Size:Small">
+				>
+				["at1400"] = <
+					text = <"Web">
+					description = <"TERM: Web">
+				>
+				["at1500"] = <
+					text = <"Ring (includes Schatzki Ring)">
+					description = <"TERM: Ring (includes Schatzki Ring)">
+				>
+				["at1600"] = <
+					text = <"Hiatus Hernia">
+					description = <"TERM: Hiatus Hernia">
+				>
+				["at1610"] = <
+					text = <"Size/Volume">
+					description = <"Attribute: Size/Volume">
+				>
+				["at1612"] = <
+					text = <"Medium">
+					description = <"Attribute value: Medium">
+				>
+				["at1620"] = <
+					text = <"Site of Z-line (from incisors)">
+					description = <"Attribute: Site of Z-line">
+				>
+				["at1630"] = <
+					text = <"Site of Hiatal Narrowing (from incisors)">
+					description = <"Attribute: Site of Hiatal Narrowing">
+				>
+				["at1700"] = <
+					text = <"Lower Esophageal Sphincter">
+					description = <"TERM: Lower Esophageal Sphincter">
+				>
+				["at1710"] = <
+					text = <"Tone">
+					description = <"Attribute: Tone">
+				>
+				["at1711"] = <
+					text = <"Gaping">
+					description = <"Attribute value: Gaping">
+				>
+				["at1712"] = <
+					text = <"Hypertonic">
+					description = <"Attribute value: Hypertonic">
+				>
+				["at1800"] = <
+					text = <"Evidence of Previous Surgery: Anastomosis">
+					description = <"TERM: Evidence of Previous Surgery: Anastomosis">
+				>
+				["at1810"] = <
+					text = <"Type">
+					description = <"Attribute: Type">
+				>
+				["at1811"] = <
+					text = <"Esophago-jejunal anastomosis">
+					description = <"Attribute value: Esophago-jejunal">
+				>
+				["at1812"] = <
+					text = <"Esophago-gastric anastomosis">
+					description = <"Attribute value: Esophago-gastric">
+				>
+				["at1813"] = <
+					text = <"Esophago-colonic anastomosis">
+					description = <"Attribute value: Esophago-colonic">
+				>
+				["at1820"] = <
+					text = <"Distance from incisors">
+					description = <"Attribute: Distance(cm from teeth)">
+				>
+				["at1830"] = <
+					text = <"Suture material visible">
+					description = <"Attribute: Suture material visible">
+				>
+				["at1831"] = <
+					text = <"Yes">
+					description = <"Attribute value: Yes">
+				>
+				["at1832"] = <
+					text = <"No">
+					description = <"Attribute value: No">
+				>
+				["at2000"] = <
+					text = <"CONTENTS">
+					description = <"HEADING: CONTENTS">
+				>
+				["at2100"] = <
+					text = <"Foreign Body">
+					description = <"TERM: CONTENTS==>Foreign Body">
+				>
+				["at2110"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at2200"] = <
+					text = <"Blood">
+					description = <"TERM: CONTENTS==>Blood">
+				>
+				["at2210"] = <
+					text = <"Kind of blood">
+					description = <"Attribute: CONTENTS==>Blood==>Kind of blood">
+				>
+				["at2211"] = <
+					text = <"Red">
+					description = <"Attribute value: CONTENTS==>Blood==>Kind of blood: Red">
+				>
+				["at2212"] = <
+					text = <"Clot">
+					description = <"Attribute value: CONTENTS==>Blood==>Kind of blood: Clot">
+				>
+				["at2213"] = <
+					text = <"Hematin(Altered blood)">
+					description = <"Attribute value: CONTENTS==>Blood==>Kind of blood: Hematin(Altered blood)">
+				>
+				["at2300"] = <
+					text = <"Food">
+					description = <"TERM: CONTENTS==>Food">
+				>
+				["at2400"] = <
+					text = <"Bile">
+					description = <"TERM: CONTENTS==>Bile">
+				>
+				["at2500"] = <
+					text = <"Stent">
+					description = <"TERM: CONTENTS==>Stent">
+				>
+				["at2510"] = <
+					text = <"Type">
+					description = <"Attribute: CONTENTS==>Stent==>Type">
+				>
+				["at2600"] = <
+					text = <"Band">
+					description = <"TERM: CONTENTS==>Band">
+				>
+				["at2610"] = <
+					text = <"Number">
+					description = <"Attribute: CONTENTS==>Band==>Number">
+				>
+				["at2620"] = <
+					text = <"Position">
+					description = <"Attribute: CONTENTS==>Band==>Position">
+				>
+				["at2621"] = <
+					text = <"Free">
+					description = <"Attribute value: CONTENTS==>Band==>Position:Free">
+				>
+				["at2622"] = <
+					text = <"Attached">
+					description = <"Attribute value: CONTENTS==>Band==>Position:Attached">
+				>
+				["at3000"] = <
+					text = <"MUCOSA">
+					description = <"HEADING: MUCOSA">
+				>
+				["at3100"] = <
+					text = <"Erythematous (Hyperemic)">
+					description = <"TERM: MUCOSA==>Erythematous (Hyperemic)">
+				>
+				["at3110"] = <
+					text = <"Extent">
+					description = <"Attribute: MUCOSA==>Erythematous (Hyperemic)==>Extent">
+				>
+				["at3111"] = <
+					text = <"Localised">
+					description = <"Attribute value: MUCOSA==>Erythematous (Hyperemic)==>Extent: Localised">
+				>
+				["at3112"] = <
+					text = <"Patchy">
+					description = <"Attribute value: MUCOSA==>Erythematous (Hyperemic)==>Extent: Patchy">
+				>
+				["at3113"] = <
+					text = <"Diffuse">
+					description = <"Attribute value: MUCOSA==>Erythematous (Hyperemic)==>Extent: Diffuse">
+				>
+				["at3200"] = <
+					text = <"Esophagitis">
+					description = <"TERM: MUCOSA==>Esophagitis">
+				>
+				["at3210"] = <
+					text = <"Grade">
+					description = <"Attribute: MUCOSA==>Esophagitis ==> Grade">
+				>
+				["at3211"] = <
+					text = <"Grade I">
+					description = <"Attribute value: MUCOSA==>Esophagitis ==> Grade: Grade I">
+				>
+				["at3212"] = <
+					text = <"Grade II">
+					description = <"Attribute value: MUCOSA==>Esophagitis ==> Grade: Grade II">
+				>
+				["at3213"] = <
+					text = <"Grade III">
+					description = <"Attribute value: MUCOSA==>Esophagitis ==> Grade: Grade III">
+				>
+				["at3214"] = <
+					text = <"Grade IV">
+					description = <"Attribute value: MUCOSA==>Esophagitis ==> Grade: Grade IV">
+				>
+				["at3220"] = <
+					text = <"Upper Border (from incisors)">
+					description = <"Attribute: MUCOSA==>Esophagitis ==> Upper Border (cm from incisors)">
+				>
+				["at3230"] = <
+					text = <"Bleeding">
+					description = <"Attribute: MUCOSA==>Esophagitis ==> Bleeding">
+				>
+				["at3300"] = <
+					text = <"Barret's Esophagus">
+					description = <"TERM:MUCOSA==>Barret's Esophagus">
+				>
+				["at3310"] = <
+					text = <"Z-line (from incisors)">
+					description = <"Attribute:MUCOSA==>Barret's Esophagus==>Z-line Distance (cm from incisors)">
+				>
+				["at3320"] = <
+					text = <"Upper end of Gastric Folds (from incisors)">
+					description = <"Attribute:MUCOSA==>Barret's Esophagus==>Distance of Upper end of Gastric Folds (cm from incisors)">
+				>
+				["at3400"] = <
+					text = <"Candidiasis">
+					description = <"TERM: MUCOSA==>Candidiasis">
+				>
+				["at3500"] = <
+					text = <"Mucosal Sclerosis">
+					description = <"TERM:MUCOSA==>Mucosal Sclerosis">
+				>
+				["at3510"] = <
+					text = <"Type">
+					description = <"Attribute:MUCOSA==>Mucosal Sclerosis==>Type">
+				>
+				["at3511"] = <
+					text = <"Spontaneous">
+					description = <"Attribute value:MUCOSA==>Mucosal Sclerosis==>Type:Spontaneous">
+				>
+				["at3512"] = <
+					text = <"Post-therapy">
+					description = <"Attribute value:MUCOSA==>Mucosal Sclerosis==>Type:Post-therapy">
+				>
+				["at4000"] = <
+					text = <"FLAT LESIONS">
+					description = <"HEADING:FLAT LESIONS">
+				>
+				["at4100"] = <
+					text = <"Ectopic gastric mucosa">
+					description = <"TERM:Ectopic gastric mucosa">
+				>
+				["at4110"] = <
+					text = <"Number">
+					description = <"Attribute:FLAT LESIONS==>Ectopic gastric mucosa==>Number">
+				>
+				["at4111"] = <
+					text = <"Single">
+					description = <"Attribute value:FLAT LESIONS==>Ectopic gastric mucosa==>Number:Single">
+				>
+				["at4112"] = <
+					text = <"Multiple">
+					description = <"Attribute value:FLAT LESIONS==>Ectopic gastric mucosa==>Number:Multiple">
+				>
+				["at4200"] = <
+					text = <"Plaque">
+					description = <"TERM:Plaque">
+				>
+				["at5000"] = <
+					text = <"PROTRUDING LESIONS">
+					description = <"HEADING:PROTRUDING LESIONS">
+				>
+				["at5100"] = <
+					text = <"Nodule">
+					description = <"TERM:Nodule">
+				>
+				["at5110"] = <
+					text = <"Number">
+					description = <"Attribute:Nodule==>Number">
+				>
+				["at5111"] = <
+					text = <"Single">
+					description = <"Attribute value: Nodule==>Number:Single">
+				>
+				["at5112"] = <
+					text = <"Few">
+					description = <"Attribute value: Nodule==>Number:Few">
+				>
+				["at5113"] = <
+					text = <"Many">
+					description = <"Attribute value: Nodule==>Number:Many">
+				>
+				["at5200"] = <
+					text = <"Tumor/Mass">
+					description = <"TERM: Tumor/Mass">
+				>
+				["at5220"] = <
+					text = <"Type">
+					description = <"Attribute:Tumor/Mass==>Type">
+				>
+				["at5221"] = <
+					text = <"Submucosal">
+					description = <"Attribute value: Tumor/Mass==>Type:Submucosal">
+				>
+				["at5222"] = <
+					text = <"Fungating">
+					description = <"Attribute value: Tumor/Mass==>Type:Fungating">
+				>
+				["at5223"] = <
+					text = <"Ulcerated">
+					description = <"Attribute value: Tumor/Mass==>Type:Ulcerated">
+				>
+				["at5230"] = <
+					text = <"Circumferential">
+					description = <"Attribute:Tumor/Mass==>Circumferential">
+				>
+				["at5240"] = <
+					text = <"Obstructing">
+					description = <"Attribute:Tumor/Mass==>Obstructing">
+				>
+				["at5241"] = <
+					text = <"Partial">
+					description = <"Attribute:Tumor/Mass==>Obstructing:Partial">
+				>
+				["at5242"] = <
+					text = <"Complete">
+					description = <"Attribute:Tumor/Mass==>Obstructing:Complete">
+				>
+				["at5260"] = <
+					text = <"Stigmata of bleeding">
+					description = <"Attribute:Tumor/Mass==>Stigmata of bleeding">
+				>
+				["at5300"] = <
+					text = <"Varices">
+					description = <"TERM: Varices">
+				>
+				["at5310"] = <
+					text = <"Grade">
+					description = <"Attribute: Varices==> Grade">
+				>
+				["at5311"] = <
+					text = <"Grade I">
+					description = <"Attribute value: Varices==> Grade: Grade I">
+				>
+				["at5312"] = <
+					text = <"Grade II">
+					description = <"Attribute value: Varices==> Grade: Grade II">
+				>
+				["at5313"] = <
+					text = <"Grade III">
+					description = <"Attribute value: Varices==> Grade: Grade III">
+				>
+				["at5320"] = <
+					text = <"Size (Estimated width)">
+					description = <"Attribute: Varices==> Size (Estimated width in mm)">
+				>
+				["at5330"] = <
+					text = <"Upper limit from incisors">
+					description = <"Attribute: Varices==> Upper limit (cm from incisors)">
+				>
+				["at5340"] = <
+					text = <"Bleeding">
+					description = <"Attribute: Varices==> Bleeding">
+				>
+				["at5341"] = <
+					text = <"Yes: Spurting">
+					description = <"Attribute value: Varices==> Bleeding: Yes: Spurting">
+				>
+				["at5342"] = <
+					text = <"Yes: Oozing">
+					description = <"Attribute value: Varices==> Bleeding: Yes: Oozing">
+				>
+				["at5343"] = <
+					text = <"No">
+					description = <"Attribute value: Varices==> Bleeding: No">
+				>
+				["at5350"] = <
+					text = <"Stigmata of recent bleeding">
+					description = <"Attribute: Varices==> Stigmata of recent bleeding">
+				>
+				["at5360"] = <
+					text = <"Red signs">
+					description = <"Attribute: Varices==> Red signs">
+				>
+				["at6000"] = <
+					text = <"EXCAVATED LESIONS">
+					description = <"HEADING: EXCAVATED LESIONS">
+				>
+				["at6100"] = <
+					text = <"Mallory-Weiss tear">
+					description = <"TERM: Mallory-Weiss tear">
+				>
+				["at6200"] = <
+					text = <"Erosion">
+					description = <"TERM: Erosion">
+				>
+				["at6300"] = <
+					text = <"Ulcer">
+					description = <"TERM: Ulcer">
+				>
+				["at6310"] = <
+					text = <"Number">
+					description = <"Attribute: Number">
+				>
+				["at6320"] = <
+					text = <"Size">
+					description = <"Attribute: Size (mm)">
+				>
+				["at6350"] = <
+					text = <"Distance from incisors">
+					description = <"Attribute: Site(cm from incisors)">
+				>
+				["at6400"] = <
+					text = <"Scar">
+					description = <"TERM: Scar">
+				>
+				["at6500"] = <
+					text = <"Diverticulum">
+					description = <"TERM: Diverticulum">
+				>
+				["at6600"] = <
+					text = <"Fistula">
+					description = <"TERM: Fistula">
+				>
+				["at6601"] = <
+					text = <"Distance of Z line">
+					description = <"cm from incisors">
+				>
+			>
+		>
+	>

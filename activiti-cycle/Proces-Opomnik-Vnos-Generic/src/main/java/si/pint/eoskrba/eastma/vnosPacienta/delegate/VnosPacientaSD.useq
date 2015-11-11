@@ -1,0 +1,110 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<sequence-diagram version="1.0.4" icons="true">  
+  <object id="1" language="java" name="si.pint.eoskrba.eastma.vnosPacienta.delegate.SelectClinicalTrialGroupDelegate" 
+    project="Proces-Opomnik-Vnos-Generic" 
+    file="/Proces-Opomnik-Vnos-Generic/src/main/java/si/pint/eoskrba/eastma/vnosPacienta/delegate/SelectClinicalTrialGroupDelegate.java" 
+    binary="false" label="selectClinicalTrialGroupDelegate" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="138" y="0"/>    
+    <execution id="1">      
+      <position height="379" width="212" x="5" y="99"/>    
+    </execution>  
+  </object>  
+  <object id="2" language="java" name="si.pint.archetypes.service.ArchetypeService" project="archetype-api" 
+    file="/archetype-api/src/main/java/si/pint/archetypes/service/ArchetypeService.java" binary="false" 
+    label="archetypeService" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="369" y="0"/>    
+    <execution id="1">      
+      <position height="337" width="131" x="221" y="120"/>    
+    </execution>    
+    <execution id="2">      
+      <position height="222" width="0" x="0" y="162"/>    
+    </execution>    
+    <execution id="3">      
+      <position height="21" width="0" x="0" y="415"/>    
+    </execution>  
+  </object>  
+  <object id="5" language="java" name="si.pint.archetypes.init.ArchetypeManager" project="archetype-api" 
+    file="/archetype-api/src/main/java/si/pint/archetypes/init/ArchetypeManager.java" binary="false" 
+    label="archetypeManager" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="705" y="0"/>    
+    <execution id="1">      
+      <position height="180" width="135" x="356" y="183"/>    
+    </execution>  
+  </object>  
+  <object id="6" language="java" name="org.openehr.rm.util.SkeletonGenerator" project="rm-skeleton" 
+    file="/rm-skeleton/src/main/java/org/openehr/rm/util/SkeletonGenerator.java" binary="false" 
+    label="skeletonGenerator" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="604" y="0"/>    
+    <execution id="1">      
+      <position height="138" width="134" x="495" y="204"/>    
+    </execution>    
+    <execution id="2">      
+      <position height="63" width="134" x="495" y="258"/>    
+    </execution>  
+  </object>  
+  <object id="7" language="java" name="org.openehr.build.RMObjectBuilder" project="rm-builder" 
+    file="/rm-builder/src/main/java/org/openehr/build/RMObjectBuilder.java" binary="false" label="&lt;static&gt;" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="658" y="0"/>    
+    <execution id="1">      
+      <position height="21" width="122" x="633" y="279"/>    
+    </execution>  
+  </object>  
+  <message operation="setAndValidataData(java.util.Map):boolean">    
+    <end type="SOURCE" nodeId="1" executionId="0"/>    
+    <end type="TARGET" nodeId="2" executionId="0"/>  
+  </message>  
+  <message operation="generateRMFromInputs(java.util.Map):java.lang.Object">    
+    <end type="SOURCE" nodeId="2" executionId="0"/>    
+    <end type="TARGET" nodeId="2" executionId="1"/>  
+  </message>  
+  <message operation="validateRM(org.openehr.rm.common.archetyped.Locatable):java.util.List&lt;ValidationError&gt;">    
+    <end type="SOURCE" nodeId="2" executionId="0"/>    
+    <end type="TARGET" nodeId="2" executionId="2"/>  
+  </message>  
+  <message operation="populateSkeleton(java.util.Map):java.lang.Object">    
+    <end type="SOURCE" nodeId="2" executionId="1"/>    
+    <end type="TARGET" nodeId="5" executionId="0"/>  
+  </message>  
+  <message 
+    operation="create(org.openehr.am.archetype.Archetype,java.lang.String,java.util.Map&lt;String,Archetype&gt;,org.openehr.rm.util.GenerationStrategy):java.lang.Object">    
+    <end type="SOURCE" nodeId="5" executionId="0"/>    
+    <end type="TARGET" nodeId="6" executionId="0"/>  
+  </message>  
+  <message 
+    operation="createComplexObject(org.openehr.am.archetype.constraintmodel.CComplexObject,org.openehr.am.archetype.Archetype,java.lang.String,java.util.Map&lt;String,Archetype&gt;,org.openehr.rm.util.GenerationStrategy):java.lang.Object">    
+    <end type="SOURCE" nodeId="6" executionId="0"/>    
+    <end type="TARGET" nodeId="6" executionId="1"/>  
+  </message>  
+  <message operation="construct(java.lang.String,java.util.Map&lt;String,Object&gt;):org.openehr.rm.RMObject">    
+    <end type="SOURCE" nodeId="6" executionId="1"/>    
+    <end type="TARGET" nodeId="7" executionId="0"/>  
+  </message>
+</sequence-diagram>

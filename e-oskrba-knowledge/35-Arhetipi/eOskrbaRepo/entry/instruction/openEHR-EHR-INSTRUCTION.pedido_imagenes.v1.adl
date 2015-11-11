@@ -1,0 +1,381 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-INSTRUCTION.pedido_imagenes.v1
+
+concept
+	[at0000]	-- Pedido de examenes imagenologicos
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"Pedido de examenes imagenologicos">
+			use = <"Pedido de examenes imagenologicos">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"8DBB69089F0AE5A9FD4AFF7236134246">
+	>
+
+definition
+	INSTRUCTION[at0000] matches {	-- Pedido de examenes imagenologicos
+		activities cardinality matches {0..*; unordered} matches {
+			ACTIVITY[at0001] occurrences matches {0..1} matches {	-- Current Activity
+				description matches {
+					ITEM_TREE[at0002] matches {	-- Arbol
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- Radiografía de raquis cervical
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0004, 	-- Frente
+											at0005, 	-- Perfil
+											at0006]	-- Boca abierta (trans-oral)
+										}
+									}
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Radiografía de tórax
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0008, 	-- Frente
+											at0009]	-- Perfil
+										}
+									}
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Radiografía de columna
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Radiografía de abdomen
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0012] occurrences matches {0..1} matches {	-- Radiografía de pelvis
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {	-- Radiografía de miembro
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0014, 	-- Superior
+											at0015]	-- Inferior
+										}
+									}
+								}
+							}
+							CLUSTER[at0016] occurrences matches {0..1} matches {	-- Ecografía / Ultrasonografía
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0017] occurrences matches {0..1} matches {	-- Ecografía abdominal
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									CLUSTER[at0018] occurrences matches {0..1} matches {	-- Ecodopler
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0019] occurrences matches {0..1} matches {	-- Vasos de cuello
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0020] occurrences matches {0..1} matches {	-- Arteria miembro superior
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0022, 	-- Izquierda
+															at0023]	-- Derecha
+														}
+													}
+												}
+											}
+											ELEMENT[at0021] occurrences matches {0..1} matches {	-- Arteria miembro inferior
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0024, 	-- Izquierda
+															at0025]	-- Derecha
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							CLUSTER[at0026] occurrences matches {0..1} matches {	-- Tomografía computada
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0027] occurrences matches {0..1} matches {	-- Cráneo
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									CLUSTER[at0028] occurrences matches {0..1} matches {	-- Cuello
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0029] occurrences matches {0..1} matches {	-- Indicar
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0030] occurrences matches {0..1} matches {	-- ¿Con raquis cervical?
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0031] occurrences matches {0..1} matches {	-- Tórax
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {	-- Abdomen  / Pelvis
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0033] occurrences matches {0..1} matches {	-- Miembros
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+							ELEMENT[at0034] occurrences matches {0..1} matches {	-- Resonancia Magnética Nuclear
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		narrative matches {   -- Otros detalles
+            DV_TEXT matches {*}
+        }
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Pedido de examenes imagenologicos">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Current Activity">
+					description = <"Current Activity">
+				>
+				["at0002"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Radiografía de raquis cervical">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Frente">
+					description = <"Frente">
+				>
+				["at0005"] = <
+					text = <"Perfil">
+					description = <"Perfil">
+				>
+				["at0006"] = <
+					text = <"Boca abierta (trans-oral)">
+					description = <"Boca abierta (trans-oral)">
+				>
+				["at0007"] = <
+					text = <"Radiografía de tórax">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Frente">
+					description = <"Frente">
+				>
+				["at0009"] = <
+					text = <"Perfil">
+					description = <"Perfil">
+				>
+				["at0010"] = <
+					text = <"Radiografía de columna">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Radiografía de abdomen">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Radiografía de pelvis">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Radiografía de miembro">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Superior">
+					description = <"Superior">
+				>
+				["at0015"] = <
+					text = <"Inferior">
+					description = <"Inferior">
+				>
+				["at0016"] = <
+					text = <"Ecografía / Ultrasonografía">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Ecografía abdominal">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Ecodopler">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Vasos de cuello">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Arteria miembro superior">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Arteria miembro inferior">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Izquierda">
+					description = <"Izquierda">
+				>
+				["at0023"] = <
+					text = <"Derecha">
+					description = <"Derecha">
+				>
+				["at0024"] = <
+					text = <"Izquierda">
+					description = <"Izquierda">
+				>
+				["at0025"] = <
+					text = <"Derecha">
+					description = <"Derecha">
+				>
+				["at0026"] = <
+					text = <"Tomografía computada">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Cráneo">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Cuello">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Indicar">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"¿Con raquis cervical?">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Tórax">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Abdomen  / Pelvis">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Miembros">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Resonancia Magnética Nuclear">
+					description = <"*">
+				>
+			>
+		>
+	>
+	term_bindings = <
+        ["trauma"] = <
+            items = <
+                ["/narrative"] = <[pedido_imagenes::instruction_narrative]>
+            >
+        >
+    >

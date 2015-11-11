@@ -1,0 +1,206 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.sport_koledar.v1
+
+concept
+	[at0000]	-- unknown
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"calendar">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"AB36FB8FC8DFFF7B2F619F67EEB50DAF">
+	>
+
+definition
+	CLUSTER[at0000] occurrences matches {0..*} matches {	-- unknown
+		items cardinality matches {0..1000; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1000} matches {	-- Program
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0007, 	-- Nizka intenzivnost
+							at0008]	-- Visoka intenzivnost
+						}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1000} matches {	-- Datum vadbe
+				value matches {
+					DV_DATE_TIME matches {*}
+				}
+			}
+			ELEMENT[at0003] occurrences matches {0..1000} matches {	-- Podtip vadbe
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009, 	-- Sprostitveno
+							at0010, 	-- Dolgo
+							at0011, 	-- Klanec
+							at0012]	-- Tempo
+						}
+					}
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1000} matches {	-- Trajanje vadbe
+				value matches {
+					DV_TIME matches {*}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1000} matches {	-- Disciplina
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0013, 	-- Vzdržljivostna vadba
+							at0014]	-- Vaje za koordinacijo in gibljivost
+						}
+					}
+				}
+			}
+			ELEMENT[at0006] occurrences matches {0..1000} matches {	-- Intenzivnost vadbe
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- Zelo nizka intenzivnost
+							at0016, 	-- Nizka intenzivnost
+							at0017, 	-- Zmerna intenzivnost
+							at0018, 	-- Visoka intenzivnost
+							at0019]	-- Zelo visoka intenzivnost
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"unknown">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Program">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Datum vadbe">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Podtip vadbe">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Trajanje vadbe">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Disciplina">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Intenzivnost vadbe">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Nizka intenzivnost">
+					description = <"Nizka intenzivnost">
+				>
+				["at0008"] = <
+					text = <"Visoka intenzivnost">
+					description = <"Visoka intenzivnost">
+				>
+				["at0009"] = <
+					text = <"Sprostitveno">
+					description = <"Sprostitveno">
+				>
+				["at0010"] = <
+					text = <"Dolgo">
+					description = <"Dolgo">
+				>
+				["at0011"] = <
+					text = <"Klanec">
+					description = <"Klanec">
+				>
+				["at0012"] = <
+					text = <"Tempo">
+					description = <"Tempo">
+				>
+				["at0013"] = <
+					text = <"Vzdržljivostna vadba">
+					description = <"Vzdržljivostna vadba">
+				>
+				["at0014"] = <
+					text = <"Vaje za koordinacijo in gibljivost">
+					description = <"Vaje za koordinacijo in gibljivost">
+				>
+				["at0015"] = <
+					text = <"Zelo nizka intenzivnost">
+					description = <"Zelo nizka intenzivnost">
+				>
+				["at0016"] = <
+					text = <"Nizka intenzivnost">
+					description = <"Nizka intenzivnost">
+				>
+				["at0017"] = <
+					text = <"Zmerna intenzivnost">
+					description = <"Zmerna intenzivnost">
+				>
+				["at0018"] = <
+					text = <"Visoka intenzivnost">
+					description = <"Visoka intenzivnost">
+				>
+				["at0019"] = <
+					text = <"Zelo visoka intenzivnost">
+					description = <"Zelo visoka intenzivnost">
+				>
+			>
+		>
+	>

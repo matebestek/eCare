@@ -1,0 +1,2025 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.symptom-pain-zn.v1
+specialize
+	openEHR-EHR-CLUSTER.symptom-pain.v1
+
+concept
+	[at0000.1.1]	-- Bolečina 
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["organisation"] = <"University of Heidelberg, Central Queensland University">
+				["name"] = <"Jasmin Buck, Sebastian Garde">
+			>
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Tony Shannon">
+		["organisation"] = <"UK NHS, Connecting for Health">
+		["email"] = <"tony.shannon@nhs.net">
+		["date"] = <"20/02/2007">
+	>
+	details = <
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Ein allgemeiner Archetyp zur Dokumentation von Symptomen und Informationen über diese Symptome. Er erlaubt die Aussage, dass der Patient nicht an diesem Symptom leidet (ohne weitere Informationen) oder auch genauere Aussage als erforderlich. Der Grund, dass eine allgemeine negative oder genauere Aussage gemacht werden kann ist, Fehler bezüglich der Vermehrung negative Aussagen über das  Symptom und Einzelheiten zu einem deutlich positivem Symptom zu verhindern.">
+			use = <"Zur Dokumentation von Informationen zu einem Symptom. Die Information kann kodiert oder strukturiert sein, falls dies erforderlich ist, oder aber die Freitextbeschreibung des Symptoms mit Einzelheiten als klinische Beschreibung nutzen. ">
+			keywords = <"Beschwerden", ...>
+			misuse = <"Sollte nur für Symptome benutzt werden.">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Specializiran arhetip za beleženje podatkov o bolečini in njenih simptomih. Arhetip dovoljuje beleženje podatkov, ko pacient nima znakov bolečine (brez kakršnihkoli dodatnih informacij) ali beleženje podrobnoh informacij, ko je le ta prisotna.
+
+">
+			use = <"Za dokumentiranje podatkov o bolečini pacienta">
+			keywords = <"bolečina", "neugodno počutje", "nelagodje", "pritoževanje">
+			misuse = <"">
+			copyright = <"">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"A specialised archetype for recording pain symptoms and information about these symptoms. This archetype allows a statement to be made that the patient does not have this symptom (without any other information) or more detailed statements as required. The reason that a general negative statement can be made or a more detailed statement is to ensure that there is no possibility for error with negative statements about the symptom mixed with details of a symptom that is clearly positive.">
+			use = <"For recording information about pain. The information can be coded and structured if required or utilise the free text description of the symptom with detail as clinical description if required.">
+			keywords = <"complaint", "pain", "discomfort">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", "Ian McNicoll,Ocean Informatics, UK", "Heather Leslie, Ocean Informatics, Australia", "Biljana Prinčič, Marand d.o.o., Slovenia", "Uroš Rajkovič, Faculty of Organizational Sciences, University of Maribor, Slovenia">
+	other_details = <
+		["references"] = <"NIH pain consortium, Pain Intensity Scales, http://painconsortium.nih.gov/pain_scales/index.html">
+		["MD5-CAM-1.0.1"] = <"65F4518815DE51739D58D7614DC5902B">
+	>
+
+definition
+	CLUSTER[at0000.1.1] occurrences matches {0..1} matches {	-- Bolečina 
+		items cardinality matches {1..*; ordered} matches {
+			ELEMENT[at0001.1] occurrences matches {0..*} matches {	-- Naziv simptoma
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {[local::at0.175]}		-- Bolečina
+					}
+				}
+			}
+			ELEMENT[at0035] occurrences matches {0..1} matches {	-- Brez simptomov bolečine
+				value matches {
+					DV_BOOLEAN matches {
+						value matches {True}
+					}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Opis simptoma
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0.192] occurrences matches {0..*} matches {	-- Lokacija
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0147] occurrences matches {0..*} matches {	-- Lokacija 
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0.193] occurrences matches {0..1} matches {	-- Površina bolečine
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			ELEMENT[at0032.1] occurrences matches {0..*} matches {	-- Značilnost bolečine
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.176, 	-- Silovita / močna
+							at0.177, 	-- Peče
+							at0.178, 	-- Krči
+							at0.179, 	-- Krči v trbuhu
+							at0.180, 	-- Notranja
+							at0.181, 	-- Razpršena
+							at0.182, 	-- Topa
+							at0.183, 	-- Odrvenelost
+							at0.184, 	-- Površinska
+							at0.185, 	-- Utripajoča
+							at0.186, 	-- Ostra
+							at0.187, 	-- Močna
+							at0.188, 	-- Trga
+							at0.189, 	-- Stiskajoča
+							at0.190, 	-- Zbadajoča
+							at0.191, 	-- Mravljičenje
+							at0.0.207]	-- Parestetično zaznavanje
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0032.1.1] occurrences matches {0..*} matches {	-- Značilnost bolečine
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.176, 	-- Silovita / močna
+							at0.177, 	-- Peče
+							at0.178, 	-- Krči
+							at0.179, 	-- Krči v trbuhu
+							at0.180, 	-- Notranja
+							at0.181, 	-- Razpršena
+							at0.182, 	-- Topa
+							at0.183, 	-- Odrvenelost
+							at0.184, 	-- Površinska
+							at0.185, 	-- Utripajoča
+							at0.186, 	-- Ostra
+							at0.187, 	-- Močna
+							at0.188, 	-- Trga
+							at0.189, 	-- Stiskajoča
+							at0.190, 	-- Zbadajoča
+							at0.191, 	-- Mravljičenje
+							at0.0.207]	-- Parestetično zaznavanje
+						}
+					}
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0.0.214] occurrences matches {0..1} matches {	-- Lokacija 
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.0.215, 	-- Površinska
+							at0.0.216, 	-- Notranja
+							at0.0.217]	-- Razpršena
+						}
+					}
+				}
+			}
+			CLUSTER[at0046] occurrences matches {0..*} matches {	-- Jakost
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0161] occurrences matches {0..1} matches {	-- Opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0166] occurrences matches {0..1} matches {	-- Stopnja
+						value matches {
+							0|[local::at0168], 	-- Ni vpliva simptoma
+							1|[local::at0169], 	-- Nepomemben
+							3|[local::at0170], 	-- Malo
+							5|[local::at0171], 	-- Zmerno
+							7|[local::at0172], 	-- Močno
+							9|[local::at0173], 	-- Zelo močeno
+							10|[local::at0174]  	-- Maksimalno
+						}
+					}
+					ELEMENT[at0176.0.1] occurrences matches {0..1} matches {	-- Metoda
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.200, 	-- 11 obrazov
+									at0.0.201, 	-- 6 obrazov
+									at0.0.202, 	-- Lestvica VAS
+									at0.0.203, 	-- Opisna 
+									at0.0.204, 	-- Numerična
+									at0.0.205, 	-- Toleranca bolečine
+									at0.0.206]	-- Meritev aktivnosti
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0160] occurrences matches {0..*} matches {	-- Podatki o lestvici
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0175] occurrences matches {0..1} matches {	-- Rezultat
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|0..10|}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0033] occurrences matches {0..1} matches {	-- Klinični potek simptoma
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0060] occurrences matches {0..1} matches {	-- Opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0154] occurrences matches {0..1} matches {	-- Potek
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0155, 	-- Akutna
+									at0156, 	-- Kronična
+									at0157, 	-- Kronične ponovitve
+									at0158]	-- Akutna ponovitev kronične bolečine
+								}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- V napadih
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Naraščajoča skozi časovni period
+									at0036, 	-- Hitro
+									at0010]	-- Nepričakovana
+								}
+							}
+						}
+					}
+					ELEMENT[at0028] occurrences matches {0..1} matches {	-- Čas trajanja bolečine
+						value matches {
+							DV_DURATION matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Vrsta bolečine 
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0004, 	-- Stalna
+									at0005, 	-- Občasna
+									at0006, 	-- V valovih
+									at0162, 	-- Ciklično
+									at0163, 	-- Občasno
+									at0164, 	-- V valovih
+									at0165]	-- Krčevit
+								}
+							}
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Število ponovotev
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0030] occurrences matches {0..1} matches {	-- Čas trajanja najhujše bolečine
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Razvoj simptoma v preteklosti
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0038, 	-- Se jača
+									at0039, 	-- Padajoča
+									at0040, 	-- Stalna
+									at0041, 	-- Naraščajoča
+									at0042, 	-- Postaja vse hujša
+									at0043]	-- Izginila
+								}
+							}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Bolečino ublaži
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Naraščajoča skozi časovni period
+									at0036, 	-- Hitro
+									at0010]	-- Nepričakovana
+								}
+							}
+						}
+					}
+				}
+			}
+			ELEMENT[at0015] occurrences matches {0..*} matches {	-- Bolečina vpliva na 
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.0.195, 	-- Sedenje 
+							at0.0.196, 	-- Ko pacient stoji
+							at0.0.197, 	-- Pri hoji
+							at0.0.198, 	-- Leže 
+							at0.0.199]	-- V mirovanju
+						}
+					}
+				}
+			}
+			ELEMENT[at0015.0.1] occurrences matches {0..*} matches {	-- V stanju
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.0.195, 	-- Sedenje 
+							at0.0.196, 	-- Ko pacient stoji
+							at0.0.197, 	-- Pri hoji
+							at0.0.198, 	-- Leže 
+							at0.0.199]	-- V mirovanju
+						}
+					}
+				}
+			}
+			ELEMENT[at0062] occurrences matches {0..*} matches {	-- Ni znanih simptomov
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0018] occurrences matches {0..*} matches {	-- Bolečino spremeni 
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Kaj
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Bolečina se poslabša
+						value matches {
+							-3|[local::at0048], 	-- Zopet se je pojavila
+							-2|[local::at0049], 	-- Se izboljšuje
+							-1|[local::at0050], 	-- Malo boljše
+							0|[local::at0051], 	-- Brez sprememb
+							1|[local::at0052], 	-- Malo slabše
+							2|[local::at0053], 	-- Slabo
+							3|[local::at0054]  	-- Zelo slabo
+						}
+					}
+					ELEMENT[at0056] occurrences matches {0..1} matches {	-- Opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0058] occurrences matches {0..1} matches {	-- Predhodne izkušnje
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0059] occurrences matches {0..*} matches {	-- Predhodne izkušnje
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0098] occurrences matches {0..1} matches {	-- Število predhodnih izkušenj
+						value matches {
+							DV_COUNT matches {
+								magnitude matches {|>=0|}
+							}
+						}
+					}
+					CLUSTER[at0090] occurrences matches {0..*} matches {	-- Prejšnje izkušnje
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0142] occurrences matches {0..1} matches {	-- Datum in čas prejšnjih izkušenj
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0057] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0143] occurrences matches {0..1} matches {	-- Primerjava
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							allow_archetype CLUSTER[at0146] occurrences matches {0..1} matches {	-- Opis
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0152] occurrences matches {0..1} matches {	-- Link na zapis
+								value matches {
+									DV_EHR_URI matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at0020] occurrences matches {0..*} matches {	-- Drugi simptome povezani z bolečino
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0167.0.1] occurrences matches {0..*} matches {	-- Simptom vpliva na 
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.208, 	-- Slabost v želodcu
+									at0.0.209, 	-- Spanje
+									at0.0.210, 	-- Apetit
+									at0.0.211, 	-- Fizične aktivnosti
+									at0.0.212, 	-- Čustvovanje
+									at0.0.213, 	-- Koncentracija
+									at0.0.218]	-- Drugo
+								}
+							}
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.219] occurrences matches {0..1} matches {	-- Opis 
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0063] occurrences matches {0..1} matches {	-- Povezani simptomi
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.symptom(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["de"] = <
+			items = <
+				["at0.0.195"] = <
+					text = <"*Sitting(en)">
+					description = <"*The pain is present when sitting(en)">
+				>
+				["at0.0.196"] = <
+					text = <"*Standing(en)">
+					description = <"*The pain is present when standing(en)">
+				>
+				["at0.0.197"] = <
+					text = <"*Walking(en)">
+					description = <"*The pain is present when walking.(en)">
+				>
+				["at0.0.198"] = <
+					text = <"*Lying(en)">
+					description = <"*The pain is present when lying.(en)">
+				>
+				["at0.0.199"] = <
+					text = <"*Resting(en)">
+					description = <"*The pain is present when resting.(en)">
+				>
+				["at0.0.200"] = <
+					text = <"*11 faces(en)">
+					description = <"*The 11 faces scale was used.(en)">
+				>
+				["at0.0.201"] = <
+					text = <"*6 faces(en)">
+					description = <"*The 6 faces pain scale was used.(en)">
+				>
+				["at0.0.202"] = <
+					text = <"*Visual analogue score (VAS)(en)">
+					description = <"*The visual analogue score was used.(en)">
+				>
+				["at0.0.203"] = <
+					text = <"*Descriptive(en)">
+					description = <"*A descriptive method was used.(en)">
+				>
+				["at0.0.204"] = <
+					text = <"*Numerical(en)">
+					description = <"*A numerical measure was used.(en)">
+				>
+				["at0.0.205"] = <
+					text = <"*Tolerance(en)">
+					description = <"*A pain tolerance measure was used.(en)">
+				>
+				["at0.0.206"] = <
+					text = <"*Activity(en)">
+					description = <"*A measure of activity was used.(en)">
+				>
+				["at0.0.207"] = <
+					text = <"*Paraesthetic sensation(en)">
+					description = <"*Pins and needles / tingling sensation(en)">
+				>
+				["at0.0.208"] = <
+					text = <"*Nausea(en)">
+					description = <"*The pain is associated with nausea.(en)">
+				>
+				["at0.0.209"] = <
+					text = <"*Sleep disturbance(en)">
+					description = <"*The pain is associated with sleep disturbance.(en)">
+				>
+				["at0.0.210"] = <
+					text = <"*Appetite(en)">
+					description = <"*The pain is associated with poor appetite.(en)">
+				>
+				["at0.0.211"] = <
+					text = <"*Diminished physical activity(en)">
+					description = <"*The pain is associated with dimished physical activity.(en)">
+				>
+				["at0.0.212"] = <
+					text = <"*Emotional upset(en)">
+					description = <"*The pain is associated with emotional upset.(en)">
+				>
+				["at0.0.213"] = <
+					text = <"*Impaired concentration(en)">
+					description = <"*The pain is associated with impaired concentration.(en)">
+				>
+				["at0.0.214"] = <
+					text = <"*Distribution(en)">
+					description = <"*Distribution of the pain.(en)">
+				>
+				["at0.0.215"] = <
+					text = <"*Superficial(en)">
+					description = <"*The pain is superficial(en)">
+				>
+				["at0.0.216"] = <
+					text = <"*Deep(en)">
+					description = <"*The pain feels deep.(en)">
+				>
+				["at0.0.217"] = <
+					text = <"*Diffuse(en)">
+					description = <"*The pain is diffuse or widespread.(en)">
+				>
+				["at0.0.218"] = <
+					text = <"*Other(en)">
+					description = <"*Other(en)">
+				>
+				["at0.0.219"] = <
+					text = <"*Other pain effect description(en)">
+					description = <"**(en)">
+				>
+				["at0.175"] = <
+					text = <"*Pain(en)">
+					description = <"*The symptom experienced is pain.(en)">
+				>
+				["at0.176"] = <
+					text = <"*Crushing(en)">
+					description = <"*The pain has a crushing quality.(en)">
+				>
+				["at0.177"] = <
+					text = <"*Burning(en)">
+					description = <"*The pain has a burning quality.(en)">
+				>
+				["at0.178"] = <
+					text = <"*Cramping(en)">
+					description = <"*The pain has a cramping quality.(en)">
+				>
+				["at0.179"] = <
+					text = <"*Colicky(en)">
+					description = <"*The pain has a colicky quality.(en)">
+				>
+				["at0.180"] = <
+					text = <"*Deep(en)">
+					description = <"*The pain feels deep.(en)">
+				>
+				["at0.181"] = <
+					text = <"*Diffuse(en)">
+					description = <"*The pain feels diffuse.(en)">
+				>
+				["at0.182"] = <
+					text = <"*Dull ache(en)">
+					description = <"*The pain feels dull.(en)">
+				>
+				["at0.183"] = <
+					text = <"*Shooting(en)">
+					description = <"*The pain has a shooting quality.(en)">
+				>
+				["at0.184"] = <
+					text = <"*Superficial(en)">
+					description = <"*The pain feels superficial.(en)">
+				>
+				["at0.185"] = <
+					text = <"*Throbbing(en)">
+					description = <"*The pain has a throbbing quality.(en)">
+				>
+				["at0.186"] = <
+					text = <"*Sharp(en)">
+					description = <"*The pain feels sharp.(en)">
+				>
+				["at0.187"] = <
+					text = <"*Heavy(en)">
+					description = <"*The pain has a heavy quality.(en)">
+				>
+				["at0.188"] = <
+					text = <"*Tearing(en)">
+					description = <"*The pain has a tearing quality.(en)">
+				>
+				["at0.189"] = <
+					text = <"*Squeezing(en)">
+					description = <"*The pain has a squeezing quality.(en)">
+				>
+				["at0.190"] = <
+					text = <"*Stabbing(en)">
+					description = <"*The pain has a stabbing quality.(en)">
+				>
+				["at0.191"] = <
+					text = <"*Griping(en)">
+					description = <"*The pain has a griping quality.(en)">
+				>
+				["at0.192"] = <
+					text = <"*Location(en)">
+					description = <"*Details of location and radiation of pain.(en)">
+				>
+				["at0.193"] = <
+					text = <"*Radiation(en)">
+					description = <"*Description of location to where the pain radiates.(en)">
+				>
+				["at0.194"] = <
+					text = <"*Score(en)">
+					description = <"*Level of pain on a 0-10 scale.(en)">
+				>
+				["at0000"] = <
+					text = <"Symptom">
+					description = <"Ein beim Patienten aufgetretenes Symptom">
+				>
+				["at0000.1"] = <
+					text = <"*Pain(en)">
+					description = <"*Pain experienced by the patient.(en)">
+				>
+				["at0000.1.1"] = <
+					text = <"*Pain(en)">
+					description = <"*Pain experienced by the patient, according to ZN documentation.(en)">
+				>
+				["at0001"] = <
+					text = <"*Symptom name(en)">
+					description = <"*The symptom experienced.(en)">
+				>
+				["at0001.1"] = <
+					text = <"*Symptom name - pain(en)">
+					description = <"*The symptom experienced.(en)">
+				>
+				["at0002"] = <
+					text = <"Klinische Beschreibung">
+					description = <"Beschreibung des Symptoms">
+				>
+				["at0003"] = <
+					text = <"Variation">
+					description = <"die Variationen des Symptoms">
+				>
+				["at0004"] = <
+					text = <"*Continual(en)">
+					description = <"*The symptom is constantly present.(en)">
+				>
+				["at0005"] = <
+					text = <"Zeitweise">
+					description = <"das Symptom ist abwechselnd anwesend und nicht anwesend">
+				>
+				["at0006"] = <
+					text = <"Variabel">
+					description = <"das Symptom variiert deutlich, ist aber praktisch ständig anwesend">
+				>
+				["at0008"] = <
+					text = <"*Onset(en)">
+					description = <"*The nature of the onset of the symptom.(en)">
+				>
+				["at0009"] = <
+					text = <"Graduell">
+					description = <"das Symptom ist allmählich über eine längere Zeitspanne hinweg aufgetaucht">
+				>
+				["at0010"] = <
+					text = <"Plötzlich">
+					description = <"das Symptom ist sofort aufgetaucht">
+				>
+				["at0011"] = <
+					text = <"Ende">
+					description = <"die Art des Abklingens des Symptoms">
+				>
+				["at0015"] = <
+					text = <"*Precipitating factor(s)(en)">
+					description = <"*An event or activity that brings on or triggers the symptom.(en)">
+				>
+				["at0015.0.1"] = <
+					text = <"*State(en)">
+					description = <"*An event, activity or state that is associated with the symptom.(en)">
+				>
+				["at0017"] = <
+					text = <"Erschwerender Faktor">
+					description = <"ein Ereignis oder eine Handlung, die das Symptom verschlimmern">
+				>
+				["at0018"] = <
+					text = <"Modifizierender Faktor">
+					description = <"Information über einen bestimmten Faktor, der das Symptom verändert">
+				>
+				["at0019"] = <
+					text = <"Faktor">
+					description = <"ein Ereignis oder eine Handlung, die das Symptom verändert">
+				>
+				["at0020"] = <
+					text = <"*Associated symptoms(en)">
+					description = <"*Other symptoms associated with this symptom.(en)">
+				>
+				["at0020.0.1"] = <
+					text = <"*! - Associated symptoms(en)">
+					description = <"*Other symptoms associated with this symptom.(en)">
+				>
+				["at0028"] = <
+					text = <"Dauer">
+					description = <"die Dauer des Symptoms seit dem Beginn">
+				>
+				["at0030"] = <
+					text = <"Zeitpunkt der maximalen Stärke">
+					description = <"Die Zeit (und/oder das  Datum) der maximalen Stärke des Symptoms">
+				>
+				["at0031"] = <
+					text = <"Anzahl der Vorkommnisse">
+					description = <"die Anzahl wie oft das Symptom aufgetreten ist">
+				>
+				["at0032"] = <
+					text = <"*Character(en)">
+					description = <"*The character of the symptom.(en)">
+				>
+				["at0032.1"] = <
+					text = <"*Character of pain(en)">
+					description = <"*The characteristics of the pain.(en)">
+				>
+				["at0032.1.1"] = <
+					text = <"*Character(en)">
+					description = <"*The characteristics of the pain.(en)">
+				>
+				["at0033"] = <
+					text = <"*Clinical course  (en)">
+					description = <"*Features of the course of the symptom.(en)">
+				>
+				["at0035"] = <
+					text = <"Nicht signifikant">
+					description = <"die Person hat keine signifikanten Erfahrungen mit dem Symptom">
+				>
+				["at0036"] = <
+					text = <"rasch">
+					description = <"über einen kurzen Zeitraum">
+				>
+				["at0037"] = <
+					text = <"Entwicklung">
+					description = <"die Entwicklung des Symptoms im Hinblick auf die Vergangenheit">
+				>
+				["at0038"] = <
+					text = <"*Improving(en)">
+					description = <"*The symptom has improved over time.(en)">
+				>
+				["at0039"] = <
+					text = <"*Decreasing(en)">
+					description = <"*The symptom is decreasing in intensity over time.(en)">
+				>
+				["at0040"] = <
+					text = <"*Stable(en)">
+					description = <"*The symptom has not changed over time.(en)">
+				>
+				["at0041"] = <
+					text = <"*Increasing(en)">
+					description = <"*The symptom is increasing in intensity over time.(en)">
+				>
+				["at0042"] = <
+					text = <"*Worsening(en)">
+					description = <"*The symptom is getting worse over time.(en)">
+				>
+				["at0043"] = <
+					text = <"*Has resolved(en)">
+					description = <"*The symptom has resolved over time.(en)">
+				>
+				["at0046"] = <
+					text = <"*Intensity(en)">
+					description = <"*Measures of the intensity of the symptom. Assumed to represent current intensity. Left unbounded to allow maximum, minimum and average intensities to be recorded.(en)">
+				>
+				["at0048"] = <
+					text = <"Komplett gelindert">
+					description = <"Das Symptom wird durch diesen Faktor gelindert">
+				>
+				["at0049"] = <
+					text = <"Verbessert">
+					description = <"Das Symptom wird durch diesen Faktor verbessert">
+				>
+				["at0050"] = <
+					text = <"Etwas verbessert">
+					description = <"Das Symptom wird durch diesen Faktor etwas verbessert">
+				>
+				["at0051"] = <
+					text = <"Keine Veränderung">
+					description = <"Das Symptom wird durch diesen Faktor nicht verändert">
+				>
+				["at0052"] = <
+					text = <"Etwas verschlechtert">
+					description = <"Das Symptom wird durch diesen Faktor etwas verschlechtert">
+				>
+				["at0053"] = <
+					text = <"Verschlechtert">
+					description = <"Das Symptom wird durch diesen Faktor verschlechtert">
+				>
+				["at0054"] = <
+					text = <"Sehr viel verschlechtert">
+					description = <"Das Symptom wird durch diesen Faktor sehr viel verschlechtert">
+				>
+				["at0056"] = <
+					text = <"Details über den Effekt">
+					description = <"Details über den Effekt">
+				>
+				["at0057"] = <
+					text = <"Details über vorherige Symptome">
+					description = <"Details über vorherige Symptome und Vergleich zu diesem Vorfall">
+				>
+				["at0058"] = <
+					text = <"Vorherige Vorfälle">
+					description = <"Details über vorherige Vorfälle">
+				>
+				["at0059"] = <
+					text = <"Frühere Vorfälle">
+					description = <"Ist dieses Symptom früher schon einmal aufgetreten">
+				>
+				["at0060"] = <
+					text = <"*Description(en)">
+					description = <"*Text description of the course of the symptom over time.(en)">
+				>
+				["at0062"] = <
+					text = <"*Absent feature(s)(en)">
+					description = <"*A features which would normally be expected but which is not present.(en)">
+				>
+				["at0063"] = <
+					text = <"*Associated symptom detail(en)">
+					description = <"*Associated symptoms.(en)">
+				>
+				["at0090"] = <
+					text = <"*Previous episode(en)">
+					description = <"*Details about a specific episode.(en)">
+				>
+				["at0098"] = <
+					text = <"*Number of previous episodes (en)">
+					description = <"*Number of previous episodes (en)">
+				>
+				["at0142"] = <
+					text = <"*Date / time of previous episode (en)">
+					description = <"*Date/time of previous episode (en)">
+				>
+				["at0143"] = <
+					text = <"*Comparison">
+					description = <"*How the previous episode compares with this one (en)">
+				>
+				["at0146"] = <
+					text = <"*Details (en)">
+					description = <"*Structured details of symptoms in previous episodes (en)">
+				>
+				["at0147"] = <
+					text = <"*Location in body(en)">
+					description = <"*Details of locations in the body.(en)">
+				>
+				["at0152"] = <
+					text = <"*Record of previous episode(en)">
+					description = <"**(en)">
+				>
+				["at0154"] = <
+					text = <"*Course(en)">
+					description = <"*The overall clinical course.(en)">
+				>
+				["at0155"] = <
+					text = <"*Acute(en)">
+					description = <"*Short-lived and/or rapid onset of symptoms(en)">
+				>
+				["at0156"] = <
+					text = <"*Chronic(en)">
+					description = <"*Long-standing symptom.(en)">
+				>
+				["at0157"] = <
+					text = <"*Chonic relapsing(en)">
+					description = <"*Long-standing symptom with regular exacerbations.(en)">
+				>
+				["at0158"] = <
+					text = <"*Acute-on-chronic(en)">
+					description = <"*Acute episode on background of lon-standing symptom.(en)">
+				>
+				["at0160"] = <
+					text = <"*Scale detail(en)">
+					description = <"*Detail of symptom formal scoring methods and results.(en)">
+				>
+				["at0161"] = <
+					text = <"*Description(en)">
+					description = <"*A text description of the symptom intensity.(en)">
+				>
+				["at0162"] = <
+					text = <"*Cyclical(en)">
+					description = <"*The symptom is present on a cyclical basis.(en)">
+				>
+				["at0163"] = <
+					text = <"*Seasonal(en)">
+					description = <"*The sympton is present on a seasonal basis.(en)">
+				>
+				["at0164"] = <
+					text = <"*Fluctuating(en)">
+					description = <"*The symptom presence or intensity fluctuates.(en)">
+				>
+				["at0165"] = <
+					text = <"*Paroxysmal(en)">
+					description = <"*The symptom appears suddenly and dramatically.(en)">
+				>
+				["at0166"] = <
+					text = <"*Degree(en)">
+					description = <"*The degree to which the symptom is bothering the patient.(en)">
+				>
+				["at0167"] = <
+					text = <"*Associated symptom(en)">
+					description = <"*Any associated symptom.(en)">
+				>
+				["at0167.0.1"] = <
+					text = <"*Pain effect(en)">
+					description = <"*Any associated symptom.(en)">
+				>
+				["at0168"] = <
+					text = <"*Not present(en)">
+					description = <"*The symptom is not present.(en)">
+				>
+				["at0169"] = <
+					text = <"*Trivial(en)">
+					description = <"*The symptom is trivial and causes no problems.(en)">
+				>
+				["at0170"] = <
+					text = <"*Mild(en)">
+					description = <"*The symptom does not interfere greatly with day to day activities.(en)">
+				>
+				["at0171"] = <
+					text = <"*Moderate(en)">
+					description = <"*The symptom interferes with day to day activities.(en)">
+				>
+				["at0172"] = <
+					text = <"*Severe(en)">
+					description = <"*The symptom prohibits some key daily activities.(en)">
+				>
+				["at0173"] = <
+					text = <"*Very severe(en)">
+					description = <"*The symptom is almost maximum possible intensity and prohibits any activity.(en)">
+				>
+				["at0174"] = <
+					text = <"*Maximal(en)">
+					description = <"*The symptom is as bad as it can be.(en)">
+				>
+				["at0175"] = <
+					text = <"*Scale score(en)">
+					description = <"*Symptom severity score on a scale of 0-10.(en)">
+				>
+				["at0176"] = <
+					text = <"*Scale name(en)">
+					description = <"**(en)">
+				>
+				["at0176.0.1"] = <
+					text = <"*Pain scale method(en)">
+					description = <"*The pain scale method used.(en)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.0.195"] = <
+					text = <"Sedenje ">
+					description = <"Bolečina je prisotna, ko pacient sedi">
+				>
+				["at0.0.196"] = <
+					text = <"Ko pacient stoji">
+					description = <"Bolečina je prisotna, ko pacient stoji">
+				>
+				["at0.0.197"] = <
+					text = <"Pri hoji">
+					description = <"Bolečina je prisotna, ko pacient hodi">
+				>
+				["at0.0.198"] = <
+					text = <"Leže ">
+					description = <"Bolečina je prisotna, ko pacient leži">
+				>
+				["at0.0.199"] = <
+					text = <"V mirovanju">
+					description = <"Bolečina je prisotna, ko je pacient v mirovanju">
+				>
+				["at0.0.200"] = <
+					text = <"11 obrazov">
+					description = <"Lestvica 11 obrazov">
+				>
+				["at0.0.201"] = <
+					text = <"6 obrazov">
+					description = <"Lestvica 6 obrazov">
+				>
+				["at0.0.202"] = <
+					text = <"Lestvica VAS">
+					description = <"Vizualno analogna lestvica">
+				>
+				["at0.0.203"] = <
+					text = <"Opisna ">
+					description = <"Opisna lestvica">
+				>
+				["at0.0.204"] = <
+					text = <"Numerična">
+					description = <"Numerična lestvica">
+				>
+				["at0.0.205"] = <
+					text = <"Toleranca bolečine">
+					description = <"Lestvica Toleranca bolečine">
+				>
+				["at0.0.206"] = <
+					text = <"Meritev aktivnosti">
+					description = <"Lestvica Meritev aktivnosti">
+				>
+				["at0.0.207"] = <
+					text = <"Parestetično zaznavanje">
+					description = <"Parestetično zaznavanje (zaznavanje dražljajev z bucikam)">
+				>
+				["at0.0.208"] = <
+					text = <"Slabost v želodcu">
+					description = <"Bolečina vpliva na slabost v želodcu">
+				>
+				["at0.0.209"] = <
+					text = <"Spanje">
+					description = <"Bolečina vpliva na spanje">
+				>
+				["at0.0.210"] = <
+					text = <"Apetit">
+					description = <"Bolečina vpliva na apetit">
+				>
+				["at0.0.211"] = <
+					text = <"Fizične aktivnosti">
+					description = <"Bolečina vpliva na fizično aktivnost">
+				>
+				["at0.0.212"] = <
+					text = <"Čustvovanje">
+					description = <"Bolečina vpliva na čustvovanje">
+				>
+				["at0.0.213"] = <
+					text = <"Koncentracija">
+					description = <"Bolečina vpliva na koncentracijo">
+				>
+				["at0.0.214"] = <
+					text = <"Lokacija ">
+					description = <"Lokacija bolečine">
+				>
+				["at0.0.215"] = <
+					text = <"Površinska">
+					description = <"Bolečina je površinska">
+				>
+				["at0.0.216"] = <
+					text = <"Notranja">
+					description = <"Bolečina je notranja">
+				>
+				["at0.0.217"] = <
+					text = <"Razpršena">
+					description = <"Bolečina je razpršena">
+				>
+				["at0.0.218"] = <
+					text = <"Drugo">
+					description = <"Drugo na kaj vpliva bolečina">
+				>
+				["at0.0.219"] = <
+					comment = <"*(en)">
+					text = <"Opis ">
+					description = <"Opis na kaj še vpliva bolečina">
+				>
+				["at0.175"] = <
+					text = <"Bolečina">
+					description = <"Bolečina">
+				>
+				["at0.176"] = <
+					text = <"Silovita / močna">
+					description = <"Bolečina je silovita / močna">
+				>
+				["at0.177"] = <
+					text = <"Peče">
+					description = <"Pekoča bolečina">
+				>
+				["at0.178"] = <
+					text = <"Krči">
+					description = <"Bolečina j ev obliki krčev">
+				>
+				["at0.179"] = <
+					text = <"Krči v trbuhu">
+					description = <"Bolečina je v obliki krčev v trebuhu">
+				>
+				["at0.180"] = <
+					text = <"Notranja">
+					description = <"Bolečina je notranja">
+				>
+				["at0.181"] = <
+					text = <"Razpršena">
+					description = <"Bolečina je razpršena">
+				>
+				["at0.182"] = <
+					text = <"Topa">
+					description = <"Bolečina je topa">
+				>
+				["at0.183"] = <
+					text = <"Odrvenelost">
+					description = <"Bolečina, ki odrveni pacienta">
+				>
+				["at0.184"] = <
+					text = <"Površinska">
+					description = <"Bolečina je površinska">
+				>
+				["at0.185"] = <
+					text = <"Utripajoča">
+					description = <"Bolečina je utripajoča">
+				>
+				["at0.186"] = <
+					text = <"Ostra">
+					description = <"Bolečina je ostra">
+				>
+				["at0.187"] = <
+					text = <"Močna">
+					description = <"Močna bolečina">
+				>
+				["at0.188"] = <
+					text = <"Trga">
+					description = <"Bolečina, ki trga">
+				>
+				["at0.189"] = <
+					text = <"Stiskajoča">
+					description = <"Bolečina je stiskajoča">
+				>
+				["at0.190"] = <
+					text = <"Zbadajoča">
+					description = <"Bolečina je zbadajoča">
+				>
+				["at0.191"] = <
+					text = <"Mravljičenje">
+					description = <"Bolečina, ki mravljiči">
+				>
+				["at0.192"] = <
+					text = <"Lokacija">
+					description = <"Lokacija in obseg bolečine">
+				>
+				["at0.193"] = <
+					text = <"Površina bolečine">
+					description = <"Opis lokacije in obsega bolečine">
+				>
+				["at0.194"] = <
+					text = <"Ocena">
+					description = <"Nivo bolečine, lestvica od 0-10">
+				>
+				["at0000"] = <
+					text = <"Simptomi">
+					description = <"Simptomi, ki se pojavijo zaradi bolečine">
+				>
+				["at0000.1"] = <
+					text = <"Bolečina">
+					description = <"Bolečina - ocena pacienta">
+				>
+				["at0000.1.1"] = <
+					text = <"Bolečina ">
+					description = <"Bolečina - ocena pacienta ">
+				>
+				["at0001"] = <
+					text = <"Naziv simptoma">
+					description = <"Naziv simptoma bolečine">
+				>
+				["at0001.1"] = <
+					text = <"Naziv simptoma">
+					description = <"Naziv simptoma bolečine">
+				>
+				["at0002"] = <
+					text = <"Opis simptoma">
+					description = <"Opis simptoma bolečine">
+				>
+				["at0003"] = <
+					text = <"Vrsta bolečine ">
+					description = <"Vrsta bolečine">
+				>
+				["at0004"] = <
+					text = <"Stalna">
+					description = <"Stalna bolečina">
+				>
+				["at0005"] = <
+					text = <"Občasna">
+					description = <"Občasna bolečina">
+				>
+				["at0006"] = <
+					text = <"V valovih">
+					description = <"Bolečina, ki se pojavlja v valovih">
+				>
+				["at0008"] = <
+					text = <"V napadih">
+					description = <"Bolečina, ki se pojavlja v napadih">
+				>
+				["at0009"] = <
+					text = <"Naraščajoča skozi časovni period">
+					description = <"Bolečina, ki narašča skozi časovni period">
+				>
+				["at0010"] = <
+					text = <"Nepričakovana">
+					description = <"Bolečina, ki se nepričakovano pojavo">
+				>
+				["at0011"] = <
+					text = <"Bolečino ublaži">
+					description = <"Kaj bolečino ublaži?">
+				>
+				["at0015"] = <
+					text = <"Bolečina vpliva na ">
+					description = <"Na kaj bolečina vpliva?">
+				>
+				["at0015.0.1"] = <
+					text = <"V stanju">
+					description = <"V kakšnem stanju je pacient ob meritvi bolečine?">
+				>
+				["at0017"] = <
+					text = <"Bolečina se poslabša">
+					description = <"Bolečina se je poslabšala">
+				>
+				["at0018"] = <
+					text = <"Bolečino spremeni ">
+					description = <"Kaj bolečino spremeni?">
+				>
+				["at0019"] = <
+					text = <"Kaj">
+					description = <"Kaj bolečino spremeni?">
+				>
+				["at0020"] = <
+					text = <"Drugi simptome povezani z bolečino">
+					description = <"Drugi simptome povezani z bolečino">
+				>
+				["at0020.0.1"] = <
+					text = <"Drugi simptome povezani z bolečino">
+					description = <"Drugi simptome povezani z bolečino">
+				>
+				["at0028"] = <
+					text = <"Čas trajanja bolečine">
+					description = <"Čas trajanja bolečine">
+				>
+				["at0030"] = <
+					text = <"Čas trajanja najhujše bolečine">
+					description = <"Čas trajanja najhujše bolečine">
+				>
+				["at0031"] = <
+					text = <"Število ponovotev">
+					description = <"Število ponovitev bolečine v določenem časovnem intervalu">
+				>
+				["at0032"] = <
+					text = <"Značilnost simptoma">
+					description = <"Značilnosti simptoma bolečine">
+				>
+				["at0032.1"] = <
+					text = <"Značilnost bolečine">
+					description = <"Značilnost boečine">
+				>
+				["at0032.1.1"] = <
+					text = <"Značilnost bolečine">
+					description = <"Značilnost boečine">
+				>
+				["at0033"] = <
+					text = <"Klinični potek simptoma">
+					description = <"Klinični potek simptomov bolečine">
+				>
+				["at0035"] = <
+					text = <"Brez simptomov bolečine">
+					description = <"Pacient nima simptomov bolečine">
+				>
+				["at0036"] = <
+					text = <"Hitro">
+					description = <"Hitro">
+				>
+				["at0037"] = <
+					text = <"Razvoj simptoma v preteklosti">
+					description = <"Razvoj simptomov bolečine v preteklosti">
+				>
+				["at0038"] = <
+					text = <"Se jača">
+					description = <"Bolečina se jača">
+				>
+				["at0039"] = <
+					text = <"Padajoča">
+					description = <"Bolečina je padajoča">
+				>
+				["at0040"] = <
+					text = <"Stalna">
+					description = <"Bolečina se ne spreminja skozi">
+				>
+				["at0041"] = <
+					text = <"Naraščajoča">
+					description = <"Bolečina narašča">
+				>
+				["at0042"] = <
+					text = <"Postaja vse hujša">
+					description = <"Bolečina postaja vse hujša">
+				>
+				["at0043"] = <
+					text = <"Izginila">
+					description = <"Bolečine ni več">
+				>
+				["at0046"] = <
+					text = <"Jakost">
+					description = <"Jakost bolečine v časovnem intervalu">
+				>
+				["at0048"] = <
+					text = <"Zopet se je pojavila">
+					description = <"Znaki bolečine so se zopet pojavili">
+				>
+				["at0049"] = <
+					text = <"Se izboljšuje">
+					description = <"Simptomi so postali jasnejši">
+				>
+				["at0050"] = <
+					text = <"Malo boljše">
+					description = <"Malo boljše">
+				>
+				["at0051"] = <
+					text = <"Brez sprememb">
+					description = <"Brez sprememb">
+				>
+				["at0052"] = <
+					text = <"Malo slabše">
+					description = <"Malo slabše">
+				>
+				["at0053"] = <
+					text = <"Slabo">
+					description = <"Slabo">
+				>
+				["at0054"] = <
+					text = <"Zelo slabo">
+					description = <"Zelo slabo">
+				>
+				["at0056"] = <
+					text = <"Opis">
+					description = <"Opis učinka ">
+				>
+				["at0057"] = <
+					text = <"Opis">
+					description = <"Opis prejšnjih simptomov in primerjava z zadnjimi">
+				>
+				["at0058"] = <
+					text = <"Predhodne izkušnje">
+					description = <"Podatki o prejšnjih izkušnjah podobne bolečine">
+				>
+				["at0059"] = <
+					text = <"Predhodne izkušnje">
+					description = <"Ali je pacient imel podobno izkušnjo bolečine?">
+				>
+				["at0060"] = <
+					text = <"Opis">
+					description = <"Opis poteka bolečine skozi časovni interval">
+				>
+				["at0062"] = <
+					text = <"Ni znanih simptomov">
+					description = <"Ni znanih simptomov">
+				>
+				["at0063"] = <
+					text = <"Povezani simptomi">
+					description = <"Povezani simptomi">
+				>
+				["at0090"] = <
+					text = <"Prejšnje izkušnje">
+					description = <"Podatki o posamezni prejšnji izkušnji bolečine">
+				>
+				["at0098"] = <
+					text = <"Število predhodnih izkušenj">
+					description = <"Število predhodnih izkušenj">
+				>
+				["at0142"] = <
+					text = <"Datum in čas prejšnjih izkušenj">
+					description = <"Datum in čas prejšnjih izkušenj">
+				>
+				["at0143"] = <
+					text = <"Primerjava">
+					description = <"Primerjava prejšnjih izkušenj z zadnjo">
+				>
+				["at0146"] = <
+					text = <"Opis">
+					description = <"Strukturiran opis prejšnnjih izkušenj">
+				>
+				["at0147"] = <
+					text = <"Lokacija ">
+					description = <"Lokacija bolečine">
+				>
+				["at0152"] = <
+					text = <"Link na zapis">
+					description = <"Povezava na zapis prejšnjih izkušenj">
+				>
+				["at0154"] = <
+					text = <"Potek">
+					description = <"Klinični opis poteka bolečine">
+				>
+				["at0155"] = <
+					text = <"Akutna">
+					description = <"Akutna bolečina">
+				>
+				["at0156"] = <
+					text = <"Kronična">
+					description = <"Kronična bolečina">
+				>
+				["at0157"] = <
+					text = <"Kronične ponovitve">
+					description = <"Kronične ponovitve iste bolečine">
+				>
+				["at0158"] = <
+					text = <"Akutna ponovitev kronične bolečine">
+					description = <"Akutna ponovitev kronične bolečine">
+				>
+				["at0160"] = <
+					text = <"Podatki o lestvici">
+					description = <"Podatki o lestvici">
+				>
+				["at0161"] = <
+					text = <"Opis">
+					description = <"Opis jakosti simptomov bolečine">
+				>
+				["at0162"] = <
+					text = <"Ciklično">
+					description = <"Simptom bolečine se pojavlja ciklično">
+				>
+				["at0163"] = <
+					text = <"Občasno">
+					description = <"Simptom bolečine se pojavlja občasno">
+				>
+				["at0164"] = <
+					text = <"V valovih">
+					description = <"Simptom bolečine se pojavlja v valovih">
+				>
+				["at0165"] = <
+					text = <"Krčevit">
+					description = <"Simptom bolečine se pojavlja krčevito">
+				>
+				["at0166"] = <
+					text = <"Stopnja">
+					description = <"Stopnja jakosti simptoma bolečine">
+				>
+				["at0167"] = <
+					text = <"Dodatne značilnosti">
+					description = <"Dodatne značilnosti simptoma">
+				>
+				["at0167.0.1"] = <
+					text = <"Simptom vpliva na ">
+					description = <"Vpliv simptoma">
+				>
+				["at0168"] = <
+					text = <"Ni vpliva simptoma">
+					description = <"Ni vpliva simptoma">
+				>
+				["at0169"] = <
+					text = <"Nepomemben">
+					description = <"Simptom je trivialen in ne povzroča težav">
+				>
+				["at0170"] = <
+					text = <"Malo">
+					description = <"Simptom malo vpliva na opravljanje vsakdanjih aktivnosti ">
+				>
+				["at0171"] = <
+					text = <"Zmerno">
+					description = <"Simptom zmerno vpliva na opravljanje vsakdanjih aktivnosti ">
+				>
+				["at0172"] = <
+					text = <"Močno">
+					description = <"Simptom močno  vpliva na opravljanje vsakdanjih aktivnosti ">
+				>
+				["at0173"] = <
+					text = <"Zelo močeno">
+					description = <"Simptom zelo močno vpliva na opravljanje vsakdanjih aktivnosti ">
+				>
+				["at0174"] = <
+					text = <"Maksimalno">
+					description = <"Simptom maksimalno vpliva na opravljanje vsakdanjih aktivnosti ">
+				>
+				["at0175"] = <
+					text = <"Rezultat">
+					description = <"Ocena jakosti simptoma z lestvico od 0-10">
+				>
+				["at0176"] = <
+					text = <"Naziv lestvice">
+					description = <"Naziv lestvice">
+				>
+				["at0176.0.1"] = <
+					text = <"Metoda">
+					description = <"Metoda, ki jo uporablja lestvica">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0.0.195"] = <
+					text = <"Sitting">
+					description = <"The pain is present when sitting">
+				>
+				["at0.0.196"] = <
+					text = <"Standing">
+					description = <"The pain is present when standing">
+				>
+				["at0.0.197"] = <
+					text = <"Walking">
+					description = <"The pain is present when walking.">
+				>
+				["at0.0.198"] = <
+					text = <"Lying">
+					description = <"The pain is present when lying.">
+				>
+				["at0.0.199"] = <
+					text = <"Resting">
+					description = <"The pain is present when resting.">
+				>
+				["at0.0.200"] = <
+					text = <"11 faces">
+					description = <"The 11 faces scale was used.">
+				>
+				["at0.0.201"] = <
+					text = <"6 faces">
+					description = <"The 6 faces pain scale was used.">
+				>
+				["at0.0.202"] = <
+					text = <"Visual analogue score (VAS)">
+					description = <"The visual analogue score was used.">
+				>
+				["at0.0.203"] = <
+					text = <"Descriptive">
+					description = <"A descriptive method was used.">
+				>
+				["at0.0.204"] = <
+					text = <"Numerical">
+					description = <"A numerical measure was used.">
+				>
+				["at0.0.205"] = <
+					text = <"Tolerance">
+					description = <"A pain tolerance measure was used.">
+				>
+				["at0.0.206"] = <
+					text = <"Activity">
+					description = <"A measure of activity was used.">
+				>
+				["at0.0.207"] = <
+					text = <"Paraesthetic sensation">
+					description = <"Pins and needles / tingling sensation">
+				>
+				["at0.0.208"] = <
+					text = <"Nausea">
+					description = <"The pain is associated with nausea.">
+				>
+				["at0.0.209"] = <
+					text = <"Sleep disturbance">
+					description = <"The pain is associated with sleep disturbance.">
+				>
+				["at0.0.210"] = <
+					text = <"Appetite">
+					description = <"The pain is associated with poor appetite.">
+				>
+				["at0.0.211"] = <
+					text = <"Diminished physical activity">
+					description = <"The pain is associated with dimished physical activity.">
+				>
+				["at0.0.212"] = <
+					text = <"Emotional upset">
+					description = <"The pain is associated with emotional upset.">
+				>
+				["at0.0.213"] = <
+					text = <"Impaired concentration">
+					description = <"The pain is associated with impaired concentration.">
+				>
+				["at0.0.214"] = <
+					text = <"Distribution">
+					description = <"Distribution of the pain.">
+				>
+				["at0.0.215"] = <
+					text = <"Superficial">
+					description = <"The pain is superficial">
+				>
+				["at0.0.216"] = <
+					text = <"Deep">
+					description = <"The pain feels deep.">
+				>
+				["at0.0.217"] = <
+					text = <"Diffuse">
+					description = <"The pain is diffuse or widespread.">
+				>
+				["at0.0.218"] = <
+					text = <"Other">
+					description = <"Other">
+				>
+				["at0.0.219"] = <
+					text = <"Other pain effect description">
+					description = <"*">
+				>
+				["at0.175"] = <
+					text = <"Pain">
+					description = <"The symptom experienced is pain.">
+				>
+				["at0.176"] = <
+					text = <"Crushing">
+					description = <"The pain has a crushing quality.">
+				>
+				["at0.177"] = <
+					text = <"Burning">
+					description = <"The pain has a burning quality.">
+				>
+				["at0.178"] = <
+					text = <"Cramping">
+					description = <"The pain has a cramping quality.">
+				>
+				["at0.179"] = <
+					text = <"Colicky">
+					description = <"The pain has a colicky quality.">
+				>
+				["at0.180"] = <
+					text = <"Deep">
+					description = <"The pain feels deep.">
+				>
+				["at0.181"] = <
+					text = <"Diffuse">
+					description = <"The pain feels diffuse.">
+				>
+				["at0.182"] = <
+					text = <"Dull ache">
+					description = <"The pain feels dull.">
+				>
+				["at0.183"] = <
+					text = <"Shooting">
+					description = <"The pain has a shooting quality.">
+				>
+				["at0.184"] = <
+					text = <"Superficial">
+					description = <"The pain feels superficial.">
+				>
+				["at0.185"] = <
+					text = <"Throbbing">
+					description = <"The pain has a throbbing quality.">
+				>
+				["at0.186"] = <
+					text = <"Sharp">
+					description = <"The pain feels sharp.">
+				>
+				["at0.187"] = <
+					text = <"Heavy">
+					description = <"The pain has a heavy quality.">
+				>
+				["at0.188"] = <
+					text = <"Tearing">
+					description = <"The pain has a tearing quality.">
+				>
+				["at0.189"] = <
+					text = <"Squeezing">
+					description = <"The pain has a squeezing quality.">
+				>
+				["at0.190"] = <
+					text = <"Stabbing">
+					description = <"The pain has a stabbing quality.">
+				>
+				["at0.191"] = <
+					text = <"Griping">
+					description = <"The pain has a griping quality.">
+				>
+				["at0.192"] = <
+					text = <"Location">
+					description = <"Details of location and radiation of pain.">
+				>
+				["at0.193"] = <
+					text = <"Radiation">
+					description = <"Description of location to where the pain radiates.">
+				>
+				["at0.194"] = <
+					text = <"Score">
+					description = <"Level of pain on a 0-10 scale.">
+				>
+				["at0000"] = <
+					text = <"Symptom ">
+					description = <"A symptom experienced by the patient.">
+				>
+				["at0000.1"] = <
+					text = <"Pain">
+					description = <"Pain experienced by the patient.">
+				>
+				["at0000.1.1"] = <
+					text = <"Pain">
+					description = <"Pain experienced by the patient, according to ZN documentation.">
+				>
+				["at0001"] = <
+					text = <"Symptom name">
+					description = <"The symptom experienced.">
+				>
+				["at0001.1"] = <
+					text = <"Symptom name - pain">
+					description = <"The symptom experienced.">
+				>
+				["at0002"] = <
+					text = <"Clinical description">
+					description = <"Description of the symptom.">
+				>
+				["at0003"] = <
+					text = <"Variation">
+					description = <"The variation of the symptom.">
+				>
+				["at0004"] = <
+					text = <"Continual">
+					description = <"The symptom is constantly present.">
+				>
+				["at0005"] = <
+					text = <"Intermittent">
+					description = <"The symptom is present at times and not at others.">
+				>
+				["at0006"] = <
+					text = <"Fluctuating">
+					description = <"The symptom varys considerably but is almost always present.">
+				>
+				["at0008"] = <
+					text = <"Onset">
+					description = <"The nature of the onset of the symptom.">
+				>
+				["at0009"] = <
+					text = <"Gradual">
+					description = <"Over a longer period of time.">
+				>
+				["at0010"] = <
+					text = <"Sudden">
+					description = <"Almost immediate.">
+				>
+				["at0011"] = <
+					text = <"Cessation">
+					description = <"The nature of the cessation of the symptom.">
+				>
+				["at0015"] = <
+					text = <"Associated factor">
+					description = <"An event, activity or state that is associated with the symptom.">
+				>
+				["at0015.0.1"] = <
+					text = <"State">
+					description = <"An event, activity or state that is associated with the symptom.">
+				>
+				["at0017"] = <
+					text = <"Change">
+					description = <"An event or activity that makes the symptom worse.">
+				>
+				["at0018"] = <
+					text = <"Modifying factor">
+					description = <"Information about a specific factor that changes the symptom.">
+				>
+				["at0019"] = <
+					text = <"Factor">
+					description = <"An event or activity that modifies the symptom.">
+				>
+				["at0020"] = <
+					text = <"Associated symptoms">
+					description = <"Other symptoms associated with this symptom.">
+				>
+				["at0020.0.1"] = <
+					text = <"! - Associated symptoms">
+					description = <"Other symptoms associated with this symptom.">
+				>
+				["at0028"] = <
+					text = <"Duration">
+					description = <"The duration of the symptom since onset.">
+				>
+				["at0030"] = <
+					text = <"Time of maximum intensity">
+					description = <"The time (and/or date) of maximum intensity of the symptom.">
+				>
+				["at0031"] = <
+					text = <"Number of occurrences">
+					description = <"The number of times this symptom has occurred during this episode.">
+				>
+				["at0032"] = <
+					text = <"Character">
+					description = <"The characteristics of the symptom.">
+				>
+				["at0032.1"] = <
+					text = <"Character of pain">
+					description = <"The characteristics of the pain.">
+				>
+				["at0032.1.1"] = <
+					text = <"Character">
+					description = <"The characteristics of the pain.">
+				>
+				["at0033"] = <
+					text = <"Clinical course  ">
+					description = <"Features of the course of the symptom.">
+				>
+				["at0035"] = <
+					text = <"Nil significant">
+					description = <"The person has not had any significant experience of the symptom.">
+				>
+				["at0036"] = <
+					text = <"Rapid">
+					description = <"Over a short period of time.">
+				>
+				["at0037"] = <
+					text = <"Progression">
+					description = <"The progress of the symptom relative to the past.">
+				>
+				["at0038"] = <
+					text = <"Improving">
+					description = <"The symptom has improved over time.">
+				>
+				["at0039"] = <
+					text = <"Decreasing">
+					description = <"The symptom is decreasing in intensity over time.">
+				>
+				["at0040"] = <
+					text = <"Stable">
+					description = <"The symptom has not changed over time.">
+				>
+				["at0041"] = <
+					text = <"Increasing">
+					description = <"The symptom is increasing in intensity over time.">
+				>
+				["at0042"] = <
+					text = <"Worsening">
+					description = <"The symptom is getting worse over time.">
+				>
+				["at0043"] = <
+					text = <"Has resolved">
+					description = <"The symptom has resolved over time.">
+				>
+				["at0046"] = <
+					text = <"Intensity">
+					description = <"Measures of the intensity of the symptom. Assumed to represent current intensity. Left unbounded to allow maximum, minimum and average intensities to be recorded.">
+				>
+				["at0048"] = <
+					text = <"Relieved completely">
+					description = <"The symptom is relieved by this factor.">
+				>
+				["at0049"] = <
+					text = <"Made better">
+					description = <"The symptom is made better by this factor.">
+				>
+				["at0050"] = <
+					text = <"Somewhat improved">
+					description = <"The symptom is somewhat improved by this factor.">
+				>
+				["at0051"] = <
+					text = <"No change">
+					description = <"The symptom is not modified by this factor.">
+				>
+				["at0052"] = <
+					text = <"Somewhat worse">
+					description = <"The symptom is made somewhat worse by this factor.">
+				>
+				["at0053"] = <
+					text = <"Made worse">
+					description = <"The symptom is made worse by this factor.">
+				>
+				["at0054"] = <
+					text = <"Much worse">
+					description = <"The symptom is made much worse by this factor.">
+				>
+				["at0056"] = <
+					text = <"Description">
+					description = <"Details of the effect.">
+				>
+				["at0057"] = <
+					text = <"Description">
+					description = <"Details of previous symptoms and comparison to this episode.">
+				>
+				["at0058"] = <
+					text = <"Previous episodes">
+					description = <"Details about previous episodes.">
+				>
+				["at0059"] = <
+					text = <"Any previous episodes">
+					description = <"Have there been any previous episodes of this symptom?">
+				>
+				["at0060"] = <
+					text = <"Description">
+					description = <"Text description of the course of the symptom over time.">
+				>
+				["at0062"] = <
+					text = <"Absent expected feature">
+					description = <"A feature which would normally be expected but which is not present.">
+				>
+				["at0063"] = <
+					text = <"Associated symptom detail">
+					description = <"Associated symptoms.">
+				>
+				["at0090"] = <
+					text = <"Previous episode">
+					description = <"Details about a specific episode.">
+				>
+				["at0098"] = <
+					text = <"Number of previous episodes">
+					description = <"Number of previous episodes.">
+				>
+				["at0142"] = <
+					text = <"Date / time of previous episode ">
+					description = <"Date/time of previous episode.">
+				>
+				["at0143"] = <
+					text = <"Comparison">
+					description = <"How the previous episode compares with this one.">
+				>
+				["at0146"] = <
+					text = <"Detail">
+					description = <"Structured details of symptoms in previous episodes.">
+				>
+				["at0147"] = <
+					text = <"Location in body">
+					description = <"Details of locations in the body.">
+				>
+				["at0152"] = <
+					text = <"Record of previous episode">
+					description = <"Link to a previous record of this symptom.">
+				>
+				["at0154"] = <
+					text = <"Course">
+					description = <"The overall clinical course.">
+				>
+				["at0155"] = <
+					text = <"Acute">
+					description = <"Short-lived and/or rapid onset of symptoms.">
+				>
+				["at0156"] = <
+					text = <"Chronic">
+					description = <"Long-standing symptom.">
+				>
+				["at0157"] = <
+					text = <"Chonic relapsing">
+					description = <"Long-standing symptom with regular exacerbations.">
+				>
+				["at0158"] = <
+					text = <"Acute-on-chronic">
+					description = <"Acute episode on background of lon-standing symptom.">
+				>
+				["at0160"] = <
+					text = <"Scale detail">
+					description = <"Detail of symptom formal scoring methods and results.">
+				>
+				["at0161"] = <
+					text = <"Description">
+					description = <"A text description of the symptom intensity.">
+				>
+				["at0162"] = <
+					text = <"Cyclical">
+					description = <"The symptom is present on a cyclical basis.">
+				>
+				["at0163"] = <
+					text = <"Seasonal">
+					description = <"The sympton is present on a seasonal basis.">
+				>
+				["at0164"] = <
+					text = <"Fluctuating">
+					description = <"The symptom presence or intensity fluctuates.">
+				>
+				["at0165"] = <
+					text = <"Paroxysmal">
+					description = <"The symptom appears suddenly and dramatically.">
+				>
+				["at0166"] = <
+					text = <"Degree">
+					description = <"The degree to which the symptom is bothering the patient.">
+				>
+				["at0167"] = <
+					text = <"Associated symptom">
+					description = <"Any associated symptom.">
+				>
+				["at0167.0.1"] = <
+					text = <"Pain effect">
+					description = <"Any associated symptom.">
+				>
+				["at0168"] = <
+					text = <"Not present">
+					description = <"The symptom is not present.">
+				>
+				["at0169"] = <
+					text = <"Trivial">
+					description = <"The symptom is trivial and causes no problems.">
+				>
+				["at0170"] = <
+					text = <"Mild">
+					description = <"The symptom does not interfere greatly with day to day activities.">
+				>
+				["at0171"] = <
+					text = <"Moderate">
+					description = <"The symptom interferes with day to day activities.">
+				>
+				["at0172"] = <
+					text = <"Severe">
+					description = <"The symptom prohibits some key daily activities.">
+				>
+				["at0173"] = <
+					text = <"Very severe">
+					description = <"The symptom is almost maximum possible intensity and prohibits any activity.">
+				>
+				["at0174"] = <
+					text = <"Maximal">
+					description = <"The symptom is as bad as it can be.">
+				>
+				["at0175"] = <
+					text = <"Scale score">
+					description = <"Symptom severity score on a scale of 0-10.">
+				>
+				["at0176"] = <
+					text = <"Scale name">
+					description = <"*">
+				>
+				["at0176.0.1"] = <
+					text = <"Pain scale method">
+					description = <"The pain scale method used.">
+				>
+			>
+		>
+	>

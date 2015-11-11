@@ -1,0 +1,269 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.vprasalnik_OPKP.v1
+
+concept
+	[at0000]	-- Vprasalnik OPKP
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis podatkov iz OPKP, eOskrba - eHujšanje">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"5EFEDCB87B3A312F8A0EF3B9F2F5DDDC">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Vprasalnik OPKP
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Energijska vrednost zaužitih hranil
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::121]>
+								list = <
+									["1"] = <
+										units = <"J">
+									>
+									["2"] = <
+										units = <"kcal">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Energija porabljena z aktivnostmi
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::121]>
+								list = <
+									["1"] = <
+										units = <"J">
+									>
+									["2"] = <
+										units = <"kcal">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Priporočilo dnevnega energijskega vnosa energije
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::121]>
+								list = <
+									["1"] = <
+										units = <"J">
+									>
+									["2"] = <
+										units = <"kcal">
+									>
+								>
+							>
+						}
+					}
+					allow_archetype CLUSTER[at0016] occurrences matches {0..*} matches {	-- Zaužite enote
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0010] occurrences matches {0..1} matches {	-- Opozorilo - rezultat
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Opozorilo - opis
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0017] occurrences matches {0..*} matches {	-- Seznam treh najbolj škodljivih živil
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0019] occurrences matches {0..1} matches {	-- Rezultati
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- taskId
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Prot
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"gm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0022] occurrences matches {0..1} matches {	-- Fat
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"gm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0025] occurrences matches {0..1} matches {	-- Sugar
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"gm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0023] occurrences matches {0..1} matches {	-- Chot
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"gm">
+									>
+								>
+							>
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Alc
+						value matches {
+							C_DV_QUANTITY <
+								property = <[openehr::124]>
+								list = <
+									["1"] = <
+										units = <"gm">
+									>
+								>
+							>
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vprasalnik OPKP">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Energijska vrednost zaužitih hranil">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Energija porabljena z aktivnostmi">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Opozorilo - rezultat">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Opozorilo - opis">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Zaužite enote">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Seznam treh najbolj škodljivih živil">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Priporočilo dnevnega energijskega vnosa energije">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Rezultati">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"taskId">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Prot">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Fat">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Chot">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Alc">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Sugar">
+					description = <"*">
+				>
+			>
+		>
+	>

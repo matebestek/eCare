@@ -1,0 +1,149 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+﻿<div id="activiti_form_holder">
+
+	<h1>EWSQ vprašalnik</h1>
+
+	<p>
+		Spoštovani! <br /> <br /> Spodnji vprašalnik Vam in vašemu zdravniku
+		olajša sodelovanje. Zato Vas prosimo, da vprašalnik izpolnete in
+		potrdite oddajo. Sistem vas bo takoj obvestil o rezultatih
+		vprašalnika.<br />
+	</p>
+	<br />
+	<p>
+		<label>Ali se vam je spanje poslabšalo od zadnjega
+			izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0034]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0017">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0018">Majhno poslabšanje</option>
+			<option value="at0019">Zmerno poslabšanje</option>
+			<option value="at0020">Veliko poslabšanje</option>
+			<option value="at0021">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali se vam je apetit zmanjšal od zadnjega
+			izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0035]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0022">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0031">Majhno poslabšanje</option>
+			<option value="at0040">Zmerno poslabšanje</option>
+			<option value="at0049">Veliko poslabšanje</option>
+			<option value="at0058">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali se vam je poslabšala koncentracija (npr.
+			sposobnost branja ali gledanja televizije) od zadnjega izpolnjevanja?</label>
+		<br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0036]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0023">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0032">Majhno poslabšanje</option>
+			<option value="at0041">Zmerno poslabšanje</option>
+			<option value="at0050">Veliko poslabšanje</option>
+			<option value="at0059">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali ste občutili strah, bili sumničavi ali pa
+			vam je bilo neprijetno ob prisotnosti drugih ljudi od zadnjega
+			izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0024">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0033">Majhno poslabšanje</option>
+			<option value="at0042">Zmerno poslabšanje</option>
+			<option value="at0051">Veliko poslabšanje</option>
+			<option value="at0060">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali ste občutili povečan nemir, napetost ali
+			razdražljivost od zadnjega izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0038]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0025">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0034">Majhno poslabšanje</option>
+			<option value="at0043">Zmerno poslabšanje</option>
+			<option value="at0052">Veliko poslabšanje</option>
+			<option value="at0061">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali ste opazili kaj neobičajnega ali nenavadnega
+			okoli sebe od zadnjega izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0026">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0035">Majhno poslabšanje</option>
+			<option value="at0044">Zmerno poslabšanje</option>
+			<option value="at0053">Veliko poslabšanje</option>
+			<option value="at0062">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali ste občutili pomanjkanje energije ali
+			interesov od zadnjega izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0027">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0036">Majhno poslabšanje</option>
+			<option value="at0045">Zmerno poslabšanje</option>
+			<option value="at0054">Veliko poslabšanje</option>
+			<option value="at0063">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali se vam je sposobnost reševanja vsakodnevnih
+			težav poslabšala od zadnjega izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0028">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0037">Majhno poslabšanje</option>
+			<option value="at0046">Zmerno poslabšanje</option>
+			<option value="at0055">Veliko poslabšanje</option>
+			<option value="at0064">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali ste slišali glasove drugih ljudi, čeprav ni
+			bilo nikogar v bližini, od zadnjega izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0029">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0038">Majhno poslabšanje</option>
+			<option value="at0047">Zmerno poslabšanje</option>
+			<option value="at0056">Veliko poslabšanje</option>
+			<option value="at0065">Izrazito poslabšanje</option>
+		</select> <br />
+		<br /> <label>Ali ste opazili kateregakoli od drugih vaših
+			zgodnjih opozorilnih znakov od zadnjega izpolnjevanja?</label> <br /> <select
+			name="?data[at0001]?events[at0002]?data[at0003]?items[at0065]?items[at0037]?value"
+			class="activiti-validation-req activiti-size-short">
+			<option value="at0030">Ni poslabšanje oz. izboljšanje</option>
+			<option value="at0039">Majhno poslabšanje</option>
+			<option value="at0048">Zmerno poslabšanje</option>
+			<option value="at0057">Veliko poslabšanje</option>
+			<option value="at0066">Izrazito poslabšanje</option>
+		</select> <br />
+		<br />
+	<p>
+</div>
+
+<script type="text/javascript">
+	activiti_form_onLoad();
+</script>

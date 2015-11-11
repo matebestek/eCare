@@ -1,0 +1,69 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<sequence-diagram version="1.0.4" icons="true">  
+  <object id="2" language="java" name="si.pint.archetypes.init.ArchetypeManager" project="archetype-api" 
+    file="/archetype-api/src/main/java/si/pint/archetypes/init/ArchetypeManager.java" binary="false" 
+    label="archetypeManager" type="class" autoSize="true">    
+    <position height="-1" width="-1" x="258" y="0"/>  
+  </object>  
+  <object id="1" language="java" name="si.pint.database.exist.DBManager" project="archetype-api" 
+    file="/archetype-api/src/main/java/si/pint/database/exist/DBManager.java" binary="false" label="dbManager" 
+    type="class" autoSize="true">    
+    <position height="-1" width="-1" x="181" y="0"/>    
+    <execution id="2">      
+      <position height="163" width="7" x="191" y="139"/>    
+    </execution>    
+    <execution id="3">      
+      <position height="21" width="7" x="194" y="260"/>    
+    </execution>    
+    <execution id="4">      
+      <position height="21" width="7" x="191" y="199"/>    
+    </execution>  
+  </object>  
+  <object id="3" language="java" name="si.pint.database.exist.DBRead" project="archetype-api" 
+    file="/archetype-api/src/main/java/si/pint/database/exist/DBRead.java" binary="false" label="dbRead" type="class" 
+    autoSize="true">    
+    <position height="-1" width="-1" x="343" y="0"/>    
+    <execution id="1">      
+      <position height="205" width="100" x="248" y="118"/>    
+    </execution>  
+  </object>  
+  <message operation="readLastAll(java.lang.String,java.lang.String):java.lang.String[][]">    
+    <end type="SOURCE" nodeId="1" executionId="0"/>    
+    <end type="TARGET" nodeId="1" executionId="2"/>  
+  </message>  
+  <message operation="findMax(java.lang.String[]):int">    
+    <end type="SOURCE" nodeId="1" executionId="0"/>    
+    <end type="TARGET" nodeId="1" executionId="1"/>  
+  </message>  
+  <message operation="readLast(java.lang.String,java.lang.String,java.lang.String):java.lang.String">    
+    <end type="SOURCE" nodeId="3" executionId="0"/>    
+    <end type="TARGET" nodeId="1" executionId="0"/>  
+  </message>
+</sequence-diagram>

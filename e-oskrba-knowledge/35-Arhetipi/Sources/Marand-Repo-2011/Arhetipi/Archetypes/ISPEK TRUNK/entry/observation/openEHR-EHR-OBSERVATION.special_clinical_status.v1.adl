@@ -1,0 +1,276 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.special_clinical_status.v1
+
+concept
+	[at0000]	-- Specialni klinični status
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Anže Droljc">
+		["organisation"] = <"Marand inženiring d.o.o.">
+		["email"] = <"anze.droljc@marand.si">
+		["date"] = <"21.3.2011">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"The archetype is to be used for gathering special clinical status.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Arhetip se uporablja za shranjevanje podatkov o specialnem kliničnem statusu pacienta.">
+			use = <"">
+			misuse = <"">
+			copyright = <"*(en)">
+		>
+	>
+	lifecycle_state = <"Published">
+	other_contributors = <"Klaudija Đorem", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E483B240EEB6ADA66AFC3CE7478B16D1">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Specialni klinični status
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Oči
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Ušesa
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Nos
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Vrat
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Prsni koš in dihala
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Srce in obtočila
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Ustna votlina in žrelo
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0011] occurrences matches {0..1} matches {	-- Koža in bezgavke
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0012] occurrences matches {0..1} matches {	-- Trebuh in spolovilo
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Mišice in skelet
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Nevrologija in razvoj
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Special clinical status">
+					description = <"Arcehtype is used for gathering data regarding special clinical status">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Eyes">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Ears">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Nose">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Neck">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Chest and respiratory system">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Heart and coronary system">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Throat and oral cavity">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Skin and lymph nodes">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Abdomen and genitals">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Muscle and skeleton">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Neurology and development">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Specialni klinični status">
+					description = <"*">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Oči">
+					description = <"**(en)">
+				>
+				["at0005"] = <
+					text = <"Ušesa">
+					description = <"**(en)">
+				>
+				["at0006"] = <
+					text = <"Nos">
+					description = <"**(en)">
+				>
+				["at0007"] = <
+					text = <"Vrat">
+					description = <"**(en)">
+				>
+				["at0008"] = <
+					text = <"Prsni koš in dihala">
+					description = <"**(en)">
+				>
+				["at0009"] = <
+					text = <"Srce in obtočila">
+					description = <"**(en)">
+				>
+				["at0010"] = <
+					text = <"Ustna votlina in žrelo">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Koža in bezgavke">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Trebuh in spolovilo">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Mišice in skelet">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Nevrologija in razvoj">
+					description = <"*">
+				>
+			>
+		>
+	>

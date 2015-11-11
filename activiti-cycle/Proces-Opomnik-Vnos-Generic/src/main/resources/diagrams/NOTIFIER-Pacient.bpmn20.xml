@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="5.0.0" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-6a23ff1b-d682-4b8a-be7a-4dea3e39ee52" targetNamespace="http://www.signavio.com/bpmn20"
+	typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<!-- INPUT ServiceTask: 1.patientNotifySmsDelegate UserTask: 1.patient 2.listenerPatientObvestiloComplete 
+		3.listenerPatientObvestiloCreate -->
+
+	<process id="Proces-Opomnik-Vnos-Notifier-Pacient" name="ProceOpomnikVnosNotifierPacient"
+		isExecutable="false">
+
+		<serviceTask completionQuantity="1"
+			activiti:delegateExpression="${patientNotifySmsDelegate}"
+			id="sid-F3494FEF-AB85-47BD-9D62-F09B0AA527A1" implementation="webService"
+			isForCompensation="false" name="Obvestilo pacientu po SMS"
+			startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="[]" />
+			</extensionElements>
+			<incoming>sid-D07501B2-25D9-4DFF-9239-840F12E49AFC</incoming>
+			<outgoing>sid-E63D7B56-EFDD-4533-9E4C-4DF4F3A81A23</outgoing>
+		</serviceTask>
+		<parallelGateway gatewayDirection="Diverging"
+			id="sid-35587FC5-9D2F-42A7-ABB7-449229C3E645" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-B3F53772-2746-4CCE-9527-419DB0FD8377</incoming>
+			<outgoing>sid-5643C69A-B41A-41EB-A85A-DCE1FB917DE7</outgoing>
+			<outgoing>sid-D07501B2-25D9-4DFF-9239-840F12E49AFC</outgoing>
+		</parallelGateway>
+		<startEvent id="sid-507F7734-E7E4-4EB6-AE5E-1EAFA5A13BE1"
+			name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>sid-B3F53772-2746-4CCE-9527-419DB0FD8377</outgoing>
+		</startEvent>
+		<userTask completionQuantity="1"
+			id="sid-394191A4-2AF3-4669-B358-AFE6B37FAE9C" implementation="humanTaskWebService"
+			isForCompensation="false" name="${userTaskName}" startQuantity="1"
+			activiti:assignee="${patient.getUsername()}"
+			activiti:formKey="notify-patient.form">
+			<documentation id="ProceOpomnikVnosNotifier_Pacient">ProceOpomnikVnosNotifierPacient</documentation>
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="[]" />
+				<activiti:taskListener event="complete"
+					delegateExpression="${listenerPatientObvestiloComplete}" />
+				<activiti:taskListener event="create"
+					delegateExpression="${listenerPatientObvestiloCreate}" />
+			</extensionElements>
+			<incoming>sid-5643C69A-B41A-41EB-A85A-DCE1FB917DE7</incoming>
+			<outgoing>sid-40C33398-0FB4-408A-BC84-F6CE2EF06CFF</outgoing>
+		</userTask>
+		<parallelGateway gatewayDirection="Converging"
+			id="sid-9CAFE271-5CF8-45B7-9495-29253FB0E767" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-E63D7B56-EFDD-4533-9E4C-4DF4F3A81A23</incoming>
+			<incoming>sid-40C33398-0FB4-408A-BC84-F6CE2EF06CFF</incoming>
+			<outgoing>sid-CE7EC94B-F48D-48FF-ABD4-B433C5CF2945</outgoing>
+		</parallelGateway>
+		<endEvent id="sid-095CF5F7-3699-4FBD-A187-485A4DAB3528" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>sid-CE7EC94B-F48D-48FF-ABD4-B433C5CF2945</incoming>
+		</endEvent>
+		<sequenceFlow id="sid-5643C69A-B41A-41EB-A85A-DCE1FB917DE7"
+			name="" sourceRef="sid-35587FC5-9D2F-42A7-ABB7-449229C3E645"
+			targetRef="sid-394191A4-2AF3-4669-B358-AFE6B37FAE9C" />
+		<sequenceFlow id="sid-D07501B2-25D9-4DFF-9239-840F12E49AFC"
+			name="" sourceRef="sid-35587FC5-9D2F-42A7-ABB7-449229C3E645"
+			targetRef="sid-F3494FEF-AB85-47BD-9D62-F09B0AA527A1" />
+		<sequenceFlow id="sid-B3F53772-2746-4CCE-9527-419DB0FD8377"
+			name="" sourceRef="sid-507F7734-E7E4-4EB6-AE5E-1EAFA5A13BE1"
+			targetRef="sid-35587FC5-9D2F-42A7-ABB7-449229C3E645" />
+		<sequenceFlow id="sid-40C33398-0FB4-408A-BC84-F6CE2EF06CFF"
+			name="" sourceRef="sid-394191A4-2AF3-4669-B358-AFE6B37FAE9C"
+			targetRef="sid-9CAFE271-5CF8-45B7-9495-29253FB0E767" />
+		<sequenceFlow id="sid-E63D7B56-EFDD-4533-9E4C-4DF4F3A81A23"
+			name="" sourceRef="sid-F3494FEF-AB85-47BD-9D62-F09B0AA527A1"
+			targetRef="sid-9CAFE271-5CF8-45B7-9495-29253FB0E767" />
+		<sequenceFlow id="sid-CE7EC94B-F48D-48FF-ABD4-B433C5CF2945"
+			name="" sourceRef="sid-9CAFE271-5CF8-45B7-9495-29253FB0E767"
+			targetRef="sid-095CF5F7-3699-4FBD-A187-485A4DAB3528" />
+	</process>
+	<bpmndi:BPMNDiagram id="sid-3a74437c-fe94-449d-904b-77527eb869b6">
+		<bpmndi:BPMNPlane bpmnElement="Proces-Opomnik-Vnos-Notifier-Pacient"
+			id="sid-53ff0265-5913-4049-9c92-32485af22cc5">
+			<bpmndi:BPMNShape bpmnElement="sid-F3494FEF-AB85-47BD-9D62-F09B0AA527A1"
+				id="sid-F3494FEF-AB85-47BD-9D62-F09B0AA527A1_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="419.0" y="133.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-35587FC5-9D2F-42A7-ABB7-449229C3E645"
+				id="sid-35587FC5-9D2F-42A7-ABB7-449229C3E645_gui">
+				<omgdc:Bounds height="40.0" width="40.0" x="350.0" y="108.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-507F7734-E7E4-4EB6-AE5E-1EAFA5A13BE1"
+				id="sid-507F7734-E7E4-4EB6-AE5E-1EAFA5A13BE1_gui">
+				<omgdc:Bounds height="30.0" width="30.0" x="255.0" y="113.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-394191A4-2AF3-4669-B358-AFE6B37FAE9C"
+				id="sid-394191A4-2AF3-4669-B358-AFE6B37FAE9C_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="419.0" y="50.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-9CAFE271-5CF8-45B7-9495-29253FB0E767"
+				id="sid-9CAFE271-5CF8-45B7-9495-29253FB0E767_gui">
+				<omgdc:Bounds height="40.0" width="40.0" x="585.0" y="108.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="sid-095CF5F7-3699-4FBD-A187-485A4DAB3528"
+				id="sid-095CF5F7-3699-4FBD-A187-485A4DAB3528_gui">
+				<omgdc:Bounds height="28.0" width="28.0" x="660.0" y="114.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge bpmnElement="sid-E63D7B56-EFDD-4533-9E4C-4DF4F3A81A23"
+				id="sid-E63D7B56-EFDD-4533-9E4C-4DF4F3A81A23_gui">
+				<omgdi:waypoint x="519.0" y="173.0" />
+				<omgdi:waypoint x="565.5" y="173.0" />
+				<omgdi:waypoint x="588.0" y="148.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-40C33398-0FB4-408A-BC84-F6CE2EF06CFF"
+				id="sid-40C33398-0FB4-408A-BC84-F6CE2EF06CFF_gui">
+				<omgdi:waypoint x="519.0" y="70.0" />
+				<omgdi:waypoint x="565.5" y="70.0" />
+				<omgdi:waypoint x="598.0" y="108.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-B3F53772-2746-4CCE-9527-419DB0FD8377"
+				id="sid-B3F53772-2746-4CCE-9527-419DB0FD8377_gui">
+				<omgdi:waypoint x="285.0" y="128.0" />
+				<omgdi:waypoint x="350.0" y="128.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-CE7EC94B-F48D-48FF-ABD4-B433C5CF2945"
+				id="sid-CE7EC94B-F48D-48FF-ABD4-B433C5CF2945_gui">
+				<omgdi:waypoint x="625.0" y="128.0" />
+				<omgdi:waypoint x="660.0" y="128.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-D07501B2-25D9-4DFF-9239-840F12E49AFC"
+				id="sid-D07501B2-25D9-4DFF-9239-840F12E49AFC_gui">
+				<omgdi:waypoint x="370.0" y="148.0" />
+				<omgdi:waypoint x="370.5" y="173.0" />
+				<omgdi:waypoint x="419.0" y="173.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="sid-5643C69A-B41A-41EB-A85A-DCE1FB917DE7"
+				id="sid-5643C69A-B41A-41EB-A85A-DCE1FB917DE7_gui">
+				<omgdi:waypoint x="370.0" y="108.0" />
+				<omgdi:waypoint x="370.5" y="90.0" />
+				<omgdi:waypoint x="419.0" y="90.0" />
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

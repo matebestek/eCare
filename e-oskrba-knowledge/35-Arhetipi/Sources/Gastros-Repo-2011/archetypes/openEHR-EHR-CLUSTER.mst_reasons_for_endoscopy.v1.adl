@@ -1,0 +1,628 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_reasons_for_endoscopy.v1
+
+concept
+	[at0000]	-- MST Reasons for Endoscopy
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+		["organisation"] = <"The University of Auckland">
+		["email"] = <"koray@cs.auckland.ac.nz">
+		["date"] = <"7/01/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To describe reasons for performing a gastrointestinal endoscopy.
+
+These have been divided into:
+1. Symptoms: to allow a user to record the symptoms for which an endoscopic examination is required. This is particularly important where a disease is difficult to define.
+2. Diseases: this lists the common diseases for which an endoscopic examination may be required. These can be qualified by \"Suspected…\", \"For exclusion of…\", \"For follow-up of…\" or \"For therapy of…\".
+3. Assessment of: this item was introduced in the \"Reasons for\" list in order to allow the recording of examinations performed to evaluate the status of a part of the GI tract before or after a surgical procedure, in the absence of a specific sign requiring the examination of this organ.
+4. Diagnostic sampling: this was included as a \"Reason for\", as it was recognized that some examinations may only be performed to collect a sample. 
+
+These terms are provided for each type of examination performed.
+">
+			use = <"It describes the reasons for performing a gastrointestinal endoscopy by using MST terms and extending its structure.">
+			keywords = <"endoscopy", "gastroenterology", "MST">
+			misuse = <"Not appropriate for use other than gastrointestinal endoscopy.">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"DE2A868C1CA73892079B75AD28BD3CB6">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Reasons for Endoscopy
+		items cardinality matches {1..*; ordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Lower Gastrointestinal Endoscopy
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0033] occurrences matches {0..*} matches {	-- Symptoms
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0034, 	-- Hematochezia
+									at0035, 	-- Melena of unknown origin
+									at0036, 	-- Diarrhea
+									at0037, 	-- Abdominal distress/pain
+									at0038, 	-- Modification of bowel habits
+									at0039, 	-- Anemia
+									at0040]	-- Weight loss
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..*} matches {	-- Diseases
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0042, 	-- Polyps
+									at0043, 	-- Colo-rectal cancer
+									at0044, 	-- Colonic obstruction
+									at0045, 	-- Diverticula
+									at0046, 	-- Crohn's disease
+									at0047, 	-- Ulcerative colitis
+									at0048, 	-- Volvulus
+									at0049, 	-- Angioectasia
+									at0050, 	-- Ischemic colitis
+									at0051, 	-- Pseudomembranous colitis
+									at0052]	-- Metastasis of unknown origin
+								}
+							}
+						}
+					}
+					ELEMENT[at0053] occurrences matches {0..*} matches {	-- Assessment
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0054, 	-- Preoperative
+									at0055, 	-- Post-operative
+									at0056, 	-- Occult blood loss
+									at0057, 	-- Screening
+									at0058]	-- Familial history of neoplasms
+								}
+							}
+						}
+					}
+					ELEMENT[at0094] occurrences matches {0..1} matches {	-- Abnormal imaging procedure
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0061] occurrences matches {0..1} matches {	-- Diagnostic sampling
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+			CLUSTER[at0002] occurrences matches {0..1} matches {	-- Upper Gastrointestinal Endoscopy
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0005] occurrences matches {0..*} matches {	-- Symptoms
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Abdominal distress/pain
+									at0007, 	-- Dysphagia
+									at0008, 	-- Hematemesis
+									at0009, 	-- Melena
+									at0010, 	-- Heartburn
+									at0011, 	-- Nausea/Vomiting
+									at0012, 	-- Weight loss
+									at0013, 	-- Anemia
+									at0014]	-- Diarrhea
+								}
+							}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..*} matches {	-- Diseases
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0016, 	-- Tumor
+									at0017, 	-- Gastro-esophageal reflux disease
+									at0018, 	-- Ulcer
+									at0019, 	-- Gastritis
+									at0020, 	-- Stenosis
+									at0021, 	-- Gastrointestinal bleeding
+									at0022, 	-- Varices
+									at0023, 	-- Precancerous lesions
+									at0024, 	-- Foreign Body
+									at0025]	-- Metastasis of unknown origin
+								}
+							}
+						}
+					}
+					ELEMENT[at0026] occurrences matches {0..*} matches {	-- Assessment
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0027, 	-- Preoperative
+									at0028, 	-- Post-operative
+									at0029, 	-- Screening
+									at0030]	-- Familial history of neoplasm
+								}
+							}
+						}
+					}
+					use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0094]	-- /items[Lower Gastrointestinal Endoscopy]/items[Abnormal imaging procedure]
+					use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0061]	-- /items[Lower Gastrointestinal Endoscopy]/items[Diagnostic sampling]
+				}
+			}
+			CLUSTER[at0003] occurrences matches {0..1} matches {	-- ERCP
+				items cardinality matches {1..*; ordered} matches {
+					ELEMENT[at0062] occurrences matches {0..*} matches {	-- Symptoms
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0063, 	-- Jaundice
+									at0064]	-- Abdominal pain of suspected biliary or pancreatic origin
+								}
+							}
+						}
+					}
+					ELEMENT[at0065] occurrences matches {0..*} matches {	-- Biological abnormalities
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0066, 	-- Liver function tests
+									at0067]	-- Pancreatic tests
+								}
+							}
+						}
+					}
+					use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0094]	-- /items[Lower Gastrointestinal Endoscopy]/items[Abnormal imaging procedure]
+					ELEMENT[at0069] occurrences matches {0..*} matches {	-- Diseases
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0070, 	-- Bile ducts stone
+									at0071, 	-- Gallbladder stone
+									at0072, 	-- Acute pancreatitis
+									at0073, 	-- Chronic pancreatitis
+									at0074, 	-- Periampullary tumor
+									at0075, 	-- Pancreatic/biliary tumor
+									at0076, 	-- Cholangitis
+									at0077, 	-- Biliary or pancreatic cysts
+									at0078, 	-- Complication of previous biliary surgery
+									at0079, 	-- Complication of previous biliary non-surgical intervention
+									at0080]	-- Stent occlusion
+								}
+							}
+						}
+					}
+					ELEMENT[at0081] occurrences matches {0..*} matches {	-- Assessment
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0082, 	-- Preoperative
+									at0083]	-- Post-operative
+								}
+							}
+						}
+					}
+					use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0061]	-- /items[Lower Gastrointestinal Endoscopy]/items[Diagnostic sampling]
+					ELEMENT[at0085] occurrences matches {0..*} matches {	-- Therapy
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0086, 	-- Sphincterotomy
+									at0087, 	-- Stone removal
+									at0088, 	-- Stenting: biliary/pancreatic ducts
+									at0089, 	-- Stent removal or change
+									at0090, 	-- Dilatation: biliary/pancreatic location
+									at0091, 	-- Drainage: biliary, pancreatic
+									at0092, 	-- Cyst drainage
+									at0093]	-- Hemostasis
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Reasons for Endoscopy">
+					description = <"Reasons for performing a gastrointestinal endoscopy as described by the Minimal Standard Terminology for Gastrointestinal Endoscopy version 2 (MST-2). This is the official terminology endorsed by the World Endoscopy Society (OMED).">
+				>
+				["at0001"] = <
+					text = <"Lower Gastrointestinal Endoscopy">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Upper Gastrointestinal Endoscopy">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"ERCP">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Diseases">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Symptoms">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Abdominal distress/pain">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Dysphagia">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Hematemesis">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Melena">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Heartburn">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Nausea/Vomiting">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Weight loss">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Anemia">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Diarrhea">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Diseases">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Tumor">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Gastro-esophageal reflux disease">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Ulcer">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Gastritis">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Stenosis">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Gastrointestinal bleeding">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Varices">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Precancerous lesions">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Foreign Body">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Metastasis of unknown origin">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Assessment">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Preoperative">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Post-operative">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Screening">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Familial history of neoplasm">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Symptoms">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Hematochezia">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Melena of unknown origin">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Diarrhea">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Abdominal distress/pain">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Modification of bowel habits">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Anemia">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Weight loss">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Polyps">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Colo-rectal cancer">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Colonic obstruction">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Diverticula">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Crohn's disease">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Ulcerative colitis">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"Volvulus">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Angioectasia">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"Ischemic colitis">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Pseudomembranous colitis">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Metastasis of unknown origin">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Assessment">
+					description = <"what about invariants/rules? can we make sure that when an attribute value is selected it has to be further specified?">
+				>
+				["at0054"] = <
+					text = <"Preoperative">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Post-operative">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Occult blood loss">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Screening">
+					description = <"*">
+				>
+				["at0058"] = <
+					text = <"Familial history of neoplasms">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Diagnostic sampling">
+					description = <"Specify">
+				>
+				["at0062"] = <
+					text = <"Symptoms">
+					description = <"*">
+				>
+				["at0063"] = <
+					text = <"Jaundice">
+					description = <"*">
+				>
+				["at0064"] = <
+					text = <"Abdominal pain of suspected biliary or pancreatic origin">
+					description = <"*">
+				>
+				["at0065"] = <
+					text = <"Biological abnormalities">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Liver function tests">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Pancreatic tests">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Diseases">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Bile ducts stone">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"Gallbladder stone">
+					description = <"*">
+				>
+				["at0072"] = <
+					text = <"Acute pancreatitis">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"Chronic pancreatitis">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"Periampullary tumor">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"Pancreatic/biliary tumor">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Cholangitis">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"Biliary or pancreatic cysts">
+					description = <"*">
+				>
+				["at0078"] = <
+					text = <"Complication of previous biliary surgery">
+					description = <"*">
+				>
+				["at0079"] = <
+					text = <"Complication of previous biliary non-surgical intervention">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"Stent occlusion">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"Assessment">
+					description = <"*">
+				>
+				["at0082"] = <
+					text = <"Preoperative">
+					description = <"*">
+				>
+				["at0083"] = <
+					text = <"Post-operative">
+					description = <"*">
+				>
+				["at0085"] = <
+					text = <"Therapy">
+					description = <"*">
+				>
+				["at0086"] = <
+					text = <"Sphincterotomy">
+					description = <"*">
+				>
+				["at0087"] = <
+					text = <"Stone removal">
+					description = <"*">
+				>
+				["at0088"] = <
+					text = <"Stenting: biliary/pancreatic ducts">
+					description = <"*">
+				>
+				["at0089"] = <
+					text = <"Stent removal or change">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Dilatation: biliary/pancreatic location">
+					description = <"*">
+				>
+				["at0091"] = <
+					text = <"Drainage: biliary, pancreatic">
+					description = <"*">
+				>
+				["at0092"] = <
+					text = <"Cyst drainage">
+					description = <"*">
+				>
+				["at0093"] = <
+					text = <"Hemostasis">
+					description = <"*">
+				>
+				["at0094"] = <
+					text = <"Abnormal imaging procedure">
+					description = <"Specify">
+				>
+			>
+		>
+	>

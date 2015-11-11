@@ -1,0 +1,173 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<p>Žal niste pravilno odgovorili na vsa vprašanja. Prosimo, da še enkrat preberete vsebine, iz katerih so vprašanja ter ponovno odgovorite na vprašanja. Hvala!</p>
+	</br>
+	
+	<h2>Vprašalnik - prehrana</h2>
+	<div>
+
+		<table>
+
+			<tr><td style="width: 120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Kakšno je priporočeno število dnevnih obrokov?</p>
+				</td>
+				
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_01_v1__data_at0001__items_at0009__items_at0017__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+					#if ($path == '1')
+						1 do 2
+					#elseif ($path == '0')						
+						3 do 5
+					#elseif ($path == '2')
+						6 ali več
+					#end
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kateri je najpomembnejši obrok v dnevni prehrani?</p>
+				</td>
+				
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_01_v1__data_at0001__items_at0009__items_at0018__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == '0')
+							Zajtrk
+						#elseif ($path == '1')						
+							Malica
+						#elseif ($path == '2')
+							Večerja
+						#end						
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_01_v1__data_at0001__items_at0009__items_at0019__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == '1')
+							Sadje in zelenjava
+						#elseif ($path == '0')
+							Predelana in pol pripravljena ter pripravljena živila kot so kruh, mesni izdelki, pite, pice, "konzerve"
+						#end						
+				</td>
+			</tr>			
+		</table>
+
+	</div>			
+
+	<h2>Vprašalnik - gibanje</h2>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Katera trditev drži za dnevnik vodenja telesne dejavnosti?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_01_v1__data_at0001__items_at0028__items_at0029__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == '1')
+							Pomemben je za tekmovanje s prijatelji ali sodelavci
+						#elseif ($path == '0')
+							Pomaga pri spremljanju porabe energije in vrednotenju napredka
+						#elseif ($path == '2')
+							Ni primeren, saj ustvarja prisilo							
+						#end							
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Katera trditev drzi za vaje mimogrede?</p>
+				</td>
+				
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_01_v1__data_at0001__items_at0028__items_at0030__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == '0')
+							Pomagajo pri preprečevanju bolečin v sklepih in mišicah, ohranjanju prožnosti mišic in gibljivosti sklepov
+						#elseif ($path == '2')
+							Izvajati jih morajo samo ljudje z bolečinami v hrbtenici
+						#elseif ($path == '1')
+							Z njimi lahko nadomestimo ostalo telesno vadbo							
+						#end						
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kaj pomeni aktivni življenjski slog?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_01_v1__data_at0001__items_at0028__items_at0031__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == '1')
+							Da se ukvarjamo z različnimi vrstami rekreacije
+						#elseif ($path == '2')
+							Da imamo mnogo prostočasnih aktivnosti
+						#elseif ($path == '0')
+							Da smo telesno dejavni tudi pri vsakdanjih opravilih
+						#end					
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Katera trditev NE velja za varno in učinkovito vadbo?</p>
+				</td>
+
+				#set($path = $items_openEHR-EHR-EVALUATION_hu_koraki_01_v1__data_at0001__items_at0028__items_at0032__value)
+				<td #if ($path == '0') style="color:Green;vertical-align:middle" #else style="color:FireBrick;vertical-align:middle" #end>
+						#if ($path == '1')
+							Napredujemo postopoma
+						#elseif ($path == '2')
+							Izberemo ustrezno vadbo
+						#elseif ($path == '0')
+							Zadani cilj poskušamo doseči čim hitreje
+						#elseif ($path == '3')
+							Upočasnimo telesno dejavnost navkreber
+						#end					
+				</td>
+			</tr>				
+
+		</table>
+
+	</div>	
+
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>
+

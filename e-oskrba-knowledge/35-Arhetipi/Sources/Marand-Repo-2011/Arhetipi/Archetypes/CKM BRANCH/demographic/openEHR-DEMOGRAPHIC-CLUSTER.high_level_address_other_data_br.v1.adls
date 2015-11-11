@@ -1,0 +1,124 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.5; generated)
+	openEHR-DEMOGRAPHIC-CLUSTER.high_level_address_other_data_br.v1
+
+concept
+	[at0000]	-- Other high level address components
+language
+	original_language = <[ISO_639-1::pt-br]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+				["name"] = <"Sergio Miranda Freire">
+				["email"] = <"sergio@lampada.uerj.br">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sergio Miranda Freire & Rigoleta Dutra Mediano Dias">
+		["organisation"] = <"Universidade do Estado do Rio de Janeiro - UERJ">
+		["email"] = <"sergio@lampada.uerj.br">
+		["date"] = <"23/05/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Representation of data about high level address components in Brazil">
+			use = <"Used in demographic services to register data about high level address components in Brasil">
+			keywords = <"demographic service", "high level address components">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Representação dos componentes de alto nível do endereço específicos do Brasil">
+			use = <"Usado em serviços demográficos para registrar os componentes de alto nível do endereço específicos do Brasil">
+			keywords = <"serviço demográfico", "componentes de alto nível do endereço">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+
+definition
+	CLUSTER[at0000] occurrences matches {1} matches {	-- Other high level address components
+		items matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- District
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Census area
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Other high level address components">
+					description = <"High level address components used in Brazil.">
+				>
+				["at0001"] = <
+					text = <"District">
+					description = <"District.">
+				>
+				["at0002"] = <
+					text = <"Census area">
+					description = <"Area defined by the Brazilian Geographic and Statistics Bureau according to the spacial distribution of the population.">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"Outros componentes de alto nível do endereço">
+					description = <"Componentes de alto nível do endereço utilizados no Brasil">
+				>
+				["at0001"] = <
+					text = <"Bairro">
+					description = <"Bairro do Logradouro">
+				>
+				["at0002"] = <
+					text = <"Setor censitário">
+					description = <"Código do setor censitário">
+				>
+			>
+		>
+	>

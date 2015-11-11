@@ -1,0 +1,1552 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_procedures.v1
+
+concept
+	[at0000]	-- MST Additional Diagnostic and Therapeutic Procedures
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+		["organisation"] = <"The University of Auckland">
+		["email"] = <"k.atalag@auckland.ac.nz">
+		["date"] = <"11/01/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Defines additional diagnostic and therapeutic procedures made during endoscopy for upper and lower gastrointestinal endoscopy and ERCP.">
+			use = <"For defining the terms describing additional diagnostic and therapeutic procedures made during endoscopy for upper and lower gastrointestinal endoscopy and ERCP by using MST terms and extending its structure.">
+			keywords = <"endoscopy", "colonoscopy", "rectoscopy", "ERCP", "EGD", "gastroenterology", "MST", "archetypes", "openEHR">
+			misuse = <"Not appropriate for use other than upper and lower gastrointestinal endoscopy and ERCP.">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Delvaux M. Minimal standard terminology in digestive endoscopy. Endoscopy 2000; 32(2):162-88.">
+		["MD5-CAM-1.0.1"] = <"5C210847EB14B3C65CFF00A7B4C525AC">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Additional Diagnostic and Therapeutic Procedures
+		items cardinality matches {1; unordered} matches {
+			CLUSTER[at0001] occurrences matches {0..1} matches {	-- Diagnostic Procedures
+				items cardinality matches {1..*; unordered} matches {
+					CLUSTER[at0002] occurrences matches {0..*} matches {	-- Biopsy
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0105] matches {	-- Present?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0106, 	-- Yes
+											at0107]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at0003] occurrences matches {0..1} matches {	-- Device
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0004, 	-- Forceps
+											at0005]	-- Snare
+										}
+									}
+								}
+							}
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Method
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0007, 	-- Cold
+											at0008]	-- Hot
+										}
+									}
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Purpose
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0010, 	-- Histology
+											at0011, 	-- Microbiology
+											at0012]	-- Helicobacter pylori test
+										}
+									}
+								}
+							}
+							ELEMENT[at0013] occurrences matches {0..1} matches {	-- Lesion
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0016] occurrences matches {0..1} matches {	-- Site(s)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0145, 	-- Crico-pharyngeus
+											at0146, 	-- Upper third
+											at0147, 	-- Middle third
+											at0148, 	-- Lower third
+											at0149, 	-- Cardia
+											at0150, 	-- Whole esophagus
+											at0151, 	-- Anastomosis
+											at0152, 	-- Cardia
+											at0153, 	-- Fundus
+											at0154, 	-- Body
+											at0155, 	-- Incisura
+											at0156, 	-- Antrum
+											at0157, 	-- Pre-pyloric
+											at0158, 	-- Pylorus
+											at0159, 	-- Whole stomach
+											at0160, 	-- Anastomosis
+											at0161, 	-- Pyloroplasty
+											at0162, 	-- Bulb
+											at0163, 	-- 2nd part of the duodenum
+											at0164, 	-- Area of papilla
+											at0165, 	-- Anastomosis
+											at0166, 	-- Whole examined duodenum
+											at0167, 	-- Afferent jejunal loop
+											at0168, 	-- Efferent jejunal loop
+											at0169, 	-- Jejunal crest
+											at0170, 	-- Anus
+											at0171, 	-- Rectum
+											at0172, 	-- Sigmoid
+											at0173, 	-- Descending
+											at0174, 	-- Splenic
+											at0175, 	-- Transverse
+											at0176, 	-- Hepatic
+											at0177, 	-- Ascending
+											at0178, 	-- Cecum
+											at0179, 	-- Ileo-cecal valve
+											at0180, 	-- Stoma
+											at0181, 	-- Whole colon
+											at0182, 	-- Anastomosis
+											at0183, 	-- Rectal Pouch
+											at0184, 	-- Ileum
+											at0185, 	-- Whole
+											at0186, 	-- Head
+											at0187, 	-- Body
+											at0188, 	-- Tail
+											at0189, 	-- Main duct
+											at0190, 	-- Accessory duct
+											at0191, 	-- Branches
+											at0192, 	-- Papilla
+											at0193, 	-- Biliary-pancreatic junction
+											at0194, 	-- Main duct
+											at0195, 	-- Cytic duct
+											at0196, 	-- Bifurcation
+											at0197, 	-- Liver ducts
+											at0198]	-- Gallbladder
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0014] occurrences matches {0..*} matches {	-- Cytology
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- Lesion
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0019] occurrences matches {0..*} matches {	-- Chromoscopy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0020] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0021, 	-- Dye spreading
+											at0022]	-- Staining
+										}
+									}
+								}
+							}
+							ELEMENT[at0023] occurrences matches {0..1} matches {	-- Dye
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0024] occurrences matches {0..1} matches {	-- Fluid aspiration
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0025] occurrences matches {0..*} matches {	-- Fluoroscopy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0026] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0027] occurrences matches {0..*} matches {	-- Cholangioscopy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0028] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0029] occurrences matches {0..*} matches {	-- Endosonography
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0030] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0031] occurrences matches {0..*} matches {	-- Functional Measurement
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0032] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+				}
+			}
+			CLUSTER[at0034] occurrences matches {0..1} matches {	-- Therapeutic Procedures
+				items cardinality matches {1..*; unordered} matches {
+					CLUSTER[at0035] occurrences matches {0..*} matches {	-- Foreign body removal
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0036] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0037] occurrences matches {0..*} matches {	-- Polypectomy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0038] occurrences matches {0..1} matches {	-- Device
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0004, 	-- Forceps
+											at0005]	-- Snare
+										}
+									}
+								}
+							}
+							ELEMENT[at0041] occurrences matches {0..1} matches {	-- Method
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0007, 	-- Cold
+											at0008]	-- Hot
+										}
+									}
+								}
+							}
+							ELEMENT[at0044] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0045, 	-- Complete
+											at0046]	-- Incomplete
+										}
+									}
+								}
+							}
+							ELEMENT[at0047] occurrences matches {0..1} matches {	-- Retrieval of polyp
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0048, 	-- Retrieved
+											at0049]	-- Not retrieved
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0051] occurrences matches {0..1} matches {	-- Sphincterotomy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0052] occurrences matches {0..1} matches {	-- Precut
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0106, 	-- Yes
+											at0107]	-- No
+										}
+									}
+								}
+							}
+							ELEMENT[at0053] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0056] occurrences matches {0..1} matches {	-- Stone extraction
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0057] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0045, 	-- Complete
+											at0046, 	-- Incomplete
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0061] occurrences matches {0..*} matches {	-- Lithotripsy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0062] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0063] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0066] occurrences matches {0..1} matches {	-- Cystostomy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0067] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0068, 	-- Transgastric
+											at0069]	-- Transduodenal
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0070] occurrences matches {0..*} matches {	-- Guide-wire placement
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0071] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0072] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0073] occurrences matches {0..*} matches {	-- Tube/Drain Placement
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0074] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0075, 	-- Nasobiliary
+											at0076, 	-- Nasocystic
+											at0077, 	-- Nasoenteric
+											at0078, 	-- Nasopancreatic
+											at0079]	-- Stent
+										}
+									}
+								}
+							}
+							ELEMENT[at0080] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0081] occurrences matches {0..*} matches {	-- Percutaneous Gastrostomy (PEG)
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0082] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0083] occurrences matches {0..1} matches {	-- Type of removal
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0084, 	-- External
+											at0085]	-- Internal
+										}
+									}
+								}
+							}
+							ELEMENT[at0086] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0087] occurrences matches {0..*} matches {	-- Dilation
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0088] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0089, 	-- Guided bougie
+											at0090, 	-- Non-guided bougie
+											at0091]	-- Balloon
+										}
+									}
+								}
+							}
+							ELEMENT[at0092] occurrences matches {0..1} matches {	-- Size
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0093] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							ELEMENT[at0094] occurrences matches {0..1} matches {	-- Lesion
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0095] occurrences matches {0..*} matches {	-- Injection
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0096] occurrences matches {0..1} matches {	-- Injected material
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0097] occurrences matches {0..1} matches {	-- Volume
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::129]>
+										list = <
+											["1"] = <
+												units = <"ml">
+											>
+											["2"] = <
+												units = <"cc">
+											>
+											["3"] = <
+												units = <"µL">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0098] occurrences matches {0..1} matches {	-- Purpose
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0099, 	-- Hemostasis
+											at0100, 	-- Eradication of varices
+											at0101, 	-- Tumor destruction
+											at0102, 	-- Drug delivery
+											at0103]	-- Tattooing
+										}
+									}
+								}
+							}
+							ELEMENT[at0104] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0205] occurrences matches {0..*} matches {	-- Ligation
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0206] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0207] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_COUNT matches {*}
+								}
+							}
+							ELEMENT[at0208] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0209] occurrences matches {0..*} matches {	-- Prosthesis
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0110] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0112] occurrences matches {0..1} matches {	-- Length
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"cm">
+											>
+											["2"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0113] occurrences matches {0..1} matches {	-- Diameter
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0111] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0116] occurrences matches {0..*} matches {	-- Mucosal resection
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0117] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0118] occurrences matches {0..1} matches {	-- Lesion
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0119] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0120] occurrences matches {0..*} matches {	-- Thermal Therapy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0121] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0122, 	-- Coagulation
+											at0123]	-- Vaporisation
+										}
+									}
+								}
+							}
+							ELEMENT[at0124] occurrences matches {0..1} matches {	-- Device
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0125, 	-- Monopolar electrical
+											at0126, 	-- Bipolar electrical
+											at0127, 	-- Laser
+											at0128]	-- Argon beam
+										}
+									}
+								}
+							}
+							ELEMENT[at0129] occurrences matches {0..1} matches {	-- Purpose
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0130, 	-- Hemostasis
+											at0131, 	-- Tissue destruction
+											at0132]	-- Tumor destruction
+										}
+									}
+								}
+							}
+							ELEMENT[at0134] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0135] occurrences matches {0..*} matches {	-- Photodynamic therapy
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0136] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0137] occurrences matches {0..1} matches {	-- Purpose
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0138] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+					CLUSTER[at0139] occurrences matches {0..*} matches {	-- Intraluminal radiation
+						items cardinality matches {1..*; unordered} matches {
+							use_node ELEMENT /items[at0001]/items[at0002]/items[at0105]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Present?]
+							ELEMENT[at0140] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0141] occurrences matches {0..1} matches {	-- Purpose
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0142] occurrences matches {0..1} matches {	-- Result
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0054, 	-- Successful
+											at0055]	-- Unsuccessful
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at0001]/items[at0002]/items[at0016]	-- /items[Diagnostic Procedures]/items[Biopsy]/items[Site(s)]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Additional Diagnostic and Therapeutic Procedures">
+					description = <"It describes additional diagnostic and therapeutic procedures made during endoscopy as described by the Minimal Standard Terminology for Gastrointestinal Endoscopy version 2 (MST-2). This is the official terminology endorsed by the World Endoscopy Society (OMED).">
+				>
+				["at0001"] = <
+					text = <"Diagnostic Procedures">
+					description = <"*">
+				>
+				["at0002"] = <
+					text = <"Biopsy">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Device">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Forceps">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Snare">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Method">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Cold">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Hot">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Purpose">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Histology">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Microbiology">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Helicobacter pylori test">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Lesion">
+					description = <"Specify">
+				>
+				["at0014"] = <
+					text = <"Cytology">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Lesion">
+					description = <"Specify">
+				>
+				["at0016"] = <
+					text = <"Site(s)">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Chromoscopy">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Dye spreading">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Staining">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Dye">
+					description = <"Specify">
+				>
+				["at0024"] = <
+					text = <"Fluid aspiration">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Fluoroscopy">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0027"] = <
+					text = <"Cholangioscopy">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0029"] = <
+					text = <"Endosonography">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Type">
+					description = <"Specify using the dedicated terminology">
+				>
+				["at0031"] = <
+					text = <"Functional Measurement">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0034"] = <
+					text = <"Therapeutic Procedures">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Foreign body removal">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Polypectomy">
+					description = <"Refer to location, description, size, number of removed polyps">
+				>
+				["at0038"] = <
+					text = <"Device">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Method">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Complete">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"Incomplete">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"Retrieval of polyp">
+					description = <"Consider using Boolean!!!">
+				>
+				["at0048"] = <
+					text = <"Retrieved">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"Not retrieved">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Sphincterotomy">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"Precut">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0054"] = <
+					text = <"Successful">
+					description = <"*">
+				>
+				["at0055"] = <
+					text = <"Unsuccessful">
+					description = <"*">
+				>
+				["at0056"] = <
+					text = <"Stone extraction">
+					description = <"*">
+				>
+				["at0057"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0061"] = <
+					text = <"Lithotripsy">
+					description = <"*">
+				>
+				["at0062"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0063"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0066"] = <
+					text = <"Cystostomy">
+					description = <"*">
+				>
+				["at0067"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0068"] = <
+					text = <"Transgastric">
+					description = <"*">
+				>
+				["at0069"] = <
+					text = <"Transduodenal">
+					description = <"*">
+				>
+				["at0070"] = <
+					text = <"Guide-wire placement">
+					description = <"*">
+				>
+				["at0071"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0072"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0073"] = <
+					text = <"Tube/Drain Placement">
+					description = <"*">
+				>
+				["at0074"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0075"] = <
+					text = <"Nasobiliary">
+					description = <"*">
+				>
+				["at0076"] = <
+					text = <"Nasocystic">
+					description = <"*">
+				>
+				["at0077"] = <
+					text = <"Nasoenteric">
+					description = <"*">
+				>
+				["at0078"] = <
+					text = <"Nasopancreatic">
+					description = <"*">
+				>
+				["at0079"] = <
+					text = <"Stent">
+					description = <"*">
+				>
+				["at0080"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0081"] = <
+					text = <"Percutaneous Gastrostomy (PEG)">
+					description = <"*">
+				>
+				["at0082"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0083"] = <
+					text = <"Type of removal">
+					description = <"*">
+				>
+				["at0084"] = <
+					text = <"External">
+					description = <"*">
+				>
+				["at0085"] = <
+					text = <"Internal">
+					description = <"*">
+				>
+				["at0086"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0087"] = <
+					text = <"Dilation">
+					description = <"*">
+				>
+				["at0088"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0089"] = <
+					text = <"Guided bougie">
+					description = <"*">
+				>
+				["at0090"] = <
+					text = <"Non-guided bougie">
+					description = <"*">
+				>
+				["at0091"] = <
+					text = <"Balloon">
+					description = <"*">
+				>
+				["at0092"] = <
+					text = <"Size">
+					description = <"In French or gauge">
+				>
+				["at0093"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0094"] = <
+					text = <"Lesion">
+					description = <"Specify">
+				>
+				["at0095"] = <
+					text = <"Injection">
+					description = <"*">
+				>
+				["at0096"] = <
+					text = <"Injected material">
+					description = <"Specify">
+				>
+				["at0097"] = <
+					text = <"Volume">
+					description = <"*">
+				>
+				["at0098"] = <
+					text = <"Purpose">
+					description = <"*">
+				>
+				["at0099"] = <
+					text = <"Hemostasis">
+					description = <"*">
+				>
+				["at0100"] = <
+					text = <"Eradication of varices">
+					description = <"*">
+				>
+				["at0101"] = <
+					text = <"Tumor destruction">
+					description = <"*">
+				>
+				["at0102"] = <
+					text = <"Drug delivery">
+					description = <"*">
+				>
+				["at0103"] = <
+					text = <"Tattooing">
+					description = <"*">
+				>
+				["at0104"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0105"] = <
+					text = <"Present?">
+					description = <"Needed for core concept - but these are not really core concepts; in successive stages will be corrected (i.e. selection enabled but not saved)">
+				>
+				["at0106"] = <
+					text = <"Yes">
+					description = <"Attribute: General">
+				>
+				["at0107"] = <
+					text = <"No">
+					description = <"Attribute: General">
+				>
+				["at0110"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0111"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0112"] = <
+					text = <"Length">
+					description = <"*">
+				>
+				["at0113"] = <
+					text = <"Diameter">
+					description = <"in French or mm">
+				>
+				["at0116"] = <
+					text = <"Mucosal resection">
+					description = <"*">
+				>
+				["at0117"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0118"] = <
+					text = <"Lesion">
+					description = <"Specify">
+				>
+				["at0119"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0120"] = <
+					text = <"Thermal Therapy">
+					description = <"*">
+				>
+				["at0121"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at0122"] = <
+					text = <"Coagulation">
+					description = <"*">
+				>
+				["at0123"] = <
+					text = <"Vaporisation">
+					description = <"*">
+				>
+				["at0124"] = <
+					text = <"Device">
+					description = <"*">
+				>
+				["at0125"] = <
+					text = <"Monopolar electrical">
+					description = <"*">
+				>
+				["at0126"] = <
+					text = <"Bipolar electrical">
+					description = <"*">
+				>
+				["at0127"] = <
+					text = <"Laser">
+					description = <"*">
+				>
+				["at0128"] = <
+					text = <"Argon beam">
+					description = <"*">
+				>
+				["at0129"] = <
+					text = <"Purpose">
+					description = <"*">
+				>
+				["at0130"] = <
+					text = <"Hemostasis">
+					description = <"*">
+				>
+				["at0131"] = <
+					text = <"Tissue destruction">
+					description = <"*">
+				>
+				["at0132"] = <
+					text = <"Tumor destruction">
+					description = <"*">
+				>
+				["at0134"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0135"] = <
+					text = <"Photodynamic therapy">
+					description = <"*">
+				>
+				["at0136"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0137"] = <
+					text = <"Purpose">
+					description = <"Specify">
+				>
+				["at0138"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0139"] = <
+					text = <"Intraluminal radiation">
+					description = <"*">
+				>
+				["at0140"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0141"] = <
+					text = <"Purpose">
+					description = <"Specify">
+				>
+				["at0142"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0145"] = <
+					text = <"Crico-pharyngeus">
+					description = <"Site: Esophagus">
+				>
+				["at0146"] = <
+					text = <"Upper third">
+					description = <"Site: Esophagus">
+				>
+				["at0147"] = <
+					text = <"Middle third">
+					description = <"Site: Esophagus">
+				>
+				["at0148"] = <
+					text = <"Lower third">
+					description = <"Site: Esophagus">
+				>
+				["at0149"] = <
+					text = <"Cardia">
+					description = <"Site: Esophagus">
+				>
+				["at0150"] = <
+					text = <"Whole esophagus">
+					description = <"Site: Esophagus">
+				>
+				["at0151"] = <
+					text = <"Anastomosis">
+					description = <"Site: Esophagus">
+				>
+				["at0152"] = <
+					text = <"Cardia">
+					description = <"Site: Stomach">
+				>
+				["at0153"] = <
+					text = <"Fundus">
+					description = <"Site: Stomach">
+				>
+				["at0154"] = <
+					text = <"Body">
+					description = <"Site: Stomach">
+				>
+				["at0155"] = <
+					text = <"Incisura">
+					description = <"Site: Stomach">
+				>
+				["at0156"] = <
+					text = <"Antrum">
+					description = <"Site: Stomach">
+				>
+				["at0157"] = <
+					text = <"Pre-pyloric">
+					description = <"Site: Stomach">
+				>
+				["at0158"] = <
+					text = <"Pylorus">
+					description = <"Site: Stomach">
+				>
+				["at0159"] = <
+					text = <"Whole stomach">
+					description = <"Site: Stomach">
+				>
+				["at0160"] = <
+					text = <"Anastomosis">
+					description = <"Site: Stomach">
+				>
+				["at0161"] = <
+					text = <"Pyloroplasty">
+					description = <"Site: Stomach">
+				>
+				["at0162"] = <
+					text = <"Bulb">
+					description = <"Site: Duodenum">
+				>
+				["at0163"] = <
+					text = <"2nd part of the duodenum">
+					description = <"Site: Duodenum">
+				>
+				["at0164"] = <
+					text = <"Area of papilla">
+					description = <"Site: Duodenum">
+				>
+				["at0165"] = <
+					text = <"Anastomosis">
+					description = <"Site: Duodenum">
+				>
+				["at0166"] = <
+					text = <"Whole examined duodenum">
+					description = <"Site: Duodenum">
+				>
+				["at0167"] = <
+					text = <"Afferent jejunal loop">
+					description = <"Site: Jejunum">
+				>
+				["at0168"] = <
+					text = <"Efferent jejunal loop">
+					description = <"Site: Jejunum">
+				>
+				["at0169"] = <
+					text = <"Jejunal crest">
+					description = <"Site: Jejunum">
+				>
+				["at0170"] = <
+					text = <"Anus">
+					description = <"Site: Colon">
+				>
+				["at0171"] = <
+					text = <"Rectum">
+					description = <"Site: Colon">
+				>
+				["at0172"] = <
+					text = <"Sigmoid">
+					description = <"Site: Colon">
+				>
+				["at0173"] = <
+					text = <"Descending">
+					description = <"Site: Colon">
+				>
+				["at0174"] = <
+					text = <"Splenic">
+					description = <"Site: Colon">
+				>
+				["at0175"] = <
+					text = <"Transverse">
+					description = <"Site: Colon">
+				>
+				["at0176"] = <
+					text = <"Hepatic">
+					description = <"Site: Colon">
+				>
+				["at0177"] = <
+					text = <"Ascending">
+					description = <"Site: Colon">
+				>
+				["at0178"] = <
+					text = <"Cecum">
+					description = <"Site: Colon">
+				>
+				["at0179"] = <
+					text = <"Ileo-cecal valve">
+					description = <"Site: Colon">
+				>
+				["at0180"] = <
+					text = <"Stoma">
+					description = <"Site: Colon">
+				>
+				["at0181"] = <
+					text = <"Whole colon">
+					description = <"Site: Colon">
+				>
+				["at0182"] = <
+					text = <"Anastomosis">
+					description = <"Site: Colon">
+				>
+				["at0183"] = <
+					text = <"Rectal Pouch">
+					description = <"Site: Colon">
+				>
+				["at0184"] = <
+					text = <"Ileum">
+					description = <"Site: Ileum">
+				>
+				["at0185"] = <
+					text = <"Whole">
+					description = <"Site: Pancreas">
+				>
+				["at0186"] = <
+					text = <"Head">
+					description = <"Site: Pancreas">
+				>
+				["at0187"] = <
+					text = <"Body">
+					description = <"Site: Pancreas">
+				>
+				["at0188"] = <
+					text = <"Tail">
+					description = <"Site: Pancreas">
+				>
+				["at0189"] = <
+					text = <"Main duct">
+					description = <"Site: Pancreas">
+				>
+				["at0190"] = <
+					text = <"Accessory duct">
+					description = <"Site: Pancreas">
+				>
+				["at0191"] = <
+					text = <"Branches">
+					description = <"Site: Pancreas">
+				>
+				["at0192"] = <
+					text = <"Papilla">
+					description = <"Site: Biliary System">
+				>
+				["at0193"] = <
+					text = <"Biliary-pancreatic junction">
+					description = <"Site: Biliary System">
+				>
+				["at0194"] = <
+					text = <"Main duct">
+					description = <"Site: Biliary System">
+				>
+				["at0195"] = <
+					text = <"Cytic duct">
+					description = <"Site: Biliary System">
+				>
+				["at0196"] = <
+					text = <"Bifurcation">
+					description = <"Site: Biliary System">
+				>
+				["at0197"] = <
+					text = <"Liver ducts">
+					description = <"Site: Biliary System">
+				>
+				["at0198"] = <
+					text = <"Gallbladder">
+					description = <"Site: Gallbladder">
+				>
+				["at0205"] = <
+					text = <"Ligation">
+					description = <"*">
+				>
+				["at0206"] = <
+					text = <"Type">
+					description = <"Specify">
+				>
+				["at0207"] = <
+					text = <"Number">
+					description = <"Specify">
+				>
+				["at0208"] = <
+					text = <"Result">
+					description = <"*">
+				>
+				["at0209"] = <
+					text = <"Prosthesis">
+					description = <"*">
+				>
+			>
+		>
+	>

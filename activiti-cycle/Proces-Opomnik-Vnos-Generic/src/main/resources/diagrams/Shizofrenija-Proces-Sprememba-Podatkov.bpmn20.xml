@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:activiti="http://activiti.org/bpmn"  
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" 
+             xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" 
+             xmlns:signavio="http://www.signavio.com" 
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+             exporter="Signavio Process Editor, http://www.signavio.com" 
+             exporterVersion="5.3.1" 
+             expressionLanguage="http://www.w3.org/1999/XPath" 
+             id="sid-8fb8bf93-9540-42c5-94d0-f9376286ad80" 
+             targetNamespace="http://www.signavio.com/bpmn20" 
+             typeLanguage="http://www.w3.org/2001/XMLSchema" 
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+   <process id="Shizofrenija-Proces-Sprememba-Podatkov" isExecutable="false" name="Shizofrenija-Proces-Sprememba-Podatkov">
+      <startEvent id="sid-50CEDB78-7984-4E90-8EC5-85555B015627" name="" activiti:formKey="urediPacientaShizofrenija.form">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <outgoing>sid-8BD23F93-2FB1-4AC1-8057-C0B707AECD63</outgoing>
+      </startEvent>
+      <serviceTask completionQuantity="1" id="sid-A33B2E95-CDE6-496D-B269-D0D5DC7D4188" implementation="webService" isForCompensation="false" name="Shrani spremembe" startQuantity="1" activiti:class="si.pint.eoskrba.eshizofrenija.vnosPacienta.delegate.UpdatePatientData">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc"/>
+            <signavio:signavioMetaData metaKey="risklevel" metaValue=""/>
+            <signavio:signavioMetaData metaKey="externaldocuments" metaValue=""/>
+         </extensionElements>
+         <incoming>sid-8BD23F93-2FB1-4AC1-8057-C0B707AECD63</incoming>
+         <outgoing>sid-46DA7E72-692B-474E-BD45-38E9BEFDFDDE</outgoing>
+      </serviceTask>
+      <endEvent id="sid-C7B54DDB-35B6-4EC7-BC5B-53035A0BDE4A" name="">
+         <extensionElements>
+            <signavio:signavioMetaData metaKey="bgcolor" metaValue="#ffffff"/>
+         </extensionElements>
+         <incoming>sid-46DA7E72-692B-474E-BD45-38E9BEFDFDDE</incoming>
+      </endEvent>
+      <sequenceFlow id="sid-8BD23F93-2FB1-4AC1-8057-C0B707AECD63" name="" sourceRef="sid-50CEDB78-7984-4E90-8EC5-85555B015627" targetRef="sid-A33B2E95-CDE6-496D-B269-D0D5DC7D4188"/>
+      <sequenceFlow id="sid-46DA7E72-692B-474E-BD45-38E9BEFDFDDE" name="" sourceRef="sid-A33B2E95-CDE6-496D-B269-D0D5DC7D4188" targetRef="sid-C7B54DDB-35B6-4EC7-BC5B-53035A0BDE4A"/>
+   </process>
+   <bpmndi:BPMNDiagram id="sid-74e13159-3563-429a-b395-6de973410ee3">
+      <bpmndi:BPMNPlane bpmnElement="Shizofrenija-Proces-Sprememba-Podatkov" id="sid-a4705b97-7768-4cfb-b0cf-d1499b78c881">
+         <bpmndi:BPMNShape bpmnElement="sid-50CEDB78-7984-4E90-8EC5-85555B015627" id="sid-50CEDB78-7984-4E90-8EC5-85555B015627_gui">
+            <omgdc:Bounds height="30.0" width="30.0" x="345.0" y="300.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-A33B2E95-CDE6-496D-B269-D0D5DC7D4188" id="sid-A33B2E95-CDE6-496D-B269-D0D5DC7D4188_gui">
+            <omgdc:Bounds height="80.0" width="100.0" x="480.0" y="275.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNShape bpmnElement="sid-C7B54DDB-35B6-4EC7-BC5B-53035A0BDE4A" id="sid-C7B54DDB-35B6-4EC7-BC5B-53035A0BDE4A_gui">
+            <omgdc:Bounds height="28.0" width="28.0" x="675.0" y="301.0"/>
+         </bpmndi:BPMNShape>
+         <bpmndi:BPMNEdge bpmnElement="sid-8BD23F93-2FB1-4AC1-8057-C0B707AECD63" id="sid-8BD23F93-2FB1-4AC1-8057-C0B707AECD63_gui">
+            <omgdi:waypoint x="375.0" y="315.0"/>
+            <omgdi:waypoint x="480.0" y="315.0"/>
+         </bpmndi:BPMNEdge>
+         <bpmndi:BPMNEdge bpmnElement="sid-46DA7E72-692B-474E-BD45-38E9BEFDFDDE" id="sid-46DA7E72-692B-474E-BD45-38E9BEFDFDDE_gui">
+            <omgdi:waypoint x="580.0" y="315.0"/>
+            <omgdi:waypoint x="675.0" y="315.0"/>
+         </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+   </bpmndi:BPMNDiagram>
+</definitions>

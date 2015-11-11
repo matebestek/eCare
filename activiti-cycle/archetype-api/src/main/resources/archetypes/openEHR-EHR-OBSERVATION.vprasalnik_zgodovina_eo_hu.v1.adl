@@ -1,0 +1,301 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.vprasalnik_zgodovina_eo_hu.v1
+
+concept
+	[at0000]	-- Vprasalnik zgodovina eo hu
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis zgodovine hujsanja, kot jo vidijo udeleženci eHujšanja (eOskrba).">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"1B240611F9E627639CC2C63BBEC8954D">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Vprasalnik zgodovina eo hu
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Datum
+										value matches {
+											DV_DATE matches {*}
+										}
+									}
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0006] occurrences matches {0..1} matches {	-- Kako trenutno doživljate problem vaše telesne teže?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Kakšna je bila vaša telesna teža v otroštvu in mladosti?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- Kako ste se doživljali v otroštvu in mladosti v zvezi s telesno težo?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0009] occurrences matches {0..1} matches {	-- Kdaj (v katerem življenjskem obdobju), zakaj in na kakšen način ste občutili probleme, ki so bili po vašem povezani s telesno težo?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Ali imate izkušnje s hujšanjem? Zakaj ste hujšali? Kako ste hujšali?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Kakšne so vaše dosedanje izkušnje s hujšanjem?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- Zakaj ste se po vašem mnenju ponovno zredili?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- Zakaj ste se odločili za hujšanje sedaj?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Kako se počutite ob odločitvi za hujšanje sedaj?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- Kaj menite, da vam bo v času hujšanja v oporo in kaj vas lahko ovira?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- Ali imate podporo v svojem ožjem okolju (družina, prijatelji, služba,…)?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- Kakšne cilje ste si postavili?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Ali imate načrt kako se boste motivirali, spodbujali, da boste dosegli cilje?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0019] occurrences matches {0..1} matches {	-- Ali razmišljate tudi o vzdrževanju telesne teže? Kakšni so vaši načrti v zvezi z vzdrževanjem teže?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0020] occurrences matches {0..1} matches {	-- Kakšno pomoč pričakujete v skupini za zdravo hujšanje?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0021] occurrences matches {0..1} matches {	-- Vaša velika nagrada za uspešno izgubljanje telesne teže bo:
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0022] occurrences matches {0..1} matches {	-- Vaša pričakovanja v zvezi s hujšanjem?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0023] occurrences matches {0..1} matches {	-- Koliko želite shujšati?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0024] occurrences matches {0..1} matches {	-- Kaj pričakujete, da se bo spremenilo, ko boste shujšali?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+											ELEMENT[at0025] occurrences matches {0..1} matches {	-- Kaj pričakujete po končanem hujšanju?
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vprasalnik zgodovina eo hu">
+					description = <"Zgodovina hujsanja">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vprašanja">
+					description = <"Vprašanja ob začetku izvajanja delavnic hujšanja.">
+				>
+				["at0005"] = <
+					text = <"Datum">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Kako trenutno doživljate problem vaše telesne teže?">
+					description = <"Kako trenutno doživljate problem vaše telesne teže?">
+				>
+				["at0007"] = <
+					text = <"Kakšna je bila vaša telesna teža v otroštvu in mladosti?">
+					description = <"Kakšna je bila vaša telesna teža v otroštvu in mladosti?">
+				>
+				["at0008"] = <
+					text = <"Kako ste se doživljali v otroštvu in mladosti v zvezi s telesno težo?">
+					description = <"Kako ste se doživljali v otroštvu in mladosti v zvezi s telesno težo?">
+				>
+				["at0009"] = <
+					text = <"Kdaj (v katerem življenjskem obdobju), zakaj in na kakšen način ste občutili probleme, ki so bili po vašem povezani s telesno težo?">
+					description = <"Kdaj (v katerem življenjskem obdobju), zakaj in na kakšen način ste občutili probleme, ki so bili po vašem povezani s telesno težo?">
+				>
+				["at0010"] = <
+					text = <"Ali imate izkušnje s hujšanjem? Zakaj ste hujšali? Kako ste hujšali?">
+					description = <"Ali imate izkušnje s hujšanjem? Zakaj ste hujšali? Kako ste hujšali?">
+				>
+				["at0011"] = <
+					text = <"Kakšne so vaše dosedanje izkušnje s hujšanjem?">
+					description = <"Kakšne so vaše dosedanje izkušnje s hujšanjem?">
+				>
+				["at0012"] = <
+					text = <"Zakaj ste se po vašem mnenju ponovno zredili?">
+					description = <"Zakaj ste se po vašem mnenju ponovno zredili?">
+				>
+				["at0013"] = <
+					text = <"Zakaj ste se odločili za hujšanje sedaj?">
+					description = <"Zakaj ste se odločili za hujšanje sedaj?">
+				>
+				["at0014"] = <
+					text = <"Kako se počutite ob odločitvi za hujšanje sedaj?">
+					description = <"Kako se počutite ob odločitvi za hujšanje sedaj?">
+				>
+				["at0015"] = <
+					text = <"Kaj menite, da vam bo v času hujšanja v oporo in kaj vas lahko ovira?">
+					description = <"Kaj menite, da vam bo v času hujšanja v oporo in kaj vas lahko ovira?">
+				>
+				["at0016"] = <
+					text = <"Ali imate podporo v svojem ožjem okolju (družina, prijatelji, služba,…)?">
+					description = <"Ali imate podporo v svojem ožjem okolju (družina, prijatelji, služba,…)?">
+				>
+				["at0017"] = <
+					text = <"Kakšne cilje ste si postavili?">
+					description = <"Kakšne cilje ste si postavili?">
+				>
+				["at0018"] = <
+					text = <"Ali imate načrt kako se boste motivirali, spodbujali, da boste dosegli cilje?">
+					description = <"Ali imate načrt kako se boste motivirali, spodbujali, da boste dosegli cilje?">
+				>
+				["at0019"] = <
+					text = <"Ali razmišljate tudi o vzdrževanju telesne teže? Kakšni so vaši načrti v zvezi z vzdrževanjem teže?">
+					description = <"Ali razmišljate tudi o vzdrževanju telesne teže? Kakšni so vaši načrti v zvezi z vzdrževanjem teže?">
+				>
+				["at0020"] = <
+					text = <"Kakšno pomoč pričakujete v skupini za zdravo hujšanje?">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Vaša velika nagrada za uspešno izgubljanje telesne teže bo:">
+					description = <"Vaša velika nagrada za uspešno izgubljanje telesne teže bo:">
+				>
+				["at0022"] = <
+					text = <"Vaša pričakovanja v zvezi s hujšanjem?">
+					description = <"Vaša pričakovanja v zvezi s hujšanjem?">
+				>
+				["at0023"] = <
+					text = <"Koliko želite shujšati?">
+					description = <"Koliko želite shujšati?">
+				>
+				["at0024"] = <
+					text = <"Kaj pričakujete, da se bo spremenilo, ko boste shujšali?">
+					description = <"Kaj pričakujete, da se bo spremenilo, ko boste shujšali?">
+				>
+				["at0025"] = <
+					text = <"Kaj pričakujete po končanem hujšanju?">
+					description = <"Kaj pričakujete po končanem hujšanju?">
+				>
+				["at0026"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+			>
+		>
+	>

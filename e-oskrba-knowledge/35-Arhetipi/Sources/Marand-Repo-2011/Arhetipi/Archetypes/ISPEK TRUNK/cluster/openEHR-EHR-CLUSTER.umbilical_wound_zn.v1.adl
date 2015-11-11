@@ -1,0 +1,301 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.umbilical_wound_zn.v1
+
+concept
+	[at0000]	-- Umbilical wound
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Marand">
+				["name"] = <"mag.Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"29.10.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"Nursing assessment of wound - umbilical wound">
+			use = <"As a part of wound assessment these are additional fields for assessing umbilical wound in newborns.">
+			keywords = <"umbilical wound", "wound", "wound assessment", "nursing assessment">
+			misuse = <"Other umbilical wounds than resulting from birth.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Opazovanje popkovne rane pri novorojenčku.
+Uporablja se v procesu zdravstvene nege.">
+			use = <"Za opazovanje popkovne rane pri novorojenčkih in je področje ocene rane pri pacientu.
+
+">
+			keywords = <"popek", "popkovna rana", "rana">
+			misuse = <"Za oceno drugih ran, ki se pojavijo ob rojstvu">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"5A9D4EF7A964F59BDE570A2CDDDE1B23">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Umbilical wound
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0001] occurrences matches {0..1} matches {	-- Status
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0002, 	-- moist, fresh
+							at0003, 	-- dry
+							at0004]	-- maceration
+						}
+					}
+				}
+			}
+			ELEMENT[at0005] occurrences matches {0..1} matches {	-- Wound bed
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0006, 	-- dry
+							at0007]	-- granuloma
+						}
+					}
+				}
+			}
+			ELEMENT[at0008] occurrences matches {0..2} matches {	-- Additional matters
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0009, 	-- urine
+							at0010]	-- feces
+						}
+					}
+				}
+			}
+			ELEMENT[at0011] occurrences matches {0..1} matches {	-- Umbilical hermia
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0012, 	-- present
+							at0013]	-- not present
+						}
+					}
+				}
+			}
+			ELEMENT[at0014] occurrences matches {0..1} matches {	-- Anomalies
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0015, 	-- present
+							at0016]	-- not present
+						}
+					}
+				}
+			}
+			ELEMENT[at0018] occurrences matches {0..1} matches {	-- Description
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Umbilical wound">
+					description = <"Umbilical wound - nursing assessment">
+				>
+				["at0001"] = <
+					text = <"Status">
+					description = <"Status of umbilical wound">
+				>
+				["at0002"] = <
+					text = <"moist, fresh">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"dry">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"maceration">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Wound bed">
+					description = <"Umbilical wound bed">
+				>
+				["at0006"] = <
+					text = <"dry">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"granuloma">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Additional matters">
+					description = <"Additions in excretion from umbilical wound">
+				>
+				["at0009"] = <
+					text = <"urine">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"feces">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Umbilical hermia">
+					description = <"Presence of umbilical hernia">
+				>
+				["at0012"] = <
+					text = <"present">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Anomalies">
+					description = <"Any anomalies present regarding umbilical wound">
+				>
+				["at0015"] = <
+					text = <"present">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"not present">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Description">
+					description = <"Description of anomalies">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Popkovna rana">
+					description = <"Opazovanje popkovne rane v zdravstveni negi">
+				>
+				["at0001"] = <
+					text = <"Popkovni krn">
+					description = <"Status popkovnega krna">
+				>
+				["at0002"] = <
+					text = <"Svež">
+					description = <"Svež">
+				>
+				["at0003"] = <
+					text = <"Suh">
+					description = <"Suh">
+				>
+				["at0004"] = <
+					text = <"Maceriran">
+					description = <"Maceriran">
+				>
+				["at0005"] = <
+					text = <"Ležišče">
+					description = <"Ležišče popkovne rane">
+				>
+				["at0006"] = <
+					text = <"Suho">
+					description = <"Suho">
+				>
+				["at0007"] = <
+					text = <"Granulom">
+					description = <"Granulom ">
+				>
+				["at0008"] = <
+					text = <"Izloček">
+					description = <"Izločki iz popkovne rane">
+				>
+				["at0009"] = <
+					text = <"Urin">
+					description = <"Urin">
+				>
+				["at0010"] = <
+					text = <"Blato">
+					description = <"Blato">
+				>
+				["at0011"] = <
+					text = <"Popkovna kila">
+					description = <"Ali je prisotna popkovna kila">
+				>
+				["at0012"] = <
+					text = <"Da">
+					description = <"Popkovna kila je prisotna">
+				>
+				["at0013"] = <
+					text = <"Ne">
+					description = <"Popkovne kile ni">
+				>
+				["at0014"] = <
+					text = <"Anomalije">
+					description = <"Ali so prisotne kakršnekoli anomalije pri popkovni rani">
+				>
+				["at0015"] = <
+					text = <"Da">
+					description = <"Anomalije so">
+				>
+				["at0016"] = <
+					text = <"Ne">
+					description = <"Anomalij ni">
+				>
+				["at0018"] = <
+					text = <"Opis">
+					description = <"Opis anomalij">
+				>
+			>
+		>
+	>

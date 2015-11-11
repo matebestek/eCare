@@ -1,0 +1,655 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.eye_exam_zn.v1
+
+concept
+	[at0000]	-- Opazovanje oči
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o, Ljubljana">
+				["name"] = <"Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"05/10/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of eye examination and history according to ZN documentation.">
+			use = <"">
+			keywords = <"eye", "vision", "pupil">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Dokumentiranje opazovanja oči v ZN">
+			use = <"Dokumentiranje opazovanja oči v ZN">
+			keywords = <"oči", "vid", "">
+			misuse = <"Se ne uporablja za opazovanje zenic">
+			copyright = <"*(en)">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Uroš Rajkovič, Faculty of Organizational Sciences, University of Maribor, Slovenia", "Biljana Prinčič, Marand d.o.o., Slovenia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"5BF2C006E323B61963CA7A49745BCD4E">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Opazovanje oči
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									allow_archetype CLUSTER[at0005] occurrences matches {0..1} matches {	-- Podatki o zenicah
+										include
+											archetype_id/value matches {/openEHR-EHR-CLUSTER\.pupils(-[a-zA-Z0-9_]+)*\.v1/}
+									}
+									CLUSTER[at0006] occurrences matches {0..1} matches {	-- Przadet vid
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0004] occurrences matches {0..1} matches {	-- Levo 
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0020, 	-- Da
+															at0021]	-- Ni
+														}
+													}
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Desno
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0022, 	-- Da
+															at0023]	-- Ni
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Gibanje oči
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Mežikanje
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Zrklo glede na orbito
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0011, 	-- Normalno
+													at0010, 	-- Izbočeno
+													at0012]	-- Vdrto
+												}
+											}
+										}
+									}
+									CLUSTER[at0024] occurrences matches {0..1} matches {	-- Drugo
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- Zrkli sta v centralnem položaju
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0034, 	-- Da
+															at0035]	-- Ne
+														}
+													}
+												}
+											}
+											ELEMENT[at0025] occurrences matches {0..1} matches {	-- Simetrični očesni veki ob zaprtju
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0036, 	-- Da
+															at0037]	-- Ne
+														}
+													}
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- Izsušene oči
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0038, 	-- Da
+															at0039]	-- Ne
+														}
+													}
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {	-- Pordele oči
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0040, 	-- Da
+															at0041]	-- Ne
+														}
+													}
+												}
+											}
+											ELEMENT[at0028] occurrences matches {0..1} matches {	-- Halonirane oči
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0042, 	-- Da
+															at0043]	-- Ne
+														}
+													}
+												}
+											}
+											ELEMENT[at0029] occurrences matches {0..1} matches {	-- Se odziva na svetlobo
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0044, 	-- Da
+															at0045]	-- Ne
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Nistagmus
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0016, 	-- Ne
+													at0017, 	-- Vertikalen
+													at0018, 	-- Horizontalen
+													at0019]	-- Rotacijski
+												}
+											}
+										}
+									}
+									ELEMENT[at0030] occurrences matches {0..1} matches {	-- Solzenje
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0031, 	-- Normalno
+													at0032, 	-- Prekomerno
+													at0033]	-- Zmanjšano
+												}
+											}
+										}
+									}
+									ELEMENT[at0047] occurrences matches {0..1} matches {	-- Izcedek
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0048, 	-- Da
+													at0049]	-- Ne
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Eye examination">
+					description = <"Findings of eye assessment according to ZN documentation.">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Left eye">
+					description = <"Impaired vision on the left eye.">
+				>
+				["at0005"] = <
+					text = <"Pupil details">
+					description = <"Details of pupillary examination.">
+				>
+				["at0006"] = <
+					text = <"Vision impaired">
+					description = <"Findings of impaired vision.">
+				>
+				["at0007"] = <
+					text = <"Right eye">
+					description = <"Impaired vision in the right eye.">
+				>
+				["at0008"] = <
+					text = <"Squint">
+					description = <"Description of squint.">
+				>
+				["at0009"] = <
+					text = <"Eyeball position in orbit">
+					description = <"The position of the eyeball with respect to the orbit.">
+				>
+				["at0010"] = <
+					text = <"Protruding / bulging">
+					description = <"The eyeball appears to protrude from the orbit.">
+				>
+				["at0011"] = <
+					text = <"Normal">
+					description = <"The eyeball position is normal with respect to the orbit.">
+				>
+				["at0012"] = <
+					text = <"Sunken">
+					description = <"The eyebell appears sunken in the orbit.">
+				>
+				["at0013"] = <
+					text = <"Eye movement">
+					description = <"Description of eye movement.">
+				>
+				["at0014"] = <
+					text = <"Eyeballs central">
+					description = <"The eyeballs are central.">
+				>
+				["at0015"] = <
+					text = <"Nystagmus">
+					description = <"Evidence of nystagmus.">
+				>
+				["at0016"] = <
+					text = <"None">
+					description = <"No evidence of nystagmus.">
+				>
+				["at0017"] = <
+					text = <"Vertical">
+					description = <"The subject has vertical nystagmus.">
+				>
+				["at0018"] = <
+					text = <"Horizontal">
+					description = <"The subject has horizontal nystagmus.">
+				>
+				["at0019"] = <
+					text = <"Rotary">
+					description = <"The subject has rotaryl nystagmus.">
+				>
+				["at0020"] = <
+					text = <"Present">
+					description = <"Vision is impaired in the left eye.">
+				>
+				["at0021"] = <
+					text = <"Not present">
+					description = <"Vision is not impaired in the left eye.">
+				>
+				["at0022"] = <
+					text = <"Present">
+					description = <"Vision is impaired in the right eye.">
+				>
+				["at0023"] = <
+					text = <"Not present">
+					description = <"Vision is not impaired in the right eye.">
+				>
+				["at0024"] = <
+					text = <"Other features">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Closed eyelids symmetrical">
+					description = <"Eyelids symmetrical.">
+				>
+				["at0026"] = <
+					text = <"Dry eyes">
+					description = <"Evidence of dry eyes.">
+				>
+				["at0027"] = <
+					text = <"Redness">
+					description = <"Evdience of eye redness.">
+				>
+				["at0028"] = <
+					text = <"Periorbital dark circles">
+					description = <"Evidence of periorbital dark circles.">
+				>
+				["at0029"] = <
+					text = <"Eyes responsive to light">
+					description = <"Evidence of responsiveness to light.">
+				>
+				["at0030"] = <
+					text = <"Lachrymation">
+					description = <"Findings of lachrymation.">
+				>
+				["at0031"] = <
+					text = <"Normal">
+					description = <"Lachrymation is normal.">
+				>
+				["at0032"] = <
+					text = <"Excessive">
+					description = <"Lachrymation is excessive.">
+				>
+				["at0033"] = <
+					text = <"Reduced">
+					description = <"Lachrymation is reduced.">
+				>
+				["at0034"] = <
+					text = <"Yes">
+					description = <"The eyeballs are central.">
+				>
+				["at0035"] = <
+					text = <"No">
+					description = <"The eyeballs are not central.">
+				>
+				["at0036"] = <
+					text = <"Yes">
+					description = <"Eyelids are symmetrical when closed">
+				>
+				["at0037"] = <
+					text = <"No">
+					description = <"The eyelids are not syymetrical when closed.">
+				>
+				["at0038"] = <
+					text = <"Present">
+					description = <"The eyes are dry.">
+				>
+				["at0039"] = <
+					text = <"Not present">
+					description = <"The eyes are not dry.">
+				>
+				["at0040"] = <
+					text = <"Present">
+					description = <"The eyes appear red.">
+				>
+				["at0041"] = <
+					text = <"Not present">
+					description = <"The eyes do not appear red.">
+				>
+				["at0042"] = <
+					text = <"Present">
+					description = <"Periorbital dark circles are present.">
+				>
+				["at0043"] = <
+					text = <"Not present">
+					description = <"Periorbital dark circles are absent.">
+				>
+				["at0044"] = <
+					text = <"Present">
+					description = <"The eyes are responsive to light.">
+				>
+				["at0045"] = <
+					text = <"Not present">
+					description = <"The eyes are not responsive to light.">
+				>
+				["at0047"] = <
+					text = <"Discharge">
+					description = <"Evidence of discharge from the eye. Abnormal discharge such as pus or blood-stained fluid is implied.">
+				>
+				["at0048"] = <
+					text = <"Present">
+					description = <"There is evidence of discharge from the eye.">
+				>
+				["at0049"] = <
+					text = <"Absent">
+					description = <"There is no discharge from the eye.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Opazovanje oči">
+					description = <"Dokumentiranje opazovanja oči v ZN">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Levo ">
+					description = <"Prizadet vid na levem očesu">
+				>
+				["at0005"] = <
+					text = <"Podatki o zenicah">
+					description = <"Podatki o zenicah">
+				>
+				["at0006"] = <
+					text = <"Przadet vid">
+					description = <"Prizadet vid na levem očesu">
+				>
+				["at0007"] = <
+					text = <"Desno">
+					description = <"Prizadet vid na desnem očesu">
+				>
+				["at0008"] = <
+					text = <"Mežikanje">
+					description = <"Opis mežikanja">
+				>
+				["at0009"] = <
+					text = <"Zrklo glede na orbito">
+					description = <"*The position of the eyeball with respect to the orbit.(en)">
+				>
+				["at0010"] = <
+					text = <"Izbočeno">
+					description = <"Zrklo je izbočeno">
+				>
+				["at0011"] = <
+					text = <"Normalno">
+					description = <"Zrklo je v normalnem položaju">
+				>
+				["at0012"] = <
+					text = <"Vdrto">
+					description = <"Zrklo je vdrto">
+				>
+				["at0013"] = <
+					text = <"Gibanje oči">
+					description = <"Opis gibanja oči">
+				>
+				["at0014"] = <
+					text = <"Zrkli sta v centralnem položaju">
+					description = <"Zrkli sta v centralnem položaju">
+				>
+				["at0015"] = <
+					text = <"Nistagmus">
+					description = <"Nistagmus je prisoten">
+				>
+				["at0016"] = <
+					text = <"Ne">
+					description = <"Nistigmus ni prisoten">
+				>
+				["at0017"] = <
+					text = <"Vertikalen">
+					description = <"Prisotnost vertikalnega nistigmusa">
+				>
+				["at0018"] = <
+					text = <"Horizontalen">
+					description = <"Prisotnost horizontalnega nistigmusa">
+				>
+				["at0019"] = <
+					text = <"Rotacijski">
+					description = <"Prisotnost rotacijskega nistigmusa">
+				>
+				["at0020"] = <
+					text = <"Da">
+					description = <"Pogled je prizadet na levem očesu">
+				>
+				["at0021"] = <
+					text = <"Ni">
+					description = <"Pogled ni prizadet na levem očesu">
+				>
+				["at0022"] = <
+					text = <"Da">
+					description = <"Pogled je prizadet na desnem očesu">
+				>
+				["at0023"] = <
+					text = <"Ni">
+					description = <"Pogled ni prizadet na desnem očesu">
+				>
+				["at0024"] = <
+					text = <"Drugo">
+					description = <"Doaten opis morebitnih drugih motenj">
+				>
+				["at0025"] = <
+					text = <"Simetrični očesni veki ob zaprtju">
+					description = <"Ali so očesni veki simetrični ob zartju?">
+				>
+				["at0026"] = <
+					text = <"Izsušene oči">
+					description = <"Ali so oči izsušene?">
+				>
+				["at0027"] = <
+					text = <"Pordele oči">
+					description = <"Ali so oči pordele?">
+				>
+				["at0028"] = <
+					text = <"Halonirane oči">
+					description = <"Ali so oči halonirane?">
+				>
+				["at0029"] = <
+					text = <"Se odziva na svetlobo">
+					description = <"Opazovanje odzivanja oči na svetlobo">
+				>
+				["at0030"] = <
+					text = <"Solzenje">
+					description = <"Opazovanje solzenja">
+				>
+				["at0031"] = <
+					text = <"Normalno">
+					description = <"Normalno solzenje">
+				>
+				["at0032"] = <
+					text = <"Prekomerno">
+					description = <"Prekomerno solzenje">
+				>
+				["at0033"] = <
+					text = <"Zmanjšano">
+					description = <"Zamnjšano solzenje">
+				>
+				["at0034"] = <
+					text = <"Da">
+					description = <"Zrkli sta v srednjem položaju">
+				>
+				["at0035"] = <
+					text = <"Ne">
+					description = <"Zrkli nista v srednjem položaju">
+				>
+				["at0036"] = <
+					text = <"Da">
+					description = <"Očesni veki sta simetrični ob zaprtju">
+				>
+				["at0037"] = <
+					text = <"Ne">
+					description = <"Očesni veki niso simetrični ob zaprtju">
+				>
+				["at0038"] = <
+					text = <"Da">
+					description = <"Oči so izsušene">
+				>
+				["at0039"] = <
+					text = <"Ne">
+					description = <"Oči niso izsušene">
+				>
+				["at0040"] = <
+					text = <"Da">
+					description = <"Oči so pordele">
+				>
+				["at0041"] = <
+					text = <"Ne">
+					description = <"Oči niso pordele">
+				>
+				["at0042"] = <
+					text = <"Da">
+					description = <"Oči so halonirane">
+				>
+				["at0043"] = <
+					text = <"Ne">
+					description = <"Oči niso halonirane">
+				>
+				["at0044"] = <
+					text = <"Da">
+					description = <"Oči se odzivajo na svetlobo">
+				>
+				["at0045"] = <
+					text = <"Ne">
+					description = <"Oči se ne odzivajo na svetlobo">
+				>
+				["at0047"] = <
+					text = <"Izcedek">
+					description = <"Ali je prisoten izcedek iz oči? ">
+				>
+				["at0048"] = <
+					text = <"Da">
+					description = <"Izcedek je prisoten">
+				>
+				["at0049"] = <
+					text = <"Ne">
+					description = <"Izcedka ni">
+				>
+			>
+		>
+	>

@@ -1,0 +1,1583 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<?xml version="1.0" encoding="utf-8"?>
+<formdesign xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/FormDesign">
+  <Object type="System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="EhrGateUserControl" children="Controls" xmlns="">
+    <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox10" children="Controls">
+      <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox11" children="Controls">
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text10" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Imezdravila</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0001]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">196, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName">Snomed</Property>
+          <Property name="Location">228, 20</Property>
+          <Property name="Name">dV_Text10</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName" />
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">FreeText</Property>
+          <Property name="TermLanguage">en-GB</Property>
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">0</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label30" children="Controls">
+          <Property name="TabIndex">1</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">63, 13</Property>
+          <Property name="Text">Ime zdravila</Property>
+          <Property name="Location">165, 23</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label30</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text11" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Generičnoime</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0012]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">196, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName">Snomed</Property>
+          <Property name="Location">228, 48</Property>
+          <Property name="Name">dV_Text11</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName" />
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">FreeText</Property>
+          <Property name="TermLanguage">en-GB</Property>
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">2</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label31" children="Controls">
+          <Property name="TabIndex">3</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">81, 13</Property>
+          <Property name="Text">(Generično ime)</Property>
+          <Property name="Location">147, 51</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label31</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text12" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Velikostodmerka</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0006]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">196, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName" />
+          <Property name="Location">228, 76</Property>
+          <Property name="Name">dV_Text12</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName" />
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">Coded</Property>
+          <Property name="TermLanguage" />
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">4</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label32" children="Controls">
+          <Property name="TabIndex">5</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">88, 13</Property>
+          <Property name="Text">Velikost odmerka</Property>
+          <Property name="Location">140, 79</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label32</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text13" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Oblikazdravila</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0004]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">196, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName">Snomed</Property>
+          <Property name="Location">228, 104</Property>
+          <Property name="Name">dV_Text13</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName" />
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">FreeText</Property>
+          <Property name="TermLanguage">en-GB</Property>
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">6</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label33" children="Controls">
+          <Property name="TabIndex">7</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">76, 13</Property>
+          <Property name="Text">Oblika zdravila</Property>
+          <Property name="Location">152, 107</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label33</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Count, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Count3" children="Controls">
+          <Property name="ElementName">Številoodmerkov_1</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0033]/items[at0034]/items[at0005]</Property>
+          <Property name="BindingValue">
+            <Binary>AAEAAAD/////AQAAAAAAAAAMAgAAAFhPY2VhbkVoci5PcGVuRWhyVjEsIFZlcnNpb249MS41LjMyMDkuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj04MzM2NjkzNDlmY2U2MzY0DAMAAABVT3BlbkVoci5WMS5JdHMuWG1sLCBWZXJzaW9uPTEuMC4xLjQsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49ODMzNjY5MzQ5ZmNlNjM2NAUBAAAALU9jZWFuRWhyLk9wZW5FaHJWMS5EYXRhVHlwZXMuUXVhbnRpdHkuRHZDb3VudBAAAAANZGF0YVZhbHVlVHlwZQltYWduaXR1ZGUMbWFnbml0dWRlU2V0EkR2QW1vdW50YDErZWhyVHlwZRNEdkFtb3VudGAxK2FjY3VyYWN5HER2QW1vdW50YDErYWNjdXJhY3lJc1BlcmNlbnQfRHZBbW91bnRgMSthY2N1cmFjeUlzUGVyY2VudFNldBZEdlF1YW50aWZpZWRgMStlaHJUeXBlHkR2UXVhbnRpZmllZGAxK21hZ25pdHVkZVN0YXR1cxNEdk9yZGVyZWRgMStlaHJUeXBlGUR2T3JkZXJlZGAxK2RhdGFWYWx1ZVR5cGUXRHZPcmRlcmVkYDErbm9ybWFsUmFuZ2UgRHZPcmRlcmVkYDErb3RoZXJSZWZlcmVuY2VSYW5nZXMYRHZPcmRlcmVkYDErbm9ybWFsU3RhdHVzF0RhdGFWYWx1ZStkYXRhVmFsdWVUeXBlEVJtVHlwZStjb25zdHJhaW50BAAABAAAAAQBBAQEBAQEBB5PcGVuRWhyLlYxLkl0cy5YbWwuUk0uRFZfQ09VTlQDAAAACQEeT3BlbkVoci5WMS5JdHMuWG1sLlJNLkRWX0NPVU5UAwAAAAsBASNPcGVuRWhyLlYxLkl0cy5YbWwuUk0uRFZfUVVBTlRJRklFRAMAAAAgT3BlbkVoci5WMS5JdHMuWG1sLlJNLkRWX09SREVSRUQDAAAAHk9wZW5FaHIuVjEuSXRzLlhtbC5STS5EVl9DT1VOVAMAAAC9AU9jZWFuRWhyLk9wZW5FaHJWMS5EYXRhVHlwZXMuUXVhbnRpdHkuRHZJbnRlcnZhbGAxW1tPY2VhbkVoci5PcGVuRWhyVjEuRGF0YVR5cGVzLlF1YW50aXR5LkR2Q291bnQsIE9jZWFuRWhyLk9wZW5FaHJWMSwgVmVyc2lvbj0xLjUuMzIwOS4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTgzMzY2OTM0OWZjZTYzNjRdXQIAAADIAk9jZWFuRWhyLk9wZW5FaHJWMS5TdXBwb3J0LkFzc3VtZWQuTGlzdGAxW1tPY2VhbkVoci5PcGVuRWhyVjEuRGF0YVR5cGVzLlF1YW50aXR5LlJlZmVyZW5jZVJhbmdlYDFbW09jZWFuRWhyLk9wZW5FaHJWMS5EYXRhVHlwZXMuUXVhbnRpdHkuRHZDb3VudCwgT2NlYW5FaHIuT3BlbkVoclYxLCBWZXJzaW9uPTEuNS4zMjA5LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49ODMzNjY5MzQ5ZmNlNjM2NF1dLCBPY2VhbkVoci5PcGVuRWhyVjEsIFZlcnNpb249MS41LjMyMDkuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj04MzM2NjkzNDlmY2U2MzY0XV0CAAAALE9jZWFuRWhyLk9wZW5FaHJWMS5EYXRhVHlwZXMuVGV4dC5Db2RlUGhyYXNlAgAAAB5PcGVuRWhyLlYxLkl0cy5YbWwuUk0uRFZfQ09VTlQDAAAAN09jZWFuRWhyLk9wZW5FaHJWMS5BTS5BcmNoZXR5cGUuQ29uc3RyYWludE1vZGVsLkNPYmplY3QCAAAAAgAAAAkEAAAAAQAAAAAAAAABCQQAAAAAAIC/AAAKCgoJBAAAAAoKCgkEAAAACgUEAAAAHk9wZW5FaHIuVjEuSXRzLlhtbC5STS5EVl9DT1VOVAkAAAAObWFnbml0dWRlRmllbGQXRFZfQU1PVU5UK2FjY3VyYWN5RmllbGQgRFZfQU1PVU5UK2FjY3VyYWN5RmllbGRTcGVjaWZpZWQiRFZfQU1PVU5UK2FjY3VyYWN5X2lzX3BlcmNlbnRGaWVsZCtEVl9BTU9VTlQrYWNjdXJhY3lfaXNfcGVyY2VudEZpZWxkU3BlY2lmaWVkI0RWX1FVQU5USUZJRUQrbWFnbml0dWRlX3N0YXR1c0ZpZWxkHERWX09SREVSRUQrbm9ybWFsX3JhbmdlRmllbGQmRFZfT1JERVJFRCtvdGhlcl9yZWZlcmVuY2VfcmFuZ2VzRmllbGQdRFZfT1JERVJFRCtub3JtYWxfc3RhdHVzRmllbGQAAAAAAAEEBAQJCwEBASFPcGVuRWhyLlYxLkl0cy5YbWwuUk0uRFZfSU5URVJWQUwDAAAAJ09wZW5FaHIuVjEuSXRzLlhtbC5STS5SRUZFUkVOQ0VfUkFOR0VbXQMAAAAhT3BlbkVoci5WMS5JdHMuWG1sLlJNLkNPREVfUEhSQVNFAwAAAAMAAAABAAAAAAAAAAAAAAAAAAAKCgoKCw==</Binary>
+          </Property>
+          <Property name="Size">50, 20</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Count3</Property>
+          <Property name="Location">228, 132</Property>
+          <Property name="Minimum">1</Property>
+          <Property name="ElementValue" />
+          <Property name="TabIndex">9</Property>
+          <Property name="DataConstraint" />
+          <Property name="Value">1</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label34" children="Controls">
+          <Property name="TabIndex">10</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">89, 13</Property>
+          <Property name="Text">Število odmerkov</Property>
+          <Property name="Location">139, 135</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label34</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity15" children="Controls">
+          <Property name="ElementName">Trajanjezdravljenja</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0007]</Property>
+          <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">87, 26</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Quantity15</Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="Location">228, 165</Property>
+          <Property name="Units">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAFkDQML</Binary>
+          </Property>
+          <Property name="QuantityDecimalPlaces">2</Property>
+          <Property name="ElementValue">
+          </Property>
+          <Property name="QuantityMinimum">0</Property>
+          <Property name="Property">?</Property>
+          <Property name="TabIndex">11</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="QuantityWidth">70</Property>
+          <Property name="DataConstraint" />
+          <Property name="SelectedUnit">d</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label35" children="Controls">
+          <Property name="TabIndex">12</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">98, 13</Property>
+          <Property name="Text">Trajanje zdravljenja</Property>
+          <Property name="Location">130, 168</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label35</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity16" children="Controls">
+          <Property name="ElementName">Najmanjšiintervalmedodmerki</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0013]/items[at0016]</Property>
+          <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">87, 26</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Quantity16</Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="Location">228, 194</Property>
+          <Property name="Units">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAFoDQML</Binary>
+          </Property>
+          <Property name="QuantityDecimalPlaces">2</Property>
+          <Property name="ElementValue">
+          </Property>
+          <Property name="QuantityMinimum">0</Property>
+          <Property name="Property">?</Property>
+          <Property name="TabIndex">13</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="QuantityWidth">70</Property>
+          <Property name="DataConstraint" />
+          <Property name="SelectedUnit">h</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label36" children="Controls">
+          <Property name="TabIndex">14</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">152, 13</Property>
+          <Property name="Text">Najmanjši interval med odmerki</Property>
+          <Property name="Location">76, 197</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label36</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity17" children="Controls">
+          <Property name="ElementName">Največjiintervalmedodmerki</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.terapija.v1 and name/value='Terapija']/items[openEHR-EHR-INSTRUCTION.medication.v1 and name/value='Medication order']/activities[at0001 and name/value='Medication activity']/description[openEHR-EHR-ITEM_TREE.medication.v1]/items[at0013]/items[at0017]</Property>
+          <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">87, 26</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Quantity17</Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="Location">228, 223</Property>
+          <Property name="Units">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAFoDQML</Binary>
+          </Property>
+          <Property name="QuantityDecimalPlaces">2</Property>
+          <Property name="ElementValue">
+          </Property>
+          <Property name="QuantityMinimum">0</Property>
+          <Property name="Property">?</Property>
+          <Property name="TabIndex">15</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="QuantityWidth">70</Property>
+          <Property name="DataConstraint" />
+          <Property name="SelectedUnit">h</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label37" children="Controls">
+          <Property name="TabIndex">16</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">145, 13</Property>
+          <Property name="Text">Največji interval med odmerki</Property>
+          <Property name="Location">83, 226</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label37</Property>
+        </Object>
+        <Property name="TabIndex">0</Property>
+        <Property name="Size">442, 262</Property>
+        <Property name="Text">Medication activity</Property>
+        <Property name="Location">10, 20</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="Name">groupBox11</Property>
+      </Object>
+      <Property name="TabIndex">5</Property>
+      <Property name="Size">475, 292</Property>
+      <Property name="Text">Terapija</Property>
+      <Property name="Location">0, 1098</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">groupBox10</Property>
+    </Object>
+    <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox9" children="Controls">
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text8" children="Controls">
+        <Property name="Margin">0, 0, 0, 0</Property>
+        <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+        <Property name="ElementName">Oči</Property>
+        <Property name="Multiline">False</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_data_other_ra.v1 and name/value='Ostali klinicni podatki']/items[openEHR-EHR-OBSERVATION.clinical_data_other_ra.v1 and name/value='Ostali klinični podatki']/data[at0001]/events[at0002]/data[at0003]/items[at0024]/items[at0050]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">196, 25</Property>
+        <Property name="AccessibleDescription">
+        </Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TerminologyName">Snomed</Property>
+        <Property name="Location">164, 20</Property>
+        <Property name="Name">dV_Text8</Property>
+        <Property name="CodedTextBackColor">255, 255, 196</Property>
+        <Property name="TermQueryName" />
+        <Property name="Items">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+        </Property>
+        <Property name="Tag">
+        </Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="TextConstraintType">FreeText</Property>
+        <Property name="TermLanguage">en-GB</Property>
+        <Property name="TermName" />
+        <Property name="ElementValue" />
+        <Property name="TermCaption" />
+        <Property name="TabIndex">0</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="TermId" />
+        <Property name="DataConstraint" />
+        <Property name="Value">
+        </Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label28" children="Controls">
+        <Property name="TabIndex">1</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">23, 13</Property>
+        <Property name="Text">Oči</Property>
+        <Property name="Location">141, 23</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label28</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text9" children="Controls">
+        <Property name="Margin">0, 0, 0, 0</Property>
+        <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+        <Property name="ElementName">Diabetičnostopalo</Property>
+        <Property name="Multiline">False</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_data_other_ra.v1 and name/value='Ostali klinicni podatki']/items[openEHR-EHR-OBSERVATION.clinical_data_other_ra.v1 and name/value='Ostali klinični podatki']/data[at0001]/events[at0002]/data[at0003]/items[at0035]/items[at0051]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">190, 25</Property>
+        <Property name="AccessibleDescription">
+        </Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TerminologyName">Snomed</Property>
+        <Property name="Location">164, 48</Property>
+        <Property name="Name">dV_Text9</Property>
+        <Property name="CodedTextBackColor">255, 255, 196</Property>
+        <Property name="TermQueryName">
+        </Property>
+        <Property name="Items">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAJAwAAAA0DDAQAAABQRWhyQ2xhc3NlcywgVmVyc2lvbj0xLjUuMzE2OS4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTgzMzY2OTM0OWZjZTYzNjQFAwAAACtFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5EVl9DT0RFRF9URVhUEgAAAA5fZGVmaW5pbmdfY29kZRlfZGVzY3JpcHRpb25faW5fYXJjaGV0eXBlBV90ZXh0CV9sYW5ndWFnZQlfZW5jb2RpbmcKX2h5cGVybGluaw5fbGlzdF9tYXBwaW5ncxBfZGF0YV9jb25zdHJhaW50DURWX1RFWFQrX3RleHQRRFZfVEVYVCtfbGFuZ3VhZ2URRFZfVEVYVCtfZW5jb2RpbmcSRFZfVEVYVCtfaHlwZXJsaW5rFkRWX1RFWFQrX2xpc3RfbWFwcGluZ3MSRFZfVEVYVCtmb3JtYXR0aW5nGERWX1RFWFQrX2RhdGFfY29uc3RyYWludBVEQVRBX1ZBTFVFK192YWx1ZV9zZXQXREFUQV9WQUxVRStWYWx1ZUNoYW5nZWQbREFUQV9WQUxVRStfZGF0YV9jb25zdHJhaW50BAEBBAQBAwQBBAQBAwEEAAQEKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFBAAAAClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQQAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGU5RWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9URVhUBAAAAClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQQAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UEAAAAHFN5c3RlbS5Db2xsZWN0aW9ucy5IYXNodGFibGU5RWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9URVhUBAAAAAE1RWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ2hhbmdlVmFsdWVFdmVudEhhbmRsZXIEAAAAOUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVAQAAAAEAAAACQUAAAAGBgAAAAAJBgAAAAoKCgoJBwAAAAkGAAAACgoKCgoJBwAAAAAKCQcAAAAFBQAAAClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQMAAAALX2NvbnN0cmFpbnQNVGVybWlub2xvZ3lJRAxfY29kZV9zdHJpbmcEBAFARWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9DT0RFX1BIUkFTRQQAAAAwRWhyQ2xhc3Nlcy5vcGVuRUhSLkNvbW1vbi5HZW5lcmljLlRFUk1JTk9MT0dZX0lEBAAAAAQAAAAJCgAAAAkLAAAACQYAAAAFBwAAADlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQOAAAAFV90ZXh0X2NvbnN0cmFpbnRfdHlwZRBfY29uc3RyYWludF9jb2RlEF9jb25zdHJhaW50X3RleHQOX2xpbWl0X3RvX2xpc3QbX2NvZGVkX3RleHRfc2V0X2luX3RlbXBsYXRlF19jb25zdHJhaW50X2Rlc2NyaXB0aW9uCV9xdWVyeV9pZA9fdGVybWlub2xvZ3lfaWQPX2FsbG93ZWRfdmFsdWVzDl9hc3N1bWVkX3ZhbHVlEF9jb25zdHJhaW50X3R5cGUkQ09OU1RSQUlOVF9XSVRIX1ZBTFVFK19hc3N1bWVkX3ZhbHVlJkNPTlNUUkFJTlRfV0lUSF9WQUxVRStfY29uc3RyYWludF90eXBlG0NPTlNUUkFJTlQrX2NvbnN0cmFpbnRfdHlwZQQBAQAAAQEBAwIEAgQETEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVCtUZXh0Q29uc3RyYWludFR5cGUEAAAAAQEcU3lzdGVtLkNvbGxlY3Rpb25zLkFycmF5TGlzdENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBAAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBAAAAENFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlBAAAAAQAAAAF8////0xFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQrVGV4dENvbnN0cmFpbnRUeXBlAQAAAAd2YWx1ZV9fAAgEAAAAAgAAAAoKAQAKCgoJDgAAAAoF8f///0NFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UK0NvbnN0cmFpbnRUeXBlAQAAAAd2YWx1ZV9fAAgEAAAAfAIAAAoB8P////H///98AgAAAe/////x////fAIAAAUKAAAAQEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfQ09ERV9QSFJBU0UEAAAAD19hbGxvd2VkX3ZhbHVlcw1UZXJtaW5vbG9neUlkEF9jb25zdHJhaW50X3R5cGUbQ09OU1RSQUlOVCtfY29uc3RyYWludF90eXBlAwEEBH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dQ0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUEAAAAQ0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUEAAAABAAAAAkSAAAACgHt////8f///wIAAAAB7P////H///8CAAAADBUAAABJU3lzdGVtLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQULAAAAMEVockNsYXNzZXMub3BlbkVIUi5Db21tb24uR2VuZXJpYy5URVJNSU5PTE9HWV9JRAQAAAADX2lkCF92ZXJzaW9uFU9CSkVDVF9JRCtfcmVndWxhckV4cBBPQkpFQ1RfSUQrX3ZhbHVlAQEEASRTeXN0ZW0uVGV4dC5SZWd1bGFyRXhwcmVzc2lvbnMuUmVnZXgVAAAABAAAAAkGAAAACQYAAAAKCgEOAAAAAQAAAAkXAAAAAAAAAAAAAAAEEgAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24GAAAICAkYAAAAAAAAAAAAAAAQFwAAAAAAAAARGAAAAAAAAAAL</Binary>
+        </Property>
+        <Property name="Tag">
+        </Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="TextConstraintType">Internal</Property>
+        <Property name="TermLanguage">en-GB</Property>
+        <Property name="TermName" />
+        <Property name="ElementValue" />
+        <Property name="TermCaption" />
+        <Property name="TabIndex">2</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="TermId" />
+        <Property name="DataConstraint" />
+        <Property name="Value">
+        </Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label29" children="Controls">
+        <Property name="TabIndex">3</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">95, 13</Property>
+        <Property name="Text">Diabetično stopalo</Property>
+        <Property name="Location">69, 51</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label29</Property>
+      </Object>
+      <Property name="TabIndex">4</Property>
+      <Property name="Size">471, 83</Property>
+      <Property name="Text">Ostali klinični podatki</Property>
+      <Property name="Location">4, 1008</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">groupBox9</Property>
+    </Object>
+    <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox8" children="Controls">
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity6" children="Controls">
+        <Property name="ElementName">Bloodglucose</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-blood_glucose.v1 and name/value='Blood glucose']/data[at0001]/events[at0002]/data[at0003]/items[at0078.2]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">131, 27</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity6</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 20</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAIAAAAQAgAAAAQAAAAGAwAAAAZtbW9sL2wGBAAAAAVtZy9kbA0CCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">-79228162514264337593543950335</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">0</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mmol/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label16" children="Controls">
+        <Property name="TabIndex">1</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">74, 13</Property>
+        <Property name="Text">Blood glucose</Property>
+        <Property name="Location">103, 23</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label16</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Proportion, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Proportion1" children="Controls">
+        <Property name="ElementName">HbA1c</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-hba1c.v1 and name/value='Haemoglobin A1c']/data[at0001]/events[at0002]/data[at0003]/items[at0078.1]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">100, 20</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Proportion1</Property>
+        <Property name="Location">177, 50</Property>
+        <Property name="ElementValue" />
+        <Property name="TabIndex">2</Property>
+        <Property name="DataConstraint" />
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label17" children="Controls">
+        <Property name="TabIndex">3</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">40, 13</Property>
+        <Property name="Text">HbA1c</Property>
+        <Property name="Location">137, 53</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label17</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity7" children="Controls">
+        <Property name="ElementName">TotalCholesterol</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-lipids.v1 and name/value='Lipid studies']/data[at0001]/events[at0002]/data[at0003]/items[at0078.5]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">131, 27</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity7</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 73</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAIAAAAQAgAAAAQAAAAGAwAAAAZtbW9sL2wGBAAAAAVtZy9kbA0CCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">4</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mmol/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label18" children="Controls">
+        <Property name="TabIndex">5</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">86, 13</Property>
+        <Property name="Text">Total Cholesterol</Property>
+        <Property name="Location">91, 76</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label18</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity8" children="Controls">
+        <Property name="ElementName">Triglycerides</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-lipids.v1 and name/value='Lipid studies']/data[at0001]/events[at0002]/data[at0003]/items[at0078.4]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">131, 27</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity8</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 103</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAIAAAAQAgAAAAQAAAAGAwAAAAZtbW9sL2wGBAAAAAVtZy9kbA0CCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">6</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mmol/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label19" children="Controls">
+        <Property name="TabIndex">7</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">66, 13</Property>
+        <Property name="Text">Triglycerides</Property>
+        <Property name="Location">111, 106</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label19</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity9" children="Controls">
+        <Property name="ElementName">HDLCholesterol</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-lipids.v1 and name/value='Lipid studies']/data[at0001]/events[at0002]/data[at0003]/items[at0078.3]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">131, 27</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity9</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 133</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAIAAAAQAgAAAAQAAAAGAwAAAAZtbW9sL2wGBAAAAAVtZy9kbA0CCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">8</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mmol/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label20" children="Controls">
+        <Property name="TabIndex">9</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">84, 13</Property>
+        <Property name="Text">HDL Cholesterol</Property>
+        <Property name="Location">93, 136</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label20</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity10" children="Controls">
+        <Property name="ElementName">LDLCholesterol</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-lipids.v1 and name/value='Lipid studies']/data[at0001]/events[at0002]/data[at0003]/items[at0078.2]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">131, 27</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity10</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 163</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAIAAAAQAgAAAAQAAAAGAwAAAAZtbW9sL2wGBAAAAAVtZy9kbA0CCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">10</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mmol/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label21" children="Controls">
+        <Property name="TabIndex">11</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">82, 13</Property>
+        <Property name="Text">LDL Cholesterol</Property>
+        <Property name="Location">95, 166</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label21</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Proportion, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Proportion2" children="Controls">
+        <Property name="ElementName">HDLLDLratio</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-lipids.v1 and name/value='Lipid studies']/data[at0001]/events[at0002]/data[at0003]/items[at0078.1 and name/value='HDL/LDL ratio']</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">100, 20</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Proportion2</Property>
+        <Property name="Location">177, 193</Property>
+        <Property name="ElementValue" />
+        <Property name="TabIndex">12</Property>
+        <Property name="DataConstraint" />
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label22" children="Controls">
+        <Property name="TabIndex">13</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">77, 13</Property>
+        <Property name="Text">HDL/LDL ratio</Property>
+        <Property name="Location">100, 196</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label22</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity11" children="Controls">
+        <Property name="ElementName">Albumin</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-liver_function.v1 and name/value='Liver function tests']/data[at0001]/events[at0002]/data[at0003]/items[at0078.7]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">102, 26</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity11</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 216</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAARnbS9sDQML</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">14</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">gm/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label23" children="Controls">
+        <Property name="TabIndex">15</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">44, 13</Property>
+        <Property name="Text">Albumin</Property>
+        <Property name="Location">133, 219</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label23</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity12" children="Controls">
+        <Property name="ElementName">Urinemicroalbumin</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-microalbumin.v1 and name/value='Urine microalbumin']/data[at0001]/events[at0002]/data[at0003]/items[at0078.3]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">92, 26</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity12</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 245</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAARtZy9sDQML</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">1</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">16</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">60</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mg/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label24" children="Controls">
+        <Property name="TabIndex">17</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">96, 13</Property>
+        <Property name="Text">Urine microalbumin</Property>
+        <Property name="Location">81, 248</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label24</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity13" children="Controls">
+        <Property name="ElementName">Urinecreatinine</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-microalbumin.v1 and name/value='Urine microalbumin']/data[at0001]/events[at0002]/data[at0003]/items[at0078.2]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">92, 26</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity13</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 274</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAARtZy9sDQML</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">1</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">18</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">60</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mg/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label25" children="Controls">
+        <Property name="TabIndex">19</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">81, 13</Property>
+        <Property name="Text">Urine creatinine</Property>
+        <Property name="Location">96, 277</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label25</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Proportion, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Proportion3" children="Controls">
+        <Property name="ElementName">Urinealbumincreatinineratio</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-microalbumin.v1 and name/value='Urine microalbumin']/data[at0001]/events[at0002]/data[at0003]/items[at0078.1]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">100, 20</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Proportion3</Property>
+        <Property name="Location">177, 303</Property>
+        <Property name="ElementValue" />
+        <Property name="TabIndex">20</Property>
+        <Property name="DataConstraint" />
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label26" children="Controls">
+        <Property name="TabIndex">21</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">143, 13</Property>
+        <Property name="Text">Urine albumin:creatinine ratio</Property>
+        <Property name="Location">34, 306</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label26</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity14" children="Controls">
+        <Property name="ElementName">Creatinine</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.lab_test_report_ra.v1 and name/value='Laboratorij']/items[openEHR-EHR-OBSERVATION.lab_test-urea_and_electrolytes.v1 and name/value='Urea and electrolytes']/data[at0001]/events[at0002]/data[at0003]/items[at0078.7]</Property>
+        <Property name="QuantityMaximum">79228162514264337593543950335</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">112, 26</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity14</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">177, 326</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAZtbW9sL2wNAws=</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">22</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">mmol/l</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label27" children="Controls">
+        <Property name="TabIndex">23</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">54, 13</Property>
+        <Property name="Text">Creatinine</Property>
+        <Property name="Location">123, 329</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label27</Property>
+      </Object>
+      <Property name="TabIndex">3</Property>
+      <Property name="Size">471, 362</Property>
+      <Property name="Text">Laboratorij</Property>
+      <Property name="Location">4, 639</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">groupBox8</Property>
+    </Object>
+    <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox6" children="Controls">
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity1" children="Controls">
+        <Property name="ElementName">Teža</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.body_weight.v1 and name/value='Telesna masa']/data[at0002]/events[at0003 and name/value='*Any event(en)']/data[at0001]/items[at0004]</Property>
+        <Property name="QuantityMaximum">2000</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">93, 26</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity1</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">164, 20</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAJrZw0DCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">0</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">kg</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label8" children="Controls">
+        <Property name="TabIndex">1</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">31, 13</Property>
+        <Property name="Text">Teža</Property>
+        <Property name="Location">133, 23</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label8</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text5" children="Controls">
+        <Property name="Margin">0, 0, 0, 0</Property>
+        <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+        <Property name="ElementName">Stanjeoblačil</Property>
+        <Property name="Multiline">False</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.body_weight.v1 and name/value='Telesna masa']/data[at0002]/events[at0003 and name/value='*Any event(en)']/state[at0008]/items[at0009]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">190, 25</Property>
+        <Property name="AccessibleDescription">
+        </Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TerminologyName">Snomed</Property>
+        <Property name="Location">164, 49</Property>
+        <Property name="Name">dV_Text5</Property>
+        <Property name="CodedTextBackColor">255, 255, 196</Property>
+        <Property name="TermQueryName">
+        </Property>
+        <Property name="Items">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAABAAAAAEAAAAQAgAAAAQAAAAJAwAAAAkEAAAACQUAAAAJBgAAAAwHAAAAUEVockNsYXNzZXMsIFZlcnNpb249MS41LjMxNjkuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj04MzM2NjkzNDlmY2U2MzY0BQMAAAArRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuRFZfQ09ERURfVEVYVBIAAAAOX2RlZmluaW5nX2NvZGUZX2Rlc2NyaXB0aW9uX2luX2FyY2hldHlwZQVfdGV4dAlfbGFuZ3VhZ2UJX2VuY29kaW5nCl9oeXBlcmxpbmsOX2xpc3RfbWFwcGluZ3MQX2RhdGFfY29uc3RyYWludA1EVl9URVhUK190ZXh0EURWX1RFWFQrX2xhbmd1YWdlEURWX1RFWFQrX2VuY29kaW5nEkRWX1RFWFQrX2h5cGVybGluaxZEVl9URVhUK19saXN0X21hcHBpbmdzEkRWX1RFWFQrZm9ybWF0dGluZxhEVl9URVhUK19kYXRhX2NvbnN0cmFpbnQVREFUQV9WQUxVRStfdmFsdWVfc2V0F0RBVEFfVkFMVUUrVmFsdWVDaGFuZ2VkG0RBVEFfVkFMVUUrX2RhdGFfY29uc3RyYWludAQBAQQEAQMEAQQEAQMBBAAEBClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRQcAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UHAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFBwAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuSGFzaHRhYmxlOUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVAcAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UHAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFBwAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuSGFzaHRhYmxlOUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVAcAAAABNUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNoYW5nZVZhbHVlRXZlbnRIYW5kbGVyBwAAADlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQHAAAABwAAAAkIAAAABgkAAAApT2JsYWthLCBraSBuZSB2cGxpdmEgYmlzdHZlbm8gbmEgbWVyaXRldi4GCgAAACFMYWhrYSBvYmxhxI1pbGEvc3BvZG5qYSBvYmxhxI1pbGEKCgoKCQsAAAAJCgAAAAoKCgoKCQsAAAABCgkLAAAAAQQAAAADAAAACQ4AAAAGDwAAABVQb3ZzZW0gYnJleiBvYmxhxI1pbC4GEAAAAA1CcmV6IG9ibGHEjWlsCgoKCgkRAAAACRAAAAAKCgoKCgkRAAAAAQoJEQAAAAEFAAAAAwAAAAkUAAAABhUAAABYT2JsYcSNaWxvLCBraSBsYWhrbyB2IHByZWNlasWhbmppIG1lcmkgdnBsaXZhIG5hIHJlenVsdGF0IG1lcml0dmUsIHZrbGp1xI1ubyB6IG9idXR2aWpvLgYWAAAAJVBvdnNlbSBvYmxlxI1lbiwgdmtsanXEjW5vIHogb2J1dHZpam8KCgoKCRcAAAAJFgAAAAoKCgoKCRcAAAABCgkXAAAAAQYAAAADAAAACRoAAAAGGwAAADtOb3NpIGl6a2xqdcSNbm8gcGxlbmljZSAtIGxhaGtvIGJpc3R2ZW5vIHZwbGl2YSBuYSBtZXJpdGV2LgYcAAAAB1BsZW5pY2UKCgoKCR0AAAAJHAAAAAoKCgoKCR0AAAABCgkdAAAABQgAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UDAAAAC19jb25zdHJhaW50DVRlcm1pbm9sb2d5SUQMX2NvZGVfc3RyaW5nBAQBQEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfQ09ERV9QSFJBU0UHAAAAMEVockNsYXNzZXMub3BlbkVIUi5Db21tb24uR2VuZXJpYy5URVJNSU5PTE9HWV9JRAcAAAAHAAAACSAAAAAJIQAAAAYiAAAABmF0MDAxMQULAAAAOUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVA4AAAAVX3RleHRfY29uc3RyYWludF90eXBlEF9jb25zdHJhaW50X2NvZGUQX2NvbnN0cmFpbnRfdGV4dA5fbGltaXRfdG9fbGlzdBtfY29kZWRfdGV4dF9zZXRfaW5fdGVtcGxhdGUXX2NvbnN0cmFpbnRfZGVzY3JpcHRpb24JX3F1ZXJ5X2lkD190ZXJtaW5vbG9neV9pZA9fYWxsb3dlZF92YWx1ZXMOX2Fzc3VtZWRfdmFsdWUQX2NvbnN0cmFpbnRfdHlwZSRDT05TVFJBSU5UX1dJVEhfVkFMVUUrX2Fzc3VtZWRfdmFsdWUmQ09OU1RSQUlOVF9XSVRIX1ZBTFVFK19jb25zdHJhaW50X3R5cGUbQ09OU1RSQUlOVCtfY29uc3RyYWludF90eXBlBAEBAAABAQEDAgQCBARMRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9URVhUK1RleHRDb25zdHJhaW50VHlwZQcAAAABARxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0Q0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUHAAAAQ0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUHAAAAQ0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUHAAAABwAAAAXd////TEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVCtUZXh0Q29uc3RyYWludFR5cGUBAAAAB3ZhbHVlX18ACAcAAAAAAAAACgoBAAoKCgkkAAAACgXb////Q0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUBAAAAB3ZhbHVlX18ACAcAAABbAAAACgHa////2////1sAAAAB2f///9v///9bAAAAAQ4AAAAIAAAACSgAAAAJKQAAAAYqAAAABmF0MDAxMwERAAAACwAAAAHV////3f///wAAAAAKCgEACgoKCSwAAAAKAdP////b////WwAAAAoB0v///9v///9bAAAAAdH////b////WwAAAAEUAAAACAAAAAkwAAAACTEAAAAGMgAAAAZhdDAwMTABFwAAAAsAAAABzf///93///8AAAAACgoBAAoKCgk0AAAACgHL////2////1sAAAAKAcr////b////WwAAAAHJ////2////1sAAAABGgAAAAgAAAAJOAAAAAk5AAAABjoAAAAGYXQwMDE3AR0AAAALAAAAAcX////d////AAAAAAoKAQAKCgoJPAAAAAoBw////9v///9bAAAACgHC////2////1sAAAABwf///9v///9bAAAABSAAAABARWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9DT0RFX1BIUkFTRQQAAAAPX2FsbG93ZWRfdmFsdWVzDVRlcm1pbm9sb2d5SWQQX2NvbnN0cmFpbnRfdHlwZRtDT05TVFJBSU5UK19jb25zdHJhaW50X3R5cGUDAQQEf1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV1DRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVCtDb25zdHJhaW50VHlwZQcAAABDRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVCtDb25zdHJhaW50VHlwZQcAAAAHAAAACUAAAAAKAb/////b////AgAAAAG+////2////wIAAAAMQwAAAElTeXN0ZW0sIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BSEAAAAwRWhyQ2xhc3Nlcy5vcGVuRUhSLkNvbW1vbi5HZW5lcmljLlRFUk1JTk9MT0dZX0lEBAAAAANfaWQIX3ZlcnNpb24VT0JKRUNUX0lEK19yZWd1bGFyRXhwEE9CSkVDVF9JRCtfdmFsdWUBAQQBJFN5c3RlbS5UZXh0LlJlZ3VsYXJFeHByZXNzaW9ucy5SZWdleEMAAAAHAAAABkQAAAAFbG9jYWwGRQAAAAAKCgEkAAAAAQAAAAlGAAAAAAAAAAAAAAABKAAAACAAAAAJRwAAAAoBuP///9v///8CAAAAAbf////b////AgAAAAEpAAAAIQAAAAlEAAAACUUAAAAKCgEsAAAAAQAAAAlGAAAAAAAAAAAAAAABMAAAACAAAAAJTQAAAAoBsv///9v///8CAAAAAbH////b////AgAAAAExAAAAIQAAAAlEAAAACUUAAAAKCgE0AAAAAQAAAAlGAAAAAAAAAAAAAAABOAAAACAAAAAJUwAAAAoBrP///9v///8CAAAAAav////b////AgAAAAE5AAAAIQAAAAlEAAAACUUAAAAKCgE8AAAAAQAAAAlGAAAAAAAAAAAAAAAEQAAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24GAAAICAlZAAAAAAAAAAAAAAAQRgAAAAAAAAABRwAAAEAAAAAJWQAAAAAAAAAAAAAAAU0AAABAAAAACVkAAAAAAAAAAAAAAAFTAAAAQAAAAAlZAAAAAAAAAAAAAAARWQAAAAAAAAAL</Binary>
+        </Property>
+        <Property name="Tag">
+        </Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="TextConstraintType">Internal</Property>
+        <Property name="TermLanguage">en-GB</Property>
+        <Property name="TermName" />
+        <Property name="ElementValue" />
+        <Property name="TermCaption" />
+        <Property name="TabIndex">2</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="TermId" />
+        <Property name="DataConstraint" />
+        <Property name="Value">
+        </Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label9" children="Controls">
+        <Property name="TabIndex">3</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">70, 13</Property>
+        <Property name="Text">Stanje oblačil</Property>
+        <Property name="Location">94, 52</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label9</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity2" children="Controls">
+        <Property name="ElementName">VišinaDolžina</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.height.v1 and name/value='Višina/Dolžina']/data[at0001]/events[at0002 and name/value='*Any event(en)']/data[at0003]/items[at0004]</Property>
+        <Property name="QuantityMaximum">250</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">95, 26</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity2</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">164, 77</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAJjbQ0DCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">2</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">4</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">70</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">cm</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label10" children="Controls">
+        <Property name="TabIndex">5</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">75, 13</Property>
+        <Property name="Text">Višina/Dolžina</Property>
+        <Property name="Location">89, 80</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label10</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity3" children="Controls">
+        <Property name="ElementName">BodyMassIndex</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.body_mass_index.v1 and name/value='Body mass index']/data[at0001]/events[at0002 and name/value='Any event']/data[at0003]/items[at0004]</Property>
+        <Property name="QuantityMaximum">999.9</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">118, 27</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">dV_Quantity3</Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="Location">164, 106</Property>
+        <Property name="Units">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAgAAAAIAAAAQAgAAAAQAAAAGAwAAAAVrZy9tMgYEAAAABmxiL2luMg0CCw==</Binary>
+        </Property>
+        <Property name="QuantityDecimalPlaces">1</Property>
+        <Property name="ElementValue">
+        </Property>
+        <Property name="QuantityMinimum">0</Property>
+        <Property name="Property">?</Property>
+        <Property name="TabIndex">6</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="QuantityWidth">60</Property>
+        <Property name="DataConstraint" />
+        <Property name="SelectedUnit">kg/m2</Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label11" children="Controls">
+        <Property name="TabIndex">7</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">88, 13</Property>
+        <Property name="Text">Body Mass Index</Property>
+        <Property name="Location">76, 109</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label11</Property>
+      </Object>
+      <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox7" children="Controls">
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity4" children="Controls">
+          <Property name="ElementName">Sistolični</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.blood_pressure-zn.v1 and name/value='Krvni tlak']/data[at0001]/events[at0006 and name/value='*any event(en)']/data[at0003]/items[at0004]</Property>
+          <Property name="QuantityMaximum">999</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">92, 26</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Quantity4</Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="Location">164, 20</Property>
+          <Property name="Units">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAZtbVtIZ10NAws=</Binary>
+          </Property>
+          <Property name="QuantityDecimalPlaces">0</Property>
+          <Property name="ElementValue">
+          </Property>
+          <Property name="QuantityMinimum">0</Property>
+          <Property name="Property">?</Property>
+          <Property name="TabIndex">0</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="QuantityWidth">45</Property>
+          <Property name="DataConstraint" />
+          <Property name="SelectedUnit">mm[Hg]</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label12" children="Controls">
+          <Property name="TabIndex">1</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">48, 13</Property>
+          <Property name="Text">Sistolični</Property>
+          <Property name="Location">116, 23</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label12</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Quantity, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Quantity5" children="Controls">
+          <Property name="ElementName">Diastolični</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.blood_pressure-zn.v1 and name/value='Krvni tlak']/data[at0001]/events[at0006 and name/value='*any event(en)']/data[at0003]/items[at0005]</Property>
+          <Property name="QuantityMaximum">999</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">92, 26</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Quantity5</Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="Location">164, 49</Property>
+          <Property name="Units">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAQAAAAEAAAAQAgAAAAQAAAAGAwAAAAZtbVtIZ10NAws=</Binary>
+          </Property>
+          <Property name="QuantityDecimalPlaces">0</Property>
+          <Property name="ElementValue">
+          </Property>
+          <Property name="QuantityMinimum">0</Property>
+          <Property name="Property">?</Property>
+          <Property name="TabIndex">2</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="QuantityWidth">45</Property>
+          <Property name="DataConstraint" />
+          <Property name="SelectedUnit">mm[Hg]</Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label13" children="Controls">
+          <Property name="TabIndex">3</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">55, 13</Property>
+          <Property name="Text">Diastolični</Property>
+          <Property name="Location">109, 52</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label13</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text6" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Opombe</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.blood_pressure-zn.v1 and name/value='Krvni tlak']/data[at0001]/events[at0006 and name/value='*any event(en)']/data[at0003]/items[at0033]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">196, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName">Snomed</Property>
+          <Property name="Location">164, 78</Property>
+          <Property name="Name">dV_Text6</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName" />
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">FreeText</Property>
+          <Property name="TermLanguage">en-GB</Property>
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">4</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label14" children="Controls">
+          <Property name="TabIndex">5</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">47, 13</Property>
+          <Property name="Text">Opombe</Property>
+          <Property name="Location">117, 81</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label14</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text7" children="Controls">
+          <Property name="Margin">0, 0, 0, 0</Property>
+          <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+          <Property name="ElementName">Neinvazivnelokacije</Property>
+          <Property name="Multiline">False</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.clinical_ra.v1 and name/value='Osnovni klinični podatki']/items[openEHR-EHR-OBSERVATION.blood_pressure-zn.v1 and name/value='Krvni tlak']/protocol[at0011]/items[at1033]/items[at0014.1]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">190, 25</Property>
+          <Property name="AccessibleDescription">
+          </Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="TerminologyName">Snomed</Property>
+          <Property name="Location">164, 106</Property>
+          <Property name="Name">dV_Text7</Property>
+          <Property name="CodedTextBackColor">255, 255, 196</Property>
+          <Property name="TermQueryName">
+          </Property>
+          <Property name="Items">
+            <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAADQAAAAEAAAAQAgAAAA0AAAAJAwAAAAkEAAAACQUAAAAJBgAAAAkHAAAACQgAAAAJCQAAAAkKAAAACQsAAAAJDAAAAAkNAAAACQ4AAAAJDwAAAAwQAAAAUEVockNsYXNzZXMsIFZlcnNpb249MS41LjMxNjkuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj04MzM2NjkzNDlmY2U2MzY0BQMAAAArRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuRFZfQ09ERURfVEVYVBIAAAAOX2RlZmluaW5nX2NvZGUZX2Rlc2NyaXB0aW9uX2luX2FyY2hldHlwZQVfdGV4dAlfbGFuZ3VhZ2UJX2VuY29kaW5nCl9oeXBlcmxpbmsOX2xpc3RfbWFwcGluZ3MQX2RhdGFfY29uc3RyYWludA1EVl9URVhUK190ZXh0EURWX1RFWFQrX2xhbmd1YWdlEURWX1RFWFQrX2VuY29kaW5nEkRWX1RFWFQrX2h5cGVybGluaxZEVl9URVhUK19saXN0X21hcHBpbmdzEkRWX1RFWFQrZm9ybWF0dGluZxhEVl9URVhUK19kYXRhX2NvbnN0cmFpbnQVREFUQV9WQUxVRStfdmFsdWVfc2V0F0RBVEFfVkFMVUUrVmFsdWVDaGFuZ2VkG0RBVEFfVkFMVUUrX2RhdGFfY29uc3RyYWludAQBAQQEAQMEAQQEAQMBBAAEBClFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5DT0RFX1BIUkFTRRAAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UQAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFEAAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuSGFzaHRhYmxlOUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVBAAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UQAAAAKUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNPREVfUEhSQVNFEAAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuSGFzaHRhYmxlOUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVBAAAAABNUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNoYW5nZVZhbHVlRXZlbnRIYW5kbGVyEAAAADlFaHJDbGFzc2VzLm9wZW5FSFIuRGF0YV90eXBlcy5Db25zdHJhaW50cy5DT05TVFJBSU5UX1RFWFQQAAAAEAAAAAkRAAAABhIAAAAKRGVzbmEgcm9rYQYTAAAACkRlc25hIHJva2EKCgoKCRQAAAAJEwAAAAoKCgoKCRQAAAABCgkUAAAAAQQAAAADAAAACRcAAAAGGAAAAAlMZXZhIHJva2EGGQAAAAlMZXZhIHJva2EKCgoKCRoAAAAJGQAAAAoKCgoKCRoAAAABCgkaAAAAAQUAAAADAAAACR0AAAAGHgAAAAxEZXNubyBzdGVnbm8GHwAAAAxEZXNubyBzdGVnbm8KCgoKCSAAAAAJHwAAAAoKCgoKCSAAAAABCgkgAAAAAQYAAAADAAAACSMAAAAGJAAAAAtMZXZvIHN0ZWdubwYlAAAAC0xldm8gc3RlZ25vCgoKCgkmAAAACSUAAAAKCgoKCgkmAAAAAQoJJgAAAAEHAAAAAwAAAAkpAAAABioAAAAORGVzbm8gemFwZXN0amUGKwAAAA5EZXNubyB6YXBlc3RqZQoKCgoJLAAAAAkrAAAACgoKCgoJLAAAAAEKCSwAAAABCAAAAAMAAAAJLwAAAAYwAAAAHlRoZSBsZWZ0IHdyaXN0IG9mIHRoZSBzdWJqZWN0LgYxAAAADUxldm8gemFwZXN0amUKCgoKCTIAAAAJMQAAAAoKCgoKCTIAAAABCgkyAAAAAQkAAAADAAAACTUAAAAGNgAAAA5EZXNuaSBnbGXFvmVuagY3AAAADkRlc25pIGdsZcW+ZW5qCgoKCgk4AAAACTcAAAAKCgoKCgk4AAAAAQoJOAAAAAEKAAAAAwAAAAk7AAAABjwAAAANTGV2aSBnbGXFvmVuagY9AAAADUxldmkgZ2xlxb5lbmoKCgoKCT4AAAAJPQAAAAoKCgoKCT4AAAABCgk+AAAAAQsAAAADAAAACUEAAAAGQgAAAH0qQSBmaW5nZXIgb2YgdGhlIHN1YmplY3QuICBJZGVudGlmaWNhdGlvbiBvZiB0aGUgZmluZ2VyIGNhbiBiZSByZWNvcmRlZCBpbiAnU3BlY2lmaWMgTG9jYXRpb24nIGRhdGEgZWxlbWVudCwgaWYgcmVxdWlyZWQuKGVuKQZDAAAADFByc3QgbmEgcm9raQoKCgoJRAAAAAlDAAAACgoKCgoJRAAAAAEKCUQAAAABDAAAAAMAAAAJRwAAAAZIAAAADFByc3QgbmEgbm9naQZJAAAADFByc3QgbmEgbm9naQoKCgoJSgAAAAlJAAAACgoKCgoJSgAAAAEKCUoAAAABDQAAAAMAAAAJTQAAAAZOAAAAB0RpbWxqZSAGTwAAAAZEaW1samUKCgoKCVAAAAAJTwAAAAoKCgoKCVAAAAABCglQAAAAAQ4AAAADAAAACVMAAAAGVAAAABxUaGUgbGVmdCBlYXIgb2YgdGhlIHN1YmplY3QuBlUAAAAITGV2byB1aG8KCgoKCVYAAAAJVQAAAAoKCgoKCVYAAAABCglWAAAAAQ8AAAADAAAACVkAAAAGWgAAABtUaGUgcmlnaHRlYXIgb2YgdGhlIHN1YmplY3QGWwAAAAlEZXNubyB1aG8KCgoKCVwAAAAJWwAAAAoKCgoKCVwAAAABCglcAAAABREAAAApRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ09ERV9QSFJBU0UDAAAAC19jb25zdHJhaW50DVRlcm1pbm9sb2d5SUQMX2NvZGVfc3RyaW5nBAQBQEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfQ09ERV9QSFJBU0UQAAAAMEVockNsYXNzZXMub3BlbkVIUi5Db21tb24uR2VuZXJpYy5URVJNSU5PTE9HWV9JRBAAAAAQAAAACV8AAAAJYAAAAAZhAAAABmF0MDAyNQUUAAAAOUVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVA4AAAAVX3RleHRfY29uc3RyYWludF90eXBlEF9jb25zdHJhaW50X2NvZGUQX2NvbnN0cmFpbnRfdGV4dA5fbGltaXRfdG9fbGlzdBtfY29kZWRfdGV4dF9zZXRfaW5fdGVtcGxhdGUXX2NvbnN0cmFpbnRfZGVzY3JpcHRpb24JX3F1ZXJ5X2lkD190ZXJtaW5vbG9neV9pZA9fYWxsb3dlZF92YWx1ZXMOX2Fzc3VtZWRfdmFsdWUQX2NvbnN0cmFpbnRfdHlwZSRDT05TVFJBSU5UX1dJVEhfVkFMVUUrX2Fzc3VtZWRfdmFsdWUmQ09OU1RSQUlOVF9XSVRIX1ZBTFVFK19jb25zdHJhaW50X3R5cGUbQ09OU1RSQUlOVCtfY29uc3RyYWludF90eXBlBAEBAAABAQEDAgQCBARMRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9URVhUK1RleHRDb25zdHJhaW50VHlwZRAAAAABARxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0Q0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUQAAAAQ0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUQAAAAQ0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUQAAAAEAAAAAWe////TEVockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlRfVEVYVCtUZXh0Q29uc3RyYWludFR5cGUBAAAAB3ZhbHVlX18ACBAAAAAAAAAACgoBAAoKCgljAAAACgWc////Q0VockNsYXNzZXMub3BlbkVIUi5EYXRhX3R5cGVzLkNvbnN0cmFpbnRzLkNPTlNUUkFJTlQrQ29uc3RyYWludFR5cGUBAAAAB3ZhbHVlX18ACBAAAABbAAAACgGb////nP///1sAAAABmv///5z///9bAAAAARcAAAARAAAACWcAAAAJaAAAAAZpAAAABmF0MDAyNgEaAAAAFAAAAAGW////nv///wAAAAAKCgEACgoKCWsAAAAKAZT///+c////WwAAAAoBk////5z///9bAAAAAZL///+c////WwAAAAEdAAAAEQAAAAlvAAAACXAAAAAGcQAAAAZhdDAwMjcBIAAAABQAAAABjv///57///8AAAAACgoBAAoKCglzAAAACgGM////nP///1sAAAAKAYv///+c////WwAAAAGK////nP///1sAAAABIwAAABEAAAAJdwAAAAl4AAAABnkAAAAGYXQwMDI4ASYAAAAUAAAAAYb///+e////AAAAAAoKAQAKCgoJewAAAAoBhP///5z///9bAAAACgGD////nP///1sAAAABgv///5z///9bAAAAASkAAAARAAAACX8AAAAJgAAAAAaBAAAABmF0MTAyMAEsAAAAFAAAAAF+////nv///wAAAAAKCgEACgoKCYMAAAAKAXz///+c////WwAAAAoBe////5z///9bAAAAAXr///+c////WwAAAAEvAAAAEQAAAAmHAAAACYgAAAAGiQAAAAZhdDEwMjEBMgAAABQAAAABdv///57///8AAAAACgoBAAoKCgmLAAAACgF0////nP///1sAAAAKAXP///+c////WwAAAAFy////nP///1sAAAABNQAAABEAAAAJjwAAAAmQAAAABpEAAAAGYXQxMDI2ATgAAAAUAAAAAW7///+e////AAAAAAoKAQAKCgoJkwAAAAoBbP///5z///9bAAAACgFr////nP///1sAAAABav///5z///9bAAAAATsAAAARAAAACZcAAAAJmAAAAAaZAAAABmF0MTAzMQE+AAAAFAAAAAFm////nv///wAAAAAKCgEACgoKCZsAAAAKAWT///+c////WwAAAAoBY////5z///9bAAAAAWL///+c////WwAAAAFBAAAAEQAAAAmfAAAACaAAAAAGoQAAAAZhdDEwMzIBRAAAABQAAAABXv///57///8AAAAACgoBAAoKCgmjAAAACgFc////nP///1sAAAAKAVv///+c////WwAAAAFa////nP///1sAAAABRwAAABEAAAAJpwAAAAmoAAAABqkAAAAGYXQxMDUxAUoAAAAUAAAAAVb///+e////AAAAAAoKAQAKCgoJqwAAAAoBVP///5z///9bAAAACgFT////nP///1sAAAABUv///5z///9bAAAAAU0AAAARAAAACa8AAAAJsAAAAAaxAAAACGF0MC4xMDc4AVAAAAAUAAAAAU7///+e////AAAAAAoKAQAKCgoJswAAAAoBTP///5z///9bAAAACgFL////nP///1sAAAABSv///5z///9bAAAAAVMAAAARAAAACbcAAAAJuAAAAAa5AAAACGF0MC4xMDc5AVYAAAAUAAAAAUb///+e////AAAAAAoKAQAKCgoJuwAAAAoBRP///5z///9bAAAACgFD////nP///1sAAAABQv///5z///9bAAAAAVkAAAARAAAACb8AAAAJwAAAAAbBAAAACGF0MC4xMDgwAVwAAAAUAAAAAT7///+e////AAAAAAoKAQAKCgoJwwAAAAoBPP///5z///9bAAAACgE7////nP///1sAAAABOv///5z///9bAAAABV8AAABARWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVF9DT0RFX1BIUkFTRQQAAAAPX2FsbG93ZWRfdmFsdWVzDVRlcm1pbm9sb2d5SWQQX2NvbnN0cmFpbnRfdHlwZRtDT05TVFJBSU5UK19jb25zdHJhaW50X3R5cGUDAQQEf1N5c3RlbS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbU3lzdGVtLlN0cmluZywgbXNjb3JsaWIsIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5XV1DRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVCtDb25zdHJhaW50VHlwZRAAAABDRWhyQ2xhc3Nlcy5vcGVuRUhSLkRhdGFfdHlwZXMuQ29uc3RyYWludHMuQ09OU1RSQUlOVCtDb25zdHJhaW50VHlwZRAAAAAQAAAACccAAAAKATj///+c////AgAAAAE3////nP///wIAAAAMygAAAElTeXN0ZW0sIFZlcnNpb249Mi4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BWAAAAAwRWhyQ2xhc3Nlcy5vcGVuRUhSLkNvbW1vbi5HZW5lcmljLlRFUk1JTk9MT0dZX0lEBAAAAANfaWQIX3ZlcnNpb24VT0JKRUNUX0lEK19yZWd1bGFyRXhwEE9CSkVDVF9JRCtfdmFsdWUBAQQBJFN5c3RlbS5UZXh0LlJlZ3VsYXJFeHByZXNzaW9ucy5SZWdleMoAAAAQAAAABssAAAAFbG9jYWwGzAAAAAAKCgFjAAAAAQAAAAnNAAAAAAAAAAAAAAABZwAAAF8AAAAJzgAAAAoBMf///5z///8CAAAAATD///+c////AgAAAAFoAAAAYAAAAAnLAAAACcwAAAAKCgFrAAAAAQAAAAnNAAAAAAAAAAAAAAABbwAAAF8AAAAJ1AAAAAoBK////5z///8CAAAAASr///+c////AgAAAAFwAAAAYAAAAAnLAAAACcwAAAAKCgFzAAAAAQAAAAnNAAAAAAAAAAAAAAABdwAAAF8AAAAJ2gAAAAoBJf///5z///8CAAAAAST///+c////AgAAAAF4AAAAYAAAAAnLAAAACcwAAAAKCgF7AAAAAQAAAAnNAAAAAAAAAAAAAAABfwAAAF8AAAAJ4AAAAAoBH////5z///8CAAAAAR7///+c////AgAAAAGAAAAAYAAAAAnLAAAACcwAAAAKCgGDAAAAAQAAAAnNAAAAAAAAAAAAAAABhwAAAF8AAAAJ5gAAAAoBGf///5z///8CAAAAARj///+c////AgAAAAGIAAAAYAAAAAnLAAAACcwAAAAKCgGLAAAAAQAAAAnNAAAAAAAAAAAAAAABjwAAAF8AAAAJ7AAAAAoBE////5z///8CAAAAARL///+c////AgAAAAGQAAAAYAAAAAnLAAAACcwAAAAKCgGTAAAAAQAAAAnNAAAAAAAAAAAAAAABlwAAAF8AAAAJ8gAAAAoBDf///5z///8CAAAAAQz///+c////AgAAAAGYAAAAYAAAAAnLAAAACcwAAAAKCgGbAAAAAQAAAAnNAAAAAAAAAAAAAAABnwAAAF8AAAAJ+AAAAAoBB////5z///8CAAAAAQb///+c////AgAAAAGgAAAAYAAAAAnLAAAACcwAAAAKCgGjAAAAAQAAAAnNAAAAAAAAAAAAAAABpwAAAF8AAAAJ/gAAAAoBAf///5z///8CAAAAAQD///+c////AgAAAAGoAAAAYAAAAAnLAAAACcwAAAAKCgGrAAAAAQAAAAnNAAAAAAAAAAAAAAABrwAAAF8AAAAJBAEAAAoB+/7//5z///8CAAAAAfr+//+c////AgAAAAGwAAAAYAAAAAnLAAAACcwAAAAKCgGzAAAAAQAAAAnNAAAAAAAAAAAAAAABtwAAAF8AAAAJCgEAAAoB9f7//5z///8CAAAAAfT+//+c////AgAAAAG4AAAAYAAAAAnLAAAACcwAAAAKCgG7AAAAAQAAAAnNAAAAAAAAAAAAAAABvwAAAF8AAAAJEAEAAAoB7/7//5z///8CAAAAAe7+//+c////AgAAAAHAAAAAYAAAAAnLAAAACcwAAAAKCgHDAAAAAQAAAAnNAAAAAAAAAAAAAAAExwAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24GAAAICAkWAQAAAAAAAAAAAAAQzQAAAAAAAAABzgAAAMcAAAAJFgEAAAAAAAAAAAAAAdQAAADHAAAACRYBAAAAAAAAAAAAAAHaAAAAxwAAAAkWAQAAAAAAAAAAAAAB4AAAAMcAAAAJFgEAAAAAAAAAAAAAAeYAAADHAAAACRYBAAAAAAAAAAAAAAHsAAAAxwAAAAkWAQAAAAAAAAAAAAAB8gAAAMcAAAAJFgEAAAAAAAAAAAAAAfgAAADHAAAACRYBAAAAAAAAAAAAAAH+AAAAxwAAAAkWAQAAAAAAAAAAAAABBAEAAMcAAAAJFgEAAAAAAAAAAAAAAQoBAADHAAAACRYBAAAAAAAAAAAAAAEQAQAAxwAAAAkWAQAAAAAAAAAAAAARFgEAAAAAAAAL</Binary>
+          </Property>
+          <Property name="Tag">
+          </Property>
+          <Property name="AutoSizeMode">GrowAndShrink</Property>
+          <Property name="TextConstraintType">Internal</Property>
+          <Property name="TermLanguage">en-GB</Property>
+          <Property name="TermName" />
+          <Property name="ElementValue" />
+          <Property name="TermCaption" />
+          <Property name="TabIndex">6</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="TermId" />
+          <Property name="DataConstraint" />
+          <Property name="Value">
+          </Property>
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label15" children="Controls">
+          <Property name="TabIndex">7</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">105, 13</Property>
+          <Property name="Text">Neinvazivne lokacije</Property>
+          <Property name="Location">59, 109</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label15</Property>
+        </Object>
+        <Property name="TabIndex">8</Property>
+        <Property name="Size">378, 144</Property>
+        <Property name="Text">Krvni tlak</Property>
+        <Property name="Location">10, 136</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="Name">groupBox7</Property>
+      </Object>
+      <Property name="TabIndex">2</Property>
+      <Property name="Size">471, 290</Property>
+      <Property name="Text">Osnovni klinični podatki</Property>
+      <Property name="Location">4, 352</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">groupBox6</Property>
+    </Object>
+    <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox2" children="Controls">
+      <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox3" children="Controls">
+        <Property name="TabIndex">0</Property>
+        <Property name="Size">439, 30</Property>
+        <Property name="Text">Alkohol</Property>
+        <Property name="Location">10, 20</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="Name">groupBox3</Property>
+      </Object>
+      <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox4" children="Controls">
+        <Property name="TabIndex">1</Property>
+        <Property name="Size">439, 30</Property>
+        <Property name="Text">Tobacco Use</Property>
+        <Property name="Location">10, 53</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="Name">groupBox4</Property>
+      </Object>
+      <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox5" children="Controls">
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Count, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Count1" children="Controls">
+          <Property name="ElementName">Zmernointenzivnavadbateden</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.anamneza_ra.v1 and name/value='Anamneza']/items[openEHR-EHR-EVALUATION.physical_activity_summary.v1 and name/value='Povzetek gibalne aktivnosti']/data[at0001]/items[at0008]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">50, 20</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Count1</Property>
+          <Property name="Maximum">14</Property>
+          <Property name="Location">239, 20</Property>
+          <Property name="ElementValue" />
+          <Property name="TabIndex">0</Property>
+          <Property name="DataConstraint" />
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label6" children="Controls">
+          <Property name="TabIndex">1</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">159, 13</Property>
+          <Property name="Text">Zmerno intenzivna vadba/teden</Property>
+          <Property name="Location">80, 23</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label6</Property>
+        </Object>
+        <Object type="OceanEhr.ComposEhr.WinControls.DV_Count, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Count2" children="Controls">
+          <Property name="ElementName">Visokointenzivnavadbateden</Property>
+          <Property name="ElementPath">/content[openEHR-EHR-SECTION.anamneza_ra.v1 and name/value='Anamneza']/items[openEHR-EHR-EVALUATION.physical_activity_summary.v1 and name/value='Povzetek gibalne aktivnosti']/data[at0001]/items[at0007]</Property>
+          <Property name="BindingValue" />
+          <Property name="Size">50, 20</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">dV_Count2</Property>
+          <Property name="Maximum">14</Property>
+          <Property name="Location">239, 43</Property>
+          <Property name="ElementValue" />
+          <Property name="TabIndex">2</Property>
+          <Property name="DataConstraint" />
+        </Object>
+        <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label7" children="Controls">
+          <Property name="TabIndex">3</Property>
+          <Property name="AutoSize">True</Property>
+          <Property name="Size">155, 13</Property>
+          <Property name="Text">Visoko intenzivna vadba/teden</Property>
+          <Property name="Location">84, 46</Property>
+          <Property name="DataBindings">
+            <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+          </Property>
+          <Property name="Name">label7</Property>
+        </Object>
+        <Property name="TabIndex">2</Property>
+        <Property name="Size">439, 76</Property>
+        <Property name="Text">Povzetek gibalne aktivnosti</Property>
+        <Property name="Location">10, 86</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TabStop">False</Property>
+        <Property name="Name">groupBox5</Property>
+      </Object>
+      <Property name="TabIndex">1</Property>
+      <Property name="Size">471, 172</Property>
+      <Property name="Text">Anamneza</Property>
+      <Property name="Location">4, 173</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">groupBox2</Property>
+    </Object>
+    <Object type="System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="groupBox1" children="Controls">
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text1" children="Controls">
+        <Property name="Margin">0, 0, 0, 0</Property>
+        <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+        <Property name="ElementName">Osebnoime</Property>
+        <Property name="Multiline">False</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.admin_basic_ra.v1 and name/value='Osnovni administrativni podatki']/items[openEHR-EHR-ADMIN_ENTRY.vnos_bolnika_ob_pregledu.v1 and name/value='Vnos bolnika ob pregledu']/data[at0001]/items[openEHR-EHR-CLUSTER.person_name.v1 and name/value='Osebno ime']/items[at0013 and name/value='Osebno ime']/items[at0002]/items[at0003]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">196, 25</Property>
+        <Property name="AccessibleDescription">
+        </Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TerminologyName">Snomed</Property>
+        <Property name="Location">182, 20</Property>
+        <Property name="Name">dV_Text1</Property>
+        <Property name="CodedTextBackColor">255, 255, 196</Property>
+        <Property name="TermQueryName" />
+        <Property name="Items">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+        </Property>
+        <Property name="Tag">
+        </Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="TextConstraintType">FreeText</Property>
+        <Property name="TermLanguage">en-GB</Property>
+        <Property name="TermName" />
+        <Property name="ElementValue" />
+        <Property name="TermCaption" />
+        <Property name="TabIndex">0</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="TermId" />
+        <Property name="DataConstraint" />
+        <Property name="Value">
+        </Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label1" children="Controls">
+        <Property name="TabIndex">1</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">63, 13</Property>
+        <Property name="Text">Osebno ime</Property>
+        <Property name="Location">119, 23</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label1</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text2" children="Controls">
+        <Property name="Margin">0, 0, 0, 0</Property>
+        <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+        <Property name="ElementName">Priimek</Property>
+        <Property name="Multiline">False</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.admin_basic_ra.v1 and name/value='Osnovni administrativni podatki']/items[openEHR-EHR-ADMIN_ENTRY.vnos_bolnika_ob_pregledu.v1 and name/value='Vnos bolnika ob pregledu']/data[at0001]/items[openEHR-EHR-CLUSTER.person_name.v1 and name/value='Osebno ime']/items[at0013 and name/value='Osebno ime']/items[at0002]/items[at0005]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">196, 25</Property>
+        <Property name="AccessibleDescription">
+        </Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TerminologyName">Snomed</Property>
+        <Property name="Location">182, 48</Property>
+        <Property name="Name">dV_Text2</Property>
+        <Property name="CodedTextBackColor">255, 255, 196</Property>
+        <Property name="TermQueryName" />
+        <Property name="Items">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+        </Property>
+        <Property name="Tag">
+        </Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="TextConstraintType">FreeText</Property>
+        <Property name="TermLanguage">en-GB</Property>
+        <Property name="TermName" />
+        <Property name="ElementValue" />
+        <Property name="TermCaption" />
+        <Property name="TabIndex">2</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="TermId" />
+        <Property name="DataConstraint" />
+        <Property name="Value">
+        </Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label2" children="Controls">
+        <Property name="TabIndex">3</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">41, 13</Property>
+        <Property name="Text">Priimek</Property>
+        <Property name="Location">141, 51</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label2</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Datetime, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Datetime1" children="Controls">
+        <Property name="ElementName">Datumrojstva</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.admin_basic_ra.v1 and name/value='Osnovni administrativni podatki']/items[openEHR-EHR-ADMIN_ENTRY.vnos_bolnika_ob_pregledu.v1 and name/value='Vnos bolnika ob pregledu']/data[at0001]/items[at0029]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">200, 20</Property>
+        <Property name="Location">182, 76</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="ElementValue" />
+        <Property name="Name">dV_Datetime1</Property>
+        <Property name="TabIndex">4</Property>
+        <Property name="DataConstraint" />
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label3" children="Controls">
+        <Property name="TabIndex">5</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">72, 13</Property>
+        <Property name="Text">Datum rojstva</Property>
+        <Property name="Location">110, 79</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label3</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text3" children="Controls">
+        <Property name="Margin">0, 0, 0, 0</Property>
+        <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+        <Property name="ElementName">Telefonskaštevilka</Property>
+        <Property name="Multiline">False</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.admin_basic_ra.v1 and name/value='Osnovni administrativni podatki']/items[openEHR-EHR-ADMIN_ENTRY.vnos_bolnika_ob_pregledu.v1 and name/value='Vnos bolnika ob pregledu']/data[at0001]/items[openEHR-EHR-CLUSTER.telecom_details.v1 and name/value='Telekomunikacije']/items[at0001 and name/value='Telefon']/items[at0003]/items[at0007]</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">196, 25</Property>
+        <Property name="AccessibleDescription">
+        </Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TerminologyName">Snomed</Property>
+        <Property name="Location">182, 99</Property>
+        <Property name="Name">dV_Text3</Property>
+        <Property name="CodedTextBackColor">255, 255, 196</Property>
+        <Property name="TermQueryName" />
+        <Property name="Items">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+        </Property>
+        <Property name="Tag">
+        </Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="TextConstraintType">FreeText</Property>
+        <Property name="TermLanguage">en-GB</Property>
+        <Property name="TermName" />
+        <Property name="ElementValue" />
+        <Property name="TermCaption" />
+        <Property name="TabIndex">6</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="TermId" />
+        <Property name="DataConstraint" />
+        <Property name="Value">
+        </Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label4" children="Controls">
+        <Property name="TabIndex">7</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">99, 13</Property>
+        <Property name="Text">Telefonska številka</Property>
+        <Property name="Location">83, 102</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label4</Property>
+      </Object>
+      <Object type="OceanEhr.ComposEhr.WinControls.DV_Text, OceanEhr.ComposEhr.WinControls, Version=1.4.2190.0, Culture=neutral, PublicKeyToken=null" name="dV_Text4" children="Controls">
+        <Property name="Margin">0, 0, 0, 0</Property>
+        <Property name="OTSWebServiceURL">http://ots.oceaninformatics.com/OTS/OTSService.asmx</Property>
+        <Property name="ElementName">Elektronskapošta</Property>
+        <Property name="Multiline">False</Property>
+        <Property name="ElementPath">/content[openEHR-EHR-SECTION.admin_basic_ra.v1 and name/value='Osnovni administrativni podatki']/items[openEHR-EHR-ADMIN_ENTRY.vnos_bolnika_ob_pregledu.v1 and name/value='Vnos bolnika ob pregledu']/data[at0001]/items[openEHR-EHR-CLUSTER.telecom_details.v1 and name/value='Telekomunikacije']/items[at0009 and name/value='Elektronska pošta']</Property>
+        <Property name="BindingValue" />
+        <Property name="Size">196, 25</Property>
+        <Property name="AccessibleDescription">
+        </Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="TerminologyName">Snomed</Property>
+        <Property name="Location">182, 127</Property>
+        <Property name="Name">dV_Text4</Property>
+        <Property name="CodedTextBackColor">255, 255, 196</Property>
+        <Property name="TermQueryName" />
+        <Property name="Items">
+          <Binary>AAEAAAD/////AQAAAAAAAAAEAQAAABxTeXN0ZW0uQ29sbGVjdGlvbnMuQXJyYXlMaXN0AwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24FAAAICAkCAAAAAAAAAAAAAAAQAgAAAAAAAAAL</Binary>
+        </Property>
+        <Property name="Tag">
+        </Property>
+        <Property name="AutoSizeMode">GrowAndShrink</Property>
+        <Property name="TextConstraintType">FreeText</Property>
+        <Property name="TermLanguage">en-GB</Property>
+        <Property name="TermName" />
+        <Property name="ElementValue" />
+        <Property name="TermCaption" />
+        <Property name="TabIndex">8</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="TermId" />
+        <Property name="DataConstraint" />
+        <Property name="Value">
+        </Property>
+      </Object>
+      <Object type="System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="label5" children="Controls">
+        <Property name="TabIndex">9</Property>
+        <Property name="AutoSize">True</Property>
+        <Property name="Size">92, 13</Property>
+        <Property name="Text">Elektronska pošta</Property>
+        <Property name="Location">90, 130</Property>
+        <Property name="DataBindings">
+          <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+        </Property>
+        <Property name="Name">label5</Property>
+      </Object>
+      <Property name="TabIndex">0</Property>
+      <Property name="Size">471, 162</Property>
+      <Property name="Text">Osnovni administrativni podatki</Property>
+      <Property name="Location">4, 4</Property>
+      <Property name="DataBindings">
+        <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+      </Property>
+      <Property name="TabStop">False</Property>
+      <Property name="Name">groupBox1</Property>
+    </Object>
+    <Property name="Size">565, 1509</Property>
+    <Property name="DataBindings">
+      <Property name="DefaultDataSourceUpdateMode">OnValidation</Property>
+    </Property>
+    <Property name="Name">EhrGateUserControl</Property>
+  </Object>
+</formdesign>

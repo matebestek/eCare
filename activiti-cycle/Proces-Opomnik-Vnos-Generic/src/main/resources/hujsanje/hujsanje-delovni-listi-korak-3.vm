@@ -1,0 +1,134 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+	<h3>
+		<a href="#">Vprašalnik - življenski slog</a>
+	</h3>
+	<div>
+
+		<table>
+
+			<tr><td style="width: 120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Označite za vaš trenutni življenjski slog najbolj ustrezno trditev</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!slog!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" class="activiti-size-short">
+						<option value="at0005">Sem telesno nedejaven in se ne želim spremeniti.</option>
+						<option value="at0006">Sem telesno nedejaven, a premišljujem, ali ne bi morda postal bolj dejaven.</option>
+						<option value="at0007">Sem telesno nedejaven, a bi želel biti bolj dejaven.</option>
+						<option value="at0008">Poskušam biti zmerno telesno dejaven.</option>
+						<option value="at0009">Sedaj sem zmerno telesno dejaven, čeprav je včasih težko vztrajati.</option>
+						<option value="at0010">Sedaj sem zmerno telesno dejaven, a premišljujem, kaj bi še lahko storil.</option>
+						<option value="at0011">Sedaj sem zmerno telesno dejaven, a bi želel biti še bolj.</option>
+						<option value="at0012">Poskušam biti zelo telesno dejaven.</option>
+						<option value="at0013">Sedaj sem zelo telesno dejaven, čeprav je včasih težko vztrajati.</option>
+						<option value="at0014">Bil sem zelo telesno dejaven, pa sem malo popustil.</option>
+						<option value="at0015">Bil sem zmerno telesno dejaven, pa sem popustil, sedaj pa sem komajda kaj dejaven.</option>
+						<option value="at0016">Vedno sem bil zelo telesno dejaven in bom tak tudi ostal.</option>
+						<option value="at0017">Vedno sem bil zmerno telesno dejaven in mi to ustreza.</option>
+						<option value="at0018">Sem zelo telesno dejaven, rad pa bi več raznolikosti.</option>
+						<option value="at0019">Sem zelo telesno dejaven, poskušam pa še povečati raznolikost in pogostost dejavnosti.</option>
+					</select>
+				</td>
+			</tr>
+			
+		</table>
+
+	</div>			
+
+	<h3>
+		<a href="#">Vprašalnik - dnevna prehrana</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.dogodek!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Dopoldanska malica</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.dogodek!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.dogodek!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Popoldanska malica</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.dogodek!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.dogodek!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.dogodek!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short">
+				</td>
+			</tr>			
+
+		</table>
+
+	</div>	
+	
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

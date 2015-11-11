@@ -1,0 +1,399 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<p>Spodaj so vsebine za korak 6, ki so razdeljene po zavihkih. Ko jih boste prebrali, kliknite spodaj na gumb 'Nadaljuj'. Na podlagi teh vsebin boste kasneje dobili vprašanja za napredovanje v naslednji korak. Vsebine si lahko kasneje ogledate tudi v zavihku 'Izobraževanje'.</p>
+	</br>
+	
+<div id="activiti_form_holder">
+<h3><a href="#">Vsebine - Gibanje - Iskanje rešitev za mogoče nastale probleme glede telesne dejavnosti</a></h3>
+	<div style="font-family: arial, sans-serif;">	
+	<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>ISKANJE REŠITEV ZA MOGOČE NASTALE PROBLEME GLEDE TELESNE DEJAVNOSTI</b></font></span>
+	</center>
+	<p align="justify">	
+		Pri uvajanju redne telesne dejavnosti v življenjski slog se pogosto pojavljajo različne ovire in težave. Na našo telesno dejavnost v veliki meri vpliva okolje, v katerem živimo in delamo. Okolje lahko v grobem razdelimo na: osebni dejavniki, socialno okolje, grajeno okolje in naravno okolje.
+	</p>
+	<center>
+		<img title="spreminjanje" style="border-width: 0px; border-style: solid; width: 554px; height: 342px;" src="/eOskrba-webapp/uploads/Image/6_korak/Vpliv_na_telesno_dejavnost.jpg" alt=""></p>
+	</center>
+	<p align="justify">	
+		Naše okolje lahko na telesno dejavnost vpliva spodbujevalno in zaviralno. Spodbujevalni učinki so seveda zelo dobrodošli, zaviralni učinki pa nas lahko ovirajo pri izvajanju telesne dejavnosti ali pa jo celo onemogočijo. Pri zaviralnih dejavnikih okolja je zelo pomembno, da jih prepoznamo, saj pogosto lahko najdemo rešitve, kako oviro odpravimo, ali pa našo telesno dejavnost prilagodimo razmeram v okolju.
+		</p>
+	<p align="justify">	
+		Osebne dejavnike, kot so spol, starost, zdravstveno stanje, telesne značilnosti, motivacija itd. v glavnem ne moremo spreminjati, lahko pa telesno dejavnost prilagodimo našim zmožnostim. Zelo pomembna je motivacija, ki lahko premaga marsikatero oviro. Motiviramo se lahko na različne načine. Lahko si postavimo določen cilj, na primer se naslednje leto udeležti teka ali kolesarske vožnje, gorsko turo, prehoditi 5 nadstropij stopnic brez zadihanosti, kolesariti ali pešačiti v službo itd. Lahko si obljubimo nagrado, ki si jo bomo privoščili ob doseženi telesni masi ali stopnji telesne pripravljenosti. Cilji naj ne bodo previsoki, da s tem tvegamo, da se bo motivacija zmanjšala, če ga ne bomo dosegli.
+	</p>
+	<p align="justify">	
+		Pogoste ovire za pričetek izvajanja telesne dejavnosti in strategije za premaganje ovire (Swedish National Institute of Public Health: Physical activity in the prevention and treatment of disease):
+	</p>
+	<table cellspacing="0"  cellpadding="0" bordercolor="#000000" border="1" bgcolor="#FFEAC1">
+		<tbody>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nimam časa</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						To je pogost razlog za neizvajanje telesne dejavnosti. Če telesno dejavnost načrtujemo in jo vključimo v vsakodnevne aktivnosti, ne potrebujemo veliko dodatnega časa. Z malo načrtovanja lahko večina posameznikov stisne 30 min telesne dejavnosti v svoj urnik.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ne morem si privoščiti</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						Ni potrebe po dragih članarinah in opremi. Mnogo odličnih vrst telesne dejavnosti je brezplačnih ali zelo ugodnih.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ne maram rekreacije</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						Slabe izkusnje v šoli ali pri služenju vojaškega roka lahko vodijo v manjšo motivacijo za telesno dejavnost. Vsakdo lahko najde obliko telesne dejavnosti, ki mu je v veselje, kot so igre z žogo, vrtnarjenje ali druge aktivnosti z otroci, prijatelji ali sodelavci.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prestar/a sem</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						Raziskovalci so ugotovili, da je telesna dejavnost koristna tudi za posameznike, ki se bližajo 80-im. Izboljša se počutje in telesna pripravljenost, vendar je potrebna pazljivost pri obremenjevanju skeleta&nbsp; in sklepov.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Lahko se poškodujem</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						Pretirana in intenzivna telesna dejavnost pogosto lahko vodi&nbsp; v poškodbe in bolečine. Tveganje za poškodbe pa je zelo majhno, ce posameznik s telesno dejavnostjo začenja pazljivo, počasi in postopoma povečuje intenzivnost. Posamezniki s srčnimi ali drugimi kroničnimi boleznimi&nbsp; se pred pričetkom vadbe posvetujejo z zdravnikom. Kakor koli, primerna vadba se najde za vsakega.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Predebel/a sem</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						To je začaran krog- če ne boste pričeli s telesno dejavnostjo, boste ostali debeli. Krog je potrebno prekiniti, najlažje je z zmerno&nbsp; telesno dejavnostjo, ki je prilagojena našim potrebam in željam.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nobeden znanec se ne rekreira</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						Nekdo mora začeti in doživeli boste dober odziv vaše okolice, ker ste prevzeli pobudo. Vaša nagrada bo boljše zdravje, večja gibljivost in manj zapletov povezanih z debelostjo, kar je vsekakor vredno vašega truda.</p>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top" style="width:252px;">
+					<p>
+						&nbsp;&nbsp;&nbsp;&nbsp;8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ne maram se spotiti</p>
+				</td>
+				<td valign="top" style="width:361px;">
+					<p>
+						Ni se potrebno močno potiti, da je telesna vadba zabavna in učinkovita. Vodilo naj bo, da se ob telesni vadbi spotite vsaj 2-3 krat tedensko. Preostali del telesne dejavosti lahko predstavlja hoja, kolesarjenje, nabiranje gob, pohajkovanje po muzeju ali karkoli, kar vas veseli.</p>
+					<p>
+						&nbsp;</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<h3><a href="#">Vsebine - Gibanje - Podrobnejše spoznavanje načel varne in učinkovite vadbe pri hujšanju in vzdrževanju telesne mase</a></h3>
+	<div style="font-family: arial, sans-serif;">
+	<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>PODROBNEJŠE SPOZNAVANJE NAČEL VARNE IN UČINKOVITE VADBE PRI HUJŠANJU IN VZDRŽEVANJU TELESNE MASE</b></font></span>
+	</center>
+	<p align="justify">	
+		Telesna dejavnost/vadba je učinkovita in varna, če je pravilno dozirana, raznovrstna (vsebovati mora različne tipe vaj), uravnotežena (50% aerobnih vaj, 25% vaj za krepitev mišic, 25% vaj za gibljivost), zabavna ter jo posameznik rad izvaja in pri tem upošteva vse predpisane previdnostne ukrepe in kontraindikacije za telesno dejavnost.
+	</p>
+	<p align="justify">	
+		Da je telesna vadba varna, torej da si z njo ne povzročamo nepotrebne škode ali tveganja za naše zdravje, je pri planiranju in izvajanju le te potrebno poznati in upoštevati naš trenutni nivo telesne zmogljivosti, zdravstveno stanje, starost, previdnostne ukrepe, opozorilne znake in drugo.
+	</p>
+	<p align="justify">	
+		Za učinkovitost naše telesne vadbe pa je med drugim potrebno upoštevati načelo uravnotežene vadbe, ki opredeljuje količino in pogostost tedenskega izvajanja nekaterih pomembnih tipičnih vrst vaj (oziroma njihovo razmerje v %) in navaja vzroke za izvajanje ter način njihove izvedbe.
+	<p style="margin-left:36.0pt;">
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" style="width:20px;">
+			-
+			</td>
+			<td>
+				<b>Aerobne vaje </b>izvajamo večno dni v tednu (oz. v obsegu 50% vseh vrst vaj) zaradi krepitve delovanja srca, ožilja in dihal, in sicer kot del vsakodnevnih aktivnosti in/ ali glavnega dela vadbe.
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+			-
+			</td>
+			<td>
+				<b>&nbsp;za krepitev mišic </b>izvajamo vsaj 2x na teden (oz. v obsegu 25% vseh vrst vaj) zaradi krepitve mišične zmogljivosti predvsem večjih mišičnih skupin, in sicer kot del glavnega dela vadbe ter običajno po aerobnem delu oz. posebej/ samostojno.
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				-
+			</td>
+			<td>
+				<b>Vaje za boljšo gibljivost </b>izvajamo vsaj 2x na teden (oz. v obsegu 25% vseh vrst vaj) zaradi ohranjanja ali izboljšanja mišično-skeletne gibljivosti, in sicer v obliki nekajminutnega ogrevanja pred glavnim delom vadbe in po njem v obliki nekajminutnega ohlajanja/ sklepnega dela oz. posebej/ samostojno.&nbsp;
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p align="center">
+		<img title="spreminjanje" style="border-width: 0px; border-style: solid; width: 360px; height: 301px;" src="/eOskrba-webapp/uploads/Image/6_korak/Uravnotezena_vadba.jpg" alt="">
+	</p>
+	<p align="justify">	
+		Telesno dejavnost je opredeljena z najmanj štirimi dimenzijami, kot so frekvenca (pogostost), intenzivnost, trajanje in tip (vrsta).&nbsp; Omenjene štiri dimenzije so združene v t.i. načelo FITT.
+	</p>
+	<p align="justify">	
+	Načelo FITT pri hujšanju:</br>
+	<table width="100%" border="0">
+		<tr>
+			<td valign="top" align="center" style="width:40px;">
+			•
+			</td>
+			<td>
+				Frekvenca (pogostost): redno vsak dan/ skoraj vsak dan
+			</td>
+		</tr>	
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Intenzivnost: priporoča se vsaj zmerna intenzivnost aerobne telesne dejavnosti &ndash; da se nekoliko zadihamo in ogrejemo (ciljno območje je 60-70% maksimalne frekvence srčnega utripa &ndash; ker se porablja večina kalorij iz maščobnih zalog, je varna in ne povzroča lakote po vadbi)</br>
+			</td>
+		</tr>	
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Trajanje: pol do ene ure dnevno (ali 2-4x po 15minut/dan)</br>
+			</td>
+		</tr>	
+		<tr>
+			<td align="center" valign="top">
+			•
+			</td>
+			<td>
+				Tip: hitra hoja po ravnem, nordijska hoja, hoja po stopnicah, kolesarjenje, ples, plavanje, aerobika, lahkoten tek, delo na vrtu, hišna opravila, vaje za krepitev mišic, vaje za gibljivost, vaje za ravnotežje, vaje za koordinacijo, sproščanje…
+			</td>
+		</tr>
+	</table>
+	</p>
+	<p align="justify">	
+		Po Globalnih priporočilih Svetovne zdravstvene organizacije na področju telesne dejavnosti se pri procesu hujšanja svetuje vsaj 150 do 300 minut zmerno intenzivne aerobne telesne dejavnosti tedensko. 
+	</p>
+	<p align="justify">	
+		Ustvarite si urnik redne vadbe. Načrtujte vadbo vnaprej in si zanjo rezervirajte čas. Vsak dan poizkusite vaditi v istem času. Za dosledno in učinkovito izvajanje programa telesne dejavnosti/ vadbe si je smiselno izdelati t.i. SMART načrt, ki pa mora biti za tega posameznika specifičen, merljiv, posameznik se mora z njim strinjati (angl. Agree), realen in opredeljeno mora biti trajanje le-tega načrta preden se izvede ocena napredka in se načrt po potrebi prilagodi novi oceni stanja.&nbsp;&nbsp;
+	</p>
+</div>
+
+<h3><a href="#">Vsebine - Gibanje - Podrobnejše spoznavanje  pomena aktivnega življenjskega sloga za hujšanje in uravnavanje ali vzdrževanje telesne mase</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>PODROBNEJŠE SPOZNAVANJE  POMENA AKTIVNEGA ŽIVLJENJSKEGA SLOGA ZA HUJŠANJE IN URAVNAVANJE ALI VZDRŽEVANJE TELESNE MASE</b></font></span>
+	</center>
+	<p align="justify">	
+		Aktiven življenjski slog je pri hujšanju izrednega pomena, saj se za zdravo in učinkovito hujšanje priporoča, da naj bi 50% telesne mase izgubili na račun zmanjšanega kaloričnega vnosa, 50% pa na račun povečanja telesne dejavnosti. Hujšanje na račun samo zmanjšanega kaloričnega vnosa namreč vodi v izgubo mišične mase in zmanjšanje bazalnega metabolizma. Mišice pa porabijo več energije, tako da ljudje z več mišične mase tudi v mirovanju porabijo več kalorij. Hkrati pa je aktiven življenjski slog izredno pomemben tudi za uravnavanje oz. vzdrževanje telesne mase, tako da je zelo pomembno, da poskusimo vključiti čim več gibanja v naš vsakdan, tako doma, kot v delovnem okolju, na poti v službo/šolo/vrtec in v našem prostem času. Zelo pomembno poleg tega, da smo aktivni, pa je zmanjšati tudi količino sedečega življenjskega sloga (torej količino časa, ko presedimo pred televizijo, računalnikom itd.) v našem prostem času. Ta čas vsekakor ne bi smel presegati 2 uri dnevno.
+	</p>
+</div>
+<h3><a href="#">Vsebine - Gibanje - Meritve</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>MERITVE</b></font></span>
+	</center>
+	<p align="justify">	
+		<b>TEHTANJE:</b></br>
+		&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; tehtnica naj bo postavljena na trdi podlagi</br>
+		&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; tehtamo se pred zajtrkom, po opravljeni mali in veliki potrebi</br>
+		&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; oblečeni smo v lahka oblačila ali spodnje perilo
+	</p>
+	<p align="justify">
+		<b>MERJENJE OBSEGA PASU:</b>
+	</p>
+	<p align="justify">
+		<img title="spreminjanje" style="border-width: 0px; border-style: solid; width: 236px; height: 323px;" src="/eOskrba-webapp/uploads/Image/6_korak/Merjenje_pasu.jpg" alt="">Merjenje <u>obsega pasu</u> je pomembno za odkrivanje bolnikov, ki jih ogrožajo kronične nenalezljive bolezni (srčno-žilne bolezni, sladkorna bolezen tipa II, rak dojke, rak črevesa). Maščobno tkivo, ki se kopiči v trebušni votlini, je povezano z nastankom presnovnih motenj in je vzrok za povišanje trigliceridov, nizko raven koristnega holesterola HDL in visoko vrednost sladkorja.<br>
+	<br>
+	<b>Obseg pasu merimo v srednji točki med spodnjim robom rebrnega loka in grebenom črevične kosti, kar predstavlja višino popka.</b><br>
+	<br>
+	Obseg pasu:
+	<p style="margin-left:17.85pt;">
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 80 cm <b>ogroža</b> zdravje žensk,</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 88 cm <b>zelo ogroža</b> zdravje žensk,</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 94 cm <b>ogroža</b> zdravje moških,</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 102 cm <b>zelo ogroža</b> zdravje moških</br>
+	z vidika zgoraj naštetih kroničnih bolezni.</br>
+	</p>
+	</p>
+	</br>
+	</br>
+	</br>
+	<center>
+	<h4>
+		<b><font color="#0000FF">Razmerje med obsegom pasu in bokov</font></b></h4>
+	</center>
+	
+	<p align="justify">
+		<b>Obseg bokov merimo na najširšem delu bokov.</b><br>
+		Z <u>razmerjem med obsegom pasu in bokov</u> ocenjujemo razporejenost maščevja.
+	</p>
+	<p align="justify">
+		<b>Ženske</b>:</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 0,7&nbsp;<b>ogroža&nbsp;</b>zdravje žensk,</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 0,86&nbsp;<b>zelo ogroža</b>&nbsp;zdravje žensk,
+	</p>
+	<p align="justify">
+		<b>Moški</b></br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 0,8&nbsp;<b>ogroža&nbsp;</b>zdravje moških,</br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp; nad 0,95&nbsp;<b>zelo ogroža</b>&nbsp;zdravje moških</br>
+	z vidika kroničnih nenalezljivih bolezni.
+	</p>
+	<p align="justify">
+		<b>Razmerje med obsegom pasu in bokov je eden izmed več kriterijev za uvrščanje posameznika v določeno rizično skupino glede na stanje prehranjenosti.</b>
+	</p>
+	
+	<center>
+		<h4>
+			<b><font color="#0000FF">ITM - Indeks telesne mase</font></b>
+		</h4>
+	</center>
+	
+	<p align="justify">
+		Indeks telesne mase (ITM) je razmerje med telesno maso in kvadratom višine, ki ga izračunamo v
+		kg/m<sup>2</sup>. Čeprav ITM ne odraža dejanskega deleža telesne maščobe, se pogosto uporablja
+		za prepoznavanje premajhne ali prevelike telesne mase.<br />
+		Stanje hranjenosti delimo v naslednje kategorije:
+	</p>
+	
+	<ul>
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;pod 18,5: <b>Podhranjenost</b></li>
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 18,5 do 24,9: <b>Normalna prehranjenost</b></li>
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 25,0 do 29,9: <b>Prekomerna prehranjenost</b></li>
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 30,0 do 34,9: <b>Debelost I. stopnje</b></li>
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;od 35 do 39,9: <b>Debelost II. stopnje</b></li>
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;•&nbsp;nad 40: <b>Debelost III. stopnje</b></li>
+	</ul>
+	
+	<p align="justify">
+		Opozorilo: Ocena prehranskega stanja posameznika glede na ITM je lahko neprimerna zlasti pri športnikih ali starejših osebah.
+	</p>
+		
+	<center>
+		<h4>
+			<b><font color="#0000FF">Telesne maščobe</font></b>
+		</h4>
+	</center>
+		
+	<p>
+		Maščobo v telesu razdelimo na tisto, ki je za telo nujno potrebna (esencialna maščoba),
+		in tisto, ki predstavlja v telesu maščobne zaloge. Esencialna maščoba, ki je potrebna za
+		normalno fiziološko delovanje telesa, je shranjena v manjših količinah v kostnem mozgu,
+		srcu, pljučih, jetrih, vranici, ledvicah, mišicah in z maščobo bogatih tkivih živčnega sistema.
+		Pri moških je esencialne približno 3 % telesne maščobe. Pri ženskah je odstotek esencialne
+		maščobe višji, približno 12 % telesne maščobe, saj vključuje telesno maščobo v prsih,
+		medeničnem delu in stegnih.
+	</p>
+	
+	<p>
+		Primarna energijska rezerva telesa je maščoba, ki je shranjena v obliki trigliceridov v
+		skladiščih narejenih iz maščobnega tkiva. Te rezervne maščobe se nabirajo pod kožo in
+		okrog notranjih organov, da jih ščitijo pred poškodbami. Večino rezervnih maščob telo ne
+		potrebuje. Celotne maščobne zaloge v maščobnem tkivu so zmožne velikih sprememb s čimer
+		omogočajo spreminjajoče se zahteve telesa za rast, reprodukcijo in staranje kot tudi nihanja
+		v okoljskih in fizioloških razmerah (dostopnost hrane, potrebe telesa za fizično aktivnost).
+		Vrednost skupnih telesnih maščob (esencialna maščoba in rezervna maščoba) je izražena kot
+		odstotek skupne telesne mase in je povezana z optimalnim zdravjem. Pri moških ta vrednost
+		znaša med 8 % in 24 %, pri ženskah pa med 21 % in 35 %.
+	</p>
+		
+	<p> </p>
+	
+	</div>
+<h3><a href="#">Vsebine - Učna ura -Spoznavanje pomena vaj za krepitev mišic</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>SPOZNAVANJE POMENA VAJ ZA KREPITEV MIŠIC</b></font></span>
+	</center>
+	<p align="justify">	
+		Vaje za krepitev mišic (imenovane tudi vaje za mišično moč) so vaje za pridobivanje mišične moči in sicer preko načela preobremenitve in s pomočjo vadbe proti uporu (imenovane tudi rezistenčna vadba). Po globalnih priporočilih Svetovne zdravstvene organizacije za področje telesne dejavnosti bi v procesu hujšanja vaje za krepitev mišic morali izvajati vsaj dvakrat tedensko. Ustrezno oblikovan in doziran program za krepitev mišic pa neposredno vpliva tudi na izboljšanje kostne gostote.
+	</p>
+</div>
+<h3><a href="#">Vsebine - Učna ura -Seznanitev z razliko med statičnimi in dinamičnimi vajami za krepitev mišic</a></h3>
+	<div style="font-family: arial, sans-serif;">
+		<center>
+			<span style="font-size: 14pt;"><font color="#0000FF"><b>SEZNANITEV Z RAZLIKO MED STATIČNIMI IN DINAMIČNIMI VAJAMI ZA KREPITEV MIŠIC</b></font></span>
+	</center>
+	<p align="justify">	
+		Dinamične vaje so vaje, pri katerih se zgodi vidni gib v sklepu in premik telesnega segmenta. Če se mišica ob kontrakciji skrajša, je kontrakcija koncentrična, če se mišica ob kontrakciji pod vplivom sile podaljša, pa je kontrakcija ekscentrična. 
+	</p>
+	<p align="justify">	
+		Statične vaje (imenovane tudi izometrične vaje) pa so statična oblika vaj, kjer se mišice napnejo in proizvajajo silo brez znatnih sprememb v dolžini mišice in vidnega giba v sklepu (kar imenujemo tudi izometrična kontrakcija). 
+	</p>
+</div>
+</div>
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_6/6%20Okus%20po%20zdravem_telesna%20dejavnost_korak%206.pdf">Okus po zdravem - telesna dejavnost</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="http://vimeo.com/16495808">4. oddaja: Gibanje</a></p>
+				</td>
+			</tr>		
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

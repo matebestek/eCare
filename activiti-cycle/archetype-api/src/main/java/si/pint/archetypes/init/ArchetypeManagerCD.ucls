@@ -1,0 +1,217 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<class-diagram version="1.0.4" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="si.pint.archetypes.init.ArchetypeManager" 
+    project="archetype-api" file="/archetype-api/src/main/java/si/pint/archetypes/init/ArchetypeManager.java" 
+    binary="false">    
+    <position height="403" width="362" x="1746" y="352"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="si.pint.archetypes.service.ArchetypeService" 
+    project="archetype-api" file="/archetype-api/src/main/java/si/pint/archetypes/service/ArchetypeService.java" 
+    binary="false">    
+    <position height="275" width="232" x="2901" y="37"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <interface id="4" corner="BOTTOM_RIGHT" language="java" name="openEHR.v1.template.TEMPLATE" project="archetype-api" 
+    file="C:/Users/mate/workspace/e-oskrba/activiti-cycle-workspace/refImpl/libs/oet-parser-1.0.2-SNAPSHOT.jar" 
+    binary="true">    
+    <position height="339" width="249" x="442" y="2006"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="org.openehr.am.archetype.Archetype" project="archetype-api" 
+    file="C:/Users/mate/workspace/e-oskrba/activiti-cycle-workspace/refImpl/libs/openehr-aom-1.0.2-SNAPSHOT.jar" 
+    binary="true">    
+    <position height="643" width="1381" x="2859" y="2006"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="org.openehr.rm.util.SkeletonGenerator" 
+    project="archetype-api" 
+    file="C:/Users/mate/workspace/e-oskrba/activiti-cycle-workspace/refImpl/libs/rm-skeleton-1.0.2-SNAPSHOT.jar" 
+    binary="true">    
+    <position height="915" width="722" x="984" y="795"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <interface id="7" corner="BOTTOM_RIGHT" language="java" name="org.openehr.validation.DataValidator" 
+    project="archetype-api" 
+    file="C:/Users/mate/workspace/e-oskrba/activiti-cycle-workspace/refImpl/libs/rm-validator-0.1-SNAPSHOT.jar" 
+    binary="true">    
+    <position height="67" width="380" x="41" y="795"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </interface>  
+  <class id="8" corner="BOTTOM_RIGHT" language="java" name="org.openehr.am.template.Flattener" project="archetype-api" 
+    file="C:/Users/mate/workspace/e-oskrba/activiti-cycle-workspace/refImpl/libs/oet-parser-1.0.2-SNAPSHOT.jar" 
+    binary="true">    
+    <position height="1171" width="801" x="2037" y="795"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="9" corner="BOTTOM_RIGHT" language="java" name="org.openehr.am.template.OETParser" project="archetype-api" 
+    file="C:/Users/mate/workspace/e-oskrba/activiti-cycle-workspace/refImpl/libs/oet-parser-1.0.2-SNAPSHOT.jar" 
+    binary="true">    
+    <position height="83" width="251" x="1746" y="795"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="10" corner="BOTTOM_RIGHT" language="java" name="org.openehr.am.serialize.ADLSerializer" 
+    project="archetype-api" 
+    file="C:/Users/mate/workspace/e-oskrba/activiti-cycle-workspace/refImpl/libs/adl-serializer-1.0.2-SNAPSHOT.jar" 
+    binary="true">    
+    <position height="899" width="462" x="482" y="795"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <association>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="oetParser"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="generator"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <bendpoint x="2868" y="795"/>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="archeMap"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" nodeId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="2" navigable="false">      
+      <attribute name="archetypeManager"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="validator"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="8" navigable="false">      
+      <attribute name="archetypeMap"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" nodeId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="8" navigable="false">      
+      <attribute name="templateMap"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" nodeId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="flattener"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <bendpoint x="451" y="795"/>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="template"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency>    
+    <bendpoint x="2910" y="352"/>    
+    <bendpoint x="2910" y="795"/>    
+    <end type="SOURCE" nodeId="2"/>    
+    <end type="TARGET" nodeId="5"/>  
+  </dependency>  
+  <association>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="adlSerializer"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <bendpoint x="2889" y="795"/>    
+    <end type="SOURCE" nodeId="1" navigable="false">      
+      <attribute name="archetypeObj"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" nodeId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" package="true" initial-value="false" signature="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

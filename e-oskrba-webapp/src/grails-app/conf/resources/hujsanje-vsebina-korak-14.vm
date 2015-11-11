@@ -1,0 +1,128 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+
+<div id="activiti_form_holder">
+	
+<!--Prehrana-->
+<!--Prvi zavihek-->
+	<h3><a href="#">Vsebine - Prehrana - Spoznavanje vplivov na prehrano</a></h3>	
+	<div style="font-family: arial, sans-serif;">
+		<font color="#FF8040"size="5">
+			<center><b>SPOZNAVANJE DRUŽBENIH, EKONOMSKIH, TRŽNIH IN MEDIJSKIH VPLIVOV NA PREHRANO</b></center>
+		</font>
+		</br>
+		<p>
+		<B>Varovanje zdravja je osnovna pravica vsakega posameznika in pogoj za kvalitetno in zdravo življenje. Med osnovne determinante zdravja spada tudi dostopnost do zdravega prehranjevanja in zdravega življenjskega sloga ter zagotavljanje osnovnih socialno-ekonomskih determinant zdravja. </B>
+		</p>
+		<p>
+		<B>Negativen vpliv rasti cen živil na prehranjevanje prebivalstva</B></br>Zaskrbljeni smo zaradi nezadržne rasti cen živil, ki bodo zagotovo bistveno poslabšale prehranjevalne navade ljudi z nižjimi prihodki, prejemnikom socialne pomoči in upokojencem, ki so že primarno ogroženi za nastanek kroničnih nenalezljivih bolezni. Posebno velika rast cen je opazna pri živilih višje kakovosti in z višjo biološko vrednostjo, ki so nujno potrebna v dnevni prehrani z vidika varovanja zdravja (ribe, zelenjava, sadje, sveže kakovostno meso). Še vedno pa so cenejša visoko energijska živila z manjšo biološko vrednostjo. Cenejša so energijsko gosta živila, ki so velik dejavnik tveganja debelosti (homogenizirani mesni izdelki, sladka, slana in mastna živila). Cene manj mastnega mleka so v povprečju še vedno višje polnomastnega mleka.
+		</p>
+		<p>
+		<B>Priporočila za zdravo prehranjevanje</B> Glede na izvedene raziskave o prehranjevanju prebivalcev Slovenije ugotavljamo nezadosten vnos sadja, predvsem pa zelenjave. Sadje in zelenjava imata velik pomen v zdravi prehrani, saj sta biološko visoko vredni skupini živil, z nizko energijsko gostoto. Priporočen dnevni vnos sadja je od 150 do 250 g ter zelenjave od 250 do 400 g, kar zavisi od energijskih potreb posameznika in po izračunih predstavlja več kot tretjino stroškov za nakup živil.   
+		</p>
+		<p>
+		Za ustrezno načrtovanje prehrane se lahko poslužujemo modela piramide zdrave prehrane ali zdravega krožnika, ki temeljita na uravnoteženem vključevanju šestih skupin živil: zelenjava, sadje, žita in žitni izdelki, mleko in mlečni izdelki, meso in mesni izdelki ter maščobe. V prehrani naj bo čim manj slanih in mastnih živil ter enostavnih sladkorjev, predvsem aromatiziranih sladkih pijač, ki sodijo med najpomembnejše dejavnike tveganja za debelost. Zelo uspešno te napitke nadomestimo s pitno vodo in s tem prihranimo denar. Opažamo veliko dostopnost energijsko gostih živil, ki so bogata s sladkorjem, soljo in zdravju škodljivimi maščobami.
+		</p>
+		<font color="#FF8040">
+			<h3><center><b>12 načel zdravega prehranjevanja, upoštevajoč socialno-ekonomske determinante:</b></center></h3>
+		</font>
+		<p>
+		
+		<b>1.</b>V jedi uživajte in jejte redno. Izbirajte pestro hrano – sezonsko in lokalno pridelano, ki naj vsebuje več živil rastlinskega kot živalskega izvora</br>
+		Zdravo prehranjevanje naj postane spontani del načina življenja in hkrati vsakodnevni užite.</br>Prehrana naj bo čim bolj pestra in naj vključuje različna živila. Priporočamo od 3 do 5
+		dnevnih obrokov. Dan začnite z zdravim zajtrkom. Zajtrk je najpomembnejši obrok v dnevni prehrani, saj zjutraj telo oskrbi s potrebno energijo in hranilnimi snovmi, pomemben pa je tudi zaradi vpliva na dnevni ritem prehranjevanja. V obrokih naj bi prevladovali sezonska in lokalno pridelana zelenjava, sadje in ogljikohidratna živila, torej živila rastlinskega izvora, ki vsebujejo veliko zdravju koristnih snovi, kot so vitamini, minerali, prehranska vlaknina, antioksidanti, številne sekundarne rastlinske zaščitne snovi in sestavljeni ogljikovi hidrati. Živila iz skupin meso in zamenjave ter mleko in zamenjave so pretežno živalskega, nekatera med njimi pa tudi rastlinskega izvora (stročnice in izdelki iz stročnic). Ta živila so pomembna zaradi beljakovin, kalcija, železa, cinka, nekaterih vitaminov in maščob. Na policah lahko najdete različne proizvajalce z različnimi cenami. Izberite cenejše alternative, toda bodite porozni na kvaliteto in preberite deklaracijo in izbor živila.</br></br>
+		</br><b>2.</b>Izbirajte živila iz polnovrednih žit in žitnih izdelkov</br>
+		Med živili rastlinskega izvora so pomembna žita, saj vsebujejo veliko vitaminov, mineralov in nenasičenih maščobnih kislin. Žita in žitni izdelki pa vsebujejo tudi prehransko vlaknino. Leta se nahaja predvsem v lupini in kalčkih žitnih zrn. Naravni riž, polnozrnate testenine in kaše vsebujejo več pomembnih hranilnih snovi (vitamini in minerali) kot oluščen riž, testenine iz bele moke in že pripravljeni kosmiči. Med slednjimi lahko izberite cenovno ugodnejša živila, predvsem nepredelana, ki so hranilno in biološko ustrezna in sami pripravimo za obrok.</br></br>
+		</br><b>3.</b>Večkrat dnevno jejte pestro zelenjavo in sadje. Izbirajte lokalno pridelano in svežo zelenjavo ter sadje.</br>
+		Sadje in zelenjava imata velik pomen v zdravi prehrani, saj sta biološko visoko vredni skupini živil, z nizko energijsko gostoto. Sadje in zelenjava vsebujeta veliko vitaminov, mineralov, antioksidantov, vlaknin in mnogih drugih zaščitnih snovi. Zaradi vsebnosti posameznih zaščitnih snovi, ki se nahajajo v tipični barvi sadja in zelenjave, priporočamo uživanje različnih barv sadja in zelenjave (zelene, bele, oranžno-rumene, rdeče in modro-vijolične). V dnevno prehrano moramo vključiti od 150 do 250 gramov sadja in od 250 do 400 g zelenjave, odvisno od dnevnih energijskih potreb. Priporočljivo je, da večji del teh živil zaužijemo kot svežo, presno hrano, drugi del pa v kuhani obliki. Izberite lokalna in sezonsko pridelana živila, ki so bistveno cenejša in vsebujejo več vitaminov, mineralov in drugih zaščitnih snovi.</br></br>
+		</br><b>4.</b>Nadzorujte količine zaužite maščobe in nadomestite večino nasičenih maščob (živalskih maščob) z nenasičenimi rastlinskimi olji.</br>
+		Maščobe se v prehrani pojavljajo v vidni in nevidni obliki. V vidni obliki so maščobe, ki jih uporabljamo za kuho in zabelo ter kot vidni del mesa oziroma mesnega izdelka, v nevidni obliki pa kot sestavina živil. Prekomerno uživanje maščob je velik dejavnik tveganja pri nastanku bolezni srca in ožilja, sladkorne bolezni, debelosti, povišanega krvnega pritiska in nekaterih vrst raka. Nasičene maščobne kisline in trans maščobne kisline so zdravju škodljive. Pretežno nasičene maščobne kisline vsebujejo goveji loj, kokosova mast, palmina mast, rastlinska mast, svinjska mast, surovo maslo, sladka in kisla smetana, mesni izdelki, ocvirki, slanina, mastni siri in sirni namazi. Bogat vir škodljivih trans maščobnih kislin pa lahko vsebujejo ocvrta hrana, čips, popkorn, hitra hrana, piškoti, trde margarine in drugi industrijsko pripravljeni živilski izdelki. Z izključevanjem teh živil bistveno prihranimo denar in namesto teh posežemo po zdravju koristejših živilih (sadje, zelenjava, kvalitetna beljakovinska živila: pusto meso, rtibem stročnice). Pri pripravi obrokov uporabljajte kvalitetna rastlinska olja in izbirajte čim bolj pusta živila živalskega izvora (manj mastno meso, mleko, mlečne izdelke). Najmanj enkrat tedensko vključite v jedilnik mastne morske ribe, ki so pomemben vir esencilanih maščobnih kislin. Za pripravo hrane uporabljajte kakovostna rastlinska olja (izmenično oljčno, repično, sončnično, sojino, koruzno ali druga kvalitetna 100 odstotna rastlinska olja. Med cenovno ugodnejše izbere olj priporočamo repično in sojino olje.</br></br>
+		</br><b>5.</b>Nadomestite mastno meso in mastne mesne izdelke s stročnicami, ribami, perutnino ali pustim mesom.</br>
+		Meso je bogat vir beljakovin visoke biološke vrednosti, vitaminov (B1, B2, B12), železa in mineralov. Stročnice in oreški predstavljajo pomemben vir rastlinskih beljakovin. Meso in predvsem mesni izdelki lahko vsebujejo velik delež skupnih in nasičenih maščob. Izbirajte samo puste vrste mesa oziroma vidno maščobo odstranite. Zaradi pestrosti prehrane vključite rdeče meso (govedino, svinjino, ovčetino, konjsko meso, divjačino in drugo) v tedenski jedilnik dvakrat do trikrat ter enkrat do trikrat perutnino. Enkrat do dvakrat na teden priporočamo brezmesni dan, ki vključuje mlečne izdelke, jajca, stročnice ali izdelke iz stročnic. Zaradi velike vsebnosti holesterola in nasičenih maščob, ne priporočamo uživanja večjih količin drobovine. Izberite take mesne izdelke, kjer se vidi struktura mesa (npr. šunka, piščančje prsi ipd.) in ne tistih, kjer je struktura homogena zaradi mletja. Res je, da so slednje izbire dražje, toda ne potrebujemo velikih količin teh živil. Meso pripravite s čim manj maščobe in ga ne zapecite preveč.</br></br>
+		</br><b>6.</b>Dnevno uživajte priporočene količine manj mastnega mleka in manj mastnih mlečnih izdelkov</br>
+		Mleko zaradi visoke hranilne in biološke vrednosti uvrščamo med pomembna živila v uravnoteženi prehrani. Predstavlja bogat vir beljakovin, ki vsebujejo življenjsko pomembne esencialne aminokisline. Mleko in mlečni so bogat vir kalcija, vitaminov A in D, E in K. Glede na smernice zdravega prehranjevanja uporabljajte le delno posneta mleka in manj mastne sire. V zdravi prehrani je potrebno zagotoviti zadostne količine mleka oziroma mlečnih izdelkov za vse starostne skupine ljudi, tudi zaradi vpliva na gostoto kostne mase ter posledično preprečevanje nastanka osteoporoze in osteomalacije. Dnevno priporočena količina mleka je od 4 do 6 dl oziroma ustrezen ekvivalent zamenjav za mleko (100 ml mleka vsebuje podobno količino kalcija kot 15 g trdega ali 30 g mehkega sira). Na policah lahko poiščete kvalitetne mlečne izdelke, brez tako imenovanih «zdravilnih učinkov«, ki so cenovno ugodnejši in tudi zdravju koristnejši.</br></br>
+		</br><b>7.</b>Jejte manj slano hrano.</br>
+		Dokazano je, da je prekomeren vnos soli in s tem natrija pomemben prehranski dejavnik tveganja za zdravje. Prekomeren vnos natrija je pomemben dejavnik za povišan krvni tlak, ta pa za možgansko kap. Pomemben vir soli v prehrani so, poleg dosoljevanja, pripravljena in polpripravljena živila/obroki; med osnovnimi živili pa so pomemben vir soli kruh, krušni izdelki in mesni izdelki, predvsem salame, suho meso, klobase in hrenovke. Priporočen vnos soli pri odrasli populaciji je do 5 g/dan, kar predstavlja eno čajno žličko, vključno z soljo v živilih. Za zmanjšanje uporabe soli priporočamo izbiro živil, ki nimajo dodane soli (natrija). Izogibajte se hrani, ki vsebuje veliko soli (predelana, polpripravljena in pripravljena živila: mesni izdelki, pite, pice, konzervirana hrana), slanim prigrizkom, dosoljevanju jedi iz navade (pri mizi), instantnim juham, omakam, jušnim kockam in začimbnim mešanicam z dodatkom soli. Namesto soli uporabljajte sveže, suhe ali zamrznjene začimbe. Na tak način lahko prihranimo kar nekaj denarja..</br></br>
+		</br><b>8.</b>Omejite uživanje sladkorja in sladkih živil.</br>
+		Enostavni sladkorji naj ne bi prispevali več kakor 10% dnevnega energijskega vnosa, saj se med ogljikovimi hidrati najhitreje prebavijo in povzročijo hiter porast inzulina. Nahajajo se v kuhinjskem sladkorju, medu, čokoladi, slaščicah, sladkih pijačah; naravno pa so prisotni v sadju. En gram sladkorja vsebuje 4 kilokalorije, kar predstavlja pri povprečnem energijskem vnosu 2000 kcal približno 50 gramov sladkorja, ki ga lahko zaužijemo s sladkarijami, sladkorjem v kavi, čaju, s sladkimi pijačami s sadjem. Sladkor ne vsebuje esencialnih hranil in zvišuje energijsko gostoto obrokov. Enostavni sladkorji so velik dejavnik tveganja za prekomerno telesno maso in debelost. Hrano sladkajte zmerno in izbirajte živila, ki vsebujejo malo sladkorja. Tudi z omejevanjem sladkih živil prihranimo denar.</br></br>
+		</br><b>9.</b>Zaužijte dovolj tekočine.</br>
+		Telo potrebuje v povprečju 1,5 do 3 l tekočine na dan. Potreba po tekočini narašča s telesno maso, s telesno aktivnostjo in glede na zunanjo temperaturo in vlago v zraku. Za nadomeščanje tekočine priporočamo le pijače brez dodanih sladkorjev: navadno vodo, mineralno vodo ali različne sadne in zeliščne čaje, in razredčene sveže sadne ali zelenjavne sokove v razmerju 1:1 (kot del obroka). Pitna voda mora biti zdravstveno ustrezna in je cenovno vsem dostopna. Potrebe so povečane pri visoki porabi energije, vročini, suhem vlažnem zraku, obilnem uživanju kuhinjske soli, velikem vnosu beljakovin in patoloških stanjih, kot so vročica, bruhanje, driska ipd.</br></br>
+		</br><b>10.</b>Omejite uživanje alkohola.</br>
+		Prekomerno pitje alkoholnih pijač je povezano z večjimi možnostmi za pojav bolezni srca in ožilja, nenadne smrti, ciroze jeter, nekaterih oblik raka, poškodb, duševnih in vedenjskih motenj, imunskih motenj, zasvojenosti, alkoholne kardiomiopatije in skeletne miopatije, ki se kažejo v spremenjenem krvnem tlaku in aritmijah. Pri navajanju količin alkoholnih pijač uporabljamo enote. Ena enota alkoholne pijače vsebuje 10 g alkohola in predstavlja en deciliter (dcl) vina, 2,5 dcl piva ali 0,3 dcl žganja. Meje manj tveganega pitja alkohola so opredeljene za zdrave odrasle moške ne več kot 14 enot na teden oziroma ne več kot 20 g alkohola na dan in ne več kot 5 enot ob eni priložnosti ter za zdrave odrasle ženske ne več kot 7 enot na dan oziroma ne več kot 10 g alkohola na dan in ne več kot 3 enote ob eni priložnosti. Z omejevanjem pitja alkoholnih pijač lahko bistveno pripomoremo k manjši potrošnji.</br></br>
+		</br><b>11.</b>Hrano pripravljajte zdravo in higiensko.</br>
+		Pravilni postopki priprave so pomembni zaradi večjega izkoristka hranil, boljše prebavljivosti in nenazadnje boljših senzoričnih lastnosti živil. Priporočljivi postopki so kuhanje v sopari, parno-konvekcijski pečici, dušenje z manjšo količino olja in dušenje v lastnem soku ali z dodatkom vode. Izogibajte pa se ocvrti hrani, pečeni z veliko maščobe in močno zapečenim živilom. Priprava živil je še posebno pomembna pri živilih, bogatih z vitamini in minerali, ki se hitro uničijo pri nepravilni pripravi in termično obdelavi. Z rezanjem, sekljanjem, lupljenem zelenjave in sadja pospešimo oksidacijske procese, zato to opravimo tik pred nadaljnjo pripravo hrane. Za čim višjo biološko vrednost živil in ohranitev mikrohranil, živila vedno kuhamo malo časa in v majhni količini vode. Priporočljivi postopki priprave zelenjave so poširanje, dušenje in kuhanje nad paro. Na tak način lahko pripravimo zdrave, varne in varovalne obroke.</br></br>
+		</br><b>12.</b>Bodite telesno dejavni toliko, da bo vaša telesna masa normalna.</B></br>
+		Telesna neaktivnost je velik dejavnik tveganja za nastanek prekomerne telesne mase in debelosti. Debelost je povezana s povečanim tveganjem za nastanek povišanih maščob v krvi, povišanega krvnega tlaka, raka dojke, debelega črevesa, danke, prostate in drugih vrst raka, z nastankom hipertenzije, sladkorne bolezni, srčno-žilnih bolezni, jetrnih bolezni, ortopedskih zapletov. Za uspešno zdravo hujšanje in vzdrževanje nove telesne mase je potrebno spremeniti življenjski slog, zmanjšati obseg obrokov v dnevni prehrani in vključiti čim več telesne aktivnosti. Redna telesna aktivnost, vsaj eno uro na dan in uravnotežena prehrana z veliko zelenjave in sadja pomagata pri zmanjševanju telesne mase. V kolikor imate normalno telesno maso, bodite aktivni vsaj pol ure dnevno.</br></br>
+		
+		</p>		
+		<font color="#FF8040">
+			<h3><center><b>Oglaševanje preparatov za hujšanje</b></center></h3>
+		</font>
+		<p>
+			Zavajajoče oglaševanje izkorišča potrošnika za dobičkonosne namene, vsebuje nejasnosti, čezmerna pretiravanja ali druge podobne načine zavajanja. Oglasi za preparate za hujšanje so napisani kot časopisni članek, kar je že samo po sebi zavajajoče. Sporna je tudi vsebina oglasa, navajanje znanstvenih testov, sto odstotno zagotavljanje uspešnega hujšanja, sklicevanje na tuje znanstvene laboratorije in na nagrade, ki ne obstajajo. Običajno gre za prehrambeni izdelek (dopolnilo), ki mu v oglasu pripisujejo zdravilne učinke ("uničuje maščobo in celulit"). Zakon o zdravstveni ustreznosti živil in izdelkov ter snovi, ki prihajajo v stik z živili, izrecno prepoveduje zdravstvene trditve, ki jih navajajo pri oglaševanju in predstavljanju živil. Hitro hujšanje, kot ga obljubljajo v oglasih je zdravju škodljivo. Učinkovitost takšnih izdelkov je vprašljiva, vsekakor pa hujšanje na tak način odsvetujemo, saj so v oglasih navedeni prav neverjetni podatki, "izguba 5 kg v samo 4 dneh, brez diete in telesne aktivnosti...".
+		</p>
+	</div>
+
+</div>	
+
+		<table>
+
+			<tr><td style="width:220px;">&nbsp;</td><td>&nbsp;</td></tr>
+			<tr>
+				<td colspan="2">
+					<p><b>Dodatna gradiva:</b></p>
+				</td>
+			</tr>	
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_14/12%20nacel%20zdravega%20prehranjevanja.pdf">12 načel zdravega prehranjevanja</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_14/Prehrambene%20navade%20Slovencev_povzetek.pdf">Prehrambene navade Slovencev - povzetek</a></p>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_14/Prehrambene%20navade%20Slovencev_publikacija.pdf">Prehrambene navade Slovencev - publikacija</a></p>
+				</td>
+			</tr>		
+			<tr>
+				<td colspan="2">
+					<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Dodatne_vsebine_14/Priporocila%20za%20cenovno%20dostopen%20zdrav%20zivljenjski%20slog.pdf">Priporočila za cenovno dostopen zdrav življenjski slog</a></p>
+				</td>
+			</tr>				
+		</table>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+   collapseAccordions();
+</script>

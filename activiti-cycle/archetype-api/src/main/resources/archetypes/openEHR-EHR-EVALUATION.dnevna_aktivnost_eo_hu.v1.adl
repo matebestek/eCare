@@ -1,0 +1,121 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.dnevna_aktivnost_eo_hu.v1
+
+concept
+	[at0000]	-- Dnevna aktivnost eo hu
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis stopnje dnevne aktivnosti za potrebe projekta eOskrba - hujšanje.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"CD3C50922074B5C448A516F73798C0C1">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Dnevna aktivnost eo hu
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Stopnja dnevne aktivnosti
+						value matches {
+							1|[local::at0004], 	-- Sedeč ali ležeč način življenja (stari, betežni ljudje)
+							2|[local::at0005], 	-- Izključno sedeča dejavnost z malo ali brez naporne aktivnosti v prostem času (pisarniški uslužbenci, finomehaniki)
+							3|[local::at0006], 	-- Sedeča dejavnost, občasno tudi večja poraba energije za hojo in stoječo aktivnost (laboranti, vozniki, študenti, delavci ob tekočem traku)
+							4|[local::at0007], 	-- Pretežno stoječe delo (gospodinje, prodajalci, natakarji, mehaniki, obrtniki)
+							5|[local::at0008]  	-- Fizično naporno poklicno delo (gradbeni delavci, kmetovalci, gozdni delavci, rudarji, tekmovalni športniki)
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Dnevna aktivnost eo hu">
+					description = <"Zapis stopnje dnevne aktivnosti">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0003"] = <
+					text = <"Stopnja dnevne aktivnosti">
+					description = <"Stopnja dnevne aktivnosti (pet možnih stopenj)">
+				>
+				["at0004"] = <
+					text = <"Sedeč ali ležeč način življenja (stari, betežni ljudje)">
+					description = <"Sedeč ali ležeč način življenja (stari, betežni ljudje)">
+				>
+				["at0005"] = <
+					text = <"Izključno sedeča dejavnost z malo ali brez naporne aktivnosti v prostem času (pisarniški uslužbenci, finomehaniki)">
+					description = <"Izključno sedeča dejavnost z malo ali brez naporne aktivnosti v prostem času (pisarniški uslužbenci, finomehaniki)">
+				>
+				["at0006"] = <
+					text = <"Sedeča dejavnost, občasno tudi večja poraba energije za hojo in stoječo aktivnost (laboranti, vozniki, študenti, delavci ob tekočem traku)">
+					description = <"Sedeča dejavnost, občasno tudi večja poraba energije za hojo in stoječo aktivnost (laboranti, vozniki, študenti, delavci ob tekočem traku)">
+				>
+				["at0007"] = <
+					text = <"Pretežno stoječe delo (gospodinje, prodajalci, natakarji, mehaniki, obrtniki)">
+					description = <"Pretežno stoječe delo (gospodinje, prodajalci, natakarji, mehaniki, obrtniki)">
+				>
+				["at0008"] = <
+					text = <"Fizično naporno poklicno delo (gradbeni delavci, kmetovalci, gozdni delavci, rudarji, tekmovalni športniki)">
+					description = <"Fizično naporno poklicno delo (gradbeni delavci, kmetovalci, gozdni delavci, rudarji, tekmovalni športniki)">
+				>
+				["at0009"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+			>
+		>
+	>

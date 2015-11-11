@@ -1,0 +1,264 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ACTION.clinical_procedure-wound_dressing.v1
+specialize
+	openEHR-EHR-ACTION.clinical_procedure.v1
+
+concept
+	[at0000.1]	-- Wound dressing
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"03/12/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the dressing of a surgical or traumatic wound.">
+			use = <"">
+			keywords = <"wound", "dressing">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"CF2ADE06FCFE0B2AB044006B80AD7AA3">
+	>
+
+definition
+	ACTION[at0000.1] matches {	-- Wound dressing
+		description matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {1..*; unordered} matches {
+					ELEMENT[at0002] matches {	-- Procedure
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0009] occurrences matches {0..*} matches {	-- Location
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location-precise(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					CLUSTER[at0029] occurrences matches {0..1} matches {	-- Reasons for procedure
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0014] occurrences matches {0..*} matches {	-- Reason for procedure
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0003] occurrences matches {0..*} matches {	-- Procedure details
+						include
+							archetype_id/value matches {/.*/}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Procedure unsuccessful
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True}
+							}
+						}
+					}
+					ELEMENT[at0018] occurrences matches {0..1} matches {	-- Failed attempts
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					CLUSTER[at0016] occurrences matches {0..1} matches {	-- Unplanned events
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0015] occurrences matches {0..1} matches {	-- Unplanned event
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0027] occurrences matches {0..*} matches {	-- Complications
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Complication
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0028] occurrences matches {0..1} matches {	-- Link to record of complication
+								value matches {
+									DV_EHR_URI matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Comments
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..*} matches {	-- Image
+						value matches {
+							DV_MULTIMEDIA matches {
+								media_type matches {[openEHR::]}
+							}
+						}
+					}
+					CLUSTER[at0.29] occurrences matches {0..*} matches {	-- Dressing
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0.31] occurrences matches {0..1} matches {	-- Material
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0.30] occurrences matches {0..1} matches {*}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0010] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0011] occurrences matches {0..1} matches {	-- Filler Order ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- Placer Order ID
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.29"] = <
+					text = <"Dressing">
+					description = <"Details of individual dressing materials used.">
+				>
+				["at0.30"] = <
+					text = <"Quantity">
+					description = <"The quantity of dressing material used.">
+				>
+				["at0.31"] = <
+					text = <"Material">
+					description = <"The dressing material used.">
+				>
+				["at0000"] = <
+					text = <"Clinical procedure undertaken">
+					description = <"To record any non-operative procedure undertaken. Normally carried out in a clinic or ward setting and may be for therapeutic or diagnostic purposes.">
+				>
+				["at0000.1"] = <
+					text = <"Wound dressing">
+					description = <"To record the dressing of a surgical or traumatic wound.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Procedure">
+					description = <"The name of the procedure.">
+				>
+				["at0003"] = <
+					text = <"Procedure details">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Procedure unsuccessful">
+					description = <"Was the procedure ultimately unsuccessful?">
+				>
+				["at0005"] = <
+					text = <"Comments">
+					description = <"Commetns about the procedure.">
+				>
+				["at0006"] = <
+					text = <"Complication">
+					description = <"Complication arising from the procedure.">
+				>
+				["at0009"] = <
+					text = <"Location">
+					description = <"The body location at which the procedure was performed. ">
+				>
+				["at0010"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Filler Order ID">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Placer Order ID">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Image">
+					description = <"Images of the procedure.">
+				>
+				["at0014"] = <
+					text = <"Reason for procedure">
+					description = <"The reason or indication for the procedure">
+				>
+				["at0015"] = <
+					text = <"Unplanned event">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Unplanned events">
+					description = <"One or more unplanned events.">
+				>
+				["at0018"] = <
+					text = <"Failed attempts">
+					description = <"The number of failed attempts to perform the procedure.">
+				>
+				["at0027"] = <
+					text = <"Complications">
+					description = <"Complications arising from the procedure.">
+				>
+				["at0028"] = <
+					text = <"Link to record of complication">
+					description = <"A link to a structured record e.g a diagnosis or problem describing the complication.">
+				>
+				["at0029"] = <
+					text = <"Reasons for procedure">
+					description = <"Reasons or indications for the procedure">
+				>
+			>
+		>
+	>

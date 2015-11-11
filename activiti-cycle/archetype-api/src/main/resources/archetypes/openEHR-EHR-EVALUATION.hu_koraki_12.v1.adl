@@ -1,0 +1,150 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.hu_koraki_12.v1
+
+concept
+	[at0000]	-- Hu koraki 12
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Korak 12 - eHujšanje - eOskrba">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"251FC11FD505CCA0BE17E2BF1C3394E4">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Hu koraki 12
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- questionnaire_wl_12
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0003] occurrences matches {0..1} matches {	-- Vprašanja prehrana
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Koliko gramov prehranske vlaknine mora vsebovati izdelek ali servirna porcija, da nam zagotovi bogat vir prehranske vlaknine in je navedena na deklaraciji?
+								value matches {
+									0|[local::at0008], 	-- Več kot 5 gramov
+									1|[local::at0009], 	-- 2 grama
+									2|[local::at0010]  	-- 4 grame
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Katera izbira je bolj zdrava?
+								value matches {
+									0|[local::at0011], 	-- Polnozrnata žemljica, 1 rezina manj mastnega sira, 4 rezine puste piščančje salame, paprika, 1 lonček navadnega jogurta z manj maščobe, jabolko
+									1|[local::at0012]  	-- Mlečna štručka, 4 rezine mortadele, 1 lonček sadnega jogurta z manj maščobe, čokoladna tablica
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hu koraki 12">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"questionnaire_wl_12">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Vprašanja prehrana">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Vprašanja gibanje">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Koliko gramov prehranske vlaknine mora vsebovati izdelek ali servirna porcija, da nam zagotovi bogat vir prehranske vlaknine in je navedena na deklaraciji?">
+					description = <"Koliko gramov prehranske vlaknine mora vsebovati izdelek ali servirna porcija, da nam zagotovi bogat vir prehranske vlaknine in je navedena na deklaraciji?">
+				>
+				["at0007"] = <
+					text = <"Katera izbira je bolj zdrava?">
+					description = <"Katera izbira je bolj zdrava?">
+				>
+				["at0008"] = <
+					text = <"Več kot 5 gramov">
+					description = <"Več kot 5 gramov">
+				>
+				["at0009"] = <
+					text = <"2 grama">
+					description = <"2 grama">
+				>
+				["at0010"] = <
+					text = <"4 grame">
+					description = <"4 grame">
+				>
+				["at0011"] = <
+					text = <"Polnozrnata žemljica, 1 rezina manj mastnega sira, 4 rezine puste piščančje salame, paprika, 1 lonček navadnega jogurta z manj maščobe, jabolko">
+					description = <"Polnozrnata žemljica, 1 rezina manj mastnega sira, 4 rezine puste piščančje salame, paprika, 1 lonček navadnega jogurta z manj maščobe, jabolko">
+				>
+				["at0012"] = <
+					text = <"Mlečna štručka, 4 rezine mortadele, 1 lonček sadnega jogurta z manj maščobe, čokoladna tablica">
+					description = <"Mlečna štručka, 4 rezine mortadele, 1 lonček sadnega jogurta z manj maščobe, čokoladna tablica">
+				>
+			>
+		>
+	>

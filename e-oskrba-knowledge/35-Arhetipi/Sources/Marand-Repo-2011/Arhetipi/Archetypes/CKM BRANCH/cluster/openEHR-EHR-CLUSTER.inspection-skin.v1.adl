@@ -1,0 +1,485 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.inspection-skin.v1
+specialize
+	openEHR-EHR-CLUSTER.inspection.v1
+
+concept
+	[at0000.1]	-- Opazovanje kože
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenia">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"10/04/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording the findings on inspection of the skin">
+			use = <"For use with the exam clusters for recording findings on inspection">
+			keywords = <"inspect", "visual", "skin">
+			misuse = <"Should only be used in the exam observation">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje ugotovitev pregleda kože.">
+			use = <"Se uporablja s klastri za beleženje opazovanj pregleda
+">
+			keywords = <"pregled", "koža", "vizualni pregled">
+			misuse = <"Se uporablja samo za opazovanja kože">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"99BAE02F2E05EBBC30DCE53F640B4E63">
+	>
+
+definition
+	CLUSTER[at0000.1] occurrences matches {0..1} matches {	-- Opazovanje kože
+		items cardinality matches {1..*; ordered} matches {
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- Opazovanje kože
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0048] occurrences matches {0..1} matches {	-- Klinični opis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {	-- Ugotovitve
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0053] occurrences matches {0..1} matches {	-- Lokacija
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0054] occurrences matches {0..1} matches {	-- Fizične mere
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Barva
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- Prosojnost
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0.60] occurrences matches {0..1} matches {	-- Pigmentacija
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.56] occurrences matches {0..1} matches {	-- Debelina kože
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.57, 	-- Zadebelitev
+									at0.58, 	-- Normalno debela
+									at0.59]	-- Stanjšana
+								}
+							}
+						}
+					}
+					CLUSTER[at0055] occurrences matches {0..1} matches {	-- Oblika in distribucija
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0057] occurrences matches {0..1} matches {	-- Simetrična
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0051] occurrences matches {0..1} matches {	-- Skica
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028] occurrences matches {0..1} matches {	-- Rob
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0033] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Definicija roba
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0030, 	-- Dobro definiran
+											at0031, 	-- Zmerno definiran
+											at0032]	-- Slabo definiran
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Površina
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Okolica
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0052] occurrences matches {0..*} matches {	-- Podrobnosti pregleda
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Slika
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							425, 
+							426, 
+							427, 
+							428, 
+							429]
+						}
+					}
+				}
+			}
+			ELEMENT[at0.52] occurrences matches {0..1} matches {	-- Metoda
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.53, 	-- Vizualno
+							at0.54, 	-- Woodova lampa
+							at0.55]	-- Dermatoskop
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.52"] = <
+					text = <"Method">
+					description = <"Record of findings on inspection using a specific method.">
+				>
+				["at0.53"] = <
+					text = <"Direct visualisation">
+					description = <"Macroscopic; By eye.">
+				>
+				["at0.54"] = <
+					text = <"Wood's lamp">
+					description = <"The skin was examined by Wood's lamp.">
+				>
+				["at0.55"] = <
+					text = <"Dermatoscope">
+					description = <"The skin was examined using a dermatoscope.">
+				>
+				["at0.56"] = <
+					text = <"Thickness">
+					description = <"Thickness of skin.">
+				>
+				["at0.57"] = <
+					text = <"Thickened">
+					description = <"The skin is thickened.">
+				>
+				["at0.58"] = <
+					text = <"Skin thickness normal.">
+					description = <"The skin is of normal thickness.">
+				>
+				["at0.59"] = <
+					text = <"Thinned/atrophic">
+					description = <"The skin is thinned or atrophic.">
+				>
+				["at0.60"] = <
+					text = <"Pigmentation">
+					description = <"Pigmentation of skin.">
+				>
+				["at0000"] = <
+					text = <"Inspection">
+					description = <"The findings on physical examination by inspection.">
+				>
+				["at0000.1"] = <
+					text = <"Inspection of skin">
+					description = <"The findings on inspection of the skin">
+				>
+				["at0002"] = <
+					text = <"Normal statements">
+					description = <"A specific statement about the normality of inspection.">
+				>
+				["at0006"] = <
+					text = <"Findings">
+					description = <"Specific findings on inspection">
+				>
+				["at0024"] = <
+					text = <"Surrounds">
+					description = <"Description of immediate surrounds to object.">
+				>
+				["at0027"] = <
+					text = <"Overlying skin or surface">
+					description = <"A description of the surface of the object under inspection.">
+				>
+				["at0028"] = <
+					text = <"Edge">
+					description = <"Findings about the edge of the object under inspection.">
+				>
+				["at0029"] = <
+					text = <"Definition">
+					description = <"The nature of the edge of the object of examination.">
+				>
+				["at0030"] = <
+					text = <"Well defined">
+					description = <"The edge is clearly defined.">
+				>
+				["at0031"] = <
+					text = <"Moderately defined">
+					description = <"The edge is defined but less clear in places.">
+				>
+				["at0032"] = <
+					text = <"Poorly defined">
+					description = <"The edge is not defined clearly in many places.">
+				>
+				["at0033"] = <
+					text = <"Description">
+					description = <"Description of the edge or border of the object of inspection.">
+				>
+				["at0034"] = <
+					text = <"Translucent">
+					description = <"Is the object of inspection translucent?">
+				>
+				["at0036"] = <
+					text = <"Colour">
+					description = <"The colour of the object under inspection.">
+				>
+				["at0048"] = <
+					text = <"Clinical description">
+					description = <"Clinical description of the findings on inspection.">
+				>
+				["at0050"] = <
+					text = <"Image">
+					description = <"A drawing of the findings on inspection">
+				>
+				["at0051"] = <
+					text = <"Contour">
+					description = <"The contour of the object of inspection.">
+				>
+				["at0052"] = <
+					text = <"Exam detail">
+					description = <"Further detailed examination.">
+				>
+				["at0053"] = <
+					text = <"Location">
+					description = <"Location of the object being inspected.">
+				>
+				["at0054"] = <
+					text = <"Physical properties">
+					description = <"Physical properties of the object.">
+				>
+				["at0055"] = <
+					text = <"Shape or distribution">
+					description = <"The shape or distribution of the object under inspection.">
+				>
+				["at0056"] = <
+					text = <"Description">
+					description = <"Description of the shape or disstribution of the object under inspection.">
+				>
+				["at0057"] = <
+					text = <"Symmetrical">
+					description = <"Is the shape or distribution symmetrical?">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.52"] = <
+					text = <"Metoda">
+					description = <"Metoda opazovanja">
+				>
+				["at0.53"] = <
+					text = <"Vizualno">
+					description = <"Mikroskop, Prostim očesom">
+				>
+				["at0.54"] = <
+					text = <"Woodova lampa">
+					description = <"Woodova lampa">
+				>
+				["at0.55"] = <
+					text = <"Dermatoskop">
+					description = <"dermoskop">
+				>
+				["at0.56"] = <
+					text = <"Debelina kože">
+					description = <"Debelina kože">
+				>
+				["at0.57"] = <
+					text = <"Zadebelitev">
+					description = <"Koža je zadebeljena">
+				>
+				["at0.58"] = <
+					text = <"Normalno debela">
+					description = <"Koža je normalno debela">
+				>
+				["at0.59"] = <
+					text = <"Stanjšana">
+					description = <"Koža je stanjšana">
+				>
+				["at0.60"] = <
+					text = <"Pigmentacija">
+					description = <"Pigmentacija kože">
+				>
+				["at0000"] = <
+					text = <"Opazovanje">
+					description = <"Ugotovitve opazovanja">
+				>
+				["at0000.1"] = <
+					text = <"Opazovanje kože">
+					description = <"Ugotovitve opazovanja kože">
+				>
+				["at0002"] = <
+					text = <"Opazovanje kože">
+					description = <"Ugotovitve opazovanja kože">
+				>
+				["at0006"] = <
+					text = <"Ugotovitve">
+					description = <"Ugotovitve">
+				>
+				["at0024"] = <
+					text = <"Okolica">
+					description = <"Opis okolice opazovanega dela ">
+				>
+				["at0027"] = <
+					text = <"Površina">
+					description = <"Opis površine opazovanega dela">
+				>
+				["at0028"] = <
+					text = <"Rob">
+					description = <"Ugotovitve glede roba opazovanega dela">
+				>
+				["at0029"] = <
+					text = <"Definicija roba">
+					description = <"Definicija roba opazovanega dela">
+				>
+				["at0030"] = <
+					text = <"Dobro definiran">
+					description = <"Rob je dobro definiran">
+				>
+				["at0031"] = <
+					text = <"Zmerno definiran">
+					description = <"Rob je zmerno definiran">
+				>
+				["at0032"] = <
+					text = <"Slabo definiran">
+					description = <"Rob je slabo definiran">
+				>
+				["at0033"] = <
+					text = <"Opis">
+					description = <"Opis roba opazovanega dela">
+				>
+				["at0034"] = <
+					text = <"Prosojnost">
+					description = <"Ali je opazovani del prosojen?">
+				>
+				["at0036"] = <
+					text = <"Barva">
+					description = <"Barva opazovanega dela">
+				>
+				["at0048"] = <
+					text = <"Klinični opis">
+					description = <"Klinični opis">
+				>
+				["at0050"] = <
+					text = <"Slika">
+					description = <"Slika opazovanega dela">
+				>
+				["at0051"] = <
+					text = <"Skica">
+					description = <"Skica opazovanega dela">
+				>
+				["at0052"] = <
+					text = <"Podrobnosti pregleda">
+					description = <"Podrobnosti glede pregleda">
+				>
+				["at0053"] = <
+					text = <"Lokacija">
+					description = <"Lokacija opazovanega dela">
+				>
+				["at0054"] = <
+					text = <"Fizične mere">
+					description = <"Fizične mere opazovanega dela">
+				>
+				["at0055"] = <
+					text = <"Oblika in distribucija">
+					description = <"Oblika in distribucija opazovanega dela">
+				>
+				["at0056"] = <
+					text = <"Opis">
+					description = <"Opis oblike in distribucije">
+				>
+				["at0057"] = <
+					text = <"Simetrična">
+					description = <"Ali je oblika in distribucija simetrična?">
+				>
+			>
+		>
+	>

@@ -1,0 +1,660 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.5; generated)
+	openEHR-EHR-OBSERVATION.laboratorij_eo_sh.v1
+
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapis laboratorijskih vrednosti za eOskrbo - shizofrenija.">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"36BE6FD0CCFCD302379F20FFE37B0F8C">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Laboratorij eo sh
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items matches {
+									CLUSTER[at0005] occurrences matches {0..1} matches {	-- Hemogram
+										items matches {
+											ELEMENT[at0004] occurrences matches {0..1} matches {	-- eritrociti
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10^12">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0008] occurrences matches {0..1} matches {	-- levkociti
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10^9">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0036] occurrences matches {0..1} matches {	-- nevtrofilci
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10^9">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0009] matches {	-- Hb
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"gm">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- MVC
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::129]>
+														list = <
+															["1"] = <
+																units = <"fl">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0037] occurrences matches {0..1} matches {	-- trombociti
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10^9">
+															>
+														>
+													>
+												}
+											}
+										}
+									}
+									CLUSTER[at0006] occurrences matches {0..1} matches {	-- Biokemija
+										items matches {
+											ELEMENT[at0012] occurrences matches {0..1} matches {	-- glukoza (tešče)
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"mmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0013] occurrences matches {0..1} matches {	-- holesterol
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"mmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0014] occurrences matches {0..1} matches {	-- trigliceridi
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"mmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0019] occurrences matches {0..1} matches {	-- HDL
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"mmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- LDL
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"mmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0038] occurrences matches {0..1} matches {	-- AST
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10*6">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- ALT
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10*6">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- gama GT
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10*6">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- sečnina
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"mmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- kreatinin
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"µmol">
+															>
+														>
+													>
+												}
+											}
+										}
+									}
+									CLUSTER[at0007] occurrences matches {0..1} matches {	-- Urin
+										items matches {
+											ELEMENT[at0039] occurrences matches {0..1} matches {	-- COC
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0040, 	-- NEG
+															at0041]	-- POZ
+														}
+													}
+												}
+											}
+											ELEMENT[at0043] occurrences matches {0..1} matches {	-- OPI
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0048, 	-- NEG
+															at0049]	-- POZ
+														}
+													}
+												}
+											}
+											ELEMENT[at0044] occurrences matches {0..1} matches {	-- MET
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0050, 	-- NEG
+															at0051]	-- POZ
+														}
+													}
+												}
+											}
+											ELEMENT[at0047] occurrences matches {0..1} matches {	-- BZO
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0052, 	-- NEG
+															at0053]	-- POZ
+														}
+													}
+												}
+											}
+											ELEMENT[at0046] occurrences matches {0..1} matches {	-- THC
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0054, 	-- NEG
+															at0055]	-- POZ
+														}
+													}
+												}
+											}
+											ELEMENT[at0045] occurrences matches {0..1} matches {	-- MTD
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0056, 	-- NEG
+															at0057]	-- POZ
+														}
+													}
+												}
+											}
+											ELEMENT[at0042] occurrences matches {0..1} matches {	-- PCP
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0058, 	-- NEG
+															at0059]	-- POZ
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0028] occurrences matches {0..1} matches {	-- Ostalo
+										items matches {
+											ELEMENT[at0060] occurrences matches {0..1} matches {	-- TSH
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::380]>
+														list = <
+															["1"] = <
+																units = <"10*3">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0061] occurrences matches {0..1} matches {	-- T3
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"pmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0062] occurrences matches {0..1} matches {	-- T4
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"pmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0063] occurrences matches {0..1} matches {	-- karbamazepin
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"µmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0066] occurrences matches {0..1} matches {	-- valproat
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"µmol">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0065] occurrences matches {0..1} matches {	-- prolaktin
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::124]>
+														list = <
+															["1"] = <
+																units = <"µg">
+															>
+														>
+													>
+												}
+											}
+											ELEMENT[at0064] occurrences matches {0..1} matches {	-- litij
+												value matches {
+													(C_DV_QUANTITY) <
+														property = <[openehr::384]>
+														list = <
+															["1"] = <
+																units = <"mmol">
+															>
+														>
+													>
+												}
+											}
+										}
+									}
+									ELEMENT[at0067] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			["at0000"] = <
+				text = <"Laboratorij eo sh">
+				description = <"unknown">
+			>
+			["at0001"] = <
+				text = <"Event Series">
+				description = <"@ internal @">
+			>
+			["at0002"] = <
+				text = <"Any event">
+				description = <"*">
+			>
+			["at0003"] = <
+				text = <"Tree">
+				description = <"@ internal @">
+			>
+			["at0004"] = <
+				text = <"eritrociti">
+				description = <"10^12 /L">
+			>
+			["at0005"] = <
+				text = <"Hemogram">
+				description = <"*">
+			>
+			["at0006"] = <
+				text = <"Biokemija">
+				description = <"*">
+			>
+			["at0007"] = <
+				text = <"Urin">
+				description = <"*">
+			>
+			["at0008"] = <
+				text = <"levkociti">
+				description = <"10^9 /L">
+			>
+			["at0009"] = <
+				text = <"Hb">
+				description = <"g/L">
+			>
+			["at0010"] = <
+				text = <"MVC">
+				description = <"fl">
+			>
+			["at0011"] = <
+				text = <"kreatinin">
+				description = <"µmol/L">
+			>
+			["at0012"] = <
+				text = <"glukoza (tešče)">
+				description = <"mmol/L">
+			>
+			["at0013"] = <
+				text = <"holesterol">
+				description = <"mmol/L">
+			>
+			["at0014"] = <
+				text = <"trigliceridi">
+				description = <"mmol/L">
+			>
+			["at0015"] = <
+				text = <"sečnina">
+				description = <"mmol/L">
+			>
+			["at0016"] = <
+				text = <"gama GT">
+				description = <"µkat/L, http://www.health.com/health/library/mdp/0,,tw12860,00.html">
+			>
+			["at0017"] = <
+				text = <"ALT">
+				description = <"µkat/L">
+			>
+			["at0018"] = <
+				text = <"LDL">
+				description = <"mmol/L">
+			>
+			["at0019"] = <
+				text = <"HDL">
+				description = <"mmol/L">
+			>
+			["at0028"] = <
+				text = <"Ostalo">
+				description = <"*">
+			>
+			["at0036"] = <
+				text = <"nevtrofilci">
+				description = <"10^9 /L">
+			>
+			["at0037"] = <
+				text = <"trombociti">
+				description = <"10^9 /L">
+			>
+			["at0038"] = <
+				text = <"AST">
+				description = <"µkat/L,http://www.health.com/health/library/mdp/0,,tw12860,00.html">
+			>
+			["at0039"] = <
+				text = <"COC">
+				description = <"*">
+			>
+			["at0040"] = <
+				text = <"NEG">
+				description = <"Negativno">
+			>
+			["at0041"] = <
+				text = <"POZ">
+				description = <"Pozitivno">
+			>
+			["at0042"] = <
+				text = <"PCP">
+				description = <"*">
+			>
+			["at0043"] = <
+				text = <"OPI">
+				description = <"*">
+			>
+			["at0044"] = <
+				text = <"MET">
+				description = <"*">
+			>
+			["at0045"] = <
+				text = <"MTD">
+				description = <"*">
+			>
+			["at0046"] = <
+				text = <"THC">
+				description = <"*">
+			>
+			["at0047"] = <
+				text = <"BZO">
+				description = <"*">
+			>
+			["at0048"] = <
+				text = <"NEG">
+				description = <"Negativno">
+			>
+			["at0049"] = <
+				text = <"POZ">
+				description = <"Pozitivno">
+			>
+			["at0050"] = <
+				text = <"NEG">
+				description = <"Negativno">
+			>
+			["at0051"] = <
+				text = <"POZ">
+				description = <"Pozitivno">
+			>
+			["at0052"] = <
+				text = <"NEG">
+				description = <"Negativno">
+			>
+			["at0053"] = <
+				text = <"POZ">
+				description = <"Pozitivno">
+			>
+			["at0054"] = <
+				text = <"NEG">
+				description = <"Negativno">
+			>
+			["at0055"] = <
+				text = <"POZ">
+				description = <"Pozitivno">
+			>
+			["at0056"] = <
+				text = <"NEG">
+				description = <"Negativno">
+			>
+			["at0057"] = <
+				text = <"POZ">
+				description = <"Pozitivno">
+			>
+			["at0058"] = <
+				text = <"NEG">
+				description = <"Negativno">
+			>
+			["at0059"] = <
+				text = <"POZ">
+				description = <"Pozitivno">
+			>
+			["at0060"] = <
+				text = <"TSH">
+				description = <"mE/L">
+			>
+			["at0061"] = <
+				text = <"T3">
+				description = <"pmol/L">
+			>
+			["at0062"] = <
+				text = <"T4">
+				description = <"pmol/L">
+			>
+			["at0063"] = <
+				text = <"karbamazepin">
+				description = <"µmol/L">
+			>
+			["at0064"] = <
+				text = <"litij">
+				description = <"mmol/L">
+			>
+			["at0065"] = <
+				text = <"prolaktin">
+				description = <"µg/L">
+			>
+			["at0066"] = <
+				text = <"valproat">
+				description = <"µmol/L">
+			>
+			["at0067"] = <
+				text = <"Komentar">
+				description = <"*">
+			>
+		>
+	>

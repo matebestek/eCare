@@ -1,0 +1,140 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.substance_use_summary-tobacco.v1
+specialize
+	openEHR-EHR-EVALUATION.substance_use_summary.v1
+
+concept
+	[at0000.1]	-- Tobacco Use Summary
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"21/06/2009">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"This is a generic archetype used to record an ongoing and persistent summary of the use of any and all substances. ">
+			use = <"Used to record an ongoing and persistent summary of any and all use of tobacco.  ">
+			keywords = <"consumption", "substance", "use", "usage", "dependence", "tobacco", "smoking", "cigarettes", "cigar", "pipe">
+			misuse = <"Not to be used for recording actual details about the use of the substance and event-related data - this should be captured using the OBSERVATION.substance_use-tobacco archetype.  
+Not to be used to record information about any other substance other than tobacco.">
+			copyright = <"© 2011 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*This is a generic archetype used to record an ongoing and persistent summary of the use of any and all substances. (en)">
+			use = <"*Used to record an ongoing and persistent summary of any and all use of tobacco.  (en)">
+			keywords = <"*consumption(en)", "*substance(en)", "*use(en)", "*usage(en)", "*dependence(en)", "*tobacco(en)", "*smoking(en)", "*cigarettes(en)", "*cigar(en)", "*pipe(en)">
+			misuse = <"*Not to be used for recording actual details about the use of the substance and event-related data - this should be captured using the OBSERVATION.substance_use-tobacco archetype.  
+Not to be used to record information about any other substance other than tobacco.(en)">
+			copyright = <"*© 2011 openEHR Foundation(en)">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <"Sam Heard, Ocean Informatics, Australia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"B19D347E4ECF587A70D9103BE2390787">
+	>
+
+definition
+	EVALUATION[at0000.1] matches {*}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.17"] = <
+					text = <"Tobacco">
+					description = <"Tobacco used">
+				>
+				["at0.18"] = <
+					text = <"Cigarettes - manufactured">
+					description = <"Commercial, manufactured cigarettes">
+				>
+				["at0.19"] = <
+					text = <"Cigarettes - roll-your-own">
+					description = <"Home-made, roll-your-own cigarettes">
+				>
+				["at0.20"] = <
+					text = <"Cigars">
+					description = <"Commercial cigars">
+				>
+				["at0.21"] = <
+					text = <"Pipe">
+					description = <"Tobacco smoked within a pipe">
+				>
+				["at0000.1"] = <
+					text = <"Tobacco Use Summary">
+					description = <"Archetype to record a persisting summary or overview of use or consumption of tobacco over time.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.17"] = <
+					text = <"Tobak">
+					description = <"Uporabljen tobak">
+				>
+				["at0.18"] = <
+					text = <"Cigarete - tovarniške">
+					description = <"Tovarniško izdelane cigarete">
+				>
+				["at0.19"] = <
+					text = <"Cigarete - doma izdelane">
+					description = <"Doma izdelane cigarete">
+				>
+				["at0.20"] = <
+					text = <"Cigare">
+					description = <"Tovarniško izdelane cigare">
+				>
+				["at0.21"] = <
+					text = <"Pipa">
+					description = <"Kajenje tobaka s pipo">
+				>
+				["at0000.1"] = <
+					text = <"Tobak">
+					description = <"*Archetype to record a persisting summary or overview of use or consumption of tobacco over time.(en)">
+				>
+			>
+		>
+	>

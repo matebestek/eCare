@@ -1,0 +1,348 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.vancouver_scale.v1
+
+concept
+	[at0000]	-- Lestvica Vancouver 
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag.Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"13/06/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record details of the Vancouver Scar scale for the assement of scars.">
+			use = <"Use within the context of CLUSTER.inspection-scar.v1">
+			keywords = <"scar", "keloid", "vancouver", "burn">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za ocenjevanje stalnejših znamenj na koži s pomočjo lestvice Vancouver.">
+			use = <"Se uporablja s klastrom CLUSTER.inspection-scar.v1">
+			keywords = <"brazgotina", "opeklina", "lestvica", "vancouver", "vancouver lestvica">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"Sullivan T,Simth J, Kermode J, McIver E, and Coretmanche, D, Rating the burn scar, J Burn Rehabil11, 256,1990">
+		["MD5-CAM-1.0.1"] = <"45507025737D7DAAF494A04427FFC5EC">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- Lestvica Vancouver 
+		items cardinality matches {1..*; unordered} matches {
+			ELEMENT[at0003] occurrences matches {0..1} matches {	-- Barva
+				value matches {
+					0|[local::at0009], 	-- Normalna
+					1|[local::at0010], 	-- Rožnata
+					2|[local::at0011], 	-- Rdeča
+					3|[local::at0012]  	-- Vijolična
+				}
+			}
+			ELEMENT[at0002] occurrences matches {0..1} matches {	-- Pigmentacija
+				value matches {
+					0|[local::at0005], 	-- Normalna
+					1|[local::at0006], 	-- Hipo
+					2|[local::at0007], 	-- Mešano
+					3|[local::at0008]  	-- Hiper
+				}
+			}
+			ELEMENT[at0004] occurrences matches {0..1} matches {	-- Prožnost
+				value matches {
+					0|[local::at0013], 	-- Normalna
+					1|[local::at0014], 	-- Prožna
+					2|[local::at0015], 	-- Vpogljiva
+					3|[local::at0016], 	-- Čvrsta
+					4|[local::at0017], 	-- Odziv na pritisk
+					5|[local::at0018]  	-- Kontraktura
+				}
+			}
+			ELEMENT[at0019] occurrences matches {0..1} matches {	-- Višina
+				value matches {
+					0|[local::at0020], 	-- Ravno
+					1|[local::at0021], 	-- manj kot 2mm
+					2|[local::at0022], 	-- manj kot 5mm
+					3|[local::at0023]  	-- več kot 5mm
+				}
+			}
+			ELEMENT[at0024] occurrences matches {0..1} matches {	-- Ocena
+				value matches {
+					DV_COUNT matches {
+						magnitude matches {|0..13|}
+					}
+				}
+			}
+			ELEMENT[at0025] occurrences matches {0..1} matches {	-- Opombe
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+		}
+	}
+
+ontology
+	terminologies_available = <"SNOMED-CT", ...>
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vancouver scar scale">
+					description = <"Vancouver scale for the assessment of scars.
+">
+				>
+				["at0002"] = <
+					text = <"Pigmentation">
+					description = <"The degree of scar pigmentation.">
+				>
+				["at0003"] = <
+					text = <"Vascularity">
+					description = <"The degree of scar vascularity.">
+				>
+				["at0004"] = <
+					text = <"Pliability">
+					description = <"The degree of scar pliability.">
+				>
+				["at0005"] = <
+					text = <"Normal">
+					description = <"The scar is not pigmented.">
+				>
+				["at0006"] = <
+					text = <"Hypopigmented">
+					description = <"The scar has less pigmentation than normal.">
+				>
+				["at0007"] = <
+					text = <"Mixed pigmentation">
+					description = <"The scar has a mixed pattern of pigmentation.">
+				>
+				["at0008"] = <
+					text = <"Hyperpigmented">
+					description = <"The scar has more pigmentation than normal.">
+				>
+				["at0009"] = <
+					text = <"Normal">
+					description = <"The scar is a normal colour.">
+				>
+				["at0010"] = <
+					text = <"Pink">
+					description = <"The scar is pink.">
+				>
+				["at0011"] = <
+					text = <"Red">
+					description = <"The scar is red.">
+				>
+				["at0012"] = <
+					text = <"Purple">
+					description = <"The scar is purple.">
+				>
+				["at0013"] = <
+					text = <"Normal">
+					description = <"The scar is of a normal degree of suppleness.">
+				>
+				["at0014"] = <
+					text = <"Supple">
+					description = <"The scar is supple.">
+				>
+				["at0015"] = <
+					text = <"Yielding">
+					description = <"The scar is yielding.">
+				>
+				["at0016"] = <
+					text = <"Firm">
+					description = <"The scar is firm.">
+				>
+				["at0017"] = <
+					text = <"Banding,blanching, ropey">
+					description = <"The scar is banded, blanched or ropey in consistency">
+				>
+				["at0018"] = <
+					text = <"Contracture">
+					description = <"The scar shows contracture.">
+				>
+				["at0019"] = <
+					text = <"Height">
+					description = <"The degree of height of the scar.">
+				>
+				["at0020"] = <
+					text = <"Flat">
+					description = <"The scar is flat.">
+				>
+				["at0021"] = <
+					text = <"Less than 2mm">
+					description = <"The scar is elevated by less than 2 mm.">
+				>
+				["at0022"] = <
+					text = <"Less than 5mm">
+					description = <"The scar is elevated by less than 5 mm.">
+				>
+				["at0023"] = <
+					text = <"Greater than 5mm">
+					description = <"The scar is elevated by more than 5 mm.">
+				>
+				["at0024"] = <
+					text = <"Score">
+					description = <"The total score.">
+				>
+				["at0025"] = <
+					text = <"Comment">
+					description = <"A comment about the score.">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lestvica Vancouver ">
+					description = <"Lestvica Vancouver za oceno stalnejših znamenj na koži">
+				>
+				["at0002"] = <
+					text = <"Pigmentacija">
+					description = <"Stopnja pigmentacije stalnejšega znamenja">
+				>
+				["at0003"] = <
+					text = <"Barva">
+					description = <"Barva stalnejšega znamenja">
+				>
+				["at0004"] = <
+					text = <"Prožnost">
+					description = <"Prožnost stalnejšega znamenja">
+				>
+				["at0005"] = <
+					text = <"Normalna">
+					description = <"Normalna">
+				>
+				["at0006"] = <
+					text = <"Hipo">
+					description = <"Hipo">
+				>
+				["at0007"] = <
+					text = <"Mešano">
+					description = <"Mešano">
+				>
+				["at0008"] = <
+					text = <"Hiper">
+					description = <"Hiper">
+				>
+				["at0009"] = <
+					text = <"Normalna">
+					description = <"Normalna barva">
+				>
+				["at0010"] = <
+					text = <"Rožnata">
+					description = <"Rožnata">
+				>
+				["at0011"] = <
+					text = <"Rdeča">
+					description = <"Rdeča">
+				>
+				["at0012"] = <
+					text = <"Vijolična">
+					description = <"Vijolična">
+				>
+				["at0013"] = <
+					text = <"Normalna">
+					description = <"Normalna prožna">
+				>
+				["at0014"] = <
+					text = <"Prožna">
+					description = <"Prožna">
+				>
+				["at0015"] = <
+					text = <"Vpogljiva">
+					description = <"Vpogljiva">
+				>
+				["at0016"] = <
+					text = <"Čvrsta">
+					description = <"Čvrsta">
+				>
+				["at0017"] = <
+					text = <"Odziv na pritisk">
+					description = <"Odziv na pritisk">
+				>
+				["at0018"] = <
+					text = <"Kontraktura">
+					description = <"Kontraktura">
+				>
+				["at0019"] = <
+					text = <"Višina">
+					description = <"Višina">
+				>
+				["at0020"] = <
+					text = <"Ravno">
+					description = <"Ravno">
+				>
+				["at0021"] = <
+					text = <"manj kot 2mm">
+					description = <"manj kot 2mm">
+				>
+				["at0022"] = <
+					text = <"manj kot 5mm">
+					description = <"manj kot 5mm">
+				>
+				["at0023"] = <
+					text = <"več kot 5mm">
+					description = <"več kot 5mm">
+				>
+				["at0024"] = <
+					text = <"Ocena">
+					description = <"Ocena">
+				>
+				["at0025"] = <
+					text = <"Opombe">
+					description = <"Dodatne opombe glede stalnejšega znamenja">
+				>
+			>
+		>
+	>
+	term_bindings = <
+		["SNOMED-CT"] = <
+			items = <
+			>
+		>
+	>

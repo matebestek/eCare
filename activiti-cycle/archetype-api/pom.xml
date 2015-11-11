@@ -1,0 +1,436 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>si.pint</groupId>
+	<artifactId>archetype-api</artifactId>
+	<version>1.2</version>
+
+	<packaging>jar</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+
+
+	<repositories>
+		<repository>
+			<id>JBoss repository</id>
+			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>activiti</id>
+			<name>Activiti Repository</name>
+			<url>http://maven.alfresco.com/nexus/content/repositories/activiti/</url>
+		</repository>
+		<repository>
+			<id>Codehouse</id>
+			<name>Codehouse</name>
+			<url>http://repository.codehaus.org/</url>
+		</repository>
+	</repositories>
+
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/java</source>
+								<source>src/main/resources</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+
+		<resources>
+			<resource>
+				<directory>src/main/java/</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.jks</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources/</directory>
+				<includes>
+					<include>**/*.oet</include>
+					<include>**/*.adl</include>
+				</includes>
+			</resource>
+		</resources>
+
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15</artifactId>
+			<version>1.46</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>5.4</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>0.10.0-RC1</version>
+		</dependency>
+
+		<!-- eXist deps -->
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+			<version>2.7.7</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		<dependency>
+			<groupId>excalibur-logger</groupId>
+			<artifactId>excalibur-logger</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jedit-syntax</groupId>
+			<artifactId>jedit-syntax</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>jgroups</groupId>
+			<artifactId>jgroups-all</artifactId>
+			<version>2.2.6</version>
+		</dependency>
+		<dependency>
+			<groupId>jline</groupId>
+			<artifactId>jline</artifactId>
+			<version>0.9.94</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>stax</groupId>
+			<artifactId>stax-api</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.fabric3.fabric3-db-exist</groupId>
+			<artifactId>sunxacml</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.ws.commons.util</groupId>
+			<artifactId>ws-commons-util</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlrpc</groupId>
+			<artifactId>xmlrpc-dist</artifactId>
+			<version>3.1.2</version>
+			<scope>compile</scope>
+			<type>pom</type>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jmx</groupId>
+			<artifactId>jmxri</artifactId>
+			<version>1.2.1</version>
+			<type>pom</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>exist</groupId>
+			<artifactId>exist</artifactId>
+			<version>1.4.0</version>
+			<scope>compile</scope>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>exist</groupId>
+			<artifactId>exist-xmldb</artifactId>
+			<version>1.1.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!-- open EHR jars (custom) -->
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>adl-parser</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/adl-parser-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>adl-serializer</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/adl-serializer-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/commons-io-2.0.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/commons-lang-2.6.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>dadl-binding</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/dadl-binding-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>dadl-parser</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/dadl-parser-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>jdom</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/jdom-1.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/joda-time-1.6.2.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>measure-serv</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/measure-serv-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>mini-termserv</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/mini-termserv-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>oet-parser</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/oet-parser-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>openehr-aom</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/openehr-aom-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>openehr-ap</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/openehr-ap-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>openehr-rm-core</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/openehr-rm-core-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>openehr-rm-domain</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/openehr-rm-domain-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>rm-builder</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/rm-builder-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>rm-skeleton</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/rm-skeleton-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>rm-validator</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/rm-validator-0.1-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>xbean</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/xbean.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>xml-binding</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/xml-binding-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>xml-serializer</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/xml-serializer-1.0.2-SNAPSHOT.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.0.2-SNAPSHOT</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../refImpl/libs/log4j-1.2.16.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>exist</groupId>
+			<artifactId>exist</artifactId>
+			<version>1.4.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../archetype-api/lib/exist.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>exist</groupId>
+			<artifactId>exist-xmldb</artifactId>
+			<version>1.1.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/../archetype-api/lib/xmldb.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.1</version>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+		</dependencies>
+	</dependencyManagement>
+
+</project>

@@ -1,0 +1,158 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.druzinska_anamneza_eo_as.v1
+
+concept
+	[at0000]	-- Družinska anamneza
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"15/12/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record information about the problems or diagnoses found in genetic relatives.">
+			use = <"Use to record a summary of information about problems or diagnoses found in genetic relatives.
+Additional detail about a genetic relative's problem or diagnosis can be captured using the EVALUATION.problem_diagnosis archetype.">
+			keywords = <"family", "history", "health", "condition", "problem", "diagnosis", "genetic", "pedigree">
+			misuse = <"Not to be used to record information about the risk of developing a condition due to a family history of a condition - use the EVALUATION.risk family of archetypes.">
+			copyright = <"© 2011 NEHTA">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"John Bennett, NEHTA, Australia", "Stephen Chu, NEHTA, Australia (Editor)", "David Evans, Queensland Health, Australia", "Andrew Goodchild, NEHTA, Australia", "Mary Kelaher, NEHTA, Australia", "Robert L'egan, NEHTA, Australia", "Heather Leslie, Ocean Informatics, Australia (Editor)", "Hugh Leslie, Ocean Informatics, Australia", "Ian McNicoll, Ocean Informatics UK, United Kingdom", "Chris Mitchell, RACGP, Australia", "Stewart Morrison, NEHTA, Australia", "Lynne Parsons, Primary and Community Health Services, Australia", "Jodie Pycroft, Adelaide Northern Division of General Practice Ltd, Australia", "Robyn Richards, NEHTA - Clinical Terminology, Australia", "John Taylor, NEHTA, Australia", "Gordon Tomes, Australian Institute of Health and Welfare, Australia", "Donna Truran, ACCTI-UoW, Australia", "Sam Heard, Ocean Informatics, Australia">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"80604AD296C0F6F4FA2B837579F49D98">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Družinska anamneza
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {2..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Povzetek
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0025] matches {	-- Astma v družini
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0026] occurrences matches {0..1} matches {	-- Da - opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0027] occurrences matches {0..1} matches {	-- Ne
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {False}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028] matches {	-- Alergije v družini
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Da - opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0030] occurrences matches {0..1} matches {	-- Ne
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {False}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0031] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Družinska anamneza">
+					description = <"Summary information about the problems or diagnoses found in genetic relatives.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Povzetek">
+					description = <"Textual description about the problems, diagnoses, and genetic markers found in genetic relatives. This field may be used to capture unstructured family history information recorded in clinical records.">
+				>
+				["at0025"] = <
+					text = <"Astma v družini">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Da - opis">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Alergije v družini">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Da - opis">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+			>
+		>
+	>

@@ -1,0 +1,276 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.psychosocial_history_md.v1
+
+concept
+	[at0000]	-- *Psychosocial history MD(sl)
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"*(sl)">
+			use = <"*(sl)">
+			misuse = <"*(sl)">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"7F543494F2D98722AE17071982397E6D">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- *Psychosocial history MD(sl)
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(sl)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(sl)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(sl)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Zaposlitev staršev
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Težki življenjski dogodki
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Stanovanjske razmere
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Psihiatrični dogodki
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Šola
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Ostalo
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0015] occurrences matches {0..1} matches {	-- Sum na trpinčenega otroka
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+									ELEMENT[at0013] occurrences matches {0..1} matches {	-- Zloraba drog, alkoholizem, kajenje
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									CLUSTER[at0012] occurrences matches {0..1} matches {	-- *Suicide attempt details(sl)
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0011] occurrences matches {0..1} matches {	-- Poskus samomora
+												value matches {
+													DV_BOOLEAN matches {
+														value matches {True, False}
+													}
+												}
+											}
+											ELEMENT[at0010] occurrences matches {0..1} matches {	-- Opis
+												value matches {
+													DV_TEXT matches {*}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Psychosocial history MD">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Parent job titles">
+					description = <"Free text description regarding Parents job title and job details.">
+				>
+				["at0005"] = <
+					text = <"Difficult life events">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Living situation">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Psychiatric events">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"School">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Other">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Description">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Suicide attempt">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Suicide attempt details">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Drug abuse and smoking">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Suspected child abuse">
+					description = <"Is child abuse suspected?">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"*Psychosocial history MD(sl)">
+					description = <"*unknown(sl)">
+				>
+				["at0001"] = <
+					text = <"*Event Series(sl)">
+					description = <"*@ internal @(sl)">
+				>
+				["at0002"] = <
+					text = <"*Any event(sl)">
+					description = <"**(sl)">
+				>
+				["at0003"] = <
+					text = <"*Tree(sl)">
+					description = <"*@ internal @(sl)">
+				>
+				["at0004"] = <
+					text = <"Zaposlitev staršev">
+					description = <"*Free text description regarding Parents job title and job details.(sl)">
+				>
+				["at0005"] = <
+					text = <"Težki življenjski dogodki">
+					description = <"**(sl)">
+				>
+				["at0006"] = <
+					text = <"Stanovanjske razmere">
+					description = <"**(sl)">
+				>
+				["at0007"] = <
+					text = <"Psihiatrični dogodki">
+					description = <"**(sl)">
+				>
+				["at0008"] = <
+					text = <"Šola">
+					description = <"**(sl)">
+				>
+				["at0009"] = <
+					text = <"Ostalo">
+					description = <"**(sl)">
+				>
+				["at0010"] = <
+					text = <"Opis">
+					description = <"**(sl)">
+				>
+				["at0011"] = <
+					text = <"Poskus samomora">
+					description = <"**(sl)">
+				>
+				["at0012"] = <
+					text = <"*Suicide attempt details(sl)">
+					description = <"**(sl)">
+				>
+				["at0013"] = <
+					text = <"Zloraba drog, alkoholizem, kajenje">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"Sum na trpinčenega otroka">
+					description = <"*Is child abuse suspected?(en)">
+				>
+			>
+		>
+	>

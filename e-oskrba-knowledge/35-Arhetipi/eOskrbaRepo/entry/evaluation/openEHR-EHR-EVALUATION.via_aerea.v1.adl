@@ -1,0 +1,196 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.via_aerea.v1
+
+concept
+	[at0000]	-- Evaluación de vía aérea
+language
+	original_language = <[ISO_639-1::es]>
+description
+	original_author = <
+		["date"] = <"13/10/2009">
+		["name"] = <"Pablo Pazos Gutierrez">
+		["email"] = <"pablo.swp@gmail.com">
+	>
+	details = <
+		["es"] = <
+			language = <[ISO_639-1::es]>
+			purpose = <"Para utlizar en la evaluación de la vía aérea en un caso de trauma">
+			use = <"Para utlizar en la evaluación de la vía aérea en un caso de trauma">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"6CCBF320CCDD42705AF07AE7A4DE6543">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Evaluación de vía aérea
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Arbol
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {1..1} matches {	-- Presenta alteraciones
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					CLUSTER[at0003] occurrences matches {0..1} matches {	-- Trauma sobre vía aérea
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0004] occurrences matches {0..1} matches {	-- Trauma directo sobre vía aérea
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Tipo de trauma
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0006, 	-- Contuso
+											at0007]	-- Penetrante
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Dificultad respiratoria
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					CLUSTER[at0009] occurrences matches {0..1} matches {	-- Obstrucción de vía aérea
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Vía aérea obstruida
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Causa de obstrucción
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0012, 	-- Cuerpo extraño
+											at0013]	-- Lengua
+										}
+									}
+								}
+							}
+							ELEMENT[at0014] occurrences matches {0..1} matches {	-- Otras causas de obstrucción
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["es"] = <
+			items = <
+				["at0000"] = <
+					text = <"Evaluación de vía aérea">
+					description = <"Evaluación de vía aérea">
+				>
+				["at0001"] = <
+					text = <"Arbol">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Presenta alteraciones">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Trauma sobre vía aérea">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Trauma directo sobre vía aérea">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Tipo de trauma">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Contuso">
+					description = <"Trauma contuso">
+				>
+				["at0007"] = <
+					text = <"Penetrante">
+					description = <"Trauma penetrante">
+				>
+				["at0008"] = <
+					text = <"Dificultad respiratoria">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Obstrucción de vía aérea">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Vía aérea obstruida">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Causa de obstrucción">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Cuerpo extraño">
+					description = <"Obstrucción de vía aérea por cuerpo extraño">
+				>
+				["at0013"] = <
+					text = <"Lengua">
+					description = <"Obstrucción de vía aérea por lengua">
+				>
+				["at0014"] = <
+					text = <"Otras causas de obstrucción">
+					description = <"*">
+				>
+			>
+		>
+	>

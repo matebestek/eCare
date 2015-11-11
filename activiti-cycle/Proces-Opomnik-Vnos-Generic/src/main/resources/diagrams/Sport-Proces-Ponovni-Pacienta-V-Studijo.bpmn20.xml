@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="" id="sid-fea29ea9-6aba-4d6c-86ec-8a062a9d3708"
+	targetNamespace="http://www.signavio.com/bpmn20"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<process id="Sport-Proces-Ponovni-Pacienta-V-Studijo" name="Sport-Proces-Ponovni-Pacienta-V-Studijo" isExecutable="false">		
+		<startEvent id="startEvent" name="startEvent">
+			<outgoing>startEvent-userTask1</outgoing>
+		</startEvent>
+
+		<userTask activiti:assignee="${usernameApp}"
+			activiti:formKey="ponovniVnosPacientaSport.form" completionQuantity="1"
+			id="userTask1" implementation="webService"
+			isForCompensation="false" name="Periodični vnos podatkov udeleženca ${username}"
+			startQuantity="1">
+			<incoming>startEvent-userTask1</incoming>
+			<outgoing>userTask1-SelectClinicalTrialGroup</outgoing>
+		</userTask>
+		
+		<serviceTask id="SelectClinicalTrialGroup" name="SelectClinicalTrialGroup"
+			activiti:class="si.pint.eoskrba.esport.ponovniVnosPacienta.delegate.SelectClinicalTrialGroupDelegate">
+			<incoming>userTask1-SelectClinicalTrialGroup</incoming>
+			<outgoing>SelectClinicalTrialGroup-endEvent</outgoing>
+		</serviceTask>
+		
+		<endEvent id="endEvent" name="endEvent">
+			<incoming>SelectClinicalTrialGroup-endEvent</incoming>
+		</endEvent>
+		
+		<sequenceFlow id="startEvent-userTask1"
+			name="SequenceFlow" sourceRef="startEvent" targetRef="userTask1">
+		</sequenceFlow>
+		
+		<sequenceFlow id="userTask1-SelectClinicalTrialGroup"
+			name="SequenceFlow" sourceRef="userTask1" targetRef="SelectClinicalTrialGroup">
+		</sequenceFlow>
+		
+		<sequenceFlow id="SelectClinicalTrialGroup-endEvent"
+			name="SequenceFlow" sourceRef="SelectClinicalTrialGroup" targetRef="endEvent">
+		</sequenceFlow>
+		
+	</process>
+</definitions>
+   

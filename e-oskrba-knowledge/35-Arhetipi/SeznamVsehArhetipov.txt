@@ -1,0 +1,715 @@
+# 
+# Copyright (c) 2013.
+# University of Primorska, Andrej Maru≈°iƒç Institute. All rights reserved.
+# 
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met: 
+# 
+# 1. Redistributions of source code must retain the above copyright notice, this
+#    list of conditions and the following disclaimer. 
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution. 
+# 
+# Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+# Agency and Ministry of Health of Republic of Slovenia.
+# 
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+# 
+Metodologija:
+Osnovni nabor arhetipov smo vzeli iz OpenEHR CKM repozitorija maja 2011. 
+Nato smo primerjali repozitorije Maranda, Nehta-e in projekta open-ehr-gen ter vzeli ven samo arhetipe, ki so novi in ne obstajajo v CKM.
+V primeru, da je nek arhetip obstajal hkrati v CKM in NEHTA/Marand/open-ehr-gen, smo vzeli najnovejöo razliËico(najbolj verjetno iz CKM).
+
+
+1. CKM repozitorij vsebuje sledeËe arhetipe:
+Skupaj arhetipov: 278
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.address.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.ambient_oxygen.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.anatomical_location-precise.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.anatomical_location.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.auscultation-chest.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.auscultation.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.balance.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.case_identification.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.cessation_attempts.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.change.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.citation.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.clubbing.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.coordination.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.cranial_nerves.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.delivery_of_infant.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.device.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.dimensions.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.environmental_conditions.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-abdomen.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-bone.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-chest.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-ears.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-face.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-fetus.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-generic-joint.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-generic-lymphnode.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-generic.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-mouth.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-nose.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-thyroid.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-uterine_cervix.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam-uterus.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.exam.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.fluid.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.free_text.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.gait.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.health_event-poisoning.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.health_event-trauma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.health_event.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.hydration.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.imaging.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.individual_personal.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.individual_professional.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-ear_canal.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-external_ear.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-joint.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-skin-scalp.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-skin-wound.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-skin.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-tongue.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-trauma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-tympanic_membrane.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection-tympanic_perforation.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.inspection.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.issue.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.lab_result_annotation.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.level_of_exertion.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.lymph_node_metastases.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.macroscopy_colorectal_carcinoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.macroscopy_lung_carcinoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.menstrual_cycle.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.microscopy_breast_carcinoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.microscopy_colorectal_carcinoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.microscopy_lung_carcinoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.microscopy_lymphoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.microscopy_melanoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.microscopy_prostate_carcinoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.move-joint.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.move-spine.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.move.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.notifiable_condition.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.oedema.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.organisation.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.outbreak_identification.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.palpation-external_ear.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.palpation-joint.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.palpation.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.percussion.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.person_name.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.physical_properties.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.professional_role.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.pupils.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.sense_of_smell.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.specimen.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.specimen_preparation.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.symptom-pain.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.symptom.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.synthesis_lymphoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.telecom_details.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging-breast.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging-colorectal.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging-lung_cancer.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging-melanoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging-prostate.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging_7th-breast.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging_7th-colorectal.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging_7th-lung.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging_7th-lymphoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging_7th-melanoma.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging_7th-prostate.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tnm_staging_7th.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tumour_colorectal_staging_non_tnm.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tumour_invasion.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tumour_resection_margins.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.tympanic_ventilation_tube.v1.adl
+\CKM-Repo-2011\cluster\openEHR-EHR-CLUSTER.waveform.v1.adl
+\CKM-Repo-2011\composition\openEHR-EHR-COMPOSITION.encounter.v1.adl
+\CKM-Repo-2011\composition\openEHR-EHR-COMPOSITION.medication_list.v1.adl
+\CKM-Repo-2011\composition\openEHR-EHR-COMPOSITION.prescription.v1.adl
+\CKM-Repo-2011\composition\openEHR-EHR-COMPOSITION.problem_list.v1.adl
+\CKM-Repo-2011\composition\openEHR-EHR-COMPOSITION.referral.v1.adl
+\CKM-Repo-2011\composition\openEHR-EHR-COMPOSITION.report.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ADDRESS.address-provider.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ADDRESS.address.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.biometric_identifier_iso.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.high_level_address_other_data_br.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.identifier_other_details.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.individual_credentials_iso.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.individual_provider_credentials_iso.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_additional_data_br.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_additional_data_iso.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_other_birth_data_br.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.registration_other_data.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ORGANISATION.organisation.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-PARTY_IDENTITY.person_name-individual_provider.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-PARTY_IDENTITY.person_name.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-PERSON.person.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ROLE.healthcare_consumer.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ROLE.healthcare_provider_organisation.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ROLE.individual_provider.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ROLE.third_party_payer.v1.adl
+\CKM-Repo-2011\element\openEHR-EHR-ELEMENT.last_normal_menstrual_period.v1.adl
+\CKM-Repo-2011\element\openEHR-EHR-ELEMENT.menstrual_cycle_day.v1.adl
+\CKM-Repo-2011\entry\action\openEHR-EHR-ACTION.follow_up.v1.adl
+\CKM-Repo-2011\entry\action\openEHR-EHR-ACTION.imaging.v1.adl
+\CKM-Repo-2011\entry\action\openEHR-EHR-ACTION.intravenous_fluid_administration.v1.adl
+\CKM-Repo-2011\entry\action\openEHR-EHR-ACTION.medication.v1.adl
+\CKM-Repo-2011\entry\action\openEHR-EHR-ACTION.procedure.v1.adl
+\CKM-Repo-2011\entry\action\openEHR-EHR-ACTION.transfusion.v1.adl
+\CKM-Repo-2011\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.admission.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.adverse.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.alert.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.check_list-medication.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.check_list.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.citation.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.clinical_synopsis.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.excluded-intervention.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-adverse.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-family_history.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-medication.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-problem_diagnosis.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.exclusion.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.goal.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.pregnancy.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.problem-diagnosis.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.problem.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.reason_for_encounter.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.risk-family_history.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.risk.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.substance_use_summary-alcohol.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.substance_use_summary-tobacco.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.substance_use_summary.v1.adl
+\CKM-Repo-2011\entry\evaluation\openEHR-EHR-EVALUATION.triage.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.follow_up.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.imaging.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.intravenous_fluid_order.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.medication.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.non_drug_therapy.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.request-lab_test.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.request-procedure.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.request-referral.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.request.v1.adl
+\CKM-Repo-2011\entry\instruction\openEHR-EHR-INSTRUCTION.transfusion.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.apgar.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.audiogram.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.autopsy.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.barthel.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.blood_match.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.blood_pressure.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.body_mass_index.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.body_temperature.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.body_weight-adjusted.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.body_weight-birth.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.body_weight.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.chest_expansion.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.distraction_hearing_test.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.ecg.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.electroacoustic_hearing_test.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.exam.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.faeces.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.fetal_movement.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.fundoscopic_examination.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.glasgow_coma.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.global.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.heart_rate-pulse.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.heart_rate.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.height.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.imaging.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.indirect_oximetry.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.infant_feeding.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure-cvp.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure-jvp.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-blood_gases.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-blood_glucose.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-blood_match.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-esr.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-full_blood_count.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-hba1c.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-histopathology.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-immunology-ANA.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-immunology.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-lipids.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-liver_function.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-microalbumin.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-microbiology-csf.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-microbiology-urine.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-microbiology.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-thyroid.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-urea_and_electrolytes.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test-urine_protein.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.lab_test.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.menstruation.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.operation_record.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.oral_fluid_intake.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.postural_oedema.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.pregnancy_test.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.respiration.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.speech.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.story.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.substance_use-alcohol.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.substance_use-caffeine.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.substance_use-tobacco.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.substance_use.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.temperature.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.tendon_babinski_reflexes.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.third_party_observation-hearing.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.third_party_observation.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.tympanogram.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.urinalysis.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.urine_output.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.uterine_contractions.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.waist_hip.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.warble_tones_hearing_test.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.word_list_hearing_test.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.adhoc.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.adverse_list.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.conclusion.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.diagnostic_reports.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.medication_order_list.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.problem_list.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.referral_details.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.soap.v1.adl
+\CKM-Repo-2011\section\openEHR-EHR-SECTION.vital_signs.v1.adl
+\CKM-Repo-2011\structure\openEHR-EHR-ITEM_TREE.follow_up.v1.adl
+\CKM-Repo-2011\structure\openEHR-EHR-ITEM_TREE.gas_administration.v1.adl
+\CKM-Repo-2011\structure\openEHR-EHR-ITEM_TREE.imaging.v1.adl
+\CKM-Repo-2011\structure\openEHR-EHR-ITEM_TREE.intravenous_fluids.v1.adl
+\CKM-Repo-2011\structure\openEHR-EHR-ITEM_TREE.medication-formulation.v1.adl
+\CKM-Repo-2011\structure\openEHR-EHR-ITEM_TREE.medication-vaccine.v1.adl
+\CKM-Repo-2011\structure\openEHR-EHR-ITEM_TREE.medication.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ADDRESS.electronic_communication-provider.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ADDRESS.electronic_communication.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CAPABILITY.individual_credentials.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.birth_data_additional_detail_br.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_identifier-provider.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_identifier.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-CLUSTER.provider_identifier.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-ITEM_TREE.person_details.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-PARTY_IDENTITY.organisation_name.v1.adl
+\CKM-Repo-2011\demographic\openEHR-DEMOGRAPHIC-PERSON.person-patient.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.bodily_output-defaecation.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.bodily_output-urination.v1.adl
+\CKM-Repo-2011\entry\observation\openEHR-EHR-OBSERVATION.bodily_output.v1.adl
+
+
+
+
+2. NEHTA Repozitorij vsebuje obstojeËe CKM arhetipe in nove arhetipe:
+ObstojeËi(ne upoötevamo):
+Skupaj arhetipov: 34
+\NEHTA-Repo\cluster\openEHR-EHR-CLUSTER.amount-range.v1.adl
+\NEHTA-Repo\cluster\openEHR-EHR-CLUSTER.amount.v1.adl
+\NEHTA-Repo\cluster\openEHR-EHR-CLUSTER.chemical_description.v1.adl
+\NEHTA-Repo\cluster\openEHR-EHR-CLUSTER.medication_admin.v1.adl
+\NEHTA-Repo\cluster\openEHR-EHR-CLUSTER.physical_properties_n.v1.adl
+\NEHTA-Repo\cluster\openEHR-EHR-CLUSTER.timing.v1.adl
+\NEHTA-Repo\entry\action\openEHR-EHR-ACTION.counselling.v1.adl
+\NEHTA-Repo\entry\action\openEHR-EHR-ACTION.imaging_exam.v1.adl
+\NEHTA-Repo\entry\action\openEHR-EHR-ACTION.pathology_test.v1.adl
+\NEHTA-Repo\entry\action\openEHR-EHR-ACTION.record_review.v1.adl
+\NEHTA-Repo\entry\action\openEHR-EHR-ACTION.referral.v1.adl
+\NEHTA-Repo\entry\action\openEHR-EHR-ACTION.requested_service.v3.adl
+\NEHTA-Repo\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.legal_constraint.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.adverse_reaction.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.differential_diagnosis.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.education_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.employment_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.family_history.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.living_arrangement_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.menstrual_cycle_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.nutrition_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.obstetric_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.physical_activity_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.problem_diagnosis.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.relationship_summary.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.religion.v1.adl
+\NEHTA-Repo\entry\evaluation\openEHR-EHR-EVALUATION.social_support_summary.v1.adl
+\NEHTA-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.request-imaging_exam.v1.adl
+\NEHTA-Repo\entry\observation\openEHR-EHR-OBSERVATION.demo.v1.adl
+\NEHTA-Repo\entry\observation\openEHR-EHR-OBSERVATION.imaging_exam.v1.adl
+\NEHTA-Repo\entry\observation\openEHR-EHR-OBSERVATION.menstrual_cycle.v1.adl
+\NEHTA-Repo\entry\observation\openEHR-EHR-OBSERVATION.pathology_test.v1.adl
+\NEHTA-Repo\structure\openEHR-EHR-ITEM_TREE.requested_service.v3.adl
+\NEHTA-Repo\structure\openEHR-EHR-ITEM_TREE.therapeutic_good_use.v2.adl
+
+3. Marand je v sodelovanju z OpenEHR dodal sledeËe arhetipe, ki jih ötejejo kot del CKM vendar niso bili nikoli objavljeni:
+Skupaj ötevilo: 186
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-ACTION.procedure-ventilation.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.abc_pain_scale.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.amount-range.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.amount.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-exudate.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-faeces.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-faeces.v1.adlx
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-sputum.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-sputum.v1.adlx
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-sweat.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-urine.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-urine.v1.adlx
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance-vomit.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.bodily_substance.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.chemical_description.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.device-intravascular_catheter.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.device-tracheal_tube.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.device_details.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.diagnostic_evidence.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.distribution.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.document_control.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.exam-chest.v1.xml
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.faeces.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.gas_delivery-oxygen.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.gas_delivery.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.inspection-skin-scar.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.medication_admin.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.medication_prescription.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.party-role-healthcare_consumer.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.problem_status.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.specimen_container.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.symptom-cough.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.symptom-cough.v1.xml
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.symptom.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.timing.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.tnm_staging-lung_cancer_7.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.vancouver_scale.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\cluster\openEHR-EHR-CLUSTER.ventilator_settings.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\composition\openEHR-EHR-COMPOSITION.encounter.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\composition\openEHR-EHR-COMPOSITION.prescription.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\composition\openEHR-EHR-COMPOSITION.problem_list.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ADDRESS.address-provider.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ADDRESS.address.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ADDRESS.electronic_communication_iso-provider.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ADDRESS.electronic_communication_iso-provider.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ADDRESS.electronic_communication_iso.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ADDRESS.electronic_communication_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.biometric_identifier_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.high_level_address_other_data_br.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.identifier_other_details.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.individual_credentials_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.individual_provider_credentials_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_additional_data_br.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_additional_data_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_birth_data_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_death_data_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_identifier_iso.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_identifier_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_other_birth_data_br.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.person_other_death_data.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.provider_identifier_iso.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.provider_identifier_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-CLUSTER.registration_other_data.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ORGANISATION.organisation.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-PARTY_IDENTITY.organisation_name_iso.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-PARTY_IDENTITY.organisation_name_iso.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-PARTY_IDENTITY.person_name-individual_provider.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-PARTY_IDENTITY.person_name.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-PERSON.person.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.health_consumer.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.health_consumer.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.health_provider_organisation.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.health_provider_organisation.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.healthcare_consumer.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.healthcare_provider_organisation.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.individual_provider.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\demographic\openEHR-DEMOGRAPHIC-ROLE.third_party_payer.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\element\openEHR-EHR-ELEMENT.last_normal_menstrual_period.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\element\openEHR-EHR-ELEMENT.menstrual_cycle_day.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\action\openEHR-EHR-ACTION.lab_test.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\action\openEHR-EHR-ACTION.mechanical_ventilation.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\action\openEHR-EHR-ACTION.procedure-unassisted_oxygen_delivery.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.admission.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.attachment.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.attachment.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.consent.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.adverse.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.adverse_reaction.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.alert.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.check_list-medication.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.check_list.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.citation.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.clinical_synopsis.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.excluded-adverse.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.excluded-adverse.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.excluded-condition.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.excluded.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.excluded.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-adverse.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-family_history.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-medication.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.exclusion-problem_diagnosis.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.exclusion.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.goal.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.goal_assessment.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.goal_set.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.pregnancy.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.problem-diagnosis.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.problem.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.problem_diagnosis.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.reason_for_encounter.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.risk-family_history.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.risk.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.substance_use_summary-alcohol.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.substance_use_summary-tobacco.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.substance_use_summary.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\OpenEHR-EHR-EVALUATION.test.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\OpenEHR-EHR-EVALUATION.test.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\evaluation\openEHR-EHR-EVALUATION.triage.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.follow_up.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.imaging.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.intravenous_fluid_order.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.medication.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.non_drug_therapy.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.procedure.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.request-imaging.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.request-imaging.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.request-lab_test.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.request-procedure.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.request-referral.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.request.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\instruction\openEHR-EHR-INSTRUCTION.transfusion.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.body_surface_area.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.broset_violence_checklist.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.defaecation.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.fetal_movement.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.fluid_output-faeces.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.fluid_output-urine.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.fluid_output-vomiting.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.fluid_output.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.fluid_output.v1.xml
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.glasgow_coma-paed.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.head_circumference-birth.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.head_circumference.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.height-birth.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.height-sitting.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.ideal_body_mass.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.imaging_test.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.indirect_oximetry.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.indirect_oximetry.v1.xml
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure-cvp.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure-jvp.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure-uvp.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure-uvp.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.intravascular_pressure.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.lab_test-psa.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.lab_test.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.lean_body_mass.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.pathology_test.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.pulmonary_function.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.pulmonary_function.v1.adl_
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.pulmonary_function.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.pulmonary_function.v1.xml
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.respiration.v1.xml
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.story.v1.xml
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.tnm_clinical.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\entry\observation\openEHR-EHR-OBSERVATION.urination.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.adhoc.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.adverse_list.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.conclusion.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.diagnostic_reports.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.imaging_report.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.lab_test_report.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.lab_test_report.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.medication_order_list.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.problem_list.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.referral_details.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.result_details.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.result_details.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.soap.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\section\openEHR-EHR-SECTION.vital_signs.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\structure\openEHR-EHR-ITEM_TREE.follow_up.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\structure\openEHR-EHR-ITEM_TREE.gas_administration.v1.adls
+\Marand\Arhetipi\Archetypes\CKM BRANCH\structure\openEHR-EHR-ITEM_TREE.procedure.v1.adl
+\Marand\Arhetipi\Archetypes\CKM BRANCH\structure\openEHR-EHR-ITEM_TREE.procedure.v1.adls
+
+4. Marand je pripravil öe svoje arhetipe:
+Skupaj arhetipov: 91
+
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.anatomical_location-skin_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.aspiration_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.aspiration_zn.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.catheter_tube_device.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.catheter_tube_device.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.composition_context_detail.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.device-tracheal_cannula_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.exam-generic-joint-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.inspection-skin-scar-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.inspection-skin-wound-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.nursing_assistance_detail.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.nursing_process_action_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.patient_state_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.skin_lesions_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.symptom-pain-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.umbilical_wound_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.wound_care.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\cluster\openEHR-EHR-CLUSTER.wound_care.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\composition\openEHR-EHR-COMPOSITION.chart.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\composition\openEHR-EHR-COMPOSITION.chart.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\composition\openEHR-EHR-COMPOSITION.referral-mnd.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\composition\openEHR-EHR-COMPOSITION.report-mnd.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\composition\openEHR-EHR-COMPOSITION.sample_encounterWthSlot.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\composition\openEHR-EHR-COMPOSITION.summary.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\composition\openEHR-EHR-COMPOSITION.vaccination_history.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure-intubation.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure-intubation.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure-wound_dressing.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure-wound_dressing.v1.adls
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure-wound_dressing.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure.v1.adls
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.clinical_procedure.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.lab_test-mnd.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.medication-vaccination_md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.procedure-gyn_md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.procedure-ventilation-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.wound_dressing.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\action\openEHR-EHR-ACTION.wound_dressing.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.admission_details_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.admission_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.discharge_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.patient_visit_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.adverse_reaction-md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.alert-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.goal_set-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.pregnancy_md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.problem_diagnosis-gyn_md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.problem_diagnosis-infection_md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.risk-family_history-mnd.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\evaluation\openEHR-EHR-EVALUATION.risk-family_history-obstetric_md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\instruction\openEHR-EHR-INSTRUCTION.request_diet_ispek.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\instruction\openEHR-EHR-INSTRUCTION.request_diet_ispek.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\instruction\openEHR-EHR-INSTRUCTION.request_parenteral_nutrition_ispek.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\instruction\openEHR-EHR-INSTRUCTION.request_parenteral_nutrition_ispek.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.anthropometry_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.apnoea__zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.apnoea__zn.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.bla_assessment_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.blood_pressure-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.body_temperature-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.brecelj_kobe_scales_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.continence_urine_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.cough_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.cough_zn.v1.adls
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.cough_zn.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.exam-skin_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.eye_exam_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.feed_ispek.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.feed_ispek.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.global_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.head_circumference-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.heart_rate-pulse-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.icu_nursing_observations_ispek.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.icu_nursing_observations_ispek.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.mouth_assessment_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.mouth_assessment_zn.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.nursing_assistance_category_si.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.nutritional_history.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.nutritional_history.v1.adl.bak
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.psychological_assessment_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.psychosocial_history_md.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.pulmonary_function-zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.respiratory_exam__zn.v1
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.respiratory_exam__zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.respiratory_exam__zn.v1.xml
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.sample_blood_pressure.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.skin_lesion_zn.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\entry\observation\openEHR-EHR-OBSERVATION.special_clinical_status.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\section\openEHR-EHR-SECTION.ispek_dialog.v1.adl
+\Marand\Arhetipi\Archetypes\ISPEK TRUNK\section\openEHR-EHR-SECTION.ispek_dialog.v1.xml
+
+5. Open-ehr-gen arhetipi:
+\open-ehr-gen-Repo\cluster\openEHR-EHR-CLUSTER.a1.v1.adl
+\open-ehr-gen-Repo\cluster\openEHR-EHR-CLUSTER.a2.v1.adl
+\open-ehr-gen-Repo\cluster\openEHR-EHR-CLUSTER.inotropicos.v1.adl
+\open-ehr-gen-Repo\cluster\openEHR-EHR-CLUSTER.rutinas_de_laboratorio.v1.adl
+\open-ehr-gen-Repo\cluster\openEHR-EHR-CLUSTER.sedantes.v1.adl
+\open-ehr-gen-Repo\cluster\openEHR-EHR-CLUSTER.test_cluster.v1.adl
+\open-ehr-gen-Repo\composition\openEHR-EHR-COMPOSITION.discharge.v1draft.adl
+\open-ehr-gen-Repo\composition\openEHR-EHR-COMPOSITION.encounter.v1draft.adl
+\open-ehr-gen-Repo\composition\openEHR-EHR-COMPOSITION.history-medical_surgical.v1draft.adl
+\open-ehr-gen-Repo\composition\openEHR-EHR-COMPOSITION.history-psychiatric.v1draft.adl
+\open-ehr-gen-Repo\composition\openEHR-EHR-COMPOSITION.history-social.v1draft.adl
+\open-ehr-gen-Repo\composition\openEHR-EHR-COMPOSITION.history.v1draft.adl
+\open-ehr-gen-Repo\composition\openEHR-EHR-COMPOSITION.problem_list.v1draft.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.administracion_de_sustancias.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.columna_vertebral.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.estado_circulatorio.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.exposicion_corporal.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.prehospitalario.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.prehospitalario.v2.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.reposicion_prehospitalaria.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.resumen_actuacion.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.ventilacion.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.via_aerea.v1.adl
+\open-ehr-gen-Repo\entry\action\openEHR-EHR-ACTION.vias_venosas_prehospitalario.v1.adl
+\open-ehr-gen-Repo\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.contexto_del_evento_traumatico.v1.adl
+\open-ehr-gen-Repo\entry\admin_entry\openEHR-EHR-ADMIN_ENTRY.ubicacion_geografica.v1.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.columna_vertebral.v1.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.disfuncion_neurologica.v1.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.estado_circulatorio.v1.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.triage_evaluation.v1draft.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.triage_trauma.v1.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.triage_trauma.v2.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.ventilacion.v1.adl
+\open-ehr-gen-Repo\entry\evaluation\openEHR-EHR-EVALUATION.via_aerea.v1.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.intravenous_fluid_order.v1draft.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.laboratory_request.v1draft.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.movimientos.v1.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.non_drug_therapy.v1draft.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.pedido_imagenes.v1.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.pedido_laboratorio.v1.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.referral.v1.adl
+\open-ehr-gen-Repo\entry\instruction\openEHR-EHR-INSTRUCTION.transfusion.v1draft.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.diagnosticos.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.exposicion_corporal.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.frecuencia_cardiaca.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.frecuencia_respiratoria.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.glasgow_coma.v1draft.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.imagen.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.person_status.v1draft.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.personal_and_social_history.v1draft.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.presion_arterial.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.resumen_clinico.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.temperatura.v1.adl
+\open-ehr-gen-Repo\entry\observation\openEHR-EHR-OBSERVATION.test_dates.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.contexto_del_evento_traumatico.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.disfuncion_neurologica.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.evaluacion_columna_vertebral.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.evaluacion_estado_cirulatorio.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.evaluacion_ventilacion.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.evaluacion_via_aerea.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.exposicion_corporal.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.prehospitalario.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.prehospitalario.v2.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.prehospitalario_sameuy.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.test_dates.v1.adl
+\open-ehr-gen-Repo\section\openEHR-EHR-SECTION.ventilacion.v1.adl
+\open-ehr-gen-Repo\structure\openEHR-EHR-ITEM_TREE.disposition.v1draft.adl
+\open-ehr-gen-Repo\structure\openEHR-EHR-ITEM_TREE.gas_administration.v1draft.adl
+\open-ehr-gen-Repo\structure\openEHR-EHR-ITEM_TREE.Laboratory_request.v1.adl
+\open-ehr-gen-Repo\structure\openEHR-EHR-ITEM_TREE.oxygen.v1draft.adl
+\open-ehr-gen-Repo\structure\openEHR-EHR-ITEM_TREE.procedure-procedural_analgesia.v1draft.adl
+\open-ehr-gen-Repo\structure\openEHR-EHR-ITEM_TREE.procedure.v1draft.adl
+\open-ehr-gen-Repo\structure\openEHR-EHR-ITEM_TREE.referral.v1.adl
+

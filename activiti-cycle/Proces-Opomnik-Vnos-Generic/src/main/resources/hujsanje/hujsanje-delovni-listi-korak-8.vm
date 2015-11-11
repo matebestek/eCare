@@ -1,0 +1,1228 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<p>V tej nalogi lahko izpolnete delovne liste. Vrednosti, ki jih boste vnesli in ki se nanašajo na psihologijo ne bodo vidne zdravstvenemu osebju! Če želite, pa si lahko delovni list tudi natisnete ter ga izpolnete samo na papir za vašo lastno uporabo.</p>
+	</br>
+	<p><a target="_blank" href="/eOskrba-webapp/uploads/Pdfs/Delovni_listi/delovni%20list-KREPITEV%20SAMOPODOBE.pdf">Natisnite delovni list - psihologija</a></p>
+	
+<div id="activiti_form_holder"> 
+
+
+	<h3>
+		<a href="#">Vprašalnik - telesna dejavnost - stopnja spreminjanja</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Označite za vaš trenutni življenjski slog najbolj ustrezno trditev:</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" class="activiti-size-short activiti-validation-req">
+						<option value="at0005">Sem telesno nedejaven in se ne želim spremeniti.</option>
+						<option value="at0006">Sem telesno nedejaven, a premišljujem, ali ne bi morda postal bolj dejaven.</option>
+						<option value="at0007">Sem telesno nedejaven, a bi želel biti bolj dejaven.</option>
+						<option value="at0008">Poskušam biti zmerno telesno dejaven.</option>
+						<option value="at0009">Sedaj sem zmerno telesno dejaven, čeprav je včasih težko vztrajati.</option>
+						<option value="at0010">Sedaj sem zmerno telesno dejaven, a premišljujem, kaj bi še lahko storil.</option>
+						<option value="at0011">Sedaj sem zmerno telesno dejaven, a bi želel biti še bolj.</option>
+						<option value="at0012">Poskušam biti zelo telesno dejaven.</option>
+						<option value="at0013">Sedaj sem zelo telesno dejaven, čeprav je včasih težko vztrajati.</option>
+						<option value="at0014">Bil sem zelo telesno dejaven, pa sem malo popustil.</option>
+						<option value="at0015">Bil sem zmerno telesno dejaven, pa sem popustil, sedaj pa sem komajda kaj dejaven.</option>
+						<option value="at0016">Vedno sem bil zelo telesno dejaven in bom tak tudi ostal.</option>
+						<option value="at0017">Vedno sem bil zmerno telesno dejaven in mi to ustreza.</option>
+						<option value="at0018">Sem zelo telesno dejaven, rad pa bi več raznolikosti.</option>
+						<option value="at0019">Sem zelo telesno dejaven, poskušam pa še povečati raznolikost in pogostost dejavnosti.</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Redno se gibljem (hoja, kolesarjenje, delo na vrtu, gospodinjska opravila, sprehajanje s psom) večino dni v tednu, vsaj pol ure na dan.</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0021]?value" value="true" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0021]?value" value="false" type="radio" class="activiti-validation-req"> NE					
+				</td>				
+			</tr>
+			<tr>
+				<td>
+					<p>Hodim peš ali se vozim s kolesom v službo / po opravkih.</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0022]?value" value="true" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0022]?value" value="false" type="radio" class="activiti-validation-req"> NE				
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>3-5x tedensko sem najmanj 20 minut skupaj intenzivneje telesno dejaven tako, da se zadiham in prepotim.</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0023]?value" value="true" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0023]?value" value="false" type="radio" class="activiti-validation-req"> NE							
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>2-3x tedensko izvajam najmanj 20 minut skupaj vaje za mišično moč in gibljivost sklepov ter hrbtenice.</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0024]?value" value="true" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0024]?value" value="false" type="radio" class="activiti-validation-req"> NE				
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>V prostem času presedim več kot 3 ure dnevno pred televizijo, osebnim računalnikom, časopisi ipd.</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0025]?value" value="true" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0025]?value" value="false" type="radio" class="activiti-validation-req"> NE							
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Redno hodim po stopnicah namesto, da se peljem z dvigalom ali s tekočimi stopnicami.</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0026]?value" value="true" type="radio" class="activiti-validation-req"> DA
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0026]?value" value="false" type="radio" class="activiti-validation-req"> NE							
+				</td>
+			</tr>		
+
+		</table>
+
+	</div>	
+	
+	<h3>
+		<a href="#">Vprašalnik - psihologija- krepitev samopodobe</a>
+	</h3>
+	<div>
+
+		<table>
+								
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Samopodoba - zapišite čim več pozitivnih stvari o sebi</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!ps!krepitev!samopodobe.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" value="" type="text" class="activiti-size-long">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum in čas</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!ps!krepitev!samopodobe.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?value" value="" type="text" class="activiti-validation-date activiti-size-short">
+				</td>
+			</tr>	
+
+		</table>
+
+	</div>	
+	
+	<h3>
+		<a href="#">Tedenski načrt - Ponedeljek</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short activiti-population-date-mon">
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Prehrana</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Dop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Pop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Drugo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+			
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Gibanje</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Panoga</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0023">Aerobika (različne oblike)</option>
+						<option value="at0050">Cooperjev test - 2400 m</option>
+						<option value="at0051">Cooperjev test - 12 min</option>
+						<option value="at0024">Fitnes (delo z utežmi)</option>
+						<option value="at0025">Hoja</option>
+						<option value="at0026">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0027">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0028">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0032">Kolesarjenje (sobno)</option>
+						<option value="at0029">Plavanje</option>
+						<option value="at0030">Pohodništvo</option>
+						<option value="at0031">Rolanje</option>
+						<option value="at0054">Smučanje</option>
+						<option value="at0047">Sproščanje</option>
+						<option value="at0033">Tek</option>
+						<option value="at0055">Tek na smučeh</option>
+						<option value="at0049">Test hoje 2 km</option>
+						<option value="at0044">Vaje za gibljivost</option>
+						<option value="at0046">Vaje za koordinacijo</option>
+						<option value="at0045">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0034">Drugo</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trajanje (format HH:MM)</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0059]?value" class="activiti-size-short">
+						<option value="at0061">Zelo nizka intenzivnost</option>
+						<option value="at0062">Nizka intenzivnost</option>
+						<option value="at0063">Zmerna intenzivnost</option>
+						<option value="at0064">Visoka intenzivnost</option>
+						<option value="at0065">Zelo visoka intenzivnost</option>
+					</select>
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+		</table>
+
+	</div>	
+	
+	<h3>
+		<a href="#">Tedenski načrt - Torek</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short activiti-population-date-tue">
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Prehrana</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Dop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Pop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Drugo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Gibanje</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Panoga</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0023">Aerobika (različne oblike)</option>
+						<option value="at0050">Cooperjev test - 2400 m</option>
+						<option value="at0051">Cooperjev test - 12 min</option>
+						<option value="at0024">Fitnes (delo z utežmi)</option>
+						<option value="at0025">Hoja</option>
+						<option value="at0026">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0027">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0028">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0032">Kolesarjenje (sobno)</option>
+						<option value="at0029">Plavanje</option>
+						<option value="at0030">Pohodništvo</option>
+						<option value="at0031">Rolanje</option>
+						<option value="at0054">Smučanje</option>
+						<option value="at0047">Sproščanje</option>
+						<option value="at0033">Tek</option>
+						<option value="at0055">Tek na smučeh</option>
+						<option value="at0049">Test hoje 2 km</option>
+						<option value="at0044">Vaje za gibljivost</option>
+						<option value="at0046">Vaje za koordinacijo</option>
+						<option value="at0045">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0034">Drugo</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trajanje (format HH:MM)</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0059]?value" class="activiti-size-short">
+						<option value="at0061">Zelo nizka intenzivnost</option>
+						<option value="at0062">Nizka intenzivnost</option>
+						<option value="at0063">Zmerna intenzivnost</option>
+						<option value="at0064">Visoka intenzivnost</option>
+						<option value="at0065">Zelo visoka intenzivnost</option>
+					</select>
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0005]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+		</table>
+
+	</div>		
+	
+	<h3>
+		<a href="#">Tedenski načrt - Sreda</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short activiti-population-date-wed">
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Prehrana</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Dop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Pop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Drugo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+
+			
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Gibanje</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Panoga</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0023">Aerobika (različne oblike)</option>
+						<option value="at0050">Cooperjev test - 2400 m</option>
+						<option value="at0051">Cooperjev test - 12 min</option>
+						<option value="at0024">Fitnes (delo z utežmi)</option>
+						<option value="at0025">Hoja</option>
+						<option value="at0026">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0027">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0028">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0032">Kolesarjenje (sobno)</option>
+						<option value="at0029">Plavanje</option>
+						<option value="at0030">Pohodništvo</option>
+						<option value="at0031">Rolanje</option>
+						<option value="at0054">Smučanje</option>
+						<option value="at0047">Sproščanje</option>
+						<option value="at0033">Tek</option>
+						<option value="at0055">Tek na smučeh</option>
+						<option value="at0049">Test hoje 2 km</option>
+						<option value="at0044">Vaje za gibljivost</option>
+						<option value="at0046">Vaje za koordinacijo</option>
+						<option value="at0045">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0034">Drugo</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trajanje (format HH:MM)</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0059]?value" class="activiti-size-short">
+						<option value="at0061">Zelo nizka intenzivnost</option>
+						<option value="at0062">Nizka intenzivnost</option>
+						<option value="at0063">Zmerna intenzivnost</option>
+						<option value="at0064">Visoka intenzivnost</option>
+						<option value="at0065">Zelo visoka intenzivnost</option>
+					</select>
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0006]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+		</table>
+
+	</div>	
+	
+	<h3>
+		<a href="#">Tedenski načrt - Četrtek</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short activiti-population-date-thu">
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Prehrana</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Dop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Pop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Drugo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>		
+
+			
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Gibanje</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Panoga</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0023">Aerobika (različne oblike)</option>
+						<option value="at0050">Cooperjev test - 2400 m</option>
+						<option value="at0051">Cooperjev test - 12 min</option>
+						<option value="at0024">Fitnes (delo z utežmi)</option>
+						<option value="at0025">Hoja</option>
+						<option value="at0026">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0027">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0028">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0032">Kolesarjenje (sobno)</option>
+						<option value="at0029">Plavanje</option>
+						<option value="at0030">Pohodništvo</option>
+						<option value="at0031">Rolanje</option>
+						<option value="at0054">Smučanje</option>
+						<option value="at0047">Sproščanje</option>
+						<option value="at0033">Tek</option>
+						<option value="at0055">Tek na smučeh</option>
+						<option value="at0049">Test hoje 2 km</option>
+						<option value="at0044">Vaje za gibljivost</option>
+						<option value="at0046">Vaje za koordinacijo</option>
+						<option value="at0045">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0034">Drugo</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trajanje (format HH:MM)</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0059]?value" class="activiti-size-short">
+						<option value="at0061">Zelo nizka intenzivnost</option>
+						<option value="at0062">Nizka intenzivnost</option>
+						<option value="at0063">Zmerna intenzivnost</option>
+						<option value="at0064">Visoka intenzivnost</option>
+						<option value="at0065">Zelo visoka intenzivnost</option>
+					</select>
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0007]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+		</table>
+
+	</div>	
+	
+	<h3>
+		<a href="#">Tedenski načrt - Petek</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short activiti-population-date-fri">
+				</td>
+			</tr>	
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Prehrana</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Dop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Pop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Drugo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>		
+
+			
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Gibanje</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Panoga</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0023">Aerobika (različne oblike)</option>
+						<option value="at0050">Cooperjev test - 2400 m</option>
+						<option value="at0051">Cooperjev test - 12 min</option>
+						<option value="at0024">Fitnes (delo z utežmi)</option>
+						<option value="at0025">Hoja</option>
+						<option value="at0026">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0027">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0028">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0032">Kolesarjenje (sobno)</option>
+						<option value="at0029">Plavanje</option>
+						<option value="at0030">Pohodništvo</option>
+						<option value="at0031">Rolanje</option>
+						<option value="at0054">Smučanje</option>
+						<option value="at0047">Sproščanje</option>
+						<option value="at0033">Tek</option>
+						<option value="at0055">Tek na smučeh</option>
+						<option value="at0049">Test hoje 2 km</option>
+						<option value="at0044">Vaje za gibljivost</option>
+						<option value="at0046">Vaje za koordinacijo</option>
+						<option value="at0045">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0034">Drugo</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trajanje (format HH:MM)</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0059]?value" class="activiti-size-short">
+						<option value="at0061">Zelo nizka intenzivnost</option>
+						<option value="at0062">Nizka intenzivnost</option>
+						<option value="at0063">Zmerna intenzivnost</option>
+						<option value="at0064">Visoka intenzivnost</option>
+						<option value="at0065">Zelo visoka intenzivnost</option>
+					</select>
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0008]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+		</table>
+
+	</div>	
+	
+	<h3>
+		<a href="#">Tedenski načrt - Sobota</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short activiti-population-date-sat">
+				</td>
+			</tr>	
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Prehrana</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Dop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Pop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Drugo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>		
+
+			
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Gibanje</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Panoga</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0023">Aerobika (različne oblike)</option>
+						<option value="at0050">Cooperjev test - 2400 m</option>
+						<option value="at0051">Cooperjev test - 12 min</option>
+						<option value="at0024">Fitnes (delo z utežmi)</option>
+						<option value="at0025">Hoja</option>
+						<option value="at0026">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0027">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0028">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0032">Kolesarjenje (sobno)</option>
+						<option value="at0029">Plavanje</option>
+						<option value="at0030">Pohodništvo</option>
+						<option value="at0031">Rolanje</option>
+						<option value="at0054">Smučanje</option>
+						<option value="at0047">Sproščanje</option>
+						<option value="at0033">Tek</option>
+						<option value="at0055">Tek na smučeh</option>
+						<option value="at0049">Test hoje 2 km</option>
+						<option value="at0044">Vaje za gibljivost</option>
+						<option value="at0046">Vaje za koordinacijo</option>
+						<option value="at0045">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0034">Drugo</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trajanje (format HH:MM)</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0059]?value" class="activiti-size-short">
+						<option value="at0061">Zelo nizka intenzivnost</option>
+						<option value="at0062">Nizka intenzivnost</option>
+						<option value="at0063">Zmerna intenzivnost</option>
+						<option value="at0064">Visoka intenzivnost</option>
+						<option value="at0065">Zelo visoka intenzivnost</option>
+					</select>
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0009]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+		</table>
+
+	</div>	
+	
+	<h3>
+		<a href="#">Tedenski načrt - Nedelja</a>
+	</h3>
+	<div>
+
+		<table>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>Datum</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0007]?value" value="" type="text" class="activiti-validation-date activiti-size-short activiti-population-date-sun">
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Prehrana</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Zajtrk</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0001]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Dop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0002]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kosilo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0003]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Pop. malica</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Večerja</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Drugo</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.prehrana!dnevna!eo.v1]?items[at0006]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+						<b>Gibanje</b>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td style="width: 120px;"></td>
+				<td></td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Panoga</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0002]?value" class="activiti-size-short">
+						<option value="at0023">Aerobika (različne oblike)</option>
+						<option value="at0050">Cooperjev test - 2400 m</option>
+						<option value="at0051">Cooperjev test - 12 min</option>
+						<option value="at0024">Fitnes (delo z utežmi)</option>
+						<option value="at0025">Hoja</option>
+						<option value="at0026">Igre z loparjem (tenis, badminton, squash)</option>
+						<option value="at0027">Igre z žogo (nogomet, košarka, odbojka)</option>
+						<option value="at0028">Kolesarjenje (cestno, gorsko)</option>
+						<option value="at0032">Kolesarjenje (sobno)</option>
+						<option value="at0029">Plavanje</option>
+						<option value="at0030">Pohodništvo</option>
+						<option value="at0031">Rolanje</option>
+						<option value="at0054">Smučanje</option>
+						<option value="at0047">Sproščanje</option>
+						<option value="at0033">Tek</option>
+						<option value="at0055">Tek na smučeh</option>
+						<option value="at0049">Test hoje 2 km</option>
+						<option value="at0044">Vaje za gibljivost</option>
+						<option value="at0046">Vaje za koordinacijo</option>
+						<option value="at0045">Vaje za moč (doma, ne v fitnesu)</option>
+						<option value="at0034">Drugo</option>
+					</select>					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Trajanje (format HH:MM)</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0004]?value" value="" type="text" class="activiti-validation-time activiti-size-short">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Intenzivnost vadbe</p>
+				</td>
+				<td>
+					<select name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0059]?value" class="activiti-size-short">
+						<option value="at0061">Zelo nizka intenzivnost</option>
+						<option value="at0062">Nizka intenzivnost</option>
+						<option value="at0063">Zmerna intenzivnost</option>
+						<option value="at0064">Visoka intenzivnost</option>
+						<option value="at0065">Zelo visoka intenzivnost</option>
+					</select>
+				</td>
+			</tr>		
+			<tr>
+				<td>
+					<p>Komentar</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.tedenski!nacrt!eo.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0010]?items[openEHR-EHR-CLUSTER.gibalna!aktivnost!dnevna!eo.v1]?items[at0005]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+		</table>
+
+	</div>	
+	
+</div>
+<p>Za tiskanje tedenskega načrta klinite <a onclick="callPrint(); return false;" href="">tukaj</a></p>
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

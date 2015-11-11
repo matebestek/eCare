@@ -1,0 +1,201 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.vprasalnik_td_slog_eo_hu.v1
+
+concept
+	[at0000]	-- Vprasalnik TD slog eo hu
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Opis življenjskega sloga pri eHujšanju (eOskrba), 3. korak. ">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"C36C33CA647E015AA3296B51873207A3">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Vprasalnik TD slog eo hu
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Izberite za vaš trenutni življenjski slog najbolj ustrezno trditev
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0005, 	-- Sem telesno nedejaven in se ne želim spremeniti.
+													at0006, 	-- Sem telesno nedejaven, a premišljujem, ali ne bi morda postal bolj dejaven.
+													at0007, 	-- Sem telesno nedejaven, a bi želel biti bolj dejaven.
+													at0008, 	-- Poskušam biti zmerno telesno dejaven.
+													at0009, 	-- Sedaj sem zmerno telesno dejaven, čeprav je včasih težko vztrajati.
+													at0010, 	-- Sedaj sem zmerno telesno dejaven, a premišljujem, kaj bi še lahko storil.
+													at0011, 	-- Sedaj sem zmerno telesno dejaven, a bi želel biti še bolj.
+													at0012, 	-- Poskušam biti zelo telesno dejaven.
+													at0013, 	-- Sedaj sem zelo telesno dejaven, čeprav je včasih težko vztrajati.
+													at0014, 	-- Bil sem zelo telesno dejaven, pa sem malo popustil.
+													at0015, 	-- Bil sem zmerno telesno dejaven, pa sem popustil, sedaj pa sem komajda kaj dejaven.
+													at0016, 	-- Vedno sem bil zelo telesno dejaven in bom tak tudi ostal.
+													at0017, 	-- Vedno sem bil zmerno telesno dejaven in mi to ustreza.
+													at0018, 	-- Sem zelo telesno dejaven, rad pa bi več raznolikosti.
+													at0019]	-- Sem zelo telesno dejaven, poskušam pa še povečati raznolikost in pogostost dejavnosti.
+												}
+											}
+										}
+									}
+									ELEMENT[at0020] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- Datum
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Vprasalnik TD slog eo hu">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Izberite za vaš trenutni življenjski slog najbolj ustrezno trditev">
+					description = <"Izberite za vaš trenutni življenjski slog najbolj ustrezno trditev">
+				>
+				["at0005"] = <
+					text = <"Sem telesno nedejaven in se ne želim spremeniti.">
+					description = <"Sem telesno nedejaven in se ne želim spremeniti.">
+				>
+				["at0006"] = <
+					text = <"Sem telesno nedejaven, a premišljujem, ali ne bi morda postal bolj dejaven.">
+					description = <"Sem telesno nedejaven, a premišljujem, ali ne bi morda postal bolj dejaven.">
+				>
+				["at0007"] = <
+					text = <"Sem telesno nedejaven, a bi želel biti bolj dejaven.">
+					description = <"Sem telesno nedejaven, a bi želel biti bolj dejaven.">
+				>
+				["at0008"] = <
+					text = <"Poskušam biti zmerno telesno dejaven.">
+					description = <"Poskušam biti zmerno telesno dejaven.">
+				>
+				["at0009"] = <
+					text = <"Sedaj sem zmerno telesno dejaven, čeprav je včasih težko vztrajati.">
+					description = <"Sedaj sem zmerno telesno dejaven, čeprav je včasih težko vztrajati.">
+				>
+				["at0010"] = <
+					text = <"Sedaj sem zmerno telesno dejaven, a premišljujem, kaj bi še lahko storil.">
+					description = <"Sedaj sem zmerno telesno dejaven, a premišljujem, kaj bi še lahko storil.">
+				>
+				["at0011"] = <
+					text = <"Sedaj sem zmerno telesno dejaven, a bi želel biti še bolj.">
+					description = <"Sedaj sem zmerno telesno dejaven, a bi želel biti še bolj.">
+				>
+				["at0012"] = <
+					text = <"Poskušam biti zelo telesno dejaven.">
+					description = <"Poskušam biti zelo telesno dejaven.">
+				>
+				["at0013"] = <
+					text = <"Sedaj sem zelo telesno dejaven, čeprav je včasih težko vztrajati.">
+					description = <"Sedaj sem zelo telesno dejaven, čeprav je včasih težko vztrajati.">
+				>
+				["at0014"] = <
+					text = <"Bil sem zelo telesno dejaven, pa sem malo popustil.">
+					description = <"Bil sem zelo telesno dejaven, pa sem malo popustil.">
+				>
+				["at0015"] = <
+					text = <"Bil sem zmerno telesno dejaven, pa sem popustil, sedaj pa sem komajda kaj dejaven.">
+					description = <"Bil sem zmerno telesno dejaven, pa sem popustil, sedaj pa sem komajda kaj dejaven.">
+				>
+				["at0016"] = <
+					text = <"Vedno sem bil zelo telesno dejaven in bom tak tudi ostal.">
+					description = <"Vedno sem bil zelo telesno dejaven in bom tak tudi ostal.">
+				>
+				["at0017"] = <
+					text = <"Vedno sem bil zmerno telesno dejaven in mi to ustreza.">
+					description = <"Vedno sem bil zmerno telesno dejaven in mi to ustreza.">
+				>
+				["at0018"] = <
+					text = <"Sem zelo telesno dejaven, rad pa bi več raznolikosti.">
+					description = <"Sem zelo telesno dejaven, rad pa bi več raznolikosti.">
+				>
+				["at0019"] = <
+					text = <"Sem zelo telesno dejaven, poskušam pa še povečati raznolikost in pogostost dejavnosti.">
+					description = <"Sem zelo telesno dejaven, poskušam pa še povečati raznolikost in pogostost dejavnosti.">
+				>
+				["at0020"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Datum">
+					description = <"*">
+				>
+			>
+		>
+	>

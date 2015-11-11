@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>ae08367d-25b9-4e93-bfd9-f88290b16a2e</id>
+  <name>VkljucitevVStudijoHu</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.vkljucitev_eo.v1" concept_name="Vkljucitev eo">
+    <Item xsi:type="ADMIN_ENTRY" archetype_id="openEHR-EHR-ADMIN_ENTRY.osnovni_podatki_eo.v1" concept_name="Osnovni podatki o pacientu" path="/items[at0001]" />
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Telesna visina / dolzina" path="/items[at0003]" />
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Telesna teza" path="/items[at0003]" />
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Indeks telesne mase (ITM)" path="/items[at0003]" />
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.antropometrija.v1" concept_name="Antropometrija" path="/items[at0003]" />
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.telesna_sestava.v1" concept_name="Telesna sestava" path="/items[at0003]" />
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.dnevna_aktivnost_eo_hu.v1" concept_name="Dnevna aktivnost eo hu" path="/items[at0003]" />
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.funkcionalna_zmogljivost.v1" concept_name="Funkcionalna zmogljivost" path="/items[at0003]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.test_vzdrzljivost.v1" concept_name="Test vzdrzljivost" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.test_moc.v1" concept_name="Test moc" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.test_ravnotezje.v1" concept_name="Test ravnotezje" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.test_gibljivost.v1" concept_name="Test gibljivost" path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]" />
+    </Item>
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.telesna_dejavnost_eo_pp.v1" concept_name="Telesna dejavnost eo pp" path="/items[at0003]" />
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.alkohol_eo_pp.v1" concept_name="Alkohol eo pp" path="/items[at0003]" />
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.kajenje_eo_pp.v1" concept_name="Kajenje eo pp" path="/items[at0003]" />
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.sport_program_vadbe.v1" concept_name="Sport program vadbe" path="/items[at0007]" />
+  </definition>
+</template>

@@ -1,0 +1,327 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.goal_assessment.v1
+
+concept
+	[at0000]	-- Napredek
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand do.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Dr Ian McNicoll">
+		["organisation"] = <"Ocean Informatics, United Kingdom">
+		["email"] = <"ian.mcnicoll@oceaninformatics.com">
+		["date"] = <"10/12/2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record progress towards and eventual outcome in acheiving a previously set heath goal.">
+			use = <"">
+			keywords = <"goal", "target">
+			misuse = <"">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje napredka in morebitne rezultate v procesu doseganja cilja.
+">
+			use = <"Za beleženje napredka in morebitne rezultate v procesu doseganja cilja.">
+			keywords = <"cilj", "vmesni cilj", "rezultat">
+			misuse = <"Se ne uporablja za beleženje naročil">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"292DB457B735EAA5FFC8FEAEB3718FFC">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Napredek
+		data matches {
+			ITEM_TREE[at0001] matches {	-- *Tree(en)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Želeni cilj
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- Datum opredelitve
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- Opombe
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Načrtovani status
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Po načrtu
+									at0007, 	-- Pred načrtom
+									at0008]	-- Za načrtom
+								}
+							}
+						}
+					}
+					ELEMENT[at0009] occurrences matches {0..1} matches {	-- Napredek
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0010, 	-- Ne spremenjen
+									at0011, 	-- Se izboljšuje
+									at0012, 	-- Se slabša
+									at0013, 	-- Cilj dosežen
+									at0014, 	-- Problem je rešen
+									at0015]	-- Pacient je preminil
+								}
+							}
+						}
+					}
+					CLUSTER[at0016] occurrences matches {0..*} matches {	-- Napredek vmesnega cilja
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0017] occurrences matches {0..1} matches {	-- Datum opredelitve
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0018] occurrences matches {0..1} matches {*}
+							allow_archetype CLUSTER[at0020] occurrences matches {0..*} matches {	-- Podrobnosti
+								include
+									archetype_id/value matches {/.*/}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {	-- Dodatne informacije
+								value matches {
+									DV_URI matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Goal assessment">
+					description = <"Progress towards the aceivment of a health goal.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Desired goal">
+					description = <"The health state desired.">
+				>
+				["at0003"] = <
+					text = <"Date assessed">
+					description = <"The date at which progres towards the goal was assessed.">
+				>
+				["at0004"] = <
+					text = <"Comment">
+					description = <"Detailed comment about progess towards the goal.">
+				>
+				["at0005"] = <
+					text = <"Schedule status">
+					description = <"Estimate of of whether progress towards the goal is on schedule">
+				>
+				["at0006"] = <
+					text = <"On schedule">
+					description = <"Progress towards the goal is within the expected timeframe.">
+				>
+				["at0007"] = <
+					text = <"Ahead of schedule">
+					description = <"The goal is being acheived ahead of the expected timeframe">
+				>
+				["at0008"] = <
+					text = <"Behind schedule">
+					description = <"Goal acheivement appears to be progressing more slowly than anticipated.">
+				>
+				["at0009"] = <
+					text = <"Goal progression">
+					description = <"A qualitative estimate of progression towards the goal.">
+				>
+				["at0010"] = <
+					text = <"Unchanged">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Improving">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Deteriorating">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Goal acheived">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Problem resolved">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Patient died">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Target progress">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Date assessed">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Target">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Record of target">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Target detail">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Napredek">
+					description = <"Bleženje napredka pri doseganju postavljenih ciljev">
+				>
+				["at0001"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"Želeni cilj">
+					description = <"Želeno zdravstveno stanje">
+				>
+				["at0003"] = <
+					text = <"Datum opredelitve">
+					description = <"Datum opredelitve">
+				>
+				["at0004"] = <
+					text = <"Opombe">
+					description = <"Opombe">
+				>
+				["at0005"] = <
+					text = <"Načrtovani status">
+					description = <"Načrtovani status">
+				>
+				["at0006"] = <
+					text = <"Po načrtu">
+					description = <"Po načrtu">
+				>
+				["at0007"] = <
+					text = <"Pred načrtom">
+					description = <"Pred načrtom ">
+				>
+				["at0008"] = <
+					text = <"Za načrtom">
+					description = <"Za načrtom">
+				>
+				["at0009"] = <
+					text = <"Napredek">
+					description = <"Opredelitev napredka">
+				>
+				["at0010"] = <
+					text = <"Ne spremenjen">
+					description = <"**(en)">
+				>
+				["at0011"] = <
+					text = <"Se izboljšuje">
+					description = <"**(en)">
+				>
+				["at0012"] = <
+					text = <"Se slabša">
+					description = <"**(en)">
+				>
+				["at0013"] = <
+					text = <"Cilj dosežen">
+					description = <"**(en)">
+				>
+				["at0014"] = <
+					text = <"Problem je rešen">
+					description = <"**(en)">
+				>
+				["at0015"] = <
+					text = <"Pacient je preminil">
+					description = <"**(en)">
+				>
+				["at0016"] = <
+					text = <"Napredek vmesnega cilja">
+					description = <"**(en)">
+				>
+				["at0017"] = <
+					text = <"Datum opredelitve">
+					description = <"**(en)">
+				>
+				["at0018"] = <
+					text = <"Vmesni cilj">
+					description = <"**(en)">
+				>
+				["at0019"] = <
+					text = <"Dodatne informacije">
+					description = <"**(en)">
+				>
+				["at0020"] = <
+					text = <"Podrobnosti">
+					description = <"**(en)">
+				>
+			>
+		>
+	>

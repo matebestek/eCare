@@ -1,0 +1,436 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.audiogram.v1
+
+concept
+	[at0000]	-- Audiogram result
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"NHS CFH/Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"6/11/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the findings of a Pure Tone Audiogram">
+			use = <"">
+			keywords = <"hearing", "test", "audiogram">
+			misuse = <"">
+			copyright = <"copyright (c) 2010 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+
+definition
+	OBSERVATION[at0000] matches {	-- Audiogram result
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					POINT_EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0037] occurrences matches {0..1} matches {	-- Test
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0038, 	-- Pure Tone Audiometry
+													at0039, 	-- Visual Reinforcement Audiometry (VRA)
+													at0043]	-- Conditioned Play Audiometry
+												}
+											}
+										}
+									}
+									CLUSTER[at0005] occurrences matches {0..1} matches {	-- Normal Statements
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0004] occurrences matches {0..*} matches {	-- Normal Statement
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0044, 	-- Both ears normal
+															at0045, 	-- Left ear normal
+															at0046]	-- Right ear normal
+														}
+													}
+												}
+											}
+										}
+									}
+									CLUSTER[at0006] occurrences matches {0..*} matches {	-- Findings
+										items cardinality matches {0..*; unordered} matches {
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Ear
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0008, 	-- Left
+															at0009]	-- Right
+														}
+													}
+												}
+											}
+											ELEMENT[at0011] matches {	-- Frequency
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::382]>
+														list = <
+															["1"] = <
+																units = <"Hz">
+																magnitude = <|0.0..16000.0|>
+																precision = <|0|>
+															>
+														>
+													>
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0015, 	-- 250Hz
+															at0016, 	-- 500Hz
+															at0017, 	-- 1000Hz
+															at0018, 	-- 2000Hz
+															at0019, 	-- 4000Hz
+															at0020]	-- 8000Hz
+														}
+													}
+												}
+											}
+											ELEMENT[at0012] matches {	-- Hearing level
+												value matches {
+													C_DV_QUANTITY <
+														property = <[openehr::123]>
+														list = <
+															["1"] = <
+																units = <"dB">
+															>
+														>
+													>
+												}
+											}
+										}
+									}
+									ELEMENT[at0026] occurrences matches {0..1} matches {	-- Image of audiogram result
+										value matches {
+											DV_MULTIMEDIA matches {
+												media_type matches {
+													[openEHR::
+													425, 
+													426, 
+													427, 
+													428, 
+													429]
+												}
+											}
+										}
+									}
+									ELEMENT[at0027] occurrences matches {0..1} matches {	-- Comment
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0013] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- Masking
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0021, 	-- Masked
+													at0022]	-- Unmasked
+												}
+											}
+										}
+									}
+									ELEMENT[at0023] occurrences matches {0..1} matches {	-- Stimulus Presentation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0024, 	-- Air conduction
+													at0025, 	-- Bone Conduction
+													at0031]	-- Sound field
+												}
+											}
+										}
+									}
+									ELEMENT[at0028] occurrences matches {0..1} matches {	-- Aided
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0029, 	-- Aided
+													at0030]	-- Unaided
+												}
+											}
+										}
+									}
+									ELEMENT[at0040] occurrences matches {0..1} matches {	-- Child cooperation
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0041, 	-- Cooperative
+													at0042]	-- Uncooperative
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0032] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0033] occurrences matches {0..1} matches {	-- Device
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- Stimulus
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0035, 	-- Live Voice
+									at0036]	-- Tape/CD
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Audiogram result">
+					description = <"Record Audiogram findings">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Normal Statement">
+					description = <"Normal statement about Audiogram results">
+				>
+				["at0005"] = <
+					text = <"Normal Statements">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Findings">
+					description = <"All Audiogram findings">
+				>
+				["at0007"] = <
+					text = <"Ear">
+					description = <"Identify the ear tested">
+				>
+				["at0008"] = <
+					text = <"Left">
+					description = <"The left ear ">
+				>
+				["at0009"] = <
+					text = <"Right">
+					description = <"The right ear">
+				>
+				["at0011"] = <
+					text = <"Frequency">
+					description = <"Frequency tested">
+				>
+				["at0012"] = <
+					text = <"Hearing level">
+					description = <"Threshold at which the sound frequency was heard">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Masking">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"250Hz">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"500Hz">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"1000Hz">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"2000Hz">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"4000Hz">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"8000Hz">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Masked">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Unmasked">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Stimulus Presentation">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Air conduction">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Bone Conduction">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Image of audiogram result">
+					description = <"Image of audiogram">
+				>
+				["at0027"] = <
+					text = <"Comment">
+					description = <"Comment on test">
+				>
+				["at0028"] = <
+					text = <"Aided">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Aided">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Unaided">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Sound field">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0033"] = <
+					text = <"Device">
+					description = <"Details of audiometer used to record audiogram">
+				>
+				["at0034"] = <
+					text = <"Stimulus">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Live Voice">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Tape/CD">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Test">
+					description = <"Identify test performed">
+				>
+				["at0038"] = <
+					text = <"Pure Tone Audiometry">
+					description = <"Conventional Audiologic Assessment">
+				>
+				["at0039"] = <
+					text = <"Visual Reinforcement Audiometry (VRA)">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Child cooperation">
+					description = <"Indication of cooperation of patient which may have impact on outcome of test">
+				>
+				["at0041"] = <
+					text = <"Cooperative">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Uncooperative">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Conditioned Play Audiometry">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Both ears normal">
+					description = <"Both ears test normally by the audiogram">
+				>
+				["at0045"] = <
+					text = <"Left ear normal">
+					description = <"The audiogram is normal for the left ear">
+				>
+				["at0046"] = <
+					text = <"Right ear normal">
+					description = <"The audiogram is normal for the right ear">
+				>
+			>
+		>
+	>

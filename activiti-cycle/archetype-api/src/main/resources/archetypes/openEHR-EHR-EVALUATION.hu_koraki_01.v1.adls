@@ -1,0 +1,160 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.5; generated)
+	openEHR-EHR-EVALUATION.hu_koraki_01.v1
+
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Gradivo in validacija 1. koraka v programu hujšanja (eOskrba).">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"688FDEF343FA477A16C76EC1BD0E9FD0">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Hu koraki 01
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items matches {
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- questionnaire_wl_01
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0009] occurrences matches {0..1} matches {	-- Vprašanja za validacijo
+						items matches {
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Kakšno je priporočeno število dnevnih obrokov?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0006, 	-- 1 do 2
+											at0007, 	-- 3 do 5
+											at0008]	-- 6 ali več
+										}
+									}
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Kateri je najpomembnejši obrok v dnevni prehrani?
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0012, 	-- Predelana in pol pripravljena ter pripravljena živila kot so kruh, mesni izdelki, pite, pice, "konzerve"
+											at0013]	-- Sadje in zelenjava
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			["at0000"] = <
+				text = <"Hu koraki 01">
+				description = <"unknown">
+			>
+			["at0001"] = <
+				text = <"Tree">
+				description = <"@ internal @">
+			>
+			["at0003"] = <
+				text = <"questionnaire_wl_01">
+				description = <"*">
+			>
+			["at0005"] = <
+				text = <"Kakšno je priporočeno število dnevnih obrokov?">
+				description = <"Kakšno je priporočeno število dnevnih obrokov?">
+			>
+			["at0006"] = <
+				text = <"1 do 2">
+				description = <"1 do 2 (NI pravilno)">
+			>
+			["at0007"] = <
+				text = <"3 do 5">
+				description = <"3 do 5 (pravilno)">
+			>
+			["at0008"] = <
+				text = <"6 ali več">
+				description = <"6 ali več (NI pravilno)">
+			>
+			["at0009"] = <
+				text = <"Vprašanja za validacijo">
+				description = <"*">
+			>
+			["at0010"] = <
+				text = <"Kateri je najpomembnejši obrok v dnevni prehrani?">
+				description = <"Kateri je najpomembnejši obrok v dnevni prehrani?">
+			>
+			["at0011"] = <
+				text = <"Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?">
+				description = <"Kaj so glavni viri soli v naši prehrani s katero presežemo priporočen dnevni vnos soli?">
+			>
+			["at0012"] = <
+				text = <"Predelana in pol pripravljena ter pripravljena živila kot so kruh, mesni izdelki, pite, pice, \"konzerve\"">
+				description = <"Pravilno">
+			>
+			["at0013"] = <
+				text = <"Sadje in zelenjava">
+				description = <"Sadje in zelenjava (NI pravilno)">
+			>
+			["at0014"] = <
+				text = <"Komentar">
+				description = <"*">
+			>
+		>
+	>

@@ -1,0 +1,492 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-ADMIN_ENTRY.admission_zn.v1
+
+concept
+	[at0000]	-- Sprejem pacienta
+language
+	original_language = <[ISO_639-1::sl]>
+	translations = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"19.10.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To document elements of patient admittance as documented in nursing care">
+			use = <"In nursing care">
+			keywords = <"admittance", "nursing care">
+			misuse = <"- For financial pourposes (administative patient admittance)
+- For medical pourposes (physician's document on patient admittance)
+- For documenting patient's health status">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za beleženje elementov sprejema pacienta na klinični oddelek za potrebe zdravstvene nege">
+			use = <"V zdravstveni negi">
+			keywords = <"sprejem pacienta", "sprejem", "zdravstvena bega">
+			misuse = <"- za finančne potrebe
+- za medicinske namene
+- za dokumentiranje stanja pacienta">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"2FC2C298190CE9868AD89668E7A611EF">
+	>
+
+definition
+	ADMIN_ENTRY[at0000] matches {	-- Sprejem pacienta
+		data matches {
+			ITEM_TREE[at0003] matches {	-- *Tree(sl)
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Tip sprejema
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0006, 	-- Urgenten
+									at0007]	-- Planiran
+								}
+							}
+						}
+					}
+					ELEMENT[at0037] occurrences matches {0..1} matches {	-- Datum in čas 
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					CLUSTER[at0010] occurrences matches {0..1} matches {	-- Premestitev
+						items cardinality matches {1; unordered} matches {
+							ELEMENT[at0009] matches {	-- Tip premestitve
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0012, 	-- Ni premestoitev
+											at0013, 	-- Med oddelki
+											at0014, 	-- Med klinikami
+											at0015]	-- Zunanja
+										}
+									}
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Oddelek
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0038] occurrences matches {0..1} matches {	-- Klinika
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0039] occurrences matches {0..1} matches {	-- Institucija
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Prevoz
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0017, 	-- Peš
+									at0018, 	-- Invalidski voziček
+									at0019, 	-- Nosila)
+									at0020, 	-- Otroški sedež
+									at0021, 	-- Reševalni avto
+									at0022, 	-- Helikopter
+									at0023]	-- Letalo
+								}
+							}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Ikubator
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0025, 	-- Da
+									at0026]	-- Ne
+								}
+							}
+						}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Opombe
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0028] occurrences matches {0..1} matches {	-- Spremstvo
+						items cardinality matches {1; unordered} matches {
+							ELEMENT[at0029] occurrences matches {0..*} matches {	-- Sorodniki
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0030, 	-- Mama
+											at0031]	-- Oče
+										}
+									}
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0034] occurrences matches {0..*} matches {	-- Drugi
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0040, 	-- Policaj
+											at0041]	-- Reševalna ekipa
+										}
+									}
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0036] occurrences matches {0..*} matches {	-- Člani reševalne ekipe
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Admittance of a patient, nursing care">
+					description = <"For use in documenting process of nursing care when patient is admitted to a hospital ward.">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0005"] = <
+					text = <"Admission type">
+					description = <"Type of admittance (urgency).">
+				>
+				["at0006"] = <
+					text = <"Unplanned">
+					description = <"Urgent, emergency">
+				>
+				["at0007"] = <
+					text = <"Planned">
+					description = <"Planned admittance">
+				>
+				["at0009"] = <
+					text = <"Transfer type">
+					description = <"Type of transfer">
+				>
+				["at0010"] = <
+					text = <"Transfer">
+					description = <"Filled in if a patient was transfered.">
+				>
+				["at0011"] = <
+					text = <"Ward">
+					description = <"Ward from where the patient is being transferred.">
+				>
+				["at0012"] = <
+					text = <"Not a transfer">
+					description = <"Patient not transfered, i.e. arrived from home">
+				>
+				["at0013"] = <
+					text = <"Between wards">
+					description = <"Transfer from a different ward at the same clinic">
+				>
+				["at0014"] = <
+					text = <"Between clinics">
+					description = <"Transfer from another clinic of the same ward">
+				>
+				["at0015"] = <
+					text = <"From outside">
+					description = <"From another institution">
+				>
+				["at0016"] = <
+					text = <"Transportation">
+					description = <"Type of transportation.">
+				>
+				["at0017"] = <
+					text = <"On foot">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Wheelchair">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Stretcher">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Car seat">
+					description = <"car seat or a carrycot (with a handle to carry a baby)">
+				>
+				["at0021"] = <
+					text = <"Rescue van">
+					description = <"Emergency transportation - Ambulance">
+				>
+				["at0022"] = <
+					text = <"Rescue helicopter">
+					description = <"Emergency transportation - Helicopter">
+				>
+				["at0023"] = <
+					text = <"Emergency flight">
+					description = <"Emergency transportation - Airplane">
+				>
+				["at0024"] = <
+					text = <"Incubator">
+					description = <"If the patient was brought in in an incubator.">
+				>
+				["at0025"] = <
+					text = <"Yes">
+					description = <"Patient (baby) was brought in in an incubator.">
+				>
+				["at0026"] = <
+					text = <"No">
+					description = <"Patient (baby) was NOT brought in in an incubator.">
+				>
+				["at0027"] = <
+					text = <"Comments">
+					description = <"Comments.">
+				>
+				["at0028"] = <
+					text = <"Accompanied by">
+					description = <"Persons accompanying the patient.">
+				>
+				["at0029"] = <
+					text = <"Relatives">
+					description = <"List relatives of a patient that accompanied the patient on arrival to the hospital.">
+				>
+				["at0030"] = <
+					text = <"Mother">
+					description = <"Mother of a patient">
+				>
+				["at0031"] = <
+					text = <"Father">
+					description = <"Father of a patient">
+				>
+				["at0034"] = <
+					text = <"Non- relatives">
+					description = <"List of non-relatives of a patient that accompanied the patient on arrival to the hospital">
+				>
+				["at0036"] = <
+					text = <"Staff member identifier">
+					description = <"Members of hospital staff that accompanied the patient on arrival (used for emergencies when hospital staff is called in to go pick up the patient to some location i.e. nursery ward of health centers).">
+				>
+				["at0037"] = <
+					text = <"Datetime of admission">
+					description = <"The date and time of admission.">
+				>
+				["at0038"] = <
+					text = <"Clinic">
+					description = <"Clinic from where the patient is being transferred.">
+				>
+				["at0039"] = <
+					text = <"Institution">
+					description = <"Institution from where the patient is being transferred.">
+				>
+				["at0040"] = <
+					text = <"Police officer">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Rescue team">
+					description = <"*">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Sprejem pacienta">
+					description = <"Sprejem pacienta na hospitalni oddelek">
+				>
+				["at0003"] = <
+					text = <"*Tree(sl)">
+					description = <"*@ internal @(sl)">
+				>
+				["at0005"] = <
+					text = <"Tip sprejema">
+					description = <"Tip sperejema">
+				>
+				["at0006"] = <
+					text = <"Urgenten">
+					description = <"Urgenten">
+				>
+				["at0007"] = <
+					text = <"Planiran">
+					description = <"Planirana premestitev pacienta">
+				>
+				["at0009"] = <
+					text = <"Tip premestitve">
+					description = <"Tip premestitve">
+				>
+				["at0010"] = <
+					text = <"Premestitev">
+					description = <"Izpolne se, če gre za premestitev pacienta">
+				>
+				["at0011"] = <
+					text = <"Oddelek">
+					description = <"Oddelek iz katerega je pacient premeščen">
+				>
+				["at0012"] = <
+					text = <"Ni premestoitev">
+					description = <"Izpolne se, ko ne gre za premestitev, vendar za prihod od zunaj">
+				>
+				["at0013"] = <
+					text = <"Med oddelki">
+					description = <"Premestitev med oddelki iste klinike">
+				>
+				["at0014"] = <
+					text = <"Med klinikami">
+					description = <"Premestitev med klinikami">
+				>
+				["at0015"] = <
+					text = <"Zunanja">
+					description = <"Premestitev od druge institucije">
+				>
+				["at0016"] = <
+					text = <"Prevoz">
+					description = <"Tip prevoza">
+				>
+				["at0017"] = <
+					text = <"Peš">
+					description = <"Pacient je prišel peš">
+				>
+				["at0018"] = <
+					text = <"Invalidski voziček">
+					description = <"Pacient je pripeljan z invalidskim vozičkom">
+				>
+				["at0019"] = <
+					text = <"Nosila)">
+					description = <"Pacient je prinešen z nosili">
+				>
+				["at0020"] = <
+					text = <"Otroški sedež">
+					description = <"Pacient je pripeljan z otroškim sedežkom ali lupinico">
+				>
+				["at0021"] = <
+					text = <"Reševalni avto">
+					description = <"Pacient je pripeljan z reševalcem">
+				>
+				["at0022"] = <
+					text = <"Helikopter">
+					description = <"Pacient je pripeljan s helikopterjem">
+				>
+				["at0023"] = <
+					text = <"Letalo">
+					description = <"Pacient je pripeljan z letalom">
+				>
+				["at0024"] = <
+					text = <"Ikubator">
+					description = <"Izpolne se, če je pacient pripeljan v inkubatorju">
+				>
+				["at0025"] = <
+					text = <"Da">
+					description = <"Novorojenček je pripeljan v inkubatorju">
+				>
+				["at0026"] = <
+					text = <"Ne">
+					description = <"Novorojenček ni pripeljan v inkubatorju">
+				>
+				["at0027"] = <
+					text = <"Opombe">
+					description = <"Morebitni dodatni podatki">
+				>
+				["at0028"] = <
+					text = <"Spremstvo">
+					description = <"Spremljajoče osebe pacienta">
+				>
+				["at0029"] = <
+					text = <"Sorodniki">
+					description = <"Seznam sorodnikov, ki spremljajo pacienta">
+				>
+				["at0030"] = <
+					text = <"Mama">
+					description = <"Pacientova mama">
+				>
+				["at0031"] = <
+					text = <"Oče">
+					description = <"Pacientov oče">
+				>
+				["at0034"] = <
+					text = <"Drugi">
+					description = <"Spremljajoče osebe pacienta, ki niso sorodniki">
+				>
+				["at0036"] = <
+					text = <"Člani reševalne ekipe">
+					description = <"Člani reševalne ekipe">
+				>
+				["at0037"] = <
+					text = <"Datum in čas ">
+					description = <"Datum in čas sprejema">
+				>
+				["at0038"] = <
+					text = <"Klinika">
+					description = <"Klinika iz katere je pacient bil premeščen">
+				>
+				["at0039"] = <
+					text = <"Institucija">
+					description = <"**(sl)">
+				>
+				["at0040"] = <
+					text = <"Policaj">
+					description = <"Policaj">
+				>
+				["at0041"] = <
+					text = <"Reševalna ekipa">
+					description = <"Reševalna ekipa">
+				>
+			>
+		>
+	>

@@ -1,0 +1,330 @@
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<div id="activiti_form_holder"> 
+
+
+	<h3><a href="#">Vprašalnik - stopnja spreminjanja</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			
+			<tr>
+				<td>
+					<p>Označite za vaš trenutni življenjski slog najbolj ustrezno trditev</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?value" class="activiti-size-short">
+						<option value="at0005">Sem telesno nedejaven in se ne želim spremeniti.</option>
+						<option value="at0006">Sem telesno nedejaven, a premišljujem, ali ne bi morda postal bolj dejaven.</option>
+						<option value="at0007">Sem telesno nedejaven, a bi želel biti bolj dejaven.</option>
+						<option value="at0008">Poskušam biti zmerno telesno dejaven.</option>
+						<option value="at0009">Sedaj sem zmerno telesno dejaven, čeprav je včasih težko vztrajati.</option>
+						<option value="at0010">Sedaj sem zmerno telesno dejaven, a premišljujem, kaj bi še lahko storil.</option>
+						<option value="at0011">Sedaj sem zmerno telesno dejaven, a bi želel biti še bolj.</option>
+						<option value="at0012">Poskušam biti zelo telesno dejaven.</option>
+						<option value="at0013">Sedaj sem zelo telesno dejaven, čeprav je včasih težko vztrajati.</option>
+						<option value="at0014">Bil sem zelo telesno dejaven, pa sem malo popustil.</option>
+						<option value="at0015">Bil sem zmerno telesno dejaven, pa sem popustil, sedaj pa sem komajda kaj dejaven.</option>
+						<option value="at0016">Vedno sem bil zelo telesno dejaven in bom tak tudi ostal.</option>
+						<option value="at0017">Vedno sem bil zmerno telesno dejaven in mi to ustreza.</option>
+						<option value="at0018">Sem zelo telesno dejaven, rad pa bi več raznolikosti.</option>
+						<option value="at0019">Sem zelo telesno dejaven, poskušam pa še povečati raznolikost in pogostost dejavnosti.</option>
+					</select>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Redno se gibljem (hoja, kolesarjenje, delo na vrtu, gospodinjska opravila, sprehajanje s psom) večino dni v tednu, vsaj pol ure na dan.</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0021]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0021]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Hodim peš ali se vozim s kolesom v službo / po opravkih.</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0022]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0022]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+
+			</tr>	
+			<tr>
+				<td>
+					<p>3-5x tedensko sem najmanj 20 minut skupaj intenzivneje telesno dejaven tako, da se zadiham in prepotim.</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0023]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0023]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+
+			</tr>
+			<tr>
+				<td>
+					<p>2-3x tedensko izvajam najmanj 20 minut skupaj vaje za mišično moč in gibljivost sklepov ter hrbtenice.</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0024]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0024]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+
+			</tr>
+			<tr>
+				<td>
+					<p>V prostem času presedim več kot 3 ure dnevno pred televizijo, osebnim računalnikom, časopisi ipd.</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0025]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0025]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+
+			</tr>
+			<tr>
+				<td>
+					<p>Redno hodim po stopnicah namesto, da se peljem z dvigalom ali s tekočimi stopnicami.</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0026]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!stopnja!spreminjanja.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0026]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+
+			</tr>		
+
+		</table>	
+	
+	</div>
+
+	<h3><a href="#">Vprašalnik - športna anamneza</a></h3>
+	<div>
+		
+		<table>	
+		
+			<tr><td style="width:120px;"></td><td></td></tr>
+			<tr>
+				<td>
+					<p>Poklic in delo, ki ga opravljate</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0007]?value" value="" type="text" class="">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Vaši hobiji</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0008]?value" value="" type="text" class="">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Vaše športno-rekreativne dejavnosti</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0009]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Zdravstveno stanje</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0010]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Vas Vaše zdravstveno stanje s čimerkoli omejuje pri gibanju in izvajanju športnih dejavnosti?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0014]?value" value="" type="text" class="">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Ali vam je zdravnik zaradi zdravja svetoval, da se ukvarjate s telesno dejavnostjo?</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0020]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0020]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+			</tr>				
+			<tr>
+				<td>
+					<p>Če da, katere športno-rekreativne dejavnosti vam je svetoval?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0019]?value" value="" type="text" class="">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Katere telesne dejavnosti so vam blizu in katere športe obvladate?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0018]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>S katerimi športi in telesnimi dejavnostmi ste se doslej ukvarjali?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0017]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Kolikokrat ste vadili na teden/mesec in koliko časa?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0015]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>S katerimi oblikami gibanja in športi se trenutno ukvarjate?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0016]?value" value="" type="text" class="">
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Kolikokrat na teden/mesec in koliko časa?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0011]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>S katerimi telesnimi dejavnostmi (vključno s hojo) in športi bi se želeli ukvarjati?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0012]?value" value="" type="text" class="">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Imate dovolj prostega časa za šport?</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0024]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0024]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Imate dovolj denarja za športne potrebe?</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0025]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0025]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+			</tr>
+			<tr>
+				<td>
+					<p>Imate ustrezno športno ponudbo v svojem okolju (npr. programe, objekte, opremo)?</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0026]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0026]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Zakaj se ukvarjate s športno-rekreativnimi dejavnostmi?</p>
+				</td>
+				<td>
+					<input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0023]?value" value="" type="text" class="">
+				</td>
+			</tr>			
+			<tr>
+				<td>
+					<p>Menite, da imate možnosti za vsakodnevno športno-rekreativno razvedrilo (npr. sprehajanje, kolesarjenje, vrtnarjenje)?</p>
+				</td>
+				<td><input name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0027]?value" 
+				    value="true" type="radio" class="activiti-size-short">
+					DA<input
+					name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0027]?value"
+					value="false" type="radio" class="activiti-size-short">
+					NE</td>
+			</tr>	
+			<tr>
+				<td>
+					<p>Vaš odnos do telesne dejavnosti</p>
+				</td>
+				<td>
+					<select	name="?items[openEHR-EHR-OBSERVATION.vprasalnik!td!sportna!anamneza!eo!hu.v1]?data[at0001]?events[at0002]?data[at0003]?items[at0004]?items[at0028]?value" class="activiti-size-short">
+						<option value="at0029">Trenutno nisem posebno telesno dejaven in tudi ne nameravam postati bolj telesno dejaven v naslednjih dveh mesecih/ trenutno nimam dovolj časa.</option>
+						<option value="at0030">Trenutno nisem najbolj telesno dejaven, vendar nameravam v naslednjih dveh mesecih svojo telesno dejavnost povečati.</option>
+						<option value="at0031">Količina moje telesne dejavnosti se spreminja: včasih sem aktiven, včasih pa ne.</option>
+						<option value="at0032">Trenutno sem telesno dejaven večino dni v tednu, vendar to traja šele zadnja dva meseca.</option>
+						<option value="at0033">Večino dni v tednu sem telesno dejaven in to traja že več kot dva meseca.</option>
+						<option value="at0034">Pred letom sem bil telesno dejaven večino dni v tednu, v zadnjih dveh mesecih pa se je moja telesna dejavnost zmanjšala.</option>
+					</select>
+				</td>				
+			</tr>				
+
+		</table>	
+	
+	</div>		
+
+</div>
+
+<p>&nbsp;</p>
+
+<script type="text/javascript">
+   activiti_form_onLoad();
+</script>

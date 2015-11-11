@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+	xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+	xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+	xmlns:signavio="http://www.signavio.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	exporter="Signavio Process Editor, http://www.signavio.com"
+	exporterVersion="5.0.0" expressionLanguage="http://www.w3.org/1999/XPath"
+	id="sid-ea8b495d-4ec7-46dc-a10c-808720fe0adc" targetNamespace="http://www.signavio.com/bpmn20"
+	typeLanguage="http://www.w3.org/2001/XMLSchema"
+	xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+	<!-- INPUT: CallActivity: 1.doctor 2. caremanager VSI INPUT-i za CallActivity-je: -->
+	<process id="Proces-Opomnik-Notifier-CM-Zdravnik" name="ProcesOpomnikNotifierCMZdravnik"
+		isExecutable="false">
+		<startEvent id="StartEvent" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<outgoing>StartEvent-DivergingParallelGateway</outgoing>
+		</startEvent>
+		<parallelGateway gatewayDirection="Diverging"
+			id="DivergingParallelGateway" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>StartEvent-DivergingParallelGateway</incoming>
+			<outgoing>DivergingParallelGateway-ProcesOpomnikVnosNotifierZdravnik
+			</outgoing>
+			<outgoing>DivergingParallelGateway-ProcesOpomnikVnosNotifierCm
+			</outgoing>
+		</parallelGateway>
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Zdravnik"
+			completionQuantity="1" id="CallActivitiyProcessOpomnikVnosNotifierZdravnik"
+			isForCompensation="false" name="NOTIFIER-Zdravnik" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyDoctorForm" target="notifyDoctorForm" />
+				<activiti:in source="doctor" target="doctor" />
+				<activiti:in source="doctorEmail" target="email" />
+				<activiti:in source="listenerDoctorObvestiloCreate"	target="listenerDoctorObvestiloCreate" />
+				<activiti:in source="listenerDoctorObvestiloComplete" target="listenerDoctorObvestiloComplete" />
+				<activiti:in source="doctorUserTaskName" target="userTaskName" />				
+			</extensionElements>
+			<incoming>DivergingParallelGateway-ProcesOpomnikVnosNotifierZdravnik
+			</incoming>
+			<outgoing>ProcesOpomnikVnosNotifierZdravnik-ConvergingParallelGateway
+			</outgoing>
+		</callActivity>
+
+		<callActivity calledElement="Proces-Opomnik-Vnos-Notifier-Cm"
+			completionQuantity="1" id="CallActivitiyProcessOpomnikVnosNotifierCm"
+			isForCompensation="false" name="NOTIFIER-CM&#10;" startQuantity="1">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffcc" />
+				<signavio:signavioMetaData metaKey="risklevel"
+					metaValue="" />
+				<signavio:signavioMetaData metaKey="externaldocuments"
+					metaValue="" />
+				<activiti:in source="notifyCaremanagerForm" target="notifyCaremanagerForm" />
+				<activiti:in source="caremanagerEmail" target="email" />
+				<activiti:in source="patient" target="patient" />
+				<activiti:in source="listenerCaremanagerObvestiloComplete"	target="listenerCaremanagerObvestiloComplete" />
+				<activiti:in source="listenerCaremanagerObvestiloCreate" target="listenerCaremanagerObvestiloCreate" />
+				<activiti:in source="cmUserTaskName" target="userTaskName" />
+			
+			</extensionElements>
+			<incoming>DivergingParallelGateway-ProcesOpomnikVnosNotifierCm
+			</incoming>
+			<outgoing>ProcesOpomnikVnosNotifierCm-ConvergingParallelGateway
+			</outgoing>
+		</callActivity>
+		<parallelGateway gatewayDirection="Converging"
+			id="ConvergingParallelGateway" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>ProcesOpomnikVnosNotifierZdravnik-ConvergingParallelGateway
+			</incoming>
+			<incoming>ProcesOpomnikVnosNotifierCm-ConvergingParallelGateway
+			</incoming>
+			<outgoing>ConvergingParallelGateway-EndEvent</outgoing>
+		</parallelGateway>
+		<endEvent id="EndEvent" name="">
+			<extensionElements>
+				<signavio:signavioMetaData metaKey="bgcolor"
+					metaValue="#ffffff" />
+			</extensionElements>
+			<incoming>ConvergingParallelGateway-EndEvent</incoming>
+		</endEvent>
+		<sequenceFlow id="StartEvent-DivergingParallelGateway"
+			name="" sourceRef="StartEvent" targetRef="DivergingParallelGateway" />
+
+		<sequenceFlow
+			id="DivergingParallelGateway-ProcesOpomnikVnosNotifierZdravnik" name=""
+			sourceRef="DivergingParallelGateway" targetRef="CallActivitiyProcessOpomnikVnosNotifierZdravnik" />
+		<sequenceFlow id="DivergingParallelGateway-ProcesOpomnikVnosNotifierCm"
+			name="" sourceRef="DivergingParallelGateway" targetRef="CallActivitiyProcessOpomnikVnosNotifierCm" />
+
+
+
+		<sequenceFlow id="ProcesOpomnikVnosNotifierCm-ConvergingParallelGateway"
+			name="" sourceRef="CallActivitiyProcessOpomnikVnosNotifierCm"
+			targetRef="ConvergingParallelGateway" />
+		<sequenceFlow
+			id="ProcesOpomnikVnosNotifierZdravnik-ConvergingParallelGateway"
+			name="" sourceRef="CallActivitiyProcessOpomnikVnosNotifierZdravnik"
+			targetRef="ConvergingParallelGateway" />
+
+
+		<sequenceFlow id="ConvergingParallelGateway-EndEvent"
+			name="" sourceRef="ConvergingParallelGateway" targetRef="EndEvent" />
+
+	</process>
+	<bpmndi:BPMNDiagram id="sid-60175db7-9031-4def-a773-29c821754a3a">
+		<bpmndi:BPMNPlane bpmnElement="Proces-Opomnik-Notifier-CM-Zdravnik"
+			id="sid-f334952e-484c-4af4-aaba-387a6263c927">
+			<bpmndi:BPMNShape bpmnElement="DivergingParallelGateway"
+				id="DivergingParallelGateway_gui">
+				<omgdc:Bounds height="40.0" width="40.0" x="350.0" y="167.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="StartEvent" id="StartEvent_gui">
+				<omgdc:Bounds height="30.0" width="30.0" x="261.0" y="172.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="CallActivitiyProcessOpomnikVnosNotifierZdravnik"
+				id="CallActivitiyProcessOpomnikVnosNotifierZdravnik_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="495.0" y="30.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="ConvergingParallelGateway"
+				id="ConvergingParallelGateway_gui">
+				<omgdc:Bounds height="40.0" width="40.0" x="735.0" y="167.0" />
+			</bpmndi:BPMNShape>
+
+			<bpmndi:BPMNShape bpmnElement="CallActivitiyProcessOpomnikVnosNotifierCm"
+				id="CallActivitiyProcessOpomnikVnosNotifierCm_gui">
+				<omgdc:Bounds height="80.0" width="100.0" x="495.0" y="300.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNShape bpmnElement="EndEvent" id="EndEvent_gui">
+				<omgdc:Bounds height="28.0" width="28.0" x="855.0" y="56.0" />
+			</bpmndi:BPMNShape>
+			<bpmndi:BPMNEdge
+				bpmnElement="ProcesOpomnikVnosNotifierZdravnik-ConvergingParallelGateway"
+				id="ProcesOpomnikVnosNotifierZdravnik-ConvergingParallelGateway_gui">
+				<omgdi:waypoint x="595.0" y="90.0" />
+				<omgdi:waypoint x="755.5" y="90.0" />
+				<omgdi:waypoint x="755.0" y="167.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge
+				bpmnElement="ProcesOpomnikVnosNotifierCm-ConvergingParallelGateway"
+				id="ProcesOpomnikVnosNotifierCm-ConvergingParallelGateway_gui">
+				<omgdi:waypoint x="595.0" y="330.0" />
+				<omgdi:waypoint x="755.0784373801098" y="330.0" />
+				<omgdi:waypoint x="755.0" y="207.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="StartEvent-DivergingParallelGateway"
+				id="StartEvent-DivergingParallelGateway_gui">
+				<omgdi:waypoint x="291.0" y="187.0" />
+				<omgdi:waypoint x="350.0" y="187.0" />
+			</bpmndi:BPMNEdge>
+
+			<bpmndi:BPMNEdge
+				bpmnElement="DivergingParallelGateway-ProcesOpomnikVnosNotifierZdravnik"
+				id="DivergingParallelGateway-ProcesOpomnikVnosNotifierZdravnik_gui">
+				<omgdi:waypoint x="370.0" y="167.0" />
+				<omgdi:waypoint x="370.5" y="75.0" />
+				<omgdi:waypoint x="495.0" y="75.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge
+				bpmnElement="DivergingParallelGateway-ProcesOpomnikVnosNotifierCm"
+				id="DivergingParallelGateway-ProcesOpomnikVnosNotifierCm_gui">
+				<omgdi:waypoint x="370.0" y="207.0" />
+				<omgdi:waypoint x="370.5" y="285.0" />
+				<omgdi:waypoint x="495.0" y="340.0" />
+			</bpmndi:BPMNEdge>
+			<bpmndi:BPMNEdge bpmnElement="ConvergingParallelGateway-EndEvent"
+				id="ConvergingParallelGateway-EndEvent_gui">
+				<omgdi:waypoint x="775.0" y="187.0" />
+				<omgdi:waypoint x="830.0" y="187.5" />
+				<omgdi:waypoint x="830.0" y="70.0" />
+				<omgdi:waypoint x="855.0" y="70.0" />
+			</bpmndi:BPMNEdge>
+		</bpmndi:BPMNPlane>
+	</bpmndi:BPMNDiagram>
+</definitions>

@@ -1,0 +1,153 @@
+(:
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer.
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution.
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+:)
+xquery version "1.0";
+declare namespace functx = "http://www.functx.com";
+declare function functx:id-untyped
+  ( $node as node()* ,
+    $id as xs:anyAtomicType )  as element()* {
+
+  $node//*[@* = $id]
+} ;
+declare function functx:sort-by-timestamp 
+  ( $seq as item()* )  as item()* {
+       
+   for $item in $seq
+   (: quic hack for sorting by timestamp from two different collections, since the sort is by name :)
+   (: redundant right now :)
+   order by replace(fn:base-uri($item), 'openEHR-EHR-SECTION.opomnik_eo_hu_pv.v1', 'openEHR-EHR-SECTION.opomnik_eo_hu.v1')
+   return $item
+ } ;
+declare option exist:serialize "method=xhtml media-type=text/html indent=yes";
+
+let $users := xmldb:get-child-collections('/db/eHujsanje/')
+
+return
+concat("&#10;", string-join(
+for $user in $users
+    (: sort all documents in collection by timestamp :)
+    let $AllValues := functx:sort-by-timestamp(collection(concat('/db/eHujsanje/', $user, '/openEHR-EHR-SECTION.vkljucitev_eo.v1/')))
+
+    (: Before the study - select first in sequence :)
+    let $value := subsequence($AllValues, 1, 1)
+
+    let $firstname := replace(functx:id-untyped($value,'at0002')[1]/node()[2]/node()/text(), ',', ';') 
+    let $lastname  := replace(functx:id-untyped($value,'at0003')[1]/node()[2]/node()/text(), ',', ';') 
+    let $BIS  := replace(functx:id-untyped($value,'at0004')[1]/node()[2]/node()/text(), ',', ';') 
+    let $sex  := replace(functx:id-untyped($value,'at0005')[1]/node()[2]/node()[1]/text(), ',', ';') 
+    let $birthdate  := replace(functx:id-untyped($value,'at0006')[1]/node()[2]/node()/text(), ',', ';') 
+        
+    let $INFO := functx:id-untyped($value,'at0001')[1]
+    let $job  := replace(functx:id-untyped($INFO,'at0010')/node()[2]/node()/text(), ',', ';') 
+    let $dateStart  := replace(functx:id-untyped($INFO,'at0016')/node()[2]/node()/text(), ',', ';') 
+
+    let $data := collection(concat('/db/eHujsanje/', $user, '/openEHR-EHR-EVALUATION.hu_stevilka_koraka.v1/'))
+    let $sequence := functx:id-untyped($data, 'at0002')/node()[2]/node()[2]/text()
+    let $korak := replace(max($sequence), ',', ';')
+
+    (: BEFORE STUDY - INPUT BY CAREMANAGER:)
+    let $tmp := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.body_weight.v1')
+    let $BeforeWeight  := replace(functx:id-untyped($tmp, 'at0004')[1]/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.height.v1')
+    let $BeforeHeight  := replace(functx:id-untyped($tmp, 'at0004')[1]/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.telesna_sestava.v1')
+    let $BeforeSkeletno  := replace(functx:id-untyped($tmp, 'at0006')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforePoraba  := replace(functx:id-untyped($tmp, 'at0007')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforeTelesne  := replace(functx:id-untyped($tmp, 'at0004')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforeTrebušna  := replace(functx:id-untyped($tmp, 'at0005')/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.laboratorij_eo_di.v1')
+    let $BeforeGlukoza  := replace(functx:id-untyped($tmp, 'at0004')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforeTrigliceridi  := replace(functx:id-untyped($tmp, 'at0010')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforeHolesterol  := replace(functx:id-untyped($tmp, 'at0009')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforeHDL  := replace(functx:id-untyped($tmp, 'at0011')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforeLDL  := replace(functx:id-untyped($tmp, 'at0012')/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($value,'openEHR-EHR-OBSERVATION.krvni_tlak_eo.v1')
+    let $BeforeTlak1  := replace(functx:id-untyped($tmp, 'at0004')/node()[2]/node()[2]/text(), ',', ';') 
+    let $BeforeTlak2  := replace(functx:id-untyped($tmp, 'at0005')/node()[2]/node()[2]/text(), ',', ';') 
+    
+    (: After the study - select last in sequence but not the same as first:)
+    (: look in both collections :)
+    let $valueLast := subsequence($AllValues, 2, count($AllValues))[last()]
+
+    (: AFTER STUDY - INPUT BY CAREMANAGER - SAME CODE AS ABOVE:)
+    let $tmp := functx:id-untyped($valueLast,'openEHR-EHR-OBSERVATION.body_weight.v1')
+    let $AfterWeight  := replace(functx:id-untyped($tmp, 'at0004')[1]/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($valueLast,'openEHR-EHR-OBSERVATION.height.v1')
+    let $AfterHeight  := replace(functx:id-untyped($tmp, 'at0004')[1]/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($valueLast,'openEHR-EHR-OBSERVATION.telesna_sestava.v1')
+    let $AfterSkeletno  := replace(functx:id-untyped($tmp, 'at0006')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterPoraba  := replace(functx:id-untyped($tmp, 'at0007')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterTelesne  := replace(functx:id-untyped($tmp, 'at0004')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterTrebušna  := replace(functx:id-untyped($tmp, 'at0005')/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($valueLast,'openEHR-EHR-OBSERVATION.laboratorij_eo_di.v1')
+    let $AfterGlukoza  := replace(functx:id-untyped($tmp, 'at0004')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterTrigliceridi  := replace(functx:id-untyped($tmp, 'at0010')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterHolesterol  := replace(functx:id-untyped($tmp, 'at0009')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterHDL  := replace(functx:id-untyped($tmp, 'at0011')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterLDL  := replace(functx:id-untyped($tmp, 'at0012')/node()[2]/node()[2]/text(), ',', ';') 
+
+    let $tmp := functx:id-untyped($valueLast,'openEHR-EHR-OBSERVATION.krvni_tlak_eo.v1')
+    let $AfterTlak1  := replace(functx:id-untyped($tmp, 'at0004')/node()[2]/node()[2]/text(), ',', ';') 
+    let $AfterTlak2  := replace(functx:id-untyped($tmp, 'at0005')/node()[2]/node()[2]/text(), ',', ';')
+
+    (: all input by user - weight and waist :)
+    let $user_inputs := (collection(concat('/db/eHujsanje/', $user, '/openEHR-EHR-SECTION.opomnik_eo_hu.v1/')),
+                         collection(concat('/db/eHujsanje/', $user, '/openEHR-EHR-SECTION.opomnik_eo_hu_pv.v1/')) )
+    let $user_inputs_sorted := functx:sort-by-timestamp($user_inputs)
+    let $user_input_weights := fn:string-join(for $inp in $user_inputs_sorted
+        let $input_coll := functx:id-untyped($inp,'openEHR-EHR-OBSERVATION.body_weight.v1')
+        let $wei := replace(functx:id-untyped($input_coll,'at0004')/node()[2]/node()[2]/text(), ',', ';')
+        let $date := substring(replace(replace(functx:id-untyped($input_coll,'at0002')/node()[2]/node()/text(), ',', ';') , 'T', ' '), 1, 19)
+
+        return  fn:string-join(( xs:string($date), xs:string($wei) ), " - " ), " ; ")
+    
+    let $user_input_waist := fn:string-join(for $inp in $user_inputs_sorted
+        let $input_coll := functx:id-untyped($inp,'openEHR-EHR-OBSERVATION.obseg_pasu_eo.v1')
+        let $wei := replace(functx:id-untyped($input_coll,'at0004')/node()[2]/node()[2]/text(), ',', ';')
+        let $date := substring(replace(replace(functx:id-untyped($input_coll,'at0002')/node()[2]/node()/text(), ',', ';') , 'T', ' '), 1, 19)
+
+        return  fn:string-join(( xs:string($date), xs:string($wei) ), " - " ), " ; ")
+
+    return  string-join((    xs:string($firstname), xs:string($lastname), xs:string($BIS), xs:string($user),
+			     xs:string($sex), xs:string($birthdate), xs:string($job), xs:string($dateStart), xs:string("ODGOVORNA_SESTRA"), 
+			     xs:string($korak), xs:string($BeforeWeight), xs:string($BeforeHeight), xs:string($BeforeSkeletno),
+			     xs:string($BeforePoraba), xs:string($BeforeTelesne), xs:string($BeforeTrebušna), xs:string($BeforeGlukoza),
+			     xs:string($BeforeTrigliceridi), xs:string($BeforeHolesterol), xs:string($BeforeHDL), xs:string($BeforeLDL),
+			     string-join( (xs:string($BeforeTlak1), xs:string($BeforeTlak2)), '/'), xs:string($AfterWeight), xs:string($AfterHeight),
+			     xs:string($AfterSkeletno), xs:string($AfterPoraba), xs:string($AfterTelesne), xs:string($AfterTrebušna),
+			     xs:string($AfterGlukoza), xs:string($AfterTrigliceridi), xs:string($AfterHolesterol), xs:string($AfterHDL),
+			     xs:string($AfterLDL), string-join( (xs:string($AfterTlak1), xs:string($AfterTlak2)), '/'), xs:string("NLOGIN"),
+			     xs:string("POGOVOR_UDELEZENEC"), xs:string("NVSEBIN"), xs:string($user_input_weights), xs:string($user_input_waist)
+), ", " ) , "&#10;"), "&#10;")

@@ -1,0 +1,517 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.height.v1
+
+concept
+	[at0000]	-- Telesna visina / dolzina
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			author = <
+				["organisation"] = <"Medisch Centrum Alkmaar">
+				["name"] = <"Marja Buur">
+				["email"] = <"m.buur-krom@mca.nl">
+			>
+		>
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			author = <
+				["organisation"] = <"University of Heidelberg, Ocean Informatics">
+				["name"] = <"Jasmin Buck, Sebastian Garde">
+			>
+		>
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			author = <
+				["organisation"] = <"P2D">
+				["name"] = <"Marco Borges">
+				["email"] = <"marco.borges@p2d.com.br">
+			>
+			accreditation = <"P2D Health Advisor Council">
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"9/03/2006">
+	>
+	details = <
+		["pt-br"] = <
+			language = <[ISO_639-1::pt-br]>
+			purpose = <"Para registar o comprimento do corpo de um indivĂ­duo, medindo da coroa da cabeĂ§a a sola do pĂ©.
+A medida pode ser tanto real como aproximada, quer seja com a posiĂ§ĂŁo do indivĂ­duo de pĂ© ou em decĂşbito dorsal.">
+			use = <"Usada para gravar a altura real ou comprimento do corpo de um indivĂ­duo a qualquer momento.
+A indicaĂ§ĂŁo da imperfeiĂ§ĂŁo fĂ­sica do corpo pode ser gravado no elemento 'protocolo fatores de confusĂŁo', se necessĂˇrio.
+Este Ă© o arquĂ©tipo de uso habitual para a mediĂ§ĂŁo tĂ­pica de altura ou comprimento do corpo, independente da situaĂ§ĂŁo clĂ­nica. 
+TambĂ©m pode ser usado para a gravaĂ§ĂŁo de uma altura aproximada ou de mediĂ§ĂŁo do comprimento do corpo em um cenĂˇrio clĂ­nico no qual nĂŁo Ă© possĂ­vel medir uma altura ou comprimento exato - por exemplo, a mediĂ§ĂŁo de uma crianĂ§a que nĂŁo coopera. Isso nĂŁo Ă© modelada explicitamente no arquĂ©tipo como o modelo de referĂŞncia openEHR permite que o atributo de aproximaĂ§ĂŁo para qualquer tipo de dados quantitativos. Na execuĂ§ĂŁo, por exemplo, uma interface de usuĂˇrio do aplicativo pode permitir que os clĂ­nicos para selecionar uma caixa de seleĂ§ĂŁo devidamente setados junto ao campo de dados de altura para indicar que a altura registrada Ă© uma aproximaĂ§ĂŁo, ao invĂ©s de reais. 
+Em geral, as medidas de comprimento sĂŁo recomendados para crianĂ§as menores de dois anos de idade e indivĂ­duos que nĂŁo podem ficar, as mediĂ§Ăµes de altura para todos os outros. 
+Idealmente, a altura Ă© medida em pĂ© sobre dois pĂ©s com peso distribuĂ­do uniformemente, os calcanhares unidos e as duas nĂˇdegas e calcanhares em contato com uma placa vertical para trĂˇs; comprimento do corpo Ă© medido em uma posiĂ§ĂŁo totalmente estendida, supino com a pelve plana, pernas estendidas e os pĂ©s flexionados. 
+Use para registar um crescimento e perda de altura. Isso pode ser modelado por restringir a 'qualquer evento' a um intervalo em um modelo associado com a funĂ§ĂŁo matemĂˇtica de aumentar ou diminuir, conforme o caso.">
+			keywords = <"encolhimento", "crescimento", "diminuiĂ§ĂŁo", "diminuiĂ§ĂŁo da altura", "altura", "comprimento", "crescimento">
+			misuse = <"NĂŁo deve ser utilizado para gravar o primeiro comprimento de um bebĂŞ, logo apĂłs o nascimento. Para isso Ă© designado o \"comprimento de nascimento\" - use a especializaĂ§ĂŁo desse arquĂ©tipo - ver OBSERVATION.height-birth.
+NĂŁo deve ser utilizado para registrar a altura ajustada ou comprimento do corpo por exemplo, um cĂˇlculo da altura estimada completo de uma pessoa com contraturas dos membros, com base em mediĂ§Ăµes outro corpo e / ou um algoritmo - use OBSERVATION.height-adjusted.
+NĂŁo deve ser usado para registrar a velocidade de crescimento.
+NĂŁo deve ser utilizado para gravar o tamanho de um objeto ou parte especĂ­fica do corpo.">
+			copyright = <"Â© 2011 openEHR Foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Zapisati visino / dolzino telesa od vrha glave do stopal - tako aktualno kot priblizno vrednost, stoje ali leze.">
+			use = <"*To be used for recording the actual height or body length of an individual at any point in time.  A statement identifying the physical incompleteness of the body can be recorded in the 'Confounding factors' protocol element, if required.  This is the usual archetype to be used for a typical measurement of height or body length, independent of the clinical setting.
+Can also be used for recording an approximation of height or body length measurement in a clinical scenario where it is not possible to measure an accurate height or length - for example, measuring an uncooperative child.  This is not modelled explicitly in the archetype as the openEHR Reference model allows the attribute of Approximation for any Quantity data type.  At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Height data field to indicate that the recorded height is an approximation, rather than actual.
+In general, length measurements are recommended for children under 2 years of age and individuals who cannot stand; height measurements for all others.
+Ideally, height is measured standing on both feet with weight distributed evenly, heels together and both buttocks and heels in contact with a vertical back board; body length is measured in a fully extended, supine position with the pelvis flat, legs extended and feet flexed. 
+Use to record growth and loss of height.  This can currently be modelled by constraining the 'any event' to an interval in a template with associated mathematical function of increase or decrease, as appropriate.(en)">
+			keywords = <"*shrinkage(en)", "*increase(en)", "*decrease(en)", "*height loss(en)", "*height(en)", "*length(en)", "*growth(en)">
+			misuse = <"*Not to be used to record the first length of an infant soon after birth which is designated as their 'birth length' - use the specialisation of this archetype - see OBSERVATION.height-birth.
+Not to be used to record the adjusted height or body length eg a calculation of the estimated full height of a person with limb contractures, based on other body part measurements and/or an algorithm - use OBSERVATION.height-adjusted.
+Not to be used to record growth velocity.
+Not to be used to record the length of an object or specific body part.(en)">
+			copyright = <"*Â© 2011 openEHR Foundation(en)">
+		>
+		["de"] = <
+			language = <[ISO_639-1::de]>
+			purpose = <"Zur Dokumentation der KĂ¶rpergrĂ¶Ăźe in einer gestreckten Position, von Scheitel bis Sohle. Dies kann sowohl genau als auch ungefĂ¤hr erfolgen, und entweder in einer stehenden oder liegenden Position.">
+			use = <"Wird verwendet um die tatsĂ¤chliche KĂ¶rpegrĂ¶Ăźe/-lĂ¤nge eines Individuums zu dokumentieren. Eine Aussage ĂĽber die physische UnvollstĂ¤ndigkeit des KĂ¶rpers kann in den 'Einflussfaktoren' des Protokoll Elements dokumentiert werden. Dies ist der gewĂ¶hnliche Archetyp zur Dokumentation einer typischen Messung von KĂ¶rpergrĂ¶Ăźe/-lĂ¤nge, unabhĂ¤ngig von der klinischen Situation.
+Der Archetyp kann auch verwendet werden, um eine geschĂ¤tze GrĂ¶Ăźe/LĂ¤nge zu dokumentatieren, wenn es nicht mĂ¶glich ist, eine genaue Messung durchzufĂĽhren, z.B. bei der Messung bei einem unkooperativen Kind. Dies ist nicht explizit in dem Archetyp modelliert, da das openEHR Referenzmodell fĂĽr jeden 'Quantity' Datentyp automatisch das Attribut 'Approximation' zur VerfĂĽgung stellt. Zum Zeitpunkt der Implementiertung kĂ¶nnte eine Benutzerschnittstelle es den Klinikern daher ermĂ¶glichen, z.B. ein entsprechendes KontrollkĂ¤stchen zu aktivieren.
+Im allgemeinen werden LĂ¤ngenmessungen fĂĽr Kinder bis zwei Jahren empfohlen, sowie fĂĽr Individuen, die nicht stehen kĂ¶nnen; GrĂ¶Ăźenmessungen fĂĽr alle anderen. Idealerweise wird die GrĂ¶Ăźe auf beiden Beinen stehend gemessen, mit dem Gewicht gleichmĂ¤Ăźig verteilt, den Hacken zusammen und beiden GesĂ¤Ăźbacken und Hacken in Kontakt mit einem senkrechten Brett. KĂ¶rperlĂ¤nge wird in einer voll ausgestreckten, liegenden Position gemessen; hierbei wird das Becken flach gehalten, die Beine ausgestreckt und die FĂĽĂźe gebeugt.
+Der Archetyp wird auch benutzt, um eine Zunahme/Abnahme der KĂ¶rpergrĂ¶Ăźe/-lĂ¤nge zu dokumentieren. Dies kann z.B. in einem Template modelliert werden, indem das 'Any event' auf ein Interval eingeschrĂ¤nkt wird, mit der zugehĂ¶rigen mathematischen Funktion 'increase' or 'decrease'.">
+			keywords = <"GrĂ¶Ăźe", "LĂ¤nge", "Wachstum", "Schrumpfung">
+			misuse = <"Nicht zur Dokumentation der ersten LĂ¤nge eines Neugeboren (GeburtslĂ¤nge) - hier sollte der spezialisierte Archetyp OBSERVATION.height-birth verwendet werden.
+Nicht zur Dokumentation der angepassten GrĂ¶Ăźe oder KĂ¶rperlĂ¤nge - z.B. der geschĂ¤tzten vollen GrĂ¶Ăźe einer Person mit Kontraktur der ExtremitĂ¤ten, basierend auf der Messung anderer KĂ¶rperteile und/oder einem Algorithmus - hier sollte der spezialisierte Archetyp OBSERVATION.height-adjusted verwendet werden.
+Nicht zur Dokumentation von Wachstumsgeschwindigkeit.
+Nicht zur Dokumentation der LĂ¤nge eines Objekts oder spezifischen KĂ¶rperteils.">
+			copyright = <"Â© 2011 openEHR Foundation">
+		>
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To record the length of the body from crown of head to sole of foot of an individual - both actual and approximate, and either in a standing or recumbent position.">
+			use = <"To be used for recording the actual height or body length of an individual at any point in time.  A statement identifying the physical incompleteness of the body can be recorded in the 'Confounding factors' protocol element, if required.  This is the usual archetype to be used for a typical measurement of height or body length, independent of the clinical setting.
+Can also be used for recording an approximation of height or body length measurement in a clinical scenario where it is not possible to measure an accurate height or length - for example, measuring an uncooperative child.  This is not modelled explicitly in the archetype as the openEHR Reference model allows the attribute of Approximation for any Quantity data type.  At implementation, for example, an application user interface could allow clinicians to select an appropriately labelled check box adjacent to the Height data field to indicate that the recorded height is an approximation, rather than actual.
+In general, length measurements are recommended for children under 2 years of age and individuals who cannot stand; height measurements for all others.
+Ideally, height is measured standing on both feet with weight distributed evenly, heels together and both buttocks and heels in contact with a vertical back board; body length is measured in a fully extended, supine position with the pelvis flat, legs extended and feet flexed. 
+Use to record growth and loss of height.  This can currently be modelled by constraining the 'any event' to an interval in a template with associated mathematical function of increase or decrease, as appropriate.">
+			keywords = <"shrinkage", "increase", "decrease", "height loss", "height", "length", "growth">
+			misuse = <"Not to be used to record the first length of an infant soon after birth which is designated as their 'birth length' - use the specialisation of this archetype - see OBSERVATION.height-birth.
+Not to be used to record the adjusted height or body length eg a calculation of the estimated full height of a person with limb contractures, based on other body part measurements and/or an algorithm - use OBSERVATION.height-adjusted.
+Not to be used to record growth velocity.
+Not to be used to record the length of an object or specific body part.">
+			copyright = <"Â© 2011 openEHR Foundation">
+		>
+		["nl"] = <
+			language = <[ISO_639-1::nl]>
+			purpose = <"Registreren van de lengte van het lichaam van hoofdkruin tot voetzool van een individu - zowel werkelijke als geschatte lengte en zowel in staande als liggende positie.">
+			use = <"Te gebruiken voor de registratie van de werkelijke lengte/hoogte van een individu op elk moment in de tijd. Een verklaring over fysieke onvolledigheid van het lichaam kan worden opgenomen in het protocol element â€� beĂŻnvloedende factorenâ€™, indien nodig. Dit is het gebruikelijke archetype voor een typische meting van de hoogte of lengte, onafhankelijk van de klinische setting. 
+Kan ook worden gebruikt voor het opnemen van een schatting van de lengte/hoogte meting in een klinisch scenario, waarin het niet mogelijk is om een nauwkeurige lengte te meten - bijvoorbeeld het meten van een onwillig kind. 
+Dit is niet expliciet gemodelleerd in het archetype, omdat het openEHR Referentie model een schatting in ieder kwantitatief data type toestaat. Bij de uitvoering, bijvoorbeeld, zou een applicatie gebruikersinterface, een adequaat geĂ«tiketteerd selectievakje kunnen aanbieden aan clinici, naast de gegevens over het gewicht, waarin door selecteren aangegeven kan worden dat het opgenomen gewicht een schatting is, in plaats van het werkelijke gewicht.
+
+In het engelse taaldomein wordt er verschil gemaakt tussen hoogte (height) en lengte (length), waarbij hoogte staande gemeten wordt en lengte liggend.
+In dat geval zijn lengte metingen aanbevolen voor kinderen onder de leeftijd van 2 jaar en personen die niet kunnen staan; hoogte metingen voor alle anderen. 
+Idealiter wordt de hoogte(NL: lengte) gemeten, staand op beide voeten met het gewicht gelijkmatig verdeeld, hielen tegen elkaar en beide billen en hakken in contact met een verticale achterkant; lichaamslengte wordt gemeten in een volledig uitgespreide rugligging met het bekken plat, benen gestrekt en voeten gebogen. 
+Wordt gebruikt voor het registreren van groei en verlies van lengte. Dit kan, in voorkomend geval, momenteel worden gemodelleerd, door het beperken van een 'any event', tot een interval in een template met bijbehorende rekenkundige functie van de groei of krimp.">
+			keywords = <"krimp", "groeien", "verlies", "lengte", "hoogte">
+			misuse = <"Niet te gebruiken ter registratie van de eerste lengte van een kind, spoedig na de geboorte, welke gekenmerkd wordt als de geboortelengte - gebruik hiervoor de specialisatie van dit archetype - zie OBSERVATION.height-birth.(OBSERVATION.lengte-geboorte).">
+			copyright = <"Â© 2011 openEHR Foundation">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Jeroen Meintjen, Medisch Centrum Alkmaar, Netherlands", "Sebastian Garde, Ocean Informatics, Germany", "Heather Leslie, Ocean Informatics, Australia", "Omer Hotomaroglu, Turkey", "Andrew James, University of Toronto, Canada", "Anne Harbison, Australia", "Thilo Schuler, Germany", "Anneke Goossen, Results 4 Care, Netherlands", "Rikard Lovstrom, Swedish Medical Association, Sweden", "Heather Grain, Llewelyn Informatics, Australia", "Hans Demski, Helmholtz Zentrum MĂĽnchen, Germany", "Soon Ghee Yap, Singapore Health Services Pte Ltd, Singapore", "Paul Donaldson, Nursing Informatics Australia, Australia", "Rong Chen, Cambio Healthcare Systems, Sweden", "Sundaresan Jagannathan, Scottish NHS, United Kingdom", "Ian McNicoll, Ocean Informatics, United Kingdom", "Marja Buur, Medisch Centrum Alkmaar, Netherlands">
+	other_details = <
+		["references"] = <"Wilks Z, Bryan S, Mead V and Davies EH. Clinical guideline: Height, measuring a child [Internet]. London, United Kingdom: UCL Institute of Child Health; 2008 Apr 01 [cited 2009 Jul 28 ]. Available from: http://www.ich.ucl.ac.uk/clinical_information/clinical_guidelines/cpg_guideline_00060">
+		["MD5-CAM-1.0.1"] = <"22B5A1A9EBEE907CF4A15FFDDC6A4EEE">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Telesna visina / dolzina
+		data matches {
+			HISTORY[at0001] matches {	-- *history(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {1..*} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Simple(en)
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0004] matches {	-- ViĹˇina/DolĹľina
+										value matches {
+											C_DV_QUANTITY <
+												property = <[openehr::122]>
+												list = <
+													["1"] = <
+														units = <"cm">
+														magnitude = <|0.0..1000.0|>
+													>
+													["2"] = <
+														units = <"in">
+														magnitude = <|0.0..250.0|>
+													>
+												>
+											>
+										}
+									}
+									ELEMENT[at0018] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0013] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0014] occurrences matches {0..1} matches {	-- *Position(en)
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0016, 	-- *Standing(en)
+													at0020; 	-- *Lying(en)
+													at0016]	-- assumed value
+												}
+											}
+										}
+									}
+									ELEMENT[at0019] occurrences matches {0..1} matches {	-- *Confounding factors(en)
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		protocol matches {
+			ITEM_TREE[at0007] matches {	-- *List(en)
+				items cardinality matches {0..*; ordered} matches {
+					allow_archetype CLUSTER[at0011] occurrences matches {0..1} matches {	-- *Device(en)
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.device(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Telesna visina / dolzina">
+					description = <"Telesna visina ali dolzina merjena od vrha glave do stopal. Visina je merjena v stojecem stanju, dolzina pa v lezeci poziciji.">
+				>
+				["at0001"] = <
+					text = <"*history(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"*Any timed measurement of height or body length.(en)">
+				>
+				["at0003"] = <
+					text = <"*Simple(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"ViĹˇina/DolĹľina">
+					description = <"ViĹˇina/DolĹľina od vrha glave do stopal.">
+				>
+				["at0007"] = <
+					text = <"*List(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0011"] = <
+					text = <"*Device(en)">
+					description = <"*Description of the device used to measure height or body length.(en)">
+				>
+				["at0013"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0014"] = <
+					text = <"*Position(en)">
+					description = <"*Position of individual when measured.(en)">
+				>
+				["at0016"] = <
+					text = <"*Standing(en)">
+					description = <"*Height is measured standing on both feet with weight distributed evenly, heels together and both buttocks and heels in contact with a vertical back board.(en)">
+				>
+				["at0018"] = <
+					text = <"Komentar">
+					description = <"Komentar o meritvi telesne viĹˇine/dolĹľine.">
+				>
+				["at0019"] = <
+					text = <"*Confounding factors(en)">
+					description = <"*Record any issues or factors that may impact on the measurement of body height/length eg noting of amputation.(en)">
+				>
+				["at0020"] = <
+					text = <"*Lying(en)">
+					description = <"*Length is measured in a fully extended, recumbent position with the pelvis flat, legs extended and feet flexed.(en)">
+				>
+			>
+		>
+		["nl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lengte">
+					description = <"De lichaamslengte wordt gemeten vanaf de kruin van het hoofd tot en met de voetzool. In het engelse taaldomein wordt er verschil gemaakt tussen hoogte (height) en lengte (length), waarbij hoogte staande gemeten wordt en lengte liggend.">
+				>
+				["at0001"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Op enig tijdstip gemeten lengte.">
+				>
+				["at0003"] = <
+					text = <"Simple">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Lengte">
+					description = <"De lichaamslengte vanaf de kruin van het hoofd tot en met de voetzool.">
+				>
+				["at0007"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Apparaat">
+					description = <"Beschrijving van het bij de meting gebruikte apparaat.">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Positie">
+					description = <"Positie tijdens de meting, van de gemeten persoon.">
+				>
+				["at0016"] = <
+					text = <"Staand">
+					description = <"De lengte is gemeten, staand op beide voeten met het gewicht gelijkmatig verdeeld, hielen tegen elkaar en beide billen en hakken in contact met een verticale achterkant.">
+				>
+				["at0018"] = <
+					text = <"Opmerking">
+					description = <"Opmerking over de meting van de lichaamslengte.">
+				>
+				["at0019"] = <
+					text = <"BeĂŻnvloedende factoren">
+					description = <"Vermeld ieder probleem of feit die de meting van de lengte beĂŻnvloedt, b.v. notitie maken van een amputatie.">
+				>
+				["at0020"] = <
+					text = <"Liggend">
+					description = <"De lengte is liggend gemeten, volledig uitgestrekt, plat bekken, benen gestrekt en voeten gebogen.">
+				>
+			>
+		>
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Height/Length">
+					description = <"Height, or body length, is measured from crown of head to sole of foot.  Height is measured with the individual in a standing position and body length in a recumbent position.">
+				>
+				["at0001"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Any timed measurement of height or body length.">
+				>
+				["at0003"] = <
+					text = <"Simple">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Height/Length">
+					description = <"The length of the body from crown of head to sole of foot.">
+				>
+				["at0007"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Device">
+					description = <"Description of the device used to measure height or body length.">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Position">
+					description = <"Position of individual when measured.">
+				>
+				["at0016"] = <
+					text = <"Standing">
+					description = <"Height is measured standing on both feet with weight distributed evenly, heels together and both buttocks and heels in contact with a vertical back board.">
+				>
+				["at0018"] = <
+					text = <"Comment">
+					description = <"Comment about the measurement of body height/length.">
+				>
+				["at0019"] = <
+					text = <"Confounding factors">
+					description = <"Record any issues or factors that may impact on the measurement of body height/length eg noting of amputation.">
+				>
+				["at0020"] = <
+					text = <"Lying">
+					description = <"Length is measured in a fully extended, recumbent position with the pelvis flat, legs extended and feet flexed.">
+				>
+			>
+		>
+		["de"] = <
+			items = <
+				["at0000"] = <
+					text = <"GrĂ¶Ăźe/LĂ¤nge">
+					description = <"GrĂ¶Ăźe bzw. KĂ¶rperlĂ¤nge wird vom Scheitel bis zur FuĂźsohle gemessen. GrĂ¶Ăźe wird in einer stehenden Position gemessen, KĂ¶rperlĂ¤nge in einer liegenden Position.">
+				>
+				["at0001"] = <
+					text = <"History">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"Jede zu einem Zeitpunkt gemessene KĂ¶rpergrĂ¶Ăźe/-lĂ¤nge.">
+				>
+				["at0003"] = <
+					text = <"Simple">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"GrĂ¶Ăźe/LĂ¤nge">
+					description = <"Die LĂ¤nge des KĂ¶rpers von Scheitel bis Sohle.">
+				>
+				["at0007"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"GerĂ¤t">
+					description = <"Beschreibung des GerĂ¤ts, das zur Messung der GrĂ¶Ăźe oder LĂ¤nge verwendet wurde.">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"Position">
+					description = <"Position des Individiums bei der Messung.">
+				>
+				["at0016"] = <
+					text = <"Stehend">
+					description = <"GrĂ¶Ăźe wird stehend auf beiden FĂĽĂźen gemessen, mit dem Gewicht gleichmĂ¤Ăźig verteilt, den Hacken zusammen und beiden GesĂ¤Ăźbacken und Hacken in Kontakt mit einem senkrechten Brett.">
+				>
+				["at0018"] = <
+					text = <"Kommentar">
+					description = <"Kommentar ĂĽber die Messung der KĂ¶rpergrĂ¶Ăźe/-lĂ¤nge.">
+				>
+				["at0019"] = <
+					text = <"Einflussfaktoren">
+					description = <"Zur Dokumentation von Faktoren, die sich auf die Messung der KĂ¶rpergrĂ¶Ăźe/-lĂ¤nge auswirken kĂ¶nnen, z.B. einer Amputation.">
+				>
+				["at0020"] = <
+					text = <"Liegend">
+					description = <"LĂ¤nge wird in einer voll ausgestreckten, liegenden Position gemessen. Hierbei wird das Becken flach gehalten, die Beine ausgestreckt und die FĂĽĂźe gebeugt.">
+				>
+			>
+		>
+		["pt-br"] = <
+			items = <
+				["at0000"] = <
+					text = <"Altura / comprimento">
+					description = <"Altura ou comprimento do corpo, Ă© medida a partir da coroa da cabeĂ§a a sola do pĂ©.
+A altura Ă© medida com o indivĂ­duo na posiĂ§ĂŁo de pĂ© e comprimento do corpo na posiĂ§ĂŁo decĂşbito dorsal.">
+				>
+				["at0001"] = <
+					text = <"history">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Qualquer evento">
+					description = <"Medida a qualquer momento da altura ou comprimento do corpo.">
+				>
+				["at0003"] = <
+					text = <"Simple">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Altura / comprimento">
+					description = <"O comprimento do corpo da coroa da cabeĂ§a a sola do pĂ©.">
+				>
+				["at0007"] = <
+					text = <"List">
+					description = <"@ internal @">
+				>
+				["at0011"] = <
+					text = <"Dispositivo">
+					description = <"DescriĂ§ĂŁo do dispositivo utilizado para medir altura ou comprimento do corpo.">
+				>
+				["at0013"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0014"] = <
+					text = <"PosiĂ§ĂŁo">
+					description = <"PosiĂ§ĂŁo individual quando medido.">
+				>
+				["at0016"] = <
+					text = <"De pĂ©">
+					description = <"A altura Ă© medida de pĂ© sobre os dois pĂ©s com o peso distribuĂ­do uniformemente, calcanhares juntos e as nĂˇdegas e os calcanhares em contato com uma placa traseira vertical.">
+				>
+				["at0018"] = <
+					text = <"ComentĂˇrio">
+					description = <"ComentĂˇrio sobre a mediĂ§ĂŁo da altura/comprimento do corpo.">
+				>
+				["at0019"] = <
+					text = <"Fatore de erro">
+					description = <"Registrar quaisquer problemas ou fatores que possam ter impacto sobre a mediĂ§ĂŁo da altura/comprimento do corpo, por exemplo, observaĂ§ĂŁo de amputaĂ§ĂŁo.">
+				>
+				["at0020"] = <
+					text = <"DecĂşbito dorsal">
+					description = <"O comprimento Ă© medido em uma posiĂ§ĂŁo totalmente estendida, deitada com a pelve plana, pernas estendidas e os pĂ©s flexionados.">
+				>
+			>
+		>
+	>

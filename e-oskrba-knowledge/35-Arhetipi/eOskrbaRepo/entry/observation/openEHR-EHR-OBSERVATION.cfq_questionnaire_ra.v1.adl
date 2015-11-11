@@ -1,0 +1,230 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.cfq_questionnaire_ra.v1
+
+concept
+	[at0000]	-- Cfq questionnaire
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"265921BEAF59A3979DBB225D322E5E77">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Cfq questionnaire
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja
+										items cardinality matches {1..*; unordered} matches {
+											ELEMENT[at0028] occurrences matches {0..1} matches {	-- New element
+												value matches {
+													DV_COUNT matches {*}
+												}
+											}
+											ELEMENT[at0007] occurrences matches {0..1} matches {	-- Koliko ste stari?
+												value matches {
+													1|[local::at0022], 	-- do 49 let
+													2|[local::at0023], 	-- 50-59 let
+													3|[local::at0024], 	-- 60-69 let
+													4|[local::at0025]  	-- 70 let ali več
+												}
+											}
+											ELEMENT[at0026] occurrences matches {0..1} matches {	-- Koliko cigaret trenutno pokadite oziroma ste pokadili na dan?
+												value matches {
+													DV_COUNT matches {*}
+												}
+											}
+											ELEMENT[at0027] occurrences matches {0..1} matches {	-- Koliko let že kadite oziroma ste kadili cigarete?
+												value matches {
+													DV_COUNT matches {*}
+												}
+											}
+											ELEMENT[at0015] occurrences matches {0..1} matches {	-- BMI
+												value matches {
+													C_DV_ORDINAL <
+													>
+												}
+											}
+											ELEMENT[at0016] occurrences matches {0..1} matches {	-- Ali vreme vpliva na vaš kašelj?
+												value matches {
+													0|[local::at0019], 	-- Ne
+													1|[local::at0018], 	-- Da
+													2|[local::at0020]  	-- Ne kašljam
+												}
+											}
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- New element
+												value matches {
+													C_DV_ORDINAL <
+													>
+												}
+											}
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Število točk
+										value matches {
+											DV_COUNT matches {*}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Komentar
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0021] occurrences matches {0..1} matches {	-- New element
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[local::]}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Cfq questionnaire">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Vprašanja">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Število točk">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Koliko ste stari?">
+					description = <"Koliko ste stari?">
+				>
+				["at0015"] = <
+					text = <"BMI">
+					description = <"BMI (Body Mass Index) ali ITM (Indeks Telesne Mase) predstavlja vrednost izračununo iz telesne mase in telesne višine (teža/višina2).">
+				>
+				["at0016"] = <
+					text = <"Ali vreme vpliva na vaš kašelj?">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Ne kašljam">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"New element">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"do 49 let">
+					description = <"0">
+				>
+				["at0023"] = <
+					text = <"50-59 let">
+					description = <"4">
+				>
+				["at0024"] = <
+					text = <"60-69 let">
+					description = <"8">
+				>
+				["at0025"] = <
+					text = <"70 let ali več">
+					description = <"10">
+				>
+				["at0026"] = <
+					text = <"Koliko cigaret trenutno pokadite oziroma ste pokadili na dan?">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Koliko let že kadite oziroma ste kadili cigarete?">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"New element">
+					description = <"*">
+				>
+			>
+		>
+	>

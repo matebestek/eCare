@@ -1,0 +1,333 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.broset_violence_checklist.v1
+
+concept
+	[at0000]	-- Lestvica BVC
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana">
+				["name"] = <"Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Uroš Rajkovič">
+		["organisation"] = <"Faculty of organizational sciences, University of Maribor, Slovenia">
+		["email"] = <"uros.rajkovic@fov.uni-mb.si">
+		["date"] = <"19.10.2010">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To determine patient's level of violence.">
+			use = <"Medical or nursing use.">
+			keywords = <"BVC", "scale", "Broset violence checklist", "violence">
+			misuse = <"To documents elements from psychiatric documentation.">
+			copyright = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za oceno stopnje nasilja pri pacientu">
+			use = <"V ZN">
+			keywords = <"BVC", "Nasilje", "Lestvica za oceno nasilja pri pacientu", "Lestvica">
+			misuse = <"Za dokumentiranje elementov za psihiatrično dokumentacijo">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Biljana Prinčič, biljana.princic@marand.si, Marand d.o.o., Slovenia", ...>
+	other_details = <
+		["references"] = <"ALMVIK R, WOODS P, RASMUSSEN K. The Broset Violence Checklist: Sensitivity, Specificity, and Interrater Reliability. Journal of Interpersonal Violence. 2000;15(12):1284-1296. Available at: http://jiv.sagepub.com/cgi/content/abstract/15/12/1284.">
+		["MD5-CAM-1.0.1"] = <"8102D23836BD08190A54E69EA9BA4C99">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Lestvica BVC
+		data matches {
+			HISTORY[at0001] matches {	-- *Event Series(en)
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- *Any event(en)
+						data matches {
+							ITEM_TREE[at0003] matches {	-- *Tree(en)
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Zmeden
+										value matches {
+											0|[local::at0011], 	-- Ni zmeden
+											1|[local::at0012]  	-- Zmeden
+										}
+									}
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Razdražljiv
+										value matches {
+											0|[local::at0013], 	-- Ni razdržljiv
+											1|[local::at0014]  	-- Razdražljiv
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Pretirano živahen
+										value matches {
+											0|[local::at0015], 	-- Ni pretirano živahen
+											1|[local::at0016]  	-- Je pretirano živahen
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Grozi verbalno
+										value matches {
+											0|[local::at0017], 	-- Ni prisotno
+											1|[local::at0018]  	-- Prisotno
+										}
+									}
+									ELEMENT[at0008] occurrences matches {0..1} matches {	-- Grozi fizično
+										value matches {
+											0|[local::at0019], 	-- Ni prisotno
+											1|[local::at0020]  	-- Prisotno
+										}
+									}
+									ELEMENT[at0009] occurrences matches {0..1} matches {	-- Napadi na objekte
+										value matches {
+											0|[local::at0021], 	-- Ni prisotno
+											1|[local::at0022]  	-- Prisotno
+										}
+									}
+									ELEMENT[at0010] occurrences matches {0..1} matches {	-- Rezultat
+										value matches {
+											DV_COUNT matches {
+												magnitude matches {|0..6|}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Broset violence checklist">
+					description = <"Patient violence scale">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Confusion">
+					description = <"Confusion level.">
+				>
+				["at0005"] = <
+					text = <"Irritability">
+					description = <"Irritability level.">
+				>
+				["at0006"] = <
+					text = <"Boisterousness">
+					description = <"Level of boisterousness.">
+				>
+				["at0007"] = <
+					text = <"Verbal threats">
+					description = <"Does the patient make verbal threats?">
+				>
+				["at0008"] = <
+					text = <"Physical threats">
+					description = <"Does the patient make physical threats?">
+				>
+				["at0009"] = <
+					text = <"Attacks on objects">
+					description = <"Does the patient attack objects?">
+				>
+				["at0010"] = <
+					text = <"Score">
+					description = <"Total score derived from each component.">
+				>
+				["at0011"] = <
+					text = <"Not confused">
+					description = <"Patient does not appear confused">
+				>
+				["at0012"] = <
+					text = <"Confused">
+					description = <"Patient appears to be confused">
+				>
+				["at0013"] = <
+					text = <"Not irritable">
+					description = <"Irritability level is normal">
+				>
+				["at0014"] = <
+					text = <"Irritable">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Not boiusterous">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Boisterous">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Not present">
+					description = <"Patient does not threat verbally">
+				>
+				["at0018"] = <
+					text = <"Present">
+					description = <"Patient verbalises threats">
+				>
+				["at0019"] = <
+					text = <"Not present">
+					description = <"No physical threats from the patient">
+				>
+				["at0020"] = <
+					text = <"Present">
+					description = <"Patient physically treats others and/or objects">
+				>
+				["at0021"] = <
+					text = <"Not present">
+					description = <"Patient does not attack objects">
+				>
+				["at0022"] = <
+					text = <"Present">
+					description = <"Patient attacks objects">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Lestvica BVC">
+					description = <"Lestvica za oceno nasilnosti pacienta">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Zmeden">
+					description = <"Ali je pacient zmeden?">
+				>
+				["at0005"] = <
+					text = <"Razdražljiv">
+					description = <"Ali je pacient razdražljiv?">
+				>
+				["at0006"] = <
+					text = <"Pretirano živahen">
+					description = <"Ali je pacient prestirano živahen?">
+				>
+				["at0007"] = <
+					text = <"Grozi verbalno">
+					description = <"Ali pacient grozi verbalno?">
+				>
+				["at0008"] = <
+					text = <"Grozi fizično">
+					description = <"Ali pacient grozi fizično?">
+				>
+				["at0009"] = <
+					text = <"Napadi na objekte">
+					description = <"Ali pacient napada objekte?">
+				>
+				["at0010"] = <
+					text = <"Rezultat">
+					description = <"Rezultat ocene">
+				>
+				["at0011"] = <
+					text = <"Ni zmeden">
+					description = <"Pacient ni zmeden">
+				>
+				["at0012"] = <
+					text = <"Zmeden">
+					description = <"Pacient je zmeden">
+				>
+				["at0013"] = <
+					text = <"Ni razdržljiv">
+					description = <"Ni razdrazžljiv">
+				>
+				["at0014"] = <
+					text = <"Razdražljiv">
+					description = <"Je razdražljiv">
+				>
+				["at0015"] = <
+					text = <"Ni pretirano živahen">
+					description = <"Pacient ni pretirano živahen">
+				>
+				["at0016"] = <
+					text = <"Je pretirano živahen">
+					description = <"Pacient je pretirano živahen">
+				>
+				["at0017"] = <
+					text = <"Ni prisotno">
+					description = <"Pacient ne grozi verbalno">
+				>
+				["at0018"] = <
+					text = <"Prisotno">
+					description = <"PAcient grozi verbalno">
+				>
+				["at0019"] = <
+					text = <"Ni prisotno">
+					description = <"Pacient ne grozi fizično">
+				>
+				["at0020"] = <
+					text = <"Prisotno">
+					description = <"Pacient grozi fizično">
+				>
+				["at0021"] = <
+					text = <"Ni prisotno">
+					description = <"Pacient ne napada objektov">
+				>
+				["at0022"] = <
+					text = <"Prisotno">
+					description = <"Pacient napada objekte">
+				>
+			>
+		>
+	>

@@ -1,0 +1,264 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.hu_koraki_03.v1
+
+concept
+	[at0000]	-- Hu koraki 03
+language
+	original_language = <[ISO_639-1::sl]>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Gradivo in validacija 3. koraka v programu hujšanja (eOskrba).">
+			use = <"">
+			misuse = <"">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E7B26ABF809DFE77FCC3D2FEEFF6ED40">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Hu koraki 03
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- questionnaire_wl_03
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0003] occurrences matches {0..1} matches {	-- Vprašanja prehrana
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0006] occurrences matches {0..1} matches {	-- Ali naše telo za normalno delovanje potrebuje kuhinjski sladkor?
+								value matches {
+									0|[local::at0012], 	-- Ne
+									1|[local::at0013]  	-- Da
+								}
+							}
+							ELEMENT[at0007] occurrences matches {0..1} matches {	-- Kakšna žita in žitne izdelke je priporočeno uživati?
+								value matches {
+									0|[local::at0014], 	-- Polnovredna (nepredelana) kot so polnozrnati kruh in izdelki iz polnozrnate moke, izdelki iz ajde, kaše in kosmiči iz ovsa, rži, pire, ječmena, naravni (neoluščeni) riž, testenine iz polnozrnate moke
+									1|[local::at0015]  	-- Predelana kot so beli kruh, testenine iz bele moke, oluščeni riž
+								}
+							}
+							ELEMENT[at0011] occurrences matches {0..1} matches {	-- Približno koliko žlic kuhanega riža predstavlja 4 enote škrobnega (ogljikohidratnega) živila?
+								value matches {
+									0|[local::at0016], 	-- 8 žlic
+									1|[local::at0017], 	-- 2 žlici
+									2|[local::at0018]  	-- 4 žlice
+								}
+							}
+						}
+					}
+					CLUSTER[at0004] occurrences matches {0..1} matches {	-- Vprašanja gibanje
+						items cardinality matches {0..*; unordered} matches {
+							ELEMENT[at0008] occurrences matches {0..1} matches {	-- Katera trditev velja za osnovno strukturo vadbene enote?
+								value matches {
+									0|[local::at0020], 	-- Ogrevanje vsebuje enostavne vaje kot so hoja, korakanje na mestu, kroženje z rokami
+									1|[local::at0021], 	-- Ogrevanje je bolj pomembno kot ohlajanje
+									2|[local::at0022]  	-- Glavni del vadbe mora trajati vsaj eno uro
+								}
+							}
+							ELEMENT[at0009] occurrences matches {0..1} matches {	-- Katera trditev NE velja za držo in dihanje med vadbo? (označite tisto, ki NE velja!)
+								value matches {
+									0|[local::at0023], 	-- Pravilno dihanje je plitko in hitro
+									1|[local::at0024], 	-- Pravilna drža zmanjša nepotreben pritisk na mišice in sklepe
+									2|[local::at0025]  	-- Med vadbo dihamo enakomerno in ne zadržujemo sape
+								}
+							}
+							ELEMENT[at0010] occurrences matches {0..1} matches {	-- Katera trditev velja za ogrevanje?
+								value matches {
+									0|[local::at0026], 	-- Z ogrevanjem preprečujemo bolečine in poškodbe pri vadbi
+									1|[local::at0027], 	-- Če smo sicer zelo aktivni, lahko ogrevanje izpustimo
+									2|[local::at0028]  	-- Za ogrevanje nujno potrebujemo vadbene pripomočke
+								}
+							}
+							ELEMENT[at0019] occurrences matches {0..1} matches {	-- Za vaje za raztezanje velja naslednja trditev:
+								value matches {
+									0|[local::at0029], 	-- Vaje za raztezanje izvajamo do občutka raztega
+									1|[local::at0030], 	-- Vaje za raztezanje izvajamo do občutka  rahle bolečine
+									2|[local::at0031]  	-- Pri ohlajanju raztegujemo tiste mišice, ki jih pri vadbi nismo toliko uporabljali
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- Komentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Hu koraki 03">
+					description = <"unknown">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"questionnaire_wl_03">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Vprašanja prehrana">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"Vprašanja gibanje">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Komentar">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Ali naše telo za normalno delovanje potrebuje kuhinjski sladkor?">
+					description = <"Ali naše telo za normalno delovanje potrebuje kuhinjski sladkor?">
+				>
+				["at0007"] = <
+					text = <"Kakšna žita in žitne izdelke je priporočeno uživati?">
+					description = <"Kakšna žita in žitne izdelke je priporočeno uživati?">
+				>
+				["at0008"] = <
+					text = <"Katera trditev velja za osnovno strukturo vadbene enote?">
+					description = <"Katera trditev velja za osnovno strukturo vadbene enote?">
+				>
+				["at0009"] = <
+					text = <"Katera trditev NE velja za držo in dihanje med vadbo? (označite tisto, ki NE velja!)">
+					description = <"Katera trditev NE velja za držo in dihanje med vadbo?">
+				>
+				["at0010"] = <
+					text = <"Katera trditev velja za ogrevanje?">
+					description = <"Katera trditev velja za ogrevanje?">
+				>
+				["at0011"] = <
+					text = <"Približno koliko žlic kuhanega riža predstavlja 4 enote škrobnega (ogljikohidratnega) živila?">
+					description = <"Približno koliko žlic kuhanega riža predstavlja 4 enote škrobnega (ogljikohidratnega) živila?">
+				>
+				["at0012"] = <
+					text = <"Ne">
+					description = <"Ne">
+				>
+				["at0013"] = <
+					text = <"Da">
+					description = <"Da">
+				>
+				["at0014"] = <
+					text = <"Polnovredna (nepredelana) kot so polnozrnati kruh in izdelki iz polnozrnate moke, izdelki iz ajde, kaše in kosmiči iz ovsa, rži, pire, ječmena, naravni (neoluščeni) riž, testenine iz polnozrnate moke">
+					description = <"Polnovredna (nepredelana) kot so polnozrnati kruh in izdelki iz polnozrnate moke, izdelki iz ajde, kaše in kosmiči iz ovsa, rži, pire, ječmena, naravni (neoluščeni) riž, testenine iz polnozrnate moke">
+				>
+				["at0015"] = <
+					text = <"Predelana kot so beli kruh, testenine iz bele moke, oluščeni riž">
+					description = <"Predelana kot so beli kruh, testenine iz bele moke, oluščeni riž">
+				>
+				["at0016"] = <
+					text = <"8 žlic">
+					description = <"8 žlic">
+				>
+				["at0017"] = <
+					text = <"2 žlici">
+					description = <"2 žlici">
+				>
+				["at0018"] = <
+					text = <"4 žlice">
+					description = <"4 žlice">
+				>
+				["at0019"] = <
+					text = <"Za vaje za raztezanje velja naslednja trditev:">
+					description = <"Za vaje za raztezanje velja naslednja trditev:">
+				>
+				["at0020"] = <
+					text = <"Ogrevanje vsebuje enostavne vaje kot so hoja, korakanje na mestu, kroženje z rokami">
+					description = <"Ogrevanje vsebuje enostavne vaje kot so hoja, korakanje na mestu, kroženje z rokami">
+				>
+				["at0021"] = <
+					text = <"Ogrevanje je bolj pomembno kot ohlajanje">
+					description = <"Ogrevanje je bolj pomembno kot ohlajanje">
+				>
+				["at0022"] = <
+					text = <"Glavni del vadbe mora trajati vsaj eno uro">
+					description = <"Glavni del vadbe mora trajati vsaj eno uro">
+				>
+				["at0023"] = <
+					text = <"Pravilno dihanje je plitko in hitro">
+					description = <"Pravilno dihanje je plitko in hitro">
+				>
+				["at0024"] = <
+					text = <"Pravilna drža zmanjša nepotreben pritisk na mišice in sklepe">
+					description = <"Pravilna drža zmanjša nepotreben pritisk na mišice in sklepe">
+				>
+				["at0025"] = <
+					text = <"Med vadbo dihamo enakomerno in ne zadržujemo sape">
+					description = <"Med vadbo dihamo enakomerno in ne zadržujemo sape">
+				>
+				["at0026"] = <
+					text = <"Z ogrevanjem preprečujemo bolečine in poškodbe pri vadbi">
+					description = <"Z ogrevanjem preprečujemo bolečine in poškodbe pri vadbi">
+				>
+				["at0027"] = <
+					text = <"Če smo sicer zelo aktivni, lahko ogrevanje izpustimo">
+					description = <"Če smo sicer zelo aktivni, lahko ogrevanje izpustimo">
+				>
+				["at0028"] = <
+					text = <"Za ogrevanje nujno potrebujemo vadbene pripomočke">
+					description = <"Za ogrevanje nujno potrebujemo vadbene pripomočke">
+				>
+				["at0029"] = <
+					text = <"Vaje za raztezanje izvajamo do občutka raztega">
+					description = <"Vaje za raztezanje izvajamo do občutka raztega">
+				>
+				["at0030"] = <
+					text = <"Vaje za raztezanje izvajamo do občutka  rahle bolečine">
+					description = <"Vaje za raztezanje izvajamo do občutka  rahle bolečine">
+				>
+				["at0031"] = <
+					text = <"Pri ohlajanju raztegujemo tiste mišice, ki jih pri vadbi nismo toliko uporabljali">
+					description = <"Pri ohlajanju raztegujemo tiste mišice, ki jih pri vadbi nismo toliko uporabljali">
+				>
+			>
+		>
+	>

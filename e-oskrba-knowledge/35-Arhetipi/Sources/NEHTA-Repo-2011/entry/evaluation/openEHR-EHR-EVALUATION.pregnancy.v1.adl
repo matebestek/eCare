@@ -1,0 +1,607 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+﻿archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.pregnancy.v1
+
+concept
+	[at0000]	-- Pregnancy summary
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Sam Heard">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"sam.heard@oceaninformatics.com">
+		["date"] = <"28/02/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"A cumulative overview or summary record of a single pregnancy.">
+			use = <"To record a summary of a single pregnancy.
+
+This information can be gradually accumulated, or updated, throughout the pregnancy.
+
+Event- or consultation-based information will be recorded using OBSERVATION archetypes.">
+			keywords = <"pregnancy", "fetus", "foetus", "infant", "neonate", "delivery", "conception", "due", "date", "expected", "labor", "labour">
+			misuse = <"">
+			copyright = <"© 2011 NEHTA">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Heather Leslie, Ocean Informatics, Australia", ...>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"E97775837E056AAD620D56C215DFB3A6">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- Pregnancy summary
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- Date of conception
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					CLUSTER[at0006] occurrences matches {0..*} matches {	-- Due date
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0069] occurrences matches {0..1} matches {	-- Due date
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0005] occurrences matches {0..1} matches {	-- Basis for due date estimation
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- Number of fetuses
+						value matches {
+							DV_COUNT matches {*}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- Type of labour onset
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Spontaneous
+									at0010, 	-- Induced
+									at0011]	-- No labour
+								}
+							}
+						}
+					}
+					ELEMENT[at0012] occurrences matches {0..1} matches {	-- DateTime of labour onset
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0013] occurrences matches {0..1} matches {	-- End of first stage
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0014] occurrences matches {0..1} matches {	-- End of second stage
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0015] occurrences matches {0..1} matches {	-- End of third stage
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0016] occurrences matches {0..1} matches {	-- Duration of labour
+						value matches {
+							DV_DURATION matches {*}
+						}
+					}
+					ELEMENT[at0020] occurrences matches {0..1} matches {	-- Time of rupture of membranes
+						value matches {
+							DV_DATE_TIME matches {*}
+						}
+					}
+					ELEMENT[at0017] occurrences matches {0..1} matches {	-- Type of membrane rupture
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0018, 	-- Spontaneous
+									at0019]	-- Amniotomy
+								}
+							}
+						}
+					}
+					ELEMENT[at0021] occurrences matches {0..1} matches {	-- Method of amniotomy
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					CLUSTER[at0023] occurrences matches {0..*} matches {	-- Labour augmentation
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0022] occurrences matches {0..1} matches {	-- Type of augmentation
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0024] occurrences matches {0..1} matches {	-- Duration
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0065] occurrences matches {0..1} matches {	-- Pregnancy/delivery complications
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0066] occurrences matches {0..1} matches {	-- Complication
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0067] occurrences matches {0..1} matches {	-- Date of onset
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0068] occurrences matches {0..1} matches {	-- Description
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028] occurrences matches {0..*} matches {	-- Fetus/neonate
+						items cardinality matches {1..*; unordered} matches {
+							ELEMENT[at0036] occurrences matches {0..1} matches {	-- Identification
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Date of delivery
+								value matches {
+									DV_DATE_TIME matches {*}
+								}
+							}
+							ELEMENT[at0059] occurrences matches {0..1} matches {	-- Gestation at delivery
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+							ELEMENT[at0030] occurrences matches {0..1} matches {	-- Delivery outcome
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0031, 	-- Live birth
+											at0032, 	-- Neonatal death
+											at0033, 	-- Still birth
+											at0034, 	-- Miscarriage
+											at0035]	-- Termination
+										}
+									}
+								}
+							}
+							ELEMENT[at0037] occurrences matches {0..1} matches {	-- Sex
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0038] occurrences matches {0..1} matches {	-- Weight at delivery
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::124]>
+										list = <
+											["1"] = <
+												units = <"gm">
+											>
+											["2"] = <
+												units = <"kg">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at0039] occurrences matches {0..1} matches {	-- Duration of second stage
+								value matches {
+									DV_DURATION matches {*}
+								}
+							}
+							ELEMENT[at0040] occurrences matches {0..1} matches {	-- Mode of delivery
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0041, 	-- Vaginal - non-instrumental
+											at0042, 	-- Vaginal - vacuum extraction
+											at0043, 	-- Vaginal - forceps
+											at0044]	-- Caesarean section
+										}
+									}
+								}
+							}
+							ELEMENT[at0045] occurrences matches {0..1} matches {	-- Delivery presentation
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0046, 	-- Vertex
+											at0047, 	-- Breech
+											at0048, 	-- Face
+											at0049]	-- Brow
+										}
+									}
+								}
+							}
+							CLUSTER[at0050] occurrences matches {0..*} matches {	-- Delivery intervention
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0051] occurrences matches {0..1} matches {	-- Intervention
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0052] occurrences matches {0..1} matches {	-- Status
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0053, 	-- Emergency
+													at0054]	-- Elective
+												}
+											}
+										}
+									}
+									ELEMENT[at0055] occurrences matches {0..1} matches {	-- Description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0056] occurrences matches {0..1} matches {	-- Indication
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0057] occurrences matches {0..1} matches {	-- Successful
+										value matches {
+											DV_BOOLEAN matches {
+												value matches {True, False}
+											}
+										}
+									}
+								}
+							}
+							ELEMENT[at0058] occurrences matches {0..1} matches {	-- Description of delivery
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0060] occurrences matches {0..1} matches {	-- Description of fetus/neonate
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							CLUSTER[at0061] occurrences matches {0..*} matches {	-- Fetal/neonatal complication
+								items cardinality matches {1..*; unordered} matches {
+									ELEMENT[at0062] occurrences matches {0..1} matches {	-- Complication
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+									ELEMENT[at0063] occurrences matches {0..1} matches {	-- Date of onset
+										value matches {
+											DV_DATE_TIME matches {*}
+										}
+									}
+									ELEMENT[at0064] occurrences matches {0..1} matches {	-- Description
+										value matches {
+											DV_TEXT matches {*}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Pregnancy summary">
+					description = <"Summary of a single pregnancy.">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Date of conception">
+					description = <"The date of conception, if known.">
+				>
+				["at0005"] = <
+					text = <"Basis for due date estimation">
+					description = <"Evidence on which the EDD is estimated, for example, the LNMP or an ultrasound at 12 weeks gestation.">
+				>
+				["at0006"] = <
+					text = <"Due date">
+					description = <"Details about the estimated due date of delivery or confinement.">
+				>
+				["at0007"] = <
+					text = <"Number of fetuses">
+					description = <"The number of fetuses identified.">
+				>
+				["at0008"] = <
+					text = <"Type of labour onset">
+					description = <"Type of labour onset.">
+				>
+				["at0009"] = <
+					text = <"Spontaneous">
+					description = <"Onset without intervention.">
+				>
+				["at0010"] = <
+					text = <"Induced">
+					description = <"Onset through intervention.">
+				>
+				["at0011"] = <
+					text = <"No labour">
+					description = <"Labour did not occur.">
+				>
+				["at0012"] = <
+					text = <"DateTime of labour onset">
+					description = <"The date and time of the start of the first stage of labour.">
+				>
+				["at0013"] = <
+					text = <"End of first stage">
+					description = <"Date and time of end of first stage of labour.">
+				>
+				["at0014"] = <
+					text = <"End of second stage">
+					description = <"Date and time of end of second stage of labour.">
+				>
+				["at0015"] = <
+					text = <"End of third stage">
+					description = <"Date and time of end of third stage of labour.">
+				>
+				["at0016"] = <
+					text = <"Duration of labour">
+					description = <"The total duration of labour.">
+				>
+				["at0017"] = <
+					text = <"Type of membrane rupture">
+					description = <"The type of amniotic membrane rupture.">
+				>
+				["at0018"] = <
+					text = <"Spontaneous">
+					description = <"Without intervention.">
+				>
+				["at0019"] = <
+					text = <"Amniotomy">
+					description = <"Rupture of the membranes by procedure.">
+				>
+				["at0020"] = <
+					text = <"Time of rupture of membranes">
+					description = <"The time of the rupture of the amniotic membranes.">
+				>
+				["at0021"] = <
+					text = <"Method of amniotomy">
+					description = <"Description of the way the membranes were ruptured.">
+				>
+				["at0022"] = <
+					text = <"Type of augmentation">
+					description = <"Type of labour augmentation.">
+				>
+				["at0023"] = <
+					text = <"Labour augmentation">
+					description = <"Details of augmentation of labour, exclusing the rupture of amniotic membranes.">
+				>
+				["at0024"] = <
+					text = <"Duration">
+					description = <"Duration of augmentation.">
+				>
+				["at0028"] = <
+					text = <"Fetus/neonate">
+					description = <"Information about the fetus or neonate.">
+				>
+				["at0029"] = <
+					text = <"Date of delivery">
+					description = <"The date of delivery (or date of birth for the neonate).">
+				>
+				["at0030"] = <
+					text = <"Delivery outcome">
+					description = <"Outcome of the pregnancy/delivery for the fetus or neonate .">
+				>
+				["at0031"] = <
+					text = <"Live birth">
+					description = <"Pregnancy resulted delivery of a live infant.">
+				>
+				["at0032"] = <
+					text = <"Neonatal death">
+					description = <"Pregnancy resulted in a live infant who lived less than 28 days.">
+				>
+				["at0033"] = <
+					text = <"Still birth">
+					description = <"Pregnancy resulted in an infant that was not alive when delivered.">
+				>
+				["at0034"] = <
+					text = <"Miscarriage">
+					description = <"Pregnancy resulted in a miscarriage.">
+				>
+				["at0035"] = <
+					text = <"Termination">
+					description = <"Pregnancy was terminated.">
+				>
+				["at0036"] = <
+					text = <"Identification">
+					description = <"Identification of fetus or name of neonate.">
+				>
+				["at0037"] = <
+					text = <"Sex">
+					description = <"The sex of the fetus or infant. Coding with a terminology is preferred.">
+				>
+				["at0038"] = <
+					text = <"Weight at delivery">
+					description = <"The weight of this fetus or neonate at delivery.">
+				>
+				["at0039"] = <
+					text = <"Duration of second stage">
+					description = <"Duration of second stage for the neonate.">
+				>
+				["at0040"] = <
+					text = <"Mode of delivery">
+					description = <"The method by which the fetus or neonate was delivered.">
+					comment = <"Value set from AIHW.">
+				>
+				["at0041"] = <
+					text = <"Vaginal - non-instrumental">
+					description = <"Normal, unassisted vaginal delivery.">
+				>
+				["at0042"] = <
+					text = <"Vaginal - vacuum extraction">
+					description = <"Vaginal delivery was assisted by vacuum extraction.">
+				>
+				["at0043"] = <
+					text = <"Vaginal - forceps">
+					description = <"Vaginal delivery was assisted by forceps.">
+				>
+				["at0044"] = <
+					text = <"Caesarean section">
+					description = <"Surgical delivery of infant.">
+				>
+				["at0045"] = <
+					text = <"Delivery presentation">
+					description = <"The presenting part of the fetus/neonate at delivery.">
+					comment = <"AIHW value set.">
+				>
+				["at0046"] = <
+					text = <"Vertex">
+					description = <"Vertex presentation.">
+				>
+				["at0047"] = <
+					text = <"Breech">
+					description = <"Breech presentation.">
+				>
+				["at0048"] = <
+					text = <"Face">
+					description = <"Face presentation.">
+				>
+				["at0049"] = <
+					text = <"Brow">
+					description = <"Brow presentation.">
+				>
+				["at0050"] = <
+					text = <"Delivery intervention">
+					description = <"Detail about interventions performed during delivery.">
+				>
+				["at0051"] = <
+					text = <"Intervention">
+					description = <"Name or type of intervention. Coding with a terminology is preferred, if possible.">
+				>
+				["at0052"] = <
+					text = <"Status">
+					description = <"The urgency of the intervention.">
+				>
+				["at0053"] = <
+					text = <"Emergency">
+					description = <"Unplanned intervention.">
+				>
+				["at0054"] = <
+					text = <"Elective">
+					description = <"Planned intervention.">
+				>
+				["at0055"] = <
+					text = <"Description">
+					description = <"Description of the intervention and effect.">
+				>
+				["at0056"] = <
+					text = <"Indication">
+					description = <"The indication for the intervention.">
+				>
+				["at0057"] = <
+					text = <"Successful">
+					description = <"True if the intervention resulted in a successful delivery.">
+				>
+				["at0058"] = <
+					text = <"Description of delivery">
+					description = <"Narrative description of the delivery or birth.">
+				>
+				["at0059"] = <
+					text = <"Gestation at delivery">
+					description = <"Estimated gestational age at delivery.">
+				>
+				["at0060"] = <
+					text = <"Description of fetus/neonate">
+					description = <"Description of the fetus or neonate at delivery.">
+				>
+				["at0061"] = <
+					text = <"Fetal/neonatal complication">
+					description = <"Details about fetal or neonatal complications.">
+				>
+				["at0062"] = <
+					text = <"Complication">
+					description = <"Indentification of the complication.">
+				>
+				["at0063"] = <
+					text = <"Date of onset">
+					description = <"Date of onset of complication.">
+				>
+				["at0064"] = <
+					text = <"Description">
+					description = <"Description of complication.">
+				>
+				["at0065"] = <
+					text = <"Pregnancy/delivery complications">
+					description = <"Details about pregnancy or delivery complications.">
+				>
+				["at0066"] = <
+					text = <"Complication">
+					description = <"Indentification of the complication.">
+				>
+				["at0067"] = <
+					text = <"Date of onset">
+					description = <"Date of onset of complication.">
+				>
+				["at0068"] = <
+					text = <"Description">
+					description = <"Description of complication.">
+				>
+				["at0069"] = <
+					text = <"Due date">
+					description = <"Estimated/expected date of delivery or confinement.">
+				>
+			>
+		>
+	>

@@ -1,0 +1,841 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.inspection-skin-scar-zn.v1
+specialize
+	openEHR-EHR-CLUSTER.inspection-skin-scar.v1
+
+concept
+	[at0000.1.1.1]	-- Opazovanje brazgotin
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"Marand d.o.o., Ljubljana, Slovenija">
+				["name"] = <"mag. Biljana Prinčič">
+				["email"] = <"biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Heather Leslie">
+		["organisation"] = <"Ocean Informatics">
+		["email"] = <"heather.leslie@oceaninformatics.com">
+		["date"] = <"10/04/2007">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"For recording the findings on inspection of a scar.">
+			use = <"For use with the exam clusters for recording findings on inspection of a scar.">
+			keywords = <"inspect", "visual", "skin", "scar">
+			misuse = <"Should only be used in the exam observation">
+			copyright = <"copyright (c) 2010 openEHR foundation">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Za ocenjevanje brazgotin in stalnejših znamenj na koži">
+			use = <"Se uporablja skupaj s klastri za oceno kože">
+			keywords = <"vizualna ocena", "ocena kože", "brazgotine", "znamenja", "koža">
+			misuse = <"Se uporablja skupaj s klastri za oceno kože">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <"Ian McNicoll, Ocean Informatics, UK", ...>
+	other_details = <
+		["references"] = <"Bayat A, McGrouther DA, Ferguson MWJ. Skin scarring [Internet]. BMJ 2003 Jan;326(7380):88-92.[cited 2010 Jun 13 ] Available from: http://www.bmj.com.ezp1.bath.ac.uk/
+
+">
+		["MD5-CAM-1.0.1"] = <"69462889712911CBD9FF8334AD2E397F">
+	>
+
+definition
+	CLUSTER[at0000.1.1.1] occurrences matches {0..1} matches {	-- Opazovanje brazgotin
+		items cardinality matches {1..*; ordered} matches {
+			ELEMENT[at0002] occurrences matches {0..*} matches {	-- Opazovanje
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			ELEMENT[at0048] occurrences matches {0..1} matches {	-- Klinični opis
+				value matches {
+					DV_TEXT matches {*}
+				}
+			}
+			CLUSTER[at0006] occurrences matches {0..1} matches {	-- Ugotovitve
+				items cardinality matches {1..*; unordered} matches {
+					allow_archetype CLUSTER[at0053] occurrences matches {0..1} matches {	-- Lokacija
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.anatomical_location(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					allow_archetype CLUSTER[at0054] occurrences matches {0..1} matches {	-- Dimenzije
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.dimensions(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0.0.61.1] occurrences matches {0..1} matches {	-- Vrsta brazgotine
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.0.88, 	-- Zadebeljena koža
+									at0.0.0.89, 	-- Strije
+									at0.0.0.90, 	-- Brazgotina
+									at0.0.0.91]	-- Brazgotina (sum samopoškodbe)
+								}
+							}
+						}
+					}
+					ELEMENT[at0036] occurrences matches {0..1} matches {	-- Barva
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.81] occurrences matches {0..1} matches {	-- Ujemanje barve
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.82, 	-- V celoti
+									at0.0.83, 	-- Majhno ne ujemanje
+									at0.0.84, 	-- Zmerno ne ujemanje
+									at0.0.85]	-- Veliko ne ujemanje
+								}
+							}
+						}
+					}
+					ELEMENT[at0034] occurrences matches {0..1} matches {	-- Prosojnost
+						value matches {
+							DV_BOOLEAN matches {
+								value matches {True, False}
+							}
+						}
+					}
+					ELEMENT[at0.0.87] occurrences matches {0..1} matches {	-- Lesk
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.60] occurrences matches {0..1} matches {	-- Pigmentacija
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.56] occurrences matches {0..1} matches {	-- Zadebelitev
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.57, 	-- Zadebeljena
+									at0.58, 	-- Normalna
+									at0.59]	-- Atrofična
+								}
+							}
+						}
+					}
+					CLUSTER[at0055] occurrences matches {0..1} matches {	-- Oblika 
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0056] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0057] occurrences matches {0..1} matches {	-- Simetričnost
+								value matches {
+									DV_BOOLEAN matches {
+										value matches {True, False}
+									}
+								}
+							}
+							ELEMENT[at0051.0.1] occurrences matches {0..1} matches {	-- Skica brazgotine
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0.0.77, 	-- Preraščena s kožo
+											at0.0.78, 	-- Zavihana
+											at0.0.79, 	-- Hipertrofična
+											at0.0.80]	-- Keloidna
+										}
+									}
+								}
+							}
+						}
+					}
+					CLUSTER[at0028.0.1] occurrences matches {0..1} matches {	-- Rob
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0033] occurrences matches {0..1} matches {	-- Opis
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							ELEMENT[at0029] occurrences matches {0..1} matches {	-- Definiranost
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0030, 	-- Dobro definiran
+											at0031, 	-- Zmerno definiran
+											at0032]	-- Slabo definiran
+										}
+									}
+								}
+							}
+						}
+					}
+					ELEMENT[at0.0.70] occurrences matches {0..1} matches {	-- Barva
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.71] occurrences matches {0..1} matches {	-- Prožnost
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0.0.72] occurrences matches {0..1} matches {	-- Struktura
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0.0.73, 	-- Normalna
+									at0.0.74, 	-- Otip
+									at0.0.75, 	-- Čvrsta
+									at0.0.76]	-- Trda
+								}
+							}
+						}
+					}
+					allow_archetype CLUSTER[at0.0.86] occurrences matches {0..*} matches {	-- Ocena kože
+						include
+							archetype_id/value matches {/openEHR-EHR-CLUSTER\.vancouver_scale(-[a-zA-Z0-9_]+)*\.v1/}
+					}
+					ELEMENT[at0027] occurrences matches {0..1} matches {	-- Površina
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0024] occurrences matches {0..1} matches {	-- Okolica 
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					allow_archetype CLUSTER[at0052] occurrences matches {0..*} matches {	-- Podrobnosti pregleda
+						include
+							archetype_id/value matches {/.*/}
+					}
+				}
+			}
+			ELEMENT[at0050] occurrences matches {0..1} matches {	-- Slika
+				value matches {
+					DV_MULTIMEDIA matches {
+						media_type matches {
+							[openEHR::
+							425, 
+							426, 
+							427, 
+							428, 
+							429]
+						}
+					}
+				}
+			}
+			ELEMENT[at0.52] occurrences matches {0..1} matches {	-- Metoda
+				value matches {
+					DV_CODED_TEXT matches {
+						defining_code matches {
+							[local::
+							at0.53, 	-- Vizialno
+							at0.54, 	-- Woodova lampa
+							at0.55]	-- Dermatoscope
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0.0.0.88"] = <
+					text = <"Skin thickening">
+					description = <"The skin is thickened.">
+				>
+				["at0.0.0.89"] = <
+					text = <"Stretch mark / Stria">
+					description = <"Stretch marks or stria.">
+				>
+				["at0.0.0.90"] = <
+					text = <"Scar">
+					description = <"Scar.">
+				>
+				["at0.0.0.91"] = <
+					text = <"Scar - suspicion of self-injury">
+					description = <"Scar - self injury is suspected.">
+				>
+				["at0.0.61"] = <
+					text = <"Type of scar">
+					description = <"The type of scar found on inspection.">
+				>
+				["at0.0.61.1"] = <
+					text = <"Type of scar">
+					description = <"The type of scar found on inspection.">
+				>
+				["at0.0.62"] = <
+					text = <"Formal scar assessments">
+					description = <"Formal scarr assessment scores.">
+				>
+				["at0.0.63"] = <
+					text = <"Vancouver scale">
+					description = <"*">
+				>
+				["at0.0.64"] = <
+					text = <"Vascularity">
+					description = <"*">
+				>
+				["at0.0.65"] = <
+					text = <"Height">
+					description = <"*">
+				>
+				["at0.0.66"] = <
+					text = <"Flexibility">
+					description = <"*">
+				>
+				["at0.0.67"] = <
+					text = <"Pigmentation">
+					description = <"*">
+				>
+				["at0.0.68"] = <
+					text = <"Score">
+					description = <"*">
+				>
+				["at0.0.69"] = <
+					text = <"Manchester scale">
+					description = <"*">
+				>
+				["at0.0.70"] = <
+					text = <"Vascularity">
+					description = <"*">
+				>
+				["at0.0.71"] = <
+					text = <"Pliability">
+					description = <"*">
+				>
+				["at0.0.72"] = <
+					text = <"Texture">
+					description = <"Texture of the scar.">
+				>
+				["at0.0.73"] = <
+					text = <"Normal">
+					description = <"*">
+				>
+				["at0.0.74"] = <
+					text = <"Just palpable">
+					description = <"*">
+				>
+				["at0.0.75"] = <
+					text = <"Firm">
+					description = <"*">
+				>
+				["at0.0.76"] = <
+					text = <"Hard">
+					description = <"*">
+				>
+				["at0.0.77"] = <
+					text = <"Flush with surrounding skin">
+					description = <"*">
+				>
+				["at0.0.78"] = <
+					text = <"Slightly proud / indented">
+					description = <"*">
+				>
+				["at0.0.79"] = <
+					text = <"Hypertrophic">
+					description = <"*">
+				>
+				["at0.0.80"] = <
+					text = <"Keloid">
+					description = <"*">
+				>
+				["at0.0.81"] = <
+					text = <"Colour match">
+					description = <"*">
+				>
+				["at0.0.82"] = <
+					text = <"Perfect">
+					description = <"*">
+				>
+				["at0.0.83"] = <
+					text = <"Slight mismatch">
+					description = <"*">
+				>
+				["at0.0.84"] = <
+					text = <"Obvious mismatch">
+					description = <"*">
+				>
+				["at0.0.85"] = <
+					text = <"Gross mismatch">
+					description = <"*">
+				>
+				["at0.0.86"] = <
+					text = <"Formal scar assessments ">
+					description = <"Details of formal scar assessment scores.">
+				>
+				["at0.0.87"] = <
+					text = <"Shine">
+					description = <"The degree of shine of the scar.">
+				>
+				["at0.52"] = <
+					text = <"Method">
+					description = <"Record of findings on inspection using a specific method.">
+				>
+				["at0.53"] = <
+					text = <"Direct visualisation">
+					description = <"Macroscopic; By eye.">
+				>
+				["at0.54"] = <
+					text = <"Wood's lamp">
+					description = <"The skin was examined by Wood's lamp.">
+				>
+				["at0.55"] = <
+					text = <"Dermatoscope">
+					description = <"The skin was examined using a dermatoscope.">
+				>
+				["at0.56"] = <
+					text = <"Thickness">
+					description = <"Thickness of skin.">
+				>
+				["at0.57"] = <
+					text = <"Thickened">
+					description = <"The skin is thickened.">
+				>
+				["at0.58"] = <
+					text = <"Skin thickness normal.">
+					description = <"The skin is of normal thickness.">
+				>
+				["at0.59"] = <
+					text = <"Thinned/atrophic">
+					description = <"The skin is thinned or atrophic.">
+				>
+				["at0.60"] = <
+					text = <"Pigmentation">
+					description = <"Pigmentation of skin.">
+				>
+				["at0000"] = <
+					text = <"Inspection">
+					description = <"The findings on physical examination by inspection.">
+				>
+				["at0000.1"] = <
+					text = <"Inspection of skin">
+					description = <"The findings on inspection of the skin">
+				>
+				["at0000.1.1"] = <
+					text = <"Inspection of scar">
+					description = <"The findings on inspection of a scar.">
+				>
+				["at0000.1.1.1"] = <
+					text = <"Inspection of scar">
+					description = <"The findings on inspection of a scar acording to ZN documentation.">
+				>
+				["at0002"] = <
+					text = <"Normal statements">
+					description = <"A specific statement about the normality of inspection.">
+				>
+				["at0006"] = <
+					text = <"Findings">
+					description = <"Specific findings on inspection">
+				>
+				["at0024"] = <
+					text = <"Surrounds">
+					description = <"Description of immediate surrounds to object.">
+				>
+				["at0027"] = <
+					text = <"Overlying skin or surface">
+					description = <"A description of the surface of the object under inspection.">
+				>
+				["at0028"] = <
+					text = <"Edge">
+					description = <"Findings about the edge of the object under inspection.">
+				>
+				["at0028.0.1"] = <
+					text = <"Margins">
+					description = <"Findings about the edge of the object under inspection.">
+				>
+				["at0029"] = <
+					text = <"Definition">
+					description = <"The nature of the edge of the object of examination.">
+				>
+				["at0030"] = <
+					text = <"Well defined">
+					description = <"The edge is clearly defined.">
+				>
+				["at0031"] = <
+					text = <"Moderately defined">
+					description = <"The edge is defined but less clear in places.">
+				>
+				["at0032"] = <
+					text = <"Poorly defined">
+					description = <"The edge is not defined clearly in many places.">
+				>
+				["at0033"] = <
+					text = <"Description">
+					description = <"Description of the edge or border of the object of inspection.">
+				>
+				["at0034"] = <
+					text = <"Translucent">
+					description = <"Is the object of inspection translucent?">
+				>
+				["at0036"] = <
+					text = <"Colour">
+					description = <"The colour of the object under inspection.">
+				>
+				["at0048"] = <
+					text = <"Clinical description">
+					description = <"Clinical description of the findings on inspection.">
+				>
+				["at0050"] = <
+					text = <"Image">
+					description = <"A drawing of the findings on inspection">
+				>
+				["at0051"] = <
+					text = <"Contour">
+					description = <"The contour of the object of inspection.">
+				>
+				["at0051.0.1"] = <
+					text = <"Scar contour">
+					description = <"The contour of the object of inspection.">
+				>
+				["at0052"] = <
+					text = <"Exam detail">
+					description = <"Further detailed examination.">
+				>
+				["at0053"] = <
+					text = <"Location">
+					description = <"Location of the object being inspected.">
+				>
+				["at0054"] = <
+					text = <"Dimensions">
+					description = <"Dimensions of the object.">
+				>
+				["at0055"] = <
+					text = <"Shape or distribution">
+					description = <"The shape or distribution of the object under inspection.">
+				>
+				["at0056"] = <
+					text = <"Description">
+					description = <"Description of the shape or disstribution of the object under inspection.">
+				>
+				["at0057"] = <
+					text = <"Symmetrical">
+					description = <"Is the shape or distribution symmetrical?">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0.0.0.88"] = <
+					text = <"Zadebeljena koža">
+					description = <"Koža je zadebeljena">
+				>
+				["at0.0.0.89"] = <
+					text = <"Strije">
+					description = <"Strije">
+				>
+				["at0.0.0.90"] = <
+					text = <"Brazgotina">
+					description = <"Brazgotina">
+				>
+				["at0.0.0.91"] = <
+					text = <"Brazgotina (sum samopoškodbe)">
+					description = <"Brazgotina (sum samopoškodbe)">
+				>
+				["at0.0.61"] = <
+					text = <"Vrsta brazgotine">
+					description = <"Vrsta brazgotine">
+				>
+				["at0.0.61.1"] = <
+					text = <"Vrsta brazgotine">
+					description = <"Vrsta brazgotine">
+				>
+				["at0.0.62"] = <
+					text = <"Ocena brazgotine">
+					description = <"Formalna ocena brazgotin">
+				>
+				["at0.0.63"] = <
+					text = <"Lestvica Vancouver">
+					description = <"**(en)">
+				>
+				["at0.0.64"] = <
+					text = <"Barva">
+					description = <"**(en)">
+				>
+				["at0.0.65"] = <
+					text = <"Višina">
+					description = <"**(en)">
+				>
+				["at0.0.66"] = <
+					text = <"Upogljivost">
+					description = <"**(en)">
+				>
+				["at0.0.67"] = <
+					text = <"Pigmentacija">
+					description = <"**(en)">
+				>
+				["at0.0.68"] = <
+					text = <"Ocena">
+					description = <"**(en)">
+				>
+				["at0.0.69"] = <
+					text = <"Lestvica Manchester ">
+					description = <"**(en)">
+				>
+				["at0.0.70"] = <
+					text = <"Barva">
+					description = <"**(en)">
+				>
+				["at0.0.71"] = <
+					text = <"Prožnost">
+					description = <"**(en)">
+				>
+				["at0.0.72"] = <
+					text = <"Struktura">
+					description = <"Struktura brazgotine">
+				>
+				["at0.0.73"] = <
+					text = <"Normalna">
+					description = <"**(en)">
+				>
+				["at0.0.74"] = <
+					text = <"Otip">
+					description = <"**(en)">
+				>
+				["at0.0.75"] = <
+					text = <"Čvrsta">
+					description = <"**(en)">
+				>
+				["at0.0.76"] = <
+					text = <"Trda">
+					description = <"**(en)">
+				>
+				["at0.0.77"] = <
+					text = <"Preraščena s kožo">
+					description = <"**(en)">
+				>
+				["at0.0.78"] = <
+					text = <"Zavihana">
+					description = <"**(en)">
+				>
+				["at0.0.79"] = <
+					text = <"Hipertrofična">
+					description = <"**(en)">
+				>
+				["at0.0.80"] = <
+					text = <"Keloidna">
+					description = <"**(en)">
+				>
+				["at0.0.81"] = <
+					text = <"Ujemanje barve">
+					description = <"**(en)">
+				>
+				["at0.0.82"] = <
+					text = <"V celoti">
+					description = <"**(en)">
+				>
+				["at0.0.83"] = <
+					text = <"Majhno ne ujemanje">
+					description = <"**(en)">
+				>
+				["at0.0.84"] = <
+					text = <"Zmerno ne ujemanje">
+					description = <"**(en)">
+				>
+				["at0.0.85"] = <
+					text = <"Veliko ne ujemanje">
+					description = <"**(en)">
+				>
+				["at0.0.86"] = <
+					text = <"Ocena kože">
+					description = <"Formalna ocena kože">
+				>
+				["at0.0.87"] = <
+					text = <"Lesk">
+					description = <"Lesk brazgotine">
+				>
+				["at0.52"] = <
+					text = <"Metoda">
+					description = <"Metoda opazovanja">
+				>
+				["at0.53"] = <
+					text = <"Vizialno">
+					description = <"Prosto oko ali mikroskop">
+				>
+				["at0.54"] = <
+					text = <"Woodova lampa">
+					description = <"Woodova lampa">
+				>
+				["at0.55"] = <
+					text = <"Dermatoscope">
+					description = <"Dermatoscope">
+				>
+				["at0.56"] = <
+					text = <"Zadebelitev">
+					description = <"Zadebelitev kože">
+				>
+				["at0.57"] = <
+					text = <"Zadebeljena">
+					description = <"KOža je zadebeljena">
+				>
+				["at0.58"] = <
+					text = <"Normalna">
+					description = <"Koža je normalna">
+				>
+				["at0.59"] = <
+					text = <"Atrofična">
+					description = <"Koža je stanjšana ali artrofična">
+				>
+				["at0.60"] = <
+					text = <"Pigmentacija">
+					description = <"Pigmentacija kože">
+				>
+				["at0000"] = <
+					text = <"Opazovanje">
+					description = <"Opazovanje kože">
+				>
+				["at0000.1"] = <
+					text = <"Opazovanje kože">
+					description = <"Ugotobitve opazovanja kože">
+				>
+				["at0000.1.1"] = <
+					text = <"Opazovanje brazgotin">
+					description = <"Ugotovitve opazovanja brazgotin">
+				>
+				["at0000.1.1.1"] = <
+					text = <"Opazovanje brazgotin">
+					description = <"Ugotovitve opazovanja brazgotin">
+				>
+				["at0002"] = <
+					text = <"Opazovanje">
+					description = <"*A specific statement about the normality of inspection.(en)">
+				>
+				["at0006"] = <
+					text = <"Ugotovitve">
+					description = <"Ugotovitve">
+				>
+				["at0024"] = <
+					text = <"Okolica ">
+					description = <"Okolica brazgotine">
+				>
+				["at0027"] = <
+					text = <"Površina">
+					description = <"Povrčina brazgotine">
+				>
+				["at0028"] = <
+					text = <"Rob">
+					description = <"Rob brazgotinr">
+				>
+				["at0028.0.1"] = <
+					text = <"Rob">
+					description = <"Rob brazgotinr">
+				>
+				["at0029"] = <
+					text = <"Definiranost">
+					description = <"Definiranost roba brazgotine">
+				>
+				["at0030"] = <
+					text = <"Dobro definiran">
+					description = <"Rob je dobro definiran">
+				>
+				["at0031"] = <
+					text = <"Zmerno definiran">
+					description = <"Rob je zmerno definiran">
+				>
+				["at0032"] = <
+					text = <"Slabo definiran">
+					description = <"Rob je slabo definiran">
+				>
+				["at0033"] = <
+					text = <"Opis">
+					description = <"Opis roba brazgotine">
+				>
+				["at0034"] = <
+					text = <"Prosojnost">
+					description = <"Prosojnost brazgotine">
+				>
+				["at0036"] = <
+					text = <"Barva">
+					description = <"Barva ">
+				>
+				["at0048"] = <
+					text = <"Klinični opis">
+					description = <"Klinični opis">
+				>
+				["at0050"] = <
+					text = <"Slika">
+					description = <"Slika">
+				>
+				["at0051"] = <
+					text = <"Skica">
+					description = <"Skica">
+				>
+				["at0051.0.1"] = <
+					text = <"Skica brazgotine">
+					description = <"Skica brazgotine">
+				>
+				["at0052"] = <
+					text = <"Podrobnosti pregleda">
+					description = <"Podrobnosti pregleda">
+				>
+				["at0053"] = <
+					text = <"Lokacija">
+					description = <"Lokacija">
+				>
+				["at0054"] = <
+					text = <"Dimenzije">
+					description = <"Dimenzije">
+				>
+				["at0055"] = <
+					text = <"Oblika ">
+					description = <"Oblika ">
+				>
+				["at0056"] = <
+					text = <"Opis">
+					description = <"Opis">
+				>
+				["at0057"] = <
+					text = <"Simetričnost">
+					description = <"Simetričnost">
+				>
+			>
+		>
+	>

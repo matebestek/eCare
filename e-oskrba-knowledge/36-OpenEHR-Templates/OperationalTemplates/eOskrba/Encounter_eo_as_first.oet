@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>0be8a90a-8e5e-41b3-b448-b9cc957064b6</id>
+  <name>encounter_ra</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose>Prvi pregled pacienta</purpose>
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="COMPOSITION" archetype_id="openEHR-EHR-COMPOSITION.encounter.v1" concept_name="Obisk">
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.anamneza_osnovna_eo_as.v1" concept_name="Anamneza osnovna eo as" path="/content" hide_on_form="true">
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.physical_activity_summary.v1" concept_name="Povzetek gibalne aktivnosti" path="/items[at0001]">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/items[at0002]" max="0" />
+        <Rule path="/data[at0001]/items[at0003]" max="0" />
+        <Rule path="/data[at0001]/items[at0006]" max="0" />
+      </Item>
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.substance_use_summary-tobacco.v1" concept_name="Tobak" path="/items[at0002]" />
+      <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.substance_use_summary-alcohol.v1" concept_name="*Alcohol Use Summary(en)" path="/items[at0003]" />
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.clinical_ra.v1" concept_name="Osnovni klinični podatki" path="/content">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_weight.v1" concept_name="Telesna teža" path="/items[at0001]" hide_on_form="true">
+        <Rule path="/data[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0004]">
+          <constraint xsi:type="quantityConstraint">
+            <excludedUnits>lb</excludedUnits>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0002]/events[at0003]/data[at0001]/items[at0024]" max="0" />
+        <Rule path="/data[at0002]/events[at0003]/state[at0008]" hide_on_form="true" />
+        <Rule path="/data[at0002]/events[at0003]/state[at0008]/items[at0025]" max="0" />
+        <Rule path="/protocol[at0015]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.height.v1" concept_name="Višina/Dolžina" path="/items[at0002]" hide_on_form="true">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]">
+          <constraint xsi:type="quantityConstraint">
+            <excludedUnits>in</excludedUnits>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0018]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0013]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0014]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0013]/items[at0019]" max="0" />
+        <Rule path="/protocol[at0007]" hide_on_form="true" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.body_mass_index.v1" concept_name="Indeks telesne mase (ITM)" path="/items[at0003]" hide_on_form="true">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/protocol[at0005]" hide_on_form="true" />
+        <Rule path="/protocol[at0005]/items[at0006]" max="0" />
+        <Rule path="/protocol[at0005]/items[at0010]" max="0" />
+        <Rule path="/protocol[at0005]/items[at0011]" max="0" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.blood_pressure-zn.v1" concept_name="Krvni tlak" path="/items[at0010]">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0006]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0006]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1006]" max="0" />
+        <Rule path="/data[at0001]/events[at0006]/data[at0003]/items[at1007]" max="0" />
+        <Rule path="/data[at0001]/events[at0006]/state[at0007]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at0008]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at1002</excludedValues>
+            <excludedValues>local::at1014</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1052]" max="0" />
+        <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1043]" max="0" />
+        <Rule path="/data[at0001]/events[at0006]/state[at0007]/items[at1005]" max="0" />
+        <Rule path="/data[at0001]/events[at1042]" max="0" />
+        <Rule path="/protocol[at0011]" hide_on_form="true" />
+        <Rule path="/protocol[at0011]/items[at0013]" max="0" />
+        <Rule path="/protocol[at0011]/items[at1033]" max="0" />
+        <Rule path="/protocol[at0011]/items[at1035]" max="0" />
+        <Rule path="/protocol[at0011]/items[at1038]" max="0" />
+        <Rule path="/protocol[at0011]/items[at1010]" max="0" />
+        <Rule path="/protocol[at0011]/items[at0.1054]" max="0" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.pulmonary_ra.v1" concept_name="Pljučni parametri" path="/content">
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.pulmonary_function.v1" concept_name="Testi pljučnih funkcij" path="/items[at0001]" hide_on_form="true">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0052]/items[at0087]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0065</excludedValues>
+            <excludedValues>local::at0070</excludedValues>
+            <excludedValues>local::at0068</excludedValues>
+            <excludedValues>local::at0069</excludedValues>
+            <excludedValues>local::at0076</excludedValues>
+            <excludedValues>local::at0077</excludedValues>
+            <excludedValues>local::at0078</excludedValues>
+            <excludedValues>local::at0082</excludedValues>
+            <excludedValues>local::at0083</excludedValues>
+            <excludedValues>local::at0084</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0057]/items[at0088]">
+          <constraint xsi:type="textConstraint">
+            <excludedValues>local::at0072</excludedValues>
+            <excludedValues>local::at0073</excludedValues>
+            <excludedValues>local::at0074</excludedValues>
+            <excludedValues>local::at0075</excludedValues>
+            <excludedValues>local::at0079</excludedValues>
+          </constraint>
+        </Rule>
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0013]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0027]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0037]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0038]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0101]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0033]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0031]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0031]/items[at0115]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0031]/items[at0046]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0031]/items[at0049]" max="0" />
+        <Rule path="/data[at0001]/events[at0002]/state[at0031]/items[at0098]" max="0" />
+        <Rule path="/protocol[at0029]" hide_on_form="true" />
+        <Rule path="/protocol[at0029]/items[at0102]" max="0" />
+        <Rule path="/protocol[at0029]/items[at0103]" max="0" />
+      </Item>
+      <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.asthma_control_test_questionary.v1" concept_name="ACT vprašalnik" path="/items[at0004]">
+        <Rule path="/data[at0001]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]" hide_on_form="true" />
+        <Rule path="/data[at0001]/events[at0002]/data[at0003]/items[at0065]" hide_on_form="true" />
+      </Item>
+    </Content>
+    <Content xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.terapija.v1" concept_name="Terapija" path="/content">
+      <Item xsi:type="INSTRUCTION" archetype_id="openEHR-EHR-INSTRUCTION.medication.v1" concept_name="Naročilo zdravil" path="/items[at0001]">
+        <activityDescription xsi:type="ITEM_TREE" archetype_id="openEHR-EHR-ITEM_TREE.medication_eo_as1.v1" path="/activities[at0001 and name/value='*Medication activity(en)']/description" />
+      </Item>
+    </Content>
+    <Context hide_on_form="true">
+      <Rule path="/context/other_context[at0001]" hide_on_form="true" />
+    </Context>
+  </definition>
+</template>

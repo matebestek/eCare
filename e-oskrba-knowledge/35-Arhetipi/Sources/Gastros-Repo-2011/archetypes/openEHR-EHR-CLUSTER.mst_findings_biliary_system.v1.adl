@@ -1,0 +1,711 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-CLUSTER.mst_findings_biliary_system.v1
+
+concept
+	[at0000]	-- MST Findings for Biliary System
+language
+	original_language = <[ISO_639-1::en]>
+description
+	original_author = <
+		["name"] = <"Koray Atalag">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"">
+			use = <"">
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"AuthorDraft">
+	other_contributors = <>
+	other_details = <
+		["references"] = <"">
+		["MD5-CAM-1.0.1"] = <"2C009BE28B0AE54B7895E047B1641632">
+	>
+
+definition
+	CLUSTER[at0000] matches {	-- MST Findings for Biliary System
+		items cardinality matches {1..*; ordered} matches {
+			CLUSTER[at0050] occurrences matches {0..1} matches {	-- NORMAL
+				items cardinality matches {1; ordered} matches {
+					CLUSTER[at0100] occurrences matches {0..1} matches {	-- Normal
+						items cardinality matches {1..*; ordered} matches {
+							ELEMENT[at0105] matches {	-- Present?
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6575, 	-- null
+											at6576, 	-- present
+											at6577, 	-- unknown
+											at6578]	-- absent
+										}
+									}
+								}
+							}
+							ELEMENT[at0500] occurrences matches {0..*} matches {	-- Site(s)
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at0550, 	-- Papilla
+											at0560, 	-- Biliary-pancreatic junction
+											at0570, 	-- Main duct
+											at0580, 	-- Whole main duct
+											at0590, 	-- Lower third main duct
+											at0600, 	-- Middle third main duct
+											at0610, 	-- Upper third main duct
+											at0620, 	-- Cystic duct
+											at0630, 	-- Bifurcation
+											at0640, 	-- Liver ducts
+											at0650, 	-- Left main liver ducts
+											at0660, 	-- Right main liver ducts
+											at0670, 	-- Liver ducts: Left intrahepatic branches
+											at0680, 	-- Liver ducts: Right intrahepatic branches
+											at0690, 	-- Liver ducts: All intrahepatic branches
+											at0700]	-- Gallbladder
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			CLUSTER[at1000] occurrences matches {0..1} matches {	-- ABNORMALITIES
+				items cardinality matches {1..*; ordered} matches {
+					CLUSTER[at1100] occurrences matches {0..1} matches {	-- Cystic duct junction
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at1110] occurrences matches {0..1} matches {	-- Location from papilla
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at1111, 	-- Lower than 2cm
+											at6501]	-- Greater than 2cm
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6502] occurrences matches {0..*} matches {	-- Irregularity
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6503] occurrences matches {0..1} matches {	-- Extent
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6504, 	-- Localised
+											at6505, 	-- Segmental
+											at6506]	-- Diffuse
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6507] occurrences matches {0..*} matches {	-- Dilation
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6543] occurrences matches {0..1} matches {	-- Extent
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6544, 	-- Prestenotic
+											at6545, 	-- Localized
+											at6546, 	-- Segmental
+											at6547]	-- Diffuse
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6508] occurrences matches {0..*} matches {	-- Rarefaction (attenuation) of branches
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at1000]/items[at6502]/items[at6503]	-- /items[ABNORMALITIES]/items[Irregularity]/items[Extent]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6509] occurrences matches {0..*} matches {	-- Stenosis
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6510] occurrences matches {0..1} matches {	-- Length
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							ELEMENT[at6548] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6549, 	-- Single
+											at6550]	-- Multiple
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..1} /items[at1000]/items[at6502]/items[at6503]	-- /items[ABNORMALITIES]/items[Irregularity]/items[Extent]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6524] occurrences matches {0..*} matches {	-- Extrinsic Impression (non-stenotic)
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6551] occurrences matches {0..1} matches {	-- Size
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6552, 	-- Long
+											at6553]	-- Short
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6511] occurrences matches {0..*} matches {	-- Obstruction
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6512] occurrences matches {0..1} matches {	-- Appearance
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6513, 	-- Stone
+											at6514]	-- Tumor/Mass
+										}
+									}
+								}
+							}
+							ELEMENT[at6515] occurrences matches {0..1} matches {	-- Completeness
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6516, 	-- Partial
+											at6517]	-- Complete
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6518] occurrences matches {0..*} matches {	-- Stone
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6519] occurrences matches {0..1} matches {	-- Number
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6520, 	-- Less than five
+											at6521]	-- Multiple
+										}
+									}
+								}
+							}
+							ELEMENT[at6574] occurrences matches {0..1} matches {	-- Specify
+								value matches {
+									DV_COUNT matches {
+										magnitude matches {|1..5|}
+									}
+								}
+							}
+							ELEMENT[at6557] occurrences matches {0..1} matches {	-- Size
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6559] occurrences matches {0..*} matches {	-- Filling defect (other than stone)
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6560] occurrences matches {0..1} matches {	-- Appearance
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6561, 	-- Air bubbles
+											at6562, 	-- Sludge
+											at6563, 	-- Parasite
+											at6564]	-- T-tube
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6528] occurrences matches {0..*} matches {	-- Stent
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6565] occurrences matches {0..1} matches {	-- Specify
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6525] occurrences matches {0..*} matches {	-- Extravasation
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6522] occurrences matches {0..*} matches {	-- Cavity
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							use_node ELEMENT occurrences matches {0..1} /items[at1000]/items[at6509]/items[at6548]	-- /items[ABNORMALITIES]/items[Stenosis]/items[Number]
+							ELEMENT[at6523] occurrences matches {0..1} matches {	-- Diameter
+								value matches {
+									C_DV_QUANTITY <
+										property = <[openehr::122]>
+										list = <
+											["1"] = <
+												units = <"mm">
+											>
+										>
+									>
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6526] occurrences matches {0..*} matches {	-- Fistula
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6567] occurrences matches {0..1} matches {	-- Specify
+								value matches {
+									DV_TEXT matches {*}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+					CLUSTER[at6527] occurrences matches {0..*} matches {	-- Evidence of previous surgery
+						items cardinality matches {1..*; ordered} matches {
+							use_node ELEMENT /items[at0050]/items[at0100]/items[at0105]	-- /items[NORMAL]/items[Normal]/items[Present?]
+							ELEMENT[at6568] occurrences matches {0..1} matches {	-- Type
+								value matches {
+									DV_CODED_TEXT matches {
+										defining_code matches {
+											[local::
+											at6569, 	-- Cholecystectomy
+											at6570, 	-- Choledochoduodenostomy
+											at6571, 	-- Choledochoenterostomy
+											at6572, 	-- Cholecystoenterostomy
+											at6573]	-- Liver transplantation
+										}
+									}
+								}
+							}
+							use_node ELEMENT occurrences matches {0..*} /items[at0050]/items[at0100]/items[at0500]	-- /items[NORMAL]/items[Normal]/items[Site(s)]
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"MST Findings for Biliary System">
+					description = <"As per MST">
+				>
+				["at0050"] = <
+					text = <"NORMAL">
+					description = <"HEADING: NORMAL">
+				>
+				["at0100"] = <
+					text = <"Normal">
+					description = <"TERM: Normal">
+				>
+				["at0105"] = <
+					text = <"Present?">
+					description = <"Attribute: General">
+				>
+				["at0500"] = <
+					text = <"Site(s)">
+					description = <"Anatomical Sites for Biliary System">
+				>
+				["at0550"] = <
+					text = <"Papilla">
+					description = <"Site for Biliary System">
+				>
+				["at0560"] = <
+					text = <"Biliary-pancreatic junction">
+					description = <"Site for Biliary System">
+				>
+				["at0570"] = <
+					text = <"Main duct">
+					description = <"Site for Biliary System">
+				>
+				["at0580"] = <
+					text = <"Whole main duct">
+					description = <"Site for Biliary System">
+				>
+				["at0590"] = <
+					text = <"Lower third main duct">
+					description = <"Site for Biliary System">
+				>
+				["at0600"] = <
+					text = <"Middle third main duct">
+					description = <"Site for Biliary System">
+				>
+				["at0610"] = <
+					text = <"Upper third main duct">
+					description = <"Site for Biliary System">
+				>
+				["at0620"] = <
+					text = <"Cystic duct">
+					description = <"Site for Biliary System">
+				>
+				["at0630"] = <
+					text = <"Bifurcation">
+					description = <"Site for Biliary System">
+				>
+				["at0640"] = <
+					text = <"Liver ducts">
+					description = <"Site for Biliary System">
+				>
+				["at0650"] = <
+					text = <"Left main liver ducts">
+					description = <"Site for Biliary System">
+				>
+				["at0660"] = <
+					text = <"Right main liver ducts">
+					description = <"Site for Biliary System">
+				>
+				["at0670"] = <
+					text = <"Liver ducts: Left intrahepatic branches">
+					description = <"Site for Biliary System">
+				>
+				["at0680"] = <
+					text = <"Liver ducts: Right intrahepatic branches">
+					description = <"Site for Biliary System">
+				>
+				["at0690"] = <
+					text = <"Liver ducts: All intrahepatic branches">
+					description = <"Site for Biliary System">
+				>
+				["at0700"] = <
+					text = <"Gallbladder">
+					description = <"Site for Biliary System">
+				>
+				["at1000"] = <
+					text = <"ABNORMALITIES">
+					description = <"HEADING">
+				>
+				["at1100"] = <
+					text = <"Cystic duct junction">
+					description = <"This term should be used only for the description of an abnormally low implantation of the cystic duct onto the main bile duct.">
+				>
+				["at1110"] = <
+					text = <"Location from papilla">
+					description = <"Attribute: Pancreas Divisum">
+				>
+				["at1111"] = <
+					text = <"Lower than 2cm">
+					description = <"Attribute value">
+				>
+				["at6501"] = <
+					text = <"Greater than 2cm">
+					description = <"Attribute value">
+				>
+				["at6502"] = <
+					text = <"Irregularity">
+					description = <"TERM">
+				>
+				["at6503"] = <
+					text = <"Extent">
+					description = <"General attribute">
+				>
+				["at6504"] = <
+					text = <"Localised">
+					description = <"Attribute value">
+				>
+				["at6505"] = <
+					text = <"Segmental">
+					description = <"Attribute value">
+				>
+				["at6506"] = <
+					text = <"Diffuse">
+					description = <"Attribute value">
+				>
+				["at6507"] = <
+					text = <"Dilation">
+					description = <"TERM">
+				>
+				["at6508"] = <
+					text = <"Rarefaction (attenuation) of branches">
+					description = <"TERM">
+				>
+				["at6509"] = <
+					text = <"Stenosis">
+					description = <"TERM">
+				>
+				["at6510"] = <
+					text = <"Length">
+					description = <"Attribute: Stenosis">
+				>
+				["at6511"] = <
+					text = <"Obstruction">
+					description = <"TERM">
+				>
+				["at6512"] = <
+					text = <"Appearance">
+					description = <"Attribute: Obstruction">
+				>
+				["at6513"] = <
+					text = <"Stone">
+					description = <"Attribute value">
+				>
+				["at6514"] = <
+					text = <"Tumor/Mass">
+					description = <"Attribute value">
+				>
+				["at6515"] = <
+					text = <"Completeness">
+					description = <"Attribute: Obstruction">
+				>
+				["at6516"] = <
+					text = <"Partial">
+					description = <"Attribute value">
+				>
+				["at6517"] = <
+					text = <"Complete">
+					description = <"Attribute value">
+				>
+				["at6518"] = <
+					text = <"Stone">
+					description = <"TERM">
+				>
+				["at6519"] = <
+					text = <"Number">
+					description = <"(specify if less than 5)">
+				>
+				["at6520"] = <
+					text = <"Less than five">
+					description = <"Attribute value">
+				>
+				["at6521"] = <
+					text = <"Multiple">
+					description = <"Attribute value">
+				>
+				["at6522"] = <
+					text = <"Cavity">
+					description = <"TERM">
+				>
+				["at6523"] = <
+					text = <"Diameter">
+					description = <"Attribute: Cavity">
+				>
+				["at6524"] = <
+					text = <"Extrinsic Impression (non-stenotic)">
+					description = <"TERM">
+				>
+				["at6525"] = <
+					text = <"Extravasation">
+					description = <"TERM">
+				>
+				["at6526"] = <
+					text = <"Fistula">
+					description = <"TERM">
+				>
+				["at6527"] = <
+					text = <"Evidence of previous surgery">
+					description = <"TERM">
+				>
+				["at6528"] = <
+					text = <"Stent">
+					description = <"TERM">
+				>
+				["at6543"] = <
+					text = <"Extent">
+					description = <"*">
+				>
+				["at6544"] = <
+					text = <"Prestenotic">
+					description = <"*">
+				>
+				["at6545"] = <
+					text = <"Localized">
+					description = <"*">
+				>
+				["at6546"] = <
+					text = <"Segmental">
+					description = <"*">
+				>
+				["at6547"] = <
+					text = <"Diffuse">
+					description = <"*">
+				>
+				["at6548"] = <
+					text = <"Number">
+					description = <"*">
+				>
+				["at6549"] = <
+					text = <"Single">
+					description = <"*">
+				>
+				["at6550"] = <
+					text = <"Multiple">
+					description = <"*">
+				>
+				["at6551"] = <
+					text = <"Size">
+					description = <"*">
+				>
+				["at6552"] = <
+					text = <"Long">
+					description = <"*">
+				>
+				["at6553"] = <
+					text = <"Short">
+					description = <"*">
+				>
+				["at6557"] = <
+					text = <"Size">
+					description = <"Give here the diameter of the largest stone">
+				>
+				["at6559"] = <
+					text = <"Filling defect (other than stone)">
+					description = <"This term should never be used for stones">
+				>
+				["at6560"] = <
+					text = <"Appearance">
+					description = <"*">
+				>
+				["at6561"] = <
+					text = <"Air bubbles">
+					description = <"*">
+				>
+				["at6562"] = <
+					text = <"Sludge">
+					description = <"*">
+				>
+				["at6563"] = <
+					text = <"Parasite">
+					description = <"*">
+				>
+				["at6564"] = <
+					text = <"T-tube">
+					description = <"*">
+				>
+				["at6565"] = <
+					text = <"Specify">
+					description = <"*">
+				>
+				["at6567"] = <
+					text = <"Specify">
+					description = <"*">
+				>
+				["at6568"] = <
+					text = <"Type">
+					description = <"*">
+				>
+				["at6569"] = <
+					text = <"Cholecystectomy">
+					description = <"*">
+				>
+				["at6570"] = <
+					text = <"Choledochoduodenostomy">
+					description = <"*">
+				>
+				["at6571"] = <
+					text = <"Choledochoenterostomy">
+					description = <"*">
+				>
+				["at6572"] = <
+					text = <"Cholecystoenterostomy">
+					description = <"*">
+				>
+				["at6573"] = <
+					text = <"Liver transplantation">
+					description = <"*">
+				>
+				["at6574"] = <
+					text = <"Specify">
+					description = <"*">
+				>
+				["at6575"] = <
+					text = <"null">
+					description = <"Presence=null">
+				>
+				["at6576"] = <
+					text = <"present">
+					description = <"Presence=present">
+				>
+				["at6577"] = <
+					text = <"unknown">
+					description = <"Presence=unknown">
+				>
+				["at6578"] = <
+					text = <"absent">
+					description = <"Presence=absent">
+				>
+			>
+		>
+	>

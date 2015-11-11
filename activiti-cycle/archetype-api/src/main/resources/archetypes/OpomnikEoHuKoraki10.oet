@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2013.
+  University of Primorska, Andrej Marušič Institute. All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met: 
+
+  1. Redistributions of source code must retain the above copyright notice, this
+     list of conditions and the following disclaimer. 
+  2. Redistributions in binary form must reproduce the above copyright notice,
+     this list of conditions and the following disclaimer in the documentation
+     and/or other materials provided with the distribution. 
+
+  Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+  Agency and Ministry of Health of Republic of Slovenia.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="openEHR/v1/Template">
+  <id>485a606a-6baa-4f4e-8ca6-c6174fd51c41</id>
+  <name>OpomnikEoHuKoraki05</name>
+  <description>
+    <lifecycle_state>Initial</lifecycle_state>
+    <details>
+      <purpose />
+      <use />
+      <misuse />
+    </details>
+    <other_details>
+      <item>
+        <key>MetaDataSet:Sample Set </key>
+        <value>Template metadata sample set </value>
+      </item>
+      <item>
+        <key>Acknowledgements</key>
+        <value />
+      </item>
+      <item>
+        <key>Business Process Level</key>
+        <value />
+      </item>
+      <item>
+        <key>Care setting</key>
+        <value />
+      </item>
+      <item>
+        <key>Client group</key>
+        <value />
+      </item>
+      <item>
+        <key>Clinical Record Element</key>
+        <value />
+      </item>
+      <item>
+        <key>Copyright</key>
+        <value />
+      </item>
+      <item>
+        <key>Issues</key>
+        <value />
+      </item>
+      <item>
+        <key>Owner</key>
+        <value />
+      </item>
+      <item>
+        <key>Sign off</key>
+        <value />
+      </item>
+      <item>
+        <key>Speciality</key>
+        <value />
+      </item>
+      <item>
+        <key>User roles</key>
+        <value />
+      </item>
+    </other_details>
+  </description>
+  <definition xsi:type="SECTION" archetype_id="openEHR-EHR-SECTION.eo_hu_korak.v1" concept_name="Eo hu korak">
+    <Item xsi:type="OBSERVATION" archetype_id="openEHR-EHR-OBSERVATION.tedenski_nacrt_eo.v1" concept_name="Tedenski nacrt eo" path="/items[at0002]">
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.prehrana_dnevna_eo.v1" concept_name="Prehrana dnevna eo hu" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0011]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.gibalna_aktivnost_dnevna_eo.v1" concept_name="Gibalna aktivnost dnevna eo" path="/data[at0001]/events[at0002]/data[at0003]/items[at0004]/items[at0012]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1" concept_name="Intenzivnost opisno 5st eo" path="/items[at0053]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.prehrana_dnevna_eo.v1" concept_name="Prehrana dnevna eo hu" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0013]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.gibalna_aktivnost_dnevna_eo.v1" concept_name="Gibalna aktivnost dnevna eo" path="/data[at0001]/events[at0002]/data[at0003]/items[at0005]/items[at0014]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1" concept_name="Intenzivnost opisno 5st eo" path="/items[at0053]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.prehrana_dnevna_eo.v1" concept_name="Prehrana dnevna eo hu" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0015]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.gibalna_aktivnost_dnevna_eo.v1" concept_name="Gibalna aktivnost dnevna eo" path="/data[at0001]/events[at0002]/data[at0003]/items[at0006]/items[at0020]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1" concept_name="Intenzivnost opisno 5st eo" path="/items[at0053]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.prehrana_dnevna_eo.v1" concept_name="Prehrana dnevna eo hu" path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0016]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.gibalna_aktivnost_dnevna_eo.v1" concept_name="Gibalna aktivnost dnevna eo" path="/data[at0001]/events[at0002]/data[at0003]/items[at0007]/items[at0021]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1" concept_name="Intenzivnost opisno 5st eo" path="/items[at0053]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.prehrana_dnevna_eo.v1" concept_name="Prehrana dnevna eo hu" path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0017]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.gibalna_aktivnost_dnevna_eo.v1" concept_name="Gibalna aktivnost dnevna eo" path="/data[at0001]/events[at0002]/data[at0003]/items[at0008]/items[at0022]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1" concept_name="Intenzivnost opisno 5st eo" path="/items[at0053]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.prehrana_dnevna_eo.v1" concept_name="Prehrana dnevna eo hu" path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0018]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.gibalna_aktivnost_dnevna_eo.v1" concept_name="Gibalna aktivnost dnevna eo" path="/data[at0001]/events[at0002]/data[at0003]/items[at0009]/items[at0023]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1" concept_name="Intenzivnost opisno 5st eo" path="/items[at0053]" />
+      </Items>
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.prehrana_dnevna_eo.v1" concept_name="Prehrana dnevna eo hu" path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0019]" />
+      <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.gibalna_aktivnost_dnevna_eo.v1" concept_name="Gibalna aktivnost dnevna eo" path="/data[at0001]/events[at0002]/data[at0003]/items[at0010]/items[at0024]">
+        <Items xsi:type="CLUSTER" archetype_id="openEHR-EHR-CLUSTER.intenzivnost_opisno_5st_eo.v1" concept_name="Intenzivnost opisno 5st eo" path="/items[at0053]" />
+      </Items>
+    </Item>
+    <Item xsi:type="EVALUATION" archetype_id="openEHR-EHR-EVALUATION.hu_koraki_10.v1" concept_name="Hu koraki 10" path="/items[at0002]" />
+  </definition>
+</template>

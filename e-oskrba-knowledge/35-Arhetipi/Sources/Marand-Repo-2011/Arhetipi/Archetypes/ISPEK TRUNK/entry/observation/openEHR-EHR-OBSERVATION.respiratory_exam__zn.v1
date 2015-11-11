@@ -1,0 +1,671 @@
+-- 
+-- Copyright (c) 2013.
+-- University of Primorska, Andrej Marušič Institute. All rights reserved.
+-- 
+-- Redistribution and use in source and binary forms, with or without
+-- modification, are permitted provided that the following conditions are met: 
+-- 
+-- 1. Redistributions of source code must retain the above copyright notice, this
+--    list of conditions and the following disclaimer. 
+-- 2. Redistributions in binary form must reproduce the above copyright notice,
+--    this list of conditions and the following disclaimer in the documentation
+--    and/or other materials provided with the distribution. 
+-- 
+-- Project eOskrba (http://eOskrba.si) was financed by Slovenian Research
+-- Agency and Ministry of Health of Republic of Slovenia.
+-- 
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-- "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-- LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-- A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-- OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-- LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-- DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-- THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-- (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-- OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+archetype (adl_version=1.4)
+	openEHR-EHR-OBSERVATION.respiratory_exam__zn.v1
+
+concept
+	[at0000]	-- Respiratory examination - ZN
+language
+	original_language = <[ISO_639-1::en]>
+	translations = <
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			author = <
+				["organisation"] = <"University of Maribor, Slovenia, Marand d.o.o.">
+				["name"] = <"Uroš Rajkovic, Biljana Prinčič">
+				["email"] = <"uros.rajkovic@fov.uni-mb.si, biljana.princic@marand.si">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"">
+	>
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"To assess the respiratory status of a patient by a nurse.">
+			use = <"">
+			keywords = <"Respiratory assessment", ...>
+			misuse = <"">
+		>
+		["sl"] = <
+			language = <[ISO_639-1::sl]>
+			purpose = <"Ocena dihalnega statusa pacienta za potrebe zdravstvene nege.">
+			use = <"">
+			keywords = <"Ocena dihanja", ...>
+			misuse = <"">
+		>
+	>
+	lifecycle_state = <"0">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"0E085CDB8C04C00E2550A44173243FCD">
+	>
+
+definition
+	OBSERVATION[at0000] matches {	-- Respiratory examination - ZN
+		data matches {
+			HISTORY[at0001] matches {	-- Event Series
+				events cardinality matches {1..*; unordered} matches {
+					EVENT[at0002] occurrences matches {0..1} matches {	-- Any event
+						data matches {
+							ITEM_TREE[at0003] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0005] occurrences matches {0..1} matches {	-- Signs of fatigue
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0039, 	-- Present
+													at0040]	-- Absent
+												}
+											}
+										}
+									}
+									ELEMENT[at0004] occurrences matches {0..1} matches {	-- Difficulties/ effort
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0046, 	-- 1 - None
+													at0047, 	-- 1-2 None => Moderate
+													at0048, 	-- 2-1 Moderate => None
+													at0049, 	-- 2 - Moderate
+													at0050, 	-- 2-3  Moderate=> Severe
+													at0051, 	-- 3-2 Severe => Moderate
+													at0052]	-- 3 - Severe
+												}
+											}
+										}
+									}
+									ELEMENT[at0006] occurrences matches {0..1} matches {	-- Mouth breathing
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0035, 	-- Present
+													at0036]	-- Absent
+												}
+											}
+										}
+									}
+									ELEMENT[at0007] occurrences matches {0..1} matches {	-- Tense abdomen
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {
+													[local::
+													at0037, 	-- Present
+													at0038]	-- Absent
+												}
+											}
+										}
+									}
+									CLUSTER[at0009] occurrences matches {0..1} matches {	-- Breathing sounds
+										items cardinality matches {1..*; unordered} matches {
+											CLUSTER[at0010] occurrences matches {0..1} matches {	-- Stridor
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0012] occurrences matches {0..1} matches {	-- Inspiratory
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0013, 	-- Present
+																	at0014]	-- Absent
+																}
+															}
+														}
+													}
+													ELEMENT[at0008] occurrences matches {0..1} matches {	-- Expiratory
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0020, 	-- Present
+																	at0021]	-- Absent
+																}
+															}
+														}
+													}
+												}
+											}
+											CLUSTER[at0011] occurrences matches {0..1} matches {	-- Wheeze
+												items cardinality matches {1..*; unordered} matches {
+													ELEMENT[at0015] occurrences matches {0..1} matches {	-- Inspiratory
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0022, 	-- Present
+																	at0023]	-- Absent
+																}
+															}
+														}
+													}
+													ELEMENT[at0016] occurrences matches {0..1} matches {	-- Expiratory
+														value matches {
+															DV_CODED_TEXT matches {
+																defining_code matches {
+																	[local::
+																	at0024, 	-- Present
+																	at0025]	-- Absent
+																}
+															}
+														}
+													}
+												}
+											}
+											ELEMENT[at0017] occurrences matches {0..1} matches {	-- Grunting
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0026, 	-- Present
+															at0027]	-- Absent
+														}
+													}
+												}
+											}
+											ELEMENT[at0018] occurrences matches {0..1} matches {	-- Moaning
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0028, 	-- Present
+															at0029]	-- Absent
+														}
+													}
+												}
+											}
+											ELEMENT[at0019] occurrences matches {0..1} matches {	-- Snoring
+												value matches {
+													DV_CODED_TEXT matches {
+														defining_code matches {
+															[local::
+															at0030, 	-- Present
+															at0031]	-- Absent
+														}
+													}
+												}
+											}
+										}
+									}
+									ELEMENT[at0032] occurrences matches {0..1} matches {	-- Upper airway obstruction
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[ac0001]}		-- MZN-SIF-UpperAirwayObstruction
+											}
+										}
+									}
+								}
+							}
+						}
+						state matches {
+							ITEM_TREE[at0041] matches {	-- Tree
+								items cardinality matches {0..*; unordered} matches {
+									ELEMENT[at0042] occurrences matches {0..1} matches {	-- Body position/exercise
+										value matches {
+											DV_CODED_TEXT matches {
+												defining_code matches {[ac0005]}		-- MZN-SIF-Dihanje-Vstanju 
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["en"] = <
+			items = <
+				["at0000"] = <
+					text = <"Respiratory examination - ZN">
+					description = <"Respiratory assessment for 
+Nursing care">
+				>
+				["at0001"] = <
+					text = <"Event Series">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"Any event">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0004"] = <
+					text = <"Difficulties/ effort">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Signs of fatigue">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Mouth breathing">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Tense abdomen">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"Expiratory">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Breathing sounds">
+					description = <"Abnormal breathing sounds.">
+				>
+				["at0010"] = <
+					text = <"Stridor">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Wheeze">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Inspiratory">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Inspiratory">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Expiratory">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Grunting">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Moaning">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Snoring">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Upper airway obstruction">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Present">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Absent">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0042"] = <
+					text = <"Body position/exercise">
+					description = <"Body position of the subject.">
+				>
+				["at0046"] = <
+					text = <"1 - None">
+					description = <"none (definition: retractions are not visible as indentations of the soft tissue covering the chest wall)">
+				>
+				["at0047"] = <
+					text = <"1-2 None => Moderate">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"2-1 Moderate => None">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"2 - Moderate">
+					description = <"2 - Moderate (definition: retractions are visible mild indentations of the soft tissue covering the chest wall)">
+				>
+				["at0050"] = <
+					text = <"2-3  Moderate=> Severe">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"3-2 Severe => Moderate">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"3 - Severe">
+					description = <"3 - severe (definition: retractions are visible severe indentations of the soft tissue covering the chest wall)">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["at0000"] = <
+					text = <"Ocena dihanja">
+					description = <"Ocena dihanja
+Zdravstvena nega">
+				>
+				["at0001"] = <
+					text = <"*Event Series(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0002"] = <
+					text = <"*Any event(en)">
+					description = <"**(en)">
+				>
+				["at0003"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0004"] = <
+					text = <"Oteženo">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"Utrujenost">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"Usta">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"Trebuh">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"ob izdihu">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Zvoki">
+					description = <"Zvoki ob dihanju">
+				>
+				["at0010"] = <
+					text = <"Stridor">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Piskanje">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"ob vdihu">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"ob vdihu">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"od izdihu">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Hropenje">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Stokanje">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Smrčanje">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Da">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Ne">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Prehodnost zgornjih dihal">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Odprta">
+					description = <"diha skozi usta">
+				>
+				["at0036"] = <
+					text = <"Zaprta">
+					description = <"ne diha skozi usta">
+				>
+				["at0037"] = <
+					text = <"Napet">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Mehak">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Da">
+					description = <"**(en)">
+				>
+				["at0040"] = <
+					text = <"Ne">
+					description = <"**(en)">
+				>
+				["at0041"] = <
+					text = <"*Tree(en)">
+					description = <"*@ internal @(en)">
+				>
+				["at0042"] = <
+					text = <"*Body position/exercise(en)">
+					description = <"*Body position of the subject.(en)">
+				>
+				["at0046"] = <
+					text = <"1 - Neoteženo">
+					description = <"brez pomožnih dihalnih mišic">
+				>
+				["at0047"] = <
+					text = <"1 do 2">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"2 do 1">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"2 - zmerno oteženo">
+					description = <"blago ugrezanje mehkih delov prsnega koša">
+				>
+				["at0050"] = <
+					text = <"2 do 3">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"3 do 2">
+					description = <"*">
+				>
+				["at0052"] = <
+					text = <"3 - zelo oteženo">
+					description = <"močno ugrezanje mehkih delov prsnega koša">
+				>
+			>
+		>
+	>
+	constraint_definitions = <
+		["en"] = <
+			items = <
+				["ac0001"] = <
+					text = <"MZN-SIF-UpperAirwayObstruction">
+					description = <"ISPEK termset">
+				>
+				["ac0005"] = <
+					text = <"MZN-SIF-Dihanje-Vstanju ">
+					description = <"OTS Termset
+">
+				>
+			>
+		>
+		["sl"] = <
+			items = <
+				["ac0001"] = <
+					text = <"*">
+					description = <"*">
+				>
+				["ac0005"] = <
+					text = <"**(en)">
+					description = <"**(en)">
+				>
+			>
+		>
+	>
